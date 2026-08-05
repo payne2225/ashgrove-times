@@ -1,0 +1,16 @@
+# Secrets — the cloud routine gets the webhook from its task prompt instead.
+.env
+
+# Scratch: stats.json, hero PNGs, sent-payload dumps. All regenerable.
+out/
+
+__pycache__/
+*.pyc
+*.log
+.DS_Store
+Thumbs.db
+
+# NOT ignored, deliberately:
+#   editions/  the committed archive + the ledger — continuity depends on it
+#   site/      the published paper GitHub Pages serves
+#   assets/    vendored OFL fonts are what make the hero render offline

@@ -1,0 +1,84 @@
+{
+  "edition_date": "2026-01-16",
+  "edition_number": 998,
+  "volume": "I",
+  "lead": {
+    "headline": "Ice Storm Closes The Interstate Corridor Overnight",
+    "dek": null,
+    "byline": "Wire Reports",
+    "body": [
+      "Crews reopened the interstate corridor shortly before dawn after an ice storm closed roughly ninety miles of it overnight. No injuries were reported and the state police said the last stranded vehicles were cleared by 5 a.m.",
+      "A second, colder system is forecast for Saturday. Two counties kept schools closed Friday and utilities said fewer than four hundred customers remained without power by mid-morning."
+    ],
+    "stat_strip": []
+  },
+  "sections": [
+    {
+      "id": "us",
+      "label": "U.S.",
+      "briefs": [
+        {
+          "headline": "Ice storm closes ninety miles of interstate overnight",
+          "summary": "The corridor reopened before dawn with no injuries reported. A second, colder system is forecast for Saturday.",
+          "source": "AP",
+          "url": "https://apnews.com/hub/us-news"
+        }
+      ]
+    },
+    {
+      "id": "world",
+      "label": "World",
+      "briefs": [
+        {
+          "headline": "Central bank holds its benchmark rate a fourth time",
+          "summary": "The decision was unanimous and the statement dropped its tightening language, which analysts read as a signal the next move is a cut.",
+          "source": "Reuters",
+          "url": "https://www.reuters.com/markets/"
+        }
+      ]
+    },
+    {
+      "id": "wv",
+      "label": "West Virginia",
+      "notebook_title": "Mountaineer State Notebook",
+      "briefs": [
+        {
+          "headline": "Highways crews work a second night of statewide salting",
+          "summary": "The division said it ran 480 trucks overnight and expects the same Friday. Two secondary routes in the eastern counties remain one-lane.",
+          "source": "WV MetroNews",
+          "url": "https://wvmetronews.com/"
+        }
+      ],
+      "regional": [],
+      "away": [],
+      "fishing": []
+    },
+    {
+      "id": "sports",
+      "label": "Sports",
+      "briefs": [
+        {
+          "headline": "Veteran goaltender retires after sixteen seasons",
+          "summary": "He stays with the organization in a development role. The club has not said whether it will pursue a replacement before the deadline.",
+          "source": "AP",
+          "url": "https://apnews.com/hub/sports"
+        }
+      ]
+    },
+    {
+      "id": "scitech",
+      "label": "Science & Technology",
+      "briefs": [
+        {
+          "headline": "Groundwater declines accelerate in half of aquifers",
+          "summary": "The analysis covers 1,693 systems and finds the sharpest declines where irrigation expanded after 2015. A quarter recovered under pumping limits.",
+          "source": "Science",
+          "url": "https://www.science.org/news"
+        }
+      ]
+    }
+  ],
+  "weather_ear": "Forecast at 7:15, from the weather desk.",
+  "kicker": null,
+  "sources_note": "Compiled from wire reports"
+}

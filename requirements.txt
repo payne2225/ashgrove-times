@@ -1,0 +1,6 @@
+# The entire dependency surface, deliberately. No browser, no template
+# engine, no news API client, no fontTools at runtime — variable font axes
+# are baked offline and the results are vendored in assets/fonts/.
+# post_discord.py falls back to stdlib urllib if requests is unimportable.
+requests
+Pillow

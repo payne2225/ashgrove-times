@@ -1,0 +1,323 @@
+"""Fishing conditions for the two waters the crew actually fishes.
+
+Cowen (the cabin) sits on the Williams River; Topsail Beach is surf and
+sound. Both get a hard-data report every morning so the West Virginia
+notebook can carry a fishing line that is measured rather than vibes.
+
+    python fetch_fishing.py                 # -> out/fishing.json
+    python fetch_fishing.py --pretty        # also print a human summary
+
+Sources, all free and keyless:
+  - USGS instantaneous values for the Williams River at Dyer (03186500):
+    discharge, stage, and water temperature when the gauge reports it.
+  - NOAA CO-OPS tide predictions for the two stations that bracket New
+    Topsail Inlet, plus water temperature from Wrightsville Beach.
+
+Deliberately NOT fetched: the WVDNR trout-stocking list. As of 2026-08-05
+wvdnr.gov serves an EXPIRED TLS certificate, so fetching it means disabling
+certificate verification, which is not worth a stocking line. The daily
+routine web-searches stocking instead and says nothing when it finds
+nothing - see instructions/edition.md. Do not "fix" this by passing
+verify=False.
+
+Every network call is individually guarded: one dead source degrades that
+one reading to null and records why. This script does not raise on a source
+outage, and it never substitutes a plausible number for a missing one.
+"""
+
+from __future__ import annotations
+
+import argparse
+import datetime as dt
+import json
+import os
+import sys
+import urllib.parse
+import urllib.request
+
+try:
+    import requests
+except ImportError:  # pragma: no cover - bare sandbox without pip
+    requests = None
+
+try:
+    from zoneinfo import ZoneInfo
+except ImportError:  # pragma: no cover - Python < 3.9
+    ZoneInfo = None  # type: ignore[assignment]
+
+UA = {"User-Agent": "AshgroveTimes/1.0 (+https://github.com/payne2225/ashgrove-times)"}
+TIMEOUT = 25
+
+# Windows consoles default to cp1252, which raises on any non-ASCII a data
+# source hands back. Done inline rather than via config.use_utf8_stdio() so
+# this stays runnable standalone with no project imports.
+for _stream in (sys.stdout, sys.stderr):
+    try:
+        _stream.reconfigure(encoding="utf-8", errors="replace")
+    except (AttributeError, ValueError):  # pragma: no cover - non-TTY or <3.7
+        pass
+
+WILLIAMS_GAUGE = "03186500"
+WILLIAMS_LABEL = "Williams River at Dyer"
+
+# New Topsail Inlet has no station of its own. These two bracket it and
+# disagree by roughly 75 minutes because one is open coast and one is behind
+# the island, so both are reported and labelled rather than averaged.
+TOPSAIL_TIDE_STATIONS = [
+    {"id": "8657419", "name": "Ocean City Beach pier", "side": "ocean",
+     "note": "oceanfront, 11 mi up the same open coastline - the surf read"},
+    {"id": "8657813", "name": "Hampstead", "side": "sound",
+     "note": "inside the ICWW/Topsail Sound - the backwater read, lags the "
+             "ocean by roughly 75 min"},
+]
+# 8657419 does not offer water temperature; Wrightsville Beach is the nearest
+# station that does. Attributed honestly rather than passed off as Topsail.
+TOPSAIL_TEMP_STATION = {"id": "8658163", "name": "Wrightsville Beach",
+                        "miles_away": 25}
+
+
+def get(url: str, params: dict) -> dict:
+    """GET JSON through requests, or stdlib urllib when pip never happened.
+
+    Both endpoints are keyless GET+JSON, so the fallback is exact rather than
+    degraded. Without it a failed `pip install` reads downstream as a USGS or
+    NOAA outage, which is the wrong thing to go debugging at 7am.
+    """
+    if requests is not None:
+        resp = requests.get(url, params=params, headers=UA, timeout=TIMEOUT)
+        resp.raise_for_status()
+        return resp.json()
+    query = urllib.parse.urlencode(params)
+    req = urllib.request.Request(f"{url}?{query}", headers=UA)
+    with urllib.request.urlopen(req, timeout=TIMEOUT) as resp:
+        return json.loads(resp.read().decode("utf-8"))
+
+
+def safe(fn, label: str, errors: list):
+    """Run a fetch, converting any failure into a recorded error + None."""
+    try:
+        return fn()
+    except Exception as exc:  # noqa: BLE001 - one bad source must not end the run
+        errors.append(f"{label}: {type(exc).__name__}: {exc}")
+        return None
+
+
+def local_today(tz: str = "America/New_York") -> dt.datetime:
+    now = dt.datetime.now(dt.timezone.utc)
+    if ZoneInfo is not None:
+        try:
+            return now.astimezone(ZoneInfo(tz))
+        except Exception:  # noqa: BLE001
+            pass
+    return now
+
+
+# ------------------------------------------------------------ Williams River
+
+def trout_read(flow_cfs: float | None, temp_f: float | None) -> str | None:
+    """Plain-english wadeability + whether the fish should be left alone.
+
+    Water temperature outranks flow: warm water kills released trout even
+    when the wading is pleasant, so it is checked first and stated bluntly.
+    """
+    if temp_f is not None:
+        if temp_f >= 70:
+            return (f"Water is {temp_f:.0f}F - too warm to fish for trout. "
+                    "Released fish die at these temperatures. Leave them alone.")
+        if temp_f >= 67:
+            return (f"Water is {temp_f:.0f}F - marginal. Fish early, keep "
+                    "fights short, or go find a bass.")
+    if flow_cfs is None:
+        return None
+    if flow_cfs < 40:
+        return (f"{flow_cfs:.0f} cfs - low and clear. Wading is easy and the "
+                "fish can see you coming. Long leaders, short casts.")
+    if flow_cfs < 200:
+        return f"{flow_cfs:.0f} cfs - prime wading water."
+    if flow_cfs < 500:
+        return f"{flow_cfs:.0f} cfs - pushy. Wadeable at the edges, not across."
+    return f"{flow_cfs:.0f} cfs - blown out. Stay on the bank."
+
+
+def fetch_williams(errors: list) -> dict | None:
+    """Flow, stage, and temperature with a 24-hour trend, from USGS."""
+    def _fetch():
+        data = get("https://waterservices.usgs.gov/nwis/iv/",
+                   {"format": "json", "sites": WILLIAMS_GAUGE,
+                    "parameterCd": "00060,00065,00010", "period": "P2D"})
+        out: dict = {"water": "Williams River (Cowen)",
+                     "gauge": WILLIAMS_LABEL, "site": WILLIAMS_GAUGE}
+        names = {"00060": "discharge_cfs", "00065": "stage_ft",
+                 "00010": "water_temp_c"}
+        for series in data["value"]["timeSeries"]:
+            code = series["variable"]["variableCode"][0]["value"]
+            vals = [v for v in series["values"][0]["value"]
+                    if v.get("value") not in (None, "", "-999999")]
+            if not vals or code not in names:
+                continue
+            key = names[code]
+            out[key] = float(vals[-1]["value"])
+            out[key + "_at"] = vals[-1]["dateTime"]
+            if len(vals) > 1:
+                first = float(vals[0]["value"])
+                out[key + "_24h_ago"] = first
+                delta = out[key] - first
+                out[key + "_trend"] = (
+                    "rising" if delta > abs(first) * 0.05
+                    else "falling" if delta < -abs(first) * 0.05
+                    else "steady")
+        if "water_temp_c" in out:
+            out["water_temp_f"] = round(out["water_temp_c"] * 9 / 5 + 32, 1)
+        out["read"] = trout_read(out.get("discharge_cfs"),
+                                 out.get("water_temp_f"))
+        return out
+
+    return safe(_fetch, "usgs:williams", errors)
+
+
+# -------------------------------------------------------------- Topsail Beach
+
+def fetch_topsail_tides(stamp: str, errors: list) -> list:
+    """Today's highs and lows at both stations bracketing the inlet."""
+    out = []
+    for st in TOPSAIL_TIDE_STATIONS:
+        def _fetch(st=st):
+            data = get(
+                "https://api.tidesandcurrents.noaa.gov/api/prod/datagetter",
+                # datum and interval=hilo are BOTH mandatory here - without
+                # hilo the API 400s and blames the datum, misleadingly.
+                {"product": "predictions", "application": "ashgrove-times",
+                 "begin_date": stamp, "end_date": stamp, "datum": "MLLW",
+                 "station": st["id"], "time_zone": "lst_ldt",
+                 "units": "english", "interval": "hilo", "format": "json"})
+            # NOAA answers 200 with an error body, so raise_for_status() never
+            # fires - checking this key is the only real guard.
+            if "error" in data:
+                raise RuntimeError(f"NOAA: {data['error'].get('message','').strip()}")
+            events = []
+            for p in data.get("predictions", []):
+                t = dt.datetime.strptime(p["t"], "%Y-%m-%d %H:%M")
+                events.append({
+                    "type": "high" if p["type"] == "H" else "low",
+                    # Platform-independent 12-hour format (no %-I / %#I).
+                    "time_local": t.strftime("%I:%M %p").lstrip("0"),
+                    "height_ft": round(float(p["v"]), 1),
+                })
+            return {"station": st["name"], "station_id": st["id"],
+                    "side": st["side"], "note": st["note"], "events": events}
+
+        res = safe(_fetch, f"noaa-tides:{st['id']}", errors)
+        if res:
+            out.append(res)
+    return out
+
+
+def fetch_topsail_water_temp(errors: list) -> dict | None:
+    def _fetch():
+        data = get(
+            "https://api.tidesandcurrents.noaa.gov/api/prod/datagetter",
+            {"product": "water_temperature", "application": "ashgrove-times",
+             "date": "latest", "station": TOPSAIL_TEMP_STATION["id"],
+             "units": "english", "time_zone": "lst_ldt", "format": "json"})
+        if "error" in data or not data.get("data"):
+            raise RuntimeError("NOAA: no water temperature returned")
+        latest = data["data"][-1]
+        return {"water_temp_f": round(float(latest["v"]), 1),
+                "observed_at": latest["t"],
+                "station": TOPSAIL_TEMP_STATION["name"],
+                "miles_away": TOPSAIL_TEMP_STATION["miles_away"]}
+
+    return safe(_fetch, "noaa-temp", errors)
+
+
+def fetch_topsail(stamp: str, errors: list) -> dict | None:
+    tides = fetch_topsail_tides(stamp, errors)
+    temp = fetch_topsail_water_temp(errors)
+    if not tides and not temp:
+        return None
+    out: dict = {"water": "Topsail Beach (surf and sound)", "tides": tides}
+    if temp:
+        out["water_temp"] = temp
+    ocean = next((t for t in tides if t["side"] == "ocean"), None)
+    if ocean and ocean["events"]:
+        highs = [e["time_local"] for e in ocean["events"] if e["type"] == "high"]
+        if highs:
+            out["read"] = ("Fish the moving water either side of high at "
+                           + " and ".join(highs) + ".")
+    return out
+
+
+# ---------------------------------------------------------------------- main
+
+def build(errors: list) -> dict:
+    now = local_today()
+    return {
+        "generated_at": now.isoformat(timespec="seconds"),
+        "date": now.strftime("%Y-%m-%d"),
+        "williams": fetch_williams(errors),
+        "topsail": fetch_topsail(now.strftime("%Y%m%d"), errors),
+        "errors": errors,
+    }
+
+
+def summarize(data: dict) -> str:
+    lines = []
+    w = data.get("williams")
+    if w:
+        bits = []
+        if w.get("discharge_cfs") is not None:
+            bits.append(f"{w['discharge_cfs']:.0f} cfs ({w.get('discharge_cfs_trend','?')})")
+        if w.get("stage_ft") is not None:
+            bits.append(f"{w['stage_ft']:.2f} ft")
+        if w.get("water_temp_f") is not None:
+            bits.append(f"{w['water_temp_f']:.0f}F")
+        lines.append(f"Williams River: {', '.join(bits) or 'no readings'}")
+        if w.get("read"):
+            lines.append(f"  {w['read']}")
+    else:
+        lines.append("Williams River: unavailable")
+
+    t = data.get("topsail")
+    if t:
+        for st in t.get("tides", []):
+            ev = "  ".join(f"{e['type'][0].upper()} {e['time_local']} "
+                           f"{e['height_ft']}ft" for e in st["events"])
+            lines.append(f"Topsail {st['side']} ({st['station']}): {ev}")
+        if t.get("water_temp"):
+            wt = t["water_temp"]
+            lines.append(f"  Water {wt['water_temp_f']}F "
+                         f"(at {wt['station']}, {wt['miles_away']} mi away)")
+    else:
+        lines.append("Topsail: unavailable")
+
+    for e in data.get("errors", []):
+        lines.append(f"  ! {e}")
+    return "\n".join(lines)
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--out", default=os.path.join("out", "fishing.json"))
+    parser.add_argument("--pretty", action="store_true",
+                        help="print a human-readable summary as well")
+    args = parser.parse_args()
+
+    errors: list = []
+    data = build(errors)
+
+    os.makedirs(os.path.dirname(os.path.abspath(args.out)), exist_ok=True)
+    with open(args.out, "w", encoding="utf-8") as f:
+        json.dump(data, f, indent=2, ensure_ascii=False)
+
+    if args.pretty:
+        print(summarize(data))
+
+    got = sum(1 for k in ("williams", "topsail") if data.get(k))
+    print(f"OK: wrote {args.out} ({got}/2 waters, {len(errors)} source errors)")
+    # Both waters dead is worth a non-zero exit; the caller decides whether a
+    # fishing line is load-bearing enough to hold the paper.
+    return 0 if got else 1
+
+
+if __name__ == "__main__":
+    sys.exit(main())
