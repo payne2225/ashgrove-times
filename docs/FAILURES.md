@@ -52,3 +52,4 @@ and the failure protocol at the bottom of that file appends here too.
 - **2026-08-06** — *rung 2* — hero render failed (Pillow raised on the stat
   strip); posted with assets/masthead-fallback.png. Six embeds intact.
 -->
+- 2026-08-05T21:59:44Z · 2026-08-05 · post_discord: split into FRONT PAGE and INSIDE messages to keep the notebook whole
