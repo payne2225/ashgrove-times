@@ -53,7 +53,26 @@ Four sections, all four maintained every run:
 
 ## 3. Open threads
 
-*None. No edition has been published.*
+- **hormuz-reopening** — 2026-08-05: Iran and Oman agreed route coordinates;
+  a joint statement was "under final review" and Bessent said a deal could
+  land within a day or two. PBS NewsHour / Euronews. News again the moment
+  the statement is signed, the strait actually reopens, or the fee dispute
+  (Tehran wants service fees, Washington refuses) breaks either way. This was
+  No. 1's lead — follow it.
+- **greenbrier-500m** — 2026-08-05: Kennedy Lewis financing expected to close
+  **by Aug. 7**, with a debtholder payoff and Lottery Commission approval of
+  the casino license still unsettled. WV MetroNews. Check on the 7th.
+- **wv-flood-aid** — 2026-08-05: $4.5M Individual Assistance approved for
+  Upshur and Lewis after the July 21 flooding; FEMA still weighing **five
+  other counties**. WV MetroNews. News again when those five are decided.
+- **wvu-qb-battle** — 2026-08-05: camp opened with no starter named between
+  Scotty Fox Jr. and Michael Hawkins Jr. WVU Athletics. Resolves before the
+  opener; local readers care.
+- **peoples-cartage-fire** — 2026-08-05: independent testing results to be
+  presented at a Parkersburg town hall **Aug. 13**. WTAP. Follow that night.
+- **congo-ebola** — 2026-08-05: 1,707 dead of 3,802 cases, Ituri ~90% of
+  infections, WHO accelerating trials. Al Jazeera. A fast-moving toll —
+  re-check the count before citing it again, and note other outlets lag.
 
 <!-- Format, one bullet each:
 - **slug** — one line of where the story stands, dated. Outlet. What would
@@ -62,7 +81,19 @@ Four sections, all four maintained every run:
 
 ## 4. Recently covered
 
-*None. No edition has been published.*
+### 2026-08-05 — No. 1
+- lead: hormuz-reopening
+- us: cdc-director-confirmed, epstein-banks-wyden-report, zyn-fda-label
+- world: kyiv-barrage, congo-ebola, brazil-ambassador-visa
+- wv statewide: wv-flood-aid, greenbrier-500m
+- wv regional: huntington_cabell — cabell-middle-school-sports;
+  putnam_kanawha — poca-stadium; mid_ohio_valley — peoples-cartage-fire;
+  summers_new_river — pritt-withdraws
+- wv away: vermont — bennington-pow-remains; prince_george — pg-mayor-race;
+  topsail — pender-nonprofit-review
+- sports: wvu-camp-opens, sumo-purse-doubled, bears-wright-extension
+- scitech: covid-latent-viruses, tesla-nhtsa-probe, spain-fire-attribution
+- nicholas_webster: **no line** — nothing genuine surfaced. Correct outcome.
 
 <!-- Format, newest first. Prune anything older than ~7 editions.
 ### YYYY-MM-DD — No. N
