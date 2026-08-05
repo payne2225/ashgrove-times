@@ -545,7 +545,16 @@ def _masthead_line(edition: dict, page_url: str | None) -> str:
     )
     lines = [f"\U0001f4f0  **{config.MASTHEAD}** — *{config.TAGLINE}*", f"-# {folio}"]
     if page_url:
-        # Angle brackets suppress the auto-unfurl; the embeds are the paper.
+        # A bare url under the folio reads as a footnote and gets ignored —
+        # it has to say what it is. Discord does NOT render masked links in
+        # message content (only inside embeds), so the label is plain text
+        # above the url rather than [text](url). Angle brackets still
+        # suppress the auto-unfurl: the hero card is the picture here, and a
+        # second preview card competing with it makes the post look cluttered.
+        lines.append(
+            "\U0001f4d6  **Read the full edition on the web** — the whole "
+            "paper, set as a proper broadsheet:"
+        )
         lines.append(f"<{page_url}>")
     return _clip("\n".join(lines), config.CONTENT_LIMIT)
 
@@ -786,10 +795,13 @@ def split_payloads(
     if "attachments" in payload:
         front["attachments"] = payload["attachments"]
 
-    inside: dict = {
-        "content": f"-# **{config.MASTHEAD}** · Inside",
-        "embeds": inside_embeds,
-    }
+    # Anyone scrolling in mid-morning may see only this second message, so it
+    # repeats the permalink rather than assuming they read the front page.
+    inside_content = f"-# **{config.MASTHEAD}** · Inside"
+    if page_url:
+        inside_content += f"\n\U0001f4d6  **Full edition on the web:** <{page_url}>"
+
+    inside: dict = {"content": inside_content, "embeds": inside_embeds}
     return [front, inside]
 
 
