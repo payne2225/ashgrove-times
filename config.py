@@ -73,11 +73,11 @@ WEATHER_EAR_MAX_CHARS = 90
 # whether the clocks have changed. Name the time, never the interval.
 WEATHER_EAR_LINES = [
     "Claude the Weatherman files the forecast at 7:15.",
-    "Weather follows at 7:15 - the Weatherman has the day's sky.",
+    "Weather follows at 7:15 — the Weatherman has the day's sky.",
     "Look for the forecast at 7:15, from the weather desk.",
     "The weather desk reports at 7:15.",
     "Next edition of the sky: Claude the Weatherman, 7:15.",
-    "Forecast at 7:15 - read this, then dress for it.",
+    "Forecast at 7:15 — read this, then dress for it.",
     "Claude the Weatherman posts the outlook at 7:15.",
     "The Weatherman files at 7:15, after this edition.",
 ]
