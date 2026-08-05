@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Iran, Oman agree on Hormuz route as US presses for deal The waterway, shut since late February, normally carries a fifth of the world’s traded oil and gas.">
+<title>THE ASHGROVE TIMES — Wednesday, August 5, 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<style>
+  :root {
+    --parchment: #f4f0e6;
+    --parchment-alt: #e9e4d8;
+    --wv-tint: #ede7d6;
+    --ink: #1c1a16;
+    --ink-soft: #3a362a;
+    --ink-mute: #4a4536;
+    --ink-faint: #6b6555;
+    --rule: #c9c2ac;
+    --display: "Playfair Display", "Iowan Old Style", "Palatino Linotype",
+               Palatino, "Book Antiqua", Georgia, "Times New Roman", serif;
+    --alt: "Old Standard TT", "Playfair Display", Georgia, "Times New Roman", serif;
+    --body: "Source Serif 4", "Source Serif Pro", Charter, "Iowan Old Style",
+            Georgia, Cambria, "Times New Roman", serif;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    background: var(--parchment-alt);
+    margin: 0;
+    padding: 24px 12px 60px;
+    font-family: var(--body);
+    color: var(--ink);
+    font-kerning: normal;
+    text-rendering: optimizeLegibility;
+  }
+
+  .page {
+    max-width: 900px;
+    margin: 0 auto;
+    background: var(--parchment);
+    border: 1px solid var(--ink);
+    padding: 28px 34px 40px;
+    box-shadow: 0 2px 18px rgba(0, 0, 0, 0.18);
+  }
+
+  /* ---------- top bar and the weather ear ---------- */
+
+  .top-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 14px;
+    justify-content: space-between;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--ink);
+    padding-bottom: 6px;
+    margin-bottom: 10px;
+  }
+
+  /* The pointer to Claude the Weatherman's 7:15 forecast. Sits in the top
+     band rather than beside the masthead: at 58px the wordmark leaves about
+     120px of margin, which no ear fits into without shrinking the plate. */
+  .ear {
+    max-width: 320px;
+    margin: 0 0 6px auto;
+    text-wrap: balance;
+    border: 1px solid var(--ink);
+    background: var(--wv-tint);
+    padding: 5px 9px 6px;
+    font-size: 11px;
+    line-height: 1.35;
+    text-align: right;
+  }
+
+  .ear-label {
+    display: block;
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 9.5px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+
+  /* ---------- masthead ---------- */
+
+  .masthead {
+    text-align: center;
+    font-family: var(--alt);
+    font-weight: 700;
+    font-size: 58px;
+    letter-spacing: 1px;
+    margin: 6px 0 2px;
+    line-height: 1;
+  }
+
+  .tagline {
+    text-align: center;
+    font-style: italic;
+    font-size: 13px;
+    color: var(--ink-mute);
+    margin-bottom: 8px;
+  }
+
+  .rule-thick { border: none; border-top: 4px double var(--ink); margin: 6px 0 0; }
+  .rule-thin { border: none; border-top: 1px solid var(--ink); margin: 4px 0 16px; }
+
+  /* ---------- lead story ---------- */
+
+  .headline {
+    font-family: var(--display);
+    font-weight: 900;
+    font-size: 27px;
+    line-height: 1.15;
+    margin: 0 0 6px;
+  }
+
+  .subhead {
+    font-style: italic;
+    font-size: 14px;
+    color: var(--ink-soft);
+    margin: 0 0 10px;
+  }
+
+  .byline {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin: 0 0 12px;
+  }
+
+  .columns {
+    column-count: 2;
+    column-gap: 26px;
+    column-rule: 1px solid var(--rule);
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  .columns p { margin: 0 0 12px; }
+  .columns p:last-child { margin-bottom: 0; }
+
+  .drop {
+    float: left;
+    font-family: var(--display);
+    font-weight: 900;
+    font-size: 46px;
+    line-height: 0.8;
+    padding: 4px 6px 0 0;
+  }
+
+  /* ---------- stat strip ---------- */
+
+  .stat-strip {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid var(--ink);
+    border-bottom: 1px solid var(--ink);
+    padding: 8px 0;
+    margin: 18px 0;
+    font-size: 13px;
+  }
+
+  .stat-strip div { text-align: center; flex: 1; }
+
+  .stat-strip b {
+    display: block;
+    font-family: var(--display);
+    font-size: 15px;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .stat-label {
+    display: block;
+    font-size: 10.5px;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+
+  .stat-change {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3em;
+    margin-top: 1px;
+    font-size: 12px;
+    font-variant-numeric: tabular-nums;
+    color: var(--ink-soft);
+  }
+
+  /* Direction is a drawn triangle, not a glyph or a hue - it survives any
+     font fallback and reads without color vision. */
+  .tri {
+    width: 0;
+    height: 0;
+    border-left: 0.3em solid transparent;
+    border-right: 0.3em solid transparent;
+  }
+
+  .tri.up { border-bottom: 0.42em solid var(--ink); }
+  .tri.down { border-top: 0.42em solid var(--ink); }
+
+  .tri.flat {
+    width: 0.6em;
+    height: 2px;
+    border: 0;
+    background: var(--ink);
+  }
+
+  .stats-note {
+    margin: -8px 0 20px;
+    text-align: center;
+    font-size: 10.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+
+  /* ---------- sections ---------- */
+
+  .section-label {
+    font-family: var(--display);
+    font-weight: 900;
+    font-size: 15px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    background: var(--ink);
+    color: var(--parchment);
+    display: inline-block;
+    padding: 3px 10px;
+    margin: 26px 0 12px;
+  }
+
+  .brief {
+    margin-bottom: 14px;
+    font-size: 14.5px;
+    line-height: 1.5;
+  }
+
+  .brief-head {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 16px;
+    margin: 0 0 3px;
+  }
+
+  .brief p { margin: 0; }
+
+  .two-col-briefs {
+    column-count: 2;
+    column-gap: 26px;
+    column-rule: 1px solid var(--rule);
+  }
+
+  .two-col-briefs .brief { break-inside: avoid; page-break-inside: avoid; }
+  .two-col-briefs .brief:last-child { margin-bottom: 0; }
+
+  .src {
+    display: block;
+    margin-top: 3px;
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+
+  .src a { color: inherit; text-decoration-thickness: 1px; }
+  .src a:hover { color: var(--ink); }
+
+  /* ---------- West Virginia: the local anchor, not another wire section ---- */
+
+  .wv-box {
+    border: 2px solid var(--ink);
+    padding: 14px 18px;
+    margin-top: 10px;
+    background: var(--wv-tint);
+  }
+
+  .wv-title {
+    font-family: var(--display);
+    font-weight: 900;
+    font-size: 20px;
+    margin: 0 0 4px;
+  }
+
+  .wv-box > .brief:last-child { margin-bottom: 0; }
+
+  .wv-block {
+    margin-top: 14px;
+    padding-top: 11px;
+    border-top: 1px solid var(--rule);
+  }
+
+  .wv-block-label {
+    margin: 0 0 7px;
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+
+  .roundup { list-style: none; margin: 0; padding: 0; }
+
+  .roundup li {
+    margin: 0 0 8px;
+    font-size: 14px;
+    line-height: 1.45;
+  }
+
+  .roundup li:last-child { margin-bottom: 0; }
+
+  .roundup .src { display: inline; margin: 0 0 0 5px; }
+
+  .place,
+  .water {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 12.5px;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+  }
+
+  .folk { font-style: italic; color: var(--ink-mute); }
+
+  /* The out-of-town column: same shape as the regional roundup, one step
+     quieter, so it never competes with the in-state lines above it. */
+  .wv-away { border-left: 2px solid var(--rule); padding-left: 12px; }
+  .wv-away .roundup li { margin-bottom: 6px; font-size: 13px; color: var(--ink-soft); }
+  .wv-away .place { font-size: 11.5px; }
+
+  .wv-fishing { border-top: 1px solid var(--ink); }
+  .wv-fishing .roundup li { font-size: 13.5px; }
+
+  /* ---------- kicker and colophon ---------- */
+
+  .kicker {
+    margin-top: 26px;
+    padding: 12px 0;
+    border-top: 1px solid var(--ink);
+    border-bottom: 4px double var(--ink);
+    text-align: center;
+    font-style: italic;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .footer-note {
+    text-align: center;
+    font-size: 11px;
+    color: var(--ink-faint);
+    margin-top: 30px;
+    font-style: italic;
+  }
+
+  .footer-note a { color: inherit; }
+  .footer-note .sep { padding: 0 0.5em; }
+
+  /* ---------- archive ---------- */
+
+  .issues { list-style: none; margin: 18px 0 0; padding: 0; }
+
+  .issue {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2px 14px;
+    align-items: baseline;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .issue .no {
+    flex: 0 0 15rem;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+
+  .issue .hed {
+    flex: 1 1 16rem;
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.28;
+  }
+
+  .issue .hed a { color: inherit; text-decoration: none; }
+  .issue .hed a:hover { text-decoration: underline; }
+
+  .empty { margin-top: 20px; text-align: center; font-style: italic; }
+
+  /* ---------- phone: most of the group opens this in Discord on mobile ---- */
+
+  @media (max-width: 840px) {
+    body { padding: 12px 8px 40px; }
+    .page { padding: 18px 16px 28px; }
+    /* THE ASHGROVE TIMES sets about 12.4x its font-size in Old Standard TT,
+       so 58px needs an 811px viewport. Below that the wordmark is measured
+       to the page rather than wrapped; /13 leaves slack for the fallback
+       serifs, which set wider. */
+    .masthead {
+      font-size: min(58px, calc((100vw - 48px) / 13));
+      letter-spacing: 0.5px;
+    }
+    .top-bar { justify-content: center; text-align: center; }
+    .ear { max-width: none; margin: 0 0 8px; text-align: center; }
+    .headline { font-size: 23px; }
+    .wv-box { padding: 12px 13px; }
+  }
+
+  @media (max-width: 640px) {
+    .columns,
+    .two-col-briefs { column-count: 1; column-rule: none; }
+    .stat-strip { flex-wrap: wrap; gap: 8px 0; }
+    .stat-strip div { flex: 0 0 50%; }
+    .issue .no { flex: 1 1 100%; }
+  }
+
+  @media print {
+    body { background: #fff; padding: 0; }
+    .page { border: 0; box-shadow: none; max-width: none; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="top-bar">
+    <span>Vol. I — No. 1</span>
+    <span>Wednesday, August 5, 2026</span>
+    <span>Price: Free</span>
+  </div>
+  <div class="ear">
+    <span class="ear-label">Weather</span>Forecast at 7:15 - read this, then dress for it.
+  </div>
+  <div class="masthead">THE ASHGROVE TIMES</div>
+  <div class="tagline">&ldquo;For the Fellers&rdquo;</div>
+  <hr class="rule-thick">
+  <hr class="rule-thin">
+
+  <div class="headline">Iran, Oman agree on Hormuz route as US presses for deal</div>
+  <div class="subhead">The waterway, shut since late February, normally carries a fifth of the world’s traded oil and gas.</div>
+  <div class="byline">By Wire Reports</div>
+
+  <div class="columns"><p><span class="drop">I</span>ran and Oman have agreed on coordinates for a commercial shipping route through the Strait of Hormuz, Iranian Foreign Ministry spokesman Esmail Baghaei said Wednesday. A joint statement covering technical, legal, security and environmental terms is under final review.</p><p>The strait, which carried about a fifth of the world’s traded oil and gas, has been effectively closed since Iran shut it after U.S. and Israeli strikes in late February. Under the proposal, ships would enter the Gulf through an Iranian-controlled lane and exit through an Omani one.</p><p>Tehran wants service fees for security and environmental protection. Washington refuses. Secretary of State Marco Rubio said talks had progressed but had not reached finality. Treasury Secretary Scott Bessent said a deal could come within a day or two.</p></div>
+
+  <div class="stat-strip"><div><b>7,736.52</b><span class="stat-label">S&amp;P 500</span><span class="stat-change"><span class="tri up" aria-hidden="true"></span>+1.79%</span></div><div><b>54,085.88</b><span class="stat-label">Dow</span><span class="stat-change"><span class="tri up" aria-hidden="true"></span>+1.71%</span></div><div><b>26,584.99</b><span class="stat-label">Nasdaq</span><span class="stat-change"><span class="tri up" aria-hidden="true"></span>+2.59%</span></div><div><b>$64,785</b><span class="stat-label">Bitcoin</span><span class="stat-change"><span class="tri up" aria-hidden="true"></span>+0.76%</span></div></div>
+  <p class="stats-note">Market data compiled before the opening bell</p>
+
+  <div class="section-label">U.S.</div>
+  <div class="two-col-briefs"><div class="brief">
+      <div class="brief-head">Senate confirms Erica Schwartz as CDC director, 51-44</div>
+      <p>Schwartz, a retired rear admiral and former deputy surgeon general, fills a post vacant since Health Secretary Robert F. Kennedy Jr. fired Susan Monarez last August.</p><span class="src"><a href="https://www.statnews.com/2026/08/05/senate-confirms-dr-erica-schwartz-new-cdc-director/" rel="noopener nofollow">STAT</a></span>
+    </div><div class="brief">
+      <div class="brief-head">Wyden report says banks ignored Epstein red flags</div>
+      <p>A Senate Finance report, “Looking the Other Way,” says Bank of America, Deutsche Bank and JPMorgan Chase left suspicious transfers unreported to Treasury for nearly two decades.</p><span class="src"><a href="https://www.bloomberg.com/news/articles/2026-08-04/deutsche-bank-jpmorgan-bofa-enabled-epstein-wyden-report-says" rel="noopener nofollow">Bloomberg</a></span>
+    </div><div class="brief">
+      <div class="brief-head">Experts question FDA’s ‘lower risk’ label on Zyn pouches</div>
+      <p>The FDA cleared 20 Zyn nicotine pouch products to claim lower cancer and heart risk than cigarettes. Lifetime use among 12th graders rose to 10% from 6.8%.</p><span class="src"><a href="https://www.npr.org/2026/08/05/nx-s1-5919626/smoking-fda-nicotine-cigarettes-tobacco" rel="noopener nofollow">NPR</a></span>
+    </div></div>
+
+  <div class="section-label">World</div>
+  <div class="two-col-briefs"><div class="brief">
+      <div class="brief-head">Russian barrage kills 17 in Kyiv and surrounding region</div>
+      <p>Russia fired 24 ballistic missiles and 115 drones overnight Wednesday. Ukraine downed none of the missiles, and Zelenskyy blamed a Patriot interceptor shortage.</p><span class="src"><a href="https://www.euronews.com/my-europe/2026/08/05/russian-overnight-barrage-on-ukraine-kills-at-least-15-in-kyiv-and-surrounding-region" rel="noopener nofollow">Euronews</a></span>
+    </div><div class="brief">
+      <div class="brief-head">Congo Ebola deaths pass 1,700 as WHO speeds up drug trials</div>
+      <p>The Bundibugyo strain has killed 1,707 people among 3,802 cases since May 15. Ituri province accounts for nearly 90 percent of infections.</p><span class="src"><a href="https://www.aljazeera.com/news/2026/8/4/dr-congo-ebola-outbreak-kills-more-than-1700-as-who-accelerates-trials" rel="noopener nofollow">Al Jazeera</a></span>
+    </div><div class="brief">
+      <div class="brief-head">US revokes visa of Brazil’s ambassador in envoy standoff</div>
+      <p>The State Department pulled Ambassador Maria Luiza Ribeiro Viotti’s visa Tuesday after Brazil stalled the U.S. nominee. She was not expelled.</p><span class="src"><a href="https://www.pbs.org/newshour/world/trump-administration-revokes-visa-of-brazils-ambassador-to-us-in-escalation-of-spat-with-lula" rel="noopener nofollow">PBS NewsHour</a></span>
+    </div></div>
+
+  <div class="section-label">West Virginia</div>
+  <div class="wv-box">
+    <div class="wv-title">Mountaineer State Notebook</div>
+    <div class="brief">
+      <div class="brief-head">Trump OKs $4.5M in flood aid for Upshur, Lewis counties</div>
+      <p>Federal Individual Assistance was approved after the July 21 flooding. FEMA is still weighing disaster requests from five other West Virginia counties.</p><span class="src"><a href="https://wvmetronews.com/2026/08/03/trump-approves-west-virginias-4-5-million-disaster-declaration-request-in-upshur-lewis-counties/" rel="noopener nofollow">WV MetroNews</a></span>
+    </div><div class="brief">
+      <div class="brief-head">Greenbrier’s $500M deal on track, big hurdles remain</div>
+      <p>Lawyers say the Kennedy Lewis financing should close by Aug. 7, but a debtholder payoff and Lottery Commission approval of the casino license are unsettled.</p><span class="src"><a href="https://wvmetronews.com/2026/08/05/lawyers-for-the-greenbrier-say-500-million-deal-is-on-track-but-with-big-hurdles-remaining/" rel="noopener nofollow">WV MetroNews</a></span>
+    </div><div class="wv-block wv-regional">
+      <p class="wv-block-label">Around the State</p>
+      <ul class="roundup"><li><span class="place">Huntington &amp; the Cabell-Mason corridor</span> <span class="folk">(Trav, Justin, Nate and Ian)</span> &mdash; Cabell County’s school board approved baseball, softball and co-ed soccer at all four middle schools, starting in spring 2027.<span class="src"><a href="https://www.herald-dispatch.com/news/cabell-county-board-of-education-approves-addition-of-new-middle-school-sports/article_3818c46b-61ba-460c-bbb6-d7e928476981.html" rel="noopener nofollow">The Herald-Dispatch</a></span></li><li><span class="place">Putnam / Kanawha - Charleston</span> <span class="folk">(Nate)</span> &mdash; New bleachers, a press box and accessible walkways are going in at Poca High School’s O.O. White Stadium ahead of the Aug. 28 home opener.<span class="src"><a href="https://www.wsaz.com/2026/08/04/new-bleachers-installed-poca-high-schools-oo-white-stadium/" rel="noopener nofollow">WSAZ</a></span></li><li><span class="place">Mid-Ohio Valley / Parkersburg</span> <span class="folk">(Pat)</span> &mdash; Parkersburg hosts an Aug. 13 town hall on independent testing results from the Peoples Cartage warehouse fire.<span class="src"><a href="https://www.wtap.com/2026/08/05/community-invited-town-hall-learn-impact-peoples-cartage-warehouse-fire/" rel="noopener nofollow">WTAP</a></span></li><li><span class="place">Summers / Hinton &amp; the New River</span> <span class="folk">(Greg)</span> &mdash; Elliott Pritt, the District 50 House candidate from Fayette County, quit the November ballot after a federal child-enticement arrest.<span class="src"><a href="https://www.register-herald.com/news/local_news/elliott-pritt-withdraws-from-house-ballot-law-prohibits-gop-to-fill-vacancy-for-november-election/article_ae233c2b-8a12-4d4e-b526-ecfdea923fac.html" rel="noopener nofollow">The Register-Herald</a></span></li></ul>
+    </div><div class="wv-block wv-away">
+      <p class="wv-block-label">The Away Desk</p>
+      <ul class="roundup"><li><span class="place">North Bennington, VT</span> <span class="folk">(Wes)</span> &mdash; Bennington received the remains of Army Pfc. Bernard Sweet, who died in a Japanese POW camp in 1942 and was identified by DNA last year.<span class="src"><a href="https://vtdigger.org/2026/08/02/world-war-2-soldiers-remains-returned-home-to-bennington/" rel="noopener nofollow">VTDigger</a></span></li><li><span class="place">Prince George, BC</span> <span class="folk">(Kirsten)</span> &mdash; Prince George Coun. Frizzell entered the mayor’s race, pitching economic development and public safety as his priorities.<span class="src"><a href="https://ckpgtoday.ca/2026/08/05/frizzell-launches-bid-for-prince-george-mayor/" rel="noopener nofollow">CKPG Today</a></span></li><li><span class="place">Topsail Beach, NC</span> &mdash; A nonprofit led by Pender County Commissioner Jimmy Tate is under state review over complaints alleging Medicaid fraud.<span class="src"><a href="https://www.wwaytv3.com/complaints-filed-against-nonprofit-operations-involving-pender-county-commissioner-jimmy-tate/" rel="noopener nofollow">WWAY</a></span></li></ul>
+    </div><div class="wv-block wv-fishing">
+      <p class="wv-block-label">On the Water</p>
+      <ul class="roundup"><li><span class="water">Williams River (Cowen)</span> &mdash; Down to 108 cfs from 251 yesterday, 1.68 ft and falling — prime wading water.<span class="src">USGS 03186500</span></li><li><span class="water">Topsail Beach (surf and sound)</span> &mdash; Ocean highs 12:14 AM and 1:02 PM; water 83.3F at Wrightsville Beach, 25 mi up the coast.<span class="src">NOAA CO-OPS</span></li></ul>
+    </div>
+  </div>
+
+  <div class="section-label">Sports</div>
+  <div class="two-col-briefs"><div class="brief">
+      <div class="brief-head">West Virginia opens fall camp, quarterback job unsettled</div>
+      <p>The Mountaineers held their first practice Wednesday. Rich Rodriguez has not named a starter between Scotty Fox Jr. and Oklahoma transfer Michael Hawkins Jr.</p><span class="src"><a href="https://wvusports.com/news/2026/8/5/rodriguez-emphasizes-sense-of-urgency-with-his-football-team" rel="noopener nofollow">WVU Athletics</a></span>
+    </div><div class="brief">
+      <div class="brief-head">Sumo association doubles top-division championship purse</div>
+      <p>The Japan Sumo Association will raise the makuuchi title prize to 20 million yen in January 2027, its first purse revision since 1994. Salaries also rise.</p><span class="src"><a href="https://www.nippon.com/en/news/yjj2026073000935/" rel="noopener nofollow">Nippon.com</a></span>
+    </div><div class="brief">
+      <div class="brief-head">Bears, tackle Darnell Wright agree to record $116M deal</div>
+      <p>The four-year extension includes $93 million guaranteed, the most ever for an NFL offensive lineman. Wright becomes the highest-paid right tackle at $29 million a year.</p><span class="src"><a href="https://www.nfl.com/news/bears-ot-darnell-wright-agrees-to-four-year-116m-extension" rel="noopener nofollow">NFL.com</a></span>
+    </div></div>
+
+  <div class="section-label">Science &amp; Technology</div>
+  <div class="two-col-briefs"><div class="brief">
+      <div class="brief-head">COVID reactivates dormant viruses in half of severe cases</div>
+      <p>A Nature study of more than 1,100 hospitalized patients found nearly half reactivated latent viruses such as Epstein-Barr, tracking with longer stays and death.</p><span class="src"><a href="https://dellmed.utexas.edu/news/ut-led-study-finds-covid-19-can-awaken-hidden-viruses-throughout-the-body" rel="noopener nofollow">UT Austin Dell Medical School</a></span>
+    </div><div class="brief">
+      <div class="brief-head">NHTSA opens probe into 1.2 million Tesla Model 3s and Ys</div>
+      <p>Regulators are investigating 156 complaints that a front lower lateral link detaches without warning on 2018-2020 Model 3s and 2021-2023 Model Ys.</p><span class="src"><a href="https://electrek.co/2026/07/31/nhtsa-probes-tesla-model-3-model-y-suspension-failures/" rel="noopener nofollow">Electrek</a></span>
+    </div><div class="brief">
+      <div class="brief-head">Climate change made Spanish fire weather 20 times likelier</div>
+      <p>World Weather Attribution found human warming made July’s extreme fire conditions at least 20 times more likely in central Spain and twice as likely in southwest France.</p><span class="src"><a href="https://www.worldweatherattribution.org/climate-change-increases-likelihood-of-compounding-drivers-of-severe-wildfire-conditions-in-france-and-spain/" rel="noopener nofollow">World Weather Attribution</a></span>
+    </div></div>
+
+  <div class="kicker">Vol. I, No. 1. The Ashgrove Times runs every morning at seven.</div>
+
+  <div class="footer-note">Compiled from wire reports<span class="sep">&middot;</span><a href="archive.html">Back issues</a></div>
+
+</div>
+</body>
+</html>

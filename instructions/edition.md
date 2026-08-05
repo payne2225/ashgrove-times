@@ -132,8 +132,7 @@ that work:
 ```
 top news {Month D, YYYY}
 breaking news {Month D, YYYY}
-AP top stories today
-Reuters world news {Month D, YYYY}
+{topic} {Month D, YYYY}
 ```
 
 The lead is the story a reasonable person would say is *the* story of the
@@ -141,6 +140,34 @@ day. Cross-check it across at least two independent outlets before you
 commit — if only one outlet has it, it is not the lead. If two stories tie,
 take the one with more confirmed detail; the other becomes the first brief
 in its section.
+
+### Which outlets you can actually read
+
+**Reuters, AP, BBC and The Guardian block this crawler outright.** Measured
+on 2026-08-05 by three desks working independently, not assumed. Do not
+build a search around those four and do not cite them for a story you could
+not open — a `source` field naming an outlet you never read is a fabricated
+byline, even when the facts happen to be right.
+
+Confirmed readable, and where each earns its place:
+
+| Beat | Outlets that answered |
+|---|---|
+| National / world | NPR, PBS NewsHour, Al Jazeera, Euronews, France24, Politico, CBS |
+| Science & tech | Nature, journal and university press releases, NASA/NOAA/NIH, Ars Technica, IEEE Spectrum, Electrek, CIDRAP |
+| Sports | ESPN, NFL.com, team and athletics sites (`wvusports.com`), Nippon.com and NHK for sumo |
+| West Virginia | WV MetroNews, Herald-Dispatch, WSAZ, WTAP, Register-Herald, WV Watch, WVPB, WOWK, WCHS |
+| Away desk | VTDigger (Vermont), CKPG Today (Prince George), WWAY and Port City Daily (Topsail) |
+
+Primary sources outrank aggregators every time — the agency release, the
+paper itself, the team's own site. When two readable outlets disagree on a
+number, prefer the granular figure they both support over the round total
+only one of them carries, and drop the disputed number rather than
+splitting the difference.
+
+**Never file a section with all three briefs from one outlet.** Three
+bylines per section. If a story genuinely exists at only one readable
+outlet, keep it there and let the other two briefs carry different names.
 
 ### U.S.
 
@@ -160,7 +187,7 @@ brief.
 ```
 world news {Month D, YYYY}
 {region} news {Month D, YYYY}
-Reuters {country} {Month D, YYYY}
+{country} {topic} {Month D, YYYY}
 ```
 
 **One brief per region, maximum.** If a single conflict or election is
@@ -893,10 +920,13 @@ elsewhere. Ian's rule is that sumo gets covered when there is something to
 cover, so an absent sumo brief on a dead August Tuesday is the correct
 edition, not a degraded one. It does not go in `docs/FAILURES.md`.
 
-**A source is paywalled.** Look for the wire version first — AP or Reuters
-usually carries the same story. If the paywalled outlet is the only one
-with it and you can read enough (excerpt, first paragraphs) to write an
-honest 200-character summary, use it and attribute it to that outlet. **If
+**A source is paywalled.** Look for a readable outlet carrying the same
+story — NPR, PBS NewsHour, Euronews and the local TV sites are rarely
+walled, and note that the wires you would reach for first (AP, Reuters,
+BBC, Guardian) block this crawler entirely, so they are not the escape
+hatch here. If the paywalled outlet is the only one with it and you can
+read enough (excerpt, first paragraphs) to write an honest 200-character
+summary, use it and attribute it to that outlet. **If
 you cannot read the substance, drop the story.** Never infer a body from a
 headline. A 403 on a link check is not a paywall problem — 403 counts as
 alive, because paywalls and sandbox egress produce the same code.

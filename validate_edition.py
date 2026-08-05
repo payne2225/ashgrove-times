@@ -226,6 +226,21 @@ _ABBREVIATIONS = (
     "mr.", "mrs.", "ms.", "dr.", "gov.", "sen.", "rep.", "gen.", "lt.",
     "sgt.", "col.", "capt.", "jr.", "sr.", "co.", "inc.", "dept.",
     "univ.", "assn.", "est.",
+    # Months. A daily paper writes a date in almost every notebook line,
+    # and AP style abbreviates all but March through July.
+    "jan.", "feb.", "aug.", "sept.", "sep.", "oct.", "nov.", "dec.",
+    # Ranks and offices beyond the ones above — military honors and
+    # obituaries turn up on the away desk more than you would guess, and
+    # "Coun." is standard for a Canadian councillor (Prince George).
+    "pfc.", "pvt.", "cpl.", "spc.", "maj.", "adm.", "cmdr.", "cpt.",
+    "coun.", "prof.", "atty.", "supt.", "det.", "ofc.", "cmte.",
+    # Places and corporate forms.
+    "ala.", "ariz.", "ark.", "calif.", "colo.", "conn.", "fla.", "ga.",
+    "ill.", "ind.", "kan.", "ky.", "la.", "md.", "mass.", "mich.",
+    "minn.", "miss.", "mo.", "mont.", "neb.", "nev.", "n.c.", "n.d.",
+    "n.h.", "n.j.", "n.m.", "n.y.", "okla.", "ore.", "pa.", "r.i.",
+    "s.c.", "s.d.", "tenn.", "tex.", "vt.", "va.", "wash.", "wis.",
+    "wyo.", "corp.", "ltd.", "bros.", "b.c.",
 )
 
 

@@ -1317,6 +1317,10 @@ def main() -> int:
     parser.add_argument("--no-image", action="store_true", help="send the embeds with no attachment")
     parser.add_argument("--text", action="store_true",
                         help="post the plain-text edition instead of embeds")
+    parser.add_argument("--split", action="store_true",
+                        help="on an oversized edition, split into FRONT PAGE "
+                             "and INSIDE rather than trimming news to fit one "
+                             "message (see config.PREFER_SPLIT_OVER_TRIM)")
     parser.add_argument("--force", action="store_true",
                         help="post even if this date is already recorded as posted")
     args = parser.parse_args()
@@ -1368,17 +1372,34 @@ def main() -> int:
     messages: list[dict] = []
 
     if not text_mode:
-        working, payload, trim_notes = build_within_budget(edition, image_filename, page_url)
-        degraded.extend(trim_notes)
-        if embed_text_length(payload["embeds"]) > config.EMBED_HARD:
+        # Trimming to fit ONE message costs news; splitting into two costs
+        # only a second post. On a full day the trimmer eats the West
+        # Virginia notebook first, which is the section the readers actually
+        # showed up for — so when the untrimmed edition will not fit, try the
+        # split BEFORE reaching for the scissors. Each half then gets its own
+        # fresh budget and usually needs no trimming at all.
+        prefer_split = args.split or getattr(config, "PREFER_SPLIT_OVER_TRIM", False)
+        untrimmed = build_payload(edition, image_filename, page_url)
+        oversized = embed_text_length(untrimmed["embeds"]) > config.EMBED_HARD
+
+        if prefer_split and oversized:
             split_notes: list[str] = []
-            messages = split_payloads(working, image_filename, page_url, split_notes)
-            degraded.append("split into FRONT PAGE and INSIDE messages")
-            # The split rebuilds the same edition, so its notebook notes repeat
-            # the ones build_within_budget already reported. Keep them once.
+            messages = split_payloads(edition, image_filename, page_url, split_notes)
+            degraded.append("split into FRONT PAGE and INSIDE messages to keep the notebook whole")
             degraded.extend(n for n in split_notes if n not in degraded)
         else:
-            messages = [payload]
+            working, payload, trim_notes = build_within_budget(
+                edition, image_filename, page_url)
+            degraded.extend(trim_notes)
+            if embed_text_length(payload["embeds"]) > config.EMBED_HARD:
+                split_notes = []
+                messages = split_payloads(working, image_filename, page_url, split_notes)
+                degraded.append("split into FRONT PAGE and INSIDE messages")
+                # The split rebuilds the same edition, so its notebook notes
+                # repeat what build_within_budget already reported. Keep once.
+                degraded.extend(n for n in split_notes if n not in degraded)
+            else:
+                messages = [payload]
         for message in messages:
             degraded.extend(clamp_payload(message))
 

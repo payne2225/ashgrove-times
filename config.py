@@ -462,6 +462,14 @@ def away_regions() -> list[dict]:
 EMBED_TOTAL_LIMIT = 6000
 EMBED_TARGET = 5600   # aim here
 EMBED_HARD = 5800     # trim above here, leaving headroom for Discord's count
+
+# What to do when a full day will not fit ONE message. Trimming costs news;
+# splitting costs a second post. Measured on the 2026-08-05 edition: trimming
+# to fit dropped 7 of 9 notebook lines and 3 briefs, while splitting kept
+# everything (front page ~3,400 chars, inside ~5,300, both under the ceiling).
+# The West Virginia notebook is what these readers showed up for, so the
+# scissors are the wrong default. Set False to prefer one trimmed message.
+PREFER_SPLIT_OVER_TRIM = True
 CONTENT_LIMIT = 2000  # top-level content, hard-capped regardless of Nitro
 CHUNK_LIMIT = 1900    # text-mode split size, leaves room for a chunk marker
 EMBED_TITLE_LIMIT = 256
