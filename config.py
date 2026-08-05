@@ -741,11 +741,11 @@ HERO_SIZE = (1200, 630)  # 1.91:1 — Discord shows an attachment at ~550px wide
 
 # ------------------------------------------------------------------- hosting
 
-# False until the public repo exists and Pages is green. Everything
-# downstream is conditional on this one flag: the permalink line is omitted
-# from `content` and every embed.url is dropped. Flipping this to True is
-# the entire activation step.
-PAGES_ENABLED = False
+# Activated 2026-08-05: payne2225/ashgrove-times is public and Pages builds
+# from .github/workflows/pages.yml. Everything downstream is conditional on
+# this one flag — set it False and the paper still posts, just without the
+# permalink line and with every embed.url dropped.
+PAGES_ENABLED = True
 PAGES_BASE_URL = "https://payne2225.github.io/ashgrove-times"
 PAGES_WAIT_SECONDS = 120
 

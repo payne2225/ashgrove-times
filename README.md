@@ -314,42 +314,44 @@ link at all, so a failed poll just omits the line.
 Publishing from `site/` and not `/docs` is deliberate: `docs/` holds
 Ian's handoff and the runbook, and those must not become web pages.
 
-### Two hosting decisions, both Nate's call
+### Why the repo is public
 
-1. **The repo has zero commits and no remote.** It must be created and
-   pushed before any of the web tier works.
-2. **Free-plan Pages only publishes from public repos.** That is
-   defensible here — the content is a digest of public wire reports, the
-   webhook lives only in a gitignored `.env` and the routine's task
-   prompt, and there are no user IDs in the repo — but it is a conscious,
-   near-irreversible decision.
+Free-plan Pages only publishes from a public repo, and Nate chose public
+on 2026-08-05 to get the web tier. That makes every file here
+world-readable, which is why the privacy rules are enforced in code and
+not just documented: the webhook lives only in a gitignored `.env` and
+the routine's task prompt, there are no Discord user IDs, ZIPs, street
+addresses, or employer names anywhere in the tree, people appear by first
+name only, and `regional`/`away` rosters are validated against
+`config.REGIONS` so no other name can enter an edition.
 
-Until both are settled, **`PAGES_ENABLED = False`** in `config.py`, and
-everything downstream is already conditional on that one flag:
-`build_payload()` omits the permalink line and drops every `embed.url`,
-and no other code path changes. Flipping it to `True` is the entire
-activation step.
+**Re-run that sweep before adding anything to this repo.** The audit that
+caught the last round found a personal email in a `User-Agent` header and
+two `note` fields locating where a specific person works and where the
+cabin sits — none of it rendered anywhere, so no one reviewing the
+published site would have seen it. Source is what going public exposes.
 
-If Nate wants the code private, the right move is a second public
-`ashgrove-times-web` repo holding only rendered editions — same URLs, one
-extra clone in the routine. If he wants no web tier at all, leave the
-flag `False` forever; six embeds plus the hero card is a complete product.
+`PAGES_ENABLED` remains the single kill switch. Set it `False` and
+`build_payload()` omits the permalink line and drops every `embed.url`;
+no other code path changes, and the paper still posts.
 
-## Still open
+## Activation status
 
-Everything below is unresolved as of 2026-08-05. The pipeline runs end to
-end locally, the scheduled cloud routine has not been created, and nothing
-has been delivered to anyone.
+Settled on 2026-08-05, in the order the blockers fell:
 
-1. **The Discord webhook does not exist.** No channel is wired up, so no
-   edition has ever posted. It is the one hard blocker to a first live
-   run — the routine can be scheduled the same hour the URL exists.
-2. **The GitHub repo does not exist.** Zero commits, no remote. Until
-   `payne2225/ashgrove-times` is created and pushed, there is no web tier
-   and no Pages URL.
-3. **`PAGES_ENABLED = False`** in `config.py`, following from (2). Every
-   dependent path is already conditional on that one flag — flipping it
-   to `True` is the entire activation step.
+1. ✅ **Discord webhook.** Nate supplied it; it resolves to a webhook named
+   `newspaper` in **its own channel**, separate from Claude the
+   Weatherman's. Stored in the gitignored `.env`; the cloud routine gets
+   it from its task prompt instead. Never commit it.
+2. ✅ **GitHub repo.** `payne2225/ashgrove-times`, **public**, default
+   branch `main`.
+3. ✅ **`PAGES_ENABLED = True`.** Pages builds from
+   `.github/workflows/pages.yml` (`build_type: workflow`) and serves at
+   `https://payne2225.github.io/ashgrove-times/`. The first deploy fires
+   on the first push that writes `site/index.html`.
+
+### Still open
+
 4. **The WV outlet list is unconfirmed by Ian.** The named outlets in
    `instructions/edition.md` (MetroNews, WV Watch, Mountain State
    Spotlight, WVPB, WSAZ/WOWK/WCHS, Herald-Dispatch, News and Sentinel,
