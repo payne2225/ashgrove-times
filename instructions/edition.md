@@ -32,10 +32,16 @@ Two standing truths that override any convenience:
    ```
 
    The **Eastern** date is the edition date. Use it everywhere as
-   `YYYY-MM-DD`. You wake at **7:00 AM ET**, ahead of Claude the
-   Weatherman's 7:15 slot — do not drift into his window. The paper is in
-   the channel before the forecast is, and it points at it (§4, the weather
-   ear).
+   `YYYY-MM-DD`. Note the sandbox clock is UTC and the Eastern date can
+   differ from it — `config.now_et()` is the one that counts.
+
+   You wake at **6:15 AM ET** and the paper posts at **7:00**, ahead of
+   Claude the Weatherman's 7:15 slot. The gap is a head start, not slack:
+   the research took 37 minutes on 2026-08-06, and a 7:00 wake put that
+   edition in the channel at 7:41 — after the forecast it promised was
+   still coming. Work at a normal pace and let `--not-before 07:00` (§9)
+   hold the delivery. Do not post early to "get ahead"; the readers'
+   morning has a shape.
 
    **Do not write the size of that gap in words anywhere.** The cron is
    UTC-fixed and the ET wake time moves with daylight saving, so the gap is
@@ -526,21 +532,28 @@ When `read` says the water is too warm for trout, **that sentence runs**.
 It is the only place in the paper allowed to sound like advice, because it
 is a fish-kill warning carrying a measured temperature.
 
-**Topsail Beach** — from `topsail`: the *ocean* station's high tides
-(`tides[]` where `side == "ocean"`, the Ocean City Beach pier) and
-`water_temp.water_temp_f`. Use the ocean station's times for a surf read;
-name the sound station only if you are reporting a backwater time, since
-Hampstead lags the ocean by roughly 75 minutes. `source` is
-`"NOAA CO-OPS 8657419"`.
+**Topsail Beach** — lead with the **SOUND**, not the ocean.
+
+Nate, 2026-08-06: the crew fishes *in the sound, about two nautical miles
+north of New Topsail Inlet*, and reports the inlet running roughly an hour
+ahead of their spot, with Hampstead about on par with it. So Hampstead
+(`tides[]` where `side == "sound"`, and the entry flagged `primary`) is the
+read that matters. Measured the same day: the sound high ran **67 minutes**
+behind the oceanfront one, which matches what they see on the water.
+
+Quote the oceanfront station **only** for an explicit surf read, and say
+"surf" when you do. Handing sound times from the ocean station puts someone
+on the water an hour off the tide — that is worse than no fishing line.
+`source` is `"NOAA CO-OPS 8657813"` for the sound, `8657419` for the surf.
 
 **The water temperature is not Topsail's.** It comes from Wrightsville
-Beach, 25 miles up the coast — `water_temp.station` and
-`water_temp.miles_away` say so, and **the published line must say so too**.
-"Water 83F" is a fabrication; "83F at Wrightsville Beach, 25 miles up the
-coast" is a fact. If naming the station will not fit in the line, drop the
-temperature and keep the tides.
+Beach, 25 miles **down** the coast (southwest — not up it) —
+`water_temp.station`, `water_temp.miles_away` and `water_temp.bearing` say
+so, and **the published line must say so too**. "Water 83F" is a
+fabrication; "83F at Wrightsville Beach, 25 miles down the coast" is a fact.
+If naming the station will not fit, drop the temperature and keep the tides.
 
-> `{"water": "Topsail Beach (surf and sound)", "line": "Highs at 1:02 p.m.; water 83F at Wrightsville Beach, 25 miles up the coast.", "source": "NOAA CO-OPS 8657419"}`
+> `{"water": "Topsail Beach (surf and sound)", "line": "Sound highs 2:27 a.m. and 3:09 p.m.; water 83F at Wrightsville Beach, 25 miles down the coast.", "source": "NOAA CO-OPS 8657813"}`
 
 `water` is copied verbatim from `config.FISHING_WATERS` — `"Williams River
 (Cowen)"` and `"Topsail Beach (surf and sound)"`. Any other string is a
@@ -830,8 +843,19 @@ python post_discord.py --date YYYY-MM-DD --attach out/ashgrove-YYYY-MM-DD.png --
 DISCORD_WEBHOOK_URL="<from your prompt>" python post_discord.py \
   --date YYYY-MM-DD \
   --attach out/ashgrove-YYYY-MM-DD.png \
+  --not-before 07:00 \
   --page-url https://payne2225.github.io/ashgrove-times/editions/YYYY-MM-DD.html
 ```
+
+**Always pass `--not-before 07:00`.** You wake at 6:15 because the research
+is slow and variable — 37 minutes on 2026-08-06 — but the readers get their
+paper at seven, the same as yesterday and tomorrow. The flag sleeps until
+7:00 ET and then posts. If you ran long and it is already past, it posts
+immediately and says so; that is not an error. Note that the sandbox clock
+is UTC, so do not try to time this yourself — the flag converts.
+
+That hold is also free Pages build time. Push in step 7, and by 7:00 the
+permalink has usually gone green on its own.
 
 Drop `--page-url` when Pages is disabled or was not green. Use
 `--attach assets/masthead-fallback.png` when the hero render failed.

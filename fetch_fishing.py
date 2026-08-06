@@ -60,20 +60,30 @@ for _stream in (sys.stdout, sys.stderr):
 WILLIAMS_GAUGE = "03186500"
 WILLIAMS_LABEL = "Williams River at Dyer"
 
-# New Topsail Inlet has no station of its own. These two bracket it and
-# disagree by roughly 75 minutes because one is open coast and one is behind
-# the island, so both are reported and labelled rather than averaged.
+# WHERE THE CREW ACTUALLY FISHES (Nate, 2026-08-06): in the SOUND, about two
+# nautical miles north of New Topsail Inlet. They report that the inlet runs
+# roughly an hour ahead of their spot, and that Hampstead is about on par with
+# it. That makes Hampstead the primary read, not a footnote -- it is inside
+# the same body of water, up the ICWW on the same side of the island.
+#
+# The oceanfront station is kept as the SURF read only. It is genuinely
+# different water: it leads the backwater by over an hour, so quoting it for a
+# sound trip would put someone on the water at the wrong stage of the tide.
+# Order matters here -- `primary` is what the notebook line leads with.
 TOPSAIL_TIDE_STATIONS = [
+    {"id": "8657813", "name": "Hampstead", "side": "sound", "primary": True,
+     "note": "inside the ICWW/Topsail Sound, about on par with where the crew "
+             "fishes two nautical miles north of New Topsail Inlet"},
     {"id": "8657419", "name": "Ocean City Beach pier", "side": "ocean",
-     "note": "oceanfront, 11 mi up the same open coastline - the surf read"},
-    {"id": "8657813", "name": "Hampstead", "side": "sound",
-     "note": "inside the ICWW/Topsail Sound - the backwater read, lags the "
-             "ocean by roughly 75 min"},
+     "primary": False,
+     "note": "oceanfront, 11 mi along the open coast - the surf read, and it "
+             "runs well ahead of the sound"},
 ]
 # 8657419 does not offer water temperature; Wrightsville Beach is the nearest
-# station that does. Attributed honestly rather than passed off as Topsail.
+# station that does. It is 25 miles SOUTHWEST down the coast, not up it.
+# Attributed honestly rather than passed off as Topsail's own.
 TOPSAIL_TEMP_STATION = {"id": "8658163", "name": "Wrightsville Beach",
-                        "miles_away": 25}
+                        "miles_away": 25, "bearing": "down the coast"}
 
 
 def get(url: str, params: dict) -> dict:
@@ -225,7 +235,8 @@ def fetch_topsail_water_temp(errors: list) -> dict | None:
         return {"water_temp_f": round(float(latest["v"]), 1),
                 "observed_at": latest["t"],
                 "station": TOPSAIL_TEMP_STATION["name"],
-                "miles_away": TOPSAIL_TEMP_STATION["miles_away"]}
+                "miles_away": TOPSAIL_TEMP_STATION["miles_away"],
+                "bearing": TOPSAIL_TEMP_STATION["bearing"]}
 
     return safe(_fetch, "noaa-temp", errors)
 
@@ -238,12 +249,15 @@ def fetch_topsail(stamp: str, errors: list) -> dict | None:
     out: dict = {"water": "Topsail Beach (surf and sound)", "tides": tides}
     if temp:
         out["water_temp"] = temp
-    ocean = next((t for t in tides if t["side"] == "ocean"), None)
-    if ocean and ocean["events"]:
-        highs = [e["time_local"] for e in ocean["events"] if e["type"] == "high"]
+    # Lead the read with the SOUND. The crew fishes the backwater, and the
+    # oceanfront station runs over an hour ahead of it -- quoting the surf
+    # would send someone out on the wrong stage of the tide.
+    sound = next((t for t in tides if t["side"] == "sound"), None)
+    if sound and sound["events"]:
+        highs = [e["time_local"] for e in sound["events"] if e["type"] == "high"]
         if highs:
             out["read"] = ("Fish the moving water either side of high at "
-                           + " and ".join(highs) + ".")
+                           + " and ".join(highs) + " in the sound.")
     return out
 
 
@@ -282,11 +296,13 @@ def summarize(data: dict) -> str:
         for st in t.get("tides", []):
             ev = "  ".join(f"{e['type'][0].upper()} {e['time_local']} "
                            f"{e['height_ft']}ft" for e in st["events"])
-            lines.append(f"Topsail {st['side']} ({st['station']}): {ev}")
+            role = 'where you fish' if st.get('side') == 'sound' else 'surf'
+            lines.append(f"Topsail {st['side']} ({st['station']}, {role}): {ev}")
         if t.get("water_temp"):
             wt = t["water_temp"]
             lines.append(f"  Water {wt['water_temp_f']}F "
-                         f"(at {wt['station']}, {wt['miles_away']} mi away)")
+                         f"(at {wt['station']}, {wt['miles_away']} mi "
+                         f"{wt.get('bearing', 'away')})")
     else:
         lines.append("Topsail: unavailable")
 

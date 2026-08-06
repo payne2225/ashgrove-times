@@ -1293,6 +1293,40 @@ def find_record(index: dict, date: str) -> dict | None:
     return None
 
 
+def _hold_until(target: str | None) -> tuple[bool, str | None]:
+    """Sleep until `target` (HH:MM Eastern) so delivery lands at a fixed hour.
+
+    The routine wakes early because the research is slow and variable —
+    37 minutes one morning — but readers should get their paper at the same
+    time every day, and the paper has to precede the 7:15 forecast it points
+    at. So the work starts early and the POST waits.
+
+    Returns (held, note). A target already past is not an error: the run was
+    simply slower than the head start, and the paper goes out immediately.
+    """
+    if not target:
+        return False, None
+    try:
+        hour, minute = (int(part) for part in target.split(":", 1))
+        goal_time = dt.time(hour, minute)
+    except (TypeError, ValueError):
+        return False, f"could not parse --not-before {target!r}; posting now"
+
+    now = config.now_et() if hasattr(config, "now_et") else dt.datetime.now()
+    goal = now.replace(hour=goal_time.hour, minute=goal_time.minute,
+                       second=0, microsecond=0)
+    wait = (goal - now).total_seconds()
+    if wait <= 0:
+        return False, (f"--not-before {target} already passed "
+                       f"({now.strftime('%H:%M')}); posting now")
+    # A head start measured in hours means a misconfigured cron, not patience.
+    if wait > 3 * 3600:
+        return False, (f"--not-before {target} is {wait / 3600:.1f}h away; "
+                       "that is not a delivery hold, posting now")
+    time.sleep(wait)
+    return True, f"waited {wait / 60:.0f} min to post at {target} ET"
+
+
 def _run_backfill(args, edition: dict) -> int:
     """`--backfill-link`: wait out the Pages build, then add the permalink.
 
@@ -1501,6 +1535,11 @@ def main() -> int:
                         help="on an oversized edition, split into FRONT PAGE "
                              "and INSIDE rather than trimming news to fit one "
                              "message (see config.PREFER_SPLIT_OVER_TRIM)")
+    parser.add_argument("--not-before", metavar="HH:MM", default=None,
+                        help="hold the post until this ET wall-clock time "
+                             "(e.g. 07:00). The routine wakes early to do the "
+                             "research; this is what keeps delivery at a "
+                             "consistent hour. Ignored if the time has passed.")
     parser.add_argument("--backfill-link", action="store_true",
                         help="post nothing; wait for the Pages build and add "
                              "the permalink to the edition already posted for "
@@ -1639,6 +1678,12 @@ def main() -> int:
         print(f"ERROR: {var} not set (env or .env)", file=sys.stderr)
         return 1
     remember_webhook(webhook_url)  # nothing printed or logged past here carries the token
+
+    held, hold_note = _hold_until(args.not_before)
+    if hold_note:
+        print(f"{'HELD' if held else 'WARN'}: {hold_note}", file=sys.stderr)
+        if not held:
+            degraded.append(hold_note)
 
     long_retry = not args.test
     embed_chars = sum(embed_text_length(m.get("embeds") or []) for m in messages)

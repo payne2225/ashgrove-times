@@ -59,8 +59,18 @@ FIRST_EDITION_DATE = "2026-08-05"
 # derived per date by weather_gap_minutes() / weather_gap_words().
 POST_TIME_ET = "7:00 AM ET"   # the TARGET, which both crons are aimed at
 POST_TIME_24H = "07:00"
-POST_CRON_UTC = "0 11 * * *"           # daylight time (Mar-Nov) -> 7:00 AM EDT
-POST_CRON_UTC_STANDARD = "0 12 * * *"  # standard time (Nov-Mar) -> 7:00 AM EST
+# THE ROUTINE WAKES AT 6:15, NOT 7:00. Measured 2026-08-06: research +
+# render + push took 37 minutes, so a 7:00 wake put the paper in the channel
+# at 7:41 — 26 minutes AFTER the Weatherman it is supposed to precede, while
+# its own ear promised the forecast was still coming. Waking at 6:15 and
+# holding the post until 7:00 (`--not-before`) fixes the ordering, and the
+# hold doubles as the GitHub Pages build window so the permalink is live.
+POST_CRON_UTC = "15 10 * * *"           # daylight time (Mar-Nov) -> 6:15 AM EDT
+POST_CRON_UTC_STANDARD = "15 11 * * *"  # standard time (Nov-Mar) -> 6:15 AM EST
+
+# The wall-clock ET time the paper is due in the channel. The routine may
+# finish early; it may not post early.
+POST_TARGET_ET = "07:00"
 WEATHER_BOT = "Claude the Weatherman"
 WEATHER_TIME_ET = "7:15"
 
@@ -151,12 +161,27 @@ def et_utc_offset_hours(date: str | None = None) -> int:
 
 
 def cron_for(date: str | None = None) -> str:
-    """The UTC cron that actually lands the paper at 7:00 AM ET on a date.
+    """The UTC cron that actually wakes the routine at 6:15 AM ET on a date.
 
     Two settings, one target. Installing the wrong one does not break the
     paper — it slides it an hour and silently widens the weather gap.
     """
     return POST_CRON_UTC if is_eastern_dst(date) else POST_CRON_UTC_STANDARD
+
+
+def now_et() -> datetime.datetime:
+    """Wall-clock Eastern time, as a naive datetime.
+
+    The cloud sandbox runs on UTC, so anything that reasons about "7:00 in
+    the morning" has to convert explicitly. Reading the local clock there
+    would put the paper out five hours early — or, for a delivery hold,
+    conclude the target had already passed and skip the wait entirely.
+
+    Derived from the same DST rule as the cron rather than zoneinfo, so the
+    two can never disagree about which side of the changeover a date is on.
+    """
+    utc = datetime.datetime.now(datetime.timezone.utc)
+    return (utc - datetime.timedelta(hours=et_utc_offset_hours())).replace(tzinfo=None)
 
 
 def _cron_minutes_utc(cron: str) -> int:
