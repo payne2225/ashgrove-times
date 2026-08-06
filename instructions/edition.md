@@ -795,21 +795,26 @@ not 404 for the first reader.
 
 ---
 
-## 8. Wait for Pages
+## 8. Wait for Pages — briefly
 
 **If `config.PAGES_ENABLED` is `False`, skip this entire step** and post
-with no `--page-url`. That is the shipped default until the public repo and
-Pages exist.
+with no `--page-url`.
 
 Otherwise poll the dated edition URL until it returns HTTP 200, up to
-**120 seconds** (typical build lag is 30–90s):
+**120 seconds**:
 
 ```
 https://payne2225.github.io/ashgrove-times/editions/YYYY-MM-DD.html
 ```
 
-Not green inside 120s? Omit the link. **A dead link is worse than no
-link.** Log it to `docs/FAILURES.md`.
+Green inside 120s? Pass `--page-url` in step 9 and you are done.
+
+**Not green? Do not wait. Post without the link and add it in step 9.5.**
+The build lag is unbounded: measured at 23 seconds one evening and
+**8 minutes 38 seconds** the next morning, because the Actions queue does
+not care about this deadline. The paper is due at 7:00 and the Weatherman
+follows at 7:15 — a late paper costs more than a late link, and a dead link
+costs more than either.
 
 ---
 
@@ -837,6 +842,32 @@ not a memory.
 
 Never pass `--force` unless your task prompt explicitly says to. That flag
 is the only thing standing between a retry and a double paper.
+
+---
+
+## 9.5. Backfill the link — only if step 8 timed out
+
+If you posted without `--page-url`, run this now. It posts nothing. It waits
+for the Pages build (up to 15 minutes), then edits the permalink into the
+message you already sent:
+
+```
+DISCORD_WEBHOOK_URL="<from your prompt>" python post_discord.py \
+  --date YYYY-MM-DD --backfill-link
+```
+
+Readers see an ordinary Discord edit. The paper was on time and the link
+arrives when it is real, which is strictly better than either waiting or
+publishing a 404.
+
+It edits **only the content line**, never the embeds — growing the embeds
+could tip a one-message edition over the ceiling and make the trim ladder
+cut briefs that are already published. A backfill may only ever add.
+
+It is safe to run twice: a row that already carries a `page_url` is left
+alone. If it gives up, it says so and logs to `docs/FAILURES.md`; the
+permalink is still reachable from `archive.html`, so this is a blemish and
+not a failure. Note it in the ledger and move on.
 
 ---
 

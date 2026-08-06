@@ -755,7 +755,16 @@ HERO_SIZE = (1200, 630)  # 1.91:1 — Discord shows an attachment at ~550px wide
 # permalink line and with every embed.url dropped.
 PAGES_ENABLED = True
 PAGES_BASE_URL = "https://payne2225.github.io/ashgrove-times"
+# How long to wait for the Pages build BEFORE posting. Deliberately short:
+# the paper is due at 7:00 and the Weatherman follows at 7:15, so a late
+# paper costs more than a late link.
 PAGES_WAIT_SECONDS = 120
+
+# How long to keep waiting AFTER posting, to patch the permalink in.
+# Measured builds: 23s one evening, 8m38s the next morning — the Actions
+# queue does not care about our deadline, so this window is generous. The
+# paper is already out; nobody is waiting on this.
+PAGES_BACKFILL_WAIT_SECONDS = 900
 
 
 def page_url(date: str) -> str:

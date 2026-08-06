@@ -559,6 +559,19 @@ def _masthead_line(edition: dict, page_url: str | None) -> str:
     return _clip("\n".join(lines), config.CONTENT_LIMIT)
 
 
+def _inside_line(page_url: str | None) -> str:
+    """Content line for the second message of a split.
+
+    Anyone scrolling in mid-morning may see only this one, so it repeats the
+    permalink rather than assuming they read the front page. Shared with the
+    link backfill so an edited message matches a freshly posted one.
+    """
+    line = f"-# **{config.MASTHEAD}** · Inside"
+    if page_url:
+        line += f"\n\U0001f4d6  **Full edition on the web:** <{page_url}>"
+    return line
+
+
 def _closing_footer(edition: dict) -> dict | None:
     """Kicker, colophon, then the weather ear — the last line of the message.
 
@@ -795,13 +808,7 @@ def split_payloads(
     if "attachments" in payload:
         front["attachments"] = payload["attachments"]
 
-    # Anyone scrolling in mid-morning may see only this second message, so it
-    # repeats the permalink rather than assuming they read the front page.
-    inside_content = f"-# **{config.MASTHEAD}** · Inside"
-    if page_url:
-        inside_content += f"\n\U0001f4d6  **Full edition on the web:** <{page_url}>"
-
-    inside: dict = {"content": inside_content, "embeds": inside_embeds}
+    inside: dict = {"content": _inside_line(page_url), "embeds": inside_embeds}
     return [front, inside]
 
 
@@ -1087,6 +1094,99 @@ def _parse_json(raw: bytes) -> dict | None:
         return None
 
 
+def _http_json(method: str, url: str, payload: dict | None = None) -> tuple[int, dict | None]:
+    """GET or PATCH JSON. Used only for editing messages already sent.
+
+    Separate from _http_post because that one carries multipart bodies and
+    retry logic this does not need. Same scrubbing discipline: the url is the
+    credential, so no exception string escapes unredacted.
+    """
+    body = json.dumps(payload).encode("utf-8") if payload is not None else None
+    headers = {"User-Agent": config.USER_AGENT}
+    if body is not None:
+        headers["Content-Type"] = "application/json"
+
+    if requests is not None:
+        try:
+            response = requests.request(method, url, data=body, headers=headers,
+                                        timeout=HTTP_TIMEOUT)
+        except Exception as exc:
+            return 0, {"_error": _scrub(exc, url)}
+        try:
+            return response.status_code, response.json()
+        except ValueError:
+            return response.status_code, None
+
+    request = urllib.request.Request(url, data=body, headers=headers, method=method)
+    try:
+        with urllib.request.urlopen(request, timeout=HTTP_TIMEOUT) as response:
+            return response.status, _parse_json(response.read())
+    except urllib.error.HTTPError as exc:
+        return exc.code, _parse_json(exc.read())
+    except Exception as exc:
+        return 0, {"_error": _scrub(exc, url)}
+
+
+def page_is_live(page_url: str) -> bool:
+    """True when the permalink actually serves. A 404 means Pages has not
+    finished publishing this edition yet; anything else (403, timeout) is
+    treated as not-yet rather than as proof of life."""
+    status, _ = _http_json("GET", page_url)
+    return status == 200
+
+
+def backfill_page_url(
+    webhook_url: str,
+    edition: dict,
+    page_url: str,
+    message_ids: list[str],
+    image_filename: str | None,
+) -> tuple[bool, list[str]]:
+    """Add the permalink to messages that were already posted without it.
+
+    GitHub Pages build lag is unbounded in practice — measured at 23s one
+    evening and 8m38s the next morning, because the Actions queue does not
+    care about our 7:00 deadline. Waiting for it before posting would push
+    the paper past the Weatherman it is supposed to precede. So the paper
+    goes out on time linkless and the link is patched in when the page is
+    genuinely live, which readers see as a normal Discord edit.
+
+    Rebuilds the payload exactly as a linked post would have been, then
+    carries over each live embed's resolved image url: after posting, Discord
+    has rewritten `attachment://x.png` to a CDN link, and sending the
+    original attachment:// form back on an edit drops the hero card.
+    `attachments` is deliberately never sent — omitting it retains what is
+    already on the message.
+    """
+    notes: list[str] = []
+
+    # CONTENT ONLY, deliberately. Rebuilding the embeds to carry section
+    # anchors would grow the payload by the length of every url, which can
+    # tip a one-message edition over the ceiling and make the trim ladder cut
+    # briefs that are ALREADY PUBLISHED. A backfill must only ever add. The
+    # content line is also where the link is actually legible.
+    if len(message_ids) == 1:
+        contents = [_masthead_line(edition, page_url)]
+    elif len(message_ids) == 2:
+        contents = [_masthead_line(edition, page_url), _inside_line(page_url)]
+    else:
+        notes.append(
+            f"backfill skipped: {len(message_ids)} messages recorded, which is "
+            "neither the one-message nor the split shape"
+        )
+        return False, notes
+
+    for message_id, content in zip(message_ids, contents):
+        status, _ = _http_json(
+            "PATCH", f"{webhook_url}/messages/{message_id}", {"content": content})
+        if status not in (200, 204):
+            notes.append(f"backfill: edit failed on {message_id} (HTTP {status})")
+            return False, notes
+
+    notes.append(f"permalink added to {len(message_ids)} message(s) after the Pages build finished")
+    return True, notes
+
+
 def _retry_after_seconds(data: dict | None, headers: dict, default: float = 5.0) -> float:
     if isinstance(data, dict) and data.get("retry_after") is not None:
         try:
@@ -1191,6 +1291,74 @@ def find_record(index: dict, date: str) -> dict | None:
         if record.get("date") == date:
             return record
     return None
+
+
+def _run_backfill(args, edition: dict) -> int:
+    """`--backfill-link`: wait out the Pages build, then add the permalink.
+
+    Idempotent and safe to run twice — a row that already carries a page_url
+    is left alone, and nothing here can post a new message.
+    """
+    if not config.PAGES_ENABLED:
+        print("SKIP: PAGES_ENABLED is False, nothing to link", file=sys.stderr)
+        return 0
+
+    row = find_record(load_index(), args.date)
+    if not row or not row.get("posted"):
+        print(f"ERROR: no posted edition recorded for {args.date}", file=sys.stderr)
+        return 1
+    if row.get("page_url"):
+        print(f"OK: {args.date} already carries its permalink; nothing to do")
+        return 0
+
+    message_ids = list(row.get("message_ids") or [])
+    if not message_ids:
+        print(f"ERROR: no message ids recorded for {args.date}", file=sys.stderr)
+        return 1
+
+    page_url = args.page_url or config.page_url(args.date)
+    deadline = time.monotonic() + max(0, args.backfill_wait)
+    attempt = 0
+    while True:
+        if page_is_live(page_url):
+            break
+        if time.monotonic() >= deadline:
+            print(
+                f"GAVE UP: {page_url} still not serving after "
+                f"{args.backfill_wait}s - the edition stays linkless",
+                file=sys.stderr,
+            )
+            log_failures(args.date, [f"backfill gave up after {args.backfill_wait}s"])
+            return 1
+        attempt += 1
+        # Long-ish, evenly spaced: this is a build queue, not a flaky request,
+        # and nobody is waiting on the answer.
+        time.sleep(min(30, 10 * attempt))
+
+    if args.dry_run:
+        print(f"DRY RUN: {page_url} is live; would edit {len(message_ids)} message(s)")
+        return 0
+
+    var = "DISCORD_TEST_WEBHOOK_URL" if args.test else "DISCORD_WEBHOOK_URL"
+    webhook_url = load_env_webhook(var)
+    if not webhook_url:
+        print(f"ERROR: {var} not set (env or .env)", file=sys.stderr)
+        return 1
+    remember_webhook(webhook_url)  # nothing printed past here carries the token
+
+    image_filename = row.get("hero") and f"ashgrove-{args.date}.png" or None
+    ok, notes = backfill_page_url(
+        webhook_url, edition, page_url, message_ids, image_filename)
+    for note in notes:
+        print(("OK: " if ok else "WARN: ") + _scrub(note), file=sys.stderr if not ok else sys.stdout)
+    if not ok:
+        log_failures(args.date, notes)
+        return 1
+
+    record_edition(args.date, {"date": args.date, "page_url": page_url,
+                               "link_backfilled": True})
+    print(f"OK: permalink added to {args.date} ({len(message_ids)} message(s))")
+    return 0
 
 
 def record_edition(date: str, record: dict) -> None:
@@ -1333,6 +1501,14 @@ def main() -> int:
                         help="on an oversized edition, split into FRONT PAGE "
                              "and INSIDE rather than trimming news to fit one "
                              "message (see config.PREFER_SPLIT_OVER_TRIM)")
+    parser.add_argument("--backfill-link", action="store_true",
+                        help="post nothing; wait for the Pages build and add "
+                             "the permalink to the edition already posted for "
+                             "--date. Run this after posting when the page was "
+                             "not live in time.")
+    parser.add_argument("--backfill-wait", type=int, default=config.PAGES_BACKFILL_WAIT_SECONDS,
+                        help="seconds to wait for the Pages build during "
+                             "--backfill-link (default %(default)s)")
     parser.add_argument("--force", action="store_true",
                         help="post even if this date is already recorded as posted")
     args = parser.parse_args()
@@ -1355,6 +1531,9 @@ def main() -> int:
             file=sys.stderr,
         )
         return 1
+
+    if args.backfill_link:
+        return _run_backfill(args, edition)
 
     if not args.dry_run and not args.force:
         prior = find_record(load_index(), args.date)
