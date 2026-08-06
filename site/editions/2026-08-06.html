@@ -426,9 +426,82 @@
     .issue .no { flex: 1 1 100%; }
   }
 
+  /* ---------- desktop: this is where it becomes a real broadsheet --------
+
+     Everything above is the phone and tablet paper, which stays compact on
+     purpose. From here up the page stops being a narrow strip on a big
+     monitor and starts behaving like a front page: a wordmark that fills
+     the width, a lead that runs across several columns, and the wire
+     sections FLOWING through newspaper columns instead of stacking.
+
+     `.sections` uses CSS multi-column rather than grid because that is
+     genuinely how a page is set — copy fills column one, continues into
+     column two — and it keeps DOM order, so the phone layout and the
+     screen-reader order need no separate handling. */
+
+  @media (min-width: 1024px) {
+    body { padding: 34px 24px 70px; }
+    .page { max-width: 1180px; padding: 34px 44px 46px; }
+    .masthead { font-size: 76px; letter-spacing: 2px; }
+    .tagline { font-size: 15px; margin-bottom: 10px; }
+    .headline { font-size: 40px; line-height: 1.08; }
+    .subhead { font-size: 17px; }
+    .columns { column-count: 3; font-size: 15.5px; }
+    .drop { font-size: 58px; }
+  }
+
+  @media (min-width: 1320px) {
+    .page { max-width: 1420px; padding: 40px 54px 56px; }
+    .masthead { font-size: 96px; letter-spacing: 3px; }
+    .headline { font-size: 50px; }
+    .columns { column-count: 4; }
+
+    /* The wire sections sit side by side across the page, one to a column,
+       the way the four beats run across a front page below the fold.
+
+       GRID, not CSS multi-column. Multi-column was the first attempt and it
+       looked right until you counted: a `column-span: all` element splits
+       the flow, so the two sections above the notebook spread across four
+       columns and left two of them empty. Grid places each section in its
+       own column and lets the notebook span deliberately rather than as a
+       side effect. */
+    .sections {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      column-gap: 30px;
+      align-items: start;
+    }
+    .sec { margin-bottom: 20px; }
+    .sec .two-col-briefs { column-count: 1; column-rule: none; }
+    .sec .section-label { margin-top: 0; }
+    /* Rules between the wire columns, none before the first. */
+    .sec-wire + .sec-wire { border-left: 1px solid #c9c2ac; padding-left: 30px; }
+
+    /* The notebook is the anchor and it is wide content — four sub-blocks
+       that would strangle in a 300px column. It spans the whole measure as
+       a boxed feature, which is both where the space is and the treatment
+       Ian asked for. `order` moves it below the wire columns without
+       touching DOM order, so the phone layout and screen readers still get
+       Ian's sequence. */
+    .sec-wv { grid-column: 1 / -1; order: 9; margin: 10px 0 8px; }
+    .sec-wv .wv-box { padding: 22px 28px; column-count: 2; column-gap: 36px; }
+    .sec-wv .wv-title { column-span: all; font-size: 24px; }
+    .sec-wv .wv-box > .brief,
+    .sec-wv .wv-block { break-inside: avoid; }
+  }
+
+  @media (min-width: 1700px) {
+    .page { max-width: 1600px; }
+    .masthead { font-size: 108px; }
+    .sections { grid-template-columns: repeat(4, 1fr); }
+    .columns { column-count: 5; }
+  }
+
   @media print {
     body { background: #fff; padding: 0; }
     .page { border: 0; box-shadow: none; max-width: none; }
+    .sections { display: grid; grid-template-columns: repeat(4, 1fr); column-gap: 24px; }
+    .sec-wv { grid-column: 1 / -1; order: 9; }
   }
 </style>
 </head>
@@ -457,6 +530,8 @@
   <div class="stat-strip"><div><b>7,723.55</b><span class="stat-label">S&amp;P 500</span><span class="stat-change"><span class="tri down" aria-hidden="true"></span>-0.17%</span></div><div><b>54,349.12</b><span class="stat-label">Dow</span><span class="stat-change"><span class="tri up" aria-hidden="true"></span>+0.49%</span></div><div><b>26,363.44</b><span class="stat-label">Nasdaq</span><span class="stat-change"><span class="tri down" aria-hidden="true"></span>-0.83%</span></div><div><b>$64,556</b><span class="stat-label">Bitcoin</span><span class="stat-change"><span class="tri up" aria-hidden="true"></span>+0.84%</span></div></div>
   <p class="stats-note">Market data compiled before the opening bell</p>
 
+  <div class="sections">
+  <section class="sec sec-wire">
   <div class="section-label">U.S.</div>
   <div class="two-col-briefs"><div class="brief">
       <div class="brief-head">El-Sayed wins Michigan Senate primary by 1 point</div>
@@ -468,7 +543,9 @@
       <div class="brief-head">Senate panel votes on holding Fauci in contempt</div>
       <p>Fauci invoked the Fifth Amendment at a July 29 pandemic hearing.</p><span class="src"><a href="https://www.npr.org/2026/08/06/nx-s1-5921383/anthony-fauci-contempt-of-congress-vote" rel="noopener nofollow">NPR</a></span>
     </div></div>
+</section>
 
+  <section class="sec sec-wire">
   <div class="section-label">World</div>
   <div class="two-col-briefs"><div class="brief">
       <div class="brief-head">Russian strikes kill 6 in Ukraine as drone war widens</div>
@@ -480,7 +557,9 @@
       <div class="brief-head">US offers $25M for leader of Mexico&#x27;s largest cartel</div>
       <p>The reward for Juan Carlos Gonzalez, who took over the Jalisco New Generation Cartel in February, rose from $5M.</p><span class="src"><a href="https://www.pbs.org/newshour/world/u-s-offers-25-million-reward-targeting-us-citizen-who-reportedly-leads-mexicos-most-powerful-cartel" rel="noopener nofollow">PBS NewsHour</a></span>
     </div></div>
+</section>
 
+  <section class="sec sec-wv">
   <div class="section-label">West Virginia</div>
   <div class="wv-box">
     <div class="wv-title">Mountaineer State Notebook</div>
@@ -498,7 +577,9 @@
       <ul class="roundup"><li><span class="water">Williams River (Cowen)</span> &mdash; Down to 126 cfs from 194 a day ago, 1.77 ft and falling - prime wading water.<span class="src">USGS 03186500</span></li><li><span class="water">Topsail Beach (surf and sound)</span> &mdash; Ocean highs 1:08 a.m. and 2:02 p.m.; water 81.5F at Wrightsville Beach, 25 mi up the coast.<span class="src">NOAA CO-OPS 8657419</span></li></ul>
     </div>
   </div>
+</section>
 
+  <section class="sec sec-wire">
   <div class="section-label">Sports</div>
   <div class="two-col-briefs"><div class="brief">
       <div class="brief-head">FIFA board backs Infantino after World Cup stake plan dies</div>
@@ -510,7 +591,9 @@
       <div class="brief-head">Sumo association puts September tournament tickets on sale</div>
       <p>Seats for the Aki basho, the autumn grand tournament in Tokyo, go on sale Saturday.</p><span class="src"><a href="https://sumo.or.jp/En/" rel="noopener nofollow">Japan Sumo Association</a></span>
     </div></div>
+</section>
 
+  <section class="sec sec-wire">
   <div class="section-label">Science &amp; Technology</div>
   <div class="two-col-briefs"><div class="brief">
       <div class="brief-head">Falcon 9 stage hits the moon, kicking up lithium and sodium</div>
@@ -522,6 +605,8 @@
       <div class="brief-head">Germany reports first West Nile case as Italy leads Europe</div>
       <p>The ECDC counted 94 infections in Italy through July 29; Greece has 65 cases and six deaths.</p><span class="src"><a href="https://www.euronews.com/health/2026/08/06/west-nile-virus-spreads-in-europe-greece-reports-surge-italy-leads-infections-first-case-i" rel="noopener nofollow">Euronews</a></span>
     </div></div>
+</section>
+  </div>
 
   <div class="kicker">Three West Virginia regions and the away desk ran no line; nothing there cleared the bar.</div>
 

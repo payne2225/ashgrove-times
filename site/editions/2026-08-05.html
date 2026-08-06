@@ -426,9 +426,82 @@
     .issue .no { flex: 1 1 100%; }
   }
 
+  /* ---------- desktop: this is where it becomes a real broadsheet --------
+
+     Everything above is the phone and tablet paper, which stays compact on
+     purpose. From here up the page stops being a narrow strip on a big
+     monitor and starts behaving like a front page: a wordmark that fills
+     the width, a lead that runs across several columns, and the wire
+     sections FLOWING through newspaper columns instead of stacking.
+
+     `.sections` uses CSS multi-column rather than grid because that is
+     genuinely how a page is set — copy fills column one, continues into
+     column two — and it keeps DOM order, so the phone layout and the
+     screen-reader order need no separate handling. */
+
+  @media (min-width: 1024px) {
+    body { padding: 34px 24px 70px; }
+    .page { max-width: 1180px; padding: 34px 44px 46px; }
+    .masthead { font-size: 76px; letter-spacing: 2px; }
+    .tagline { font-size: 15px; margin-bottom: 10px; }
+    .headline { font-size: 40px; line-height: 1.08; }
+    .subhead { font-size: 17px; }
+    .columns { column-count: 3; font-size: 15.5px; }
+    .drop { font-size: 58px; }
+  }
+
+  @media (min-width: 1320px) {
+    .page { max-width: 1420px; padding: 40px 54px 56px; }
+    .masthead { font-size: 96px; letter-spacing: 3px; }
+    .headline { font-size: 50px; }
+    .columns { column-count: 4; }
+
+    /* The wire sections sit side by side across the page, one to a column,
+       the way the four beats run across a front page below the fold.
+
+       GRID, not CSS multi-column. Multi-column was the first attempt and it
+       looked right until you counted: a `column-span: all` element splits
+       the flow, so the two sections above the notebook spread across four
+       columns and left two of them empty. Grid places each section in its
+       own column and lets the notebook span deliberately rather than as a
+       side effect. */
+    .sections {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      column-gap: 30px;
+      align-items: start;
+    }
+    .sec { margin-bottom: 20px; }
+    .sec .two-col-briefs { column-count: 1; column-rule: none; }
+    .sec .section-label { margin-top: 0; }
+    /* Rules between the wire columns, none before the first. */
+    .sec-wire + .sec-wire { border-left: 1px solid #c9c2ac; padding-left: 30px; }
+
+    /* The notebook is the anchor and it is wide content — four sub-blocks
+       that would strangle in a 300px column. It spans the whole measure as
+       a boxed feature, which is both where the space is and the treatment
+       Ian asked for. `order` moves it below the wire columns without
+       touching DOM order, so the phone layout and screen readers still get
+       Ian's sequence. */
+    .sec-wv { grid-column: 1 / -1; order: 9; margin: 10px 0 8px; }
+    .sec-wv .wv-box { padding: 22px 28px; column-count: 2; column-gap: 36px; }
+    .sec-wv .wv-title { column-span: all; font-size: 24px; }
+    .sec-wv .wv-box > .brief,
+    .sec-wv .wv-block { break-inside: avoid; }
+  }
+
+  @media (min-width: 1700px) {
+    .page { max-width: 1600px; }
+    .masthead { font-size: 108px; }
+    .sections { grid-template-columns: repeat(4, 1fr); }
+    .columns { column-count: 5; }
+  }
+
   @media print {
     body { background: #fff; padding: 0; }
     .page { border: 0; box-shadow: none; max-width: none; }
+    .sections { display: grid; grid-template-columns: repeat(4, 1fr); column-gap: 24px; }
+    .sec-wv { grid-column: 1 / -1; order: 9; }
   }
 </style>
 </head>
@@ -457,6 +530,8 @@
   <div class="stat-strip"><div><b>7,736.52</b><span class="stat-label">S&amp;P 500</span><span class="stat-change"><span class="tri up" aria-hidden="true"></span>+1.79%</span></div><div><b>54,085.88</b><span class="stat-label">Dow</span><span class="stat-change"><span class="tri up" aria-hidden="true"></span>+1.71%</span></div><div><b>26,584.99</b><span class="stat-label">Nasdaq</span><span class="stat-change"><span class="tri up" aria-hidden="true"></span>+2.59%</span></div><div><b>$64,785</b><span class="stat-label">Bitcoin</span><span class="stat-change"><span class="tri up" aria-hidden="true"></span>+0.76%</span></div></div>
   <p class="stats-note">Market data compiled before the opening bell</p>
 
+  <div class="sections">
+  <section class="sec sec-wire">
   <div class="section-label">U.S.</div>
   <div class="two-col-briefs"><div class="brief">
       <div class="brief-head">Senate confirms Erica Schwartz as CDC director, 51-44</div>
@@ -468,7 +543,9 @@
       <div class="brief-head">Experts question FDA’s ‘lower risk’ label on Zyn pouches</div>
       <p>The FDA cleared 20 Zyn nicotine pouch products to claim lower cancer and heart risk than cigarettes. Lifetime use among 12th graders rose to 10% from 6.8%.</p><span class="src"><a href="https://www.npr.org/2026/08/05/nx-s1-5919626/smoking-fda-nicotine-cigarettes-tobacco" rel="noopener nofollow">NPR</a></span>
     </div></div>
+</section>
 
+  <section class="sec sec-wire">
   <div class="section-label">World</div>
   <div class="two-col-briefs"><div class="brief">
       <div class="brief-head">Russian barrage kills 17 in Kyiv and surrounding region</div>
@@ -480,7 +557,9 @@
       <div class="brief-head">US revokes visa of Brazil’s ambassador in envoy standoff</div>
       <p>The State Department pulled Ambassador Maria Luiza Ribeiro Viotti’s visa Tuesday after Brazil stalled the U.S. nominee. She was not expelled.</p><span class="src"><a href="https://www.pbs.org/newshour/world/trump-administration-revokes-visa-of-brazils-ambassador-to-us-in-escalation-of-spat-with-lula" rel="noopener nofollow">PBS NewsHour</a></span>
     </div></div>
+</section>
 
+  <section class="sec sec-wv">
   <div class="section-label">West Virginia</div>
   <div class="wv-box">
     <div class="wv-title">Mountaineer State Notebook</div>
@@ -501,7 +580,9 @@
       <ul class="roundup"><li><span class="water">Williams River (Cowen)</span> &mdash; Down to 108 cfs from 251 yesterday, 1.68 ft and falling — prime wading water.<span class="src">USGS 03186500</span></li><li><span class="water">Topsail Beach (surf and sound)</span> &mdash; Ocean highs 12:14 AM and 1:02 PM; water 83.3F at Wrightsville Beach, 25 mi up the coast.<span class="src">NOAA CO-OPS</span></li></ul>
     </div>
   </div>
+</section>
 
+  <section class="sec sec-wire">
   <div class="section-label">Sports</div>
   <div class="two-col-briefs"><div class="brief">
       <div class="brief-head">West Virginia opens fall camp, quarterback job unsettled</div>
@@ -513,7 +594,9 @@
       <div class="brief-head">Bears, tackle Darnell Wright agree to record $116M deal</div>
       <p>The four-year extension includes $93 million guaranteed, the most ever for an NFL offensive lineman. Wright becomes the highest-paid right tackle at $29 million a year.</p><span class="src"><a href="https://www.nfl.com/news/bears-ot-darnell-wright-agrees-to-four-year-116m-extension" rel="noopener nofollow">NFL.com</a></span>
     </div></div>
+</section>
 
+  <section class="sec sec-wire">
   <div class="section-label">Science &amp; Technology</div>
   <div class="two-col-briefs"><div class="brief">
       <div class="brief-head">COVID reactivates dormant viruses in half of severe cases</div>
@@ -525,6 +608,8 @@
       <div class="brief-head">Climate change made Spanish fire weather 20 times likelier</div>
       <p>World Weather Attribution found human warming made July’s extreme fire conditions at least 20 times more likely in central Spain and twice as likely in southwest France.</p><span class="src"><a href="https://www.worldweatherattribution.org/climate-change-increases-likelihood-of-compounding-drivers-of-severe-wildfire-conditions-in-france-and-spain/" rel="noopener nofollow">World Weather Attribution</a></span>
     </div></div>
+</section>
+  </div>
 
   <div class="kicker">Vol. I, No. 1. The Ashgrove Times runs every morning at seven.</div>
 

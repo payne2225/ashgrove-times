@@ -462,9 +462,82 @@
     .issue .no { flex: 1 1 100%; }
   }
 
+  /* ---------- desktop: this is where it becomes a real broadsheet --------
+
+     Everything above is the phone and tablet paper, which stays compact on
+     purpose. From here up the page stops being a narrow strip on a big
+     monitor and starts behaving like a front page: a wordmark that fills
+     the width, a lead that runs across several columns, and the wire
+     sections FLOWING through newspaper columns instead of stacking.
+
+     `.sections` uses CSS multi-column rather than grid because that is
+     genuinely how a page is set — copy fills column one, continues into
+     column two — and it keeps DOM order, so the phone layout and the
+     screen-reader order need no separate handling. */
+
+  @media (min-width: 1024px) {
+    body { padding: 34px 24px 70px; }
+    .page { max-width: 1180px; padding: 34px 44px 46px; }
+    .masthead { font-size: 76px; letter-spacing: 2px; }
+    .tagline { font-size: 15px; margin-bottom: 10px; }
+    .headline { font-size: 40px; line-height: 1.08; }
+    .subhead { font-size: 17px; }
+    .columns { column-count: 3; font-size: 15.5px; }
+    .drop { font-size: 58px; }
+  }
+
+  @media (min-width: 1320px) {
+    .page { max-width: 1420px; padding: 40px 54px 56px; }
+    .masthead { font-size: 96px; letter-spacing: 3px; }
+    .headline { font-size: 50px; }
+    .columns { column-count: 4; }
+
+    /* The wire sections sit side by side across the page, one to a column,
+       the way the four beats run across a front page below the fold.
+
+       GRID, not CSS multi-column. Multi-column was the first attempt and it
+       looked right until you counted: a `column-span: all` element splits
+       the flow, so the two sections above the notebook spread across four
+       columns and left two of them empty. Grid places each section in its
+       own column and lets the notebook span deliberately rather than as a
+       side effect. */
+    .sections {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      column-gap: 30px;
+      align-items: start;
+    }
+    .sec { margin-bottom: 20px; }
+    .sec .two-col-briefs { column-count: 1; column-rule: none; }
+    .sec .section-label { margin-top: 0; }
+    /* Rules between the wire columns, none before the first. */
+    .sec-wire + .sec-wire { border-left: 1px solid #c9c2ac; padding-left: 30px; }
+
+    /* The notebook is the anchor and it is wide content — four sub-blocks
+       that would strangle in a 300px column. It spans the whole measure as
+       a boxed feature, which is both where the space is and the treatment
+       Ian asked for. `order` moves it below the wire columns without
+       touching DOM order, so the phone layout and screen readers still get
+       Ian's sequence. */
+    .sec-wv { grid-column: 1 / -1; order: 9; margin: 10px 0 8px; }
+    .sec-wv .wv-box { padding: 22px 28px; column-count: 2; column-gap: 36px; }
+    .sec-wv .wv-title { column-span: all; font-size: 24px; }
+    .sec-wv .wv-box > .brief,
+    .sec-wv .wv-block { break-inside: avoid; }
+  }
+
+  @media (min-width: 1700px) {
+    .page { max-width: 1600px; }
+    .masthead { font-size: 108px; }
+    .sections { grid-template-columns: repeat(4, 1fr); }
+    .columns { column-count: 5; }
+  }
+
   @media print {
     body { background: #fff; padding: 0; }
     .page { border: 0; box-shadow: none; max-width: none; }
+    .sections { display: grid; grid-template-columns: repeat(4, 1fr); column-gap: 24px; }
+    .sec-wv { grid-column: 1 / -1; order: 9; }
   }
 </style>
 </head>
@@ -490,7 +563,9 @@
 
   {{STAT_STRIP}}
 
+  <div class="sections">
   {{SECTIONS}}
+  </div>
 
   {{KICKER}}
 
@@ -536,8 +611,10 @@
 
 
 <!--{BLOCK:SECTION}-->
-<div class="section-label">{{SECTION_LABEL}}</div>
+<section class="sec sec-wire">
+  <div class="section-label">{{SECTION_LABEL}}</div>
   <div class="two-col-briefs">{{BRIEFS}}</div>
+</section>
 <!--{/BLOCK:SECTION}-->
 
 
@@ -550,11 +627,13 @@
 
 
 <!--{BLOCK:WV_SECTION}-->
-<div class="section-label">{{SECTION_LABEL}}</div>
+<section class="sec sec-wv">
+  <div class="section-label">{{SECTION_LABEL}}</div>
   <div class="wv-box">
     <div class="wv-title">{{NOTEBOOK_TITLE}}</div>
     {{BRIEFS}}{{REGIONAL}}{{AWAY}}{{FISHING}}
   </div>
+</section>
 <!--{/BLOCK:WV_SECTION}-->
 
 
