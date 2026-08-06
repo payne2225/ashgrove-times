@@ -59,14 +59,18 @@ FIRST_EDITION_DATE = "2026-08-05"
 # derived per date by weather_gap_minutes() / weather_gap_words().
 POST_TIME_ET = "7:00 AM ET"   # the TARGET, which both crons are aimed at
 POST_TIME_24H = "07:00"
-# THE ROUTINE WAKES AT 6:15, NOT 7:00. Measured 2026-08-06: research +
+# THE ROUTINE WAKES AT 6:00, NOT 7:00. Measured 2026-08-06: research +
 # render + push took 37 minutes, so a 7:00 wake put the paper in the channel
 # at 7:41 — 26 minutes AFTER the Weatherman it is supposed to precede, while
-# its own ear promised the forecast was still coming. Waking at 6:15 and
+# its own ear promised the forecast was still coming. Waking early and
 # holding the post until 7:00 (`--not-before`) fixes the ordering, and the
 # hold doubles as the GitHub Pages build window so the permalink is live.
-POST_CRON_UTC = "15 10 * * *"           # daylight time (Mar-Nov) -> 6:15 AM EDT
-POST_CRON_UTC_STANDARD = "15 11 * * *"  # standard time (Nov-Mar) -> 6:15 AM EST
+#
+# A full hour, not the 37 minutes measured: research time varies with the
+# news, a slow wire day is exactly when the paper most needs the room, and
+# arriving early costs nothing because delivery is held either way.
+POST_CRON_UTC = "0 10 * * *"           # daylight time (Mar-Nov) -> 6:00 AM EDT
+POST_CRON_UTC_STANDARD = "0 11 * * *"  # standard time (Nov-Mar) -> 6:00 AM EST
 
 # The wall-clock ET time the paper is due in the channel. The routine may
 # finish early; it may not post early.
@@ -161,7 +165,7 @@ def et_utc_offset_hours(date: str | None = None) -> int:
 
 
 def cron_for(date: str | None = None) -> str:
-    """The UTC cron that actually wakes the routine at 6:15 AM ET on a date.
+    """The UTC cron that actually wakes the routine at 6:00 AM ET on a date.
 
     Two settings, one target. Installing the wrong one does not break the
     paper — it slides it an hour and silently widens the weather gap.
@@ -196,23 +200,58 @@ def _time_minutes(hhmm: str) -> int:
     return int(hour) * 60 + int(minute or 0)
 
 
-def post_minutes_et(date: str | None = None, cron: str | None = None) -> int:
+def wake_minutes_et(date: str | None = None, cron: str | None = None) -> int:
     """Minutes past midnight ET at which the INSTALLED cron actually fires.
 
     Pass the cron that is really in the routine. The default is the module's
     daylight-time setting, which is the whole point of the check: if nobody
-    switched it in November this returns 360 (6:00 AM), not 420.
+    switched it in November this returns 300 (5:00 AM), not 360.
     """
     utc = _cron_minutes_utc(cron or POST_CRON_UTC)
     return (utc - et_utc_offset_hours(date) * 60) % (24 * 60)
 
 
-def weather_gap_minutes(date: str | None = None, cron: str | None = None) -> int:
-    """Minutes between the paper actually landing and the 7:15 forecast.
+def post_minutes_et(date: str | None = None, cron: str | None = None) -> int:
+    """Minutes past midnight ET at which the paper actually reaches readers.
 
-    15 whenever the right cron is installed; 75 across the winter if the
-    daylight-time cron was never switched. Derived, never asserted — the
-    number in the prose has to come from here or not be written at all.
+    This is the DELIVERY time, not the wake time. `post_discord.py
+    --not-before` holds the post at POST_TARGET_ET however early the routine
+    woke, so the cron no longer decides when readers get their paper — it
+    only decides how much head start the research gets.
+
+    The one case where the cron still moves delivery is a run that overshoots
+    the target, which the poster reports for itself rather than predicting
+    here.
+    """
+    return _time_minutes(POST_TARGET_ET)
+
+
+def head_start_minutes(date: str | None = None, cron: str | None = None) -> int:
+    """Minutes between waking and the delivery target. 60 when correct.
+
+    This, not the reader-facing gap, is what a missed daylight-saving switch
+    actually costs — `--not-before` pins delivery either way. The two
+    failures are not symmetric:
+
+      * Missing the NOVEMBER switch wakes the routine at 5:00 and hands it a
+        120-minute head start. Wasteful, invisible to readers, harmless.
+      * Missing the MARCH switch wakes it at 7:00, a head start of ZERO. The
+        hold is already past on arrival, so the paper posts whenever the
+        research happens to finish — roughly 40 minutes late, after the
+        forecast it points at.
+
+    So <= 0 is the alarming direction, not merely "not 60".
+    """
+    return _time_minutes(POST_TARGET_ET) - wake_minutes_et(date, cron)
+
+
+def weather_gap_minutes(date: str | None = None, cron: str | None = None) -> int:
+    """Minutes between the paper landing and the 7:15 forecast.
+
+    15 whenever the routine finishes before its delivery target, which is
+    the normal case now that delivery is held rather than left to the cron.
+    Derived, never asserted — the number in the prose has to come from here
+    or not be written at all.
     """
     return _time_minutes(WEATHER_TIME_ET) - post_minutes_et(date, cron)
 

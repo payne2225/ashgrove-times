@@ -35,7 +35,7 @@ Two standing truths that override any convenience:
    `YYYY-MM-DD`. Note the sandbox clock is UTC and the Eastern date can
    differ from it — `config.now_et()` is the one that counts.
 
-   You wake at **6:15 AM ET** and the paper posts at **7:00**, ahead of
+   You wake at **6:00 AM ET** and the paper posts at **7:00**, ahead of
    Claude the Weatherman's 7:15 slot. The gap is a head start, not slack:
    the research took 37 minutes on 2026-08-06, and a 7:00 wake put that
    edition in the channel at 7:41 — after the forecast it promised was
@@ -43,15 +43,27 @@ Two standing truths that override any convenience:
    hold the delivery. Do not post early to "get ahead"; the readers'
    morning has a shape.
 
-   **Do not write the size of that gap in words anywhere.** The cron is
-   UTC-fixed and the ET wake time moves with daylight saving, so the gap is
-   15 minutes for half the year and 75 for the other half unless the cron
-   was switched on schedule. `config.weather_gap_minutes(date)` and
-   `config.weather_gap_words(date)` derive it; `config.cron_for(date)` says
-   which cron should be installed. If the derived gap is not 15, the cron
-   switch was missed — say so in your final report and log a line in
-   `docs/FAILURES.md`. Do not adjust the paper for it and do not edit the
-   routine yourself.
+   **Do not write the size of that gap in words anywhere.** Derive it:
+   `config.weather_gap_minutes(date)` and `config.weather_gap_words(date)`.
+   Because `--not-before` pins delivery at 7:00, the gap is now 15 minutes
+   year-round — but derive it anyway rather than typing "fifteen," so the
+   prose cannot drift from the schedule the way it did before.
+
+   **Check the head start instead:** `config.head_start_minutes(date)`
+   should be **60**, and `config.cron_for(date)` says which cron belongs on
+   today's date. The two daylight-saving failures are not symmetric, so read
+   the number rather than just testing it against 60:
+
+   - **More than 60** (e.g. 120) — the November switch was missed. The
+     routine woke an hour early and idled. Wasteful, invisible to readers.
+     Note it in your report; it is not a `FAILURES.md` line.
+   - **0 or negative** — the March switch was missed. The delivery hold is
+     already past when you reach it, so the paper posts late, after the
+     forecast it points at. **Say so in your report and log a line in
+     `docs/FAILURES.md`.**
+
+   Either way: do not adjust the paper for it, and do not edit the routine
+   yourself. The cron is Nate's to change.
 
 2. You are in a clone of the `ashgrove-times` repo:
 
@@ -847,7 +859,7 @@ DISCORD_WEBHOOK_URL="<from your prompt>" python post_discord.py \
   --page-url https://payne2225.github.io/ashgrove-times/editions/YYYY-MM-DD.html
 ```
 
-**Always pass `--not-before 07:00`.** You wake at 6:15 because the research
+**Always pass `--not-before 07:00`.** You wake at 6:00 because the research
 is slow and variable — 37 minutes on 2026-08-06 — but the readers get their
 paper at seven, the same as yesterday and tomorrow. The flag sleeps until
 7:00 ET and then posts. If you ran long and it is already past, it posts
