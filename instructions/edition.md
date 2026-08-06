@@ -468,20 +468,41 @@ missing football brief.
 
 **Read `config.followed_clubs()` first. It changes the assignment.**
 
-**If it is non-empty** — those clubs are the emphasis. Their news is the
-brief: results and how they played, injuries, transfers, manager news,
-where they sit in the table. A followed club's 1-0 win is a bigger story
-for these readers than a title race they are not in. Name the club in the
-headline. Give the rest of the league one clause of context at most —
-"...as Arsenal went top" — not its own brief.
+**The clubs, answered 2026-08-06 — `config.PREMIER_LEAGUE_SUPPORTERS`:**
 
-**If it is empty** — and it is empty today, because nobody has said who
-they support yet — run **general league coverage**: the matchweek's
-defining result, the table at the top or bottom, a major transfer or
-sacking. Correct but generic, and deliberately so. Do **not** guess an
-allegiance to make it feel personal. Printing a rival's result as "our"
-news is the kind of mistake a football supporter remembers for years.
-Ask in your final report whether the clubs are known yet.
+| Club | Who |
+|---|---|
+| **Chelsea** | Trav, Ian |
+| **Tottenham** | Nate |
+| **Liverpool** | Pat |
+
+Those three are the emphasis. Their news is the brief: results and how they
+played, injuries, transfers, manager news, where they sit in the table. A
+followed club's 1-0 win is a bigger story for these readers than a title
+race none of them is in. **Name the club in the headline.** Give the rest
+of the league one clause of context at most — "...as Arsenal went top" —
+never its own brief while a followed club has news.
+
+`config.followed_clubs()` returns them most-supported first, which is the
+tiebreak when two have news and there is one slot: Chelsea carries two of
+the readership.
+
+**Do NOT tag briefs with readers' names.** The West Virginia notebook names
+people because a regional line is *about* their town; a football result is
+not about them. Write it as a sports brief. The names exist in config so
+you know what to search for, not to print.
+
+**When two followed clubs play each other** — and Chelsea, Tottenham and
+Liverpool all meet twice a season, so this happens several times a year —
+`config.is_house_derby(text)` returns both. That match is automatically the
+football brief, and it is written **straight down the middle**: the result,
+both sides, no verdict. Half this readership wanted the other score. It is
+the one football story that needs no justification for taking the slot.
+
+**If `followed_clubs()` were ever empty**, the fallback is general league
+coverage — the matchweek's defining result, the table at either end, a
+major transfer or sacking — and never a guessed allegiance. It is not empty
+now, but the rule stays: the paper does not invent who someone supports.
 
 ```
 premier league results {Month D, YYYY}

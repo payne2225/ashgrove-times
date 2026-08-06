@@ -692,13 +692,19 @@ SUMO_KEYWORDS = (
 # standing daily SEARCH in season, never a standing daily HEADLINE. Nothing
 # may fail an edition for a missing football brief.
 #
-# FOLLOWED_CLUBS IS DELIBERATELY EMPTY UNTIL THE GROUP SAYS WHO THEY
-# SUPPORT. With it empty the paper runs general league coverage, which is
-# correct-but-generic; filling it in is what makes this section theirs.
-# Guessing a club would be worse than waiting: printing a rival's result as
-# "our" news is the kind of error a football supporter never forgets.
+# Answered 2026-08-06. FIRST NAMES ONLY, per the rule at the top of this
+# file — the Discord handles they gave are not recorded anywhere in this
+# repo, because it is public.
+#
+# Chelsea carries two of the readership; every club here carries at least
+# one. That is the emphasis order when a day has more football than room.
 PREMIER_LEAGUE_REQUIRED_DAILY = False
-PREMIER_LEAGUE_FOLLOWED_CLUBS: list[str] = []
+PREMIER_LEAGUE_SUPPORTERS = {
+    "Chelsea": ["Trav", "Ian"],
+    "Tottenham": ["Nate"],
+    "Liverpool": ["Pat"],
+}
+PREMIER_LEAGUE_FOLLOWED_CLUBS: list[str] = list(PREMIER_LEAGUE_SUPPORTERS)
 # August through May. Confirm real fixture dates by search — the season's
 # first and last matchweeks move year to year and this is only the envelope.
 PREMIER_LEAGUE_MONTHS = [8, 9, 10, 11, 12, 1, 2, 3, 4, 5]
@@ -735,13 +741,38 @@ def is_premier_league_season(month: int) -> bool:
 
 
 def followed_clubs() -> list[str]:
-    """The clubs the group actually supports, or [] until they say.
+    """The clubs the group actually supports, most-supported first.
 
-    Empty is a legitimate state, not a misconfiguration: it means general
-    league coverage. The playbook reads it and changes its search plan
-    accordingly rather than inventing an allegiance.
+    Empty would be a legitimate state, not a misconfiguration: it would mean
+    general league coverage rather than an invented allegiance. It is not
+    empty any more.
     """
-    return list(PREMIER_LEAGUE_FOLLOWED_CLUBS)
+    return sorted(PREMIER_LEAGUE_FOLLOWED_CLUBS,
+                  key=lambda c: (-len(PREMIER_LEAGUE_SUPPORTERS.get(c, [])), c))
+
+
+def club_supporters(club: str) -> list[str]:
+    """First names of the readers who support a club, or [] if nobody does."""
+    for name, people in PREMIER_LEAGUE_SUPPORTERS.items():
+        if name.lower() == (club or "").lower():
+            return list(people)
+    return []
+
+
+def is_house_derby(text: str) -> list[str]:
+    """Followed clubs named in the same text — two or more means a derby.
+
+    Tottenham, Chelsea and Liverpool all play each other twice a season, so
+    several times a year one fixture is a result half this readership wanted
+    and half did not. The paper covers it straight and names both, rather
+    than reporting it from one side's point of view.
+    """
+    low = (text or "").lower()
+    hits = [c for c in PREMIER_LEAGUE_FOLLOWED_CLUBS if c.lower() in low]
+    if "Tottenham" in PREMIER_LEAGUE_FOLLOWED_CLUBS and "spurs" in low \
+            and "Tottenham" not in hits:
+        hits.append("Tottenham")
+    return hits if len(hits) > 1 else []
 
 
 def is_basho_month(month: int) -> bool:
