@@ -43,28 +43,39 @@ Four sections, all four maintained every run:
 | **2027-03-14** | **Switch the routine's cron back to `0 11 * * *`.** EDT resumes at 2 AM that Sunday; leaving the winter cron installed lands the paper at 8:00 AM ET, *after* the forecast it points at | **OPEN** |
 | **Before 2026-09-13** | **Confirm the September (Aki) basho's real dates by search** and record them below. `config.basho_window()` derives Sep 13–27 from the second-Sunday rule; that is an estimate the validator uses to decide how loudly to advise, never a fact the paper may print. The Japan Sumo Association publishes the schedule — confirm it there or at a wire outlet | **OPEN** |
 | Open-ended | **Ian's answer on the WV outlet list.** `instructions/edition.md` marks the list provisional. When he answers, the playbook is edited and the answer is recorded here | **OPEN — unasked** |
+| Open-ended | **Find out why GitHub Pages is not serving the dated permalink.** 2026-08-06: `editions/2026-08-06.html` returned 404 for the full 120s poll after a clean push, and No. 1's link was never independently confirmed either. Either the Pages build is slow past two minutes or Pages is not actually enabled on the repo. If it 404s again, consider `config.PAGES_ENABLED = False` rather than spending 120s every morning | **OPEN** |
 
 ## 2. Forward-dated events
 
 | Date | Event | Note |
 |---|---|---|
-| 2026-09-13 → 2026-09-27 | **Aki basho (Tokyo)** — *derived, unconfirmed* | Second-Sunday estimate from `config.basho_window(2026, 9)`. Confirm before covering. During a basho, sumo usually wins the Sports lead |
+| 2026-08-08 | **Aki basho tickets go on sale** | Confirmed on the JSA's own English page (`sumo.or.jp/En/`) and printed as today's sumo brief. Do not re-run this fact; it is spent |
+| 2026-09-13 → 2026-09-27 | **Aki basho (Tokyo)** — *derived, still unconfirmed* | Second-Sunday estimate from `config.basho_window(2026, 9)`. 2026-08-06: searched properly and the only sources carrying Sept. 13–27 at Ryogoku Kokugikan were ticket-reseller and travel sites, which this paper does not cite. The JSA's own page advertises the tournament without printing the dates. Try Kyodo, Japan Times or NHK nearer the banzuke release. Confirm before covering. During a basho, sumo usually wins the Sports lead |
 | 2026-11-08 → 2026-11-22 | **Kyushu basho (Fukuoka)** — *derived, unconfirmed* | Same derivation. Note it opens the week after the cron switch above |
 
 ## 3. Open threads
 
-- **hormuz-reopening** — 2026-08-05: Iran and Oman agreed route coordinates;
-  a joint statement was "under final review" and Bessent said a deal could
-  land within a day or two. PBS NewsHour / Euronews. News again the moment
-  the statement is signed, the strait actually reopens, or the fee dispute
-  (Tehran wants service fees, Washington refuses) breaks either way. This was
-  No. 1's lead — follow it.
-- **greenbrier-500m** — 2026-08-05: Kennedy Lewis financing expected to close
-  **by Aug. 7**, with a debtholder payoff and Lottery Commission approval of
-  the casino license still unsettled. WV MetroNews. Check on the 7th.
-- **wv-flood-aid** — 2026-08-05: $4.5M Individual Assistance approved for
-  Upshur and Lewis after the July 21 flooding; FEMA still weighing **five
-  other counties**. WV MetroNews. News again when those five are decided.
+- **hormuz-reopening** — 2026-08-06: still unsigned. Trump said a deal could
+  land Aug. 5 or 6 and it did not; the draft is reported to be awaiting
+  Khamenei's sign-off, and the service-fee dispute is unresolved. Al Jazeera /
+  Washington Post. **Deliberately not run today — "no breakthrough" is a
+  non-event, not news.** It is news again the moment the statement is signed
+  or the strait actually reopens. Was No. 1's lead.
+- **tariff-refunds** — 2026-08-06: today's lead. CBP has refunded ~$100B of the
+  ~$165B collected under the IEEPA duties the Supreme Court voided 6-3 in
+  February; ~$29B still under review, ~$1.6B unpayable for missing bank
+  details, 330,000+ importers claiming ~$127B with interest. Euronews. News
+  again when the review balance clears or a court rules on the interest rate.
+- **greenbrier-500m** — 2026-08-05: unchanged. Kennedy Lewis financing expected
+  to close **by Aug. 7**, with a debtholder payoff and Lottery Commission
+  approval of the casino license still unsettled. WV MetroNews. **Check
+  tomorrow, 2026-08-07** — that is the date the lawyers gave.
+- **wv-flood-aid** — 2026-08-06: still five counties pending, so no movement and
+  no brief today. New detail: three EF2 tornadoes hit **Pleasants County**
+  (5 homes destroyed, 13 badly damaged) and its Individual Assistance request
+  is one of the ones still under federal review; Morrisey asked for seven
+  counties in all, and only Upshur and Lewis have the $4.5M. WV MetroNews.
+  News when any of the five is decided.
 - **wvu-qb-battle** — 2026-08-05: camp opened with no starter named between
   Scotty Fox Jr. and Michael Hawkins Jr. WVU Athletics. Resolves before the
   opener; local readers care.
@@ -73,6 +84,23 @@ Four sections, all four maintained every run:
 - **congo-ebola** — 2026-08-05: 1,707 dead of 3,802 cases, Ituri ~90% of
   infections, WHO accelerating trials. Al Jazeera. A fast-moving toll —
   re-check the count before citing it again, and note other outlets lag.
+- **fauci-contempt** — 2026-08-06: the Senate Homeland Security Committee was
+  set to vote **today** on holding Fauci in contempt after he took the Fifth
+  at a July 29 hearing; Paul said he would send any referral straight to DOJ
+  rather than to the full Senate. NPR. **Get the tally tomorrow** — today's
+  brief was written on a scheduled vote, and the result is the news.
+- **pleasants-power-ch11** — 2026-08-06: Omnis Pleasants filed Chapter 11 in
+  Delaware in late July over $70M in debt; the ownership group is moving to
+  dismiss it as a bad-faith filing after the independent manager refused a
+  $75.64M payoff. WTAP. Cut from today's notebook for characters, not for
+  sourcing — run it when the court rules.
+- **wv-clothing-vouchers** — 2026-08-06: Morrisey said $5.45M, 49.5% of School
+  Clothing Allowance funds, came out as ATM cash last year and promised
+  legislative changes. WV MetroNews; WSAZ is investigating separately. News
+  again when a bill or an audit appears.
+- **spokane-fires** — 2026-08-04: arson suspect charged over the Old Trails
+  Fire; ~700 buildings destroyed, ~67,000 evacuated. NPR / CBS. Not run — the
+  arrest was already two days old by press time. Needs a fresh development.
 
 <!-- Format, one bullet each:
 - **slug** — one line of where the story stands, dated. Outlet. What would
@@ -80,6 +108,22 @@ Four sections, all four maintained every run:
 -->
 
 ## 4. Recently covered
+
+### 2026-08-06 — No. 2
+- lead: tariff-refunds
+- us: michigan-senate-primary, water-system-cyberattacks, fauci-contempt
+- world: ukraine-refinery-strikes, north-korea-missile, cjng-reward
+- wv statewide: wv-clothing-vouchers, black-lung-niosh
+- wv regional: huntington_cabell — huntington-fatal-fire;
+  putnam_kanawha — google-buffalo-community-fund
+- wv away: **none** — vermont line written and cut for budget; prince_george
+  had only a repeat of yesterday's mayor race; topsail covered by fishing
+- sports: fifa-infantino-backed, aaron-donald-workout, sumo-aki-tickets
+- scitech: falcon9-moon-impact, moderna-mrna-flu-approval, west-nile-europe
+- mid_ohio_valley, nicholas_webster, summers_new_river: **no line**
+- **Do not re-run tomorrow without movement:** the Aki ticket on-sale date is
+  spent; the black lung NIOSH figures are spent; the Google Buffalo fund is
+  spent
 
 ### 2026-08-05 — No. 1
 - lead: hormuz-reopening
@@ -114,3 +158,12 @@ Four sections, all four maintained every run:
   empty on purpose rather than seeded with invented history. Seeded the two
   daylight-saving cron switches and the basho-date confirmation as standing
   commitments.
+- **2026-08-06** — No. 2 posted, one message, 5,570 embed chars. First run to
+  fit in a single Discord message; No. 1 ran 8,587 and split. What it cost:
+  two sourced notebook lines. **The budget note for tomorrow is that a full
+  14-brief paper plus a full notebook does not fit.** Source URLs are ~100
+  characters each and are unshrinkable, so the arithmetic is roughly 14 briefs
+  = 5,300 before the notebook gets anything. Write summaries at 90–110, not
+  150, and decide the notebook's shape *before* drafting rather than cutting
+  clean lines at the end. Pages did not serve the permalink; logged and opened
+  as a standing commitment.

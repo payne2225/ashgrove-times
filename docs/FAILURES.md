@@ -53,3 +53,7 @@ and the failure protocol at the bottom of that file appends here too.
   strip); posted with assets/masthead-fallback.png. Six embeds intact.
 -->
 - 2026-08-05T21:59:44Z · 2026-08-05 · post_discord: split into FRONT PAGE and INSIDE messages to keep the notebook whole
+- 2026-08-06T11:39:47Z · 2026-08-06 · post_discord: no verified page url; posting without links
+- **2026-08-06** — *Pages* — the dated permalink was still 404 after 120s of polling; posted embeds-only with no --page-url. Push landed at 80f5deb.
+- **2026-08-06** — *trim* — the notebook was cut to fit the embed budget before posting: mid_ohio_valley (Pleasants Power Station Ch. 11 dismissal motion, WTAP) and the vermont away line (South Burlington youth center, VTDigger) both cleared the bar and were dropped for characters, not for sourcing. Shipped at 5,570 in one message.
+
