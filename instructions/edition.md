@@ -454,10 +454,79 @@ kicker if it is worth noting at all. Do not force a fourth brief and do not
 reach for the next-basho fallback twice in a week — a fact that has not
 changed since Monday is not news on Thursday.
 
-The other two Sports briefs come from whatever is actually in season —
-queries like `{league} results {Month D, YYYY}`, `{sport} trade OR signing
-{Month D, YYYY}`, or a major international event. Do not run three briefs
-from one league. Sports is a standing section: it is never empty.
+### Sports — THE PREMIER LEAGUE IS THE SECOND STANDING SEARCH
+
+**Requested in the channel on 2026-08-06, in these words: "emphasis on news
+from the teams we like, general from the rest of the league."** That is the
+whole specification and it is binding — this is a reader telling the paper
+what he wants, which is the most valuable instruction this project gets.
+
+Same discipline as sumo: a standing daily **search** in season (August
+through May), never a standing daily **headline**. `config` holds
+`PREMIER_LEAGUE_REQUIRED_DAILY = False`, and nothing fails an edition for a
+missing football brief.
+
+**Read `config.followed_clubs()` first. It changes the assignment.**
+
+**If it is non-empty** — those clubs are the emphasis. Their news is the
+brief: results and how they played, injuries, transfers, manager news,
+where they sit in the table. A followed club's 1-0 win is a bigger story
+for these readers than a title race they are not in. Name the club in the
+headline. Give the rest of the league one clause of context at most —
+"...as Arsenal went top" — not its own brief.
+
+**If it is empty** — and it is empty today, because nobody has said who
+they support yet — run **general league coverage**: the matchweek's
+defining result, the table at the top or bottom, a major transfer or
+sacking. Correct but generic, and deliberately so. Do **not** guess an
+allegiance to make it feel personal. Printing a rival's result as "our"
+news is the kind of mistake a football supporter remembers for years.
+Ask in your final report whether the clubs are known yet.
+
+```
+premier league results {Month D, YYYY}
+premier league table {Month YYYY}
+{club} {Month D, YYYY}
+premier league transfer {Month YYYY}
+```
+
+Readable sources: BBC Sport blocks this crawler — use ESPN, The Athletic
+where it opens, Sky Sports, official club sites, and the Premier League's
+own `premierleague.com`. Match reports over aggregator round-ups.
+
+**Timing.** Most matches are Saturday and Sunday, so Sunday and Monday
+editions carry the real football news and a Wednesday one often has none
+beyond transfers or injuries. Midweek European nights and cup rounds are
+the exception. **No matchweek is not a failure** — off-season (June, July)
+the section simply runs without football, and the transfer window is its
+own story.
+
+### Sports — when the standing interests collide
+
+Sports runs **three briefs** and there are now three standing interests:
+sumo, the Premier League, and WVU/Marshall for the West Virginia readers.
+In September and November all three can have real news at once, and that is
+the whole section with no room for the general wire. **That is a correct
+edition, not a crowded one.**
+
+When more than three compete, rank by what actually happened, not by whose
+turn it is:
+
+1. A **basho in progress** usually takes the lead — during a tournament
+   there is more happening in sumo than in most of the sports wire.
+2. A **followed club's match**, or **WVU/Marshall on a game day**, beats a
+   routine result from either of the others.
+3. A **matchweek round-up** beats a midweek practice report.
+4. Anything genuinely bigger — a title decided, a death, a championship
+   game — beats all of it.
+
+Whatever is left over after the standing interests comes from whatever is
+actually in season: `{league} results {Month D, YYYY}`, `{sport} trade OR
+signing {Month D, YYYY}`, a major international event.
+
+**Do not run three briefs from one league**, and do not force a standing
+interest in on a day it has nothing. Sports is a standing section: it is
+never empty, but it is allowed to be about only one or two things.
 
 ### Science & Technology
 

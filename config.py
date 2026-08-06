@@ -686,6 +686,64 @@ SUMO_KEYWORDS = (
 )
 
 
+# English Premier League — requested in the channel on 2026-08-06 by a
+# reader, with the shape specified: "emphasis on news from the teams we
+# like, general from the rest of the league." Same discipline as sumo: a
+# standing daily SEARCH in season, never a standing daily HEADLINE. Nothing
+# may fail an edition for a missing football brief.
+#
+# FOLLOWED_CLUBS IS DELIBERATELY EMPTY UNTIL THE GROUP SAYS WHO THEY
+# SUPPORT. With it empty the paper runs general league coverage, which is
+# correct-but-generic; filling it in is what makes this section theirs.
+# Guessing a club would be worse than waiting: printing a rival's result as
+# "our" news is the kind of error a football supporter never forgets.
+PREMIER_LEAGUE_REQUIRED_DAILY = False
+PREMIER_LEAGUE_FOLLOWED_CLUBS: list[str] = []
+# August through May. Confirm real fixture dates by search — the season's
+# first and last matchweeks move year to year and this is only the envelope.
+PREMIER_LEAGUE_MONTHS = [8, 9, 10, 11, 12, 1, 2, 3, 4, 5]
+PREMIER_LEAGUE_KEYWORDS = (
+    "premier league", "matchweek", "epl", "fixture", "clean sheet",
+    "brace", "hat-trick", "xg", "relegation", "transfer window",
+    "deadline day", "derby", "sacked", "on loan",
+)
+
+# Detection only — used to recognise that a brief IS about football, which
+# jargon alone misses: a match report reads "Liverpool beat Arsenal 2-1"
+# and contains none of the words above. Distinct from FOLLOWED_CLUBS, which
+# is about whose news gets the emphasis.
+#
+# Short forms are deliberately omitted where they collide with ordinary
+# English or with other sports — "United", "City", "Wolves", "Palace",
+# "Forest", "Villa", "Brighton" — since a false positive here silences a
+# real advisory. The full names below are unambiguous.
+PREMIER_LEAGUE_CLUBS = (
+    "arsenal", "aston villa", "bournemouth", "brentford",
+    "brighton & hove albion", "brighton and hove albion", "burnley",
+    "chelsea", "crystal palace", "everton", "fulham", "ipswich town",
+    "leeds united", "leicester city", "liverpool", "manchester city",
+    "manchester united", "man city", "man united", "man utd",
+    "newcastle united", "nottingham forest", "sheffield united",
+    "southampton", "sunderland", "tottenham", "spurs", "west ham",
+    "wolverhampton",
+)
+
+
+def is_premier_league_season(month: int) -> bool:
+    """True in a month the Premier League is normally playing."""
+    return month in PREMIER_LEAGUE_MONTHS
+
+
+def followed_clubs() -> list[str]:
+    """The clubs the group actually supports, or [] until they say.
+
+    Empty is a legitimate state, not a misconfiguration: it means general
+    league coverage. The playbook reads it and changes its search plan
+    accordingly rather than inventing an allegiance.
+    """
+    return list(PREMIER_LEAGUE_FOLLOWED_CLUBS)
+
+
 def is_basho_month(month: int) -> bool:
     """True in a Grand Sumo tournament month (Jan/Mar/May/Jul/Sep/Nov)."""
     return month in SUMO_BASHO_MONTHS

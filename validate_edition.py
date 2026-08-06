@@ -1760,6 +1760,7 @@ def advisories(
     notes += _weather_ear_advisory(edition)
     notes += _notebook_advisory(edition, fishing)
     notes += _sumo_advisory(edition)
+    notes += _football_advisory(edition)
     notes += _budget_advisory(edition)
     return notes
 
@@ -1903,6 +1904,58 @@ def _sumo_advisory(edition: dict) -> list[str]:
             "tournament it usually wins the sports lead"
         ]
     return []
+
+
+def _football_advisory(edition: dict) -> list[str]:
+    """Advisory only. A missing football brief NEVER fails an edition.
+
+    Same contract as sumo: the Premier League is a standing daily search in
+    season, not a standing daily headline. Most matches fall on the weekend,
+    so a quiet Wednesday with no football is an ordinary edition. The point
+    of this note is the opposite failure — a reader asked for this section
+    and a run that quietly stopped searching for it would look identical to
+    a run that searched and found nothing.
+    """
+    sports = next(
+        (s for s in (edition.get("sections") or [])
+         if isinstance(s, dict) and s.get("id") == "sports"),
+        None,
+    )
+    if not sports:
+        return []
+    briefs = sports.get("briefs")
+    if not isinstance(briefs, list) or not briefs:
+        return []
+
+    date = edition.get("edition_date")
+    parsed = config._parse_iso(date) if _is_str(date) else None
+    if not parsed or not config.is_premier_league_season(parsed[1]):
+        return []
+
+    text = " ".join(
+        f"{b.get('headline', '')} {b.get('summary', '')}".lower()
+        for b in briefs if isinstance(b, dict)
+    )
+    clubs = [c.lower() for c in config.followed_clubs()]
+    # Jargon OR a club name. A match report says "Liverpool beat Arsenal
+    # 2-1" and contains no league vocabulary at all.
+    signals = config.PREMIER_LEAGUE_KEYWORDS + config.PREMIER_LEAGUE_CLUBS
+    if any(word in text for word in signals):
+        # Covered. If the group has named clubs, nudge toward the emphasis
+        # they actually asked for rather than a generic league round-up.
+        if clubs and not any(c in text for c in clubs):
+            return [
+                "Premier League is covered but none of "
+                f"{', '.join(config.followed_clubs())} is named — the request "
+                "was emphasis on the clubs they follow, general on the rest"
+            ]
+        return []
+
+    note = (f"no Premier League brief in Sports and {date} is in season "
+            "(Aug-May) — a quiet midweek is fine, but confirm you searched")
+    if not clubs:
+        note += "; config.PREMIER_LEAGUE_FOLLOWED_CLUBS is still empty, so ask"
+    return [note]
 
 
 # --------------------------------------------------------------------- CLI
