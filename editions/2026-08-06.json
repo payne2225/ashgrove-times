@@ -1,0 +1,198 @@
+{
+  "edition_date": "2026-08-06",
+  "edition_number": 2,
+  "volume": "I",
+  "lead": {
+    "headline": "Customs refunds $100B in tariffs struck down by Supreme Court",
+    "dek": "About 60% of the money collected under the voided emergency-powers duties has been cleared.",
+    "byline": "Wire Reports",
+    "body": [
+      "U.S. Customs and Border Protection has refunded about $100 billion in import duties that the Supreme Court struck down in February, roughly 60% of the $165 billion collected on more than 53 million shipments.",
+      "The duties were imposed under the International Emergency Economic Powers Act, which the court held in a 6-3 decision does not confer the power to set tariffs. More than 330,000 importers have filed about $127 billion in claims, and about $29 billion is still under review."
+    ],
+    "stat_strip": [
+      {
+        "label": "S&P 500",
+        "value": "7,723.55",
+        "change": "-0.17%",
+        "direction": "down"
+      },
+      {
+        "label": "Dow",
+        "value": "54,349.12",
+        "change": "+0.49%",
+        "direction": "up"
+      },
+      {
+        "label": "Nasdaq",
+        "value": "26,363.44",
+        "change": "-0.83%",
+        "direction": "down"
+      },
+      {
+        "label": "Bitcoin",
+        "value": "$64,556",
+        "change": "+0.84%",
+        "direction": "up"
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "us",
+      "label": "U.S.",
+      "briefs": [
+        {
+          "headline": "El-Sayed wins Michigan Senate primary by 1 point",
+          "summary": "The epidemiologist beat Rep. Haley Stevens 49% to 47% Tuesday and faces Republican Mike Rogers in November.",
+          "source": "NPR",
+          "url": "https://www.npr.org/2026/08/05/nx-s1-5920403/michigan-senate-el-sayed-stevens-democrats"
+        },
+        {
+          "headline": "12 states report cyberattacks on water systems",
+          "summary": "Hackers reached pumps, valves and pressure controls, forcing some utilities to run manually.",
+          "source": "CBS News",
+          "url": "https://www.cbsnews.com/news/more-states-water-systems-cyberattacks-iran-backed-hackers/"
+        },
+        {
+          "headline": "Senate panel votes on holding Fauci in contempt",
+          "summary": "Fauci invoked the Fifth Amendment at a July 29 pandemic hearing.",
+          "source": "NPR",
+          "url": "https://www.npr.org/2026/08/06/nx-s1-5921383/anthony-fauci-contempt-of-congress-vote"
+        }
+      ]
+    },
+    {
+      "id": "world",
+      "label": "World",
+      "briefs": [
+        {
+          "headline": "Russian strikes kill 6 in Ukraine as drone war widens",
+          "summary": "Three died in Balakliya and three in the Sumy region overnight. Zelenskyy said Ukraine hit two Russian refineries.",
+          "source": "Al Jazeera",
+          "url": "https://www.aljazeera.com/news/2026/8/6/russian-strikes-kill-six-in-ukraine-as-moscow-intercepts-hundreds-of-drones"
+        },
+        {
+          "headline": "North Korea fires ballistic missile into the sea",
+          "summary": "South Korea said the short-range missile flew from the Wonsan area Thursday evening. Japan reported no impact.",
+          "source": "Euronews",
+          "url": "https://www.euronews.com/2026/08/06/north-korea-fires-at-least-one-ballistic-missile-into-sea-south-koreas-military-says"
+        },
+        {
+          "headline": "US offers $25M for leader of Mexico's largest cartel",
+          "summary": "The reward for Juan Carlos Gonzalez, who took over the Jalisco New Generation Cartel in February, rose from $5M.",
+          "source": "PBS NewsHour",
+          "url": "https://www.pbs.org/newshour/world/u-s-offers-25-million-reward-targeting-us-citizen-who-reportedly-leads-mexicos-most-powerful-cartel"
+        }
+      ]
+    },
+    {
+      "id": "wv",
+      "label": "West Virginia",
+      "notebook_title": "Mountaineer State Notebook",
+      "briefs": [
+        {
+          "headline": "Morrisey says half of clothing voucher money is untraceable",
+          "summary": "The governor said $5.45 million, 49.5% of clothing allowance funds, came out as ATM cash last year.",
+          "source": "WV MetroNews",
+          "url": "https://wvmetronews.com/2026/08/05/morrisey-cites-half-of-school-clothing-voucher-money-as-untraceable-says-thats-a-huge-problem/"
+        },
+        {
+          "headline": "Black lung rate in central Appalachia highest since 1978",
+          "summary": "NIOSH found 32.5% of miners with 25 or more years underground in West Virginia, Virginia and Kentucky tested positive.",
+          "source": "WTAP",
+          "url": "https://www.wtap.com/2026/08/05/black-lung-rate-appalachia-highest-nearly-50-years/"
+        }
+      ],
+      "regional": [
+        {
+          "region_id": "huntington_cabell",
+          "place": "Huntington & the Cabell-Mason corridor",
+          "people": [
+            "Trav",
+            "Justin",
+            "Nate",
+            "Ian"
+          ],
+          "item": "A man was found dead in a Huntington house fire Wednesday morning; the cause is under investigation.",
+          "source": "WSAZ",
+          "url": "https://www.wsaz.com/2026/08/05/man-found-dead-after-fire/"
+        },
+        {
+          "region_id": "putnam_kanawha",
+          "place": "Putnam / Kanawha - Charleston",
+          "people": [
+            "Nate"
+          ],
+          "item": "Google's first community fund near its planned Buffalo data center goes to schools and the fire hall.",
+          "source": "WSAZ",
+          "url": "https://www.wsaz.com/2026/08/06/google-reveals-first-round-community-development-funds-area-near-incoming-data-center/"
+        }
+      ],
+      "away": [],
+      "fishing": [
+        {
+          "water": "Williams River (Cowen)",
+          "line": "Down to 126 cfs from 194 a day ago, 1.77 ft and falling - prime wading water.",
+          "source": "USGS 03186500"
+        },
+        {
+          "water": "Topsail Beach (surf and sound)",
+          "line": "Ocean highs 1:08 a.m. and 2:02 p.m.; water 81.5F at Wrightsville Beach, 25 mi up the coast.",
+          "source": "NOAA CO-OPS 8657419"
+        }
+      ]
+    },
+    {
+      "id": "sports",
+      "label": "Sports",
+      "briefs": [
+        {
+          "headline": "FIFA board backs Infantino after World Cup stake plan dies",
+          "summary": "Officials meeting in Rabat reaffirmed support for the president and dropped the plan to sell World Cup stakes.",
+          "source": "NPR",
+          "url": "https://www.npr.org/2026/08/06/nx-s1-5923233/infantino-crisis-meeting-fifa"
+        },
+        {
+          "headline": "Aaron Donald works out for the Rams at 35",
+          "summary": "The three-time Defensive Player of the Year, who last played in 2023, worked out at camp Wednesday.",
+          "source": "NFL.com",
+          "url": "https://www.nfl.com/news/aaron-donald-works-out-for-rams"
+        },
+        {
+          "headline": "Sumo association puts September tournament tickets on sale",
+          "summary": "Seats for the Aki basho, the autumn grand tournament in Tokyo, go on sale Saturday.",
+          "source": "Japan Sumo Association",
+          "url": "https://sumo.or.jp/En/"
+        }
+      ]
+    },
+    {
+      "id": "scitech",
+      "label": "Science & Technology",
+      "briefs": [
+        {
+          "headline": "Falcon 9 stage hits the moon, kicking up lithium and sodium",
+          "summary": "The four-ton stage, launched in January 2025, struck Einstein crater Wednesday at more than 5,400 mph.",
+          "source": "PBS NewsHour",
+          "url": "https://www.pbs.org/newshour/show/what-scientists-are-learning-after-spacex-debris-crashed-into-the-moon"
+        },
+        {
+          "headline": "FDA approves first mRNA flu vaccine, for adults 50 and older",
+          "summary": "The agency cleared Moderna's mFLUSIVA on Wednesday after a 40,000-person trial.",
+          "source": "CBS News",
+          "url": "https://www.cbsnews.com/news/fda-approves-moderna-mrna-flu-vaccine/"
+        },
+        {
+          "headline": "Germany reports first West Nile case as Italy leads Europe",
+          "summary": "The ECDC counted 94 infections in Italy through July 29; Greece has 65 cases and six deaths.",
+          "source": "Euronews",
+          "url": "https://www.euronews.com/health/2026/08/06/west-nile-virus-spreads-in-europe-greece-reports-surge-italy-leads-infections-first-case-i"
+        }
+      ]
+    }
+  ],
+  "weather_ear": "Claude the Weatherman has the forecast at 7:15.",
+  "kicker": "Three West Virginia regions and the away desk ran no line; nothing there cleared the bar.",
+  "sources_note": "Compiled from wire reports"
+}
