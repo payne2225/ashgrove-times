@@ -23,7 +23,7 @@ template won. Neither of those two files is ever edited — they are inputs.
 
 Runs as a scheduled cloud Claude Code routine every morning (**7:00 AM
 ET**), posting via a Discord webhook, and signs off with a pointer to
-Claude the Weatherman's 7:15 forecast — the *weather ear*. Same
+Jim Claudtore's 7:15 forecast — the *weather ear*. Same
 architecture as `weatherman` and `odds-ev-finder`: no servers,
 prompt-as-markdown in `instructions/`, secrets passed via the routine's
 task prompt (never committed).
@@ -215,7 +215,7 @@ The edition also carries a top-level `"weather_ear"` string alongside
 
 ## The weather ear
 
-The paper posts at 7:00 AM ET; Claude the Weatherman posts the forecast to
+The paper posts at 7:00 AM ET; Jim Claudtore posts the forecast to
 the same channel at 7:15. A newspaper already has the right convention for
 that pointer — the **weather ear**, the small boxed item beside the
 masthead — so that is what it is.
@@ -224,7 +224,7 @@ It appears in the `.top-bar` area of the HTML, as the closing line of the
 Discord post, and on the hero PNG when it fits without crowding the
 masthead. It is written fresh each day into `edition.weather_ear`:
 **vary the wording**, keep it short, and make it read like a newspaper
-pointer rather than an ad. "Claude the Weatherman files the forecast at
+pointer rather than an ad. "Jim Claudtore files the forecast at
 7:15" is the shape, not the frozen string.
 
 ## Local dry run
@@ -393,7 +393,7 @@ is in `out/fishing.json` under `errors`.
 ## The routine
 
 Cloud Claude Code, **Opus**, daily at **7:00 AM ET** — 15 minutes ahead of
-Claude the Weatherman's 7:15 slot, which the paper points at with the
+Jim Claudtore's 7:15 slot, which the paper points at with the
 weather ear instead of pretending it does not exist. Cron is UTC-fixed
 (`0 11 * * *`), so it drifts to 6:00 AM ET when standard time returns in
 November.

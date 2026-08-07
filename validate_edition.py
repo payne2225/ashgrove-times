@@ -1769,6 +1769,7 @@ def advisories(
     notes += _notebook_advisory(edition, fishing)
     notes += _sumo_advisory(edition)
     notes += _football_advisory(edition)
+    notes += _art_advisory(edition)
     notes += _budget_advisory(edition)
     return notes
 
@@ -2029,6 +2030,27 @@ def _check_art(edition: dict) -> list[str]:
             "reader is never left thinking this is a photograph"
         )
     return errors
+
+
+def _art_advisory(edition: dict) -> list[str]:
+    """Nate asked for a drawing every day (2026-08-07). Advisory, not a gate.
+
+    Deliberately not a hard error. Refusing to publish a finished newspaper
+    over a missing illustration would be the tail wagging the dog, and a
+    quota that can fail the build rewards drawing something bad to clear it.
+    The note is loud instead, and `instructions/edition.md` 4.5 gives a
+    ladder that always ends somewhere honest — the Williams River at this
+    morning's gauge height is drawable on the deadest news day of the year.
+    """
+    if not getattr(config, "ART_REQUIRED_DAILY", False):
+        return []
+    if (edition.get("lead") or {}).get("art") is not None:
+        return []
+    return [
+        "no drawing in this edition and the paper runs one a day — work down "
+        "the subject ladder in instructions/edition.md 4.5 before giving up; "
+        "if you genuinely could not draw one, say so and log docs/FAILURES.md"
+    ]
 
 
 def _football_advisory(edition: dict) -> list[str]:

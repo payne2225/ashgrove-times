@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 506" role="img"
+     aria-label="Sketch: the Williams River at summer low water, seen upstream from a gravel bar. Exposed cobbles break a shallow channel that narrows between wooded banks below a rounded Appalachian ridge.">
+  <defs>
+    <style>
+      .ink   { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; }
+      .mask  { fill: var(--parchment, #f4f0e6); stroke: currentColor;
+               stroke-linecap: round; stroke-linejoin: round; }
+      .faint { opacity: 0.3; }
+      .mid   { opacity: 0.58; }
+    </style>
+  </defs>
+
+  <g>
+    <!-- Far ridge. Appalachian ridges are rounded and layered, not peaked;
+         drawing them as a zigzag was what made the first attempt read as a
+         child's mountain rather than this river. -->
+    <path class="mask" d="M0 196 C90 150 170 132 268 140 C356 147 404 120 486 118
+                          C578 116 640 140 726 134 C800 129 852 148 900 168
+                          V240 H0 Z" stroke-width="2.2"/>
+    <g class="ink faint" stroke-width="0.9">
+      <path d="M120 168c26 10 44 26 56 44M300 148c24 12 40 28 50 46M520 128c22 12 38 30 46 48M720 142c22 12 36 28 44 46"/>
+    </g>
+
+    <!-- Nearer ridge, overlapping the far one: that overlap is the depth. -->
+    <path class="mask" d="M0 244 C110 206 210 200 300 212 C392 224 452 202 540 200
+                          C632 198 700 220 790 214 C844 210 874 220 900 232
+                          V286 H0 Z" stroke-width="2.2"/>
+
+    <!-- Timber coming down to both banks, drawn as canopy lumps. -->
+    <g>
+      <path class="mask" d="M0 286 C40 258 78 254 108 268 C132 250 168 250 190 268
+                            C214 252 248 256 264 274 C286 262 312 268 322 284
+                            L322 300 H0 Z" stroke-width="2"/>
+      <path class="mask" d="M566 284 C588 264 618 262 638 276 C660 258 694 258 714 274
+                            C740 256 776 260 794 278 C822 262 858 268 900 282
+                            V300 H566 Z" stroke-width="2"/>
+    </g>
+    <g class="ink faint" stroke-width="0.9">
+      <path d="M56 274c4 10 4 18 0 26M150 272c4 10 4 18 0 26M232 278c4 10 4 18 0 26"/>
+      <path d="M612 280c4 10 4 18 0 26M700 278c4 10 4 18 0 26M782 282c4 10 4 18 0 26"/>
+    </g>
+
+    <!-- THE CHANNEL. Both banks converge upstream; that single thing is what
+         makes a strip of arcs read as moving water. -->
+    <path class="ink" d="M0 452 C120 424 250 366 344 300" stroke-width="2.6"/>
+    <path class="ink" d="M900 424 C790 402 660 348 566 300" stroke-width="2.6"/>
+    <path class="ink mid" d="M344 300 C380 292 420 290 470 292 C512 294 544 296 566 300" stroke-width="1.8"/>
+
+    <!-- Wet edge, a little inside each bank: the water is DOWN. -->
+    <g class="ink faint" stroke-width="1.1">
+      <path d="M0 472 C120 444 252 384 350 316M900 444 C792 422 662 366 562 316"/>
+    </g>
+
+    <!-- Riffle lines follow the flow instead of scattering. They shorten and
+         crowd upstream, which is the perspective doing the work. -->
+    <g class="ink mid" stroke-width="1.3">
+      <path d="M110 470c40-10 84-10 126 2M300 452c38-9 80-9 120 2M520 458c38-9 80-9 120 2M700 470c34-8 74-8 110 2"/>
+      <path d="M180 424c34-8 72-8 108 2M370 412c34-8 72-8 108 2M580 418c34-8 72-8 108 2"/>
+      <path d="M240 384c28-7 60-7 90 2M420 376c28-7 60-7 90 2M600 382c28-7 60-7 90 2"/>
+      <path d="M300 348c22-6 48-6 72 2M450 342c22-6 48-6 72 2M584 348c20-5 44-5 66 2"/>
+      <path d="M356 318c16-4 34-4 52 1M462 314c16-4 34-4 52 1"/>
+    </g>
+
+    <!-- Cobbles standing proud of the water. 106 cfs is bony: the big ones
+         are out, and they shrink with distance. -->
+    <g>
+      <path class="mask" d="M132 448 L152 432 L180 431 L196 444 L192 462 L166 470 L140 465 Z" stroke-width="2"/>
+      <path class="mask" d="M292 410 L308 397 L332 396 L345 407 L341 422 L318 429 L297 424 Z" stroke-width="2"/>
+      <path class="mask" d="M466 396 L480 385 L500 384 L511 394 L507 407 L488 413 L470 408 Z" stroke-width="1.9"/>
+      <path class="mask" d="M636 418 L652 405 L675 404 L688 415 L684 430 L662 437 L641 432 Z" stroke-width="2"/>
+      <path class="mask" d="M764 458 L783 441 L810 440 L827 453 L823 471 L797 479 L771 474 Z" stroke-width="2"/>
+      <path class="mask" d="M382 352 L394 343 L411 342 L420 351 L417 362 L401 367 L386 362 Z" stroke-width="1.7"/>
+      <path class="mask" d="M536 344 L547 336 L563 335 L571 344 L568 354 L553 359 L540 354 Z" stroke-width="1.7"/>
+      <path class="mask" d="M443 326 L452 320 L464 319 L471 326 L468 334 L457 338 L446 334 Z" stroke-width="1.5"/>
+    </g>
+    <g class="ink mid" stroke-width="0.9">
+      <path d="M170 437l16 9M164 445l24 6M162 454l28 2"/>
+      <path d="M324 401l14 8M319 409l20 5M317 417l23 1"/>
+      <path d="M492 389l12 7M488 396l17 4M486 403l19 1"/>
+      <path d="M666 409l14 8M661 417l20 5M659 425l23 1"/>
+      <path d="M800 446l17 9M794 455l25 6M792 464l29 2"/>
+    </g>
+    <!-- The little pillow of slack water each rock throws downstream. -->
+    <g class="ink faint" stroke-width="1">
+      <path d="M142 474c16 8 38 8 56 0M298 432c14 6 33 6 48 0M470 415c12 5 28 5 41 0M644 440c14 6 32 6 46 0M770 482c16 8 38 8 55 0"/>
+    </g>
+
+    <!-- Near gravel bar in the corner: where the sketch is standing. -->
+    <path class="mask" d="M0 506 V478 C40 470 96 476 132 490 C160 500 176 504 186 506 Z" stroke-width="2"/>
+    <g class="ink faint" stroke-width="0.9">
+      <ellipse cx="40" cy="492" rx="13" ry="6"/><ellipse cx="82" cy="498" rx="11" ry="5"/>
+      <ellipse cx="120" cy="500" rx="10" ry="5"/><ellipse cx="18" cy="502" rx="9" ry="4"/>
+    </g>
+  </g>
+</svg>

@@ -36,7 +36,7 @@ Two standing truths that override any convenience:
    differ from it — `config.now_et()` is the one that counts.
 
    You wake at **6:00 AM ET** and the paper posts at **7:00**, ahead of
-   Claude the Weatherman's 7:15 slot. The gap is a head start, not slack:
+   Jim Claudtore's 7:15 slot. The gap is a head start, not slack:
    the research took 37 minutes on 2026-08-06, and a 7:00 wake put that
    edition in the channel at 7:41 — after the forecast it promised was
    still coming. Work at a normal pace and let `--not-before 07:00` (§9)
@@ -744,7 +744,7 @@ Write **`editions/YYYY-MM-DD.json`** to this contract, exactly:
     {"id": "sports",  "label": "Sports",               "briefs": []},
     {"id": "scitech", "label": "Science & Technology", "briefs": []}
   ],
-  "weather_ear": "Claude the Weatherman files the forecast at 7:15.",
+  "weather_ear": "Jim Claudtore files the forecast at 7:15.",
   "kicker": "optional closing line, or null",
   "sources_note": "Compiled from wire reports"
 }
@@ -766,7 +766,7 @@ daily decision.
 ### The weather ear
 
 `weather_ear` is a top-level string, and it is the one piece of the paper
-that points outside itself. Claude the Weatherman posts the morning
+that points outside itself. Jim Claudtore posts the morning
 forecast to the same channel at **7:15 AM ET**, shortly after this paper
 lands. A newspaper already has the convention for this: the **ear**,
 the small boxed item beside the masthead. It renders in the `.top-bar` of
@@ -792,12 +792,12 @@ so it says 7:15 and stops there.
 Serviceable examples — rotate, vary, and write your own:
 
 ```
-Claude the Weatherman files the forecast at 7:15.
+Jim Claudtore files the forecast at 7:15.
 The Weatherman's forecast follows at 7:15.
 Forecast at 7:15, from the weather desk.
 The weather desk files at 7:15, right behind this page.
 Today's forecast lands at 7:15.
-Sky and temperature at 7:15, from Claude the Weatherman.
+Sky and temperature at 7:15, from Jim Claudtore.
 The Weatherman has the forecast at 7:15.
 Weather follows this edition at 7:15.
 ```
@@ -834,7 +834,7 @@ Hard rules on the file:
 
 ---
 
-## 4.5. The sketch artist — OPTIONAL, and most days there is none
+## 4.5. The sketch artist — ONE DRAWING EVERY DAY
 
 Nate's idea, and it is the reason this paper can run art at all. **Do not
 republish the photograph. Look at it and draw it**, the way a courtroom
@@ -843,8 +843,54 @@ viewing a photograph is an original work; a halftone or a trace of that
 photograph is the photograph, published without a licence, on a public
 site.
 
-**One drawing per edition at most, for the lead story only.** A paper that
-must produce art every morning starts producing bad art every morning.
+**Nate asked for one drawing every day (2026-08-07), and one is the cap.**
+
+The obvious risk in a daily quota is that it turns into the thing this
+paper refuses everywhere else — filler, produced to satisfy a rule. It does
+not, for one reason: **"nothing to draw" is almost never true.** The paper
+already carries subjects that are drawable from its own measured data. The
+Williams River at this morning's gauge height is honest on the deadest news
+day of the year, and so is the Topsail sound at today's tide.
+
+So work down this ladder and take the highest rung you can draw honestly:
+
+1. **The lead story's own scene**, if it is drawable under the rules below.
+2. **Any other story in today's paper** with a drawable scene — Sci/Tech
+   and Sports are usually the richest: a rocket stage, a stadium, a dohyo.
+3. **A standing subject from today's numbers.** The Williams River at
+   `out/fishing.json`'s gauge height — low and bony, or up and pushing.
+   Topsail at today's tide. These are drawn from data the paper measured
+   itself, so they are never a fabrication, and they change every day.
+4. **A place or object central to a West Virginia story** — a courthouse, a
+   lock and dam, a tipple, a bridge.
+
+Rung 3 is the guarantee. If you have reached it and still have nothing, the
+problem is not the news.
+
+**`art/_example-river.svg` is a worked rung 3**, drawn at 106 cfs — the
+channel receding upstream between wooded banks, cobbles standing out of low
+water. Read it before you draw your first one. The lesson in it is that the
+scene needs *structure*: the first attempt drew a zigzag ridge, a floating
+oval and scattered arcs, and read as a diagram. Converging banks and rocks
+that shrink with distance are what turned it into a river.
+
+**Only if all four fail:** ship the edition with no art, say so plainly in
+your report, and log one line in `docs/FAILURES.md`. The validator warns
+about a missing drawing but will **not** fail the edition — a finished
+newspaper is never held hostage to an illustration, and a quota that can
+break the build only teaches you to draw something bad to clear it.
+
+### Subjects that draw well
+
+Geometry is kinder than anatomy. Ranked by how reliably they come out:
+
+| Reliable | Harder | Avoid |
+|---|---|---|
+| Buildings, bridges, towers | Vehicles at an angle | Faces |
+| Rockets, machinery, rigs | Animals | Hands |
+| Rivers, ridgelines, shorelines | Crowds with depth | Anything in motion blur |
+| A dohyo, a stadium, a pitch | Interiors with many planes | Fire, smoke, water spray |
+| Charts and instruments | Figures in action | Anything violent |
 
 ### How
 
@@ -907,9 +953,19 @@ around them** — if one fires, the answer is to draw, or to ship no art.
 ### Skill, honestly
 
 The drawings will be crude before they are good. Crude and honest beats
-polished and borrowed. If a drawing is not working after a reasonable
-attempt, **ship the edition without it** and say so in your report. A
-missing illustration costs nothing; a bad one costs the front page.
+polished and borrowed.
+
+Budget yourself roughly **fifteen minutes** — you wake at 6:00 and the
+paper is not due until 7:00, so there is room, but the news comes first.
+If a drawing is fighting you, drop to a simpler subject on the ladder
+rather than pushing a bad one through. A river at its gauge height drawn
+well beats a crowd scene drawn badly, every morning.
+
+**Draw the same standing subject differently.** The Williams River is on
+the ladder every day and must not become the same picture every day: the
+water is at a different height, so draw it that way — bony and braided at
+126 cfs, brown and pushing at 900. If today's rung 3 looks like yesterday's
+rung 3, you have made wallpaper.
 
 Note also: SVG is XML. A `--` inside a comment and a duplicated `class`
 attribute both make the file unparseable, and both happened on the first

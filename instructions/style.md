@@ -304,7 +304,7 @@ Flow is probably up after Sunday's rain.
 
 ## The weather ear
 
-The small pointer beside the masthead. Claude the Weatherman files the
+The small pointer beside the masthead. Jim Claudtore files the
 forecast to the same channel at 7:15, fifteen minutes after this paper
 lands, and the ear is how the front page acknowledges it.
 
@@ -328,9 +328,9 @@ It is a **newspaper pointer, not an ad and not a plug.** The register is
 Serviceable:
 
 ```
-Claude the Weatherman files the forecast at 7:15.
+Jim Claudtore files the forecast at 7:15.
 Forecast at 7:15, from the weather desk.
-Sky and temperature at 7:15, from Claude the Weatherman.
+Sky and temperature at 7:15, from Jim Claudtore.
 Weather follows this edition at 7:15.
 ```
 
@@ -338,7 +338,7 @@ Not:
 
 ```
 Don't miss the weather report at 7:15!
-Stay tuned for Claude the Weatherman!
+Stay tuned for Jim Claudtore!
 Looks like a hot one - the Weatherman has the details at 7:15.
 Weather coming up.
 ```

@@ -46,7 +46,7 @@ FIRST_EDITION_DATE = "2026-08-05"
 
 # ------------------------------------------------------- publication window
 
-# The paper lands ahead of Claude the Weatherman's 7:15 file, so the edition
+# The paper lands ahead of Jim Claudtore's 7:15 file, so the edition
 # carries a WEATHER EAR — the small boxed pointer a real front page runs
 # beside the masthead.
 #
@@ -75,7 +75,7 @@ POST_CRON_UTC_STANDARD = "0 11 * * *"  # standard time (Nov-Mar) -> 6:00 AM EST
 # The wall-clock ET time the paper is due in the channel. The routine may
 # finish early; it may not post early.
 POST_TARGET_ET = "07:00"
-WEATHER_BOT = "Claude the Weatherman"
+WEATHER_BOT = "Jim Claudtore"
 WEATHER_TIME_ET = "7:15"
 
 WEATHER_EAR_MAX_CHARS = 90
@@ -86,14 +86,14 @@ WEATHER_EAR_MAX_CHARS = 90
 # gap in minutes, because the gap depends on which cron is installed and
 # whether the clocks have changed. Name the time, never the interval.
 WEATHER_EAR_LINES = [
-    "Claude the Weatherman files the forecast at 7:15.",
-    "Weather follows at 7:15 — the Weatherman has the day's sky.",
+    "Jim Claudtore files the forecast at 7:15.",
+    "Weather follows at 7:15 — Jim Claudtore has the day's sky.",
     "Look for the forecast at 7:15, from the weather desk.",
     "The weather desk reports at 7:15.",
-    "Next edition of the sky: Claude the Weatherman, 7:15.",
+    "Next edition of the sky: Jim Claudtore, 7:15.",
     "Forecast at 7:15 — read this, then dress for it.",
-    "Claude the Weatherman posts the outlook at 7:15.",
-    "The Weatherman files at 7:15, after this edition.",
+    "Jim Claudtore posts the outlook at 7:15.",
+    "Jim Claudtore files at 7:15, after this edition.",
 ]
 
 
@@ -714,9 +714,30 @@ ART_CREDIT_PREFIX = "Sketched from"
 # Tags and attributes that would smuggle a bitmap back in.
 ART_FORBIDDEN_TAGS = ("image", "foreignObject", "script", "iframe", "use")
 ART_FORBIDDEN_PATTERNS = ("data:", "http://", "https://", "xlink:href")
-# At most one drawing per edition to start. A paper that must produce art
-# every morning starts producing bad art every morning.
+# Nate, 2026-08-07: at least one drawing every day.
+#
+# The danger in a daily art quota is the same as a daily sumo quota — it
+# pressures the paper to manufacture something on a day that has nothing.
+# The way out is that "nothing to draw" is almost never true, because the
+# paper already carries subjects that are drawable from ITS OWN measured
+# data: the Williams River at this morning's gauge height, the Topsail
+# sound at today's tide, a dohyo during a basho. Those are honest on the
+# thinnest news day of the year.
+#
+# So the requirement stands, and the ladder below is what makes it keepable
+# without inventing anything. A missing drawing is still never allowed to
+# stop the paper — it is a loud note, not a failed edition.
+ART_REQUIRED_DAILY = True
 ART_MAX_PER_EDITION = 1
+
+# Rungs, in order. The routine takes the highest one it can draw honestly.
+ART_SUBJECT_LADDER = (
+    "the lead story's own scene, if it is drawable under the rules",
+    "any other story in today's paper with a drawable scene",
+    "a standing subject drawn from today's measured data — the Williams "
+    "River at its gauge height, the Topsail sound at today's tide",
+    "a place or object central to a West Virginia story",
+)
 
 
 def art_path(date: str, slot: str = "lead") -> str:

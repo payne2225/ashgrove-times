@@ -572,6 +572,25 @@ def _inside_line(page_url: str | None) -> str:
     return line
 
 
+def _tail_link(embed: dict, page_url: str | None) -> None:
+    """Repeat the permalink at the very bottom of the post.
+
+    Nate, 2026-08-07: the link goes at the top AND the tail. The top line is
+    what a reader sees before deciding to read; the tail is what they hit
+    after finishing, which is exactly when "there is more of this on the web"
+    lands.
+
+    It rides the last embed's DESCRIPTION, not its footer: Discord renders
+    no markdown at all in footer text, so a link there is dead characters.
+    """
+    if not page_url:
+        return
+    line = f"\n\n\U0001f4d6 [Read the full edition on the web]({page_url})"
+    body = embed.get("description") or ""
+    if len(body) + len(line) <= DESCRIPTION_LIMIT:
+        embed["description"] = body + line
+
+
 def _closing_footer(edition: dict) -> dict | None:
     """Kicker, colophon, then the weather ear — the last line of the message.
 
@@ -616,6 +635,8 @@ def build_payload(
     footer = _closing_footer(edition)
     if footer and embeds:
         embeds[-1]["footer"] = footer
+    if embeds:
+        _tail_link(embeds[-1], page_url)
 
     payload: dict = {"content": _masthead_line(edition, page_url), "embeds": embeds}
     if image_filename:
@@ -803,6 +824,8 @@ def split_payloads(
         embed.pop("footer", None)
     if footer:
         inside_embeds[-1]["footer"] = footer
+    if inside_embeds:
+        _tail_link(inside_embeds[-1], page_url)
 
     front: dict = {"content": payload["content"], "embeds": front_embeds}
     if "attachments" in payload:
