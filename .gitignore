@@ -14,3 +14,12 @@ Thumbs.db
 #   editions/  the committed archive + the ledger — continuity depends on it
 #   site/      the published paper GitHub Pages serves
 #   assets/    vendored OFL fonts are what make the hero render offline
+
+# Source photographs are LOOKED AT and discarded, never stored. The sketch
+# artist works from them the way a courtroom artist works from the room.
+# Nothing under art/ may be a bitmap.
+art/*.png
+art/*.jpg
+art/*.jpeg
+art/*.webp
+art/*.gif

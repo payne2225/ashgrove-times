@@ -68,6 +68,11 @@ import urllib.request
 
 import config
 
+
+def _repo(*parts: str) -> str:
+    """Absolute path inside the repo, whatever the caller's cwd is."""
+    return os.path.join(config.PROJECT_ROOT, *parts)
+
 try:  # requests is in requirements.txt, but delivery must never need pip
     import requests
 except ImportError:  # pragma: no cover - exercised only in a bare sandbox
@@ -85,6 +90,8 @@ TOP_KEYS = {
     "weather_ear", "kicker", "sources_note",
 }
 LEAD_KEYS = {"headline", "dek", "byline", "body", "stat_strip"}
+# Optional: present on the days the paper ran a drawing, absent otherwise.
+LEAD_OPTIONAL_KEYS = {"art"}
 SECTION_KEYS = {"id", "label", "briefs"}
 # West Virginia is the only section with a shape of its own: Ian's .wv-box
 # instead of the two-column brief layout, and three optional sub-arrays.
@@ -625,6 +632,7 @@ def _check_top_level(edition: dict) -> list[str]:
         errors.append("sources_note must be a non-empty string")
 
     errors += _check_weather_ear(edition.get("weather_ear"))
+    errors += _check_art(edition)
     return errors
 
 
@@ -679,7 +687,7 @@ def _check_lead(lead: object) -> list[str]:
     missing = LEAD_KEYS - set(lead)
     if missing:
         errors.append(f"lead missing key(s): {', '.join(sorted(missing))}")
-    unknown = set(lead) - LEAD_KEYS
+    unknown = set(lead) - LEAD_KEYS - LEAD_OPTIONAL_KEYS
     if unknown:
         errors.append(f"lead has unknown key(s): {', '.join(sorted(unknown))}")
 
@@ -1904,6 +1912,123 @@ def _sumo_advisory(edition: dict) -> list[str]:
             "tournament it usually wins the sports lead"
         ]
     return []
+
+
+def _check_art(edition: dict) -> list[str]:
+    """The drawing is a DRAWING. Hard errors, not advisories.
+
+    A sketch made from looking at a photograph is an original work. A traced
+    or embedded copy of that photograph is the photograph, published on a
+    public site without a licence. Nothing here can tell good art from bad,
+    but these checks can tell a drawing from a laundered bitmap, and that is
+    the distinction that actually matters.
+
+    No art at all is always legal. Most mornings will have none.
+    """
+    errors: list[str] = []
+    art = (edition.get("lead") or {}).get("art")
+    if art is None:
+        return []
+    if not isinstance(art, dict):
+        return ["lead.art must be an object or absent"]
+
+    date = edition.get("edition_date")
+    expected = config.art_path(date) if _is_str(date) else None
+    path = art.get("file")
+    if not _nonempty_str(path):
+        return ["lead.art.file must name the drawing, e.g. " + (expected or "art/DATE-lead.svg")]
+    if expected and path not in (expected, os.path.basename(expected)):
+        errors.append(f"lead.art.file is {path!r}; this edition's drawing belongs at {expected}")
+
+    full = _repo(config.ART_DIR_NAME, os.path.basename(path))
+    if not os.path.exists(full):
+        return errors + [f"lead.art.file {path!r} does not exist"]
+
+    size = os.path.getsize(full)
+    if size > config.ART_MAX_BYTES:
+        errors.append(
+            f"lead.art is {size:,} bytes (max {config.ART_MAX_BYTES:,}) — a hand "
+            "drawing is small; this is the size of a traced photograph"
+        )
+
+    raw = open(full, encoding="utf-8", errors="replace").read()
+
+    try:
+        import xml.etree.ElementTree as ET
+        root = ET.fromstring(raw)
+    except Exception as exc:  # noqa: BLE001
+        return errors + [f"lead.art does not parse as XML: {exc}"]
+
+    if not root.tag.endswith("svg"):
+        errors.append("lead.art root element must be <svg>")
+    if not root.get("viewBox"):
+        errors.append("lead.art <svg> needs a viewBox so it scales")
+
+    alt = (root.get("aria-label") or "").strip()
+    if len(alt) < config.ART_MIN_ALT_CHARS:
+        errors.append(
+            f"lead.art needs an aria-label describing the scene "
+            f"(at least {config.ART_MIN_ALT_CHARS} chars); a drawing nobody can "
+            "see is worse than no drawing"
+        )
+
+    # THE LAUNDERING CHECKS.
+    lowered = raw.lower()
+    for tag in config.ART_FORBIDDEN_TAGS:
+        if f"<{tag.lower()}" in lowered:
+            errors.append(
+                f"lead.art contains <{tag}> — the drawing must be vector marks "
+                "only, never an embedded or referenced bitmap"
+            )
+    # Scan for external payloads with the XML namespace declarations removed:
+    # `xmlns="http://www.w3.org/2000/svg"` is mandatory on every SVG ever
+    # written and is not a reference to anything. Checking the raw text
+    # flagged it on the first real drawing.
+    scannable = re.sub(r'\sxmlns(:\w+)?="[^"]*"', " ", lowered)
+    for pattern in config.ART_FORBIDDEN_PATTERNS:
+        if pattern in scannable:
+            errors.append(
+                f"lead.art references {pattern!r} — a drawing has no external "
+                "or encoded payload; this is how a photograph sneaks back in"
+            )
+    # And belt-and-braces: no linking attribute at all, whatever it points to.
+    if re.search(r'\s(?:href|src)\s*=', scannable):
+        errors.append(
+            "lead.art has an href/src attribute — every mark must be drawn in "
+            "the file, never loaded from somewhere else"
+        )
+
+    paths = lowered.count("<path") + lowered.count("<polyline") + lowered.count("<polygon")
+    if paths > config.ART_MAX_PATHS:
+        errors.append(
+            f"lead.art has {paths} path elements (max {config.ART_MAX_PATHS}) — "
+            "that is an autotrace of a photograph, not a drawing"
+        )
+    if paths == 0:
+        errors.append("lead.art has no drawn paths")
+
+    caption = art.get("caption")
+    if not _nonempty_str(caption):
+        errors.append("lead.art.caption must say what the drawing shows")
+    elif len(caption) > config.ART_CAPTION_MAX_CHARS:
+        errors.append(
+            f"lead.art.caption is {len(caption)} chars "
+            f"(max {config.ART_CAPTION_MAX_CHARS})"
+        )
+
+    credit = art.get("credit")
+    if not _nonempty_str(credit):
+        errors.append(
+            "lead.art.credit is required — the paper says out loud that this "
+            f"is a drawing and what it was drawn from, e.g. "
+            f"'{config.ART_CREDIT_PREFIX} an NPR photograph'"
+        )
+    elif not credit.strip().lower().startswith(config.ART_CREDIT_PREFIX.lower()):
+        errors.append(
+            f"lead.art.credit must begin {config.ART_CREDIT_PREFIX!r} so a "
+            "reader is never left thinking this is a photograph"
+        )
+    return errors
 
 
 def _football_advisory(edition: dict) -> list[str]:

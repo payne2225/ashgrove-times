@@ -834,6 +834,89 @@ Hard rules on the file:
 
 ---
 
+## 4.5. The sketch artist — OPTIONAL, and most days there is none
+
+Nate's idea, and it is the reason this paper can run art at all. **Do not
+republish the photograph. Look at it and draw it**, the way a courtroom
+artist works in a room where cameras are not allowed. A drawing made after
+viewing a photograph is an original work; a halftone or a trace of that
+photograph is the photograph, published without a licence, on a public
+site.
+
+**One drawing per edition at most, for the lead story only.** A paper that
+must produce art every morning starts producing bad art every morning.
+
+### How
+
+1. Find the lead story's photograph — usually the `og:image` of the source
+   article. **Look at it.** Fetch it to a scratch path outside the repo,
+   read it, and let it go. It is never saved into `art/`, never committed,
+   never referenced.
+2. Decide whether it is drawable at all. See the rules below. **Most days
+   the answer is no, and that is a normal edition.**
+3. Draw it as SVG line work into `art/YYYY-MM-DD-lead.svg`. Vector marks
+   only. Strokes use `currentColor` so the drawing inherits the page's ink
+   rather than sitting on it as a foreign object.
+4. Add to `lead`:
+
+```json
+"art": {
+  "file": "art/YYYY-MM-DD-lead.svg",
+  "caption": "What the scene shows, one sentence.",
+  "credit": "Sketched from an NPR photograph"
+}
+```
+
+The credit **must** begin `Sketched from` and name the outlet. A reader may
+never be left thinking this is a photograph.
+
+### What you may draw
+
+Scenes where **composition is the content**: a building, a launch, a
+flooded street, machinery, a stadium, a river, a crowd read as shapes,
+an object at the centre of a story. Anonymous figures are fine — a voter
+at a booth, a worker on a line — drawn as contours with **no facial
+detail**.
+
+### What you may NOT draw, ever
+
+- **A specific identifiable person's face.** Not the senator, not the
+  defendant, not the athlete. A drawn face is a guess about how someone
+  looks, and a guess printed as news is a fabrication.
+- **Anything the story does not establish.** If the report says three
+  people were rescued, do not draw six. If it does not say the building
+  burned, do not draw flames. The drawing is subject to the same rule as
+  every sentence in the paper: *thin is allowed, fabricated is not.*
+- **A trace of the photograph.** Not by hand, not by tool. If the marks
+  follow the pixels, it is a copy wearing a costume.
+- **Anything violent, a body, or a person in distress.** Nine friends read
+  this over coffee.
+
+### The mechanical checks
+
+`validate_edition.py` refuses, as hard errors: any `<image>`,
+`<foreignObject>`, `<script>` or `<use>`; any `href`/`src`; any `data:`
+payload; a file over 60 KB; more than 400 path elements (that is an
+autotrace, not a drawing); a missing `viewBox`; an `aria-label` shorter
+than 40 characters; and a credit that does not begin `Sketched from`.
+
+Those checks cannot tell good art from bad. They can tell a drawing from a
+laundered photograph, which is the distinction that matters. **Do not work
+around them** — if one fires, the answer is to draw, or to ship no art.
+
+### Skill, honestly
+
+The drawings will be crude before they are good. Crude and honest beats
+polished and borrowed. If a drawing is not working after a reasonable
+attempt, **ship the edition without it** and say so in your report. A
+missing illustration costs nothing; a bad one costs the front page.
+
+Note also: SVG is XML. A `--` inside a comment and a duplicated `class`
+attribute both make the file unparseable, and both happened on the first
+one ever drawn.
+
+---
+
 ## 5. Validate — HARD GATE
 
 ```

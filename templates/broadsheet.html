@@ -435,6 +435,40 @@
 
   .empty { margin-top: 20px; text-align: center; font-style: italic; }
 
+  /* ---------- the drawing ---------- */
+
+  .art { margin: 0 0 16px; }
+  .art svg { max-height: 46vh; object-fit: contain; }
+
+  /* currentColor is what makes the drawing ink rather than a picture: the
+     SVG inherits the page's colour, so it prints and inverts with the type
+     instead of sitting on top of it as a foreign object. */
+  .art svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    color: var(--ink);
+    background: var(--parchment);
+    border: 1px solid var(--ink);
+  }
+
+  .art figcaption {
+    margin-top: 5px;
+    font-size: 11.5px;
+    line-height: 1.4;
+    color: var(--ink-soft);
+  }
+
+  /* The credit is small caps and says "sketched" out loud - a reader must
+     never mistake the drawing for a photograph. */
+  .art-credit {
+    font-size: 10px;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    white-space: nowrap;
+  }
+
   /* ---------- phone: most of the group opens this in Discord on mobile ---- */
 
   @media (max-width: 840px) {
@@ -477,6 +511,10 @@
 
   @media (min-width: 1024px) {
     body { padding: 34px 24px 70px; }
+    /* Art is furniture, not a banner. Left-aligned at roughly a third of
+       the measure so the lead still reads as the lead. */
+    .art { max-width: 480px; }
+    .art svg { max-height: none; }
     .page { max-width: 1180px; padding: 34px 44px 46px; }
     .masthead { font-size: 76px; letter-spacing: 2px; }
     .tagline { font-size: 15px; margin-bottom: 10px; }
@@ -488,6 +526,7 @@
 
   @media (min-width: 1320px) {
     .page { max-width: 1420px; padding: 40px 54px 56px; }
+    .art { max-width: 560px; }
     .masthead { font-size: 96px; letter-spacing: 3px; }
     .headline { font-size: 50px; }
     .columns { column-count: 4; }
@@ -559,6 +598,8 @@
   {{LEAD_DEK}}
   <div class="byline">{{LEAD_BYLINE}}</div>
 
+  {{LEAD_ART}}
+
   <div class="columns">{{LEAD_BODY}}</div>
 
   {{STAT_STRIP}}
@@ -624,6 +665,14 @@
       <p>{{SUMMARY}}</p>{{SOURCE}}
     </div>
 <!--{/BLOCK:BRIEF}-->
+
+
+<!--{BLOCK:ART}-->
+<figure class="art">
+  {{ART_SVG}}
+  <figcaption><span class="art-caption">{{ART_CAPTION}}</span> <span class="art-credit">{{ART_CREDIT}}</span></figcaption>
+</figure>
+<!--{/BLOCK:ART}-->
 
 
 <!--{BLOCK:WV_SECTION}-->

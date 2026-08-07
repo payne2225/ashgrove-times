@@ -686,6 +686,44 @@ SUMO_KEYWORDS = (
 )
 
 
+# ---------------------------------------------------------------- artwork
+#
+# THE SKETCH ARTIST. Nate's idea, 2026-08-06: rather than republish a wire
+# photograph, look at it and DRAW it — the way a courtroom artist works in a
+# room where cameras are not allowed.
+#
+# That is not a workaround, it is the actual fix. An original drawing made
+# after viewing a photograph is a new work; a halftoned copy of that
+# photograph is the photograph. The source image is fetched, looked at, and
+# discarded. It is never stored, never committed, never republished.
+#
+# The rules below are what keep that true MECHANICALLY rather than on
+# trust. A drawing that has quietly become a traced or embedded photo fails
+# them: raster payloads and external references are rejected outright, and
+# an autotrace betrays itself by path count — a hand-drawn scene runs to
+# dozens of paths, a traced photograph to thousands.
+ART_ENABLED = True
+ART_DIR_NAME = "art"
+ART_MAX_BYTES = 60_000
+ART_MAX_PATHS = 400          # ~4x a detailed hand drawing, ~1% of an autotrace
+ART_MIN_ALT_CHARS = 40
+ART_CAPTION_MAX_CHARS = 140
+# The credit line must say BOTH that it is a drawing and what it was drawn
+# from. "Sketched from an NPR photograph" is the shape.
+ART_CREDIT_PREFIX = "Sketched from"
+# Tags and attributes that would smuggle a bitmap back in.
+ART_FORBIDDEN_TAGS = ("image", "foreignObject", "script", "iframe", "use")
+ART_FORBIDDEN_PATTERNS = ("data:", "http://", "https://", "xlink:href")
+# At most one drawing per edition to start. A paper that must produce art
+# every morning starts producing bad art every morning.
+ART_MAX_PER_EDITION = 1
+
+
+def art_path(date: str, slot: str = "lead") -> str:
+    """Repo-relative path for an edition's drawing."""
+    return f"{ART_DIR_NAME}/{date}-{slot}.svg"
+
+
 # English Premier League — requested in the channel on 2026-08-06 by a
 # reader, with the shape specified: "emphasis on news from the teams we
 # like, general from the rest of the league." Same discipline as sumo: a

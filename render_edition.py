@@ -207,6 +207,7 @@ def render_html(edition: dict, root: str = "../") -> str:
         "LEAD_HEADLINE": esc(headline),
         "LEAD_DEK": dek_html,
         "LEAD_BYLINE": esc(f"By {lead.get('byline') or config.BYLINE}"),
+        "LEAD_ART": _art_html(blocks, lead.get("art")),
         "LEAD_BODY": _lead_body_html(blocks, lead.get("body") or []),
         "STAT_STRIP": _stat_strip_html(blocks, lead.get("stat_strip") or []),
         "SECTIONS": _sections_html(blocks, edition.get("sections") or []),
@@ -223,6 +224,40 @@ def render_html(edition: dict, root: str = "../") -> str:
 
 def folio_left(edition: dict) -> str:
     return f"Vol. {edition.get('volume') or 'I'} — No. {edition.get('edition_number', '')}".strip()
+
+
+def _art_html(blocks: dict[str, str], art: object) -> str:
+    """Inline the day's drawing, or nothing at all on the days there is none.
+
+    The SVG is inlined rather than linked so the page stays self-contained
+    and so the marks inherit `currentColor` — that is what makes the drawing
+    read as ink on the paper instead of an image pasted onto it.
+
+    Inlined markup is NOT escaped, which would normally be a hole. It is
+    safe here for one reason: validate_edition.py has already refused any
+    file containing <script>, <foreignObject>, <use>, href/src, or a data:
+    payload, and the pipeline will not render an edition that failed
+    validation. If that check is ever weakened, this becomes an injection
+    point — they are load-bearing for each other.
+    """
+    if not isinstance(art, dict):
+        return ""
+    name = os.path.basename(str(art.get("file") or ""))
+    if not name:
+        return ""
+    path = os.path.join(config.PROJECT_ROOT, config.ART_DIR_NAME, name)
+    try:
+        svg = open(path, encoding="utf-8").read().strip()
+    except OSError:
+        return ""
+    # Drop any XML prolog; this is being inlined into HTML, not served.
+    if svg.startswith("<?xml"):
+        svg = svg[svg.index("?>") + 2:].lstrip()
+    return fill(blocks["ART"], {
+        "ART_SVG": svg,
+        "ART_CAPTION": esc(str(art.get("caption") or "")),
+        "ART_CREDIT": esc(str(art.get("credit") or "")),
+    })
 
 
 def _lead_body_html(blocks: dict[str, str], paragraphs: list) -> str:
