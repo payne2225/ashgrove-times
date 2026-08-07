@@ -59,3 +59,34 @@ and the failure protocol at the bottom of that file appends here too.
 - **2026-08-06** — *Pages, follow-up* — the permalink came up 200 about 10–12 min after the push, well outside the 120s poll. The link was correctly omitted from the post; the page is live and linked from the archive. Build lag, not an outage.
 
 - 2026-08-06T17:08:32Z · 2026-08-06 · post_discord: backfill skipped: the edition now builds 2 message(s) but 1 were posted — refusing to guess which is which
+- **2026-08-07** — *sourcing* — **wvmetronews.com began serving a bot-verification
+  interstitial to WebFetch.** Three Aug. 6 articles (the Barboursville
+  groundbreaking, the Valley Link transmission-line meeting, the Hope Gas rate
+  case) returned only "Please wait while your request is being verified" instead
+  of copy. The section index at `/news/` still renders headlines and one-line
+  blurbs, which is exactly the trap — enough to write from, not enough to have
+  *read*. Nothing was written from those blurbs. The two stories that ran were
+  re-sourced to outlets that opened (WSAZ for Barboursville, WVPB for the CSX
+  derailment) and the statewide DUA brief went to West Virginia Watch. The one
+  MetroNews brief that shipped (charter board) was fetched successfully earlier
+  in the run, before the interstitial appeared. **MetroNews is the playbook's
+  first-listed WV outlet; if this persists, the provisional list needs WSAZ,
+  WVPB and West Virginia Watch promoted ahead of it.**
+- **2026-08-07** — *thin* — U.S., Sports and Science & Technology each ran **two
+  briefs** instead of three. Not a research shortfall: the validator projected
+  6,077 chars on the first pass against a 5,800 ceiling, and holding the lead,
+  a 3-brief World and a 2-line notebook meant the wire sections absorbed the
+  cut. Sumo sitting out is *not* part of this entry — that was correct and is
+  excluded by policy.
+- **2026-08-07** — *no url* — the infant analgesic brief (PIPPA Tamariki trial,
+  The Lancet Child & Adolescent Health) shipped with `url: null`. The trial name,
+  design, cohort and endpoints were corroborated across several secondary
+  reports but no canonical publisher URL was opened, so the link was omitted
+  rather than pointed at an aggregator. Source name only, per contract.
+- **2026-08-07** — *near-miss, no reader impact* — the first `post_discord.py`
+  run was launched in the foreground and **killed by a 2-minute command timeout
+  while `--not-before 07:00` was still sleeping** (launched 6:17, hold ran to
+  7:00). Nothing posted; `editions/index.json` had no row, which is how it was
+  caught before a blind retry. Relaunched detached and it delivered at 07:00:11.
+  Logged because the failure mode is silent: a killed hold looks identical to a
+  crashed post, and only the index distinguishes them.
