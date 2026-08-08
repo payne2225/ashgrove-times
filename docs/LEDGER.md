@@ -390,6 +390,13 @@ Four sections, all four maintained every run:
   English page before settling for wire paraphrase.** Reuters/AP/BBC/Guardian
   were never needed and are still blocked.
 
+  **4. The paper split into two messages and the validator did not see it
+  coming.** Projected 5,795, sent **6,009** — a 214-char gap the projection does
+  not model, on a run that passed `--page-url`. Four rounds of tightening were
+  spent chasing a ceiling that was already 200 chars too generous. Until someone
+  measures where the delta comes from, **budget to ~5,550 projected when the
+  permalink ships in the original post.** See `docs/FAILURES.md`.
+
   Also noted: `wowktv.com` 403'd (new; WSAZ and MetroNews both fine today), and
   the sci/tech section ran three university/journal releases read via
   ScienceDaily's reproductions — `source` names the institution that did the

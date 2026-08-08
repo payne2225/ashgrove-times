@@ -95,7 +95,7 @@ and the failure protocol at the bottom of that file appends here too.
   four wire sections, and the trim ladder was walked one rung: the
   `mid_ohio_valley` line (Parkersburg SWAT drug warrant, 7th Street, three
   arrested, WTAP, Aug. 7) **cleared the bar and was dropped for characters, not
-  for sourcing.** Shipped at 5,775. The away desk was already empty, so the
+  for sourcing.** Shipped at 5,795. The away desk was already empty, so the
   regional line was the first thing on the ladder that existed.
 - **2026-08-08** — *sourcing* — `wowktv.com` returned **403** to WebFetch on the
   Cabell County $4.5M emergency-communications upgrade, the only clean
@@ -113,3 +113,28 @@ and the failure protocol at the bottom of that file appends here too.
   `TZ=America/New_York date` between 6:02 and 6:25, so a sleeping hold was
   misread as a hung post. The ledger's own 2026-08-07 lessons 1 and 2 say
   exactly this. **Launch the post detached, first time, every time.**
+- **2026-08-08** — *caught before publication, not a shipped defect* — the
+  Sports football brief was drafted with the clause "before Xabi Alonso's first
+  league season," a manager attribution that came **only from a search-result
+  snippet of a site that was never opened.** Caught while the delivery hold was
+  sleeping. `chelseafc.com` opened and confirmed the date, the venue and
+  "the fourth match date during the pre-season preparations" — but does **not**
+  name a head coach, so the clause was cut rather than kept. The brief was
+  re-sourced from `tempo.co`/ESPN listings to Chelsea's own page. Logged because
+  the near-miss is instructive: the snippet was fluent, specific and plausible,
+  which is exactly the failure mode the "never write from a snippet" rule exists
+  for, and it survived one full validate-and-render cycle before being caught.
+- 2026-08-08T11:00:03Z · 2026-08-08 · post_discord: split into FRONT PAGE and INSIDE messages to keep the notebook whole
+- **2026-08-08** — *split* — the edition posted as **two messages** (FRONT PAGE +
+  INSIDE) to keep the notebook whole. First split since No. 1. **The cause is a
+  measurement gap worth fixing:** `validate_edition.py` projected **5,795** chars
+  against its 5,800 ceiling and the paper was tightened four separate times to
+  get under that number — but `post_discord.py` reported **6,009** actually sent.
+  A **214-char** delta the validator does not model. The run passed
+  `--page-url`, so the permalink content line is the obvious suspect, but that
+  URL is only ~66 chars and the rest is unaccounted for; **do not treat 214 as a
+  confirmed constant until someone diffs a `--page-url` payload against a bare
+  one.** Practical rule for tomorrow: when passing `--page-url`, treat the real
+  budget as **~5,550 projected**, not 5,795, or expect the split. Nothing was
+  lost — splitting preserves every brief, which is why the script prefers it to
+  trimming — but a one-message paper is the standing goal.
