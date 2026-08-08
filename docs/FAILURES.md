@@ -90,3 +90,26 @@ and the failure protocol at the bottom of that file appends here too.
   caught before a blind retry. Relaunched detached and it delivered at 07:00:11.
   Logged because the failure mode is silent: a killed hold looks identical to a
   crashed post, and only the index distinguishes them.
+- **2026-08-08** — *trim* — the validator projected **6,603** chars on the first
+  pass against the 5,800 ceiling. Prose was tightened across the lead and all
+  four wire sections, and the trim ladder was walked one rung: the
+  `mid_ohio_valley` line (Parkersburg SWAT drug warrant, 7th Street, three
+  arrested, WTAP, Aug. 7) **cleared the bar and was dropped for characters, not
+  for sourcing.** Shipped at 5,775. The away desk was already empty, so the
+  regional line was the first thing on the ladder that existed.
+- **2026-08-08** — *sourcing* — `wowktv.com` returned **403** to WebFetch on the
+  Cabell County $4.5M emergency-communications upgrade, the only clean
+  `huntington_cabell` candidate that was not already running as a statewide
+  brief. A search snippet carried enough detail to write from and was
+  deliberately not used. The region ran no line. Note MetroNews opened fine all
+  morning today — yesterday's bot-verification interstitial did not reappear.
+- **2026-08-08** — *near-miss, no reader impact, RECURRENCE of the 2026-08-07
+  entry below* — `post_discord.py` was again launched in the **foreground** and
+  killed by the command timeout while `--not-before 07:00` slept (launched
+  ~6:15, 10-minute timeout, hold ran to 7:00). Nothing posted; `index.json` had
+  no row, which is again how it was caught before a blind retry. Relaunched
+  detached. **Root cause was not the runner but the clock:** this desk had
+  accumulated a felt sense that the run was past 7:00 and never re-read
+  `TZ=America/New_York date` between 6:02 and 6:25, so a sleeping hold was
+  misread as a hung post. The ledger's own 2026-08-07 lessons 1 and 2 say
+  exactly this. **Launch the post detached, first time, every time.**

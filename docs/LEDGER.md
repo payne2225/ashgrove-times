@@ -52,6 +52,7 @@ Four sections, all four maintained every run:
 |---|---|---|
 | 2026-08-08 | **Aki basho tickets go on sale** | Confirmed on the JSA's own English page (`sumo.or.jp/En/`) and printed as No. 2's sumo brief. Do not re-run this fact; it is spent |
 | 2026-08-08 | Chelsea play AC Milan in Jakarta | Preseason friendly. A followed club, so it is a legitimate football brief if anything happens in it |
+| **2026-08-10** | **Nucor Apple Grove site reopens (or does not) after the threat closure** | The mill site closes Monday over a written threat naming that date; FBI, State Police and the Mason County sheriff investigating, sheriff's security posted 10 days. WV MetroNews. A reopening, an arrest, or a second closure is a `huntington_cabell` line or a statewide brief |
 | 2026-08-13 | **Peoples Cartage town hall, Parkersburg** | Independent testing results from the warehouse fire. WTAP. A `mid_ohio_valley` line that night or the morning after |
 | 2026-08-21 | **Premier League 2026-27 opens** | Confirmed via ESPN's fixtures piece. Until then the football beat is transfers and friendlies only, and a quiet football day is the expected outcome, not a failure |
 | **2026-08-31** | **Aki banzuke (rankings) released** | The next genuine sumo news after the ticket date, and the natural moment the Aki dates get confirmed by a citable outlet. Do not print it before it happens |
@@ -81,8 +82,16 @@ Four sections, all four maintained every run:
   closed. **Not run — a missed deadline is only news once someone reports it.**
   Check again 2026-08-08: either it closed and that is a statewide brief, or it
   slipped again and the slip is the story.
-- **wv-flood-aid** — 2026-08-07: **moved, and ran as today's first statewide
-  brief.** Disaster Unemployment Assistance opened for **Lewis and Upshur**
+- **wv-flood-aid** — 2026-08-08: **moved again and led the notebook.** FEMA
+  approved **Individual Assistance for Ritchie and Pleasants** for the July
+  storms (Auburn, in Ritchie, took the worst of it), announced by Morrisey on
+  Friday — so two of the five pending counties are decided, and **Pleasants was
+  the one this ledger was watching.** Separately FEMA **denied** IA and Hazard
+  Mitigation for **Boone and Logan** for the **June 22-23** flooding; WVEMD has
+  **30 days from Aug. 3** to submit more documentation and Morrisey is appealing.
+  **Barbour, Doddridge and Harrison are still pending.** WV MetroNews. News again
+  on any of those three, or on the Boone/Logan appeal outcome (~Sept. 2).
+  Prior state, 2026-08-07: **ran as that day's first statewide brief.** Disaster Unemployment Assistance opened for **Lewis and Upshur**
   (the two counties that already had the $4.5M) covering job losses from the
   Jul. 21–22 storms, tornadoes, flooding, landslides and mudslides; claims file
   by **Oct. 2**, benefits payable to **Feb. 6, 2027**. West Virginia Watch.
@@ -90,6 +99,56 @@ Four sections, all four maintained every run:
   them (three EF2 tornadoes, 5 homes destroyed, 13 badly damaged); Morrisey
   asked for seven in all. News again when any of the five is decided — that is
   the bigger story and it has not happened yet.
+- **mecca-defence-pact** — 2026-08-08: today's lead. Saudi Arabia, Turkey and
+  Pakistan signed the Makkah Joint Defense Agreement in Mecca on Aug. 7 — an
+  armed attack on one is an attack on all. Signed by Mohammed bin Salman,
+  Erdogan and Sharif; Pakistani army chief Asim Munir present. Saudi deputy
+  minister Rayed Krimly said it is not a military axis, not sectarian, not tied
+  to nuclear ambitions. Cross-checked on Al Jazeera, CBS and the OIC's own joint
+  statement (`una-oic.org`), which is the primary text. Backdrop is the US-Israel
+  war on Iran that opened **Feb. 28** and repeated strikes on Saudi territory.
+  **No official Iranian government response yet — an Iranian MP dismissed it.**
+  News again on a Tehran statement, a ratification, or a fourth state joining;
+  the joint statement carries no accession clause, which is worth watching.
+- **nucor-apple-grove-threat** — 2026-08-08: ran as a statewide brief. Written
+  threat naming **Aug. 10**; Nucor closes the Apple Grove site that day; ~500
+  employees plus several hundred contractors; FBI, State Police and Mason County
+  sheriff investigating; sheriff's security for 10 days and a private firm hired.
+  Site is commissioning systems now, production targeted for **2027**.
+  WV MetroNews. **This is the crew's own corridor** — follow Monday.
+- **blanche-confirmed-ag** — 2026-08-08: ran as a U.S. brief. Senate confirmed
+  Todd Blanche **50-49** early Saturday; Collins and Murkowski the only
+  Republican no votes, McConnell absent, Cassidy the deciding yes after a Friday
+  floor speech. NPR. Note he appeared as *acting* AG in the Colombia inauguration
+  delegation the same week. News again on his first major DOJ action.
+- **july-jobs-report** — 2026-08-08: ran as a U.S. brief. Payrolls **-23,000**,
+  unemployment **4.1%**, participation **61.4%**, May and June revised down a
+  combined **103,000**, wages +3.2% year over year. BLS release read directly.
+  Next print is the August report in early September; the Fed angle is the
+  follow-up.
+- **typhoon-dolphin** — 2026-08-08: ran as a World brief. Hit Okinawa Aug. 7 —
+  five injured, 14,000 buildings without power, ANA and JAL regional flights
+  cancelled. Landfall expected **late Sunday to early Monday** between Zhoushan
+  (Zhejiang) and Fuding (Fujian); Zhejiang at top alert, 162 ferry routes
+  suspended, Ningbo airport suspending Sunday flights; eastern Zhejiang could
+  take **600 mm**. The Jakarta Post. **Landfall is Sunday — this is Monday's
+  story with a real toll attached.**
+- **colombia-de-la-espriella** — 2026-08-08: ran as a World brief. Abelardo de
+  la Espriella inaugurated Aug. 7 in Cali (moved from Bogota), after a razor-thin
+  June runoff over Ivan Cepeda; "mano dura" platform, hard line on
+  narcotraffickers. Trump endorsed him; the US delegation included then-acting
+  AG Todd Blanche. Outgoing president Petro alleged fraud without evidence.
+  PBS NewsHour. News again on a first policy move or a US security agreement.
+- **sudan-education** — 2026-08-08: ran as a World brief, distinct from
+  `sudan-el-obeid`. UN Deputy Secretary-General Amina Mohammed told an informal
+  Security Council session Friday that **8M+** children are out of school on the
+  war's **1,210th** day; five of every six children in Darfur out of school;
+  67+ attacks on schools and 154 instances of military use of schools since
+  2024; more than half of teachers unpaid. Al Jazeera.
+- **wvu-hall-of-fame-2026** — 2026-08-08: ran as a Sports brief. Seven named
+  Friday — Beilein, Buchanan, Fowlkes, Holmes, Kasich, Lawrence, Turnbull.
+  Beilein went 104-60 at WVU 2003-07. **Induction Oct. 10 before the Arizona
+  game** — that is the next news, not before.
 - **wvu-qb-battle** — 2026-08-05: camp opened with no starter named between
   Scotty Fox Jr. and Michael Hawkins Jr. WVU Athletics. Resolves before the
   opener; local readers care.
@@ -170,6 +229,35 @@ Four sections, all four maintained every run:
 -->
 
 ## 4. Recently covered
+
+### 2026-08-08 — No. 4
+- lead: mecca-defence-pact
+- us: blanche-confirmed-ag, july-jobs-report, ice-bodycam-policy
+- world: typhoon-dolphin, colombia-de-la-espriella, sudan-education
+- wv statewide: wv-flood-aid (FEMA: Ritchie/Pleasants in, Boone/Logan denied),
+  nucor-apple-grove-threat
+- wv regional: putnam_kanawha — kanawha-deputy-federal-custody
+- wv away: **none** — Vermont had a live candidate (three Democrats running for
+  the Bennington County sheriff's seat, Brattleboro Reformer, Aug. 7) that was
+  **not opened**, so it did not run; Prince George had nothing; Topsail carried
+  by its fishing line
+- sports: wvu-hall-of-fame-2026, chelsea-milan-jakarta
+- scitech: ucla-phonon-focusing, sunlight-entanglement, teen-cannabis-cognition
+- huntington_cabell: **no line** — the day's corridor story (Nucor at Apple
+  Grove) ran as a statewide brief, and the only other candidate 403'd
+- mid_ohio_valley: **line written, sourced, and cut for budget** (Parkersburg
+  SWAT warrant, WTAP) — see `docs/FAILURES.md`
+- nicholas_webster, summers_new_river: **no line** — searched, nothing but
+  forward-dated events (an Aug. 23 DUI checkpoint, an Aug. 30 lake cleanup, a
+  mobile screening unit). Standing events are not news; correct outcome
+- **sumo: sat out, second day running.** Off-basho, dedicated search run. The
+  Aug. 8 Aki ticket on-sale date **arrived today and is still spent** — No. 2
+  printed it and it must not be re-run. Correct edition per Ian's rule
+- **Do not re-run tomorrow without movement:** the pact signing itself (a Tehran
+  response or a ratification is the news); the Blanche vote; the July jobs print;
+  the Hall of Fame class (Oct. 10 is the news); the Chelsea-Milan friendly, whose
+  **result was not knowable at press time — kickoff was 7 a.m. ET, and a Sunday
+  brief should carry the score, not the fixture**
 
 ### 2026-08-07 — No. 3
 - lead: birthright-citizenship-eos
@@ -274,3 +362,35 @@ Four sections, all four maintained every run:
   Budget held: validator projected 6,077 on the first pass, prose was tightened
   to 5,694, and the post-time trimmer never engaged. Two-brief sections in U.S.,
   Sports and Sci/Tech were the honest cost of that ceiling, not thin research.
+- **2026-08-08** — No. 4. Validator projected **6,603** on the first pass, the
+  worst overshoot yet, and the paper still shipped a full 3-brief U.S. and World
+  at **5,775** — the cost was one sourced notebook line and a lot of tightening.
+  Three things for the next shift:
+
+  **1. The foreground-post failure repeated, and the real cause was the clock,
+  not the runner.** `post_discord.py` was launched in the foreground again and
+  killed mid-hold. But the reason it was launched that way is that this desk had
+  drifted into believing it was past 7:00 — elapsed research *felt* like 75
+  minutes when it was 23. Between 6:02 and 6:25 the clock was never re-read.
+  Yesterday's ledger says both halves of this ("run it detached", "read the
+  clock, do not feel it") and both were still got wrong. **`index.json` caught it
+  a second time.** That gate is now the only thing standing between this mistake
+  and a lost paper; treat `TZ=America/New_York date` as mandatory before any
+  decision that depends on the hour.
+
+  **2. Poll-Pages-before-posting worked again and should stay the default.** The
+  permalink was 404 twice and went **200 about 25 seconds after the push**, so
+  `--page-url` shipped in the original message and `--backfill-link` was not
+  needed. Second edition running to do it that way.
+
+  **3. The lead was a genuinely multi-sourced foreign story and the primary text
+  was reachable.** Al Jazeera and CBS both opened, and the OIC's own joint
+  statement at `una-oic.org` carried the operative clause verbatim — better than
+  either. **When a summit produces a communique, look for the issuing body's own
+  English page before settling for wire paraphrase.** Reuters/AP/BBC/Guardian
+  were never needed and are still blocked.
+
+  Also noted: `wowktv.com` 403'd (new; WSAZ and MetroNews both fine today), and
+  the sci/tech section ran three university/journal releases read via
+  ScienceDaily's reproductions — `source` names the institution that did the
+  work, which is what the facts trace to.
