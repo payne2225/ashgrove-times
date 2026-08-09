@@ -138,3 +138,42 @@ and the failure protocol at the bottom of that file appends here too.
   budget as **~5,550 projected**, not 5,795, or expect the split. Nothing was
   lost — splitting preserves every brief, which is why the script prefers it to
   trimming — but a one-message paper is the standing goal.
+- **2026-08-09** — *fishing omission* — USGS 03186500 (Williams River at Cowen)
+  returned **503** on the only fetch, so `williams` was `null` and the notebook
+  ran **one** fishing line, Topsail only. No line was written for the Williams
+  and no reading was carried forward. Routine per the failure protocol, logged
+  because a run of these is a fetcher problem rather than a morning's bad luck:
+  this is the **first** Williams omission in five editions (Nos. 2, 3 and 4 all
+  carried a flow). Side effect worth noting for the sketch desk: the rung-3 art
+  fallback lost its usual subject, so the drawing came off **rung 1** instead.
+- **2026-08-09** — *budget trim* — one sourced, opened `huntington_cabell` line
+  (Milton's water-line replacement and Kilgore Creek tank, phase one starting
+  2027, WCHS) was **written and cut** to hold the embed budget, along with a
+  round of tightening across the lead and eight summaries. Validator projected
+  **6,217** on the first pass; the cut and the tightening brought it to 5,529.
+  The line was the weakest thing in the notebook anyway — it is an announcement
+  about next year, not an event inside 48 hours — so the cut ladder took the
+  right rung first. The notebook ran one regional line and no away line.
+- **2026-08-09** — *thin section* — Sports ran **two** briefs (Chelsea's 3-0
+  friendly, the WPBL debut). Off-basho sumo sat out for the third straight day
+  after a full dedicated search, and WVU/Marshall had only practice reports. Per
+  Ian's rule the absent sumo brief is not itself a degraded path; the two-brief
+  section is, and it is logged as one.
+- **2026-08-09** — *three near-misses, caught before publication, RECURRENCE of
+  the 2026-08-08 snippet entry* — three clauses drafted from **search-result
+  snippets of pages that were never opened** survived a full validate-and-render
+  cycle and were caught during the delivery hold, on a deliberate re-read of
+  every brief against the source actually fetched. (1) Sports said Caicedo
+  "volleyed" his goal — AC Milan's own match report, the page read, gives the
+  minute and no volley; the word came from a Yahoo/heavy.com snippet. (2) U.S.
+  said "The House returns in September" and "sanctions Putin, oligarchs and
+  state firms" — NPR's article says only that it must clear the House and that
+  it sanctions top Russian officials. (3) Sci/Tech rounded BMJ's ">30%" to
+  "30%". All three were re-written to the fetched text, the edition was
+  re-validated, re-rendered and re-pushed, and the held post was killed and
+  relaunched twice (nothing had posted; `index.json` was empty both times).
+  **The pattern is now two days running and it is the same pattern:** the
+  snippet is fluent and specific, it reads like something you fetched, and
+  nothing downstream can catch it. The only defence that has worked twice is
+  re-reading the draft against the fetched sources while the hold sleeps —
+  make it a standing step, not a lucky habit.

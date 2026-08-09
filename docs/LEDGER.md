@@ -58,11 +58,104 @@ Four sections, all four maintained every run:
 | **2026-08-31** | **Aki banzuke (rankings) released** | The next genuine sumo news after the ticket date, and the natural moment the Aki dates get confirmed by a citable outlet. Do not print it before it happens |
 | 2026-09-10 | WV charter board bylaws vote | Postponed from Aug. 6. WV MetroNews. Small, but it is the follow-up to today's statewide brief |
 | 2026-10-02 | DUA filing deadline, Lewis and Upshur | Claims close; benefits run to Feb. 6, 2027. West Virginia Watch |
-| 2026-09-13 → 2026-09-27 | **Aki basho (Tokyo)** — *derived, still unconfirmed* | Second-Sunday estimate from `config.basho_window(2026, 9)`. 2026-08-06: the only sources carrying Sept. 13–27 at Ryogoku Kokugikan were ticket-reseller and travel sites, which this paper does not cite. **2026-08-07: searched again, same result** — travel sites only, and `sumo.or.jp/EnHonbashoTopics/banzuke_topics/` now returns a Japanese URL-error page rather than banzuke content. Try Kyodo, Japan Times or NHK at the **Aug. 31 banzuke release**, which is when a citable outlet will have to print the dates. Confirm before covering. During a basho, sumo usually wins the Sports lead |
+| 2026-08-13 | **Hope Scholarship first payments** | $5,435.62 each to 25,000+ students, two days ahead of schedule. WV MetroNews. Ran as No. 5's first statewide brief; the news on the day is whether the money actually lands |
+| 2026-08-15 | Italy's Schengen suspension with Spain runs to at least this date | Rome said it expects another crossing attempt. Spain's counter-controls run to Sept. 7. Euronews |
+| ~2026-09-02 | **FEMA appeal window closes on the Boone/Logan denial** | WVEMD had 30 days from Aug. 3 to file more documentation; Morrisey is appealing. WV MetroNews |
+| 2026-09-07 | Spain's border controls on Italian travellers expire | Euronews |
+| 2027-01-01 | **WVU Medicine/Fulton County Medical Center closing** | Non-binding LOI signed April 2026; needs regulatory approval. WV MetroNews. Ran as No. 5's second statewide brief — do not re-run before the close |
+| 2026-09-13 → 2026-09-27 | **Aki basho (Tokyo)** — *derived, still unconfirmed* | Second-Sunday estimate from `config.basho_window(2026, 9)`. 2026-08-06: the only sources carrying Sept. 13–27 at Ryogoku Kokugikan were ticket-reseller and travel sites, which this paper does not cite. **2026-08-07 and 2026-08-09: searched again, same result both mornings** — travel and ticket-reseller sites only, and `sumo.or.jp/EnHonbashoTopics/banzuke_topics/` now returns a Japanese URL-error page rather than banzuke content. Try Kyodo, Japan Times or NHK at the **Aug. 31 banzuke release**, which is when a citable outlet will have to print the dates. Confirm before covering. During a basho, sumo usually wins the Sports lead |
 | 2026-11-08 → 2026-11-22 | **Kyushu basho (Fukuoka)** — *derived, unconfirmed* | Same derivation. Note it opens the week after the cron switch above |
 
 ## 3. Open threads
 
+- **hormuz-reopening** — 2026-08-09: **moved hard, and led No. 5.** Iran's
+  Supreme National Security Council, via secretary Mohammad Bagher Zolghadr
+  (also an IRGC commander), said the strait will not reopen until the US
+  "corrects its behavior" and set **six conditions**: an end to US threats, a
+  permanent halt to attacks on Iran and its allies in Lebanon, Palestine, Yemen
+  and Iraq, lifting the naval blockade and withdrawing from Iranian waters,
+  compensation for two wars, an end to sanctions, and unconditional release of
+  frozen assets. **That is broader than the June 17 MoU and recasts phased,
+  reciprocal steps as preconditions** — Al Jazeera's own framing, and the point
+  of the story. Simultaneously Iran and Oman have nearly settled a corridor
+  plan: inbound through Iranian waters, outbound through Omani waters, interim
+  60 days. Araghchi called it "very close"; Pezeshkian said "now is the best
+  time for an agreement." US position (Al Jazeera, citing Reuters) ties lifting
+  the port blockade to restored unimpeded shipping — reciprocal, not
+  conditional. Cross-checked on NBC News and CSMonitor; NBC adds an **ADNOC
+  vessel hit by an Iranian missile early Saturday**, one crew member killed and
+  20 wounded across a dozen-plus ADNOC ships since February. Al Jazeera also
+  reported Brent near **$83**, the rial at 1.85M/dollar, Tehran's exchange +2%.
+  **The 60-day negotiating window ends in about a week (CSMonitor).** News again
+  on a signed arrangement, a US answer to the six conditions, or the window
+  lapsing.
+- **typhoon-dolphin** — 2026-08-09: **ran as a World brief for the second day,
+  and it moved.** Red alert (China's most severe) issued Sunday morning;
+  ~500,000 moved, including 390,000 from Taizhou, 30,000+ from Shanghai and
+  99,000 in Fujian; **1,600+ flights cancelled**, ~1,400 of them at Shanghai's
+  two airports and 270 at Hangzhou; 200+ ferry routes suspended; 250-500mm
+  forecast for central and eastern Zhejiang; sustained winds to 162 km/h.
+  Okinawa: seven injured, 50,000+ buildings cut off. Landfall was expected
+  **overnight Sunday into Monday** near Yuhuan/Wenling — *some outlets were
+  already reporting landfall Sunday morning and the paper deliberately wrote
+  "nears landfall" instead, following the source it had actually opened.*
+  Al Jazeera. **Monday's follow-up is the toll and the rain totals.**
+- **bc-wildfires** — 2026-08-09: new, ran as a World brief. Premier David Eby
+  declared a provincial state of emergency Saturday; 100+ fires, nearly half out
+  of control; **20,000+ evacuated**, Summerland (~12,000) and Peachland (~8,000)
+  ordered out; the Bald Range fire grew to ~50 sq km in hours. PBS NewsHour.
+  **This is the Okanagan, not Prince George** — checked, and Kirsten's region is
+  not named in the coverage, which is why it ran in World and not on the away
+  desk. If it reaches the north, it becomes a `prince_george` away line.
+- **spain-italy-ceuta** — 2026-08-09: new, ran as a World brief. Spain's
+  retaliatory border controls on Italian travellers began at midnight Saturday
+  and run to **Sept. 7**; Italy's own checks started **Aug. 1** and hold to at
+  least **Aug. 15**. Rome: "Italy does not accept ultimatums." Trigger was
+  **72,000** migrants arriving at Ceuta from Morocco in late July; 1,342
+  children remain, many unaccompanied. Euronews. News again on an EU Commission
+  intervention or either side standing down.
+- **hope-scholarship-2026** — 2026-08-09: new, ran as No. 5's first statewide
+  brief. 25,000+ students approved for 2026-27 out of nearly 29,000 started
+  applications; **$5,435.62** each; 1,485 providers; first quarterly payments
+  **Aug. 13**, two days early. All K-12 students are now eligible. Treasurer
+  Larry Pack quoted. WV MetroNews. Partial-award deadlines run Sept. 15 (75%),
+  Nov. 30 (50%) and Feb. 28, 2027 (25%) — those are the next hooks.
+- **wvu-medicine-fulton** — 2026-08-09: new, ran as No. 5's second statewide
+  brief. WVU Health System will acquire **Fulton County Medical Center**,
+  McConnellsburg, Pa. — 21 critical-access beds, a 67-bed nursing home, 415+
+  employees — investing up to **$17M over seven years**. LOI April 2026, close
+  targeted **Jan. 1, 2027**. Follows the five Independence Health System
+  hospitals. WV MetroNews. **Do not re-run before the close.**
+- **meta-nm-child-safety** — 2026-08-09: ran as a U.S. brief. Judge Bryan
+  Biedscheid ordered **$567M** into an abatement fund on top of March's $375M
+  jury award (**$942M** total), plus New Mexico-only safeguards: 90-hour monthly
+  cap for under-18s, hidden like counts by default, AI chatbot limits, stronger
+  age verification, adult-messaging restrictions. **$420M** of the fund is for
+  youth treatment. Meta will appeal and has no implementation deadline.
+  PBS NewsHour. News again on the appeal or a second state copying the order.
+- **graham-sanctions-act** — 2026-08-09: ran as a U.S. brief. Senate passed the
+  Russia and Iran sanctions bill **86-11** on Aug. 7, named for the late Sen.
+  Lindsey Graham (died July 2026). Sanctions top Russian officials, extends Iran
+  sanctions, authorizes tariffs up to 100% on major buyers of Russian energy.
+  **Must still clear the House**, where Speaker Johnson supports it and some
+  Democrats object to the tariff authority. NPR. News again on a House vote.
+- **jalapeno-salmonella** — 2026-08-09: ran as a U.S. brief. **345 sick as of
+  Aug. 5 across 27+ states, 36 hospitalized**, Minnesota worst at 110; USDA FSIS
+  public health alert Saturday naming 18 recalled products; peppers from
+  Sinaloa, Mexico, via Coast Citrus. FSIS expects more downstream products.
+  CBS News. **A rising count or a death makes it news again — re-check the
+  number before citing it.**
+- **wpbl-first-season** — 2026-08-09: ran as a Sports brief. The Women's
+  Professional Baseball League debuted Saturday before a sold-out crowd at Robin
+  Roberts Stadium, Springfield, Ill.; four clubs (NY Heights, LA Queens, Boston
+  Hunters, SF Firebells); six-week inaugural season played centrally in
+  Springfield; fifth women's pro league in US history. NPR.
+- **chelsea-preseason** — 2026-08-09: ran as the football brief. **Chelsea 3-0
+  AC Milan** in Jakarta, Aug. 8: Joao Pedro 45+2' (glancing home a Caicedo
+  corner) and 46', Caicedo 50'. Read on AC Milan's own match report, which is
+  where the minutes came from. Milan's last friendly is **Aug. 15 v Man United
+  in Wroclaw**. **Premier League opens Aug. 21** — until then football is
+  friendlies and transfers, and a quiet football day is expected.
 - **hormuz-reopening** — 2026-08-06: still unsigned. Trump said a deal could
   land Aug. 5 or 6 and it did not; the draft is reported to be awaiting
   Khamenei's sign-off, and the service-fee dispute is unresolved. Al Jazeera /
@@ -229,6 +322,38 @@ Four sections, all four maintained every run:
 -->
 
 ## 4. Recently covered
+
+### 2026-08-09 — No. 5
+- lead: hormuz-six-conditions
+- us: graham-sanctions-act, meta-nm-child-safety, jalapeno-salmonella
+- world: typhoon-dolphin, bc-wildfires, spain-italy-ceuta
+- wv statewide: hope-scholarship-2026, wvu-medicine-fulton
+- wv regional: putnam_kanawha — buffalo-crossing-collision
+- wv away: **none** — Vermont's only fresh item was a library summer-reading
+  feature (VTDigger, Aug. 8), Prince George had nothing, Topsail was carried by
+  its fishing line. Third straight edition with an empty away desk
+- sports: chelsea-preseason, wpbl-first-season
+- scitech: hillsborough-meteorite, sun-microvortices, exercise-dose-heart
+- huntington_cabell: **line written, sourced, opened, and cut for budget**
+  (Milton water-line replacement, WCHS) — see `docs/FAILURES.md`. It was also
+  the weakest thing in the notebook: an announcement about 2027, not an event
+- mid_ohio_valley, nicholas_webster, summers_new_river: **no line** — searched;
+  Parkersburg had festivals and a two-day-old SWAT warrant already cut once,
+  Nicholas/Webster had the same forward-dated items as Friday (Aug. 23
+  checkpoint, Aug. 30 lake cleanup), Summers/New River had nothing at all
+- **fishing: Williams omitted, USGS 503.** Topsail only. First Williams omission
+  of the run — see `docs/FAILURES.md`
+- **sumo: sat out, third day running.** Off-basho, full dedicated search. The
+  Aki dates are *still* carried only by travel and ticket-reseller sites; Japan
+  Times' basho-schedule page now returns **402** and `sumo.or.jp/En/` shows a
+  September banner with no dates on it. **Aug. 31 banzuke is the next real
+  hook.** Correct edition per Ian's rule
+- **Do not re-run tomorrow without movement:** the six conditions themselves (a
+  US answer or a signed corridor deal is the news); the Senate sanctions vote
+  (the House is the news); the Meta order (the appeal is the news); the Hope
+  Scholarship approval (Aug. 13 payment day is the news); the WVU Medicine LOI
+  (Jan. 1 close); the WPBL opening day; the Chelsea friendly. **Typhoon Dolphin
+  is the exception — Monday has a real toll attached and it should run.**
 
 ### 2026-08-08 — No. 4
 - lead: mecca-defence-pact
@@ -401,3 +526,46 @@ Four sections, all four maintained every run:
   the sci/tech section ran three university/journal releases read via
   ScienceDaily's reproductions — `source` names the institution that did the
   work, which is what the facts trace to.
+- **2026-08-09** — No. 5 posted at **07:00:05 ET**, one message, **5,636** embed
+  chars, hero attached, permalink in the original post, `degraded: []`. Four
+  things for the next shift:
+
+  **1. The +214 budget mystery is smaller than it looked: today it was +107.**
+  Validator projected **5,529**, `post_discord.py` sent **5,636**, both with
+  `--page-url`. Yesterday the same pair was 5,795 → 6,009 (+214). So the delta
+  is **not a constant**, and treating 214 as one is what cost No. 4 four rounds
+  of pointless tightening. Two data points say it scales with something —
+  probably per-embed chrome, since No. 4 carried more notebook lines. Working
+  rule until someone diffs the payloads properly: **budget to ~5,550 projected
+  and expect roughly +2% at send.** Today that landed a comfortable single
+  message with 164 chars of headroom.
+
+  **2. Launching the post detached worked the first time, and the clock was
+  read five times.** No repeat of the No. 3/No. 4 foreground-timeout failure.
+  The hold reported "waited 34 min to post at 07:00 ET" and delivered on the
+  second. `TZ=America/New_York date` was run before every decision that
+  depended on the hour — and it mattered, because at 6:22 this desk again *felt*
+  later than it was. **Read the clock; do not feel it.** Third edition running
+  where that sentence is the lesson.
+
+  **3. Re-read every brief against its fetched source while the hold sleeps.**
+  Three snippet-derived clauses were caught that way today, one day after the
+  same class of error was caught the same way (`docs/FAILURES.md`). The hold is
+  ~35 minutes of free time and this is the highest-value thing to spend it on.
+  It cost two kill-and-relaunch cycles of the held post, which is cheap and
+  safe: nothing had posted, `index.json` was empty both times, and the payload
+  is frozen when the process starts — **so editing the JSON after launch does
+  nothing; you must relaunch.**
+
+  **4. Poll-Pages-before-posting is now 3-for-3.** The permalink went 200 about
+  **10 seconds** after the push, so `--page-url` shipped in the original message
+  and `--backfill-link` was never needed. Keep it the default.
+
+  Also noted: `westvirginiawatch.com` **403'd** (new — it opened fine on Aug. 7);
+  `herald-dispatch.com` returned **429** on its recent-news index; `seti.org` and
+  `japantimes.co.jp` both refused (403/402), so the meteorite and sun briefs were
+  read via ScienceDaily's reproductions with `source` naming the institution that
+  did the work, same as No. 4. Both WV statewide briefs came from **WV MetroNews**
+  — acceptable at two, but a third would have broken the three-bylines rule, and
+  no other WV outlet had a statewide story worth the slot on a Saturday.
+
