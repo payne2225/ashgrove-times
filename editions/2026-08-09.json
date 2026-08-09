@@ -1,0 +1,180 @@
+{
+  "edition_date": "2026-08-09",
+  "edition_number": 5,
+  "volume": "I",
+  "lead": {
+    "headline": "Iran sets six conditions for reopening the Strait of Hormuz",
+    "dek": "Tehran's terms reach past the June memorandum even as an Oman corridor deal nears",
+    "byline": "Wire Reports",
+    "body": [
+      "Iran's Supreme National Security Council said the Strait of Hormuz will not reopen until the United States \"corrects its behavior,\" setting out six conditions in a statement carried by Iranian state media on Saturday.",
+      "Council secretary Mohammad Bagher Zolghadr, a Revolutionary Guard commander, demanded an end to U.S. threats, a permanent halt to attacks on Iran and its allies, a lifting of the naval blockade, compensation for two wars, an end to sanctions and the release of frozen assets.",
+      "The list goes beyond the June 17 memorandum, recasting phased steps as preconditions. Iran and Oman have nearly settled a corridor plan routing inbound traffic through Iranian waters and outbound through Omani waters for 60 days. Foreign Minister Abbas Araghchi called it very close."
+    ],
+    "stat_strip": [
+      {
+        "label": "S&P 500",
+        "value": "7,757.64",
+        "change": "+0.62%",
+        "direction": "up"
+      },
+      {
+        "label": "Dow",
+        "value": "54,036.93",
+        "change": "+0.28%",
+        "direction": "up"
+      },
+      {
+        "label": "Nasdaq",
+        "value": "26,690.62",
+        "change": "+1.30%",
+        "direction": "up"
+      },
+      {
+        "label": "Bitcoin",
+        "value": "$64,847",
+        "change": "-0.17%",
+        "direction": "down"
+      }
+    ],
+    "art": {
+      "file": "art/2026-08-09-lead.svg",
+      "caption": "Small craft lie at anchor on flat water below the bare coastal mountains at the mouth of the strait.",
+      "credit": "Sketched from an Al Jazeera photograph"
+    }
+  },
+  "sections": [
+    {
+      "id": "us",
+      "label": "U.S.",
+      "briefs": [
+        {
+          "headline": "Senate passes Russia and Iran sanctions bill 86-11",
+          "summary": "It sanctions Putin, oligarchs and state firms and allows tariffs up to 100% on buyers of Russian energy. The House returns in September.",
+          "source": "NPR",
+          "url": "https://www.npr.org/2026/08/07/nx-s1-5924914/"
+        },
+        {
+          "headline": "New Mexico judge orders Meta to pay $567M over child harms",
+          "summary": "The judge also ordered safeguards for minors, among them a 90-hour monthly cap and hidden like counts. Meta said it will appeal.",
+          "source": "PBS NewsHour",
+          "url": "https://www.pbs.org/newshour/nation/a-new-mexico-judge-ordered-new-child-safeguards-for-meta-advocates-hope-other-courts-follow"
+        },
+        {
+          "headline": "Salmonella tied to jalapenos sickens 345 in 27 states",
+          "summary": "The USDA flagged 18 recalled meat and poultry products Saturday and reported 36 hospitalizations.",
+          "source": "CBS News",
+          "url": "https://www.cbsnews.com/news/salmonella-outbreak-jalapenos-usda-health-alert-meat-products/"
+        }
+      ]
+    },
+    {
+      "id": "world",
+      "label": "World",
+      "briefs": [
+        {
+          "headline": "China moves 500,000 as Typhoon Dolphin nears landfall",
+          "summary": "More than 1,600 flights were cancelled, most at Shanghai's airports, under a red alert. Parts of Zhejiang could take 500mm of rain.",
+          "source": "Al Jazeera",
+          "url": "https://www.aljazeera.com/news/2026/8/9/flight-cancellations-evacuations-as-china-braces-for-typhoon-dolphin"
+        },
+        {
+          "headline": "British Columbia declares emergency as 20,000 flee fires",
+          "summary": "Premier David Eby acted Saturday with more than 100 fires burning, nearly half out of control. Summerland and Peachland were emptied.",
+          "source": "PBS NewsHour",
+          "url": "https://www.pbs.org/newshour/world/wildfires-force-20000-to-flee-as-british-columbia-declares-state-of-emergency"
+        },
+        {
+          "headline": "Spain imposes border checks on Italy in Ceuta migration row",
+          "summary": "Controls began at midnight Saturday and run to Sept. 7, answering Italy's own.",
+          "source": "Euronews",
+          "url": "https://www.euronews.com/my-europe/2026/08/07/spain-gives-italy-two-days-to-lift-border-checks-on-spanish-travellers-after-ceuta-migrant"
+        }
+      ]
+    },
+    {
+      "id": "wv",
+      "label": "West Virginia",
+      "notebook_title": "Mountaineer State Notebook",
+      "briefs": [
+        {
+          "headline": "25,000 Hope Scholarship students get first payments Aug. 13",
+          "summary": "The award is $5,435.62 for 2026-27 and 1,485 providers are enrolled. Treasurer Larry Pack said the money is going out early.",
+          "source": "WV MetroNews",
+          "url": "https://wvmetronews.com/2026/08/08/more-than-25000-hope-scholarship-students-to-receive-first-round-of-funding-next-week/"
+        },
+        {
+          "headline": "WVU Medicine moves to acquire a Pennsylvania hospital",
+          "summary": "It would take on Fulton County Medical Center in McConnellsburg, 21 beds and 415 employees, and invest up to $17M over seven years.",
+          "source": "WV MetroNews",
+          "url": "https://wvmetronews.com/2026/08/08/wvu-medicine-announces-plans-to-acquire-pennsylvania-hospital/"
+        }
+      ],
+      "regional": [
+        {
+          "region_id": "putnam_kanawha",
+          "place": "Putnam / Kanawha - Charleston",
+          "people": [
+            "Nate"
+          ],
+          "item": "A train struck a vehicle at a Buffalo crossing Saturday afternoon, injuring one person.",
+          "source": "WSAZ",
+          "url": "https://www.wsaz.com/2026/08/09/1-person-injured-train-vehicle-collision/"
+        }
+      ],
+      "away": [],
+      "fishing": [
+        {
+          "water": "Topsail Beach (surf and sound)",
+          "line": "Sound highs 5:24 a.m. and 6:09 p.m.; water 79.2F at Wrightsville Beach, 25 miles down the coast.",
+          "source": "NOAA CO-OPS 8657813"
+        }
+      ]
+    },
+    {
+      "id": "sports",
+      "label": "Sports",
+      "briefs": [
+        {
+          "headline": "Chelsea beats AC Milan 3-0 in Jakarta friendly",
+          "summary": "Joao Pedro headed in a corner in first-half stoppage time and scored again a minute after the break; Moises Caicedo volleyed a third.",
+          "source": "AC Milan",
+          "url": "https://www.acmilan.com/en/news/articles/ac-milan-tour/2026-08-08/rossoneri-beaten-by-chelsea-in-jakarta"
+        },
+        {
+          "headline": "Women's Professional Baseball League opens first season",
+          "summary": "Four teams debuted Saturday before a sold-out crowd in Springfield, Illinois. The six-week season runs at one central ballpark.",
+          "source": "NPR",
+          "url": "https://www.npr.org/2026/08/08/nx-s1-5923371/"
+        }
+      ]
+    },
+    {
+      "id": "scitech",
+      "label": "Science & Technology",
+      "briefs": [
+        {
+          "headline": "Meteorite that hit a New Jersey roof holds amino acids",
+          "summary": "The Hillsborough stone, a rare CM1/2 chondrite, carries salts left by brines on its parent asteroid, per Science Advances.",
+          "source": "SETI Institute",
+          "url": "https://www.sciencedaily.com/releases/2026/08/260807035145.htm"
+        },
+        {
+          "headline": "Telescope resolves 20-kilometer whirlpools on the Sun",
+          "summary": "The Inouye Solar Telescope caught plasma vortices at granule edges that may twist magnetic field lines, researchers report in Nature.",
+          "source": "Max Planck Institute",
+          "url": "https://www.sciencedaily.com/releases/2026/08/260807035142.htm"
+        },
+        {
+          "headline": "Heart benefit lands nearer 560 minutes a week than 150",
+          "summary": "Among 17,088 UK Biobank participants followed 7.8 years, 150 minutes cut cardiovascular risk 8% to 9%; 560 to 610 cut it 30%.",
+          "source": "BMJ Group",
+          "url": "https://www.sciencedaily.com/releases/2026/08/260806050724.htm"
+        }
+      ]
+    }
+  ],
+  "weather_ear": "The weather desk files at 7:15, right behind this page.",
+  "kicker": "Sports runs two briefs; a full sumo search found nothing citable between tournaments for a third day.",
+  "sources_note": "Compiled from wire reports"
+}
