@@ -757,14 +757,14 @@ Four sections, all four maintained every run:
   did the work, same as No. 4. Both WV statewide briefs came from **WV MetroNews**
   — acceptable at two, but a third would have broken the three-bylines rule, and
   no other WV outlet had a statewide story worth the slot on a Saturday.
-- **2026-08-10** — No. 6. **DELIVERY PENDING AT THE TIME THIS WAS WRITTEN** —
-  committed at 06:33 ET while `post_discord.py` was still sleeping on
-  `--not-before 07:00`, so the post-time facts (message id, embed chars at send,
-  message count) are recorded in the commit that follows this one. `index.json`
-  had no 2026-08-10 row when this was written; **if that row is still missing or
-  `posted: false`, this edition did not ship and the notes below describe an
-  edition that was written, validated, rendered and pushed but never posted.**
-  Four things for the next shift:
+- **2026-08-10** — No. 6 posted at **07:00:08 ET**, one message, **5,578** embed
+  chars, hero attached, permalink in the original post, `degraded: []`. (The
+  ledger body below was committed at 06:33 while the post was still holding, with
+  a delivery-pending marker; this line replaced it once `index.json` recorded
+  `posted: true`, message **1536328261359894674**. Committing the ledger before
+  delivery is a deviation from §10 — done only because a clean working tree was
+  required at that moment — and the marker was the safeguard. Prefer the §10
+  order when nothing forces the issue.) Five things for the next shift:
 
   **1. The first draft projected 7,206 against a 5,800 ceiling — the worst
   overshoot of the run — and the fix cost three sourced briefs.** 15 briefs plus
@@ -797,6 +797,18 @@ Four sections, all four maintained every run:
   drawing to look at it before shipping**, which no previous run has done. That
   is now cheap and repeatable: `currentColor` and `var(--parchment, …)` have to
   be substituted for literals first or CairoSVG throws on the `var()`.
+
+  **5. The projection-to-send delta is +107 for the second morning running, and
+  the No. 4 outlier is explained.** No. 5: 5,529 → 5,636. No. 6: **5,471 →
+  5,578.** Both **exactly +107**, both one message, both with `--page-url`.
+  No. 4's +214 is 2 × 107 — and No. 4 **split into two messages**. So the delta
+  is not mysterious and not proportional to notebook size as No. 5's note
+  guessed: it looks like a **fixed ~107 chars of per-message chrome**. Working
+  rule for the next shift: **projected + 107 × (expected messages)**, so a
+  single-message paper can safely be budgeted to about **5,690 projected**
+  rather than the cautious 5,550 that has been used for three days. That is
+  ~140 chars of headroom recovered, which is most of a notebook line. Confirm it
+  once more before relying on it; three points is not a law.
 
   Also noted: two sections ran on two outlets rather than three (World was PBS,
   Euronews and **Copernicus's own bulletin page** — going to the primary for the
