@@ -177,3 +177,41 @@ and the failure protocol at the bottom of that file appends here too.
   nothing downstream can catch it. The only defence that has worked twice is
   re-reading the draft against the fetched sources while the hold sleeps —
   make it a standing step, not a lucky habit.
+- **2026-08-10** — *budget trim, three briefs and one lead paragraph cut* — the
+  first full draft projected **7,206** chars against the 5,800 ceiling, the
+  worst overshoot of the run so far, because it carried 15 briefs plus a
+  three-paragraph lead. The cut ladder was worked in order and stopped as soon
+  as it was under: the lead went from three paragraphs to two (the contract
+  allows either), the **third WV statewide brief** was dropped (Hope Gas's 7%
+  purchased-gas filing with the PSC, WV MetroNews — written, sourced, opened),
+  the **third Sci/Tech brief** was dropped (Lancaster University on Saturn's
+  magnetospheric cusp, *Nature Communications* — written, sourced, opened), and
+  finally the **third U.S. brief** was dropped (the National Indian Gaming
+  Commission's seven-month vacancy, PBS NewsHour — written, sourced, opened).
+  Landed at **5,471**. Note the ladder in `edition.md` §5 says notebook lines go
+  before wire briefs, and here there was only **one** regional line and **no**
+  away line to give — the notebook was already lean, so the pressure fell
+  entirely on the wire sections. **The real lesson is upstream of the ladder:**
+  15 briefs plus a 3-paragraph lead plus a notebook has never fit and the
+  arithmetic was knowable before drafting. Decide the brief count *first* —
+  roughly 12 briefs with a lean notebook — rather than writing 15 and cutting 3.
+- **2026-08-10** — *thin sections* — U.S. and Sci/Tech each ran **two** briefs,
+  and WV statewide ran **two**. All three were budget cuts, not thin research;
+  the dropped items are named in the entry above. Sports ran without sumo for a
+  fourth straight day after a full dedicated search, which per Ian's rule is not
+  itself a degraded path.
+- **2026-08-10** — *two fidelity drifts, caught before publication, THIRD DAY
+  RUNNING for this class of error* — the re-read-against-source pass during the
+  delivery hold caught two WV statewide briefs that had drifted from their
+  fetched text. (1) The DoHS brief said the deputy secretary told "finance
+  committees" — WV MetroNews names one body, the **Joint Standing Committee on
+  Finance**, and the plural was invented. (2) The Flock brief said the
+  presentation "raised more questions than answers" — Del. Ryan Browning's
+  reported words are "more concerns than actually giving us answers," so the
+  paraphrase was moved back onto "concerns." Both were fixed, the edition was
+  re-validated and re-rendered, the corrections were pushed, and the held post
+  was killed and relaunched once (nothing had posted; `index.json` had no
+  2026-08-10 row when it was checked). Milder than the Aug. 8 and Aug. 9
+  entries — no invented number, no unopened page — but the same failure surface,
+  and the same pass caught it. **Three for three: the hold re-read is now the
+  single most productive step in the run.**

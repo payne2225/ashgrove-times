@@ -52,7 +52,8 @@ Four sections, all four maintained every run:
 |---|---|---|
 | 2026-08-08 | **Aki basho tickets go on sale** | Confirmed on the JSA's own English page (`sumo.or.jp/En/`) and printed as No. 2's sumo brief. Do not re-run this fact; it is spent |
 | 2026-08-08 | Chelsea play AC Milan in Jakarta | Preseason friendly. A followed club, so it is a legitimate football brief if anything happens in it |
-| **2026-08-10** | **Nucor Apple Grove site reopens (or does not) after the threat closure** | The mill site closes Monday over a written threat naming that date; FBI, State Police and the Mason County sheriff investigating, sheriff's security posted 10 days. WV MetroNews. A reopening, an arrest, or a second closure is a `huntington_cabell` line or a statewide brief |
+| **2026-08-10** | **Nucor Apple Grove site reopens (or does not) after the threat closure** | The mill site closes Monday over a written threat naming that date; FBI, State Police and the Mason County sheriff investigating, sheriff's security posted 10 days. WV MetroNews. A reopening, an arrest, or a second closure is a `huntington_cabell` line or a statewide brief. **2026-08-10: the date arrived and nothing new was reported.** Searched at 6 a.m. ET across MetroNews, WSAZ, Herald-Dispatch, WCHS and the Gazette-Mail; every result was still the Aug. 7 closure announcement, so it was **deliberately not re-run** — the closure taking effect is the same fact No. 4 already printed. The paper posts before the work day, so any Monday development lands in **Tuesday's** edition. **Row stays open:** watch for an arrest, a reopening, a second closure, or the sheriff's 10-day detail ending about **Aug. 17** |
+| 2026-08-12 | **WAFCON semifinals** | Malawi v Algeria in Casablanca, Morocco v Cameroon in Rabat. All four have already qualified for the 2027 World Cup in Brazil. Al Jazeera. Ran as No. 6's third Sports brief; the semifinals are the follow-up, and the final is the week after |
 | 2026-08-13 | **Peoples Cartage town hall, Parkersburg** | Independent testing results from the warehouse fire. WTAP. A `mid_ohio_valley` line that night or the morning after |
 | 2026-08-21 | **Premier League 2026-27 opens** | Confirmed via ESPN's fixtures piece. Until then the football beat is transfers and friendlies only, and a quiet football day is the expected outcome, not a failure |
 | **2026-08-31** | **Aki banzuke (rankings) released** | The next genuine sumo news after the ticket date, and the natural moment the Aki dates get confirmed by a citable outlet. Do not print it before it happens |
@@ -68,6 +69,152 @@ Four sections, all four maintained every run:
 
 ## 3. Open threads
 
+- **typhoon-dolphin** — 2026-08-10: **led the paper on its third day in it, and
+  the lead was the movement, not the setup.** Landfall near **Yuhuan**, Zhejiang,
+  late Sunday as a typhoon, sustained winds **151 kph**. A central Shanghai
+  station measured **nearly 313 mm** in the 24 hours to 7 a.m. Monday, the city's
+  heaviest 24-hour total in **more than 150 years** of records; another city
+  station measured nearly 400 mm. **1M+ evacuated** — 900,000+ in Wenzhou,
+  **215,600** in Shanghai by Sunday evening, ~99,000 in Fujian. Zhejiang averaged
+  **173 mm** Friday evening to Monday morning, beating Lekima and Bavi. Weakened
+  to a tropical storm Monday morning; rain forecast into Anhui, Jiangsu, Henan
+  and Hubei through Wednesday, Beijing Tuesday-Thursday, some areas 200-400 mm.
+  Read on Al Jazeera and the Irish Times (crediting the Guardian). **No death
+  toll ran, on purpose:** neither readable outlet carried one, Gulf News had "30"
+  with no corroboration, and Al Jazeera reported a nine-year-old missing in the
+  sea at Wenling. **Re-check the toll before citing it and expect it to move.**
+  News again on a confirmed toll, Beijing flooding, or the rain totals inland.
+- **interlochen-abuse-report** — 2026-08-10: new, ran as No. 6's first U.S.
+  brief. Independent review by Sanghavi Law Office, hired by Interlochen Center
+  for the Arts in 2024: **~70 allegations of sexual abuse by nearly 50 adults**,
+  **1950s to the 2010s**. Jeffrey Epstein, an alumnus and benefactor, and
+  Ghislaine Maxwell are in it; NPR previously reported Epstein recruited two
+  teenagers on campus. Three former staff and one former trustee named; **Thomas
+  Clower** is the only one still living (2005 misdemeanor plea, ~60 days). School
+  says it is "fundamentally different"; names went to local law enforcement and a
+  counseling fund was set up. NPR. **News again on a charging decision or a
+  civil suit.**
+- **measles-35-year-high** — 2026-08-10: new, ran as No. 6's second U.S. brief.
+  NIH Director **Jay Bhattacharya** on CBS's *Face the Nation* Aug. 9 said
+  parents should vaccinate children against measles and that he vaccinated his
+  own; measles at its **highest level in 35 years**; only **10 states** hit the
+  **95%** kindergarten coverage needed for herd immunity in 2024-25. He did not
+  criticize RFK Jr. directly. CBS News. **The angle to watch is a public split
+  between NIH and HHS**, or a case count with a number attached — CBS printed
+  none, so no count was published.
+- **netanyahu-gaza-plan** — 2026-08-10: new, ran as No. 6's first World brief.
+  Netanyahu told his Cabinet Aug. 9 the military "will not carry out any
+  withdrawal until Hamas is genuinely disarmed," explicitly rejecting **the
+  15-point document**, while saying talks with Washington continue. Israeli
+  forces hold more than half of Gaza. Hamas's Bassem Naim expects mediators to
+  pressure him; Netanyahu faces **Oct. 27 elections**. PBS NewsHour. News again
+  on a US response, a revised plan, or a first withdrawal step.
+- **nizhnekamsk-strike** — 2026-08-10: new, ran as No. 6's second World brief.
+  Ukrainian drones hit **Nizhnekamsk**, Tatarstan, an oil and petrochemical hub
+  of 240,000 more than **1,000 km** from the border; Tatarstan authorities said
+  **12 killed, 39 wounded**. Russia's MoD claimed **456** drones downed
+  overnight; Ukraine's air force reported 126 Russian drones back. Five killed by
+  artillery at **Bugaivka**, Kharkiv region, one in Belgorod, one in Kherson.
+  Euronews. **The toll is disputed — CNN and NBC had 13, Euronews and NPR 12**,
+  so it printed as "at least 12" per the disputed-number rule. News again on a
+  refinery-output effect or a confirmed toll.
+- **copernicus-july-2026** — 2026-08-10: new, ran as No. 6's third World brief,
+  **sourced to Copernicus's own bulletin page rather than to wire paraphrase.**
+  July 2026 was the **joint-second warmest July globally**, tied with July 2024;
+  **Western Europe had its warmest June-July on record.** Euronews's write-up of
+  the same bulletin adds figures the paper did not print: 21.62C Western European
+  June-July mean, France 3.8C above the 1991-2020 normal, ~900M people in their
+  hottest July (~120M Europeans, ~400M Africans in the Sahel), global July 1.47C
+  above pre-industrial, 42,000 ha burned in France with 220,000+ evacuated.
+  Samantha Burgess (ECMWF) quoted there. **Those are available if this needs a
+  second day.** News again at the August bulletin, early September.
+- **wv-flock-plate-readers** — 2026-08-10: new, ran as No. 6's first statewide
+  brief and it is **the live WV policy thread.** At Sunday's August interims a
+  committee heard **Kevin Kane** (Flock Safety government affairs) and **Alasdair
+  Whitney** (Institute for Justice), who argued officers can search people's
+  whereabouts **15,000 times a day** without a warrant. **Del. Patrick Lucas
+  (R-Cabell)** will introduce a bill "on day one" in January; **Del. Ryan
+  Browning (R-Wayne)**: the hearing "raises more concerns than actually giving us
+  answers"; **Del. Evan Hansen (D-Monongalia)** also drafting. **Huntington has a
+  $2.1M Flock contract.** WSAZ (their own investigative piece) and WV MetroNews
+  both covered it. **Note the overlap trap:** the Herald-Dispatch had a Huntington
+  City Council public-safety committee taking up its own AI-camera and
+  plate-reader ordinance **Monday**, which would have been the same story twice
+  in one section, so no `huntington_cabell` line ran. **That ordinance is
+  Tuesday's regional line if the committee acted.**
+- **dohs-out-of-state-placements** — 2026-08-10: new, ran as No. 6's second
+  statewide brief. **Christina Mullins**, DoHS deputy secretary for mental health
+  and substance use disorders, told the **Joint Standing Committee on Finance**
+  on Aug. 9 that out-of-state child placements are "financially unsustainable" at
+  **$142,000 per child**; a **BDO** audit released **May 2026** found **$68.6M**
+  in possible annual savings. The **PATH** system has cost **$300M+** and runs on
+  a **40-year-old mainframe** backend — outages, slow loads, manual work — with a
+  cloud migration projected to save **$7.2M a year**. WV MetroNews. News again on
+  a procurement decision or a placement count, which the story did not give.
+- **kanawha-water-mains** — 2026-08-10: ran as the `putnam_kanawha` line. West
+  Virginia American Water made emergency repairs on **four** main breaks over the
+  weekend: Nitro (Holly-to-Center, 8:45 a.m. Sat., with police reporting street
+  flooding; Washington Ave., 10 a.m. Sun.), St. Albans (Lore/Hill, 9 a.m. Sat.)
+  and Kanawha City (Rt. 61 to Venable SE, before 9:30 a.m. Sun.). No boil-water
+  advisory and no customer count reported. WV MetroNews. **A fifth break or an
+  advisory makes it news again; a clean week does not.**
+- **don-nelson-death** — 2026-08-10: ran as No. 6's first Sports brief. Died
+  **Sunday morning**, aged **86**; family statement. Retired **2010** as the
+  NBA's winningest coach with **1,335** regular-season wins, since passed by
+  Gregg Popovich (1,390); five titles as a **Boston Celtics** player; three-time
+  Coach of the Year; Hall of Fame **2012**; coached Milwaukee, Golden State, New
+  York and Dallas; "Nellie Ball." Cross-checked CBS News and Al Jazeera. **Note
+  Al Jazeera's page said "Sunday, August 10" — internally contradictory, since
+  Aug. 10 is Monday — so the paper wrote "Sunday morning" and no date.** Thread
+  closes after any memorial; not a running story.
+- **followed-clubs-final-friendlies** — 2026-08-10: ran as the football brief.
+  **Liverpool 2-3 Monaco at Anfield, Aug. 9**, Isak 16', Wirtz 29', then Golovin
+  44' pen, Biereth 56', Brunner 88' — **Andoni Iraola's first Anfield game in
+  charge**, and the second time in pre-season Liverpool led by two and lost
+  (4-2 to Leeds in Chicago). **Chelsea 3-3 at Johor Darul Ta'zim**, Sultan
+  Ibrahim Stadium, Delap 42' and 62' both penalties, Glauder own goal 89'; Arif
+  Aiman 14', Arribas 65', Bergson 86' — Chelsea's tour closer under Xabi Alonso.
+  Both read on Sky Sports. **Liverpool took the headline over Chelsea on the
+  what-actually-happened test, not the supporter tiebreak** — a home defeat on a
+  new manager's Anfield bow outranks a tour draw. **Premier League opens Aug.
+  21**, so Tuesday-through-Thursday football is transfers only.
+- **wafcon-2026** — 2026-08-10: new, ran as No. 6's third Sports brief.
+  **Cameroon 1-0 Nigeria** in Casablanca, **Myriam Nyadjou** free kick 19', ending
+  the **10-time** champions' reign and only Cameroon's second win in 14 WAFCON
+  meetings with them; Oshoala came on and could not equalise. **Malawi 2-1
+  Ghana** in Rabat. All four semifinalists are through to the **2027 World Cup in
+  Brazil**; losing quarterfinalists get playoff routes. Al Jazeera. Semifinals
+  **Aug. 12** (above).
+- **voyager2-power** — 2026-08-10: new, ran in Sci/Tech **and supplied the
+  drawing.** JPL engineers ran a manoeuvre nicknamed the **"Big Bang"** —
+  shutting down power-hungry components simultaneously while switching to
+  lower-power alternatives and holding spacecraft temperature — expected to keep
+  the nearly-50-year-old probe's **three remaining instruments** running **at
+  least one more year**. The RTGs lose about **4 watts a year**. NASA JPL, read
+  via ScienceDaily's reproduction; `source` names JPL, same convention as No. 4
+  and No. 5. News again at the next instrument shutdown or a loss of contact.
+- **kimsuky-offline-ai** — 2026-08-10: new, ran in Sci/Tech. South Korean firm
+  **Genians** reported the North Korean state-backed **Kimsuky** group using
+  **offline** large language models (Ollama, GPT4All, Msty — chosen to run
+  without internet and evade detection) to generate decoy documents for
+  spear-phishing at military, diplomatic and academic targets. Elliptic's figure
+  of **$2B+** in crypto stolen in the first nine months of 2025 is context in the
+  same piece, not printed. Al Jazeera. News again on an attributed breach.
+- **hormuz-reopening** — 2026-08-10: **deliberately not run for the second time
+  in the run, and the reason is worth keeping.** Brent October futures were up
+  more than 1% at **$84.11**, ~16% since the war opened in late February; only
+  **8-15 vessels** a day crossed Aug. 4-6 against ~130 before the conflict.
+  Araghchi repeated that sanctions relief and reparations come first; Trump told
+  CBS the US is "semi-negotiating" and signalled economic pressure over a new
+  offensive; **Mohsen Rezaei** has replaced Zolghadr atop the Supreme National
+  Security Council; Iran's parliament approved "general outlines" barring
+  vessels of "hostile countries" until compensation; the Iran-Oman interim
+  corridor is still in final stages. Al Jazeera, PBS NewsHour, CBS. **A price
+  move and a restated demand are not movement** — No. 5 already led on the six
+  conditions. It is news again on a signed corridor deal, a US answer to the
+  conditions, or the 60-day window lapsing, **which is due about now.** The
+  leadership change at the SNSC is the freshest genuinely new fact and would
+  carry a brief on its own if it is still unrun.
 - **hormuz-reopening** — 2026-08-09: **moved hard, and led No. 5.** Iran's
   Supreme National Security Council, via secretary Mohammad Bagher Zolghadr
   (also an IRGC commander), said the strait will not reopen until the US
@@ -323,6 +470,49 @@ Four sections, all four maintained every run:
 
 ## 4. Recently covered
 
+### 2026-08-10 — No. 6
+- lead: typhoon-dolphin (third day in the story, led on landfall and the
+  150-year Shanghai rain record)
+- us: interlochen-abuse-report, measles-35-year-high
+- world: netanyahu-gaza-plan, nizhnekamsk-strike, copernicus-july-2026
+- wv statewide: wv-flock-plate-readers, dohs-out-of-state-placements
+- wv regional: putnam_kanawha — kanawha-water-mains
+- wv away: **none, fourth straight edition** — Vermont's only Bennington item was
+  the Aug. 8 library whale feature (already passed over once) and its primary is
+  Aug. 11, which is a scheduled event and not news; Prince George had nothing
+  (the 80-year-old who died evacuating is **Summerland, in the Okanagan**, not
+  the north); Topsail's freshest items were Aug. 6-7 (Pender water-hookup
+  refunds, a raid lawsuit) and it was carried by its fishing line
+- sports: don-nelson-death, followed-clubs-final-friendlies, wafcon-2026
+- scitech: voyager2-power, kimsuky-offline-ai
+- huntington_cabell: **no line** — the Herald-Dispatch's Monday Huntington
+  AI-camera/plate-reader ordinance would have duplicated the Flock statewide
+  brief, and the rest of Cabell was Aug. 7 or older (VFD radios, CommuniCare
+  groundbreaking). **The ordinance is Tuesday's line if the committee acted.**
+- mid_ohio_valley, nicholas_webster, summers_new_river: **no line** — searched;
+  Parkersburg's freshest was Aug. 7 (firemen's convention, a sewer collapse),
+  Nicholas/Webster had the **same three forward-dated items for the fourth
+  morning running** (Aug. 12-14 mobile screening, Aug. 23 checkpoint, Aug. 30 lake
+  cleanup), Summers/New River had nothing newer than June
+- **fishing: both waters.** Williams back after yesterday's USGS outage and
+  **at the run's low, 63 cfs and falling, 1.4 ft, from 93.8 cfs a day earlier**
+- **sumo: sat out, fourth day running.** Off-basho, full dedicated search. Only
+  August items are the **Jul. 30** purse increase (spent by No. 2) and the
+  **Jul. 27** Yokozuna Deliberation Council request to Onosato and Hoshoryu —
+  both too old. Search text asserted Sept. 13-27 and an Aug. 31 banzuke but the
+  carriers are still **sumostats/grandsumotournament/travel sites**, which this
+  paper does not cite. **Aug. 31 remains the hook.** Correct edition per Ian's rule
+- **stocking: silent no-op.** WVDNR publishes no advance schedule and August
+  stockings are flow-dependent; nothing named the Williams, Cranberry or
+  Summersville tailwater
+- **Do not re-run tomorrow without movement:** the Interlochen report (a charging
+  decision is the news); Bhattacharya's interview; the Netanyahu rejection (a US
+  answer is the news); the Nizhnekamsk strike (a confirmed toll or refinery
+  effect); the Copernicus July bulletin (August's lands early September); the
+  Flock hearing (a Huntington council vote or a filed bill is the news); the DoHS
+  testimony; Don Nelson; the two friendlies (**Aug. 21 opener is the news**);
+  Voyager 2. **WAFCON is the exception — semifinals Aug. 12 and it should run.**
+
 ### 2026-08-09 — No. 5
 - lead: hormuz-six-conditions
 - us: graham-sanctions-act, meta-nm-child-safety, jalapeno-salmonella
@@ -560,7 +750,6 @@ Four sections, all four maintained every run:
   **4. Poll-Pages-before-posting is now 3-for-3.** The permalink went 200 about
   **10 seconds** after the push, so `--page-url` shipped in the original message
   and `--backfill-link` was never needed. Keep it the default.
-
   Also noted: `westvirginiawatch.com` **403'd** (new — it opened fine on Aug. 7);
   `herald-dispatch.com` returned **429** on its recent-news index; `seti.org` and
   `japantimes.co.jp` both refused (403/402), so the meteorite and sun briefs were
@@ -568,4 +757,50 @@ Four sections, all four maintained every run:
   did the work, same as No. 4. Both WV statewide briefs came from **WV MetroNews**
   — acceptable at two, but a third would have broken the three-bylines rule, and
   no other WV outlet had a statewide story worth the slot on a Saturday.
+- **2026-08-10** — No. 6. **DELIVERY PENDING AT THE TIME THIS WAS WRITTEN** —
+  committed at 06:33 ET while `post_discord.py` was still sleeping on
+  `--not-before 07:00`, so the post-time facts (message id, embed chars at send,
+  message count) are recorded in the commit that follows this one. `index.json`
+  had no 2026-08-10 row when this was written; **if that row is still missing or
+  `posted: false`, this edition did not ship and the notes below describe an
+  edition that was written, validated, rendered and pushed but never posted.**
+  Four things for the next shift:
 
+  **1. The first draft projected 7,206 against a 5,800 ceiling — the worst
+  overshoot of the run — and the fix cost three sourced briefs.** 15 briefs plus
+  a three-paragraph lead has never fit and the arithmetic was knowable *before*
+  drafting. The ladder in §5 also could not help the way it is written: it says
+  notebook lines go before wire briefs, but the notebook was already down to
+  **one regional line and no away line**, so every rung available was a wire
+  brief. **Decide the shape first — about 12 briefs when the notebook is lean —
+  and write to it.** Landed at 5,471 projected. The lead going from three
+  paragraphs to two is free under the contract and should be the first move, not
+  the last.
+
+  **2. The hold re-read caught something for the third consecutive morning.**
+  Two WV briefs had drifted from their fetched text: an invented plural
+  ("finance committees" for the Joint Standing Committee on Finance) and a
+  paraphrase that moved a delegate's "concerns" to "questions." Milder than
+  Aug. 8's and Aug. 9's inventions, but the same surface and the same catch.
+  **Treat the re-read as a required step of the run, not a use of spare time.**
+  One kill-and-relaunch, `index.json` verified empty first.
+
+  **3. Poll-Pages-before-posting is 4-for-4, and today it was the fastest yet:
+  200 on the first attempt, roughly one minute after the push.** The permalink
+  shipped in the original message and `--backfill-link` was not needed. Content
+  was verified, not just the status code — a 200 on a stale cache would look
+  identical.
+
+  **4. Read the clock, do not feel it — fourth morning this is the lesson, and
+  the first where it was worth real money.** At what felt like 6:38 it was
+  actually 6:16, so there was time to install `cairosvg` and **rasterise the
+  drawing to look at it before shipping**, which no previous run has done. That
+  is now cheap and repeatable: `currentColor` and `var(--parchment, …)` have to
+  be substituted for literals first or CairoSVG throws on the `var()`.
+
+  Also noted: two sections ran on two outlets rather than three (World was PBS,
+  Euronews and **Copernicus's own bulletin page** — going to the primary for the
+  climate story was what got a third byline in, and it is the better source
+  anyway); `thisisanfield.com` **403'd** and `espn.com/soccer/match` returned
+  empty markdown twice, so Sky Sports carried both friendlies; `wvpublic.org/news`
+  served content two months stale and is not usable as a front page right now.
