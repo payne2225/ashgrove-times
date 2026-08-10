@@ -1,0 +1,155 @@
+{
+  "edition_date": "2026-08-10",
+  "edition_number": 6,
+  "volume": "I",
+  "lead": {
+    "headline": "Shanghai takes its heaviest rain in 150 years as Dolphin moves inland",
+    "dek": "More than a million people were moved out ahead of the storm, which came ashore in Zhejiang late Sunday.",
+    "byline": "Wire Reports",
+    "body": [
+      "Tropical Storm Dolphin pushed inland across eastern China on Monday, a day after coming ashore as a typhoon near Yuhuan, in Zhejiang province, with sustained winds of 151 kph. A central Shanghai weather station measured nearly 313 mm of rain in the 24 hours to 7 a.m. Monday, the city's heaviest 24-hour total in more than 150 years of records.",
+      "More than a million people were moved out of the storm's path, among them more than 900,000 in Wenzhou and 215,600 in Shanghai. Zhejiang averaged 173 mm from Friday evening to Monday morning, more than earlier typhoons including Lekima and Bavi. Forecasters expect the rain to reach Anhui, Jiangsu, Henan and Hubei through Wednesday."
+    ],
+    "stat_strip": [
+      {"label": "S&P 500", "value": "7,757.64", "change": "+0.62%", "direction": "up"},
+      {"label": "Dow", "value": "54,036.93", "change": "+0.28%", "direction": "up"},
+      {"label": "Nasdaq", "value": "26,690.62", "change": "+1.30%", "direction": "up"}
+    ],
+    "art": {
+      "file": "art/2026-08-10-lead.svg",
+      "caption": "Voyager 2, with its dish antenna, science boom and the generator stack now being rationed.",
+      "credit": "Sketched from a NASA illustration"
+    }
+  },
+  "sections": [
+    {
+      "id": "us",
+      "label": "U.S.",
+      "briefs": [
+        {
+          "headline": "Report finds 70 abuse allegations at arts school",
+          "summary": "An inquiry for Interlochen Center for the Arts found about 70 allegations against nearly 50 adults since the 1950s, including alumnus and donor Jeffrey Epstein.",
+          "source": "NPR",
+          "url": "https://www.npr.org/2026/08/10/nx-s1-5924901/michigan-students-jeffrey-epstein-sexual-abuse-interlochen-center-arts"
+        },
+        {
+          "headline": "NIH director urges measles shots amid 35-year case high",
+          "summary": "Jay Bhattacharya said on Face the Nation that parents should vaccinate their children; only 10 states met the 95% kindergarten target in 2024-25.",
+          "source": "CBS News",
+          "url": "https://www.cbsnews.com/news/jay-bhattacharya-vaccines-rfk-jr/"
+        }
+      ]
+    },
+    {
+      "id": "world",
+      "label": "World",
+      "briefs": [
+        {
+          "headline": "Netanyahu rejects Trump's 15-point Gaza plan",
+          "summary": "The Israeli prime minister told his Cabinet on Sunday that the military will not withdraw until Hamas is disarmed.",
+          "source": "PBS NewsHour",
+          "url": "https://www.pbs.org/newshour/world/israel-rejects-trumps-gaza-plan-more-details-emerge-on-the-strait-of-hormuz-and-other-mideast-news"
+        },
+        {
+          "headline": "Ukrainian drones kill at least 12 in Russian oil city",
+          "summary": "Tatarstan authorities said 12 died and 39 were hurt at Nizhnekamsk, a petrochemical hub more than 1,000 km from the border.",
+          "source": "Euronews",
+          "url": "https://www.euronews.com/my-europe/2026/08/10/one-of-kyivs-deadliest-single-attacks-kills-12-in-central-russia-while-five-are-killed-in-"
+        },
+        {
+          "headline": "Western Europe logs its warmest June and July",
+          "summary": "The Copernicus Climate Change Service said the two months set a regional record and that July was the joint-second warmest globally.",
+          "source": "Copernicus",
+          "url": "https://climate.copernicus.eu/climate-bulletins"
+        }
+      ]
+    },
+    {
+      "id": "wv",
+      "label": "West Virginia",
+      "notebook_title": "Mountaineer State Notebook",
+      "briefs": [
+        {
+          "headline": "Lawmakers press Flock on plate-reader data",
+          "summary": "Delegates said Sunday's Flock Safety presentation raised more questions than answers, and several plan bills capping how long plate data is kept.",
+          "source": "WSAZ",
+          "url": "https://www.wsaz.com/2026/08/10/wsaz-investigates-wva-lawmakers-question-flock-representative-preview-potential-legislation/"
+        },
+        {
+          "headline": "Out-of-state child placements called unsustainable",
+          "summary": "A Human Services deputy secretary told finance committees an audit priced out-of-state placements at $142,000 per child.",
+          "source": "WV MetroNews",
+          "url": "https://wvmetronews.com/2026/08/09/out-of-state-placements-and-inefficient-computer-systems-top-list-of-agencys-challenges/"
+        }
+      ],
+      "regional": [
+        {
+          "region_id": "putnam_kanawha",
+          "place": "Putnam / Kanawha - Charleston",
+          "people": ["Nate"],
+          "item": "West Virginia American Water repaired four main breaks in Nitro, St. Albans and Kanawha City over the weekend.",
+          "source": "WV MetroNews",
+          "url": "https://wvmetronews.com/2026/08/09/multiple-water-main-breaks-reported-in-kanawha-county/"
+        }
+      ],
+      "away": [],
+      "fishing": [
+        {
+          "water": "Williams River (Cowen)",
+          "line": "63 cfs and falling, 1.4 ft, down from 93.8 cfs a day earlier - prime wading water.",
+          "source": "USGS 03186500"
+        },
+        {
+          "water": "Topsail Beach (surf and sound)",
+          "line": "Sound highs 6:25 a.m. and 7:06 p.m.; water 78.1F at Wrightsville Beach, 25 miles down the coast.",
+          "source": "NOAA CO-OPS 8657813"
+        }
+      ]
+    },
+    {
+      "id": "sports",
+      "label": "Sports",
+      "briefs": [
+        {
+          "headline": "Hall of Fame coach Don Nelson dies at 86",
+          "summary": "Nelson retired as the NBA's winningest coach and won five titles as a Boston Celtics player. His family said he died Sunday morning.",
+          "source": "CBS News",
+          "url": "https://www.cbsnews.com/news/don-nelson-nba-coach-champion-die/"
+        },
+        {
+          "headline": "Liverpool lose 2-3 to Monaco in Iraola's Anfield bow",
+          "summary": "Alexander Isak and Florian Wirtz put Liverpool two up before Monaco replied through Golovin, Biereth and Brunner. Chelsea drew 3-3 in Johor.",
+          "source": "Sky Sports",
+          "url": "https://www.skysports.com/football/news/11669/13571112/liverpool-2-3-monaco-reds-throw-away-lead-as-andoni-iraola-beaten-in-first-anfield-game"
+        },
+        {
+          "headline": "Cameroon end Nigeria's reign as African champions",
+          "summary": "Myriam Nyadjou's 19th-minute free kick beat the 10-time winners 1-0 in Casablanca. Malawi beat Ghana 2-1 to reach the semifinals.",
+          "source": "Al Jazeera",
+          "url": "https://www.aljazeera.com/sports/2026/8/10/nigeria-eliminated-as-cameroon-malawi-reach-wafcon-semis-and-world-cup"
+        }
+      ]
+    },
+    {
+      "id": "scitech",
+      "label": "Science & Technology",
+      "briefs": [
+        {
+          "headline": "Engineers buy Voyager 2 another year of instruments",
+          "summary": "A shutdown of power-hungry components, nicknamed the Big Bang, should keep the probe's three remaining instruments running for at least a year.",
+          "source": "NASA JPL",
+          "url": "https://www.sciencedaily.com/releases/2026/08/260810015703.htm"
+        },
+        {
+          "headline": "North Korean hackers turn to offline AI models",
+          "summary": "The South Korean firm Genians said the Kimsuky group used local large language models to write decoy documents for phishing.",
+          "source": "Al Jazeera",
+          "url": "https://www.aljazeera.com/economy/2026/8/10/north-koreas-hackers-using-ai-for-attacks-cybersecurity-firm-says"
+        }
+      ]
+    }
+  ],
+  "weather_ear": "Jim Claudtore has the forecast at 7:15.",
+  "kicker": "Sports runs without sumo for a fourth day and the away desk is empty; both were searched.",
+  "sources_note": "Compiled from wire reports"
+}

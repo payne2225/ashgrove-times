@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 506" role="img"
+     aria-label="Sketch: the Voyager 2 spacecraft in profile against a sparse starfield. Its dish antenna faces left of frame, a ten-sided instrument bus sits behind it, a lattice boom carries the science platform up and to the right, and a long magnetometer boom runs off the lower left.">
+  <defs>
+    <style>
+      .ink   { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; }
+      .mask  { fill: var(--parchment, #f4f0e6); stroke: currentColor;
+               stroke-linecap: round; stroke-linejoin: round; }
+      .faint { opacity: 0.32; }
+      .mid   { opacity: 0.6; }
+      .star  { fill: currentColor; }
+    </style>
+  </defs>
+
+  <g>
+    <!-- Starfield first, so every piece of hardware masks it out. Kept sparse
+         and unevenly spaced; a regular grid of dots reads as a texture swatch
+         rather than as depth. -->
+    <g class="star faint">
+      <circle cx="48" cy="62" r="1.6"/><circle cx="126" cy="128" r="1"/>
+      <circle cx="212" cy="44" r="1.3"/><circle cx="86" cy="212" r="1"/>
+      <circle cx="268" cy="176" r="1.7"/><circle cx="164" cy="286" r="1.1"/>
+      <circle cx="62" cy="358" r="1.4"/><circle cx="238" cy="392" r="1"/>
+      <circle cx="330" cy="60" r="1.2"/><circle cx="410" cy="34" r="1.6"/>
+      <circle cx="502" cy="72" r="1"/><circle cx="596" cy="42" r="1.4"/>
+      <circle cx="676" cy="196" r="1.1"/><circle cx="742" cy="286" r="1.6"/>
+      <circle cx="812" cy="118" r="1.2"/><circle cx="858" cy="228" r="1"/>
+      <circle cx="796" cy="386" r="1.5"/><circle cx="862" cy="452" r="1.1"/>
+      <circle cx="352" cy="452" r="1.3"/><circle cx="118" cy="468" r="1"/>
+      <circle cx="686" cy="452" r="1.2"/><circle cx="606" cy="128" r="1"/>
+    </g>
+
+    <!-- Magnetometer boom. On the real spacecraft it is a slender lattice
+         many times the length of the body, so it has to leave the frame or the
+         scale is a lie. Drawn as two rails with cross ties that shorten as the
+         boom recedes. -->
+    <g class="ink mid" stroke-width="1.5">
+      <path d="M520 336 L38 486"/>
+      <path d="M526 348 L44 498"/>
+    </g>
+    <g class="ink faint" stroke-width="0.9">
+      <path d="M470 352l6 12M420 368l6 12M370 384l6 12M320 399l6 12M270 415l6 12M220 431l6 12M170 447l6 12M120 462l6 12M70 478l6 12"/>
+    </g>
+
+    <!-- High-gain antenna. The dish is a circle seen at a steep angle, so it
+         draws as an ellipse tilted with the rim, not as a symmetrical oval
+         standing upright. The inner rim line is what makes it read as a dish
+         with depth rather than a flat plate. -->
+    <g transform="rotate(-13 388 252)">
+      <ellipse class="mask" cx="388" cy="252" rx="116" ry="166" stroke-width="2.4"/>
+      <ellipse class="ink faint" cx="392" cy="252" rx="102" ry="152" stroke-width="1"/>
+      <ellipse class="ink faint" cx="398" cy="252" rx="72" ry="108" stroke-width="0.9"/>
+    </g>
+
+    <!-- Feed and subreflector, standing off the dish face on three struts.
+         The struts are what put the feed in front of the dish instead of on
+         it; without them the horn sits on the surface like a sticker. -->
+    <g class="ink" stroke-width="1.5">
+      <path d="M300 268 L332 300M300 268 L344 214M300 268 L336 258"/>
+    </g>
+    <g>
+      <path class="mask" d="M282 256 L302 250 L306 274 L286 280 Z" stroke-width="1.8"/>
+      <circle class="mask" cx="278" cy="266" r="9" stroke-width="1.8"/>
+    </g>
+
+    <!-- Ten-sided instrument bus, tucked behind the dish and lower right. The
+         bus is the only part of the craft with real bulk, and the small boxes
+         bolted to its outboard faces are what keep it from reading as a drum. -->
+    <path class="mask" d="M498 236 L556 220 L606 244 L620 296 L598 344 L546 362
+                          L496 342 L478 292 Z" stroke-width="2.4"/>
+    <g class="ink faint" stroke-width="1">
+      <path d="M498 236 L512 292 L496 342M512 292 L620 296"/>
+    </g>
+    <g>
+      <path class="mask" d="M604 258 L648 250 L654 288 L610 296 Z" stroke-width="1.8"/>
+      <path class="mask" d="M598 312 L640 306 L646 336 L604 342 Z" stroke-width="1.8"/>
+    </g>
+    <circle class="ink mid" cx="556" cy="300" r="21" stroke-width="1.6"/>
+    <circle class="ink faint" cx="556" cy="300" r="13" stroke-width="0.9"/>
+
+    <!-- Science boom and scan platform. It climbs away from the bus and the
+         instruments cluster at the far end; drawing the boxes smaller than the
+         bus is the whole trick that puts them further off. -->
+    <g class="ink" stroke-width="1.5">
+      <path d="M584 232 L744 108"/>
+      <path d="M598 246 L758 122"/>
+    </g>
+    <g class="ink faint" stroke-width="0.9">
+      <path d="M622 226l10 12M660 197l10 12M698 168l10 12M730 143l10 12"/>
+    </g>
+    <g>
+      <path class="mask" d="M736 84 L784 60 L806 92 L758 116 Z" stroke-width="2"/>
+      <path class="mask" d="M770 44 L806 30 L820 58 L784 72 Z" stroke-width="1.8"/>
+      <circle class="mask" cx="826" cy="76" r="14" stroke-width="1.8"/>
+      <circle class="ink faint" cx="826" cy="76" r="7" stroke-width="0.9"/>
+      <path class="ink" d="M806 84 L812 78" stroke-width="1.4"/>
+    </g>
+
+    <!-- Radioisotope generators on their own short boom below the bus. These
+         are the reason the story exists: the stack loses about four watts a
+         year, and the engineers were trading instruments against it. -->
+    <g class="ink" stroke-width="1.5">
+      <path d="M540 360 L508 424"/>
+    </g>
+    <g>
+      <path class="mask" d="M470 402 L516 380 L534 414 L488 436 Z" stroke-width="2"/>
+      <path class="mask" d="M452 438 L498 416 L516 450 L470 472 Z" stroke-width="2"/>
+      <path class="mask" d="M434 474 L480 452 L494 480 L448 502 Z" stroke-width="2"/>
+    </g>
+    <g class="ink faint" stroke-width="0.9">
+      <path d="M482 388l16 30M498 381l16 30M464 424l16 30M480 417l16 30"/>
+    </g>
+
+    <!-- Thin wire antennas trailing off the bus, and the low-gain horn. They
+         are almost all the detail left at this scale, so they stay hairline. -->
+    <g class="ink mid" stroke-width="1.1">
+      <path d="M616 330 L742 462"/>
+      <path d="M622 300 L780 318"/>
+    </g>
+  </g>
+</svg>
