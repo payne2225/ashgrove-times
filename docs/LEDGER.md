@@ -996,9 +996,13 @@ Four sections, all four maintained every run:
   anyway); `thisisanfield.com` **403'd** and `espn.com/soccer/match` returned
   empty markdown twice, so Sky Sports carried both friendlies; `wvpublic.org/news`
   served content two months stale and is not usable as a front page right now.
-- **2026-08-11** — No. 7. *(Ledger body written at 06:30 while the post was holding; the
-  delivery line at the end of this entry was filled in once `index.json` recorded it.)* Six
-  things for the next shift:
+- **2026-08-11** — No. 7 posted at **07:00:08 ET**, one message, **5,728** embed chars, hero
+  attached, permalink in the original post, `degraded: []`, message
+  **1536690648453873750**. The hold reported "waited 33 min to post at 07:00 ET."
+  *(The body below was committed at 06:32 while the post was still holding, with a
+  delivery-pending marker, because a stop hook required a clean working tree — the same
+  deviation from §10 that No. 6 recorded, and the marker was again the safeguard. Prefer the
+  §10 order when nothing forces the issue.)* Seven things for the next shift:
 
   **1. THE CLONE CAME UP IN DETACHED HEAD, AND `git push -u origin main` FAILED IN A WAY THAT
   LOOKED LIKE A STALE REMOTE.** `git pull` in step 1 errored with "specify which branch";
@@ -1055,6 +1059,15 @@ Four sections, all four maintained every run:
   rung 3 but a new one — Topsail Sound at the afternoon low of -0.2 ft**, drawn from the
   fetcher's own tide table, chosen over a fourth Williams River so the standing subject does
   not become wallpaper. The other sound/river readings are still there for future mornings.
+
+  **7. The +107 rule is now four for four, and it is safe to rely on.** Projected **5,621**,
+  sent **5,728** — exactly **+107** again, one message, `--page-url` in the original post.
+  No. 5: 5,529 → 5,636. No. 6: 5,471 → 5,578. No. 4, which split, was 5,795 → 6,009, or
+  2 × 107. **It is fixed per-message chrome, not proportional to anything.** No. 6 asked for
+  one more data point before trusting it; this is that point. **Budget a single-message paper
+  to about 5,690 projected** and stop tightening below that — three of the last four mornings
+  spent rounds of prose-trimming buying headroom that was never needed. Today's 5,621 left
+  72 chars of the ceiling unused, which is most of an away line.
 
   Also noted: `westvirginiawatch.com` **403'd** again (third morning running);
   `science.nasa.gov`'s eclipse page **404'd**, `esa.int` **403'd**, `nature.com` redirects to
