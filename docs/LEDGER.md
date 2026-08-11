@@ -52,7 +52,9 @@ Four sections, all four maintained every run:
 |---|---|---|
 | 2026-08-08 | **Aki basho tickets go on sale** | Confirmed on the JSA's own English page (`sumo.or.jp/En/`) and printed as No. 2's sumo brief. Do not re-run this fact; it is spent |
 | 2026-08-08 | Chelsea play AC Milan in Jakarta | Preseason friendly. A followed club, so it is a legitimate football brief if anything happens in it |
-| **2026-08-10** | **Nucor Apple Grove site reopens (or does not) after the threat closure** | The mill site closes Monday over a written threat naming that date; FBI, State Police and the Mason County sheriff investigating, sheriff's security posted 10 days. WV MetroNews. A reopening, an arrest, or a second closure is a `huntington_cabell` line or a statewide brief. **2026-08-10: the date arrived and nothing new was reported.** Searched at 6 a.m. ET across MetroNews, WSAZ, Herald-Dispatch, WCHS and the Gazette-Mail; every result was still the Aug. 7 closure announcement, so it was **deliberately not re-run** — the closure taking effect is the same fact No. 4 already printed. The paper posts before the work day, so any Monday development lands in **Tuesday's** edition. **Row stays open:** watch for an arrest, a reopening, a second closure, or the sheriff's 10-day detail ending about **Aug. 17** |
+| **2026-08-10** | **Nucor Apple Grove site reopens (or does not) after the threat closure** | The mill site closes Monday over a written threat naming that date; FBI, State Police and the Mason County sheriff investigating, sheriff's security posted 10 days. WV MetroNews. A reopening, an arrest, or a second closure is a `huntington_cabell` line or a statewide brief. **2026-08-10: the date arrived and nothing new was reported.** Searched at 6 a.m. ET across MetroNews, WSAZ, Herald-Dispatch, WCHS and the Gazette-Mail; every result was still the Aug. 7 closure announcement, so it was **deliberately not re-run** — the closure taking effect is the same fact No. 4 already printed. The paper posts before the work day, so any Monday development lands in **Tuesday's** edition. **Row stays open:** watch for an arrest, a reopening, a second closure, or the sheriff's 10-day detail ending about **Aug. 17**. **2026-08-11: searched again; the only new line anywhere is that no incident was reported as of Monday afternoon**, carried inside the same Aug. 7 closure stories. Not a brief. The mill is a **$4B** project testing equipment now, with production ramping through 2027-28 |
+| **2026-08-12** | **Total solar eclipse over Greenland, Iceland, northern Spain and a corner of Portugal** | Ran as No. 7's first Sci/Tech brief on the eve. The shadow enters Galicia about 19:27 and leaves the Balearics about 20:35; totality nowhere exceeds 1 minute 48 seconds; first in mainland Spain since **April 15, 1912** and first in mainland Europe since 1999. Euronews. **The follow-up is what was actually seen** — cloud, crowds, the ESA and NASA observations — and it belongs in No. 8. Spain's next two are **Aug. 2, 2027** and **Jan. 26, 2028** |
+| **2026-08-24** | **Huntington Public Safety Committee takes up both Flock ordinances** | Mayor Patrick Farrell's ordinance (data access, retention, audits, criminal penalties) and Councilwoman Tia Rumbaugh's graduated-penalty ordinance were introduced Monday Aug. 10 and referred to committee. City Attorney Scott Damron says **no contract has been signed**; the original Sept. 1 implementation date is now uncertain. WSAZ, WV MetroNews. Ran as No. 7's `huntington_cabell` line |
 | 2026-08-12 | **WAFCON semifinals** | Malawi v Algeria in Casablanca, Morocco v Cameroon in Rabat. All four have already qualified for the 2027 World Cup in Brazil. Al Jazeera. Ran as No. 6's third Sports brief; the semifinals are the follow-up, and the final is the week after |
 | 2026-08-13 | **Peoples Cartage town hall, Parkersburg** | Independent testing results from the warehouse fire. WTAP. A `mid_ohio_valley` line that night or the morning after |
 | 2026-08-21 | **Premier League 2026-27 opens** | Confirmed via ESPN's fixtures piece. Until then the football beat is transfers and friendlies only, and a quiet football day is the expected outcome, not a failure |
@@ -69,6 +71,143 @@ Four sections, all four maintained every run:
 
 ## 3. Open threads
 
+- **colombia-earthquake** — 2026-08-11: **led No. 7.** Magnitude **7.4** near **San Jose del
+  Palmar**, Choco department, about **250 miles west of Bogota**, shortly after **7:30 a.m.
+  Monday**; **132 dead and 570 injured**, Colombia's strongest this century. At least **21
+  aftershocks** within hours. NBC News: ~**5,000 homes** damaged or destroyed, **three
+  hospitals collapsed**, 18 more affected, **39 schools**, **seven airports** shut (Cali,
+  Pereira, Manizales, Quibdo, Armenia, Cartago, Buenaventura). President **Abelardo de la
+  Espriella**, sworn in three days earlier, declared a state of emergency; **Cali** imposed a
+  nighttime curfew. US pledged **$15.5M**; El Salvador, Mexico, Chile, Israel, Ecuador and
+  France also offered. Cross-checked Al Jazeera, NBC News and Euronews. **Three numbers were
+  deliberately not printed:** the injured count is **570 (Al Jazeera, Euronews) against 700
+  (NBC)** so the twice-supported figure ran; the **missing** count ranged from **188 (NBC) to
+  1,400+ (Al Jazeera)** and was dropped entirely; and the depth is **107 km (Al Jazeera) vs
+  110 km (Euronews)**, dropped. **Expect the toll to move — re-check before citing it.**
+- **vaccine-schedule-eo** — 2026-08-11: new, ran as No. 7's first U.S. brief, and it is the
+  movement on `measles-35-year-high`. Trump signed an executive order **Aug. 10** moving
+  **RSV and hepatitis A and B** to high-risk children only, splitting **MMR** into three
+  separate shots spaced across visits, and giving **HHS 90 days** to reassess sequencing and
+  timing; he tied it to autism, which the reporting calls debunked. **The count of vaccines
+  is disputed and was not printed:** NPR has **17 to 11**, NBC has **18 to 11**; only the
+  **11** is common, and the headline was rewritten to avoid a number the cited CBS piece does
+  not carry. American Academy of Pediatrics called it "disheartening" and "dangerous"; Sen.
+  **Bill Cassidy**, a physician, broke with it. A January 2026 CDC schedule change was
+  already blocked by a judge. CBS News. **News again on the first lawsuit or an ACIP move.**
+- **noaa-july-record** — 2026-08-11: new, ran as No. 7's second U.S. brief, and it is the US
+  counterpart to `copernicus-july-2026`. NOAA put the contiguous US July average at
+  **76.89F**, **0.125F** above the **July 1936** Dust Bowl record, in records back to
+  **1895**; nighttime lows beat their record by **0.7F** and were the main driver; every
+  Lower 48 state ran at least **1F** above its 20th-century average. **Russ Vose**, chief of
+  monitoring at NOAA NCEI, quoted. PBS NewsHour. News again at the August report, early
+  September, or a named attribution study.
+- **midwest-primaries-2026** — 2026-08-11: new, ran as No. 7's third U.S. brief on the
+  morning of the vote. **Minnesota** DFL Senate: Lt. Gov. **Peggy Flanagan** (Sanders and
+  Warren endorsements) v Rep. **Angie Craig** (fundraising edge); MN GOP governor: **Mike
+  Lindell** leading after a Trump endorsement, over **Kendall Qualls** and Speaker **Lisa
+  Demuth**. **Wisconsin** Democratic governor: state Rep. **Francesca Hong** (Democratic
+  Socialist) leading **David Crowley**; **Tom Tiffany** effectively unopposed on the GOP
+  side. NPR. **Connecticut, Vermont and partial Alabama also voted Aug. 11** — Alabama's is a
+  rescheduled second primary after May redistricting. **The results are No. 8's brief, and
+  Vermont's Bennington County Senate race is the away desk's first live hook in a week.**
+- **assad-death-sentence** — 2026-08-11: new, ran as No. 7's first World brief. A Syrian
+  court sentenced **Bashar al-Assad** and his brother **Maher** to death **in absentia** for
+  war crimes and crimes against humanity over the 14-year conflict; their maternal cousin
+  **Atef Najib**, a former brigadier general who ran Political Security in **Daraa** and was
+  convicted of leading the **2011** crackdown, was tried in person and drew the same
+  sentence. Both brothers fled to **Russia** in December 2024 when forces under interim
+  President **Ahmed al-Sharaa** took Damascus. Euronews, which flagged the piece as still
+  updating. **Re-check the story before following it; news again on an extradition request
+  or further verdicts.**
+- **hormuz-reopening** — 2026-08-11: **moved, and it is the movement this ledger has been
+  waiting for since Aug. 9 — a US answer to the six conditions.** Trump, at the White House
+  Monday, answered Tehran's reparations demand with a counterclaim: "We're going to ask for
+  money for the damage they've done over a 50-year period," naming the **17** sailors killed
+  on the **USS Cole** in October 2000, US combat deaths, and damages in Lebanon, Syria,
+  Yemen and Gaza, and asserting **52,000** killed in Iran in recent months. Iran's foreign
+  ministry spokesman **Esmaeil Baghaei** said the Oman corridor talks are "progressing
+  smoothly and constructively" with shipping route maps agreed and technical issues open.
+  MarineTraffic crossings: **15 Friday, 11 Saturday, 6 Sunday**. Al Jazeera. Other outlets
+  put oil **5%** higher on the day; **not printed**, because the Al Jazeera piece the paper
+  actually opened carries no price. **News again on a signed corridor deal or an Iranian
+  answer to the counterclaim.**
+- **zaporizhzhia-nk-missiles** — 2026-08-11: new, ran as No. 7's third World brief and it
+  supersedes `nizhnekamsk-strike` as the live Ukraine thread. Overnight strikes on
+  **Zaporizhzhia** killed **six** and wounded **19**; **three** more died in Dnipropetrovsk
+  region; Kyiv also hit. **Zelenskyy said the city was struck with North Korean ballistic
+  missiles, Zircons and guided bombs** — printed as his claim, not as fact — and said it is
+  "the first time they cannot wage war without supplements from North Korea." He warned
+  Monday of **30,000-50,000** more North Korean troops. Russia's MoD said it hit
+  "military-industrial enterprises and transport-logistics centres" and did not address the
+  North Korean weapons. Euronews. **News again on independent confirmation of the missile
+  type, or the troop deployment.**
+- **wv-overdose-decline** — 2026-08-11: new, ran as No. 7's first statewide brief. **Dr.
+  Stephen Loyd**, director of the Office of Drug Control Policy, told the **Joint Standing
+  Committee on Health** at August interims that overdose deaths are down **41.6% from
+  pre-pandemic levels** and neonatal abstinence syndrome down **44.2%**, while WV rates
+  remain about **2.5 times the national average** (the state had the nation's highest rate in
+  2021). **136,276** naloxone kits distributed; nearly **6 million** fewer opioid doses
+  prescribed in 2025 than 2024, about **11%** down across all **55** counties. Senate Health
+  Chairman **Brian Helton (R-Raleigh)** cautioned against celebrating early. WV MetroNews.
+  **News again on the next annual count or a funding decision.**
+- **wv-child-fatality-report** — 2026-08-11: new, ran as No. 7's second statewide brief and
+  it is a live oversight thread. The Child and Incident Review Team's report to lawmakers
+  covered **29 child deaths reviewed January through April** (32 incidents total) in what
+  **Del. Adam Burkhammer (R-Lewis)** called three bullet points; **Del. Kayla Young
+  (D-Kanawha)**: "We mandated what information has to be included in this report, and they're
+  just not doing it." **Del. Margitta Mazzocchi (R-Logan)** pressed on school suicide
+  prevention. **Kendra Boley Rogers**, deputy commissioner of the Bureau for Social Services,
+  said she was "not prepared to speak to that today." WSAZ's own investigative piece. **News
+  again on a revised report or a bill; this pairs with `dohs-out-of-state-placements`.**
+- **wv-flock-plate-readers** — 2026-08-11: **moved to Huntington, exactly as No. 6 predicted,
+  and ran as the `huntington_cabell` line rather than a second statewide brief.** Council
+  introduced **two** ordinances Monday night: Mayor **Patrick Farrell**'s (data access
+  guidelines, retention, audits, criminal penalties for misuse) and Councilwoman **Tia
+  Rumbaugh**'s (graduated penalties for repeat abuse). Farrell: "Nobody wants to live in a
+  surveillance state," and he noted camera-issued traffic tickets are already illegal in WV;
+  he cited **40 pounds** of fentanyl seized over 19 months. Councilwomen **Sarah Walling**
+  and **Holly Smith Mount** objected to the pace. Chairman **Mike Shockley** said the
+  contract will not proceed until ground rules exist; City Attorney **Scott Damron** said
+  **nothing is signed**. The **$2.1M** contract passed **6-4** in July. **Both ordinances go
+  to the Public Safety Committee Aug. 24** (above). WSAZ and WV MetroNews. The statehouse
+  half is unchanged: **Del. Patrick Lucas (R-Cabell)** files a bill in January.
+- **nicholas-storm-outages** — 2026-08-11: ran as the `nicholas_webster` line. Monday's
+  storms left more than **4,000** Appalachian Power customers out across central and southern
+  WV, **just over 2,000 of them in Nicholas County**, the most of any county; the story
+  carried no restoration estimate. WSAZ had First Alert Weather Days running **Aug. 10
+  through Thursday**. WV MetroNews. **A multi-day outage or a second round makes it news
+  again; a clean restoration does not.** Note the cabin region is on this line for the first
+  time in the run.
+- **bridgewater-retires** — 2026-08-11: new, ran as No. 7's first Sports brief. **Teddy
+  Bridgewater** retired at **33** after **11** seasons; Detroit put him on the reserve/retired
+  list **Sunday** and signed **Josh Dobbs**, 31, to a one-year deal worth **$1.425M** with
+  **$475,000** guaranteed. Career: **15,182** passing yards, **75** TDs, **47** INTs over
+  **83** games and **65** starts for Minnesota, New Orleans, Carolina, Denver, Detroit and
+  Tampa Bay; in 2019 he went 5-0 filling in for Drew Brees. Dan Campbell quoted. CBS Sports.
+  Thread closes; not a running story.
+- **wvu-defense-rebuild** — 2026-08-11: new, ran as No. 7's second Sports brief and it is the
+  live WVU camp thread now. WVU allowed **30.8** points a game in 2025, **112th** nationally,
+  and **36.2** in Big 12 play, giving up **445+** yards a game in conference. Senior
+  linebacker **Ben Cutter** (6-0, 228) is the **only** returner among the team's top 17
+  tacklers from 2025; DC **Zac Alley**: "We were boom or bust last year." WV MetroNews.
+  **`wvu-qb-battle` is still open and still unresolved** — Rodriguez held a media
+  availability Monday Aug. 10 and again did not name a starter between Scotty Fox Jr. and
+  Michael Hawkins Jr., as he also declined to at Big 12 Media Days on July 8. **Fan Day is
+  Aug. 28.**
+- **eclipse-2026** — 2026-08-11: new, ran in Sci/Tech. See the Aug. 12 forward-dated row for
+  the detail. Sourced to **Euronews** after `science.nasa.gov`'s eclipse page **404'd** and
+  `esa.int` **403'd**; phys.org had the fullest write-up (ESA director **Carole Mundell**
+  quoted, **60+** high-altitude balloons from Spain and Iceland, a NASA plane chasing at
+  **460 mph**) but reads like syndicated wire copy, so it was not cited. **Those details are
+  available if the follow-up needs them and a byline can be established.**
+- **saturn-cusp** — 2026-08-11: new, ran in Sci/Tech. **Lancaster University** researchers —
+  **Dr. Licia Ray**, **Dr. Sarah Badman** and **Dr. Chris Arridge** — used **Cassini** data
+  from **2004 to 2010** to show Saturn's magnetospheric cusp sits typically between **13:00
+  and 15:00** local time and sometimes toward 20:00, not near noon as at Earth, dragged round
+  by the planet's **10.7-hour** rotation and plasma from **Enceladus**. Published in **Nature
+  Communications**; read via ScienceDaily's reproduction dated **Aug. 10**, with `source`
+  naming the institution, same convention as Nos. 4, 5 and 6. `nature.com` redirects to an
+  auth wall and cannot be opened. News again on an aurora result built on it.
 - **typhoon-dolphin** — 2026-08-10: **led the paper on its third day in it, and
   the lead was the movement, not the setup.** Landfall near **Yuhuan**, Zhejiang,
   late Sunday as a typhoon, sustained winds **151 kph**. A central Shanghai
@@ -470,6 +609,47 @@ Four sections, all four maintained every run:
 
 ## 4. Recently covered
 
+### 2026-08-11 — No. 7
+- lead: colombia-earthquake
+- us: vaccine-schedule-eo, noaa-july-record, midwest-primaries-2026
+- world: assad-death-sentence, hormuz-reopening (Trump's counterclaim),
+  zaporizhzhia-nk-missiles
+- wv statewide: wv-overdose-decline, wv-child-fatality-report
+- wv regional: huntington_cabell — wv-flock-plate-readers (the Huntington ordinances);
+  nicholas_webster — nicholas-storm-outages
+- wv away: **none, fifth straight edition** — Vermont's only fresh Bennington items were the
+  three-way Democratic primary for the county Senate seat and a library whale feature, and
+  **the primary was Aug. 11 itself**, so it is a scheduled event this morning and a result
+  tomorrow; Prince George had nothing; Topsail was carried by its fishing line. **Vermont is
+  the away desk's best hook in a week and it lands in No. 8**
+- sports: bridgewater-retires, wvu-defense-rebuild
+- scitech: eclipse-2026, saturn-cusp
+- mid_ohio_valley, summers_new_river, putnam_kanawha: **no line** — searched; Parkersburg's
+  freshest were Sunday I-77 crashes plus weekend items already a day old (Brewfest, the
+  Lancaster Street sewer repair, a 7th Street warrant), Summers/New River had nothing, and
+  Kanawha's candidates were a skatepark closure for the Fort Hill Bridge job and a log-cabin
+  relocation — neither worth the slot when the notebook was already at budget
+- **fishing: both waters.** Williams **90 cfs and rising, 1.58 ft**, up from 74.4 cfs a day
+  earlier — the first rising reading of the run, after Monday's storms
+- **sumo: sat out, fifth day running.** Off-basho, full dedicated search. The only August
+  item with a real byline is **The Japan Times' Aug. 5 feature on the summer jungyo**
+  (regional tour) — 28 event days in 27 locations, opening in Gifu Aug. 2, a single rest day
+  **Aug. 17**, finishing in Sendai — and at six days old it is not a brief. Aki dates and the
+  Aug. 31 banzuke are **still** carried only by travel and ticket-reseller sites. **Aug. 31
+  remains the hook.** Correct edition per Ian's rule
+- **football: searched, nothing.** No matchweek; the season opens **Aug. 21**. Chelsea's
+  Palestra signing was early July and Henderson's is undated on the club's own page;
+  Liverpool's Jacquet unveiling and Tottenham's Vuskovic sale to Brighton had no readable
+  Aug. 10-11 report. The validator's in-season warning fired and was cleared by search
+- **stocking: silent no-op.** WVDNR publishes no advance schedule and posts stockings only
+  after the fact; nothing named the Williams, the Cranberry or the Summersville tailwater
+- **Do not re-run tomorrow without movement:** the vaccine order itself (**the first lawsuit
+  is the news**); the NOAA July figure; the Assad verdict (an extradition request is the
+  news); Trump's counterclaim (Tehran's answer is the news); the Loyd testimony; the child
+  fatality report; the Huntington ordinances (**Aug. 24 committee is the news**); the Nicholas
+  outages; Bridgewater; the WVU defense. **Two exceptions that should run: the primary
+  results, including Vermont, and what the eclipse actually looked like.**
+
 ### 2026-08-10 — No. 6
 - lead: typhoon-dolphin (third day in the story, led on landfall and the
   150-year Shanghai rain record)
@@ -816,3 +996,72 @@ Four sections, all four maintained every run:
   anyway); `thisisanfield.com` **403'd** and `espn.com/soccer/match` returned
   empty markdown twice, so Sky Sports carried both friendlies; `wvpublic.org/news`
   served content two months stale and is not usable as a front page right now.
+- **2026-08-11** — No. 7. *(Ledger body written at 06:30 while the post was holding; the
+  delivery line at the end of this entry was filled in once `index.json` recorded it.)* Six
+  things for the next shift:
+
+  **1. THE CLONE CAME UP IN DETACHED HEAD, AND `git push -u origin main` FAILED IN A WAY THAT
+  LOOKED LIKE A STALE REMOTE.** `git pull` in step 1 errored with "specify which branch";
+  `git pull --rebase origin main` then said "Already up to date" and everything looked fine.
+  It was not: `HEAD` was detached at `origin/main` and the local `main` branch still pointed
+  at **71d0c7d, 25 commits behind**. So the commit landed on a detached HEAD, and the push
+  tried to send the *stale branch* and was rejected as non-fast-forward. Two `git pull
+  --rebase` attempts did nothing because the rebase target was already current. The fix is
+  three seconds once you see it: `git branch -f main HEAD && git checkout main && git push -u
+  origin main`. **Run `git status -sb` as part of step 1, before anything else** — "## HEAD
+  (no branch)" is the whole diagnosis, and a non-fast-forward at 6:20 with a paper to ship is
+  exactly when this is most expensive to work out from first principles.
+
+  **2. The first draft projected 6,201 against a 5,600 target — and the notebook was not the
+  problem.** Twelve briefs, a two-paragraph lead, a lean notebook (2 statewide, 2 regional,
+  no away, 2 fishing): the shape was right and it still ran 600 over, because **the summaries
+  were written at 150-190 characters instead of 110-130**. Tightening all fifteen of them,
+  cutting nothing, took it to **5,581** with no brief lost. No. 6's lesson was "decide the
+  shape first"; this morning's is the other half — **the shape being right does not save you
+  if the prose is written to the cap.** Write the summary at 120 on the first pass.
+
+  **3. The hold re-read caught three real sourcing errors on its fourth consecutive morning,
+  and one of them was in a HEADLINE, which is a new surface.** (a) The lead U.S. headline read
+  "Trump orders childhood vaccine list cut to 11" while the cited CBS piece **never carries a
+  number** — the 11 came from NPR and NBC, which themselves disagree on the old figure (17 v
+  18). A headline sourced to an article that does not support it is the same defect as an
+  invented summary and is easier to miss, because the re-read instinct is to check summaries.
+  Rewritten to "Trump orders fewer recommended childhood vaccines," which the CBS piece does
+  support. (b) The lead dek said "Cali and Pereira imposed curfews" — taken from a **Euronews
+  headline** on the index page, never opened. Opening the body confirmed **Cali only**. (c) A
+  Wisconsin summary said Hong "leads the Wisconsin governor field" when she leads only the
+  **Democratic** field. Also a milder antecedent slip that hung the 2.5x overdose rate on
+  neonatal abstinence syndrome. **Check headlines and deks against the cited article, not
+  just summaries.**
+
+  **4. Four disputed numbers were dropped or downgraded in one edition — the most yet — and
+  the rule held every time.** Injured in Colombia: **570** (Al Jazeera, Euronews) v **700**
+  (NBC), so the twice-supported figure ran. Missing: **188** (NBC) v **1,400+** (Al Jazeera),
+  dropped entirely. Quake depth: **107 km** v **110 km**, dropped. Vaccines cut from **17**
+  or **18**, dropped and the headline rewritten. None of the four cost the reader anything;
+  all four were tempting.
+
+  **5. Poll-Pages-before-posting is 5-for-5, and this was the fastest yet: 200 on the first
+  attempt, about four seconds after the push.** Content was verified, not just the status
+  code — the headline and "No. 7" were both grepped out of the served HTML. The permalink
+  shipped in the original message; `--backfill-link` was not needed.
+
+  **6. Rasterising the drawing before shipping is now worth doing twice.** First pass: the
+  tide flats read as two rounded hills and the channel stopped in mid-water. Flattening the
+  flats' profiles into shallow scalloped sheets, running the channel all the way to the
+  horizon, moving the marker piling onto the channel lip and deleting two oyster clumps that
+  came out as eggs fixed it, in about six minutes. `pip install cairosvg`, substitute
+  `currentColor` and the `var(--parchment, …)` for literals, render, look. **The subject was
+  rung 3 but a new one — Topsail Sound at the afternoon low of -0.2 ft**, drawn from the
+  fetcher's own tide table, chosen over a fourth Williams River so the standing subject does
+  not become wallpaper. The other sound/river readings are still there for future mornings.
+
+  Also noted: `westvirginiawatch.com` **403'd** again (third morning running);
+  `science.nasa.gov`'s eclipse page **404'd**, `esa.int` **403'd**, `nature.com` redirects to
+  an auth wall, `espn.com` returned **empty markdown** for both the latest-news index and a
+  story page, and `wvusports.com/news` **404'd** — so ESPN and the university's own site are
+  both currently unusable and CBS Sports carried the NFL brief. `wsaz.com`, `wvmetronews.com`,
+  `euronews.com`, `aljazeera.com`, `npr.org`, `pbs.org`, `cbsnews.com`, `cbssports.com` and
+  `sciencedaily.com` all opened cleanly. U.S. ran on two outlets rather than three (NPR twice,
+  PBS once) and World likewise (Euronews twice, Al Jazeera once); acceptable at two, but both
+  sections were one byline short of the standard.
