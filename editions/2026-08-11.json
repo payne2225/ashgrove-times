@@ -1,0 +1,191 @@
+{
+  "edition_date": "2026-08-11",
+  "edition_number": 7,
+  "volume": "I",
+  "lead": {
+    "headline": "Magnitude 7.4 quake kills 132 across western Colombia",
+    "dek": "President Abelardo de la Espriella declared a national disaster; Cali and Pereira imposed curfews.",
+    "byline": "Wire Reports",
+    "body": [
+      "A magnitude 7.4 earthquake killed at least 132 people and injured 570 in western Colombia on Monday, the strongest to strike the country this century, with rescue crews still searching collapsed buildings in Cali and Pereira.",
+      "The quake struck near San Jose del Palmar, in Choco department about 250 miles west of Bogota, at a depth of 107 kilometers, and at least 21 aftershocks followed within hours. NBC News reported roughly 5,000 homes damaged or destroyed and three hospitals collapsed."
+    ],
+    "art": {
+      "file": "art/2026-08-11-lead.svg",
+      "caption": "Topsail Sound at Tuesday's afternoon low of minus 0.2 feet, the flats bare either side of the channel.",
+      "credit": "Sketched from NOAA tide readings for Topsail Sound"
+    },
+    "stat_strip": [
+      {
+        "label": "S&P 500",
+        "value": "7,753.11",
+        "change": "-0.06%",
+        "direction": "down"
+      },
+      {
+        "label": "Dow",
+        "value": "53,975.98",
+        "change": "-0.11%",
+        "direction": "down"
+      },
+      {
+        "label": "Nasdaq",
+        "value": "26,605.36",
+        "change": "-0.32%",
+        "direction": "down"
+      },
+      {
+        "label": "Bitcoin",
+        "value": "$64,244",
+        "change": "-1.14%",
+        "direction": "down"
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "us",
+      "label": "U.S.",
+      "briefs": [
+        {
+          "headline": "Trump orders childhood vaccine list cut to 11",
+          "summary": "RSV and hepatitis A and B move to high-risk children only, MMR splits into three doses, and HHS has 90 days to reassess timing.",
+          "source": "CBS News",
+          "url": "https://www.cbsnews.com/news/trump-childhood-vaccines-executive-order/"
+        },
+        {
+          "headline": "July was the hottest month on record in the Lower 48",
+          "summary": "NOAA put the contiguous U.S. average at 76.89F, 0.125F above the July 1936 record set in the Dust Bowl.",
+          "source": "PBS NewsHour",
+          "url": "https://www.pbs.org/newshour/nation/contiguous-u-s-broke-its-record-for-hottest-month-ever-in-july-noaa-says"
+        },
+        {
+          "headline": "Minnesota and Wisconsin vote in test of the left",
+          "summary": "Lt. Gov. Peggy Flanagan meets Rep. Angie Craig in Minnesota's Senate primary; state Rep. Francesca Hong leads the Wisconsin governor field.",
+          "source": "NPR",
+          "url": "https://www.npr.org/2026/08/11/nx-s1-5927455/minnesota-wisconsin-primaries-hong-dsa-crowley-lindell-craig-flanagan-trump"
+        }
+      ]
+    },
+    {
+      "id": "world",
+      "label": "World",
+      "briefs": [
+        {
+          "headline": "Syrian court sentences Assad to death in absentia",
+          "summary": "Bashar al-Assad and his brother Maher were convicted over the 14-year war; cousin Atef Najib, tried in person, drew the same sentence.",
+          "source": "Euronews",
+          "url": "https://www.euronews.com/2026/08/11/syria-sentences-bashar-al-assad-to-death-in-absentia-for-war-crimes-and-crimes-against-hum"
+        },
+        {
+          "headline": "Trump demands Iran pay for 50 years of damage",
+          "summary": "He met Tehran's reparations condition for reopening the Strait of Hormuz with a counterclaim covering the USS Cole and other deaths.",
+          "source": "Al Jazeera",
+          "url": "https://www.aljazeera.com/news/2026/8/11/trump-demands-compensation-from-iran-as-talks-on-strait-of-hormuz-continue"
+        },
+        {
+          "headline": "Zelenskyy says North Korean missiles hit Zaporizhzhia",
+          "summary": "Six died and 19 were wounded there in overnight strikes that also hit Kyiv and Dnipropetrovsk region, where three more died.",
+          "source": "Euronews",
+          "url": "https://www.euronews.com/2026/08/11/russia-fired-north-korean-missiles-in-attack-that-killed-six-in-zaporizhzhia-zelenskyy-say"
+        }
+      ]
+    },
+    {
+      "id": "wv",
+      "label": "West Virginia",
+      "notebook_title": "Mountaineer State Notebook",
+      "briefs": [
+        {
+          "headline": "Drug policy director reports 41.6% drop in overdose deaths",
+          "summary": "Dr. Stephen Loyd told the Joint Standing Committee on Health that neonatal abstinence syndrome fell 44.2% and rates remain 2.5 times the national average.",
+          "source": "WV MetroNews",
+          "url": "https://wvmetronews.com/2026/08/10/drug-control-policy-director-highlights-improvements-in-west-virginias-addiction-battle/"
+        },
+        {
+          "headline": "Lawmakers say child death report left out required detail",
+          "summary": "The review team reported 29 child deaths from January through April in three bullet points. Del. Kayla Young said lawmakers mandated more.",
+          "source": "WSAZ",
+          "url": "https://www.wsaz.com/2026/08/11/wsaz-investigates-wva-frustrated-lack-information-about-child-deaths/"
+        }
+      ],
+      "regional": [
+        {
+          "region_id": "huntington_cabell",
+          "place": "Huntington & the Cabell-Mason corridor",
+          "people": [
+            "Trav",
+            "Justin",
+            "Nate",
+            "Ian"
+          ],
+          "item": "Council introduced ordinances setting data rules and penalties for misuse before any Flock contract is signed.",
+          "source": "WSAZ",
+          "url": "https://www.wsaz.com/2026/08/11/huntington-city-council-considers-rules-penalties-proposed-flock-technology/"
+        },
+        {
+          "region_id": "nicholas_webster",
+          "place": "Nicholas & Webster / Summersville - Cowen",
+          "people": [
+            "Clayton"
+          ],
+          "item": "Monday's storms cut power to more than 2,000 Appalachian Power customers, the most of any county.",
+          "source": "WV MetroNews",
+          "url": "https://wvmetronews.com/2026/08/10/appalachian-power-looking-to-restore-service-after-monday-storms/"
+        }
+      ],
+      "away": [],
+      "fishing": [
+        {
+          "water": "Williams River (Cowen)",
+          "line": "90 cfs and rising, gauge at 1.58 ft - prime wading water.",
+          "source": "USGS 03186500"
+        },
+        {
+          "water": "Topsail Beach (surf and sound)",
+          "line": "Sound highs 7:23 a.m. and 8:01 p.m.; water 78.1F at Wrightsville Beach, 25 miles down the coast.",
+          "source": "NOAA CO-OPS 8657813"
+        }
+      ]
+    },
+    {
+      "id": "sports",
+      "label": "Sports",
+      "briefs": [
+        {
+          "headline": "Teddy Bridgewater retires again at 33 after 11 seasons",
+          "summary": "Detroit placed him on the reserve/retired list Sunday and signed Josh Dobbs to a one-year, $1.425 million deal.",
+          "source": "CBS Sports",
+          "url": "https://www.cbssports.com/nfl/news/teddy-bridgewater-retires-lions-backup-quarterback-jared-goff/"
+        },
+        {
+          "headline": "WVU rebuilds a defense that ranked 112th in scoring",
+          "summary": "They allowed 30.8 points a game last season, 36.2 in Big 12 play; senior linebacker Ben Cutter is the only returning top-17 tackler.",
+          "source": "WV MetroNews",
+          "url": "https://wvmetronews.com/2026/08/10/cutter-strives-for-more-production-to-aid-in-defenses-quest-for-improvement/"
+        }
+      ]
+    },
+    {
+      "id": "scitech",
+      "label": "Science & Technology",
+      "briefs": [
+        {
+          "headline": "Total eclipse crosses Spain on Wednesday, first since 1912",
+          "summary": "The Moon's shadow enters Galicia about 19:27 and leaves the Balearics about 20:35; totality lasts under 1 minute 48 seconds.",
+          "source": "Euronews",
+          "url": "https://www.euronews.com/2026/08/10/a-unique-ninety-seconds-in-the-21st-century-spain-prepares-for-historic-eclipse-trio"
+        },
+        {
+          "headline": "Saturn's magnetic funnel sits in the afternoon, not at noon",
+          "summary": "Cassini data from 2004 to 2010 put the cusp between 13:00 and 15:00 local time, dragged by the planet's 10.7-hour spin.",
+          "source": "Lancaster University",
+          "url": "https://www.sciencedaily.com/releases/2026/08/260807035153.htm"
+        }
+      ]
+    }
+  ],
+  "weather_ear": "The forecast follows at 7:15, from Jim Claudtore.",
+  "kicker": "Sumo sat out; there was nothing between tournaments.",
+  "sources_note": "Compiled from wire reports"
+}
