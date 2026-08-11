@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 506" role="img"
-     aria-label="Sketch: Topsail Sound at the afternoon low tide of minus two tenths of a foot. Bared mud and oyster flats stand out of the water on either side of a narrow channel that runs away toward a low barrier island on the horizon, with marsh grass in the foreground and a channel marker piling standing well clear of the water.">
+     aria-label="Sketch: Topsail Sound at the afternoon low tide of minus two tenths of a foot. Bared mud and oyster flats stand out of the water on either side of a narrow channel running away toward a low barrier island on the horizon, with marsh grass in the foreground and a channel marker whose piling stands well clear of the water.">
   <defs>
     <style>
       .ink   { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; }
@@ -16,73 +16,83 @@
          horizon is what tells the eye this is the coast and not the river. -->
     <path class="mask" d="M0 214 C120 208 190 204 268 208 C330 200 372 202 420 209
                           C486 200 540 204 596 210 C664 202 720 206 790 212
-                          C838 209 872 212 900 216 V236 H0 Z" stroke-width="2"/>
+                          C838 209 872 212 900 216 V234 H0 Z" stroke-width="2"/>
     <g class="ink faint" stroke-width="0.9">
-      <path d="M96 216c10 6 18 12 22 18M300 212c10 6 18 12 22 18M552 214c10 6 18 12 22 18M770 218c10 6 18 12 22 18"/>
+      <path d="M96 216c10 5 18 10 22 15M300 212c10 5 18 10 22 15M552 214c10 5 18 10 22 15M770 218c10 5 18 10 22 15"/>
     </g>
     <!-- A few beach houses on stilts, drawn small so the island stays far. -->
-    <g class="mask" stroke-width="1.4">
-      <path d="M232 206h16v9h-16z"/>
-      <path d="M470 204h18v10h-18z"/>
-      <path d="M652 207h15v9h-15z"/>
+    <g class="mask" stroke-width="1.3">
+      <path d="M232 205h15v9h-15z"/>
+      <path d="M470 203h17v10h-17z"/>
+      <path d="M652 206h14v9h-14z"/>
     </g>
 
-    <!-- Open water beyond the flats, still holding its depth at low tide. -->
+    <!-- Open water still holding depth beyond the bars. -->
     <g class="ink faint" stroke-width="1">
-      <path d="M40 250c48-7 100-7 148 2M250 246c46-7 96-7 142 2M470 250c44-6 92-6 136 2M690 254c40-6 84-6 124 2"/>
-      <path d="M150 268c44-6 92-6 136 2M400 264c44-6 92-6 136 2M630 270c40-6 84-6 124 2"/>
+      <path d="M40 250c48-6 100-6 148 2M250 246c46-6 96-6 142 2M470 250c44-5 92-5 136 2M690 254c40-5 84-5 124 2"/>
+      <path d="M150 266c44-5 92-5 136 2M400 262c44-5 92-5 136 2M630 268c40-5 84-5 124 2"/>
     </g>
 
-    <!-- THE CHANNEL. It opens toward the viewer and pinches to nothing at the
-         island, and that convergence is what makes flat bands read as a
-         waterway seen from the marsh edge. -->
-    <path class="ink" d="M0 470 C150 430 322 356 468 286" stroke-width="2.6"/>
-    <path class="ink" d="M330 506 C438 434 520 356 566 288" stroke-width="2.6"/>
-    <path class="ink mid" d="M468 286 C492 282 528 282 566 288" stroke-width="1.6"/>
+    <!-- THE CHANNEL. It opens toward the viewer and runs all the way back to
+         the island, and that convergence is what makes flat bands read as a
+         waterway seen from the marsh edge rather than as a wedge of ground. -->
+    <path class="ink" d="M0 494 C160 452 340 366 476 268 C500 250 512 240 516 234" stroke-width="2.6"/>
+    <path class="ink" d="M356 506 C446 430 512 356 544 292 C554 270 558 250 560 234" stroke-width="2.6"/>
 
-    <!-- Moving water inside the channel: the tide is running out, so the
-         riffle marks are drawn pulling seaward and crowding as they recede. -->
+    <!-- Water inside the channel: the tide is running out, so the marks pull
+         seaward and crowd together as they recede. -->
     <g class="ink mid" stroke-width="1.2">
-      <path d="M120 456c40-14 78-22 112-24M250 420c36-13 70-20 100-22M354 384c30-11 58-17 84-19M436 348c24-9 46-14 66-15M496 318c18-7 34-11 50-12"/>
+      <path d="M130 470c44-14 84-24 118-28M262 428c38-13 72-21 102-25M368 388c30-11 58-18 82-21M452 348c24-9 44-14 62-17M512 310c16-6 30-10 42-12M548 278c10-4 18-6 26-8"/>
     </g>
 
-    <!-- LEFT FLAT, out of the water. The scalloped upper edge is the wet line
-         the falling tide left behind; the ticks are oyster shell. -->
-    <path class="mask" d="M0 340 C90 336 168 348 236 372 C300 394 356 424 400 460
-                          C428 482 442 496 450 506 H0 Z" stroke-width="2.2"/>
-    <g class="ink faint" stroke-width="1">
-      <path d="M0 366 C86 362 158 374 222 396 C280 416 330 444 370 476"/>
-      <path d="M0 396 C78 393 144 404 202 424 C254 442 298 466 332 494"/>
-    </g>
+    <!-- LEFT FLAT, out of the water. Its top edge is deliberately shallow and
+         scalloped: a tide flat is a nearly level sheet of mud with a ragged
+         wet line, and drawing it as one smooth arc made it read as a hill. -->
+    <path class="mask" d="M0 356 C56 352 92 360 132 356 C176 352 208 362 248 372
+                          C292 383 320 396 352 414 C388 434 412 456 430 480
+                          C440 494 446 500 450 506 H0 Z" stroke-width="2.2"/>
     <g class="ink mid" stroke-width="1.1">
-      <path d="M56 388l6 7M104 402l6 7M158 424l6 7M212 452l6 7M84 438l6 7M140 462l6 7M46 460l6 7M196 488l6 7"/>
+      <path d="M0 372c48-4 84 4 122 2M138 378c40 4 74 14 108 26M272 414c34 14 62 30 88 50"/>
+    </g>
+    <g class="ink faint" stroke-width="1">
+      <path d="M0 400c60-3 108 6 152 20 44 14 82 34 116 60"/>
+      <path d="M0 440c52-2 96 6 136 20 38 13 70 30 100 52"/>
+    </g>
+    <!-- Oyster shell on the bared mud, drawn as short paired ticks. -->
+    <g class="ink mid" stroke-width="1.1">
+      <path d="M58 390l5 6M104 404l5 6M162 428l5 6M216 456l5 6M88 442l5 6M144 468l5 6M44 466l5 6M198 490l5 6M258 484l5 6M120 496l5 6"/>
     </g>
 
     <!-- RIGHT BAR, smaller and further off, so the flats do not read as one
-         symmetrical wall of mud. -->
-    <path class="mask" d="M900 322 C830 320 762 332 700 356 C648 376 612 400 588 424
-                          C570 442 560 462 556 506 H900 Z" stroke-width="2.2"/>
+         symmetrical pair of mounds. -->
+    <path class="mask" d="M900 336 C852 334 812 342 774 350 C728 360 692 374 664 390
+                          C630 410 606 432 592 456 C580 476 574 492 572 506 H900 Z" stroke-width="2.2"/>
+    <g class="ink mid" stroke-width="1.1">
+      <path d="M900 356c-46-2-86 6-124 16M754 382c-34 12-62 28-86 48"/>
+    </g>
     <g class="ink faint" stroke-width="1">
-      <path d="M900 350 C838 348 776 359 720 380 C674 397 640 420 618 444"/>
-      <path d="M900 384 C846 382 792 392 744 410 C704 425 674 444 654 466"/>
+      <path d="M900 396c-56-2-104 8-146 26-38 16-70 38-94 62"/>
+      <path d="M900 440c-48-2-90 6-128 22-34 14-62 32-84 54"/>
     </g>
     <g class="ink mid" stroke-width="1.1">
-      <path d="M844 372l6 7M780 392l6 7M726 418l6 7M812 414l6 7M756 448l6 7M866 424l6 7M690 462l6 7"/>
+      <path d="M840 380l5 6M782 402l5 6M730 428l5 6M812 424l5 6M760 456l5 6M866 428l5 6M696 468l5 6M648 492l5 6"/>
     </g>
 
-    <!-- Channel marker piling. At this tide it stands well clear of the water,
-         which is the whole point of a minus low. -->
-    <g class="ink" stroke-width="2.4">
-      <path d="M612 268 L606 404"/>
-      <path d="M626 270 L634 404"/>
+    <!-- Channel marker on the near right lip of the channel. At a minus low
+         its piling stands well clear of the water, which is the whole point
+         of this tide. -->
+    <g class="ink" stroke-width="2.6">
+      <path d="M596 286 L590 452"/>
+      <path d="M614 288 L626 452"/>
+      <path d="M592 372 L620 376"/>
     </g>
-    <path class="mask" d="M596 256 h48 v20 h-48 z" stroke-width="2"/>
+    <path class="mask" d="M578 262 h54 v26 h-54 z" stroke-width="2.1"/>
     <g class="ink faint" stroke-width="1">
-      <path d="M600 404c8 6 24 8 40 2"/>
+      <path d="M584 452c10 6 30 8 48 2"/>
     </g>
 
-    <!-- Foreground marsh grass on the near bank, drawn as blades from a
-         common root rather than scattered strokes. -->
+    <!-- Foreground marsh grass on the near bank, blades rising from a common
+         root rather than scattered strokes. -->
     <g class="ink" stroke-width="1.5">
       <path d="M38 506c2-30 0-52-10-72M46 506c8-28 12-50 8-74M54 506c14-26 24-46 26-70"/>
       <path d="M118 506c0-26-4-46-14-64M126 506c8-24 10-44 6-66M134 506c14-22 22-40 24-62"/>
@@ -90,7 +100,7 @@
       <path d="M866 506c0-24 4-42 14-58M874 506c-8-22-10-40-6-60"/>
     </g>
     <g class="ink mid" stroke-width="1.1">
-      <path d="M188 506c4-20 2-34-6-46M196 506c8-18 12-32 10-46M258 506c-2-18 0-32 8-44M266 506c8-16 12-30 12-42"/>
+      <path d="M188 506c4-20 2-34-6-46M196 506c8-18 12-32 10-46M262 506c-2-18 0-32 8-44M270 506c8-16 12-30 12-42"/>
       <path d="M700 506c-2-20 0-34 8-46M708 506c8-18 12-30 12-44"/>
     </g>
   </g>
