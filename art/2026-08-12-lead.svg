@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 506" role="img"
+     aria-label="Sketch: the Williams River in flood, seen upstream from a high bank. Brown water fills the channel bank to bank, standing waves break over drowned cobble bars, and a lodged log rides the near bank below wooded hills.">
+  <defs>
+    <style>
+      .ink   { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; }
+      .mask  { fill: var(--parchment, #f4f0e6); stroke: currentColor;
+               stroke-linecap: round; stroke-linejoin: round; }
+      .faint { opacity: 0.3; }
+      .mid   { opacity: 0.58; }
+    </style>
+  </defs>
+
+  <g>
+    <!-- Far ridge, rounded and layered. The valley closes upstream toward the
+         centre; that convergence is what makes this a river and not a band. -->
+    <path class="mask" d="M0 188 C96 146 178 128 272 138 C360 148 410 118 492 116
+                          C584 114 646 138 730 132 C802 127 854 146 900 164
+                          V236 H0 Z" stroke-width="2.2"/>
+    <g class="ink faint" stroke-width="0.9">
+      <path d="M126 162c26 10 44 26 56 44M306 146c24 12 40 28 50 46M528 126c22 12 38 30 46 48M726 140c22 12 36 28 44 46"/>
+    </g>
+
+    <!-- Nearer ridge overlapping the far one. -->
+    <path class="mask" d="M0 240 C112 202 214 196 302 208 C396 220 456 198 544 196
+                          C632 194 706 214 792 222 C838 226 872 234 900 242
+                          V300 H0 Z" stroke-width="2.4"/>
+
+    <!-- Treeline along both banks, shrinking with distance upstream. The
+         trees are the depth cue: tall and separate near, low and crowded far. -->
+    <g class="ink mid" stroke-width="1.5">
+      <path d="M18 300c8-30 6-52 2-72M52 296c9-34 8-58 3-80M92 300c8-28 7-50 2-70
+               M132 304c9-30 8-52 3-72M176 306c7-26 6-44 2-62M216 310c8-26 7-44 3-62
+               M258 312c7-22 6-38 2-54M300 316c6-20 5-34 2-48M340 318c6-18 5-30 2-42
+               M378 322c5-16 4-26 2-36M412 324c5-13 4-22 2-30"/>
+      <path d="M882 302c-8-32-6-54-2-74M846 298c-9-34-8-58-3-80M806 302c-8-28-7-50-2-70
+               M766 306c-9-30-8-52-3-72M722 308c-7-26-6-44-2-62M682 312c-8-26-7-44-3-62
+               M640 314c-7-22-6-38-2-54M598 318c-6-20-5-34-2-48M558 320c-6-18-5-30-2-42
+               M520 324c-5-16-4-26-2-36M486 326c-5-13-4-22-2-30"/>
+    </g>
+
+    <!-- The banks. In flood the water climbs them: the bank lines here run
+         high and the gravel bar that carried the low-water sketch is gone. -->
+    <path class="ink" stroke-width="2.6"
+          d="M0 372 C120 356 246 344 352 336 C404 332 438 330 452 330"/>
+    <path class="ink" stroke-width="2.6"
+          d="M900 366 C782 352 656 342 552 334 C500 330 466 330 452 330"/>
+    <g class="ink faint" stroke-width="1.1">
+      <path d="M0 398C124 380 252 366 360 356M900 392C778 376 652 362 548 354"/>
+    </g>
+
+    <!-- Drowned cobble bars: two humps of broken water where the bar was,
+         not stones standing out of it. At 767 cfs they are pressure ridges. -->
+    <g class="ink mid" stroke-width="1.4">
+      <path d="M318 404c18-12 42-14 62-4 14 7 22 16 24 24"/>
+      <path d="M520 396c16-11 38-12 55-3 12 6 19 14 21 21"/>
+    </g>
+
+    <!-- The water. Long, stretched, downstream-driven lines - fast water draws
+         as length, not as ripple. They widen and steepen toward the reader. -->
+    <g class="ink" stroke-width="1.6">
+      <path d="M452 340C430 356 392 372 336 388 262 410 168 436 60 466"/>
+      <path d="M452 340C474 356 512 372 568 388 644 410 738 436 846 466"/>
+    </g>
+    <g class="ink mid" stroke-width="1.3">
+      <path d="M440 352C404 368 344 386 268 408M462 352C498 368 558 386 634 408"/>
+      <path d="M410 380C352 398 268 420 170 446M492 380C550 398 634 420 732 446"/>
+      <path d="M386 416C324 434 236 458 140 486M516 416C578 434 666 458 762 486"/>
+    </g>
+
+    <!-- Standing waves in the tongue of the current, breaking upstream. -->
+    <g class="ink" stroke-width="1.5">
+      <path d="M398 432c14-14 32-14 46 0 14 14 32 14 46 0"/>
+      <path d="M368 462c16-16 36-16 52 0 16 16 36 16 52 0"/>
+      <path d="M336 492c18-18 40-18 58 0 18 18 40 18 58 0"/>
+    </g>
+
+    <!-- A log lodged against the near bank, riding the high water. -->
+    <g class="ink" stroke-width="2.2">
+      <path d="M96 424 C160 414 214 410 262 412"/>
+      <path d="M118 421c-10-12-22-18-34-20M186 414c-8-14-18-22-30-26M232 411c-6-10-14-16-24-19"/>
+    </g>
+
+    <!-- Debris riding the surface downstream of the log. -->
+    <g class="ink faint" stroke-width="1.2">
+      <path d="M300 446c14-3 26-2 34 3M240 470c16-4 30-2 40 4M624 440c14-4 27-3 36 2"/>
+    </g>
+  </g>
+</svg>
