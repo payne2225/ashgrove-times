@@ -50,10 +50,13 @@ Four sections, all four maintained every run:
 
 | Date | Event | Note |
 |---|---|---|
+| **2026-11-03** | **General-election matchups set by Tuesday's primaries** | Minnesota Senate: **Peggy Flanagan (D) v Michele Tafoya (R)**. Minnesota governor: **Amy Klobuchar (D) v Lisa Demuth (R)**. Wisconsin governor: **David Crowley (D) v Tom Tiffany (R)**. Connecticut 1st: **Luke Bronin (D)**. NPR. Ran as No. 8's lead; do not re-run the primary results, the news now is the campaigns |
+| **date not established** | **South Carolina Republican Senate runoff** | Sen. **Darline Graham** (Trump-endorsed) finished first with about a third of the vote and advanced against Rep. **Ralph Norman**; NPR notes two thirds of Republicans voted for Norman or Rep. Russell Fry. **The runoff date was not in the piece the paper opened — find and record it before covering** |
+| 2026-10-20 | **NBA season opens** | Knicks raise their first banner since 1973 against Philadelphia; Thunder at Spurs; Celtics-Pistons. Knicks-Spurs Finals rematch **Dec. 25**, NBA Cup final **Dec. 11**. CBS Sports. Ran as No. 8's second Sports brief; spent until the season actually starts |
 | 2026-08-08 | **Aki basho tickets go on sale** | Confirmed on the JSA's own English page (`sumo.or.jp/En/`) and printed as No. 2's sumo brief. Do not re-run this fact; it is spent |
 | 2026-08-08 | Chelsea play AC Milan in Jakarta | Preseason friendly. A followed club, so it is a legitimate football brief if anything happens in it |
 | **2026-08-10** | **Nucor Apple Grove site reopens (or does not) after the threat closure** | The mill site closes Monday over a written threat naming that date; FBI, State Police and the Mason County sheriff investigating, sheriff's security posted 10 days. WV MetroNews. A reopening, an arrest, or a second closure is a `huntington_cabell` line or a statewide brief. **2026-08-10: the date arrived and nothing new was reported.** Searched at 6 a.m. ET across MetroNews, WSAZ, Herald-Dispatch, WCHS and the Gazette-Mail; every result was still the Aug. 7 closure announcement, so it was **deliberately not re-run** — the closure taking effect is the same fact No. 4 already printed. The paper posts before the work day, so any Monday development lands in **Tuesday's** edition. **Row stays open:** watch for an arrest, a reopening, a second closure, or the sheriff's 10-day detail ending about **Aug. 17**. **2026-08-11: searched again; the only new line anywhere is that no incident was reported as of Monday afternoon**, carried inside the same Aug. 7 closure stories. Not a brief. The mill is a **$4B** project testing equipment now, with production ramping through 2027-28 |
-| **2026-08-12** | **Total solar eclipse over Greenland, Iceland, northern Spain and a corner of Portugal** | Ran as No. 7's first Sci/Tech brief on the eve. The shadow enters Galicia about 19:27 and leaves the Balearics about 20:35; totality nowhere exceeds 1 minute 48 seconds; first in mainland Spain since **April 15, 1912** and first in mainland Europe since 1999. Euronews. **The follow-up is what was actually seen** — cloud, crowds, the ESA and NASA observations — and it belongs in No. 8. Spain's next two are **Aug. 2, 2027** and **Jan. 26, 2028** |
+| **2026-08-12** | **Total solar eclipse over Greenland, Iceland, northern Spain and a corner of Portugal** | Ran as No. 7's first Sci/Tech brief on the eve. The shadow enters Galicia about 19:27 and leaves the Balearics about 20:35; totality nowhere exceeds 1 minute 48 seconds; first in mainland Spain since **April 15, 1912** and first in mainland Europe since 1999. Euronews. **The follow-up is what was actually seen** — cloud, crowds, the ESA and NASA observations. **2026-08-12: it could NOT run in No. 8 and the previous ledger line was wrong to promise it.** Totality reaches Galicia about 19:27 local, roughly **1:30 p.m. ET** — six hours after this paper posts. A 7 a.m. ET edition can never carry a same-day European afternoon event. **It belongs in No. 9 (Aug. 13)**, and Euronews' Aug. 12 preview (eyewear shortages, corona observations from Spain and Iceland) was deliberately not re-run as a second preview. Spain's next two are **Aug. 2, 2027** and **Jan. 26, 2028** |
 | **2026-08-24** | **Huntington Public Safety Committee takes up both Flock ordinances** | Mayor Patrick Farrell's ordinance (data access, retention, audits, criminal penalties) and Councilwoman Tia Rumbaugh's graduated-penalty ordinance were introduced Monday Aug. 10 and referred to committee. City Attorney Scott Damron says **no contract has been signed**; the original Sept. 1 implementation date is now uncertain. WSAZ, WV MetroNews. Ran as No. 7's `huntington_cabell` line |
 | 2026-08-12 | **WAFCON semifinals** | Malawi v Algeria in Casablanca, Morocco v Cameroon in Rabat. All four have already qualified for the 2027 World Cup in Brazil. Al Jazeera. Ran as No. 6's third Sports brief; the semifinals are the follow-up, and the final is the week after |
 | 2026-08-13 | **Peoples Cartage town hall, Parkersburg** | Independent testing results from the warehouse fire. WTAP. A `mid_ohio_valley` line that night or the morning after |
@@ -70,6 +73,100 @@ Four sections, all four maintained every run:
 | 2026-11-08 → 2026-11-22 | **Kyushu basho (Fukuoka)** — *derived, unconfirmed* | Same derivation. Note it opens the week after the cron switch above |
 
 ## 3. Open threads
+
+- **midwest-primaries-2026** — 2026-08-12: **resolved, and it led No. 8.** Six states voted Aug. 11.
+  **Minnesota**: Lt. Gov. **Peggy Flanagan**, 46, beat Rep. **Angie Craig** for the DFL Senate nod with
+  Sanders and Warren endorsements against Craig's fundraising edge, and faces Republican **Michele
+  Tafoya**, a former sports broadcaster, in November; **Amy Klobuchar** took the Democratic governor
+  primary; House Speaker **Lisa Demuth** beat Trump-endorsed **Mike Lindell** on the Republican side.
+  **Wisconsin**: Milwaukee County Executive **David Crowley** edged democratic socialist state Rep.
+  **Francesca Hong**, who had led earlier polling; **Tom Tiffany** took the GOP nomination. **Connecticut**:
+  **Luke Bronin**, 47, unseated 14-term Rep. **John Larson**, 78. **South Carolina**: **Darline Graham** to a
+  runoff with **Ralph Norman**. NPR's four-takeaways piece is the spine. **Alabama** also voted (Trump-endorsed
+  **Rhett Marques**), and **Vermont** voted, which is what finally gave the away desk a line. **Thread closes;
+  November is a new story.**
+- **colombia-earthquake** — 2026-08-12: **moved and ran as No. 8's first World brief, not the lead** — a second
+  straight front page on the same disaster loses to a fresh six-state primary night. **The toll is disputed
+  between two readable outlets and the paper printed the floor:** NPR (Aug. 12, 1:13 a.m. ET) has **181 dead,
+  2,595 injured, 195 missing** officially with a civilian database near **4,000** missing; **Euronews (1:58 a.m.
+  ET) has 216 dead** and says authorities revised after Cali corrected its numbers. Printed as **"at least 181"**
+  attributed, which stays true under both, per the Thailand and Nizhnekamsk precedent. **The magnitude is also
+  disputed — NPR 7.4 (as No. 7 printed), Euronews 7.6 — and was dropped from the brief entirely.** Euronews adds
+  a 36-hour rescue of **Daniela Largo** in Pereira, a partial collapse at **Hospital Universitario del Valle**,
+  dome damage at the **Cathedral of Manizales**, and **EUR 2M** from the EU on top of the US **$15.5M**.
+  **Re-check the toll before citing it; expect it to keep moving.**
+- **water-system-cyberattacks** — 2026-08-12: **moved and ran as No. 8's first U.S. brief**, five days after it
+  last appeared (No. 2, Aug. 6). The FBI has now confirmed attacks in **at least seven states**; **more than 30
+  Minnesota systems** were hit **July 26-28**, including **Braham**, where a pump failure threatened supply for
+  **1,700** people, and **Maple Plain**; also Clayton County, Ga. (brief boil-water advisory), New Jersey,
+  Michigan, Pennsylvania and Vermont. **No official US attribution**; an anonymous expert told NPR of
+  intelligence linking it to the **IRGC**, and DHS/CISA had updated an April advisory days before. **Jake Braun**
+  (former acting principal deputy national cyber director): "It appears this is a shot across the bow from Iran."
+  **Rob Lee** (Dragos) quoted. No contamination anywhere. NPR. **News again on a formal attribution or a
+  contaminated system.**
+- **gilman-release** — 2026-08-12: new, ran as No. 8's second U.S. brief. **Robert Gilman**, 32, a former Marine
+  and Massachusetts teacher detained in **2022** after being removed from a train, sentenced to 3.5 years and
+  extended twice to **10** for assaults in custody, was released and flown to **Andrews Air Force Base**, then to
+  a military hospital in Texas. **Trump announced it after speaking with Putin and said Russia asked for no one
+  in return.** He had been hospitalised with a feeding tube since early July after 47 days in what NPR calls a
+  dissociative stupor. **Rubio**: "we are still seeking the immediate return of all other unjustly detained
+  Americans." NPR. **Thread closes unless another American is released.**
+- **zimbabwe-ferry** — 2026-08-12: new, ran as No. 8's second World brief. An overloaded ferry capsized on **Lake
+  Kariba** Tuesday: **114 registered adults plus 5 crew** on a vessel rated for **90**, with children below
+  ticketing age possibly aboard, so the paper wrote **"at least 119."** **At least 15 dead, 27 missing, 77
+  rescued** onto an island. Zimbabwe's **Civil Protection Unit** recommended it be declared a disaster; an
+  underwater search team deployed. PBS NewsHour, carrying AP. **News again on a recovered toll or an inquiry.**
+- **putin-shadow-fleet** — 2026-08-12: new, ran as No. 8's third World brief. Putin, aboard the cruiser **Varyag**
+  at naval drills off **Sakhalin** on Wednesday, called European interceptions of sanctioned Russian oil tankers
+  "piracy and banditry" and said "we will be forced to respond in kind," anywhere Moscow "deems necessary."
+  Context: EU sanctions approved last month let member states sell seized cargo, and Swedish court documents show
+  Stockholm transferring a seized ship suspected of carrying grain from occupied Ukraine to Kyiv. Euronews.
+  **News again on an actual seizure of a European vessel.**
+- **wv-storms-flooding** — 2026-08-12: new, ran as No. 8's first statewide brief **and it is the live WV thread.**
+  Tuesday evening storm lines brought flash flood warnings for **Kanawha, Roane, Jackson, Mason and Putnam**
+  counties (extended to 6:15 p.m.); **Appalachian Power counted about 20,500 customers out by 9 p.m.**, worst in
+  Charleston, Hico and Hamlin, with restoration estimated 11 p.m. Wednesday. **Nitro Fire Department ran water
+  rescues on Heizer Creek Road** in Putnam. Kanawha Homeland Security director **C.W. Sigman** and Point Pleasant
+  Mayor **Amber Tatterson** ("We're out there with brooms trying to sweep it outside") quoted. WCHS separately had
+  a flash flood warning for **Clay and Jackson**, Fairplain flooding, and Ohio Gov. **Mike DeWine** warning of
+  flooding "certainly through Thursday." **This is the same system as No. 8's third U.S. brief (CBS: ~991,000 out
+  across Illinois, Indiana, Ohio and Kentucky, two dead) — deliberately run in both sections because the WV
+  detail and the four-state total are different stories.** **News again on a fresh round, a WV death, or a
+  multi-day outage; more storms were forecast.**
+- **kanawha-storm-death** — 2026-08-12: ran as the `putnam_kanawha` line, and it is **a separate MetroNews story
+  from the storm brief above, not the same story twice** — a tree fell on a motorcyclist at **Pinch**, near
+  Heartland Lane and Rutledge Road, about **8 p.m. Tuesday**, bringing down power lines that ignited. Kanawha
+  County Sheriff's Office investigating; **no identity released** and the paper named nobody. WV MetroNews.
+  A cause finding is a follow-up line; nothing else is.
+- **peia-finances** — 2026-08-12: new, ran as No. 8's second statewide brief. Director **Brent Wolfingbarger**
+  told the **Joint Standing Committee on Insurance and PEIA** at August interims that the plan is **$67M ahead of
+  FY2026 projections**, on a projected **$345M** year-end reserve, on lower medical and drug claims and higher
+  investment returns, and that premiums would likely rise **less than the 3%** previously anticipated. Sen.
+  **Robbie Morris (R-Randolph)** called it "probably some of the best news that's come out of this committee in
+  quite a while." WV MetroNews. **News again at the PEIA Finance Board's rate-setting, which is where the actual
+  premium number gets decided.**
+- **vermont-primary** — 2026-08-12: **the away desk ran for the first time in six editions.** Vermont voted
+  Aug. 11: **Amanda Janoo** won the Democratic nomination for governor, **Molly Gray** the lieutenant governor
+  primary, and **Gerald Malloy** the Republican US House nomination against incumbent **Becca Balint**. Vermont
+  Public, using AP for statewide and the Secretary of State for county races. **The Bennington-district Senate
+  primary the last three editions were waiting for was NOT obtainable** — Vermont Public prints only contested
+  statewide races and points to `electionresults.vermont.gov`; **VTDigger 403s this crawler**, which is new and
+  worth knowing. **If the Bennington seat matters, the Secretary of State's results site is the route.**
+- **ucsd-microglia** — 2026-08-12: new, ran in Sci/Tech. UC San Diego researchers reported in **Immunity**
+  (Aug. 11) that overburdened **lysosomes** in **microglia** activate the **MITF/TFE** protein family as a master
+  genetic switch, flipping the cells into a state that first protects and then damages the brain — a pathway
+  shared by **Sanfilippo syndrome type A (MPS IIIA)**, a childhood dementia, and **Alzheimer's**. First author
+  **Christopher Balak**; senior author **Christopher Glass**, professor of cellular and molecular medicine. Mouse
+  models plus human Alzheimer's tissue; NIH and NSF funded. `source` names the institution, same convention as
+  Nos. 4-7. News again on a drug candidate aimed at the lysosomal pathway.
+- **mosquito-species** — 2026-08-12: new, ran in Sci/Tech, and **it is two days old (Euronews, Aug. 10) — the
+  oldest thing in the edition.** Florida International University tested **119** volunteers in Miami against
+  **Aedes aegypti**, **Aedes albopictus** and **Culex quinquefasciatus** and found no one highly attractive to all
+  three; published in **iScience**. **Kaylee Marrero** lead, **Matthew DeGennaro** senior. Run because Sci/Tech
+  had nothing dated Aug. 11-12 that opened. Thread closes.
+- **vikings-qb** — 2026-08-12: ran as No. 8's first Sports brief. **Kyler Murray**, 29, signed in March after his
+  Arizona release, beat out 2024 first-rounder **J.J. McCarthy** two weeks into camp; **Kevin O'Connell**
+  announced it Tuesday. Preseason opener Saturday v the Giants. NFL.com. Thread closes.
 
 - **colombia-earthquake** — 2026-08-11: **led No. 7.** Magnitude **7.4** near **San Jose del
   Palmar**, Choco department, about **250 miles west of Bogota**, shortly after **7:30 a.m.
@@ -608,6 +705,47 @@ Four sections, all four maintained every run:
 -->
 
 ## 4. Recently covered
+
+### 2026-08-12 — No. 8
+- lead: midwest-primaries-2026 (the results; six states)
+- us: water-system-cyberattacks, gilman-release, midwest-storm-outages
+- world: colombia-earthquake (toll, disputed), zimbabwe-ferry, putin-shadow-fleet
+- wv statewide: wv-storms-flooding, peia-finances
+- wv regional: putnam_kanawha — kanawha-storm-death
+- wv away: **vermont — vermont-primary. First away line since No. 1, ending a five-edition drought**
+- sports: vikings-qb, nba-schedule-release
+- scitech: ucsd-microglia, mosquito-species
+- huntington_cabell: **no line** — the day's Cabell-Mason news was Point Pleasant street flooding, which is the
+  statewide storm brief and would have been the same story twice in one section. The ACLU-WV suit against
+  Huntington and Mayor Farrell over the **$2.1M** Flock contract surfaced in search but is **dated July 16**
+  (petition for writ of mandamus, Cabell County Circuit Court, for resident Gregory Jimison, alleging meetings
+  structured to dodge a quorum) — **old, and deliberately not run. Do not let it resurface as new tomorrow**
+- mid_ohio_valley, nicholas_webster, summers_new_river: **no line** — searched; Parkersburg had a Grand Central
+  Mall roof leak in the same storms and a 2023-fire civil case consolidation, Nicholas/Webster had the **same
+  mobile screening unit** (Aug. 12-14) that has been standing there for a week, Summers/New River nothing
+- **fishing: both waters, and the Williams turned over.** **767 cfs and rising, 3.42 ft**, against **61.5 cfs**
+  24 hours earlier — a **12x** rise from Tuesday's storms, and the fetcher's own read is "blown out. Stay on the
+  bank." That is the first blown-out reading of the run, after a week between 63 and 90 cfs
+- **sumo: sat out, sixth day running.** Off-basho, full dedicated search. The only August items are the **Aug. 7**
+  resignation of Izutsu Oyakata (former Akiseyama, 41) and Juryo promotions (Tanji, Tokifudo, Nabatame) — both
+  carried **only by sumostats.com**, which this paper does not cite; the Japan Times has nothing newer than its
+  **Aug. 5** jungyo feature; `tachiai.org` now **403s** this crawler, which is new. **Aug. 31 banzuke remains the
+  hook.** Correct edition per Ian's rule
+- **football: searched, nothing dated.** No matchweek; the season opens **Aug. 21**. Sky Sports' window page lists
+  Chelsea (Henderson, Welbeck), Liverpool (Jacquet, Munoz, Araujo, and Salah released) and Tottenham (Tonali
+  **£100m** club record, Fernandes, van Hecke) but **carries no dates**, and the Tonali deal traces to **July 6**.
+  The validator's in-season warning fired and was cleared by search
+- **stocking: silent no-op.** Nothing named the Williams, the Cranberry or the Summersville tailwater — and at 767
+  cfs it would not have mattered
+- **BUDGET, for tomorrow:** the validator projected **5,749** and the post shipped **5,963**, so it **split into
+  two messages**. The projection does not count the `--page-url` content line or the second embed header.
+  **Write to 5,600, not to the 5,800 hard ceiling, whenever a page url is being passed.**
+- **Do not re-run tomorrow without movement:** the primary results (**November is the story now**); the water-system
+  hacks (**a formal attribution is the news**); Gilman; the ferry; Putin's threat (**an actual seizure is the
+  news**); the PEIA testimony; the Vermont statewide results. **Two exceptions that should run: what the eclipse
+  actually looked like — it is TODAY at ~1:30 p.m. ET, after No. 8 posted, so it is No. 9's — and the Colombia
+  toll, which is still moving. Also live: Hope Scholarship payments landed Aug. 13, the Peoples Cartage town hall
+  is Aug. 13, and WV storms were forecast to continue.**
 
 ### 2026-08-11 — No. 7
 - lead: colombia-earthquake

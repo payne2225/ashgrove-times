@@ -215,3 +215,54 @@ and the failure protocol at the bottom of that file appends here too.
   entries — no invented number, no unopened page — but the same failure surface,
   and the same pass caught it. **Three for three: the hold re-read is now the
   single most productive step in the run.**
+- **2026-08-12** — *budget overspend, tightened by hand rather than by the trimmer* —
+  the first draft projected **6,131** chars against the 5,600 target and the 5,800
+  hard ceiling, which would have had `post_discord.py` silently drop the back of
+  Sci/Tech. Three tightening passes brought it to **5,749** with every brief and
+  both notebook lines intact. **The overspend was in the lead (1,193 against a 900
+  allocation), not the notebook** — the playbook's cut ladder starts at the away
+  line, but cutting the away desk would have paid for a bloated front page, so the
+  lead body was cut back instead and the notebook kept its regional and away lines.
+  Worth saying plainly: the ladder assumes the notebook is the overspender, and
+  today it was not.
+- **2026-08-12** — *thin sections* — Sports and Sci/Tech each ran **two** briefs.
+  Sports: sumo sat out for a sixth day (off-basho, full dedicated search, only
+  sumostats-carried items) and football had nothing dated before the Aug. 21 opener
+  — both correct per Ian's rule, not failures — which left two general briefs.
+  Sci/Tech: nothing published Aug. 11-12 opened cleanly. `nature.com` redirects to
+  an auth wall, `arstechnica.com` is blocked outright to this crawler, ScienceDaily
+  had nothing newer than Aug. 10, and CIDRAP nothing newer than Aug. 3, so the
+  section ran one Aug. 11 item and one **two-day-old** Aug. 10 item.
+- **2026-08-12** — *four source-fidelity corrections, caught in the delivery-hold
+  re-read, FIFTH TIME this pass has paid for itself* — (1) the dek said Trump's
+  endorsements "carried South Carolina," but NPR reports his pick finished first
+  with about a third of the vote and only advanced to a runoff, with two thirds
+  voting for other candidates; the dek was replaced with the November matchup.
+  (2) "three suspected tornadoes" became "at least three," which is what CBS wrote.
+  (3) The ferry brief attributed the passenger count to Zimbabwe's Civil Protection
+  Unit when PBS attributes it across several bodies, and stated 119 aboard when PBS
+  notes children below ticketing age may not be counted — changed to "officials
+  said at least 119," and the headline to "killing at least 15." (4) The mosquito
+  brief said "researchers" where the institution, Florida International University,
+  was available and is the paper's convention. **All four were overstatement, not
+  invention — the same failure surface as Aug. 8-10.** Corrections were validated,
+  re-rendered and pushed, and the held post was killed and relaunched once;
+  `editions/index.json` had no 2026-08-12 row when it was checked, so nothing had
+  shipped.
+- **2026-08-12** — *away-desk sourcing gap* — `vtdigger.org` now returns **403** to
+  this crawler, and the Bennington-district Senate primary that three editions have
+  been waiting on is not published by Vermont Public, which prints only contested
+  statewide races. The away line ran on Vermont's statewide results instead. The
+  route to county-level Vermont results is `electionresults.vermont.gov`.
+- 2026-08-12T11:00:03Z · 2026-08-12 · post_discord: split into FRONT PAGE and INSIDE messages to keep the notebook whole
+- **2026-08-12** — *split into two messages, and the validator's projection is why* —
+  the edition posted at **07:00:02** as **two** messages (FRONT PAGE / INSIDE) at
+  **5,963** actual embed chars, against the **5,749** the validator projected. The
+  gap is about **215 chars** and it is systematic: `validate_edition.py` projects the
+  embed text but the shipped payload also carries the `--page-url` content line and
+  the second embed's header once it splits. **So a projection of 5,749 — comfortably
+  under the 5,800 hard ceiling — still split.** No brief was lost; the split is the
+  designed behaviour and keeps the notebook whole. **The lesson for tomorrow: treat
+  5,600 as the real ceiling, not 5,800, whenever `--page-url` is being passed.**
+  Nos. 1 and 4 split at 8,587 and 6,009 actual; No. 4's is the near neighbour of
+  today's and points at the same threshold.
