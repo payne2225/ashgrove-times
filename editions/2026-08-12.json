@@ -36,12 +36,7 @@
         "change": "-0.19%",
         "direction": "down"
       }
-    ],
-    "art": {
-      "file": "art/2026-08-12-lead.svg",
-      "caption": "The Williams River at Cowen running bank to bank at 767 cubic feet a second, a gauge height of 3.42 feet.",
-      "credit": "Sketched from USGS gauge readings for the Williams River"
-    }
+    ]
   },
   "sections": [
     {
@@ -186,5 +181,11 @@
   ],
   "weather_ear": "Today's forecast reaches the channel at 7:15.",
   "kicker": "Sumo sat out a sixth day, and football is quiet until the Premier League opens Aug. 21.",
-  "sources_note": "Compiled from wire reports"
+  "sources_note": "Compiled from wire reports",
+  "art": {
+    "file": "art/2026-08-12-wv.svg",
+    "caption": "The Williams River at Cowen running bank to bank at 767 cubic feet a second, a gauge height of 3.42 feet.",
+    "credit": "Sketched from USGS gauge readings for the Williams River",
+    "placement": "wv"
+  }
 }

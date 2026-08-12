@@ -89,9 +89,12 @@ TOP_KEYS = {
     "edition_date", "edition_number", "volume", "lead", "sections",
     "weather_ear", "kicker", "sources_note",
 }
+# Optional: present only on the days the paper ran a drawing.
+TOP_OPTIONAL_KEYS = {"art"}
 LEAD_KEYS = {"headline", "dek", "byline", "body", "stat_strip"}
-# Optional: present on the days the paper ran a drawing, absent otherwise.
-LEAD_OPTIONAL_KEYS = {"art"}
+# `art` used to live here. It moved to the TOP LEVEL so a drawing can be
+# placed with the story it depicts instead of always under the lead.
+LEAD_OPTIONAL_KEYS: set[str] = set()
 SECTION_KEYS = {"id", "label", "briefs"}
 # West Virginia is the only section with a shape of its own: Ian's .wv-box
 # instead of the two-column brief layout, and three optional sub-arrays.
@@ -606,7 +609,7 @@ def _check_top_level(edition: dict) -> list[str]:
     missing = TOP_KEYS - set(edition)
     if missing:
         errors.append(f"missing top-level key(s): {', '.join(sorted(missing))}")
-    unknown = set(edition) - TOP_KEYS
+    unknown = set(edition) - TOP_KEYS - TOP_OPTIONAL_KEYS
     if unknown:
         errors.append(
             f"unknown top-level key(s): {', '.join(sorted(unknown))} "
@@ -1927,28 +1930,49 @@ def _check_art(edition: dict) -> list[str]:
     No art at all is always legal. Most mornings will have none.
     """
     errors: list[str] = []
-    art = (edition.get("lead") or {}).get("art")
+    art = edition.get("art")
     if art is None:
         return []
     if not isinstance(art, dict):
-        return ["lead.art must be an object or absent"]
+        return ["art must be an object or absent"]
+
+    placement = art.get("placement")
+    legal = config.art_placements()
+    if not _nonempty_str(placement) or placement not in legal:
+        errors.append(
+            f"art.placement must be one of {', '.join(legal)} — a drawing is "
+            "rendered WITH the story it depicts, and one that does not say "
+            "what it illustrates ends up under a headline it has nothing to "
+            "do with"
+        )
+        placement = config.ART_PLACEMENT_LEAD
+
+    # A drawing of a section's story may not claim to be the lead art.
+    if placement != config.ART_PLACEMENT_LEAD:
+        present = {s.get("id") for s in (edition.get("sections") or [])
+                   if isinstance(s, dict)}
+        if placement not in present:
+            errors.append(
+                f"art.placement is {placement!r} but this edition has no such "
+                "section to hang it on"
+            )
 
     date = edition.get("edition_date")
-    expected = config.art_path(date) if _is_str(date) else None
+    expected = config.art_path(date, placement) if _is_str(date) else None
     path = art.get("file")
     if not _nonempty_str(path):
-        return ["lead.art.file must name the drawing, e.g. " + (expected or "art/DATE-lead.svg")]
+        return ["art.file must name the drawing, e.g. " + (expected or "art/DATE-lead.svg")]
     if expected and path not in (expected, os.path.basename(expected)):
-        errors.append(f"lead.art.file is {path!r}; this edition's drawing belongs at {expected}")
+        errors.append(f"art.file is {path!r}; this edition's drawing belongs at {expected}")
 
     full = _repo(config.ART_DIR_NAME, os.path.basename(path))
     if not os.path.exists(full):
-        return errors + [f"lead.art.file {path!r} does not exist"]
+        return errors + [f"art.file {path!r} does not exist"]
 
     size = os.path.getsize(full)
     if size > config.ART_MAX_BYTES:
         errors.append(
-            f"lead.art is {size:,} bytes (max {config.ART_MAX_BYTES:,}) — a hand "
+            f"art is {size:,} bytes (max {config.ART_MAX_BYTES:,}) — a hand "
             "drawing is small; this is the size of a traced photograph"
         )
 
@@ -1958,17 +1982,17 @@ def _check_art(edition: dict) -> list[str]:
         import xml.etree.ElementTree as ET
         root = ET.fromstring(raw)
     except Exception as exc:  # noqa: BLE001
-        return errors + [f"lead.art does not parse as XML: {exc}"]
+        return errors + [f"art does not parse as XML: {exc}"]
 
     if not root.tag.endswith("svg"):
-        errors.append("lead.art root element must be <svg>")
+        errors.append("art root element must be <svg>")
     if not root.get("viewBox"):
-        errors.append("lead.art <svg> needs a viewBox so it scales")
+        errors.append("art <svg> needs a viewBox so it scales")
 
     alt = (root.get("aria-label") or "").strip()
     if len(alt) < config.ART_MIN_ALT_CHARS:
         errors.append(
-            f"lead.art needs an aria-label describing the scene "
+            f"art needs an aria-label describing the scene "
             f"(at least {config.ART_MIN_ALT_CHARS} chars); a drawing nobody can "
             "see is worse than no drawing"
         )
@@ -1978,7 +2002,7 @@ def _check_art(edition: dict) -> list[str]:
     for tag in config.ART_FORBIDDEN_TAGS:
         if f"<{tag.lower()}" in lowered:
             errors.append(
-                f"lead.art contains <{tag}> — the drawing must be vector marks "
+                f"art contains <{tag}> — the drawing must be vector marks "
                 "only, never an embedded or referenced bitmap"
             )
     # Scan for external payloads with the XML namespace declarations removed:
@@ -1989,44 +2013,44 @@ def _check_art(edition: dict) -> list[str]:
     for pattern in config.ART_FORBIDDEN_PATTERNS:
         if pattern in scannable:
             errors.append(
-                f"lead.art references {pattern!r} — a drawing has no external "
+                f"art references {pattern!r} — a drawing has no external "
                 "or encoded payload; this is how a photograph sneaks back in"
             )
     # And belt-and-braces: no linking attribute at all, whatever it points to.
     if re.search(r'\s(?:href|src)\s*=', scannable):
         errors.append(
-            "lead.art has an href/src attribute — every mark must be drawn in "
+            "art has an href/src attribute — every mark must be drawn in "
             "the file, never loaded from somewhere else"
         )
 
     paths = lowered.count("<path") + lowered.count("<polyline") + lowered.count("<polygon")
     if paths > config.ART_MAX_PATHS:
         errors.append(
-            f"lead.art has {paths} path elements (max {config.ART_MAX_PATHS}) — "
+            f"art has {paths} path elements (max {config.ART_MAX_PATHS}) — "
             "that is an autotrace of a photograph, not a drawing"
         )
     if paths == 0:
-        errors.append("lead.art has no drawn paths")
+        errors.append("art has no drawn paths")
 
     caption = art.get("caption")
     if not _nonempty_str(caption):
-        errors.append("lead.art.caption must say what the drawing shows")
+        errors.append("art.caption must say what the drawing shows")
     elif len(caption) > config.ART_CAPTION_MAX_CHARS:
         errors.append(
-            f"lead.art.caption is {len(caption)} chars "
+            f"art.caption is {len(caption)} chars "
             f"(max {config.ART_CAPTION_MAX_CHARS})"
         )
 
     credit = art.get("credit")
     if not _nonempty_str(credit):
         errors.append(
-            "lead.art.credit is required — the paper says out loud that this "
+            "art.credit is required — the paper says out loud that this "
             f"is a drawing and what it was drawn from, e.g. "
             f"'{config.ART_CREDIT_PREFIX} an NPR photograph'"
         )
     elif not credit.strip().lower().startswith(config.ART_CREDIT_PREFIX.lower()):
         errors.append(
-            f"lead.art.credit must begin {config.ART_CREDIT_PREFIX!r} so a "
+            f"art.credit must begin {config.ART_CREDIT_PREFIX!r} so a "
             "reader is never left thinking this is a photograph"
         )
     return errors
@@ -2044,7 +2068,7 @@ def _art_advisory(edition: dict) -> list[str]:
     """
     if not getattr(config, "ART_REQUIRED_DAILY", False):
         return []
-    if (edition.get("lead") or {}).get("art") is not None:
+    if edition.get("art") is not None:
         return []
     return [
         "no drawing in this edition and the paper runs one a day — work down "

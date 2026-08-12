@@ -11,15 +11,25 @@
       "More than a million people were moved out of the storm's path, among them more than 900,000 in Wenzhou and 215,600 in Shanghai. Zhejiang averaged 173 mm from Friday evening to Monday morning, more than earlier typhoons including Lekima and Bavi. Forecasters expect the rain to reach Anhui, Jiangsu, Henan and Hubei through Wednesday."
     ],
     "stat_strip": [
-      {"label": "S&P 500", "value": "7,757.64", "change": "+0.62%", "direction": "up"},
-      {"label": "Dow", "value": "54,036.93", "change": "+0.28%", "direction": "up"},
-      {"label": "Nasdaq", "value": "26,690.62", "change": "+1.30%", "direction": "up"}
-    ],
-    "art": {
-      "file": "art/2026-08-10-lead.svg",
-      "caption": "Voyager 2, with its dish antenna, science boom and the generator stack now being rationed.",
-      "credit": "Sketched from a NASA illustration"
-    }
+      {
+        "label": "S&P 500",
+        "value": "7,757.64",
+        "change": "+0.62%",
+        "direction": "up"
+      },
+      {
+        "label": "Dow",
+        "value": "54,036.93",
+        "change": "+0.28%",
+        "direction": "up"
+      },
+      {
+        "label": "Nasdaq",
+        "value": "26,690.62",
+        "change": "+1.30%",
+        "direction": "up"
+      }
+    ]
   },
   "sections": [
     {
@@ -86,7 +96,9 @@
         {
           "region_id": "putnam_kanawha",
           "place": "Putnam / Kanawha - Charleston",
-          "people": ["Nate"],
+          "people": [
+            "Nate"
+          ],
           "item": "West Virginia American Water repaired four main breaks in Nitro, St. Albans and Kanawha City over the weekend.",
           "source": "WV MetroNews",
           "url": "https://wvmetronews.com/2026/08/09/multiple-water-main-breaks-reported-in-kanawha-county/"
@@ -151,5 +163,11 @@
   ],
   "weather_ear": "Jim Claudtore has the forecast at 7:15.",
   "kicker": "Sports runs without sumo for a fourth day and the away desk is empty; both were searched.",
-  "sources_note": "Compiled from wire reports"
+  "sources_note": "Compiled from wire reports",
+  "art": {
+    "file": "art/2026-08-10-scitech.svg",
+    "caption": "Voyager 2, with its dish antenna, science boom and the generator stack now being rationed.",
+    "credit": "Sketched from a NASA illustration",
+    "placement": "scitech"
+  }
 }

@@ -36,12 +36,7 @@
         "change": "-0.17%",
         "direction": "down"
       }
-    ],
-    "art": {
-      "file": "art/2026-08-09-lead.svg",
-      "caption": "Small craft lie at anchor on flat water below the bare coastal mountains at the mouth of the strait.",
-      "credit": "Sketched from an Al Jazeera photograph"
-    }
+    ]
   },
   "sections": [
     {
@@ -176,5 +171,11 @@
   ],
   "weather_ear": "The weather desk files at 7:15, right behind this page.",
   "kicker": "Sports runs two briefs; a full sumo search found nothing citable between tournaments for a third day.",
-  "sources_note": "Compiled from wire reports"
+  "sources_note": "Compiled from wire reports",
+  "art": {
+    "file": "art/2026-08-09-lead.svg",
+    "caption": "Small craft lie at anchor on flat water below the bare coastal mountains at the mouth of the strait.",
+    "credit": "Sketched from an Al Jazeera photograph",
+    "placement": "lead"
+  }
 }

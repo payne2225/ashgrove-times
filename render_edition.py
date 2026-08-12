@@ -207,10 +207,10 @@ def render_html(edition: dict, root: str = "../") -> str:
         "LEAD_HEADLINE": esc(headline),
         "LEAD_DEK": dek_html,
         "LEAD_BYLINE": esc(f"By {lead.get('byline') or config.BYLINE}"),
-        "LEAD_ART": _art_html(blocks, lead.get("art")),
+        "LEAD_ART": _art_html(blocks, _art_for(edition, config.ART_PLACEMENT_LEAD)),
         "LEAD_BODY": _lead_body_html(blocks, lead.get("body") or []),
         "STAT_STRIP": _stat_strip_html(blocks, lead.get("stat_strip") or []),
-        "SECTIONS": _sections_html(blocks, edition.get("sections") or []),
+        "SECTIONS": _sections_html(blocks, edition.get("sections") or [], edition),
         "KICKER": _kicker_html(blocks, edition.get("kicker")),
         "SOURCES_NOTE": esc(edition.get("sources_note")
                             or "Compiled from wire reports"),
@@ -224,6 +224,22 @@ def render_html(edition: dict, root: str = "../") -> str:
 
 def folio_left(edition: dict) -> str:
     return f"Vol. {edition.get('volume') or 'I'} — No. {edition.get('edition_number', '')}".strip()
+
+
+def _art_for(edition: dict, placement: str) -> dict | None:
+    """The edition's drawing, but only if it belongs in `placement`.
+
+    A drawing declares what it illustrates. Rendering it anywhere else is
+    the bug this function exists to prevent: art used to hang off the lead
+    unconditionally, so a river drawn from a gauge reading appeared under a
+    foreign-policy headline as though it illustrated it.
+    """
+    art = edition.get("art")
+    if not isinstance(art, dict):
+        return None
+    if (art.get("placement") or config.ART_PLACEMENT_LEAD) != placement:
+        return None
+    return art
 
 
 def _art_html(blocks: dict[str, str], art: object) -> str:
@@ -300,7 +316,7 @@ def _stat_strip_html(blocks: dict[str, str], entries: list) -> str:
     })
 
 
-def _sections_html(blocks: dict[str, str], sections: list) -> str:
+def _sections_html(blocks: dict[str, str], sections: list, edition: dict) -> str:
     by_id = {s.get("id"): s for s in sections}
     ordered = [by_id[m["id"]] for m in config.SECTIONS if m["id"] in by_id]
     ordered += [s for s in sections if s.get("id") not in
@@ -308,26 +324,26 @@ def _sections_html(blocks: dict[str, str], sections: list) -> str:
 
     out = []
     for section in ordered:
-        rendered = (_wv_section_html(blocks, section)
+        rendered = (_wv_section_html(blocks, section, edition)
                     if section.get("id") == "wv"
-                    else _wire_section_html(blocks, section))
+                    else _wire_section_html(blocks, section, edition))
         if rendered:
             out.append(rendered)
     return "\n\n  ".join(out)
 
 
-def _wire_section_html(blocks: dict[str, str], section: dict) -> str:
+def _wire_section_html(blocks: dict[str, str], section: dict, edition: dict) -> str:
     briefs = [_brief_html(blocks, b) for b in (section.get("briefs") or [])]
     briefs = [b for b in briefs if b]
     if not briefs:
         return ""
     return fill(blocks["SECTION"], {
         "SECTION_LABEL": esc(_section_label(section)),
-        "BRIEFS": "".join(briefs),
+        "BRIEFS": _art_html(blocks, _art_for(edition, section.get("id", ""))) + "".join(briefs),
     })
 
 
-def _wv_section_html(blocks: dict[str, str], section: dict) -> str:
+def _wv_section_html(blocks: dict[str, str], section: dict, edition: dict) -> str:
     """West Virginia in the box, four parts, none of them required.
 
     The notebook is the paper's local anchor, so it never takes the two-column
@@ -344,6 +360,7 @@ def _wv_section_html(blocks: dict[str, str], section: dict) -> str:
         return ""
     return fill(blocks["WV_SECTION"], {
         "SECTION_LABEL": esc(_section_label(section)),
+        "ART": _art_html(blocks, _art_for(edition, "wv")),
         "NOTEBOOK_TITLE": esc(section.get("notebook_title") or NOTEBOOK_TITLE),
         "BRIEFS": "".join(briefs),
         "REGIONAL": regional,

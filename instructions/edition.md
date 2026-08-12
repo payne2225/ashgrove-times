@@ -852,20 +852,56 @@ already carries subjects that are drawable from its own measured data. The
 Williams River at this morning's gauge height is honest on the deadest news
 day of the year, and so is the Topsail sound at today's tide.
 
-So work down this ladder and take the highest rung you can draw honestly:
+### Where the drawing goes — `art.placement`
 
-1. **The lead story's own scene**, if it is drawable under the rules below.
+**Read this before the ladder.** A drawing declares what it illustrates and
+is rendered THERE:
+
+```json
+"art": {
+  "file": "art/YYYY-MM-DD-<placement>.svg",
+  "placement": "lead",
+  "caption": "...",
+  "credit": "Sketched from an NPR photograph"
+}
+```
+
+`placement` is `lead` or a section id (`us`, `world`, `wv`, `sports`,
+`scitech`), and it is in the filename too. Draw the Voyager probe and it
+goes in **Science & Technology**. Draw the Williams River and it goes in the
+**notebook, beside the fishing line**. It is a top-level key, not part of
+`lead`.
+
+This is not bookkeeping. For the paper's first week every drawing hung off
+the lead regardless of subject, so readers got Voyager 2 under a Shanghai
+flood headline, a Topsail tide under a Colombian earthquake, and the
+Williams River under a Minnesota primary. **A drawing under a story it does
+not depict is worse than no drawing** — it reads as though the paper does
+not know what it is illustrating.
+
+### The ladder
+
+**Rung 1 is the expectation, not the ideal.** Try genuinely to draw the
+lead before you drop. Of the paper's first six drawings, five fell to a
+standing subject and only one drew the lead — and several of those leads
+were plainly drawable: a flooded Shanghai street, a polling place, a
+ballot box.
+
+1. **The lead story's own scene.** Start here every day and give it a real
+   attempt. `placement: "lead"`.
 2. **Any other story in today's paper** with a drawable scene — Sci/Tech
    and Sports are usually the richest: a rocket stage, a stadium, a dohyo.
+   Place it in **that section**.
 3. **A standing subject from today's numbers.** The Williams River at
-   `out/fishing.json`'s gauge height — low and bony, or up and pushing.
-   Topsail at today's tide. These are drawn from data the paper measured
-   itself, so they are never a fabrication, and they change every day.
+   `out/fishing.json`'s gauge height, Topsail at today's tide. Drawn from
+   data the paper measured itself, so never a fabrication. `placement: "wv"`.
 4. **A place or object central to a West Virginia story** — a courthouse, a
-   lock and dam, a tipple, a bridge.
+   lock and dam, a tipple, a bridge. `placement: "wv"`.
 
-Rung 3 is the guarantee. If you have reached it and still have nothing, the
-problem is not the news.
+Rung 3 is the guarantee, and it should be the **exception, not the habit**.
+If you reach it more than about twice a week, you are giving up on the lead
+too early. If you reach it and still have nothing, the problem is not the
+news.
 
 **`art/_example-river.svg` is a worked rung 3**, drawn at 106 cfs — the
 channel receding upstream between wooded banks, cobbles standing out of low
@@ -903,11 +939,13 @@ Geometry is kinder than anatomy. Ranked by how reliably they come out:
 3. Draw it as SVG line work into `art/YYYY-MM-DD-lead.svg`. Vector marks
    only. Strokes use `currentColor` so the drawing inherits the page's ink
    rather than sitting on it as a foreign object.
-4. Add to `lead`:
+4. Add it as a **top-level** `art` key (not inside `lead`), naming the
+   placement you chose:
 
 ```json
 "art": {
-  "file": "art/YYYY-MM-DD-lead.svg",
+  "file": "art/YYYY-MM-DD-<placement>.svg",
+  "placement": "lead",
   "caption": "What the scene shows, one sentence.",
   "credit": "Sketched from an NPR photograph"
 }

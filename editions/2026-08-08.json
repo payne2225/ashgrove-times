@@ -36,12 +36,7 @@
         "change": "+0.29%",
         "direction": "up"
       }
-    ],
-    "art": {
-      "file": "art/2026-08-08-lead.svg",
-      "caption": "The Williams River at Cowen, running 96 cfs and falling, with cobble bars standing out of the low channel.",
-      "credit": "Sketched from USGS gauge data"
-    }
+    ]
   },
   "sections": [
     {
@@ -181,5 +176,11 @@
   ],
   "weather_ear": "Sky and temperature at 7:15, from Jim Claudtore.",
   "kicker": "Sports runs two briefs; a full sumo search turned up nothing between tournaments for a second day.",
-  "sources_note": "Compiled from wire reports"
+  "sources_note": "Compiled from wire reports",
+  "art": {
+    "file": "art/2026-08-08-wv.svg",
+    "caption": "The Williams River at Cowen, running 96 cfs and falling, with cobble bars standing out of the low channel.",
+    "credit": "Sketched from USGS gauge data",
+    "placement": "wv"
+  }
 }

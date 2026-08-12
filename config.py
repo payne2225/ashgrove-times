@@ -740,9 +740,32 @@ ART_SUBJECT_LADDER = (
 )
 
 
-def art_path(date: str, slot: str = "lead") -> str:
-    """Repo-relative path for an edition's drawing."""
-    return f"{ART_DIR_NAME}/{date}-{slot}.svg"
+# WHERE THE DRAWING SITS. This was the flaw in the first version: art lived
+# at `lead.art`, so it rendered under the lead headline no matter what it
+# actually depicted — while the subject ladder explicitly allowed drawing
+# something else. Readers got the Williams River captioned beneath a
+# Saudi-Turkey-Pakistan defence pact, and a Michigan polling place beneath a
+# story about tariff refunds.
+#
+# A drawing now declares what it illustrates and is rendered THERE. A river
+# belongs in the Mountaineer State Notebook beside the fishing line; a
+# rocket belongs in Science & Technology. Nothing sits under a headline it
+# has nothing to do with.
+ART_PLACEMENT_LEAD = "lead"
+
+
+def art_placements() -> tuple[str, ...]:
+    """Legal values for `art.placement`: the lead, or any section id."""
+    return (ART_PLACEMENT_LEAD,) + tuple(s["id"] for s in SECTIONS)
+
+
+def art_path(date: str, placement: str = ART_PLACEMENT_LEAD) -> str:
+    """Repo-relative path for an edition's drawing.
+
+    The placement is in the FILENAME so a stray file can never be silently
+    attached to the wrong story.
+    """
+    return f"{ART_DIR_NAME}/{date}-{placement}.svg"
 
 
 # English Premier League — requested in the channel on 2026-08-06 by a

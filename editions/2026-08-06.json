@@ -35,12 +35,7 @@
         "change": "+0.84%",
         "direction": "up"
       }
-    ],
-    "art": {
-      "file": "art/2026-08-06-lead.svg",
-      "caption": "Voters fill out ballots at a Michigan precinct on primary day.",
-      "credit": "Sketched from an NPR photograph"
-    }
+    ]
   },
   "sections": [
     {
@@ -199,5 +194,11 @@
   ],
   "weather_ear": "Claude the Weatherman has the forecast at 7:15.",
   "kicker": "Three West Virginia regions and the away desk ran no line; nothing there cleared the bar.",
-  "sources_note": "Compiled from wire reports"
+  "sources_note": "Compiled from wire reports",
+  "art": {
+    "file": "art/2026-08-06-us.svg",
+    "caption": "Voters fill out ballots at a Michigan precinct on primary day.",
+    "credit": "Sketched from an NPR photograph",
+    "placement": "us"
+  }
 }

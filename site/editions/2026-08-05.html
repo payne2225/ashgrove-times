@@ -399,6 +399,40 @@
 
   .empty { margin-top: 20px; text-align: center; font-style: italic; }
 
+  /* ---------- the drawing ---------- */
+
+  .art { margin: 0 0 16px; }
+  .art svg { max-height: 46vh; object-fit: contain; }
+
+  /* currentColor is what makes the drawing ink rather than a picture: the
+     SVG inherits the page's colour, so it prints and inverts with the type
+     instead of sitting on top of it as a foreign object. */
+  .art svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    color: var(--ink);
+    background: var(--parchment);
+    border: 1px solid var(--ink);
+  }
+
+  .art figcaption {
+    margin-top: 5px;
+    font-size: 11.5px;
+    line-height: 1.4;
+    color: var(--ink-soft);
+  }
+
+  /* The credit is small caps and says "sketched" out loud - a reader must
+     never mistake the drawing for a photograph. */
+  .art-credit {
+    font-size: 10px;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    white-space: nowrap;
+  }
+
   /* ---------- phone: most of the group opens this in Discord on mobile ---- */
 
   @media (max-width: 840px) {
@@ -441,6 +475,10 @@
 
   @media (min-width: 1024px) {
     body { padding: 34px 24px 70px; }
+    /* Art is furniture, not a banner. Left-aligned at roughly a third of
+       the measure so the lead still reads as the lead. */
+    .art { max-width: 480px; }
+    .art svg { max-height: none; }
     .page { max-width: 1180px; padding: 34px 44px 46px; }
     .masthead { font-size: 76px; letter-spacing: 2px; }
     .tagline { font-size: 15px; margin-bottom: 10px; }
@@ -452,6 +490,7 @@
 
   @media (min-width: 1320px) {
     .page { max-width: 1420px; padding: 40px 54px 56px; }
+    .art { max-width: 560px; }
     .masthead { font-size: 96px; letter-spacing: 3px; }
     .headline { font-size: 50px; }
     .columns { column-count: 4; }
@@ -525,6 +564,8 @@
   <div class="subhead">The waterway, shut since late February, normally carries a fifth of the world’s traded oil and gas.</div>
   <div class="byline">By Wire Reports</div>
 
+  
+
   <div class="columns"><p><span class="drop">I</span>ran and Oman have agreed on coordinates for a commercial shipping route through the Strait of Hormuz, Iranian Foreign Ministry spokesman Esmail Baghaei said Wednesday. A joint statement covering technical, legal, security and environmental terms is under final review.</p><p>The strait, which carried about a fifth of the world’s traded oil and gas, has been effectively closed since Iran shut it after U.S. and Israeli strikes in late February. Under the proposal, ships would enter the Gulf through an Iranian-controlled lane and exit through an Omani one.</p><p>Tehran wants service fees for security and environmental protection. Washington refuses. Secretary of State Marco Rubio said talks had progressed but had not reached finality. Treasury Secretary Scott Bessent said a deal could come within a day or two.</p></div>
 
   <div class="stat-strip"><div><b>7,736.52</b><span class="stat-label">S&amp;P 500</span><span class="stat-change"><span class="tri up" aria-hidden="true"></span>+1.79%</span></div><div><b>54,085.88</b><span class="stat-label">Dow</span><span class="stat-change"><span class="tri up" aria-hidden="true"></span>+1.71%</span></div><div><b>26,584.99</b><span class="stat-label">Nasdaq</span><span class="stat-change"><span class="tri up" aria-hidden="true"></span>+2.59%</span></div><div><b>$64,785</b><span class="stat-label">Bitcoin</span><span class="stat-change"><span class="tri up" aria-hidden="true"></span>+0.76%</span></div></div>
@@ -563,6 +604,7 @@
   <div class="section-label">West Virginia</div>
   <div class="wv-box">
     <div class="wv-title">Mountaineer State Notebook</div>
+    
     <div class="brief">
       <div class="brief-head">Trump OKs $4.5M in flood aid for Upshur, Lewis counties</div>
       <p>Federal Individual Assistance was approved after the July 21 flooding. FEMA is still weighing disaster requests from five other West Virginia counties.</p><span class="src"><a href="https://wvmetronews.com/2026/08/03/trump-approves-west-virginias-4-5-million-disaster-declaration-request-in-upshur-lewis-counties/" rel="noopener nofollow">WV MetroNews</a></span>
