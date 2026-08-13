@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 260" role="img" aria-label="A crescent of sun still uncovered during the eclipse, hanging behind the silhouetted cupola and cross of a country church, with haze banding the low sky.">
+  <g fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round">
+    <path d="M8 62 L118 62" opacity="0.35"/>
+    <path d="M8 86 L74 86" opacity="0.3"/>
+    <path d="M196 54 L392 54" opacity="0.35"/>
+    <path d="M212 78 L392 78" opacity="0.3"/>
+    <path d="M8 132 L86 132" opacity="0.25"/>
+    <path d="M246 110 L392 110" opacity="0.25"/>
+  </g>
+
+  <path d="M133.5 44.8 A 52 52 0 1 0 137.8 143.9 A 55 55 0 0 1 133.5 44.8 Z"
+        fill="currentColor" fill-opacity="0.5" stroke="currentColor" stroke-width="1.6"/>
+
+  <g fill="currentColor" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round">
+    <path d="M252 34 L252 76"/>
+    <path d="M240 47 L264 47"/>
+    <circle cx="252" cy="88" r="9"/>
+    <path d="M247 79 L257 79 L256 74 L248 74 Z"/>
+    <path d="M252 96 C 240 108 232 122 228 140 L276 140 C 272 122 264 108 252 96 Z"/>
+    <path d="M222 140 L282 140 L282 148 L222 148 Z"/>
+    <path d="M228 148 L276 148 L276 214 L228 214 Z"/>
+    <path d="M214 214 L290 214 L290 226 L214 226 Z"/>
+    <path d="M206 226 L298 226 L306 260 L198 260 Z"/>
+    <path d="M212 200 L212 214 L206 214 L206 202 Z"/>
+    <path d="M292 200 L292 214 L298 214 L298 202 Z"/>
+  </g>
+
+  <g fill="none" stroke="currentColor" stroke-width="0.9" opacity="0.45">
+    <path d="M240 150 L240 212"/>
+    <path d="M264 150 L264 212"/>
+    <path d="M252 98 L252 138"/>
+  </g>
+
+  <g fill="currentColor" opacity="0.8">
+    <path d="M0 250 L52 244 L96 250 L140 242 L182 250 L182 260 L0 260 Z"/>
+    <path d="M318 248 L360 240 L400 246 L400 260 L318 260 Z"/>
+  </g>
+</svg>
