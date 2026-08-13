@@ -55,16 +55,17 @@ Four sections, all four maintained every run:
 | 2026-10-20 | **NBA season opens** | Knicks raise their first banner since 1973 against Philadelphia; Thunder at Spurs; Celtics-Pistons. Knicks-Spurs Finals rematch **Dec. 25**, NBA Cup final **Dec. 11**. CBS Sports. Ran as No. 8's second Sports brief; spent until the season actually starts |
 | 2026-08-08 | **Aki basho tickets go on sale** | Confirmed on the JSA's own English page (`sumo.or.jp/En/`) and printed as No. 2's sumo brief. Do not re-run this fact; it is spent |
 | 2026-08-08 | Chelsea play AC Milan in Jakarta | Preseason friendly. A followed club, so it is a legitimate football brief if anything happens in it |
-| **2026-08-10** | **Nucor Apple Grove site reopens (or does not) after the threat closure** | The mill site closes Monday over a written threat naming that date; FBI, State Police and the Mason County sheriff investigating, sheriff's security posted 10 days. WV MetroNews. A reopening, an arrest, or a second closure is a `huntington_cabell` line or a statewide brief. **2026-08-10: the date arrived and nothing new was reported.** Searched at 6 a.m. ET across MetroNews, WSAZ, Herald-Dispatch, WCHS and the Gazette-Mail; every result was still the Aug. 7 closure announcement, so it was **deliberately not re-run** — the closure taking effect is the same fact No. 4 already printed. The paper posts before the work day, so any Monday development lands in **Tuesday's** edition. **Row stays open:** watch for an arrest, a reopening, a second closure, or the sheriff's 10-day detail ending about **Aug. 17**. **2026-08-11: searched again; the only new line anywhere is that no incident was reported as of Monday afternoon**, carried inside the same Aug. 7 closure stories. Not a brief. The mill is a **$4B** project testing equipment now, with production ramping through 2027-28 |
+| **2026-08-10** | **Nucor Apple Grove site reopens (or does not) after the threat closure** | The mill site closes Monday over a written threat naming that date; FBI, State Police and the Mason County sheriff investigating, sheriff's security posted 10 days. WV MetroNews. A reopening, an arrest, or a second closure is a `huntington_cabell` line or a statewide brief. **2026-08-10: the date arrived and nothing new was reported.** Searched at 6 a.m. ET across MetroNews, WSAZ, Herald-Dispatch, WCHS and the Gazette-Mail; every result was still the Aug. 7 closure announcement, so it was **deliberately not re-run** — the closure taking effect is the same fact No. 4 already printed. The paper posts before the work day, so any Monday development lands in **Tuesday's** edition. **Row stays open:** watch for an arrest, a reopening, a second closure, or the sheriff's 10-day detail ending about **Aug. 17**. **2026-08-11: searched again; the only new line anywhere is that no incident was reported as of Monday afternoon**, carried inside the same Aug. 7 closure stories. Not a brief. The mill is a **$4B** project testing equipment now, with production ramping through 2027-28. **2026-08-13: nothing on MetroNews' or WSAZ's news indexes for Aug. 12-13 mentions Nucor or Apple Grove.** The sheriff's 10-day detail should be ending about **Aug. 17** — that is the next thing to check |
 | **2026-08-12** | **Total solar eclipse over Greenland, Iceland, northern Spain and a corner of Portugal** | Ran as No. 7's first Sci/Tech brief on the eve. The shadow enters Galicia about 19:27 and leaves the Balearics about 20:35; totality nowhere exceeds 1 minute 48 seconds; first in mainland Spain since **April 15, 1912** and first in mainland Europe since 1999. Euronews. **The follow-up is what was actually seen** — cloud, crowds, the ESA and NASA observations. **2026-08-12: it could NOT run in No. 8 and the previous ledger line was wrong to promise it.** Totality reaches Galicia about 19:27 local, roughly **1:30 p.m. ET** — six hours after this paper posts. A 7 a.m. ET edition can never carry a same-day European afternoon event. **It belongs in No. 9 (Aug. 13)**, and Euronews' Aug. 12 preview (eyewear shortages, corona observations from Spain and Iceland) was deliberately not re-run as a second preview. Spain's next two are **Aug. 2, 2027** and **Jan. 26, 2028** |
 | **2026-08-24** | **Huntington Public Safety Committee takes up both Flock ordinances** | Mayor Patrick Farrell's ordinance (data access, retention, audits, criminal penalties) and Councilwoman Tia Rumbaugh's graduated-penalty ordinance were introduced Monday Aug. 10 and referred to committee. City Attorney Scott Damron says **no contract has been signed**; the original Sept. 1 implementation date is now uncertain. WSAZ, WV MetroNews. Ran as No. 7's `huntington_cabell` line |
-| 2026-08-12 | **WAFCON semifinals** | Malawi v Algeria in Casablanca, Morocco v Cameroon in Rabat. All four have already qualified for the 2027 World Cup in Brazil. Al Jazeera. Ran as No. 6's third Sports brief; the semifinals are the follow-up, and the final is the week after |
-| 2026-08-13 | **Peoples Cartage town hall, Parkersburg** | Independent testing results from the warehouse fire. WTAP. A `mid_ohio_valley` line that night or the morning after |
+| 2026-08-12 | **WAFCON semifinals** | Malawi v Algeria in Casablanca, Morocco v Cameroon in Rabat. All four have already qualified for the 2027 World Cup in Brazil. Al Jazeera. Ran as No. 6's third Sports brief; the semifinals are the follow-up, and the final is the week after. **2026-08-13: played, and ran as No. 9's first Sports brief — Malawi 3-1 Algeria, Cameroon past Morocco on penalties. Spent** |
+| **2026-08-16** | **WAFCON final: Malawi v Cameroon** | Sunday. Malawi are ranked 153rd and in their first WAFCON; Cameroon knocked out 10-time champions Nigeria in the quarterfinals. Al Jazeera. **This is Monday's Sports brief** |
+| 2026-08-13 | **Peoples Cartage town hall, Parkersburg** | Independent testing results from the warehouse fire. WTAP. A `mid_ohio_valley` line that night or the morning after. **2026-08-13: the testing results came out the evening before the town hall and ran as No. 9's `mid_ohio_valley` line** (WVDA/WVDEP: nothing above federal action levels, some samples above state screening thresholds). **The town hall itself is still tonight — anything said there is tomorrow's line, and the results themselves are spent** |
 | 2026-08-21 | **Premier League 2026-27 opens** | Confirmed via ESPN's fixtures piece. Until then the football beat is transfers and friendlies only, and a quiet football day is the expected outcome, not a failure |
 | **2026-08-31** | **Aki banzuke (rankings) released** | The next genuine sumo news after the ticket date, and the natural moment the Aki dates get confirmed by a citable outlet. Do not print it before it happens |
 | 2026-09-10 | WV charter board bylaws vote | Postponed from Aug. 6. WV MetroNews. Small, but it is the follow-up to today's statewide brief |
 | 2026-10-02 | DUA filing deadline, Lewis and Upshur | Claims close; benefits run to Feb. 6, 2027. West Virginia Watch |
-| 2026-08-13 | **Hope Scholarship first payments** | $5,435.62 each to 25,000+ students, two days ahead of schedule. WV MetroNews. Ran as No. 5's first statewide brief; the news on the day is whether the money actually lands |
+| 2026-08-13 | **Hope Scholarship first payments** | $5,435.62 each to 25,000+ students, two days ahead of schedule. WV MetroNews. Ran as No. 5's first statewide brief; the news on the day is whether the money actually lands. **2026-08-13: deliberately not re-run.** Searched at 6 a.m. ET; the only thing carrying today's date is the same **Aug. 8** announcement No. 5 already printed, and a 7 a.m. paper cannot report whether deposits landed. **A problem with the payments would be a brief; a clean deposit is not. Row closes unless something breaks** |
 | 2026-08-15 | Italy's Schengen suspension with Spain runs to at least this date | Rome said it expects another crossing attempt. Spain's counter-controls run to Sept. 7. Euronews |
 | ~2026-09-02 | **FEMA appeal window closes on the Boone/Logan denial** | WVEMD had 30 days from Aug. 3 to file more documentation; Morrisey is appealing. WV MetroNews |
 | 2026-09-07 | Spain's border controls on Italian travellers expire | Euronews |
@@ -73,6 +74,95 @@ Four sections, all four maintained every run:
 | 2026-11-08 → 2026-11-22 | **Kyushu basho (Fukuoka)** — *derived, unconfirmed* | Same derivation. Note it opens the week after the cron switch above |
 
 ## 3. Open threads
+
+- **eclipse-2026** — 2026-08-13: **closed, and it led No. 9.** Totality crossed slivers of Greenland,
+  Iceland, northern Spain and Portugal Wednesday evening, the first visible from **mainland Spain since
+  1912**. Maximum totality was **under 2 1/2 minutes off Iceland's west coast** and about **a minute** by
+  the time the shadow reached Iberia near sunset; Oviedo had close to **1 minute 48 seconds** (Euronews).
+  Spain ran **350 official viewing areas**, deployed about **33,500 officers** and expected at least a
+  **half-million extra visitors**; glasses sold out at pharmacies and temperatures topped **95 F**.
+  **Cloudless over Spain and Portugal, overcast over much of Iceland**, sun **90%+** obscured in Britain.
+  NPR, cross-checked on Euronews and PBS's photo set. **Spain's next two are Aug. 2, 2027 and Jan. 26,
+  2028. Thread closes.**
+- **colombia-earthquake** — 2026-08-13: **moved again and ran as No. 9's first World brief.** **265 dead**,
+  attributed in the brief to President **Abelardo de la Espriella** speaking Wednesday evening, with
+  **nearly 500 officially missing**. **This time the number is not disputed** — NPR, Al Jazeera and France
+  24 all carry 265, which is the first day of this story that three readable outlets agree. Al Jazeera adds
+  **3,500+ wounded**, **9,550+ homes destroyed**, **Pereira 83 dead and Cali 74**, a civilian database near
+  **4,100** missing, **130 aftershocks**, **25,800+ families** affected, and that the search has entered
+  what officials call its **"final phase."** Those are available if it needs a fourth day. **Still moving —
+  re-check before citing.**
+- **qusra-settler-siege** — 2026-08-13: new, ran as No. 9's second World brief. Settlers besieged
+  Palestinian homes in **Qusra** from **Sunday**, throwing stones and cutting off food and water; US
+  Ambassador **Mike Huckabee** called it a **"horrific act of terror"** — the paper's headline says "act of
+  terror" and attributes it to the ambassador. Israeli troops evacuated **two members of an American
+  Palestinian family** Thursday morning, dismantled **two** outposts and detained **one** Israeli; a mosque
+  in the village was burned in a separate recent attack. NPR. **News again on charges, or on a US action
+  beyond the statement.**
+- **putin-kuril-visit** — 2026-08-13: new, ran as No. 9's third World brief. Putin visited **Iturup**
+  (Etorofu), largest and southernmost of the Kurils, on Thursday — **his first visit** — after naval drills
+  off **Sakhalin**, touring a fish plant, a hospital and a school and saying Russia is "not threatening
+  Japan." PM **Sanae Takaichi** called it **"absolutely unacceptable"**; FM **Toshimitsu Motegi** called the
+  islands "an inherent part of Japan's territory." The USSR took them in **1945**, deporting about
+  **17,000** Japanese residents. Al Jazeera. **News again on a Japanese diplomatic step.**
+- **longview-mine-co** — 2026-08-13: new, ran as No. 9's first statewide brief **and it is the live WV
+  thread.** Monitors detected high carbon monoxide about **2:15 a.m. Wednesday** at **Allegheny Met's**
+  Longview Mine at **Volga**, Barbour County; all miners evacuated with **no injuries**, and state and
+  federal agencies responded. The company said it is working toward "safely resuming operations." The story
+  **carried no miner count**, so none was printed. WV MetroNews. **News again on a cause finding, a
+  citation, or the mine restarting.**
+- **wv-assessment-scores** — 2026-08-13: new, ran as No. 9's second statewide brief. Assessment director
+  **Vaughn Rhudy** told the state board that 2026 proficiency meets or exceeds **2019** overall: math
+  **39.4%** against 38.7% in 2019, reading at or above 2019 across grades, **science flat**, and **grade 11
+  reading down to 51% from 55%** — which Rhudy attributed to a national SAT School Day drop. Grade 11 math
+  is **21%**, science **23.6%**, CTE occupational **70%**. Superintendent **Michele Blatt** pointed to a
+  new middle-school initiative. WV MetroNews. **News again on the middle-school plan or county-level data.**
+- **peoples-cartage-fire** — 2026-08-13: **moved and ran as the `mid_ohio_valley` line, eight days after
+  this ledger first flagged the Aug. 13 town hall.** WVDA and WVDEP, with Peoples Cartage and federal
+  agencies, analyzed **hundreds** of soil and water samples plus produce, vegetation and honey: **no
+  combustion-related compounds in water**, low concentrations in some soil, residuals in produce
+  "considerably below" health-concern levels, **nothing above federal action levels but some above state
+  screening thresholds** — and the line printed both halves of that, not just the reassuring half. WVDA
+  says no further measures are needed now. WV MetroNews. **The town hall itself is tonight, Aug. 13 — that
+  is tomorrow's line if anything is said there.**
+- **july-cpi** — 2026-08-13: new, ran as No. 9's first U.S. brief. Consumer prices **+0.1%** in July,
+  **3.4%** year over year, down from **3.5%**, against a wage-growth pace of **3.2%**; gasoline **-2.9%**
+  to a **$4.03** national average, shelter about **two thirds** of the monthly rise, food away from home
+  **+0.3%**. Brent near **$90**. NBC News; CNBC's write-up (which **403s** this crawler) put September
+  hike odds at **42%** on CME FedWatch. **NBC's own wage sentence is internally contradictory — "average
+  hourly earnings dropped 0.2% year-over-year" alongside a 3.2% pace — so only the 3.2% ran.** News again
+  at the August print in early September.
+- **leavitt-departure** — 2026-08-13: new, ran as No. 9's second U.S. brief. **Karoline Leavitt**, 28,
+  is leaving as White House press secretary; Trump announced it Wednesday on social media and said she will
+  be "one of my top outside advisors." She cited her two young children and had recently returned from
+  maternity leave. **No successor named.** PBS NewsHour. **A named replacement is the news.**
+- **same-day-executions** — 2026-08-13: new, ran as No. 9's third U.S. brief. Tennessee, Alabama and
+  Oklahoma each set an execution for **Thursday**, the first such convergence since **Jan. 7, 2010**
+  (Louisiana, Ohio, Texas). **Eleven** states executed prisoners in 2025; six would have done so in 2026 if
+  these proceed. NPR, also carried by Al Jazeera. **The victims' details were deliberately left out.**
+  **Whether they were carried out is the follow-up.**
+- **wafcon-2026** — 2026-08-13: **moved and ran as No. 9's first Sports brief.** **Malawi 3-1 Algeria** in
+  Casablanca — **Tabitha Chawinga** twice, **Temwa Chawinga** in stoppage time, **Ikram Adjabi** for
+  Algeria, with red cards for Algeria's **Morgane Belkhiter** (23') and Malawi's **Rose Kadzere**. **Cameroon
+  beat Morocco on penalties after 0-0** before **19,000+** at Moulay Al Hassan Stadium. Malawi are ranked
+  **153rd** and are in their **first** WAFCON. Al Jazeera. **The final is Sunday and is Monday's brief.**
+- **messi-return-leon** — 2026-08-13: new, ran as No. 9's second Sports brief. **Leon 3-2 Inter Miami**
+  knocked the 2023 champions out of the Leagues Cup; **Daniel Arcila** scored in the **50th and 83rd**,
+  **Juan Pablo Dominguez** also for Leon, **Yannick Bright** and **Daniel Pinter** (42') for Miami.
+  **Messi came on at halftime to a loud ovation at Nu Stadium**, his first appearance since his father
+  **Jorge** died Saturday at **68**, hours after posting that he has doubts about how long he keeps
+  playing. CBS News. **A retirement statement is the only thing that makes this news again.**
+- **starlink-thermosphere** — 2026-08-13: new, ran in Sci/Tech. **Kyoto University** (corresponding author
+  **Mamoru Yamamoto**) applied tomography to orbital-drag data from about **1,200** Starlink satellites at
+  **482 km** to produce the first two-dimensional latitude-longitude density map of the thermosphere near
+  **500 km**, consistent with ESA's **SWARM** satellites. *Earth, Planets and Space*, read via
+  ScienceDaily; `source` names the institution, the convention since No. 4. News again on a collision-risk
+  application.
+- **webb-lion-nebula** — 2026-08-13: new, ran in Sci/Tech. JWST NIRCam and MIRI images of **NGC 2392**,
+  the Lion Nebula, show dust concentrations and ionized gas around the central **white dwarf**; the shell
+  is expected to disperse in about **10,000 years**. ESA/Webb release, image processing by **A. Pagan**
+  (STScI), read via ScienceDaily. **No peer-reviewed paper is attached to it**, so it was written as an
+  observation release, not a study.
 
 - **midwest-primaries-2026** — 2026-08-12: **resolved, and it led No. 8.** Six states voted Aug. 11.
   **Minnesota**: Lt. Gov. **Peggy Flanagan**, 46, beat Rep. **Angie Craig** for the DFL Senate nod with
@@ -706,6 +796,51 @@ Four sections, all four maintained every run:
 
 ## 4. Recently covered
 
+### 2026-08-13 — No. 9
+- lead: **eclipse-2026, the follow-up No. 8 could not carry** — what was actually seen, not the preview.
+  Rung 1 art for the first time since No. 5: the crescent behind a church cupola, drawn after looking at
+  the AP photograph on NPR's page (Vidigulfo, near Pavia, northern Italy, outside the path of totality)
+- us: july-cpi, leavitt-departure, same-day-executions
+- world: colombia-earthquake (**265, and cross-checked this time**), qusra-settler-siege, putin-kuril-visit
+- wv statewide: longview-mine-co, wv-assessment-scores
+- wv regional: mid_ohio_valley — peoples-cartage-testing
+- wv away: **none.** Vermont searched (only the Battle Day schedule and an Aug. 11 update on a July
+  shooting); Prince George searched (pool maintenance and the Oct. 17 local election, nothing dated);
+  Topsail carried by its fishing line
+- sports: wafcon-2026 (**final set**), messi-return-leon
+- scitech: starlink-thermosphere, webb-lion-nebula
+- huntington_cabell: **line written, opened, sourced and CUT FOR BUDGET** — see `docs/FAILURES.md`
+- nicholas_webster, summers_new_river, putnam_kanawha: **no line** — Nicholas/Webster is on the **same
+  three standing items for the fifth morning running** (Aug. 12-14 mobile screening, Aug. 23 checkpoint,
+  Aug. 30 lake cleanup); Summers/New River had nothing newer than June beyond the NRGRDA director's June
+  departure; Kanawha's only new item was MetroNews' **"biker killed by live electrical cable,"** which is
+  **the same Pinch death No. 8 already ran** as its `putnam_kanawha` line, refined — not a second story
+- **fishing: both waters, and the Williams is falling back off Tuesday's crest.** **335 cfs and rising,
+  2.51 ft**, against **95.6 cfs** 24 hours earlier — but note that reading sits *below* No. 8's **767 cfs**,
+  so the storm water is on its way out even though the fetcher's 24-hour comparison says "rising."
+  The fetcher's read ran verbatim: "pushy. Wadeable at the edges, not across"
+- **sumo: sat out, seventh day.** Off-basho, two dedicated searches. **`japantimes.co.jp` now returns HTTP
+  402 to this crawler, which is new** — the Aug. 5 jungyo feature is no longer even openable. Aki dates and
+  the Aug. 31 banzuke are **still** carried only by ticket-reseller and travel sites. **The kicker
+  deliberately did not print Aug. 31**, because that date is not yet citable; it said only that sumo sat
+  out. **Aug. 31 remains the hook.** Correct edition per Ian's rule
+- **football: searched, nothing dated, and one near-miss worth recording.** A "done deals for 12 August"
+  aggregator listed **Andy Robertson, Liverpool to Tottenham on a free** — two followed clubs at once, which
+  would have been an automatic brief. **Sky Sports dates that announcement June 5, 2026.** It is ten weeks
+  old. **Do not let it resurface as new.** Season opens Aug. 21
+- **stocking: silent no-op.** Searched; WVDNR publishes after the fact and nothing named the Williams, the
+  Cranberry or the Summersville tailwater. `wvdnr.gov` was not fetched (expired certificate)
+- **BUDGET:** validator projected **5,412** after two tightening passes, against No. 8's measured
+  projection-to-actual gap of about **215**. Aiming at 5,400-5,500 is what keeps this a single message
+- **Do not re-run tomorrow without movement:** the eclipse (**it is over; the next is Aug. 2, 2027**); the
+  July CPI print (**the August one lands early September**); Leavitt (**a named successor is the news**);
+  the executions (**whether they were carried out is the news**); the Kuril visit (a Russian or Japanese
+  follow-up is the news); the mine evacuation (**a cause finding or a resumption is the news**); the
+  assessment scores; the Peoples Cartage testing (**the Aug. 13 town hall itself is tonight — that is
+  tomorrow's line**); Malawi-Cameroon (**the final is Sunday and should run Monday**); Messi. **The one
+  exception that should run: the Colombia toll, which is still moving, and the search is now in what
+  officials call its final phase.**
+
 ### 2026-08-12 — No. 8
 - lead: midwest-primaries-2026 (the results; six states)
 - us: water-system-cyberattacks, gilman-release, midwest-storm-outages
@@ -730,7 +865,9 @@ Four sections, all four maintained every run:
   resignation of Izutsu Oyakata (former Akiseyama, 41) and Juryo promotions (Tanji, Tokifudo, Nabatame) — both
   carried **only by sumostats.com**, which this paper does not cite; the Japan Times has nothing newer than its
   **Aug. 5** jungyo feature; `tachiai.org` now **403s** this crawler, which is new. **Aug. 31 banzuke remains the
-  hook.** Correct edition per Ian's rule
+  hook.** Correct edition per Ian's rule. **2026-08-13: `japantimes.co.jp` now returns HTTP 402 as well, so
+  the Japan Times sumo section is no longer openable either — the readable-source list for sumo is down to
+  NHK, Kyodo and the JSA's own English pages**
 - **football: searched, nothing dated.** No matchweek; the season opens **Aug. 21**. Sky Sports' window page lists
   Chelsea (Henderson, Welbeck), Liverpool (Jacquet, Munoz, Araujo, and Salah released) and Tottenham (Tonali
   **£100m** club record, Fernandes, van Hecke) but **carries no dates**, and the Tonali deal traces to **July 6**.

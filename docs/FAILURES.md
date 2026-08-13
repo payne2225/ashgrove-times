@@ -266,3 +266,28 @@ and the failure protocol at the bottom of that file appends here too.
   5,600 as the real ceiling, not 5,800, whenever `--page-url` is being passed.**
   Nos. 1 and 4 split at 8,587 and 6,009 actual; No. 4's is the near neighbour of
   today's and points at the same threshold.
+- **2026-08-13** — *budget trim, one notebook line* — the `huntington_cabell` line was
+  written, opened and sourced (U.S. marshals arrested a 20-year-old Detroit man in
+  Huntington Tuesday, charged in a November homicide there; WSAZ) and **cut for
+  characters**, because the first complete draft projected **6,306** against the
+  **5,600** working ceiling No. 8 established. The Mid-Ohio Valley line was kept over
+  it: the Peoples Cartage testing result is the follow-up this ledger had been
+  waiting for since Aug. 5, and the arrest was the weaker of the two. Regional ran
+  at one line; away ran empty. After the cut and a second tightening pass the
+  edition projected **5,412**.
+- **2026-08-13** — *fishing source degraded, no water temperature* — `fetch_fishing.py`
+  exited 0 with both waters, but NOAA returned no water temperature
+  (`noaa-temp: RuntimeError: NOAA: no water temperature returned`), so the Topsail
+  line ran **tides only** and the Wrightsville Beach attribution clause did not
+  appear. Sound highs and heights are the fetcher's own numbers. Nothing was
+  estimated and no temperature was carried forward from yesterday's 78.8F.
+- **2026-08-13** — *run mechanics, not a reader-visible degradation, but read this
+  before tomorrow* — the first `post_discord.py` launch was killed at 5 minutes by
+  the shell's own foreground timeout while it was still sleeping out
+  `--not-before 07:00`. **Nothing had posted** (`editions/index.json` had no
+  2026-08-13 row, checked), so there was no double-paper risk, but the lesson is
+  mechanical: the hold can sleep for up to an hour, which is longer than a
+  foreground command may live. **Launch the post as a background process.** The
+  same run then also mis-estimated its own elapsed wall time — it read 6:23 ET when
+  the model believed it was 7:38 — so a clock check is the only trustworthy answer
+  to "am I late." It was not late.
