@@ -12,10 +12,30 @@
       "Skies were cloudless over Spain and Portugal, much of Iceland was overcast, and in Britain the sun was more than 90% obscured. Spain's next total eclipse falls Aug. 2, 2027."
     ],
     "stat_strip": [
-      {"label": "S&P 500", "value": "7,748.50", "change": "+0.26%", "direction": "up"},
-      {"label": "Dow", "value": "53,770.27", "change": "-0.04%", "direction": "down"},
-      {"label": "Nasdaq", "value": "26,588.49", "change": "+0.54%", "direction": "up"},
-      {"label": "Bitcoin", "value": "$63,667", "change": "-0.68%", "direction": "down"}
+      {
+        "label": "S&P 500",
+        "value": "7,748.50",
+        "change": "+0.26%",
+        "direction": "up"
+      },
+      {
+        "label": "Dow",
+        "value": "53,770.27",
+        "change": "-0.04%",
+        "direction": "down"
+      },
+      {
+        "label": "Nasdaq",
+        "value": "26,588.49",
+        "change": "+0.54%",
+        "direction": "up"
+      },
+      {
+        "label": "Bitcoin",
+        "value": "$63,667",
+        "change": "-0.68%",
+        "direction": "down"
+      }
     ]
   },
   "sections": [
@@ -49,13 +69,13 @@
       "briefs": [
         {
           "headline": "Colombia's quake toll reaches 265 as digging goes on",
-          "summary": "President Abelardo de la Espriella gave the figure Wednesday evening. Nearly 500 people are officially missing and 130 aftershocks have followed.",
+          "summary": "President Abelardo de la Espriella gave the figure Wednesday evening; nearly 500 people are officially missing.",
           "source": "NPR",
           "url": "https://www.npr.org/2026/08/12/g-s1-138315/colombia-earthquake-updates"
         },
         {
           "headline": "US ambassador calls settler siege in Qusra an act of terror",
-          "summary": "Settlers surrounded Palestinian homes in the West Bank village from Sunday, cutting off food and water. Israeli troops evacuated two members of an American family.",
+          "summary": "Settlers besieged Palestinian homes in the West Bank village from Sunday, cutting off food and water. Israeli troops evacuated two people Thursday.",
           "source": "NPR",
           "url": "https://www.npr.org/2026/08/13/g-s1-138574/us-west-bank-settlers"
         },
@@ -74,13 +94,13 @@
       "briefs": [
         {
           "headline": "Carbon monoxide empties a Barbour County coal mine",
-          "summary": "Monitors picked up high levels about 2:15 a.m. Wednesday at Allegheny Met's Longview Mine at Volga. All the miners got out; inspectors are investigating.",
+          "summary": "Monitors picked up high levels about 2:15 a.m. Wednesday at Allegheny Met's Longview Mine at Volga. All the miners got out.",
           "source": "WV MetroNews",
           "url": "https://wvmetronews.com/2026/08/12/longview-mine-in-barbour-county-evacuated-after-carbon-monoxide-scare/"
         },
         {
           "headline": "State test scores pass their pre-pandemic marks",
-          "summary": "Math proficiency reached 39.4%, above 2019's 38.7%, and reading met or beat 2019 across grades. Science was flat and 11th-grade reading fell to 51%.",
+          "summary": "Math proficiency hit 39.4%, above 2019's 38.7%, and reading met or beat 2019. Science was flat and 11th-grade reading fell to 51%.",
           "source": "WV MetroNews",
           "url": "https://wvmetronews.com/2026/08/12/state-school-board-hears-2026-student-assessment-numbers-improvement-towards-pre-covid-results/"
         }
@@ -89,7 +109,9 @@
         {
           "region_id": "mid_ohio_valley",
           "place": "Mid-Ohio Valley / Parkersburg",
-          "people": ["Pat"],
+          "people": [
+            "Pat"
+          ],
           "item": "Testing at the Peoples Cartage fire site found nothing above federal action levels, some above state screening levels.",
           "source": "WV MetroNews",
           "url": "https://wvmetronews.com/2026/08/12/analysis-of-soil-water-samples-around-peoples-cartage-warehouse-in-parkersburg-find-no-concerning-results-going-forward/"
@@ -115,7 +137,7 @@
       "briefs": [
         {
           "headline": "Malawi reach the Women's Africa Cup of Nations final",
-          "summary": "Tabitha Chawinga scored twice in a 3-1 win over Algeria in Malawi's first WAFCON. Cameroon beat Morocco on penalties and meet them Sunday.",
+          "summary": "Tabitha Chawinga scored twice in a 3-1 win over Algeria in Malawi's first WAFCON. Cameroon beat Morocco on penalties.",
           "source": "Al Jazeera",
           "url": "https://www.aljazeera.com/sports/2026/8/13/malawi-shock-algeria-and-cameroon-beat-morocco-to-reach-wafcon-final"
         },
@@ -133,7 +155,7 @@
       "briefs": [
         {
           "headline": "Starlink orbits map the air 500 km up",
-          "summary": "Kyoto University ran tomography on drag data from about 1,200 Starlink satellites, mapping thermosphere density in line with ESA's Swarm readings.",
+          "summary": "Kyoto University ran tomography on drag data from about 1,200 Starlink satellites to map thermosphere density, matching ESA's Swarm.",
           "source": "Kyoto University",
           "url": "https://www.sciencedaily.com/releases/2026/08/260812015212.htm"
         },
