@@ -781,10 +781,91 @@ def art_path(date: str, placement: str = ART_PLACEMENT_LEAD) -> str:
 # Chelsea carries two of the readership; every club here carries at least
 # one. That is the emphasis order when a day has more football than room.
 PREMIER_LEAGUE_REQUIRED_DAILY = False
+
+# ============================== THE TEAMS ==============================
+#
+# THE ONE PLACE the paper records who the readers follow, across every
+# sport. Nate, 2026-08-14: "let's start with these teams but have the
+# ability to add more" — so adding one is a single line here and nothing
+# else changes. The Premier League helpers below are DERIVED from this
+# table rather than keeping their own copy, because two lists of the same
+# clubs is exactly the drift this project has been bitten by before.
+#
+# `aliases` are what a headline actually says. A match report reads "Spurs
+# hold Chelsea" or "the Bucs dropped two", never the formal club name, and
+# a team the paper cannot recognise is a team it cannot prioritise.
+#
+# `supporters` is FIRST NAMES ONLY and may be empty: the Ohio Valley teams
+# are followed by the group broadly rather than by one person. Where it is
+# filled it decides emphasis when a day has more news than room.
+#
+# TO ADD A TEAM: copy a line. Nothing else.
+FOLLOWED_TEAMS = [
+    {"league": "NCAA", "name": "West Virginia",
+     "aliases": ("WVU", "Mountaineers"), "supporters": []},
+    {"league": "NCAA", "name": "Marshall",
+     "aliases": ("Thundering Herd", "the Herd"), "supporters": []},
+
+    {"league": "Premier League", "name": "Chelsea",
+     "aliases": ("the Blues",), "supporters": ["Trav", "Ian"]},
+    {"league": "Premier League", "name": "Tottenham",
+     "aliases": ("Spurs",), "supporters": ["Nate"]},
+    {"league": "Premier League", "name": "Liverpool",
+     "aliases": ("the Reds",), "supporters": ["Pat"]},
+
+    {"league": "MLS", "name": "Columbus Crew",
+     "aliases": ("the Crew",), "supporters": []},
+    {"league": "MLS", "name": "FC Cincinnati",
+     "aliases": ("FC Cincy", "Cincy"), "supporters": []},
+
+    {"league": "MLB", "name": "Cincinnati Reds",
+     "aliases": ("Reds",), "supporters": []},
+    {"league": "MLB", "name": "Pittsburgh Pirates",
+     "aliases": ("Pirates", "Bucs"), "supporters": []},
+]
+
+
+def followed_teams(league: str | None = None) -> list[dict]:
+    """Every followed team, or just one league's.
+
+    Ordered by how many of the readership follow each, then by name — that
+    is the tiebreak when a day has more team news than the section has room.
+    """
+    teams = [t for t in FOLLOWED_TEAMS
+             if league is None or t["league"].lower() == league.lower()]
+    return sorted(teams, key=lambda t: (-len(t.get("supporters") or []), t["name"]))
+
+
+def followed_leagues() -> list[str]:
+    """Leagues the paper follows, in the order they appear above."""
+    seen: list[str] = []
+    for team in FOLLOWED_TEAMS:
+        if team["league"] not in seen:
+            seen.append(team["league"])
+    return seen
+
+
+def team_names(team: dict) -> tuple[str, ...]:
+    """Everything a headline might call this team: the name and its aliases."""
+    return (team["name"],) + tuple(team.get("aliases") or ())
+
+
+def find_team(text: str) -> list[dict]:
+    """Followed teams named anywhere in `text`, by name OR alias.
+
+    "the Reds" is deliberately ambiguous between Liverpool and Cincinnati
+    and this returns both; the caller is expected to know which sport it is
+    reading. Better two candidates than a silent miss.
+    """
+    low = (text or "").lower()
+    return [t for t in FOLLOWED_TEAMS
+            if any(n.lower() in low for n in team_names(t))]
+
+
+# Derived, never hand-maintained — see the note above about two lists.
 PREMIER_LEAGUE_SUPPORTERS = {
-    "Chelsea": ["Trav", "Ian"],
-    "Tottenham": ["Nate"],
-    "Liverpool": ["Pat"],
+    t["name"]: list(t["supporters"])
+    for t in FOLLOWED_TEAMS if t["league"] == "Premier League"
 }
 PREMIER_LEAGUE_FOLLOWED_CLUBS: list[str] = list(PREMIER_LEAGUE_SUPPORTERS)
 # August through May. Confirm real fixture dates by search — the season's

@@ -468,13 +468,34 @@ missing football brief.
 
 **Read `config.followed_clubs()` first. It changes the assignment.**
 
-**The clubs, answered 2026-08-06 — `config.PREMIER_LEAGUE_SUPPORTERS`:**
+**THE TEAMS — `config.FOLLOWED_TEAMS` is the one list, across every sport.**
+Read it at runtime rather than trusting this table; teams get added and the
+code is what knows.
 
-| Club | Who |
-|---|---|
-| **Chelsea** | Trav, Ian |
-| **Tottenham** | Nate |
-| **Liverpool** | Pat |
+| League | Teams | Who |
+|---|---|---|
+| **NCAA** | West Virginia, Marshall | the group |
+| **Premier League** | Chelsea | Trav, Ian |
+| | Tottenham | Nate |
+| | Liverpool | Pat |
+| **MLS** | Columbus Crew, FC Cincinnati | the group |
+| **MLB** | Cincinnati Reds, Pittsburgh Pirates | the group |
+
+The Ohio Valley teams are followed by the group broadly rather than by one
+person, which is why their `supporters` list is empty. That is not a gap —
+it decides emphasis only when a day has more team news than room, and a
+club with named supporters wins that tie.
+
+`config.find_team(text)` matches a team by **name or alias**, which is what
+a headline actually says: "Spurs hold Chelsea", "the Bucs dropped two",
+"Thundering Herd wins on the road". Use it rather than string-matching
+formal names yourself. Note "the Reds" is genuinely ambiguous between
+Liverpool and Cincinnati and returns both — you know which sport you are
+reading.
+
+**Adding a team is one line in `config.FOLLOWED_TEAMS`.** Nate asked for
+that explicitly. If the group names a new one, add it there and nothing
+else changes.
 
 Those three are the emphasis. Their news is the brief: results and how they
 played, injuries, transfers, manager news, where they sit in the table. A
