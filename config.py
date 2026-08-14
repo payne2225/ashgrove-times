@@ -1273,8 +1273,25 @@ SPORTSMAN_AGENCIES = {
            # WV_SEASONS_VALID_THROUGH.
            "fetchable": False,
            "reference": "reference/wv-hunting-2026-27.json"},
-    "NC": {"name": "North Carolina Wildlife Resources Commission",
-           "short": "NCWRC", "site": "ncwildlife.gov", "fetchable": True},
+    # NC SPLITS ITS COASTAL WATERS BETWEEN TWO AGENCIES and the crew fishes
+    # on the side most people do not reach for. Topsail Sound is COASTAL
+    # water, so red drum, speckled trout and flounder are governed by the
+    # Division of Marine Fisheries — NOT by the NCWRC inland digest, whose
+    # fishing sections are mountain trout and warmwater species. Quoting an
+    # inland creel limit at a saltwater fish is a different agency's rule.
+    # See reference/nc-waters-jurisdiction.md.
+    "NC": {"name": "North Carolina Division of Marine Fisheries",
+           "short": "NCDMF", "site": "deq.nc.gov",
+           # Reachable, verified 2026-08-14 — which is exactly why NC needs
+           # no transcribed file and West Virginia did.
+           "fetchable": True,
+           "governs": "coastal waters, including Topsail Sound",
+           "reference": "reference/nc-waters-jurisdiction.md"},
+    "NC_INLAND": {"name": "North Carolina Wildlife Resources Commission",
+                  "short": "NCWRC", "site": "ncwildlife.gov",
+                  "fetchable": True,
+                  "governs": "inland waters, and licensing in joint waters",
+                  "note": "NOT the source for Topsail limits"},
 }
 
 # What the crew actually hunts and fishes for, by state. Order is roughly

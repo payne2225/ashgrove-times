@@ -142,10 +142,23 @@ Four things in it are load-bearing, and they are in the file's own
 snipe are governed by a separate WVDNR publication issued in August, and
 HIP registration is required. Say that rather than guessing.
 
-### North Carolina: look it up
+### North Carolina: look it up, and use the RIGHT agency
 
-NCWRC is fetchable, so NC dates are researched on the day, cited and
-linked, exactly as before.
+**NC splits its coastal waters between two agencies, and the crew fishes on
+the side most people do not reach for.** Topsail Sound is **coastal**
+water, so red drum, speckled trout, flounder and the rest are governed by
+the **Division of Marine Fisheries** (`deq.nc.gov`) — *not* by the NCWRC
+inland digest, whose fishing sections are mountain trout and warmwater
+species. Quoting an inland creel limit at a saltwater fish is a different
+agency's rule applied to the wrong water.
+
+`reference/nc-waters-jurisdiction.md` has the split in the state's own
+words, and the NCWRC digest is recorded there as **not** the source for
+Topsail limits.
+
+DMF is reachable — verified 2026-08-14 — which is exactly why NC needs no
+transcribed file and West Virginia did. Look the limits up on the day,
+cite **NCDMF**, and link the page.
 
 ### Either state
 
