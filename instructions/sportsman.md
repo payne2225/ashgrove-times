@@ -105,16 +105,49 @@ Three buckets, and the reader wants them in this order:
 - **Going out** — what closes within about two weeks. This is the one that
   saves somebody a wasted weekend.
 
-Governed by `config.SPORTSMAN_AGENCIES` and `config.SPORTSMAN_SPECIES`:
-
-| State | Agency | Fetchable? |
+| State | Agency | Where the dates come from |
 |---|---|---|
-| WV | West Virginia DNR (`wvdnr.gov`) | **No** — expired certificate, same wall as the trout-stocking list. **Search only.** |
-| NC | NC Wildlife Resources Commission (`ncwildlife.gov`) | Yes |
+| **WV** | West Virginia DNR | **`reference/wv-hunting-2026-27.json`** — transcribed from the official pamphlet |
+| **NC** | NC Wildlife Resources Commission | `ncwildlife.gov`, fetchable — look it up |
 
-**`config.SPORTSMAN_SPECIES` holds no dates, deliberately.** Seasons change
-every year and vary by zone and weapon. Look up every date you print, on
-the day you print it, from the agency itself. Then:
+### West Virginia: use the reference file
+
+Nate supplied WVDNR's *Hunting and Trapping Regulations Summary, July 2026 –
+June 2027* as a PDF, because `wvdnr.gov` serves an expired certificate and
+cannot be fetched. Page IV — every species with opening date, closing date,
+and daily, possession and season limits — is transcribed into
+`reference/wv-hunting-2026-27.json`, 37 rows.
+
+**Read that file for WV dates rather than searching.** It is the primary
+source and a search result is not an improvement on it.
+
+Four things in it are load-bearing, and they are in the file's own
+`_read_this_before_printing_anything`:
+
+1. **It expires.** `valid_through` is **2027-06-30**. On or after
+   2027-07-01 the file is not merely stale, it is *dangerous* — seasons
+   move every year. Check `valid_through` against the edition date every
+   single time. If it has passed, print no WV date and say why.
+2. **"Selected Counties" means the date is not statewide.** Antlerless
+   deer, gun bear and fall turkey all carry that flag, and the county lists
+   are **not** in the table. Naming one of those dates without the counties
+   is worse than saying nothing.
+3. **Deer and bear limits are not in the table at all** — they are on
+   pamphlet pages 13–18 and 33–39 and vary by county and permit class.
+   `limits_note` says so. Do not invent a number to fill the gap.
+4. **The pamphlet is a summary, not the law.** It says so itself: the West
+   Virginia Code and the Code of State Rules control and win any conflict.
+
+**Migratory birds are not in the file.** Geese, ducks, doves, woodcock and
+snipe are governed by a separate WVDNR publication issued in August, and
+HIP registration is required. Say that rather than guessing.
+
+### North Carolina: look it up
+
+NCWRC is fetchable, so NC dates are researched on the day, cited and
+linked, exactly as before.
+
+### Either state
 
 - **Cite the agency by name and link it.** "WVDNR" is the source field.
 - **Name the zone or county when the season varies by it.** A statewide

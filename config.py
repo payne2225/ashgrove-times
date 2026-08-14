@@ -1266,14 +1266,32 @@ SPORTSMAN_AGENCIES = {
     "WV": {"name": "West Virginia DNR", "short": "WVDNR",
            "site": "wvdnr.gov",
            # Same expired certificate that keeps the trout-stocking list out
-           # of fetch_fishing.py — WVDNR is a SEARCH target, never a fetch.
-           "fetchable": False},
+           # of fetch_fishing.py — the site cannot be fetched. Solved a
+           # better way: Nate supplied the official pamphlet and page IV is
+           # transcribed into the reference file below, which is the primary
+           # source rather than a search result. IT EXPIRES — see
+           # WV_SEASONS_VALID_THROUGH.
+           "fetchable": False,
+           "reference": "reference/wv-hunting-2026-27.json"},
     "NC": {"name": "North Carolina Wildlife Resources Commission",
            "short": "NCWRC", "site": "ncwildlife.gov", "fetchable": True},
 }
 
 # What the crew actually hunts and fishes for, by state. Order is roughly
 # the order the year runs.
+# The licence year the transcribed WV table covers. On or after this date
+# the reference file is DANGEROUS, not merely stale: seasons move annually
+# and a hunter could act on a date that no longer holds. Anything printing a
+# WV season date checks this first.
+WV_SEASONS_REFERENCE = "reference/wv-hunting-2026-27.json"
+WV_SEASONS_VALID_THROUGH = "2027-06-30"
+
+
+def wv_seasons_current(date: str | None = None) -> bool:
+    """False once the transcribed WV regulations have expired."""
+    return (date or _today_iso()) <= WV_SEASONS_VALID_THROUGH
+
+
 SPORTSMAN_SPECIES = {
     "WV": ("trout", "black bass", "walleye", "musky", "catfish", "crappie",
            "whitetail deer", "black bear", "wild turkey", "squirrel",

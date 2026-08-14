@@ -1,0 +1,136 @@
+{
+  "_source": {
+    "publication": "West Virginia Hunting and Trapping Regulations Summary, July 2026 - June 2027",
+    "agency": "West Virginia Division of Natural Resources",
+    "agency_short": "WVDNR",
+    "site": "WVdnr.gov",
+    "file": "Pub_Regs_HuntTrap_202627_DNR_WILD_20260724.pdf",
+    "pdf_created": "2026-07-24",
+    "transcribed_from": "page IV, 2026-2027 SEASONS, DATES AND LIMITS",
+    "transcribed_on": "2026-08-14",
+    "valid_from": "2026-07-01",
+    "valid_through": "2027-06-30",
+    "_why_this_file_exists": "WVdnr.gov serves an expired TLS certificate, so the site cannot be fetched. Nate supplied the official PDF instead. This is a TRANSCRIPTION of the summary table, not the regulations themselves.",
+    "_read_this_before_printing_anything": [
+      "The pamphlet says it plainly: nothing in it preempts the law. The West Virginia Code and the Code of State Rules control, and where they conflict with this, they win.",
+      "AFTER valid_through THIS FILE IS DANGEROUS, not merely stale. Seasons move every year. Do not print a WV date from here on or after 2027-07-01 - replace the file first.",
+      "Many seasons are COUNTY-SPECIFIC or zone-specific and this table does not carry the county lists. Where a row says 'Selected Counties', the counties are in the page this row cites and MUST be checked before naming a date as if it were statewide.",
+      "Bag and possession limits for deer and bear are not in this table at all - they are on pages 13-18 and 33-39 and vary by county and permit class.",
+      "Always cite WVDNR and say which season year. Never present any of this as advice."
+    ]
+  },
+
+  "electronic_registration_note": "Species marked registration:true must be electronically registered (checked). Instructions on page 6 of the pamphlet.",
+
+  "changes_2026_27": [
+    "Season dates and open counties changed for antlerless deer, fall wild turkey and black bear.",
+    "Bear and turkey may be taken with any weapon legal during the statewide Mountaineer Heritage Season within Logan, McDowell, Mingo and Wyoming counties (page 32).",
+    "Youth and Class Q permit holders may take one antlered deer during the Special Split Youth and Class Q Seasons (page 27).",
+    "Detailed chronic wasting disease Q&A moved online to WVdnr.gov (page 12)."
+  ],
+
+  "seasons": [
+    {"species": "Wild Boar", "method": "Gun", "registration": true, "season_limit": 1,
+     "windows": [["2026-10-24", "2026-10-31"], ["2027-02-05", "2027-02-07"]]},
+    {"species": "Wild Boar", "method": "Archery and Crossbow", "registration": true, "season_limit": 1,
+     "windows": [["2026-09-26", "2026-12-31"], ["2027-02-05", "2027-02-07"]]},
+
+    {"species": "Deer", "method": "Buck Firearms", "registration": true,
+     "limits_note": "see pamphlet pages 13-18", "windows": [["2026-11-23", "2026-12-06"]]},
+    {"species": "Deer", "method": "Archery and Crossbow", "registration": true,
+     "limits_note": "see pamphlet pages 13-18", "windows": [["2026-09-26", "2026-12-31"]]},
+    {"species": "Deer", "method": "Antlerless", "registration": true, "selected_counties": true,
+     "limits_note": "see pamphlet pages 13-18",
+     "windows": [["2026-10-22", "2026-10-25"], ["2026-11-23", "2026-12-06"],
+                 ["2026-12-10", "2026-12-13"], ["2026-12-28", "2026-12-31"]]},
+    {"species": "Deer", "method": "Muzzleloader", "registration": true,
+     "limits_note": "see pamphlet pages 13-18", "windows": [["2026-12-14", "2026-12-20"]]},
+    {"species": "Deer", "method": "Youth / Class Q / Class XS", "registration": true,
+     "limits_note": "see pamphlet page 27",
+     "windows": [["2026-10-17", "2026-10-18"], ["2026-12-26", "2026-12-27"]]},
+
+    {"species": "Deer, Bear and Turkey", "method": "Mountaineer Heritage Season", "registration": true,
+     "limits_note": "1 deer, 1 bear, 1 turkey - see pamphlet page 32",
+     "windows": [["2027-01-14", "2027-01-17"]]},
+
+    {"species": "Bear", "method": "Archery and Crossbow", "registration": true,
+     "limits_note": "see pamphlet pages 33-39", "windows": [["2026-09-26", "2026-12-31"]]},
+    {"species": "Bear", "method": "Gun", "registration": true, "selected_counties": true,
+     "daily_bag": 1, "possession_limit": 2, "season_limit": 2,
+     "limits_note": "see pamphlet pages 33-39",
+     "windows": [["2026-08-29", "2026-09-07"], ["2026-09-19", "2026-09-25"],
+                 ["2026-10-03", "2026-10-09"], ["2026-10-22", "2026-10-25"],
+                 ["2026-11-23", "2026-12-06"], ["2026-12-07", "2026-12-31"]]},
+    {"species": "Bear", "method": "Youth / Class Q / Class XS", "registration": true,
+     "limits_note": "see pamphlet page 34",
+     "windows": [["2026-09-12", "2026-09-13"], ["2026-10-17", "2026-10-18"]]},
+
+    {"species": "Turkey", "method": "Fall", "registration": true, "selected_counties": true,
+     "possession_limit": 1, "limits_note": "see pamphlet page 41",
+     "windows": [["2026-10-10", "2026-10-18"], ["2026-10-26", "2026-11-01"],
+                 ["2026-10-26", "2026-11-15"]]},
+    {"species": "Turkey", "method": "Spring, bearded only", "registration": true,
+     "daily_bag": 1, "possession_limit": 2, "season_limit": 2,
+     "windows": [["2027-04-19", "2027-05-23"]]},
+    {"species": "Turkey", "method": "Youth", "registration": true,
+     "limits_note": "see pamphlet page 42", "windows": [["2027-04-17", "2027-04-18"]]},
+
+    {"species": "Squirrel", "method": "Gray, Black, Albino and Fox", "daily_bag": 6,
+     "possession_limit": 24, "season_limit": null, "windows": [["2026-09-12", "2027-02-28"]]},
+    {"species": "Squirrel", "method": "Youth", "daily_bag": 6, "possession_limit": 12,
+     "season_limit": 12, "limits_note": "see pamphlet page 40",
+     "windows": [["2026-09-05", "2026-09-06"]]},
+
+    {"species": "Ruffed Grouse", "daily_bag": 4, "possession_limit": 16, "season_limit": null,
+     "windows": [["2026-10-17", "2027-02-28"]]},
+    {"species": "Bobwhite Quail", "daily_bag": 3, "possession_limit": 9, "season_limit": null,
+     "note": "closed on Tomblin WMA", "windows": [["2026-11-07", "2027-01-02"]]},
+    {"species": "Cottontail Rabbit", "daily_bag": 5, "possession_limit": 20, "season_limit": null,
+     "windows": [["2026-11-07", "2027-02-28"]]},
+    {"species": "Snowshoe or Varying Hare", "daily_bag": 2, "possession_limit": 8,
+     "season_limit": null, "windows": [["2026-11-07", "2027-02-28"]]},
+    {"species": "Ring-necked Pheasant", "method": "cock birds only", "daily_bag": 2,
+     "possession_limit": 2, "season_limit": null, "windows": [["2026-11-07", "2027-01-02"]]},
+    {"species": "Ring-necked Pheasant", "method": "Hillcrest WMA, cock birds only",
+     "daily_bag": 1, "possession_limit": 1, "season_limit": null,
+     "windows": [["2026-11-14", "2026-12-05"]]},
+
+    {"species": "Raccoon", "method": "Hunting", "daily_bag": 4,
+     "note": "the bag limit of 4 is for the 24-hour period 6 a.m. to 6 a.m.",
+     "windows": [["2026-10-17", "2027-02-28"]]},
+    {"species": "Raccoon", "method": "Trapping", "windows": [["2026-11-07", "2027-02-28"]]},
+
+    {"species": "Red Fox, Gray Fox", "method": "Hunting and Trapping",
+     "windows": [["2026-11-07", "2027-02-28"]]},
+    {"species": "Red Fox, Gray Fox", "method": "Hunting at night with artificial light or night vision",
+     "note": "see pamphlet page 1", "windows": [["2027-01-01", "2027-02-28"]]},
+
+    {"species": "Bobcat", "method": "Hunting and Trapping", "registration": true,
+     "season_limit": 3, "windows": [["2026-11-07", "2027-02-28"]]},
+    {"species": "Mink, Muskrat", "method": "Trapping", "windows": [["2026-11-07", "2027-02-28"]]},
+    {"species": "Fisher", "method": "Trapping", "registration": true, "season_limit": 1,
+     "windows": [["2026-11-07", "2027-01-31"]]},
+    {"species": "Beaver", "method": "Trapping", "registration": true,
+     "windows": [["2026-11-07", "2027-03-31"]]},
+    {"species": "Otter", "method": "Trapping", "registration": true, "season_limit": 1,
+     "windows": [["2026-11-07", "2027-02-28"]]},
+
+    {"species": "Crow", "method": "Split Season",
+     "note": "nuisance crows may be killed at any time when committing depredations - see pamphlet",
+     "windows": [["2026-10-01", "2026-11-21"], ["2027-01-01", "2027-03-06"]]},
+
+    {"species": "Coyote", "method": "Hunting", "year_round": true,
+     "note": "see pamphlet page 6 for additional regulations"},
+    {"species": "Skunk, Opossum, Woodchuck, Weasel, English Sparrow, European Starling and Pigeon",
+     "method": "Hunting", "year_round": true},
+    {"species": "Skunk, Opossum, Coyote and Weasel", "method": "Trapping",
+     "windows": [["2026-11-07", "2027-02-28"]]},
+
+    {"species": "Elk, Porcupine, Song and Insectivorous Birds, Owls, Hawks, Falcons and Eagles",
+     "no_open_season": true},
+
+    {"species": "Geese, Ducks, Mourning Doves, Gallinules, Rails, Woodcock and Common Snipe",
+     "migratory": true,
+     "note": "Harvest Information Program (HIP) registration required. Dates are NOT in this table - see the separate WVDNR Migratory Bird Hunting Regulations, published in August."}
+  ]
+}
