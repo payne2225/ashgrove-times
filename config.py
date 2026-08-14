@@ -69,12 +69,29 @@ POST_TIME_24H = "07:00"
 # A full hour, not the 37 minutes measured: research time varies with the
 # news, a slow wire day is exactly when the paper most needs the room, and
 # arriving early costs nothing because delivery is held either way.
-POST_CRON_UTC = "0 10 * * *"           # daylight time (Mar-Nov) -> 6:00 AM EDT
-POST_CRON_UTC_STANDARD = "0 11 * * *"  # standard time (Nov-Mar) -> 6:00 AM EST
+# 5:30 rather than 6:00 since 2026-08-14: the routine now researches and
+# builds TWO papers in the head start, the Times and Sports & Sportsman, so
+# that both can be posted the moment their hold expires. Measured research
+# for the Times alone was 37 minutes; ninety minutes covers both without
+# either being rushed.
+POST_CRON_UTC = "30 9 * * *"            # daylight time (Mar-Nov) -> 5:30 AM EDT
+POST_CRON_UTC_STANDARD = "30 10 * * *"  # standard time (Nov-Mar) -> 5:30 AM EST
 
-# The wall-clock ET time the paper is due in the channel. The routine may
-# finish early; it may not post early.
-POST_TARGET_ET = "07:00"
+# THE MORNING SEQUENCE. Nate, 2026-08-14: the Times first, then Sports, then
+# the weather — in that order, in succession.
+#
+# The order is achieved by STAGGERED HOLDS rather than by chaining, and that
+# is deliberate. Jim Claudtore runs from his own repo on his own routine and
+# is the post people actually dress by; making him wait on the newspaper
+# finishing would turn every newspaper hang into a missing forecast. The two
+# papers share a repo and a routine, so their order is guaranteed by
+# construction; the forecast keeps its independence and simply follows.
+#
+# Both editions are researched BEFORE either is posted, so the gap between
+# them is a delivery gap, not a research gap.
+POST_TARGET_ET = "07:00"          # The Ashgrove Times
+SPORTSMAN_TARGET_ET = "07:05"     # Sports & Sportsman, five minutes later
+WEATHER_TIME_ET_SEQUENCE = "7:15" # Jim Claudtore, unchanged and uncoupled
 WEATHER_BOT = "Jim Claudtore"
 WEATHER_TIME_ET = "7:15"
 
