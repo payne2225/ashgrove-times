@@ -291,3 +291,43 @@ and the failure protocol at the bottom of that file appends here too.
   same run then also mis-estimated its own elapsed wall time — it read 6:23 ET when
   the model believed it was 7:38 — so a clock check is the only trustworthy answer
   to "am I late." It was not late.
+- **2026-08-14** — *budget trim, one notebook line and one wire brief* — the first
+  complete draft of No. 10 projected **7,776** against the **5,600** working ceiling,
+  and the overspend was mostly URL cost: the Ames Goldsmith story's MetroNews URL is
+  **140** characters, the two Herald-Dispatch URLs **148** and **133**, the NPR Taiwan
+  URL **130**, and the two brightsurf science URLs about **100** each. Cut in the
+  playbook's order: away was already empty, so the weakest **regional** line went
+  first — the `huntington_cabell` entry on the Nick Joe Rahall II Bridge closing
+  nightly 10 p.m. to 5 a.m. Aug. 18-21 for its annual inspection (Herald-Dispatch),
+  written, opened and sourced, and genuinely the most marginal item in the notebook
+  because a scheduled routine inspection is not an event. Statewide was already at
+  two, so the next cut had to come from the wire: the **third U.S. brief** went, the
+  NTSB's finding that bird remains and metal fatigue at the fan-blade root caused the
+  July 10 Ryanair engine failure over Greece (CBS News) — the oldest incident in the
+  edition. After both cuts and two tightening passes the edition projected **5,616**.
+  **That is 16 over target and the second morning running that the notebook's source
+  links, not its prose, are what blow the budget.** Two Cabell lines cut in two days.
+- **2026-08-14** — *fishing source degraded, no water temperature, second day running* —
+  `fetch_fishing.py` exited 0 with both waters and the same NOAA error as yesterday
+  (`noaa-temp: RuntimeError: NOAA: no water temperature returned`), so the Topsail
+  line again ran **tides only** with no Wrightsville Beach attribution clause. Nothing
+  estimated, nothing carried forward. **Two consecutive days is no longer a blip —
+  if it repeats a third time the station itself is worth checking.**
+- **2026-08-14** — *source reachability* — `wvmetronews.com` served this crawler a
+  "please wait while your request is being verified" interstitial on **three** article
+  fetches (Clean-Seas air permit, WVU soccer opener, and a retry of the same) while the
+  site's **homepage and two earlier article fetches went through normally**. It is
+  intermittent, not a block. **One brief was lost to it**: the WVU men's soccer opener
+  (2-0 over Dayton) could not be opened, so Sports ran the Marshall women's opener from
+  WSAZ instead rather than write from a headline. Also new: **`france24.com` returned
+  HTTP 403**, which is the first time this run has seen France 24 refuse.
+- **2026-08-14** — *run mechanics, repeat of yesterday's line, and it should stop
+  repeating* — `post_discord.py` was launched in the **foreground** and was killed at
+  the 2-minute shell timeout while sleeping out `--not-before 07:00`. Nothing had
+  posted (`editions/index.json` had no 2026-08-14 row, checked before relaunching), so
+  again no double-paper risk. **This is the identical mistake logged on 2026-08-13**,
+  and the identical companion mistake came with it: the run believed it was 7:30 ET
+  when a clock check said **6:29**. The paper was never late either morning. The fix
+  is mechanical and now written in the ledger's standing commitments: **launch the post
+  in the background on the first attempt, and never estimate elapsed time — read the
+  clock.**

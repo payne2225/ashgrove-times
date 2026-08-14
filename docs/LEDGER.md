@@ -44,7 +44,8 @@ Four sections, all four maintained every run:
 | **Before 2026-09-13** | **Confirm the September (Aki) basho's real dates by search** and record them below. `config.basho_window()` derives Sep 13–27 from the second-Sunday rule; that is an estimate the validator uses to decide how loudly to advise, never a fact the paper may print. The Japan Sumo Association publishes the schedule — confirm it there or at a wire outlet | **OPEN** |
 | Open-ended | **Ian's answer on the WV outlet list.** `instructions/edition.md` marks the list provisional. When he answers, the playbook is edited and the answer is recorded here | **OPEN — unasked** |
 | 2026-08-06 | **Premier League clubs, answered the same day it was asked.** A reader asked for football in Sports and specified the shape himself: *"emphasis on news from the teams we like, general from the rest of the league."* The allegiances: **Chelsea** (Trav, Ian), **Tottenham** (Nate), **Liverpool** (Pat) — in `config.PREMIER_LEAGUE_SUPPORTERS`, first names only, handles deliberately not recorded because the repo is public. All three meet twice a season, so several times a year one fixture is a house derby; `config.is_house_derby()` catches it and the playbook says to write those straight down the middle | **CLOSED** |
-| Open-ended | **Pages build lag exceeds any sane pre-post poll.** 2026-08-06: `editions/2026-08-06.html` 404'd for the full 120s window so the link was omitted; it returned 200 about 9 minutes after the push (measured build **8m38s**, versus 23s the evening before). Pages is healthy — this is Actions queue lag, not an outage, so do **not** set `PAGES_ENABLED = False`. **RESOLVED 2026-08-06:** the paper no longer waits on it. `python post_discord.py --date YYYY-MM-DD --backfill-link` posts nothing, waits out the build (up to 15 min), and edits the permalink into the message already sent; `instructions/edition.md` §9.5 makes that step 9.5 whenever step 8 times out. It edits content only, never embeds, so it can never trim a published brief. No. 2 was backfilled by hand and now carries its link | **CLOSED** |
+| Open-ended | **Pages build lag exceeds any sane pre-post poll.** 2026-08-06: `editions/2026-08-06.html` 404'd for the full 120s window so the link was omitted; it returned 200 about 9 minutes after the push (measured build **8m38s**, versus 23s the evening before). Pages is healthy — this is Actions queue lag, not an outage, so do **not** set `PAGES_ENABLED = False`. **RESOLVED 2026-08-06:** the paper no longer waits on it. `python post_discord.py --date YYYY-MM-DD --backfill-link` posts nothing, waits out the build (up to 15 min), and edits the permalink into the message already sent; `instructions/edition.md` §9.5 makes that step 9.5 whenever step 8 times out. It edits content only, never embeds, so it can never trim a published brief. No. 2 was backfilled by hand and now carries its link | **CLOSED** || Open-ended | **Launch `post_discord.py` in the background, and read the clock rather than estimating it.** Logged as a failure twice now, **2026-08-13 and 2026-08-14**, in identical form: the post was started in the foreground, `--not-before 07:00` slept, and the shell killed the command at its own timeout. Nothing posted either morning and `editions/index.json` proved it, so the cost is wasted minutes and a scare, not a lost paper. The companion error both mornings was believing the run was late — 6:23 ET read as 7:38 on the 13th, 6:29 ET read as 7:30 on the 14th. **The hold can sleep the better part of an hour, which is longer than a foreground command may live.** Neither paper was late | **OPEN — third occurrence would mean this row is not being read** |
+
 
 ## 2. Forward-dated events
 
@@ -71,9 +72,126 @@ Four sections, all four maintained every run:
 | 2026-09-07 | Spain's border controls on Italian travellers expire | Euronews |
 | 2027-01-01 | **WVU Medicine/Fulton County Medical Center closing** | Non-binding LOI signed April 2026; needs regulatory approval. WV MetroNews. Ran as No. 5's second statewide brief — do not re-run before the close |
 | 2026-09-13 → 2026-09-27 | **Aki basho (Tokyo)** — *derived, still unconfirmed* | Second-Sunday estimate from `config.basho_window(2026, 9)`. 2026-08-06: the only sources carrying Sept. 13–27 at Ryogoku Kokugikan were ticket-reseller and travel sites, which this paper does not cite. **2026-08-07 and 2026-08-09: searched again, same result both mornings** — travel and ticket-reseller sites only, and `sumo.or.jp/EnHonbashoTopics/banzuke_topics/` now returns a Japanese URL-error page rather than banzuke content. Try Kyodo, Japan Times or NHK at the **Aug. 31 banzuke release**, which is when a citable outlet will have to print the dates. Confirm before covering. During a basho, sumo usually wins the Sports lead |
-| 2026-11-08 → 2026-11-22 | **Kyushu basho (Fukuoka)** — *derived, unconfirmed* | Same derivation. Note it opens the week after the cron switch above |
+| 2026-11-08 → 2026-11-22 | **Kyushu basho (Fukuoka)** — *derived, unconfirmed* | Same derivation. Note it opens the week after the cron switch above || **2026-08-15** | **Greenbrier refinancing target close; casino closure follows** | The Justice family told U.S. District Court it will shut the casino and lay off about **90** people so a **$500M** Kennedy Lewis Investment Management loan can close, retiring roughly **$300M** in first-lien debt and handing KLIM **51%** control; delay was costing about **$145,000 a day** in interest. The **Lottery Commission** put Greenbrier Hotel Corp. on **financial watch June 30** and has not cleared the ownership change; acting director **David Bradley** called the closure threat, made without notice, "deeply concerning." Conference call **Aug. 19**, regular meeting **Aug. 26**. Note the two readable outlets disagree on the filing day (MetroNews Thursday, Herald-Dispatch "late-night Wednesday") and on whether the Volk deadline is Friday the 14th or the 15th, **so no filing date and no closing date were printed.** WV MetroNews, The Herald-Dispatch. Ran as No. 10's second statewide brief. **An actual closure, a layoff notice, or a Lottery vote is the news** |
+| **~2026-08-28** | **Scott Smith returns to Parkersburg for a second round of testing** | The independent tester told Thursday's town hall he would be back **in two weeks** and would keep testing until no further contaminants turn up. WTAP. A `mid_ohio_valley` line when he reports |
+| **2026-08-18 → 2026-08-21** | **Nick Joe Rahall II Bridge nightly closures, Huntington to South Point** | 10 p.m. to 5 a.m., both directions, annual routine in-service safety inspection; the story named no inspecting agency and no detour. The Herald-Dispatch. **Written, opened and sourced as the `huntington_cabell` line and cut for budget** (`docs/FAILURES.md`). It is a scheduled routine inspection, so it is only a line at all on a thin Cabell morning — do not resurface it as fresh news after Aug. 21 |
+| **Nov-Dec 2026** | **FIFA intercontinental playoffs for the 2027 Women's World Cup** | South Africa and Ghana carry Africa's two places into them, against teams from Asia, Oceania and South America. Al Jazeera. Ran in No. 10's Sports |
+
 
 ## 3. Open threads
+
+- **hormuz-reopening** — 2026-08-14: **moved hard and led No. 10, its third front page** (it also led
+  Nos. 1 and 5). Two **ADNOC** vessels were attacked crossing the strait **Thursday evening** — no injuries,
+  ADNOC said the situation was "brought under control" — the **second attack on the company's ships in days**
+  (the previous was Saturday) and the **15th since February**. The **UAE foreign ministry** called Iran's use
+  of the strait as economic coercion **"piracy"** and a **"direct threat to the stability of the region"**;
+  **Iran did not comment**, and no group claimed it. The rhetorical half: Trump posted **Wednesday** that the
+  US has **"total control"** of the strait, that the naval blockade is **"A WALL OF STEEL"** and **"I THINK WE
+  WILL KEEP IT!"**; **Ebrahim Zolfaghari**, spokesman for Iran's central military command, said the waterway is
+  under **"the complete management and control of the Islamic Republic"**; Basij commander **Hossein Taeb** and
+  FM **Abbas Araghchi** ("worse than fake news is fake intelligence") said the same. The **Persian Gulf Strait
+  Authority** said the strait stays blocked until Iran's conditions are met. Numbers, from CBS: **8 transits
+  Tuesday**, the fewest since **Aug. 5**, against a **10-day average near 12**; WTI about **$81**; national
+  average gasoline **$4.07** against **$3.16** a year ago. Cross-checked on **Al Jazeera, Euronews and CBS
+  News**. **`france24.com` 403s this crawler now — it carried the same story and could not be opened.**
+  **News again on a signed Oman corridor deal, a US answer to the conditions, or a vessel actually seized.**
+- **uss-lincoln-deployment** — 2026-08-14: **searched, read, and deliberately not run**, but it is the piece
+  of the Hormuz story most likely to be tomorrow's brief. The Pacific carrier **USS George Washington** left
+  Da Nang and is in the **Strait of Malacca** bound for the Middle East to relieve the **USS Abraham Lincoln**,
+  which has been at sea **260+ consecutive days** — deployed **Nov. 21** from San Diego, in theatre since
+  January, held past a May return. Reported supply shortages, mental-health concerns (the Navy denies a rise in
+  suicidal ideation), a sailor overboard in early August, recovered. **Pete Hegseth** says conditions were
+  "completely misrepresented"; **Sen. Richard Blumenthal** has written to the Navy and **Sen. Ruben Gallego**
+  called conditions "not just disgusting; it's dangerous" and proposed a bipartisan oversight visit. The move
+  leaves the Pacific without a carrier. NPR, carrying AP; CBS has the senators' letter separately. **Held
+  because the lead was already Hormuz and this is the same theatre** — it is a clean U.S. brief the moment the
+  lead moves elsewhere.
+- **harvard-antisemitism-suit** — 2026-08-14: new, led No. 10's U.S. section. **U.S. District Judge Richard G.
+  Stearns** in Boston dismissed the administration's Title VI suit, finding the incidents **"too isolated and
+  episodic"** to show a persistent civil rights violation; the case rested on **2023-24** events plus a few
+  from **March 2025**. The government had sought to claw back **billions** in research grants awarded since
+  October 2023. Assistant Attorney General **Harmeet Dhillon**: "We disagree with the ruling and are assessing
+  next steps." A separate ruling ordered **$2.6B** in Harvard funding restored, calling antisemitism concerns a
+  "smokescreen." NPR. **An appeal is the news.**
+- **same-day-executions** — 2026-08-14: **closed, and the follow-up No. 9 promised was carried.** All three
+  went ahead **Thursday** by lethal injection: Oklahoma at **10:13 a.m. CT**, Tennessee **30 minutes** later,
+  Alabama that **evening** — the first same-day trio since **Jan. 7, 2010**. **21 executions** nationally so
+  far in 2026 with nearly a dozen scheduled; **Florida alone has 12**, more than every other state combined;
+  47 people were executed in 2025 across 11 states, the most since 2009. CBS News. **The three men's names and
+  the victims' details were deliberately left out again**, as in No. 9. Thread closes.
+- **europe-wildfires-2026** — 2026-08-14: new, ran as No. 10's first World brief. About **1,800** people left
+  **Gey**, Germany, near the Belgian border, and **525** villagers the **Landes** in France, where a fire has
+  run **1,100 hectares since Thursday** and come within **2 km** of Luglon; **500 firefighters and six
+  aircraft** are on it. **14 hospitalized in Split**, Croatia, **seven** in life-threatening condition; chief
+  fire commander **Slavko Tucakovic**: "We have had an extremely difficult night." Thousands more evacuated in
+  Croatia and Greece. About **500,000 hectares** have burned across the EU this summer. Al Jazeera. **News
+  again on a death, a national emergency declaration, or an EU civil-protection deployment.**
+- **farage-clacton** — 2026-08-14: new, ran as No. 10's second World brief. Farage retook **Clacton**
+  **22,239** to **9,455** for the satirist **Count Binface**, on **44%** turnout against **59%** at the 2024
+  general election, in a by-election the main parties **boycotted** — 34 candidates, mostly independents and
+  fringe parties. He had resigned the seat in **July** while under investigation over an unreported **5 million
+  pound** cryptocurrency donation from an overseas billionaire; **that inquiry is the live thread, not the
+  result.** Al Jazeera. **News again on a finding in the donation inquiry.**
+- **taiwan-han-kuang** — 2026-08-14: new, ran as No. 10's third World brief. Carriers cut mobile data to
+  **256 Kbps** for **30 minutes** Thursday in **Taipei and six other places** during the **Han Kuang**
+  exercises, alongside metro air-raid drills and hospital relocation drills; **18 Chinese warplanes and 11 navy
+  ships** operated around Taiwan between Wednesday and Thursday. President **Lai Ching-te**: "We ask for your
+  understanding and support, as this is a necessary drill." This year's drills pull in civilians and local
+  government for the first time. NPR. **News again when the exercise ends or on a Chinese response.**
+- **ames-goldsmith-h2s** — 2026-08-14: new, ran as No. 10's first statewide brief **and it is the live WV
+  thread.** The **U.S. Chemical Safety Board** said workers decommissioning **Ames Goldsmith Catalyst
+  Refiners** at **Institute** were **not required to wear respirators and were never given personal gas
+  monitors**; the four respirators on site carried filters that **would not have stopped hydrogen sulfide**.
+  On **April 22** workers pumped about **80 gallons** of A-50 calcium chloride solution, **275 gallons** of
+  M-2000A sodium trithiocarbonate solution and then dilute nitric acid into one tank, releasing H2S: **two
+  dead**, one critical who survived, **four** more seriously hurt, **22** decontaminated on site and **18**
+  transported. CSB chair **Steve Owens** quoted. WV MetroNews; WSAZ carried it separately. **The investigation
+  is open — a final report, a citation, or an OSHA action is the news.**
+- **greenbrier-casino** — 2026-08-14: new, ran as No. 10's second statewide brief. See the **Aug. 15**
+  forward-dated row for the full detail and for the two dating conflicts between outlets. **The IRS has filed
+  federal tax liens totalling over $12M** against Greenbrier entities and an **Omni Hotels** affiliate holding
+  **$289M** in purchased loans is seeking a receiver — neither printed, both available. **Live.**
+- **peoples-cartage-fire** — 2026-08-14: **moved again and ran as the `mid_ohio_valley` line for the second
+  morning running.** At Thursday's town hall independent tester **Scott Smith** said the July fire's plume
+  reached **10,000 feet** across at least a **35-mile radius**, against **2,800 feet** at East Palestine, and
+  that four classes of contaminant have been tested so far — **metals, dioxins, PFAS and semi-volatile organic
+  compounds**. Residents reported burns from touching plants and sudden illness. **He is an independent tester,
+  not an agency, and the line attributed the plume figures to him rather than stating them flat** — the state's
+  own WVDA/WVDEP findings, which No. 9 printed, said nothing above federal action levels and some samples above
+  state screening thresholds. WTAP. **He returns in about two weeks.**
+- **nigeria-womens-world-cup** — 2026-08-14: new, led No. 10's Sports. **South Africa 2-1 Nigeria** (**Thembi
+  Kgatlana** 56', captain **Refiloe Jane** 77'; **Christy Ucheibe** penalty) and **Ghana 2-1 Ivory Coast**
+  (**Princess Marfo**, then **Josephine Bonsu** 72' from the spot after a VAR handball) take Africa's two
+  intercontinental playoff places. **Nigeria will miss a Women's World Cup for the first time since the
+  tournament began in 1991.** Ghana are chasing a first appearance since 2007. Al Jazeera. **This is a
+  different competition from the WAFCON final** — Cameroon, Malawi, Morocco and Algeria are already qualified
+  directly. Playoffs are November-December.
+- **swiatek-canadian-open** — 2026-08-14: new, ran in Sports. **6-2, 6-3** over **Rybakina** in Toronto — her
+  **first title of the season**, first at this event, and it moves her back into the **top five** from **No.
+  8**. Rybakina had **12 unforced errors in the first set** and blamed fatigue from three extra hours on court.
+  Al Jazeera. Thread closes; the US Open is the next hook.
+- **marshall-women-soccer** — 2026-08-14: new, ran in Sports as the local anchor after the WVU men's soccer
+  opener could not be opened (see `docs/FAILURES.md`). **Marshall 3-1 Morehead State** at Huntington Thursday,
+  **Luana Gusmao** twice inside seven minutes (28', 35'), **Hannah Carter** off a corner for Morehead,
+  **Delfina Lombardo** the third. **The Herd host Ohio Sunday at 7 p.m.** WSAZ. Not a running thread.
+- **oist-hibernation-memory** — 2026-08-14: new, ran in Sci/Tech. **Okinawa Institute of Science and
+  Technology** (Prof. **Kazumasa Tanaka**, Dr. **Yu-Ju Lin**), with Tsukuba, ExCELLS and NIPS, induced
+  artificial hibernation in mice and imaged synapses by correlative light and electron microscopy: **more than
+  half of hippocampal synapses disappeared** and memory held or improved, which points at **engram
+  architecture** — clustered patterns — rather than synaptic strength. *Science*. `source` names the
+  institution, the convention since No. 4. News again on a mammalian-torpor or clinical follow-up.
+- **petm-forest-canopy** — 2026-08-14: new, ran in Sci/Tech. **Natural History Museum of Los Angeles County**
+  (Dr. **Regan Dunn**, La Brea Tar Pits) with **Ellen Currano** (Wyoming) measured **leaf area index from
+  fossil leaf cuticle for the first time**, using epidermal cell aspect ratios, on coal and lignite from
+  Wyoming's **Hanna Basin**: canopy cover declined **56 million years ago** through the **Paleocene-Eocene
+  Thermal Maximum**, with plants moving north, more erosion and a disrupted water cycle. Today's carbon release
+  runs **an order of magnitude faster**. *Science*. News again on a second basin or a modern-forest application.
+- **phage-mutation-hotspots** — 2026-08-14: new, ran in Sci/Tech. **Michigan State** (**Jasper Gomez**,
+  **Christopher Waters**, **Jeffrey Barrick**) found repetitive DNA in phage **T2**'s *agt* gene acting as a
+  contingency locus, mutating **thousands of times faster** than the rest of the genome; moving cholera's
+  antiviral genes into *E. coli* showed phages routing around the defence within hours. Waters: "they are using
+  these mutation hotspots to make a zoo." *Nature Microbiology*. Relevant to phage therapy. News again on a
+  therapeutic result.
 
 - **eclipse-2026** — 2026-08-13: **closed, and it led No. 9.** Totality crossed slivers of Greenland,
   Iceland, northern Spain and Portugal Wednesday evening, the first visible from **mainland Spain since
@@ -795,6 +913,55 @@ Four sections, all four maintained every run:
 -->
 
 ## 4. Recently covered
+
+### 2026-08-14 — No. 10
+- lead: **hormuz-reopening**, its third front page — two ADNOC vessels attacked Thursday evening, the UAE
+  calling it piracy, against Trump's "total control" claim and Iran's rejection of it. **Rung 1 art**, the
+  second morning running: ships at anchor in haze with a tug standing by, drawn after looking at the Getty
+  photograph on Al Jazeera's page — no coastline in the frame, which is why the drawing has none
+- us: harvard-antisemitism-suit, same-day-executions (**the follow-up, and it closes**)
+- world: europe-wildfires-2026, farage-clacton, taiwan-han-kuang
+- wv statewide: ames-goldsmith-h2s, greenbrier-casino
+- wv regional: mid_ohio_valley — peoples-cartage-fire, **second morning running, and a different fact each
+  time** (Aug. 13 the state's sample results, Aug. 14 the independent tester's plume figures at the town hall)
+- wv away: **none.** Vermont searched — Battle Day weekend Aug. 13-16 and the Hemmings Cruise-In, both standing
+  events, no news; Prince George searched — the BCNE fair and two municipal-election campaign launches ahead of
+  the **Oct. 17** vote, nothing dated hard enough for a line; Topsail carried by its fishing line
+- sports: nigeria-womens-world-cup, swiatek-canadian-open, marshall-women-soccer
+- scitech: oist-hibernation-memory, petm-forest-canopy, phage-mutation-hotspots
+- huntington_cabell: **line written, opened, sourced and CUT FOR BUDGET for the second day running** — the
+  Rahall Bridge nightly inspection closures. See `docs/FAILURES.md` and the Aug. 18-21 forward-dated row
+- putnam_kanawha: **line written and cut** — Kanawha County Schools starting the **Signs of Suicide** program
+  and student **Hope Squads** at George Washington, Herbert Hoover, Nitro and Riverside this fall, staff and
+  parent training in September (WSAZ). **It pairs with `wv-child-fatality-report`, where Del. Margitta
+  Mazzocchi pressed on school suicide prevention — worth running on a thinner morning**
+- nicholas_webster, summers_new_river: **no line.** Nicholas/Webster is on the **same standing WVU LUCAS mobile
+  lung-screening item for the sixth morning running** (Aug. 12-14); Summers/New River still has nothing newer
+  than the NRGRDA director's June departure. **Summers has now run dry every morning of this paper's life**
+- **fishing: both waters, and the Williams is dropping fast off the storm crest.** **208 cfs and falling,
+  2.11 ft**, against **732 cfs** 24 hours earlier and No. 9's **335**. The fetcher's read ran nearly verbatim:
+  "pushy. Wadeable at the edges, not across." **No water temperature from NOAA for the second day**, so Topsail
+  ran tides only
+- **sumo: sat out, eighth day.** Off-basho, two dedicated searches plus a fetch of the JSA's own English site,
+  whose newest item is an **Aug. 5** museum-calendar update. The genuinely interesting fact — **Atamifuji's
+  ozeki promotion run at Aki after 9 wins in May and 12 in July as sekiwake** — is carried **only** by
+  sumostats, substacks and travel sites; `japantimes.co.jp` still **402s**. **Aki dates and the Aug. 31 banzuke
+  are still uncitable**, ninth morning. Correct edition per Ian's rule
+- **football: searched, nothing dated.** The clubs' business is real but stale: Liverpool's **Ronald Araujo**
+  loan from Barcelona (option to buy about **47.14M pounds**, no loan fee) was announced **Aug. 10** and is
+  four days old; Chelsea have spent about **408M euros** on 11 signings and Tottenham about **260M** plus frees.
+  **Season opens Aug. 21** — the validator's in-season warning is expected until then
+- **stocking: silent no-op.** Searched; nothing named the Williams, the Cranberry or the Summersville
+  tailwater. `wvdnr.gov` not fetched (expired certificate)
+- **BUDGET: 5,616 projected, 16 over target, after cutting a notebook line AND a wire brief.** The overspend is
+  **URL cost, not prose** — see `docs/FAILURES.md` for the character counts. **This is the structural problem
+  to solve, not a one-off:** the WV and science outlets this paper relies on publish 100-150 character URLs
+- **Do not re-run tomorrow without movement:** the executions (**carried out; closed**); Harvard (**an appeal
+  is the news**); Farage (**the donation inquiry is the news, not the result**); Swiatek; the Taiwan drill; the
+  CSB findings; the Peoples Cartage plume figures. **The ones that should run: the WAFCON final Malawi v
+  Cameroon on Sunday, which is Monday's Sports brief and has been promised since No. 6; the Greenbrier, whose
+  refinancing was targeted to close Aug. 15; and the USS Lincoln relief, which is a finished U.S. brief sitting
+  in the open threads above.**
 
 ### 2026-08-13 — No. 9
 - lead: **eclipse-2026, the follow-up No. 8 could not carry** — what was actually seen, not the preview.
