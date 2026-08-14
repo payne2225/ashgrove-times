@@ -1,8 +1,9 @@
-"""Fishing conditions for the two waters the crew actually fishes.
+"""Fishing conditions for the waters the crew actually fishes.
 
 Cowen (the cabin) sits on the Williams River; Topsail Beach is surf and
-sound. Both get a hard-data report every morning so the West Virginia
-notebook can carry a fishing line that is measured rather than vibes.
+sound; the Ohio runs past Apple Grove through R.C. Byrd Locks and Dam.
+Each gets a hard-data report every morning so the paper can carry a fishing
+line that is measured rather than vibes.
 
     python fetch_fishing.py                 # -> out/fishing.json
     python fetch_fishing.py --pretty        # also print a human summary
@@ -12,6 +13,9 @@ Sources, all free and keyless:
     discharge, stage, and water temperature when the gauge reports it.
   - NOAA CO-OPS tide predictions for the two stations that bracket New
     Topsail Inlet, plus water temperature from Wrightsville Beach.
+  - USGS stage for the two Ohio River gauges bracketing R.C. Byrd Locks and
+    Dam. The dam's own tailwater is Corps data and is NOT reachable; see
+    OHIO_GAUGES for what was checked.
 
 Deliberately NOT fetched: the WVDNR trout-stocking list. As of 2026-08-05
 wvdnr.gov serves an EXPIRED TLS certificate, so fetching it means disabling
@@ -56,6 +60,29 @@ for _stream in (sys.stdout, sys.stderr):
         _stream.reconfigure(encoding="utf-8", errors="replace")
     except (AttributeError, ValueError):  # pragma: no cover - non-TTY or <3.7
         pass
+
+# THE OHIO RIVER, and what could not be had.
+#
+# Trav asked for "the downstream gauge of the Robby C locks and dam" — the
+# R.C. Byrd Locks and Dam at Gallipolis Ferry, the crew's home water.
+# Checked, and it is NOT AVAILABLE: USGS gauges no Ohio River site at Byrd
+# on either the West Virginia or the Ohio list (it does gauge some dams —
+# Hannibal has upper and lower sites — just not this one), and the Corps,
+# who operate the dam and publish its tailwater, serve a certificate this
+# pipeline will not accept, the same wall WVDNR put up.
+#
+# So the paper prints the two USGS gauges that BRACKET the dam and says so.
+# Point Pleasant is 14 river miles above it, Huntington below it. That is an
+# honest answer to the question rather than a silent substitution, and if
+# Trav wants the tailwater specifically it needs a source we do not have yet.
+OHIO_GAUGES = [
+    {"key": "ohio_point_pleasant", "site": "03201500",
+     "water": "Ohio River at Point Pleasant",
+     "note": "14 miles above R.C. Byrd Locks and Dam — the pool side"},
+    {"key": "ohio_huntington", "site": "03206000",
+     "water": "Ohio River at Huntington",
+     "note": "below R.C. Byrd Locks and Dam"},
+]
 
 WILLIAMS_GAUGE = "03186500"
 WILLIAMS_LABEL = "Williams River at Dyer"
@@ -147,6 +174,64 @@ def trout_read(flow_cfs: float | None, temp_f: float | None) -> str | None:
     if flow_cfs < 500:
         return f"{flow_cfs:.0f} cfs - pushy. Wadeable at the edges, not across."
     return f"{flow_cfs:.0f} cfs - blown out. Stay on the bank."
+
+
+def ohio_read(stage_ft: float | None, trend: str | None) -> str | None:
+    """A stage reading turned into something a bank fisherman can use.
+
+    Pool stage on the Ohio is not wadeability — it is whether the bank is
+    fishable, how much current is moving, and whether the river is carrying
+    mud. Thresholds are for the Byrd pool, which normally sits near 23-26 ft.
+    """
+    if stage_ft is None:
+        return None
+    moving = f" and {trend}" if trend in ("rising", "falling") else ""
+    if stage_ft < 22:
+        return (f"{stage_ft:.1f} ft{moving} — low and clear. Banks are wide "
+                "open and the fish are holding to structure.")
+    if stage_ft < 27:
+        return f"{stage_ft:.1f} ft{moving} — normal pool. Ordinary bank access."
+    if stage_ft < 34:
+        return (f"{stage_ft:.1f} ft{moving} — up and pushing. Expect colour "
+                "and current; fish the slack behind anything solid.")
+    return (f"{stage_ft:.1f} ft{moving} — high water. Banks are going under "
+            "and the river is carrying debris.")
+
+
+def fetch_ohio(errors: list) -> list:
+    """Stage and trend at the two gauges bracketing R.C. Byrd Locks and Dam."""
+    out = []
+    for gauge in OHIO_GAUGES:
+        def _fetch(gauge=gauge):
+            data = get("https://waterservices.usgs.gov/nwis/iv/",
+                       {"format": "json", "sites": gauge["site"],
+                        "parameterCd": "00065,00060", "period": "P2D"})
+            rec: dict = {"water": gauge["water"], "site": gauge["site"],
+                         "note": gauge["note"]}
+            names = {"00065": "stage_ft", "00060": "discharge_cfs"}
+            for series in data["value"]["timeSeries"]:
+                code = series["variable"]["variableCode"][0]["value"]
+                vals = [v for v in series["values"][0]["value"]
+                        if v.get("value") not in (None, "", "-999999")]
+                if not vals or code not in names:
+                    continue
+                key = names[code]
+                rec[key] = float(vals[-1]["value"])
+                rec[key + "_at"] = vals[-1]["dateTime"]
+                if len(vals) > 1:
+                    first = float(vals[0]["value"])
+                    rec[key + "_24h_ago"] = first
+                    delta = rec[key] - first
+                    rec[key + "_trend"] = (
+                        "rising" if delta > 0.25 else
+                        "falling" if delta < -0.25 else "steady")
+            rec["read"] = ohio_read(rec.get("stage_ft"), rec.get("stage_ft_trend"))
+            return rec
+
+        res = safe(_fetch, f"usgs:{gauge['key']}", errors)
+        if res:
+            out.append(res)
+    return out
 
 
 def fetch_williams(errors: list) -> dict | None:
@@ -269,6 +354,7 @@ def build(errors: list) -> dict:
         "generated_at": now.isoformat(timespec="seconds"),
         "date": now.strftime("%Y-%m-%d"),
         "williams": fetch_williams(errors),
+        "ohio": fetch_ohio(errors),
         "topsail": fetch_topsail(now.strftime("%Y%m%d"), errors),
         "errors": errors,
     }
@@ -290,6 +376,17 @@ def summarize(data: dict) -> str:
             lines.append(f"  {w['read']}")
     else:
         lines.append("Williams River: unavailable")
+
+    for o in data.get("ohio") or []:
+        bits = []
+        if o.get("stage_ft") is not None:
+            bits.append(f"{o['stage_ft']:.1f} ft ({o.get('stage_ft_trend','?')})")
+        if o.get("discharge_cfs") is not None:
+            bits.append(f"{o['discharge_cfs']:,.0f} cfs")
+        lines.append(f"{o['water']}: {', '.join(bits) or 'no readings'}")
+        lines.append(f"  {o['note']}")
+        if o.get("read"):
+            lines.append(f"  {o['read']}")
 
     t = data.get("topsail")
     if t:
@@ -328,8 +425,8 @@ def main() -> int:
     if args.pretty:
         print(summarize(data))
 
-    got = sum(1 for k in ("williams", "topsail") if data.get(k))
-    print(f"OK: wrote {args.out} ({got}/2 waters, {len(errors)} source errors)")
+    got = sum(1 for k in ("williams", "topsail") if data.get(k)) + len(data.get("ohio") or [])
+    print(f"OK: wrote {args.out} ({got} waters, {len(errors)} source errors)")
     # Both waters dead is worth a non-zero exit; the caller decides whether a
     # fishing line is load-bearing enough to hold the paper.
     return 0 if got else 1
