@@ -474,24 +474,41 @@ code is what knows.
 
 | League | Teams | Who |
 |---|---|---|
-| **NCAA** | West Virginia, Marshall | the group |
+| **NCAA** | West Virginia, Marshall, Ohio University | the group |
 | **Premier League** | Chelsea | Trav, Ian |
 | | Tottenham | Nate |
 | | Liverpool | Pat |
 | **MLS** | Columbus Crew, FC Cincinnati | the group |
 | **MLB** | Cincinnati Reds, Pittsburgh Pirates | the group |
+| **NBA** | San Antonio Spurs | the group |
+| **NFL** | Cleveland Browns | the group |
 
 The Ohio Valley teams are followed by the group broadly rather than by one
 person, which is why their `supporters` list is empty. That is not a gap —
 it decides emphasis only when a day has more team news than room, and a
 club with named supporters wins that tie.
 
-`config.find_team(text)` matches a team by **name or alias**, which is what
-a headline actually says: "Spurs hold Chelsea", "the Bucs dropped two",
-"Thundering Herd wins on the road". Use it rather than string-matching
-formal names yourself. Note "the Reds" is genuinely ambiguous between
-Liverpool and Cincinnati and returns both — you know which sport you are
-reading.
+`config.find_team(text, league=...)` matches a team by **name or alias**,
+which is what a headline actually says: "Spurs hold Chelsea", "the Bucs
+dropped two", "Thundering Herd wins on the road". Use it rather than
+string-matching formal names yourself.
+
+**Pass the league when you know it.** Two aliases name two different
+followed teams and both are real:
+
+| Alias | Means |
+|---|---|
+| **Spurs** | Tottenham to a football desk, **San Antonio** to a basketball one |
+| **Bucs** | the **Pirates** here, but the Buccaneers to an NFL desk |
+
+With a league hint the collision resolves; without one, every candidate
+comes back and it is on you to pick. `config.ambiguous_aliases()` prints
+the current list, so this never becomes folklore.
+
+"Reds" is **Cincinnati** — settled by Nate, and Liverpool carries no colour
+alias at all rather than fight for it. Ohio University is aliased to
+"Bobcats", never bare "Ohio", because that substring also catches Ohio
+State, which this paper does not follow.
 
 **Adding a team is one line in `config.FOLLOWED_TEAMS`.** Nate asked for
 that explicitly. If the group names a new one, add it there and nothing

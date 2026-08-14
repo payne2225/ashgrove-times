@@ -800,18 +800,37 @@ PREMIER_LEAGUE_REQUIRED_DAILY = False
 # filled it decides emphasis when a day has more news than room.
 #
 # TO ADD A TEAM: copy a line. Nothing else.
+# TWO NAMES IN HERE MEAN TWO DIFFERENT TEAMS, and both are load-bearing:
+#
+#   "Spurs" — Tottenham in football, San Antonio in basketball. Both are
+#             followed, both are what headlines actually call them, and
+#             neither alias can be deleted without losing real matches.
+#   "Bucs"  — the Pirates here, but the Buccaneers to an NFL desk, and the
+#             NFL is now in scope.
+#
+# `find_team(text, league=...)` is the resolution: pass the league you are
+# reading and the collision disappears. Without a hint both candidates come
+# back, which is correct — guessing would be worse. Do not "tidy" these by
+# dropping an alias.
+#
+# "Reds" is Cincinnati, settled by Nate 2026-08-14. Liverpool keeps no
+# colour alias at all rather than fight for it.
 FOLLOWED_TEAMS = [
     {"league": "NCAA", "name": "West Virginia",
      "aliases": ("WVU", "Mountaineers"), "supporters": []},
     {"league": "NCAA", "name": "Marshall",
      "aliases": ("Thundering Herd", "the Herd"), "supporters": []},
+    # NOT aliased to bare "Ohio": that substring also matches Ohio State,
+    # which this paper does not follow and whose fans would notice.
+    {"league": "NCAA", "name": "Ohio University",
+     "aliases": ("Ohio Bobcats", "Bobcats"), "supporters": []},
 
     {"league": "Premier League", "name": "Chelsea",
      "aliases": ("the Blues",), "supporters": ["Trav", "Ian"]},
     {"league": "Premier League", "name": "Tottenham",
-     "aliases": ("Spurs",), "supporters": ["Nate"]},
+     "aliases": ("Spurs", "Tottenham Hotspur"), "supporters": ["Nate"]},
     {"league": "Premier League", "name": "Liverpool",
-     "aliases": ("the Reds",), "supporters": ["Pat"]},
+     "aliases": (), "supporters": ["Pat"]},
 
     {"league": "MLS", "name": "Columbus Crew",
      "aliases": ("the Crew",), "supporters": []},
@@ -822,6 +841,12 @@ FOLLOWED_TEAMS = [
      "aliases": ("Reds",), "supporters": []},
     {"league": "MLB", "name": "Pittsburgh Pirates",
      "aliases": ("Pirates", "Bucs"), "supporters": []},
+
+    {"league": "NBA", "name": "San Antonio Spurs",
+     "aliases": ("Spurs", "San Antonio"), "supporters": []},
+
+    {"league": "NFL", "name": "Cleveland Browns",
+     "aliases": ("Browns",), "supporters": []},
 ]
 
 
@@ -850,16 +875,35 @@ def team_names(team: dict) -> tuple[str, ...]:
     return (team["name"],) + tuple(team.get("aliases") or ())
 
 
-def find_team(text: str) -> list[dict]:
+def find_team(text: str, league: str | None = None) -> list[dict]:
     """Followed teams named anywhere in `text`, by name OR alias.
 
-    "the Reds" is deliberately ambiguous between Liverpool and Cincinnati
-    and this returns both; the caller is expected to know which sport it is
-    reading. Better two candidates than a silent miss.
+    PASS THE LEAGUE when you know it. Two aliases in this table are real
+    collisions — "Spurs" is Tottenham to a football desk and San Antonio to
+    a basketball one, "Bucs" is the Pirates here and the Buccaneers to the
+    NFL — and the league hint is what resolves them.
+
+    Without a hint every candidate comes back. That is deliberate: a silent
+    wrong guess would put a basketball result under a football club.
     """
     low = (text or "").lower()
-    return [t for t in FOLLOWED_TEAMS
-            if any(n.lower() in low for n in team_names(t))]
+    pool = [t for t in FOLLOWED_TEAMS
+            if league is None or t["league"].lower() == league.lower()]
+    return [t for t in pool if any(n.lower() in low for n in team_names(t))]
+
+
+def ambiguous_aliases() -> dict[str, list[str]]:
+    """Aliases that name more than one followed team, and who claims them.
+
+    Exists so the collisions are discoverable rather than folklore — a
+    reviewer can print this instead of rediscovering the Spurs problem.
+    """
+    seen: dict[str, list[str]] = {}
+    for team in FOLLOWED_TEAMS:
+        for name in team_names(team):
+            seen.setdefault(name.lower(), []).append(
+                f"{team['name']} ({team['league']})")
+    return {alias: owners for alias, owners in seen.items() if len(owners) > 1}
 
 
 # Derived, never hand-maintained — see the note above about two lists.
