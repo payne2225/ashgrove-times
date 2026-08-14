@@ -1195,3 +1195,107 @@ def use_utf8_stdio() -> None:
             stream.reconfigure(encoding="utf-8", errors="replace")
         except (AttributeError, ValueError):
             pass
+
+
+# =====================================================================
+#                      SPORTS & SPORTSMAN
+# =====================================================================
+#
+# A SECOND DAILY EDITION, posted to its own channel. Nate proposed it in
+# the channel on 2026-08-14 and named it 2026-08-14: the paper's sports
+# desk was only ever getting a couple of headlines, and the Topsail fishing
+# report was making Jim Claudtore's briefing too long. Both problems have
+# the same answer — give sport and the outdoors their own paper.
+#
+# It reuses this module, the renderer, the poster and the ledger discipline
+# wholesale. What it does NOT share is the channel or the webhook.
+SPORTSMAN_MASTHEAD = "SPORTS & SPORTSMAN"
+SPORTSMAN_TAGLINE = "The Ashgrove Times"
+SPORTSMAN_WEBHOOK_ENV = "DISCORD_SPORTSMAN_WEBHOOK_URL"
+
+SPORTSMAN_SECTIONS = [
+    {"id": "teams", "label": "Our Teams", "emoji": "\U0001F3DF",
+     "order": 1, "standing": True, "trim_priority": 5,
+     "note": "the followed teams, most-supported first. Never empty in season."},
+    {"id": "leagues", "label": "Around the Leagues", "emoji": "\U0001F4F0",
+     "order": 2, "standing": False, "trim_priority": 1,
+     "note": "everything else worth knowing, capped per league so one "
+             "does not eat the section"},
+    {"id": "seasons", "label": "In Season", "emoji": "\U0001F343",
+     "order": 3, "standing": True, "trim_priority": 4,
+     "note": "what is coming in, at its prime, and going out"},
+    {"id": "water", "label": "On the Water", "emoji": "\U0001F41F",
+     "order": 4, "standing": True, "trim_priority": 5,
+     "note": "gauges, what is biting, and what is working"},
+]
+
+# Stories per league in `leagues`, so one busy league cannot crowd out the
+# rest. `teams` is not capped by this — a followed team always gets its say.
+SPORTSMAN_MAX_PER_LEAGUE = 2
+
+# ------------------------------------------------------------- the outdoors
+#
+# THE AGENCIES ARE THE ONLY AUTHORITY. Seasons, bag limits and size limits
+# change every year, vary by zone and weapon, and are the one thing in this
+# whole project where being wrong has consequences beyond embarrassment:
+# somebody could hunt or keep a fish out of season on the paper's say-so.
+#
+# So this table holds STRUCTURE ONLY — which species the readers care about
+# and which agency governs them. It deliberately holds NO DATES. The routine
+# looks the current dates up every time it prints one, cites the agency, and
+# links it. A season date in this file would be stale within a year and
+# nobody would notice until it was wrong.
+SPORTSMAN_AGENCIES = {
+    "WV": {"name": "West Virginia DNR", "short": "WVDNR",
+           "site": "wvdnr.gov",
+           # Same expired certificate that keeps the trout-stocking list out
+           # of fetch_fishing.py — WVDNR is a SEARCH target, never a fetch.
+           "fetchable": False},
+    "NC": {"name": "North Carolina Wildlife Resources Commission",
+           "short": "NCWRC", "site": "ncwildlife.gov", "fetchable": True},
+}
+
+# What the crew actually hunts and fishes for, by state. Order is roughly
+# the order the year runs.
+SPORTSMAN_SPECIES = {
+    "WV": ("trout", "black bass", "walleye", "musky", "catfish", "crappie",
+           "whitetail deer", "black bear", "wild turkey", "squirrel",
+           "grouse", "waterfowl"),
+    "NC": ("red drum", "speckled trout", "flounder", "bluefish", "king "
+           "mackerel", "spanish mackerel", "cobia", "sheepshead"),
+}
+
+# The waters the paper reports on, tied to the gauges fetch_fishing.py
+# already pulls. `structure` and `forage` are what a lure recommendation
+# has to be grounded in — Pat asked for setups that work on THESE waters,
+# not generic advice.
+SPORTSMAN_WATERS = [
+    {"key": "williams", "name": "Williams River", "near": "Cowen",
+     "state": "WV", "kind": "freestone trout stream",
+     "structure": "pocket water, plunge pools, undercut banks",
+     "forage": "caddis, stoneflies, sculpin"},
+    {"key": "ohio", "name": "Ohio River", "near": "R.C. Byrd Locks and Dam",
+     "state": "WV", "kind": "big-river pool and tailwater",
+     "structure": "wing dams, riprap, the lock wall, barge cuts",
+     "forage": "shad, skipjack, crawfish"},
+    {"key": "topsail", "name": "Topsail Sound", "near": "New Topsail Inlet",
+     "state": "NC", "kind": "backwater sound and marsh",
+     "structure": "oyster bars, grass edges, dock lights, the ICWW channel",
+     "forage": "mud minnows, shrimp, finger mullet"},
+]
+
+
+def sportsman_section_by_id(section_id: str) -> dict:
+    """Metadata for one Sports & Sportsman section. Raises on an unknown id."""
+    for section in SPORTSMAN_SECTIONS:
+        if section["id"] == section_id:
+            return section
+    raise KeyError(f"unknown Sports & Sportsman section: {section_id!r}")
+
+
+def water_by_key(key: str) -> dict | None:
+    """The water a fishing line is about, or None."""
+    for water in SPORTSMAN_WATERS:
+        if water["key"] == key:
+            return water
+    return None
