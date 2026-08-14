@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 560" role="img" aria-label="Line drawing of a hazy anchorage: a laden cargo ship with two crane masts lies at anchor in flat water, a small tug standing off her stern, with three fainter ships receding toward the horizon and a single bird overhead.">
+  <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+
+    <!-- horizon, drawn light: the photograph has no coastline, only haze -->
+    <g stroke-width="0.8" opacity="0.45">
+      <path d="M0 246 H800"/>
+      <path d="M12 232 H236"/>
+      <path d="M430 234 H612"/>
+      <path d="M660 228 H792"/>
+    </g>
+
+    <!-- farthest traffic: three hulls, smaller and thinner with distance -->
+    <g stroke-width="0.7" opacity="0.4">
+      <path d="M552 244 h44 l-5 -6 h-34 z"/>
+      <path d="M568 238 v-7 h9 v7"/>
+      <path d="M694 245 h30 l-4 -5 h-22 z"/>
+      <path d="M704 240 v-5 h6 v5"/>
+    </g>
+
+    <g stroke-width="0.9" opacity="0.55">
+      <path d="M776 250 h52 l-6 -8 h-40 z"/>
+      <path d="M792 242 v-9 h10 v9"/>
+      <path d="M300 251 h96 l-8 -10 h-78 z"/>
+      <path d="M314 241 v-12 h13 v12"/>
+      <path d="M352 241 v-14"/>
+      <path d="M368 241 v-11"/>
+    </g>
+
+    <!-- left edge: a bulk carrier only half in frame -->
+    <g stroke-width="1.1" opacity="0.7">
+      <path d="M0 265 h132 l-9 -13 h-123"/>
+      <path d="M16 252 v-16 h11 v16"/>
+      <path d="M54 252 v-20"/>
+      <path d="M60 232 l14 6"/>
+      <path d="M96 252 v-19"/>
+      <path d="M102 233 l14 7"/>
+    </g>
+
+    <!-- the near ship: hull, sheer line, deck, house aft, two crane pairs -->
+    <g stroke-width="1.9">
+      <path d="M412 300 C 418 268 430 258 448 256 H744 l14 6 v22 c 0 12 -10 20 -26 20 H452 c -22 0 -36 -2 -40 -4 Z"/>
+      <path d="M424 276 H752"/>
+      <path d="M418 288 H750"/>
+    </g>
+
+    <g stroke-width="1.4">
+      <!-- deckhouse and bridge, aft on the starboard quarter -->
+      <path d="M666 256 v-40 h60 v40"/>
+      <path d="M666 232 h60"/>
+      <path d="M672 244 h14 v10 h-14 z"/>
+      <path d="M700 244 h14 v10 h-14 z"/>
+      <path d="M684 216 v-14 h26 v14"/>
+      <path d="M694 202 v-12"/>
+      <path d="M736 256 v-26 h12 v26"/>
+
+      <!-- forward crane pair -->
+      <path d="M494 256 v-56"/>
+      <path d="M512 256 v-56"/>
+      <path d="M494 200 h18"/>
+      <path d="M500 206 L 446 236"/>
+      <path d="M506 206 L 560 236"/>
+
+      <!-- after crane pair -->
+      <path d="M596 256 v-58"/>
+      <path d="M614 256 v-58"/>
+      <path d="M596 198 h18"/>
+      <path d="M602 204 L 548 236"/>
+      <path d="M608 204 L 656 234"/>
+
+      <!-- hatch coamings between the cranes -->
+      <path d="M462 258 h20 v-8 h-20 z"/>
+      <path d="M528 258 h48 v-8 h-48 z"/>
+      <path d="M630 258 h28 v-8 h-28 z"/>
+
+      <!-- anchor chain forward -->
+      <path d="M432 268 C 428 284 426 294 428 302"/>
+    </g>
+
+    <!-- tug standing off the stern -->
+    <g stroke-width="1.5">
+      <path d="M756 316 h84 l-8 -14 h-70 z"/>
+      <path d="M770 302 v-16 h30 v16"/>
+      <path d="M776 286 v-10 h16 v10"/>
+      <path d="M812 302 v-9 h9 v9"/>
+      <path d="M782 276 v-12"/>
+    </g>
+
+    <!-- a barge low in the water at the right margin -->
+    <g stroke-width="1.2" opacity="0.75">
+      <path d="M866 320 h-64 l6 -10 h58"/>
+    </g>
+
+    <!-- flat water: short broken strokes, longer and wider toward the reader -->
+    <g stroke-width="0.8" opacity="0.5">
+      <path d="M40 268 h58"/><path d="M148 272 h74"/><path d="M258 268 h52"/>
+      <path d="M560 276 h48"/><path d="M636 272 h40"/><path d="M708 282 h34"/>
+      <path d="M96 288 h86"/><path d="M214 292 h64"/><path d="M320 296 h58"/>
+      <path d="M596 300 h72"/><path d="M700 306 h56"/>
+    </g>
+
+    <g stroke-width="1" opacity="0.6">
+      <path d="M24 322 h120"/><path d="M184 330 h96"/><path d="M322 326 h84"/>
+      <path d="M470 336 h108"/><path d="M614 330 h96"/><path d="M736 342 h56"/>
+      <path d="M60 360 h150"/><path d="M250 368 h128"/><path d="M420 362 h112"/>
+      <path d="M568 372 h146"/><path d="M742 366 h58"/>
+    </g>
+
+    <g stroke-width="1.4" opacity="0.7">
+      <path d="M0 404 h188"/><path d="M226 414 h172"/><path d="M436 406 h150"/>
+      <path d="M620 418 h180"/>
+      <path d="M30 452 h234"/><path d="M304 462 h210"/><path d="M552 452 h248"/>
+      <path d="M0 502 h268"/><path d="M320 512 h236"/><path d="M600 500 h200"/>
+    </g>
+
+    <g stroke-width="1.8" opacity="0.55">
+      <path d="M64 544 h300"/><path d="M420 552 h280"/>
+    </g>
+
+    <!-- the bird, high and small, as it sits in the photograph -->
+    <g stroke-width="1.6">
+      <path d="M406 96 c 10 -8 20 -10 28 -4 c 8 -6 18 -4 28 4"/>
+      <path d="M428 94 h12"/>
+    </g>
+
+  </g>
+</svg>
