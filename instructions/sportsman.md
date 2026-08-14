@@ -108,7 +108,7 @@ Three buckets, and the reader wants them in this order:
 | State | Agency | Where the dates come from |
 |---|---|---|
 | **WV** | West Virginia DNR | **`reference/wv-hunting-2026-27.json`** — transcribed from the official pamphlet |
-| **NC** | NC Wildlife Resources Commission | `ncwildlife.gov`, fetchable — look it up |
+| **NC** | NC **Division of Marine Fisheries** | `deq.nc.gov`, fetchable — look it up. **Not** the NCWRC inland digest |
 
 ### West Virginia: use the reference file
 
