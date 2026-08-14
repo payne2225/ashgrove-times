@@ -953,7 +953,12 @@ Four sections, all four maintained every run:
   **Season opens Aug. 21** — the validator's in-season warning is expected until then
 - **stocking: silent no-op.** Searched; nothing named the Williams, the Cranberry or the Summersville
   tailwater. `wvdnr.gov` not fetched (expired certificate)
-- **BUDGET: 5,616 projected, 16 over target, after cutting a notebook line AND a wire brief.** The overspend is
+- **BUDGET: 5,616 projected, 5,723 ACTUAL, single message, nothing trimmed.** **Write this number down:**
+  the shipped payload ran **107 characters ABOVE** the validator's projection, because `--page-url` adds a
+  content line the projection does not count. No. 8's note had the gap running the other way; **with
+  `--page-url` being passed, assume the projection UNDERSTATES by about 100 and treat 5,600 projected as
+  roughly 5,700 shipped.** That is still clear of the 5,800 ceiling, but a 5,750 projection would not be.
+  Today's 5,616 was reached only after cutting a notebook line AND a wire brief.** The overspend is
   **URL cost, not prose** — see `docs/FAILURES.md` for the character counts. **This is the structural problem
   to solve, not a one-off:** the WV and science outlets this paper relies on publish 100-150 character URLs
 - **Do not re-run tomorrow without movement:** the executions (**carried out; closed**); Harvard (**an appeal
