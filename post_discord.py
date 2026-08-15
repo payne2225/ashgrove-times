@@ -1210,8 +1210,28 @@ def backfill_page_url(
         return False, notes
 
     for message_id, content in zip(message_ids, contents):
+        body: dict = {"content": content}
+        if _SPORTSMAN:
+            # Nate wants the link at the BOTTOM too, the way the Times runs
+            # it — and most mornings this paper's link arrives via backfill,
+            # because Pages rarely builds inside the 7:05 window. The Times
+            # backfill stays content-only (its trimmer makes embed growth
+            # dangerous); this paper has no trimmer, so the tail is safe as
+            # long as the total stays under the ceiling. Embeds are read
+            # back from the live message and re-sent amended, never rebuilt.
+            status, live = _http_json(
+                "GET", f"{webhook_url}/messages/{message_id}")
+            if status == 200 and isinstance(live, dict) and live.get("embeds"):
+                embeds = live["embeds"]
+                tail = f"\n\n\U0001F4D6 [Read the full edition on the web]({page_url})"
+                last = embeds[-1]
+                already = page_url in (last.get("description") or "")
+                room = embed_text_length(embeds) + len(tail) <= 5900
+                if not already and room:
+                    last["description"] = (last.get("description") or "") + tail
+                body["embeds"] = embeds
         status, _ = _http_json(
-            "PATCH", f"{webhook_url}/messages/{message_id}", {"content": content})
+            "PATCH", f"{webhook_url}/messages/{message_id}", body)
         if status not in (200, 204):
             notes.append(f"backfill: edit failed on {message_id} (HTTP {status})")
             return False, notes
