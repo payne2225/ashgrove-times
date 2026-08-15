@@ -573,31 +573,40 @@
   }
 
   /* ---------- Sports & Sportsman page layout ----------
-     One section dwarfs the other three (Our Teams runs 8-10 briefs), so
-     the Times' equal-column grid strands whitespace. Instead: Our Teams
-     fills a wide left block with its briefs in two columns, and Around
-     the Leagues / In Season / On the Water stack in a right rail. */
+     A true newsprint fill. Fixed left/right blocks stranded whitespace the
+     moment one side outgrew the other, so instead the whole paper flows
+     through balanced CSS columns: Our Teams runs down column one and spills
+     into column two, Around the Leagues starts right where it ends, and the
+     browser balances the column bottoms. Briefs and roundup lines are
+     atomic; sections and state blocks are allowed to break between them. */
 
   @media (min-width: 1024px) {
     .page.sportsman .sections {
-      display: grid;
-      grid-template-columns: 1.85fr 1fr;
-      column-gap: 34px;
-      align-items: start;
-    }
-    .page.sportsman .sections > .sec { border-left: 0; padding-left: 0; margin-bottom: 22px; }
-    .page.sportsman .sections > .sec:nth-of-type(1) { grid-column: 1; grid-row: 1 / span 3; }
-    .page.sportsman .sections > .sec:nth-of-type(1) .two-col-briefs {
+      display: block;   /* undo the Times grid — columns need flow layout */
       column-count: 2;
-      column-gap: 30px;
+      column-gap: 34px;
       column-rule: 1px solid var(--rule);
     }
-    .page.sportsman .sections > .sec:nth-of-type(n+2) {
-      grid-column: 2;
-      border-left: 1px solid var(--rule);
-      padding-left: 30px;
+  }
+
+  @media (min-width: 1320px) {
+    .page.sportsman .sections { column-count: 3; }
+  }
+
+  @media (min-width: 1024px) {
+    .page.sportsman .sections > .sec {
+      break-inside: auto;
+      border-left: 0;
+      padding-left: 0;
+      margin: 0 0 20px;
     }
-    .page.sportsman .sections > .sec .section-label { margin-top: 0; }
+    .page.sportsman .sec .two-col-briefs { column-count: 1; column-rule: none; }
+    .page.sportsman .brief,
+    .page.sportsman .roundup li { break-inside: avoid; }
+    .page.sportsman .section-label { break-after: avoid; margin-top: 0; }
+    .page.sportsman .sec + .sec .section-label { margin-top: 10px; }
+    .page.sportsman .wv-block { break-inside: auto; }
+    .page.sportsman .wv-block-label { break-after: avoid; }
   }
 
   @media print {
