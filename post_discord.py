@@ -1331,6 +1331,21 @@ def _sm_masthead_line(edition: dict, page_url: str | None) -> str:
     return _clip(line, config.CONTENT_LIMIT)
 
 
+def _water_state(name: str) -> str:
+    """Which state a water line belongs to, via config.SPORTSMAN_WATERS.
+
+    Word overlap rather than exact match: the edition says "Ohio River at
+    Point Pleasant" while config lists "Ohio River". Unknown waters return
+    "" and are shown ungrouped rather than guessed into a state.
+    """
+    words = set(re.findall(r"[a-z]+", (name or "").lower()))
+    for water in config.SPORTSMAN_WATERS:
+        config_words = set(re.findall(r"[a-z]+", water["name"].lower()))
+        if config_words & words - {"river", "at", "the", "sound", "beach"}:
+            return water.get("state", "")
+    return ""
+
+
 def build_sportsman_payload(edition: dict, page_url: str | None = None) -> dict:
     """The Sports & Sportsman message. Four embeds, its own masthead.
 
@@ -1368,57 +1383,74 @@ def build_sportsman_payload(edition: dict, page_url: str | None = None) -> dict:
                   if isinstance(b, dict)]
         add(section_id, "\n\n".join(b for b in blocks if b))
 
-    # In Season: the three buckets as separate fields, because "going out" is
-    # the one that saves somebody a wasted weekend and it has to be findable.
+    # In Season and On the Water are grouped BY STATE, never intermingled.
+    # Nate, 2026-08-15: West Virginia and North Carolina rules live under
+    # different agencies with different licences, and a reader skimming a
+    # mixed list can carry an NC limit to a WV creek. One state, one block.
     seasons = by_id.get("seasons")
     if seasons:
         fields: list[dict] = []
-        for key, label in (("coming_in", "Coming in"),
-                           ("prime", "Prime"),
-                           ("going_out", "Going out")):
+        for state, state_label in (("WV", "West Virginia"),
+                                   ("NC", "North Carolina")):
             lines = []
-            for entry in (seasons.get(key) or []):
-                if not isinstance(entry, dict):
-                    continue
-                text = (entry.get("item") or entry.get("text") or "").strip()
-                if not text:
-                    continue
-                # Lead with the species. A limit with no animal attached
-                # ("18-inch minimum, one per day") is unreadable, and the
-                # first version of this shipped exactly that.
-                head = str(entry.get("species") or "").strip()
-                if head and entry.get("method"):
-                    head += f" ({entry['method']})"
-                if head and entry.get("dates"):
-                    head += f", {entry['dates']}"
-                source = entry.get("source")
-                line = f"**{head}** — {text}" if head else text
-                lines.append(line + (f" · {source}" if source else ""))
+            for key, label in (("coming_in", "Coming in"),
+                               ("prime", "Prime"),
+                               ("going_out", "Going out")):
+                for entry in (seasons.get(key) or []):
+                    if not isinstance(entry, dict):
+                        continue
+                    if entry.get("state") != state:
+                        continue
+                    text = (entry.get("item") or entry.get("text") or "").strip()
+                    if not text:
+                        continue
+                    head = str(entry.get("species") or "").strip()
+                    if head and entry.get("method"):
+                        head += f" ({entry['method']})"
+                    if head and entry.get("dates"):
+                        head += f", {entry['dates']}"
+                    source = entry.get("source")
+                    line = (f"__{label}__ · **{head}** — {text}" if head
+                            else f"__{label}__ · {text}")
+                    lines.append(line + (f" · {source}" if source else ""))
+            for note in (seasons.get("notes") or []):
+                if isinstance(note, dict) and note.get("state") == state \
+                        and note.get("item"):
+                    lines.append(str(note["item"]).strip())
             if lines:
-                fields.append({"name": label,
+                fields.append({"name": state_label,
                                "value": _clip("\n".join(lines), FIELD_VALUE_LIMIT),
                                "inline": False})
-        notes = [n for n in (seasons.get("notes") or []) if isinstance(n, dict)]
-        note_lines = [f"**{n.get('state', '')}** {n.get('item', '')}".strip()
-                      for n in notes if n.get("item")]
-        if note_lines:
+        stray = [n for n in (seasons.get("notes") or [])
+                 if isinstance(n, dict) and n.get("item")
+                 and n.get("state") not in ("WV", "NC")]
+        if stray:
             fields.append({"name": "Also",
-                           "value": _clip("\n".join(note_lines), FIELD_VALUE_LIMIT),
+                           "value": _clip("\n".join(str(n["item"]) for n in stray),
+                                          FIELD_VALUE_LIMIT),
                            "inline": False})
         add("seasons", "", fields)
 
-    # On the Water: one line per gauge, in the order the edition lists them.
+    # On the Water: same state grouping, waters mapped through config.
     water = by_id.get("water")
     if water:
-        lines = []
+        grouped: dict[str, list[str]] = {}
         for entry in (water.get("waters") or []):
             if not isinstance(entry, dict):
                 continue
             name = entry.get("water") or entry.get("name") or ""
             body = (entry.get("line") or entry.get("read") or "").strip()
-            if name and body:
-                lines.append(f"**{name}** — {body}")
-        add("water", "\n".join(lines))
+            if not (name and body):
+                continue
+            grouped.setdefault(_water_state(name), []).append(
+                f"**{name}** — {body}")
+        blocks = []
+        for state, state_label in (("WV", "West Virginia"),
+                                   ("NC", "North Carolina"), ("", "")):
+            if grouped.get(state):
+                header = f"__{state_label}__\n" if state_label else ""
+                blocks.append(header + "\n".join(grouped[state]))
+        add("water", "\n\n".join(blocks))
 
     if embeds:
         bits = [str(b).strip() for b in

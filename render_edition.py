@@ -1100,39 +1100,50 @@ def _sm_roundup_item(blocks: dict[str, str], head: str, item: str,
 
 
 def _sm_seasons_html(blocks: dict[str, str], section: dict) -> str:
-    """In Season as three labelled groups plus the notes, notebook-style."""
+    """In Season grouped BY STATE — WV and NC never intermingle.
+
+    Nate, 2026-08-15: two agencies, two licences, and a reader skimming a
+    mixed list can carry an NC limit to a WV creek. One state, one block;
+    the bucket (Coming in / Prime / Going out) rides each line's head.
+    """
     groups = []
-    for key, label in (("coming_in", "Coming in"), ("prime", "Prime"),
-                       ("going_out", "Going out")):
+    for state, state_label in (("WV", "West Virginia"),
+                               ("NC", "North Carolina")):
         items = []
-        for entry in (section.get(key) or []):
-            if not isinstance(entry, dict):
-                continue
-            item = _norm(entry.get("item") or entry.get("text"))
-            if not item:
-                continue
-            head = _norm(entry.get("species"))
-            if head and entry.get("method"):
-                head += f" ({_norm(entry['method'])})"
-            if head and entry.get("dates"):
-                head += f", {_norm(entry['dates'])}"
-            items.append(_sm_roundup_item(blocks, head, item, entry))
+        for key, label in (("coming_in", "Coming in"), ("prime", "Prime"),
+                           ("going_out", "Going out")):
+            for entry in (section.get(key) or []):
+                if not isinstance(entry, dict) or entry.get("state") != state:
+                    continue
+                item = _norm(entry.get("item") or entry.get("text"))
+                if not item:
+                    continue
+                head = _norm(entry.get("species"))
+                if head and entry.get("method"):
+                    head += f" ({_norm(entry['method'])})"
+                if head and entry.get("dates"):
+                    head += f", {_norm(entry['dates'])}"
+                head = f"{label} · {head}" if head else label
+                items.append(_sm_roundup_item(blocks, head, item, entry))
+        for entry in (section.get("notes") or []):
+            if isinstance(entry, dict) and entry.get("state") == state                     and _norm(entry.get("item")):
+                items.append(_sm_roundup_item(blocks, "", _norm(entry["item"]),
+                                              entry))
         if items:
             groups.append(fill(blocks["WV_BLOCK"], {
                 "BLOCK_CLASS": "sm-seasons",
-                "BLOCK_LABEL": esc(label),
+                "BLOCK_LABEL": esc(state_label),
                 "ITEMS": "".join(items),
             }))
-    notes = []
-    for entry in (section.get("notes") or []):
-        if isinstance(entry, dict) and _norm(entry.get("item")):
-            notes.append(_sm_roundup_item(
-                blocks, _norm(entry.get("state")), _norm(entry["item"]), entry))
-    if notes:
+    stray = [entry for entry in (section.get("notes") or [])
+             if isinstance(entry, dict) and _norm(entry.get("item"))
+             and entry.get("state") not in ("WV", "NC")]
+    if stray:
         groups.append(fill(blocks["WV_BLOCK"], {
             "BLOCK_CLASS": "sm-seasons",
             "BLOCK_LABEL": "Also",
-            "ITEMS": "".join(notes),
+            "ITEMS": "".join(_sm_roundup_item(blocks, "", _norm(e["item"]), e)
+                              for e in stray),
         }))
     return "".join(groups)
 
@@ -1175,7 +1186,8 @@ def render_sportsman_html(edition: dict) -> str:
 
     water = by_id.get("water")
     if water:
-        items = []
+        import post_discord as _pd
+        grouped: dict[str, list[str]] = {}
         for entry in (water.get("waters") or []):
             if not isinstance(entry, dict):
                 continue
@@ -1183,23 +1195,29 @@ def render_sportsman_html(edition: dict) -> str:
             bits = [b for b in (_norm(entry.get("reading")),
                                 _norm(entry.get("read") or entry.get("line")),
                                 _norm(entry.get("working"))) if b]
-            # Drop consecutive duplicates — some entries repeat the reading
-            # inside the read sentence.
             seen, body = set(), []
             for bit in bits:
                 if bit not in seen:
                     body.append(bit)
                     seen.add(bit)
-            if name and body:
-                items.append(_sm_roundup_item(blocks, name, " ".join(body), entry))
-        if items:
+            if not (name and body):
+                continue
+            grouped.setdefault(_pd._water_state(name), []).append(
+                _sm_roundup_item(blocks, name, " ".join(body), entry))
+        water_groups = []
+        for state, state_label in (("WV", "West Virginia"),
+                                   ("NC", "North Carolina"),
+                                   ("", "Elsewhere")):
+            if grouped.get(state):
+                water_groups.append(fill(blocks["WV_BLOCK"], {
+                    "BLOCK_CLASS": "sm-water",
+                    "BLOCK_LABEL": esc(state_label),
+                    "ITEMS": "".join(grouped[state]),
+                }))
+        if water_groups:
             parts.append(fill(blocks["SECTION"], {
                 "SECTION_LABEL": esc(_norm(water.get("label")) or "On the Water"),
-                "BRIEFS": fill(blocks["WV_BLOCK"], {
-                    "BLOCK_CLASS": "sm-water",
-                    "BLOCK_LABEL": "This morning's readings",
-                    "ITEMS": "".join(items),
-                }),
+                "BRIEFS": "".join(water_groups),
             }))
 
     folio = (f"Vol. {edition.get('volume', 'I')} — "

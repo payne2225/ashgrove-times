@@ -138,6 +138,14 @@ Three buckets, and the reader wants them in this order:
 - **Going out** — what closes within about two weeks. This is the one that
   saves somebody a wasted weekend.
 
+**Presentation is grouped BY STATE, and the states never intermingle**
+(Nate, 2026-08-15). Two agencies, two licences — a reader skimming a mixed
+list can carry an NC limit to a WV creek. The renderers group West
+Virginia and North Carolina into separate blocks on both the post and the
+page, with the bucket riding each line; you keep writing entries into the
+buckets with an accurate `state`, and the grouping is automatic. The same
+split applies to On the Water.
+
 | State | Agency | Where the dates come from |
 |---|---|---|
 | **WV** | West Virginia DNR | **`reference/wv-hunting-2026-27.json`** — transcribed from the official pamphlet |
