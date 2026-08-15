@@ -87,7 +87,7 @@ MIN_BRIEFS_PER_SECTION = 1
 # distinguishable at a glance in a busy server.
 SPORTSMAN_COLOR = int("3E3221", 16)
 NEVER_TRIM = ("wv",)
-FALLBACK_TRIM_ORDER = ("scitech", "world", "us", "sports")
+FALLBACK_TRIM_ORDER = ("scitech", "world", "us")
 FRONT_PAGE_SECTIONS = ("us", "world")
 
 # The West Virginia notebook. `briefs` is statewide and behaves like every

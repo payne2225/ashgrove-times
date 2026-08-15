@@ -1,12 +1,12 @@
 # The Ashgrove Times
 
 A newspaper-styled daily news digest for the friends' Discord channel —
-masthead, drop cap, section rules, stat strip. Six sections every morning:
-a lead story, then U.S., World, West Virginia, Sports (sumo covered
-whenever there is sumo to cover), and Science & Technology. **Three briefs
-per section** is the target — confirmed by Ian, and the number that keeps
-the whole paper inside one Discord message. Content is researched fresh by
-web search each day, never pulled from a static feed.
+masthead, drop cap, section rules, stat strip. Five sections every
+morning: a lead story, then U.S., World, West Virginia, and Science &
+Technology — **four briefs per wire section** since Sports retired to its
+own paper, Sports & Sportsman, on 2026-08-16 (sumo and the Premier League
+moved with it; see `instructions/sportsman.md`). Content is researched
+fresh by web search each day, never pulled from a static feed.
 
 West Virginia is not another wire section. It is the paper's local anchor:
 a boxed **Mountaineer State Notebook** carrying statewide briefs, a
@@ -38,7 +38,7 @@ One message. Three surfaces at once:
 1. a top-level `content` masthead line (and the permalink, when the web
    tier is on), closing with the **weather ear** — one short line telling
    the channel the forecast lands at 7:15,
-2. **six embeds** — LEAD, U.S., World, West Virginia, Sports, Science &
+2. **five embeds** — LEAD, U.S., World, West Virginia, Science &
    Technology — which are the readable paper and are always complete. The
    West Virginia embed carries the notebook: statewide briefs, then the
    regional roundup, the away desk, and the fishing lines as fields,

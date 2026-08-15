@@ -48,6 +48,8 @@ Four sections, all four maintained every run:
 | Open-ended | **THE `--sportsman` PIPELINE DOES NOT EXIST, AND IT BLOCKS THE SECOND PAPER.** `instructions/routine.md` and `instructions/sportsman.md` both document `validate_edition.py --sportsman`, `render_edition.py --sportsman` and `post_discord.py --sportsman`. `grep -ci sportsman` returns **0** in all three scripts. `config.py` has all 16 sportsman definitions, `fetch_fishing.py` already reports all four sportsman waters, both reference files are transcribed and `editions/sportsman/index.json` exists — commit `ca5293d` shipped everything *except* the pipeline. No branch, no PR. **2026-08-15: the first edition was researched and written to `editions/sportsman/2026-08-15.json` and could not be validated, rendered or posted.** Building the pipeline is a code change for Nate, not something the morning routine should improvise at 5:30 a.m.; hand-building a payload is forbidden by `instructions/edition.md` and was refused. **The edition JSON is ready and will ship unchanged the day the flag lands** | **OPEN — blocking** |
 
 
+| 2026-08-15 | **Sports retired from the Times.** Nate's call once Sports & Sportsman shipped. Wire sections (U.S., World, Sci/Tech) now target FOUR briefs; sumo and the Premier League rules moved to `instructions/sportsman.md`. The archive keeps its shape via `config.RETIRED_SECTIONS` — do not add a sports section to any Times edition dated 2026-08-16 or later | **CLOSED** |
+
 ## 2. Forward-dated events
 
 | Date | Event | Note |

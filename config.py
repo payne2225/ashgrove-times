@@ -363,15 +363,6 @@ SECTIONS = [
         "trim_priority": 0,
     },
     {
-        "id": "sports",
-        "label": "Sports",
-        "emoji": "\U0001F3C6",
-        "color": _color("6B5636"),
-        "order": 4,
-        "standing": True,
-        "trim_priority": 1,
-    },
-    {
         "id": "scitech",
         "label": "Science & Technology",
         "emoji": "\U0001F52C",
@@ -383,6 +374,36 @@ SECTIONS = [
 ]
 
 SECTION_IDS = [s["id"] for s in SECTIONS]
+
+# Sections the Times used to carry. Nate retired Sports on 2026-08-15, the
+# day Sports & Sportsman shipped — sport now has its own paper, and the
+# freed budget goes to a fourth brief in each wire section. The metadata
+# stays here so the eleven editions that legitimately carry a sports
+# section keep validating and rendering; a retired id is legal in any
+# edition dated on or before its retirement date and illegal after.
+RETIRED_SECTIONS = {
+    "sports": {
+        "retired_after": "2026-08-15",
+        "meta": {
+            "id": "sports",
+            "label": "Sports",
+            "emoji": "🏆",
+            "color": _color("6B5636"),
+            "order": 4,
+            "standing": True,
+            "trim_priority": 1,
+        },
+    },
+}
+
+
+def sections_for(date: str | None) -> list[dict]:
+    """The section contract as of a date — the archive keeps its shape."""
+    live = list(SECTIONS)
+    for retired in RETIRED_SECTIONS.values():
+        if date and date <= retired["retired_after"]:
+            live.append(retired["meta"])
+    return sorted(live, key=lambda s: s["order"])
 
 # The lead is not a section (it has its own shape in the edition JSON) but
 # it needs the same display metadata for its embed.
@@ -400,16 +421,23 @@ _SECTIONS_BY_ID = {s["id"]: s for s in SECTIONS}
 
 
 def section_by_id(sid: str) -> dict:
-    """Display metadata for a section id. Raises KeyError on an unknown id.
+    """Display metadata for a section id, including retired ones.
 
-    Unknown ids are a bug, not a runtime condition — the five ids are frozen.
+    Retired sections resolve so the ARCHIVE keeps rendering — eleven
+    editions legitimately carry a sports section. A truly unknown id is
+    still a bug and still raises.
     """
     try:
         return _SECTIONS_BY_ID[sid]
     except KeyError:
-        raise KeyError(
-            f"unknown section id {sid!r}; expected one of {SECTION_IDS}"
-        ) from None
+        pass
+    retired = RETIRED_SECTIONS.get(sid)
+    if retired:
+        return retired["meta"]
+    raise KeyError(
+        f"unknown section id {sid!r}; expected one of {SECTION_IDS} "
+        f"or retired {sorted(RETIRED_SECTIONS)}"
+    )
 
 
 def trim_order() -> list[str]:
@@ -610,13 +638,15 @@ SUMMARY_WARN_CHARS = 210
 # with the fattest legal notebook still intact, the message must fit.
 #
 # validate_edition.py reports any section over its line. Sum == EMBED_TARGET.
+# Re-derived 2026-08-15 when Sports moved to its own paper: the freed 750
+# went to the three wire sections, which now target FOUR briefs each
+# (4 x ~245 = ~980). Same 5,600 total against the 5,800 the trimmer watches.
 EMBED_BUDGET = {
     "lead": 900,
-    "us": 750,
-    "world": 750,
+    "us": 1000,
+    "world": 1000,
     "wv": 1500,
-    "sports": 750,
-    "scitech": 750,
+    "scitech": 1000,
     "chrome": 200,   # the closing footer: kicker + sources_note + weather ear
 }
 

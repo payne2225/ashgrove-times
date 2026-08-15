@@ -1361,13 +1361,18 @@ def _check_sections(
         return ["sections must be a list"]
 
     errors: list[str] = []
-    if len(sections) != len(config.SECTIONS):
+    # The contract as of THIS edition's date: Sports was retired 2026-08-15
+    # when it moved to its own paper, and the archive keeps its shape.
+    expected_sections = config.sections_for(
+        edition_date if isinstance(edition_date, str) else None)
+    expected_ids = [s["id"] for s in expected_sections]
+    if len(sections) != len(expected_sections):
         errors.append(
-            f"expected exactly {len(config.SECTIONS)} sections "
-            f"({', '.join(config.SECTION_IDS)}), got {len(sections)}"
+            f"expected exactly {len(expected_sections)} sections "
+            f"({', '.join(expected_ids)}), got {len(sections)}"
         )
 
-    for i, expected in enumerate(config.SECTIONS):
+    for i, expected in enumerate(expected_sections):
         if i >= len(sections):
             errors.append(f"sections[{i}] is missing (expected id {expected['id']!r})")
             continue
@@ -1406,8 +1411,8 @@ def _check_sections(
         for j, brief in enumerate(briefs):
             errors.extend(_check_brief(brief, f"sections[{i}].briefs[{j}]"))
 
-    extra = sections[len(config.SECTIONS):]
-    for k, section in enumerate(extra, start=len(config.SECTIONS)):
+    extra = sections[len(expected_sections):]
+    for k, section in enumerate(extra, start=len(expected_sections)):
         sid = section.get("id") if isinstance(section, dict) else section
         errors.append(f"sections[{k}] is unexpected (id {sid!r})")
     return errors
@@ -2558,6 +2563,21 @@ def validate_sportsman(edition: dict, fishing: dict | None) -> tuple[list[str], 
     water_errors, water_notes = _sm_check_water(by_id["water"], fishing)
     errors += water_errors
     notes += water_notes
+
+    # Sumo advisory, inherited from the Times when Sports moved here: a
+    # basho in progress should be visible somewhere in the sport pages.
+    date = edition.get("edition_date")
+    if _is_str(date) and config.is_basho_window(date):
+        text = " ".join(
+            f"{b.get('headline', '')} {b.get('summary', '')}"
+            for sid in ("teams", "leagues")
+            for b in (by_id.get(sid, {}).get("briefs") or [])
+            if isinstance(b, dict)).lower()
+        if not any(word in text for word in config.SUMO_KEYWORDS):
+            notes.append(
+                f"{date} falls inside a basho window and no sumo appears in "
+                "Our Teams or Around the Leagues — tournament coverage "
+                "should exist; confirm the dates by search")
 
     # Exact size, measured off the real payload builder — never estimated.
     try:

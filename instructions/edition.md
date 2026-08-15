@@ -116,9 +116,9 @@ Read, in this order:
 ## 2. Research
 
 Use **WebSearch**, section by section, in this order: lead, U.S., World,
-West Virginia, Sports, Science & Technology. **Three briefs per section**
-is the target — Ian confirmed it, and it is what keeps the paper a single
-Discord message instead of a two-message split.
+West Virginia, Science & Technology. **Wire sections target FOUR
+briefs** since Sports moved to its own paper (2026-08-16); the notebook
+rules below are unchanged.
 
 West Virginia is the exception: it is a notebook with four parts, and its
 statewide briefs run **two or three** depending on how much the rest of the
@@ -390,202 +390,19 @@ may all be empty arrays — that is a legal edition. Say it plainly in the
 kicker ("West Virginia was quiet"). Never pad with a press release, an old
 story re-dated, or a "no news today" placeholder line.
 
-### Sports — SUMO IS A STANDING DAILY SEARCH, NOT A STANDING DAILY HEADLINE
+### Sports moved to its own paper
 
-**Ian settled this rule: sumo gets covered when there is something to
-cover.** Not "sumo gets a headline every day regardless." A banzuke,
-promotion, or retirement line is good enough. Both halves are binding:
+**The Times carries no Sports section as of 2026-08-16.** Nate retired it
+the day Sports & Sportsman shipped — sport, sumo included, now files there
+at 7:05 under `instructions/sportsman.md`, which inherited the sumo rules
+and the Premier League emphasis wholesale. Do not add a sports section to
+this edition, and do not let a sports story masquerade as U.S. or World
+news unless it genuinely is national or international news (a stadium
+collapse is news; a trade is not).
 
-- **In a basho month, sumo should usually WIN the Sports lead** — first
-  brief in the section, because during a tournament there is genuinely more
-  happening in sumo than in most of the rest of the sports wire.
-- **In an off month, a one-line note is the honest version of "there is no
-  sumo news."** One short brief, placed last in Sports. That is a complete
-  and correct answer, not a failure.
-- **Never manufacture.** No sumo brief assembled out of background, no
-  "the sport continues to grow," no re-dated old result. The validator does
-  **not** require a daily sumo headline. Do not invent one to satisfy a
-  rule that is not there.
-
-**Sumo still gets its own dedicated search every single day.** It is not a
-sub-clause of a general sports query, and "no sumo today" is a conclusion
-you reach *after* searching, never a default.
-
-```
-sumo {Month YYYY}
-grand sumo basho day {N} results
-Japan Sumo Association announcement {Month YYYY}
-{sumo} banzuke {Month YYYY}
-```
-
-Useful sources: the Japan Sumo Association (`sumo.or.jp`, English pages),
-Kyodo News, The Japan Times sumo coverage, NHK World, Mainichi.
-
-**Tournament months are January, March, May, July, September and November**
-(`config.SUMO_BASHO_MONTHS`). Each tournament (*basho*) runs 15 days,
-typically opening the second Sunday of the month. Confirm the actual dates
-by search — never assume them from the calendar.
-
-**During a basho** the sumo brief is the tournament, at full brief length,
-**first in the Sports section**: what day it is, who leads the *yusho*
-(championship) race and at what record, the marquee upsets, any *kinboshi*
-(a rank-and-file wrestler beating a yokozuna), promotion runs, and any
-*kyujo* (withdrawal). Lead with the standing. It only loses the section
-lead to something genuinely bigger — a title decided elsewhere, a death, a
-championship game.
-
-**Between basho** — which is most of the year — sumo is a **one-line note,
-last in the section**, and any one of these is enough on its own:
-
-- the *banzuke* (new rankings) release, usually about two weeks before the
-  next tournament, and who moved
-- promotions and demotions, especially to and from *ozeki* and *yokozuna*
-- retirements (*intai*) and *danpatsu-shiki* hair-cutting ceremonies
-- injuries, stable (*heya*) news, new recruits, coaching and JSA governance
-- the **next basho's confirmed dates and venue** — the always-available
-  fallback, and it goes in the LEDGER as a forward-dated commitment
-
-Write it as a real brief with a headline and one sentence. It is short
-because there is little to say, not because it was rushed.
-
-If a full off-basho search returns genuinely nothing new, **sumo sits out**
-and Sports runs three briefs from elsewhere. Note it in one clause in the
-kicker if it is worth noting at all. Do not force a fourth brief and do not
-reach for the next-basho fallback twice in a week — a fact that has not
-changed since Monday is not news on Thursday.
-
-### Sports — THE PREMIER LEAGUE IS THE SECOND STANDING SEARCH
-
-**Requested in the channel on 2026-08-06, in these words: "emphasis on news
-from the teams we like, general from the rest of the league."** That is the
-whole specification and it is binding — this is a reader telling the paper
-what he wants, which is the most valuable instruction this project gets.
-
-Same discipline as sumo: a standing daily **search** in season (August
-through May), never a standing daily **headline**. `config` holds
-`PREMIER_LEAGUE_REQUIRED_DAILY = False`, and nothing fails an edition for a
-missing football brief.
-
-**Read `config.followed_clubs()` first. It changes the assignment.**
-
-**THE TEAMS — `config.FOLLOWED_TEAMS` is the one list, across every sport.**
-Read it at runtime rather than trusting this table; teams get added and the
-code is what knows.
-
-| League | Teams | Who |
-|---|---|---|
-| **NCAA** | West Virginia, Marshall, Ohio University | the group |
-| **Premier League** | Chelsea | Trav, Ian |
-| | Tottenham | Nate |
-| | Liverpool | Pat |
-| **MLS** | Columbus Crew, FC Cincinnati | the group |
-| **MLB** | Cincinnati Reds, Pittsburgh Pirates | the group |
-| **NBA** | San Antonio Spurs | the group |
-| **NFL** | Cleveland Browns | the group |
-
-The Ohio Valley teams are followed by the group broadly rather than by one
-person, which is why their `supporters` list is empty. That is not a gap —
-it decides emphasis only when a day has more team news than room, and a
-club with named supporters wins that tie.
-
-`config.find_team(text, league=...)` matches a team by **name or alias**,
-which is what a headline actually says: "Spurs hold Chelsea", "the Bucs
-dropped two", "Thundering Herd wins on the road". Use it rather than
-string-matching formal names yourself.
-
-**Pass the league when you know it.** Two aliases name two different
-followed teams and both are real:
-
-| Alias | Means |
-|---|---|
-| **Spurs** | Tottenham to a football desk, **San Antonio** to a basketball one |
-| **Bucs** | the **Pirates** here, but the Buccaneers to an NFL desk |
-
-With a league hint the collision resolves; without one, every candidate
-comes back and it is on you to pick. `config.ambiguous_aliases()` prints
-the current list, so this never becomes folklore.
-
-"Reds" is **Cincinnati** — settled by Nate, and Liverpool carries no colour
-alias at all rather than fight for it. Ohio University is aliased to
-"Bobcats", never bare "Ohio", because that substring also catches Ohio
-State, which this paper does not follow.
-
-**Adding a team is one line in `config.FOLLOWED_TEAMS`.** Nate asked for
-that explicitly. If the group names a new one, add it there and nothing
-else changes.
-
-Those three are the emphasis. Their news is the brief: results and how they
-played, injuries, transfers, manager news, where they sit in the table. A
-followed club's 1-0 win is a bigger story for these readers than a title
-race none of them is in. **Name the club in the headline.** Give the rest
-of the league one clause of context at most — "...as Arsenal went top" —
-never its own brief while a followed club has news.
-
-`config.followed_clubs()` returns them most-supported first, which is the
-tiebreak when two have news and there is one slot: Chelsea carries two of
-the readership.
-
-**Do NOT tag briefs with readers' names.** The West Virginia notebook names
-people because a regional line is *about* their town; a football result is
-not about them. Write it as a sports brief. The names exist in config so
-you know what to search for, not to print.
-
-**When two followed clubs play each other** — and Chelsea, Tottenham and
-Liverpool all meet twice a season, so this happens several times a year —
-`config.is_house_derby(text)` returns both. That match is automatically the
-football brief, and it is written **straight down the middle**: the result,
-both sides, no verdict. Half this readership wanted the other score. It is
-the one football story that needs no justification for taking the slot.
-
-**If `followed_clubs()` were ever empty**, the fallback is general league
-coverage — the matchweek's defining result, the table at either end, a
-major transfer or sacking — and never a guessed allegiance. It is not empty
-now, but the rule stays: the paper does not invent who someone supports.
-
-```
-premier league results {Month D, YYYY}
-premier league table {Month YYYY}
-{club} {Month D, YYYY}
-premier league transfer {Month YYYY}
-```
-
-Readable sources: BBC Sport blocks this crawler — use ESPN, The Athletic
-where it opens, Sky Sports, official club sites, and the Premier League's
-own `premierleague.com`. Match reports over aggregator round-ups.
-
-**Timing.** Most matches are Saturday and Sunday, so Sunday and Monday
-editions carry the real football news and a Wednesday one often has none
-beyond transfers or injuries. Midweek European nights and cup rounds are
-the exception. **No matchweek is not a failure** — off-season (June, July)
-the section simply runs without football, and the transfer window is its
-own story.
-
-### Sports — when the standing interests collide
-
-Sports runs **three briefs** and there are now three standing interests:
-sumo, the Premier League, and WVU/Marshall for the West Virginia readers.
-In September and November all three can have real news at once, and that is
-the whole section with no room for the general wire. **That is a correct
-edition, not a crowded one.**
-
-When more than three compete, rank by what actually happened, not by whose
-turn it is:
-
-1. A **basho in progress** usually takes the lead — during a tournament
-   there is more happening in sumo than in most of the sports wire.
-2. A **followed club's match**, or **WVU/Marshall on a game day**, beats a
-   routine result from either of the others.
-3. A **matchweek round-up** beats a midweek practice report.
-4. Anything genuinely bigger — a title decided, a death, a championship
-   game — beats all of it.
-
-Whatever is left over after the standing interests comes from whatever is
-actually in season: `{league} results {Month D, YYYY}`, `{sport} trade OR
-signing {Month D, YYYY}`, a major international event.
-
-**Do not run three briefs from one league**, and do not force a standing
-interest in on a day it has nothing. Sports is a standing section: it is
-never empty, but it is allowed to be about only one or two things.
+The freed budget went to the wire sections: **U.S., World and Science &
+Technology now target FOUR briefs each** (`config.EMBED_BUDGET` allocates
+1,000 characters per section). Everything else about a brief is unchanged.
 
 ### Science & Technology
 

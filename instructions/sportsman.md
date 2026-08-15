@@ -84,6 +84,38 @@ prints the current list.
 say nothing rather than reaching for a roster-move filler. A team with no
 news simply does not appear.
 
+### Sumo — inherited from the Times, Ian's rule intact
+
+The Times retired its Sports section on 2026-08-16 and this paper
+inherited the sumo desk whole. **Ian settled the rule: sumo is covered
+when there is something to cover, never a headline every day regardless.**
+
+- **Sumo gets its own dedicated search every day.** "No sumo today" is a
+  conclusion you reach after searching, never a default.
+- **During a basho** (Jan, Mar, May, Jul, Sep, Nov —
+  `config.SUMO_BASHO_MONTHS`; confirm real dates by search, never from the
+  calendar) the tournament usually LEADS Our Teams' companion coverage in
+  Around the Leagues: the day, the yusho race, marquee upsets, kinboshi,
+  promotion runs, kyujo. Lead with the standing.
+- **Off months**, one line is the honest version: banzuke releases,
+  promotions, retirements, the next basho's confirmed dates. If a full
+  search finds nothing new, sumo sits out — never manufacture, and never
+  reach for the next-basho fallback twice in a week.
+- Sources: the JSA's own pages (`sumo.or.jp`), Kyodo, Japan Times, NHK,
+  Nippon.com, Mainichi.
+
+### Premier League — the emphasis, and the house derby
+
+Also inherited. The clubs are in `config.FOLLOWED_TEAMS`: **Chelsea (Trav,
+Ian), Tottenham (Nate), Liverpool (Pat)**. Their news is the brief — name
+the club in the headline; the rest of the league gets one clause of
+context, not its own Our Teams line.
+
+**When two followed clubs play each other** — all three meet twice a
+season — `config.is_house_derby(text)` catches it, and that match is
+written **straight down the middle**: the result, both sides, no verdict.
+Half this readership wanted the other score.
+
 ---
 
 ## 2. Around the Leagues — everything else

@@ -63,10 +63,11 @@ back page.
 These numbers are measured off a real payload, not estimated. A brief costs
 its headline **plus its summary plus its whole URL**: `[Reuters](https://
 www.reuters.com/world/)` is 40 characters that never appear on screen. At
-the targets above a brief lands near 245 and a wire section near 740, so
-lead + four wire sections + the notebook + the closing footer comes to
-roughly 5,700 — inside the 5,800 the trimmer watches, with the 6,000 hard
-ceiling still 300 away.
+the targets above a brief lands near 245, so since Sports moved to its own
+paper (2026-08-16) the shape is: lead (~900) + **three wire sections at
+FOUR briefs each** (~980 apiece) + the notebook (~1,500) + the closing
+footer (~200) — roughly 5,540 against the 5,800 the trimmer watches, with
+the 6,000 hard ceiling still clear.
 
 Run long and the trimmer starts dropping the last brief of Science &
 Technology, or the away desk, at post time, and nobody ever knows it
