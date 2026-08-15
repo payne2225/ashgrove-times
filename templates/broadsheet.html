@@ -572,6 +572,34 @@
     .columns { column-count: 5; }
   }
 
+  /* ---------- Sports & Sportsman page layout ----------
+     One section dwarfs the other three (Our Teams runs 8-10 briefs), so
+     the Times' equal-column grid strands whitespace. Instead: Our Teams
+     fills a wide left block with its briefs in two columns, and Around
+     the Leagues / In Season / On the Water stack in a right rail. */
+
+  @media (min-width: 1024px) {
+    .page.sportsman .sections {
+      display: grid;
+      grid-template-columns: 1.85fr 1fr;
+      column-gap: 34px;
+      align-items: start;
+    }
+    .page.sportsman .sections > .sec { border-left: 0; padding-left: 0; margin-bottom: 22px; }
+    .page.sportsman .sections > .sec:nth-of-type(1) { grid-column: 1; grid-row: 1 / span 3; }
+    .page.sportsman .sections > .sec:nth-of-type(1) .two-col-briefs {
+      column-count: 2;
+      column-gap: 30px;
+      column-rule: 1px solid var(--rule);
+    }
+    .page.sportsman .sections > .sec:nth-of-type(n+2) {
+      grid-column: 2;
+      border-left: 1px solid var(--rule);
+      padding-left: 30px;
+    }
+    .page.sportsman .sections > .sec .section-label { margin-top: 0; }
+  }
+
   @media print {
     body { background: #fff; padding: 0; }
     .page { border: 0; box-shadow: none; max-width: none; }
@@ -581,7 +609,7 @@
 </style>
 </head>
 <body>
-<div class="page">
+<div class="page {{PAGE_CLASS}}">
 
   <div class="top-bar">
     <span>{{TOP_LEFT}}</span>

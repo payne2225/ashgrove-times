@@ -196,6 +196,7 @@ def render_html(edition: dict, root: str = "../") -> str:
     description = f"{headline} {dek}".strip() or config.TAGLINE
 
     values = {
+        "PAGE_CLASS": "",
         "PAGE_TITLE": esc(f"{config.MASTHEAD} — {dateline}"),
         "META_DESCRIPTION": esc(description[:300]),
         "MASTHEAD": esc(config.MASTHEAD),
@@ -1174,16 +1175,37 @@ def render_sportsman_html(edition: dict) -> str:
 
     water = by_id.get("water")
     if water:
-        rows = _fishing_html(blocks, water.get("waters"))
-        if rows:
+        items = []
+        for entry in (water.get("waters") or []):
+            if not isinstance(entry, dict):
+                continue
+            name = _norm(entry.get("water") or entry.get("name"))
+            bits = [b for b in (_norm(entry.get("reading")),
+                                _norm(entry.get("read") or entry.get("line")),
+                                _norm(entry.get("working"))) if b]
+            # Drop consecutive duplicates — some entries repeat the reading
+            # inside the read sentence.
+            seen, body = set(), []
+            for bit in bits:
+                if bit not in seen:
+                    body.append(bit)
+                    seen.add(bit)
+            if name and body:
+                items.append(_sm_roundup_item(blocks, name, " ".join(body), entry))
+        if items:
             parts.append(fill(blocks["SECTION"], {
                 "SECTION_LABEL": esc(_norm(water.get("label")) or "On the Water"),
-                "BRIEFS": rows,
+                "BRIEFS": fill(blocks["WV_BLOCK"], {
+                    "BLOCK_CLASS": "sm-water",
+                    "BLOCK_LABEL": "This morning's readings",
+                    "ITEMS": "".join(items),
+                }),
             }))
 
     folio = (f"Vol. {edition.get('volume', 'I')} — "
              f"No. {edition.get('edition_number', '?')}")
     values = {
+        "PAGE_CLASS": "sportsman",
         "PAGE_TITLE": esc(f"{config.SPORTSMAN_MASTHEAD} — {dateline}"),
         "META_DESCRIPTION": esc(
             f"Sports & Sportsman for {dateline} — teams, seasons and the "

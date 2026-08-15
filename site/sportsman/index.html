@@ -536,6 +536,34 @@
     .columns { column-count: 5; }
   }
 
+  /* ---------- Sports & Sportsman page layout ----------
+     One section dwarfs the other three (Our Teams runs 8-10 briefs), so
+     the Times' equal-column grid strands whitespace. Instead: Our Teams
+     fills a wide left block with its briefs in two columns, and Around
+     the Leagues / In Season / On the Water stack in a right rail. */
+
+  @media (min-width: 1024px) {
+    .page.sportsman .sections {
+      display: grid;
+      grid-template-columns: 1.85fr 1fr;
+      column-gap: 34px;
+      align-items: start;
+    }
+    .page.sportsman .sections > .sec { border-left: 0; padding-left: 0; margin-bottom: 22px; }
+    .page.sportsman .sections > .sec:nth-of-type(1) { grid-column: 1; grid-row: 1 / span 3; }
+    .page.sportsman .sections > .sec:nth-of-type(1) .two-col-briefs {
+      column-count: 2;
+      column-gap: 30px;
+      column-rule: 1px solid var(--rule);
+    }
+    .page.sportsman .sections > .sec:nth-of-type(n+2) {
+      grid-column: 2;
+      border-left: 1px solid var(--rule);
+      padding-left: 30px;
+    }
+    .page.sportsman .sections > .sec .section-label { margin-top: 0; }
+  }
+
   @media print {
     body { background: #fff; padding: 0; }
     .page { border: 0; box-shadow: none; max-width: none; }
@@ -545,7 +573,7 @@
 </style>
 </head>
 <body>
-<div class="page">
+<div class="page sportsman">
 
   <div class="top-bar">
     <span>Vol. I — No. 1</span>
@@ -620,6 +648,14 @@
     </div><div class="wv-block sm-seasons">
       <p class="wv-block-label">Also</p>
       <ul class="roundup"><li><span class="place">NC</span> &mdash; Flounder is closed in North Carolina coastal waters and unlawful to possess. Topsail Sound is coastal water, so Marine Fisheries governs it, not the inland digest.<span class="src"><a href="https://www.deq.nc.gov/about/divisions/marine-fisheries/rules-proclamations-and-size-and-bag-limits/recreational-size-and-bag-limits" rel="noopener nofollow">NCDMF</a></span></li><li><span class="place">WV</span> &mdash; Nothing else opens within two weeks. The first general season is squirrel on Sept. 12, with a youth weekend Sept. 5-6.<span class="src">WVDNR</span></li><li><span class="place">WV</span> &mdash; Goose, duck, dove, woodcock and snipe dates are not in the summary table. They come from a separate WVDNR migratory bird publication issued in August, and HIP registration is required.<span class="src">WVDNR</span></li></ul>
+    </div></div>
+</section>
+
+  <section class="sec sec-wire">
+  <div class="section-label">On the Water</div>
+  <div class="two-col-briefs"><div class="wv-block sm-water">
+      <p class="wv-block-label">This morning's readings</p>
+      <ul class="roundup"><li><span class="place">Williams River</span> &mdash; 179 cfs and falling, 2.00 feet. 179 cfs - prime wading water. Low and clear, so the pocket water and plunge pools are the whole river. Long leader, small caddis dry, and a light stonefly nymph through the deeper pockets; a sculpin pattern on the undercut banks.<span class="src">USGS 03186500</span></li><li><span class="place">Ohio River at Point Pleasant</span> &mdash; 25.5 feet and falling. 25.5 ft and falling - normal pool. Ordinary bank access. Normal pool fishes structure. Shad are the forage, so a white swimbait along the wing dams and the riprap, and a crawfish-coloured crankbait tight to the rock.<span class="src">USGS 03201500</span></li><li><span class="place">Ohio River at Huntington</span> &mdash; 27.9 feet and falling. 27.9 ft and falling - up and pushing. Expect colour and current; fish the slack behind anything solid. Up and coloured, so the fish are out of the current. Work the slack behind the wing dams, the barge cuts and the lock wall rather than the open channel.<span class="src">USGS 03206000</span></li><li><span class="place">Topsail Sound</span> &mdash; Sound highs 10:57 a.m. and 11:19 p.m.; lows 5:09 a.m. and 5:24 p.m., at Hampstead. Fish the moving water either side of high at 10:57 AM and 11:19 PM in the sound. Tide first: the water moving off the 10:57 a.m. high is the window. Mud minnows, shrimp and finger mullet are the forage, so work the grass edges and oyster bars, and the dock lights on the late high.<span class="src">NOAA CO-OPS 8657813</span></li></ul>
     </div></div>
 </section>
   </div>
