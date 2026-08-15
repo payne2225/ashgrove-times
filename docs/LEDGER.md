@@ -44,7 +44,8 @@ Four sections, all four maintained every run:
 | **Before 2026-09-13** | **Confirm the September (Aki) basho's real dates by search** and record them below. `config.basho_window()` derives Sep 13–27 from the second-Sunday rule; that is an estimate the validator uses to decide how loudly to advise, never a fact the paper may print. The Japan Sumo Association publishes the schedule — confirm it there or at a wire outlet | **OPEN** |
 | Open-ended | **Ian's answer on the WV outlet list.** `instructions/edition.md` marks the list provisional. When he answers, the playbook is edited and the answer is recorded here | **OPEN — unasked** |
 | 2026-08-06 | **Premier League clubs, answered the same day it was asked.** A reader asked for football in Sports and specified the shape himself: *"emphasis on news from the teams we like, general from the rest of the league."* The allegiances: **Chelsea** (Trav, Ian), **Tottenham** (Nate), **Liverpool** (Pat) — in `config.PREMIER_LEAGUE_SUPPORTERS`, first names only, handles deliberately not recorded because the repo is public. All three meet twice a season, so several times a year one fixture is a house derby; `config.is_house_derby()` catches it and the playbook says to write those straight down the middle | **CLOSED** |
-| Open-ended | **Pages build lag exceeds any sane pre-post poll.** 2026-08-06: `editions/2026-08-06.html` 404'd for the full 120s window so the link was omitted; it returned 200 about 9 minutes after the push (measured build **8m38s**, versus 23s the evening before). Pages is healthy — this is Actions queue lag, not an outage, so do **not** set `PAGES_ENABLED = False`. **RESOLVED 2026-08-06:** the paper no longer waits on it. `python post_discord.py --date YYYY-MM-DD --backfill-link` posts nothing, waits out the build (up to 15 min), and edits the permalink into the message already sent; `instructions/edition.md` §9.5 makes that step 9.5 whenever step 8 times out. It edits content only, never embeds, so it can never trim a published brief. No. 2 was backfilled by hand and now carries its link | **CLOSED** || Open-ended | **Launch `post_discord.py` in the background, and read the clock rather than estimating it.** Logged as a failure twice now, **2026-08-13 and 2026-08-14**, in identical form: the post was started in the foreground, `--not-before 07:00` slept, and the shell killed the command at its own timeout. Nothing posted either morning and `editions/index.json` proved it, so the cost is wasted minutes and a scare, not a lost paper. The companion error both mornings was believing the run was late — 6:23 ET read as 7:38 on the 13th, 6:29 ET read as 7:30 on the 14th. **The hold can sleep the better part of an hour, which is longer than a foreground command may live.** Neither paper was late | **OPEN — third occurrence would mean this row is not being read** |
+| Open-ended | **Pages build lag exceeds any sane pre-post poll.** 2026-08-06: `editions/2026-08-06.html` 404'd for the full 120s window so the link was omitted; it returned 200 about 9 minutes after the push (measured build **8m38s**, versus 23s the evening before). Pages is healthy — this is Actions queue lag, not an outage, so do **not** set `PAGES_ENABLED = False`. **RESOLVED 2026-08-06:** the paper no longer waits on it. `python post_discord.py --date YYYY-MM-DD --backfill-link` posts nothing, waits out the build (up to 15 min), and edits the permalink into the message already sent; `instructions/edition.md` §9.5 makes that step 9.5 whenever step 8 times out. It edits content only, never embeds, so it can never trim a published brief. No. 2 was backfilled by hand and now carries its link | **CLOSED** || Open-ended | **Launch `post_discord.py` in the background, and read the clock rather than estimating it.** Logged as a failure twice now, **2026-08-13 and 2026-08-14**, in identical form: the post was started in the foreground, `--not-before 07:00` slept, and the shell killed the command at its own timeout. Nothing posted either morning and `editions/index.json` proved it, so the cost is wasted minutes and a scare, not a lost paper. The companion error both mornings was believing the run was late — 6:23 ET read as 7:38 on the 13th, 6:29 ET read as 7:30 on the 14th. **The hold can sleep the better part of an hour, which is longer than a foreground command may live.** Neither paper was late | **OPEN — third occurrence would mean this row is not being read. 2026-08-15: launched in the background on the first attempt and the clock was read, not estimated — the row is being read** |
+| Open-ended | **THE `--sportsman` PIPELINE DOES NOT EXIST, AND IT BLOCKS THE SECOND PAPER.** `instructions/routine.md` and `instructions/sportsman.md` both document `validate_edition.py --sportsman`, `render_edition.py --sportsman` and `post_discord.py --sportsman`. `grep -ci sportsman` returns **0** in all three scripts. `config.py` has all 16 sportsman definitions, `fetch_fishing.py` already reports all four sportsman waters, both reference files are transcribed and `editions/sportsman/index.json` exists — commit `ca5293d` shipped everything *except* the pipeline. No branch, no PR. **2026-08-15: the first edition was researched and written to `editions/sportsman/2026-08-15.json` and could not be validated, rendered or posted.** Building the pipeline is a code change for Nate, not something the morning routine should improvise at 5:30 a.m.; hand-building a payload is forbidden by `instructions/edition.md` and was refused. **The edition JSON is ready and will ship unchanged the day the flag lands** | **OPEN — blocking** |
 
 
 ## 2. Forward-dated events
@@ -77,6 +78,12 @@ Four sections, all four maintained every run:
 | **2026-08-18 → 2026-08-21** | **Nick Joe Rahall II Bridge nightly closures, Huntington to South Point** | 10 p.m. to 5 a.m., both directions, annual routine in-service safety inspection; the story named no inspecting agency and no detour. The Herald-Dispatch. **Written, opened and sourced as the `huntington_cabell` line and cut for budget** (`docs/FAILURES.md`). It is a scheduled routine inspection, so it is only a line at all on a thin Cabell morning — do not resurface it as fresh news after Aug. 21 |
 | **Nov-Dec 2026** | **FIFA intercontinental playoffs for the 2027 Women's World Cup** | South Africa and Ghana carry Africa's two places into them, against teams from Asia, Oceania and South America. Al Jazeera. Ran in No. 10's Sports |
 
+
+| **2026-08-16** | **Marshall host Ohio, and both are followed teams** | Women's soccer, 7 p.m. at Hoops Family Field. Marshall opened 3-1 over Morehead State; Ohio is the other side. Marshall Athletics. Ran in Sports & Sportsman No. 1 — **this is the sportsman paper's version of a house derby and it was written straight down the middle.** The result is Monday's line |
+| **2026-08-17** | **Wood County Commission votes on the Lubeck PSD rate increase** | 9:45 a.m. Monday, on a proposed **30%** water and **14%** sewer increase; about 25 people came to Thursday's hearing and the PSD serves over 4,900 customers. Parkersburg News and Sentinel. Ran as No. 11's only regional line — **the vote is the follow-up** |
+| **2026-08-29** | **WV gun bear season opens in selected counties** | Aug. 29 - Sept. 7, season limit 2, daily 1. **The county list is NOT in the pamphlet's summary table**, so no county was named. WVDNR via `reference/wv-hunting-2026-27.json`. Ran as Sports & Sportsman No. 1's only "coming in" entry |
+| **2026-09-12** | **WV squirrel opens, the first general season of the year** | Youth weekend Sept. 5-6, then Sept. 12 - Feb. 28, daily 6. WVDNR reference file. Until then West Virginia has nothing open but year-round species, which is why the sportsman calendar is thin in August |
+| **August 2026** | **WVDNR migratory bird regulations publish** | Goose, duck, dove, woodcock and snipe dates are **not** in the hunting summary table and come from a separate publication issued in August; HIP registration required. Watch for it — it is the next thing that fills the sportsman calendar |
 
 ## 3. Open threads
 
@@ -1525,3 +1532,157 @@ Four sections, all four maintained every run:
   `sciencedaily.com` all opened cleanly. U.S. ran on two outlets rather than three (NPR twice,
   PBS once) and World likewise (Euronews twice, Al Jazeera once); acceptable at two, but both
   sections were one byline short of the standard.
+
+---
+
+### 2026-08-15 — No. 11, and Sports & Sportsman No. 1 (written, not posted)
+
+- **flores-earthquake** — new, led No. 11. **Magnitude 7.7** off **Flores**, Indonesia at
+  **5:58 a.m.** local Saturday, **68 km north-northwest of Ende** at **10 km** depth (USGS).
+  **At least 20 dead, six injured**, per **Fathur Rahman**, head of the Maumere search and
+  rescue agency. **Eight bodies from a landslide at Reok village**; buildings down across
+  **Sikka, West Manggarai and East Manggarai** regencies; landslides in **Ende regency cut the
+  Trans-Flores highway**, the **700 km** road spanning the island; about **2,000** villagers in
+  **Nagekeo** regency in shelters. **BMKG** issued a tsunami warning and lifted it after no
+  significant sea-level change. Aftershocks **6.1, 5.9, 5.6** within 30 minutes. USGS estimated
+  **500,000+** felt very strong shaking. Cross-checked **Al Jazeera** and **NPR/AP**. Al Jazeera
+  has "two trapped under rubble in Maumere" where NPR has "two missing in a landslide" — **that
+  detail was dropped rather than reconciled.** **Toll will move; re-check before citing.**
+- **mangione-federal-plea** — new, No. 11's first U.S. brief. Pleaded guilty **Friday** in
+  Manhattan federal court to **two stalking counts** in the Dec. 4, 2024 killing of
+  UnitedHealthcare CEO **Brian Thompson**; two counts including murder by firearm, which carried
+  the death penalty, were **dismissed earlier this year** and prosecutors will not appeal.
+  **Sentencing Dec. 18**; no parole in the federal system and 85% of any sentence must be served.
+  Defence counsel **Karen Friedman Agnifilo** immediately moved to dismiss the **state** case on
+  New York double-jeopardy grounds; **that state trial is set for September and is the news.**
+  CBS News.
+- **white-house-ballroom** — new, No. 11's second U.S. brief. DOJ asked the **Supreme Court**
+  on Aug. 14 to stay a **D.C. Circuit** injunction of **Aug. 7** halting the **$400M** East Wing
+  ballroom unless Congress approves it; the panel wrote that "whether or not a massive ballroom
+  should be constructed is for Congress to decide." **Work stops Aug. 21** absent a stay. Suit
+  brought by the **National Trust for Historic Preservation** in December. Al Jazeera.
+  **A ruling on the stay is the news.**
+- **haitian-tps-ohio** — new, No. 11's third U.S. brief and the Ohio Valley angle on it.
+  Haitians in **Springfield, Ohio** who lost **Temporary Protected Status** in July have been
+  summoned to an ICE facility to be fitted with **ankle monitors**; **ICE has not said why**.
+  **Viles Dorsainvil**, executive director of the Haitian Support Center, is the named source.
+  NPR via WYSO, Aug. 13. **News again on a removal, or on an ICE explanation.**
+- **drc-ebola** — new, No. 11's first World brief. **4,600+ confirmed cases, at least 2,100
+  dead**, **Bundibugyo** strain — a variant with **no approved vaccine or therapeutic** that
+  kills 25-50%. Began February, declared May, eastern Congo around **Bunia**, a new province
+  added Aug. 13. **Tedros Adhanom Ghebreyesus**: "It's already the second biggest Ebola epidemic
+  on record. And it's moving faster than any previous Ebola outbreak." **Dr. Anne Rimoin**
+  (UCLA) quoted. PBS NewsHour. **The 2014-16 West African outbreak killed 11,000+ — that is the
+  benchmark it is being measured against.** Live and moving.
+- **europe-wildfires-2026** — **moved and ran again as No. 11's second World brief**, one day
+  after No. 10 carried it, because the ledger's own trigger fired: **a death.** A charred body
+  was found at **Omis**, Croatia; **40** treated at Split with **at least seven** serious;
+  **2,000** left coastal villages; fire chief **Slavko Tucakovic** called it "one of the worst in
+  Croatia's history." Also **19 hospitalised and 20-30 homes destroyed at Stourbridge** in the
+  West Midlands (MP **Cat Eccles**), **1,800** evacuated at **Gey**, Germany, **525** from
+  **Luglon** in the **Landes** where **1,100 hectares** have burned since Thursday with **500
+  firefighters and six aircraft**, and **300+** taken off the beach by boat at **Siviri**,
+  Greece. **500,000 hectares** EU-wide this year. Al Jazeera. **News again on a national
+  emergency declaration or an EU civil-protection deployment.**
+- **hormuz-reopening** — **moved and ran as No. 11's third World brief**, its fourth appearance.
+  Trump, in **New York on Friday**: "After we finish defeating Iran, which is being very badly
+  defeated, pretty soon I'll be declaring the Hormuz Strait a territory of the United States."
+  Iran's deputy foreign minister for legal and international affairs **Kazem Gharibabadi**: the
+  strait "cannot be taken over by a tweet, nor by an aircraft carrier, nor by issuing a decree."
+  Al Jazeera adds the war began **Feb. 28**, a ceasefire memorandum was signed **June 17** and
+  both sides claimed violations by month's end; **Scott Bessent** signalled new economic
+  measures; a late-July **Quinnipiac** poll had **60%** of US voters opposed to military action.
+  **News again on an actual declaration, an Oman corridor deal, or a seizure.**
+- **wv-storm-emergency** — new, No. 11's first statewide brief **and the live WV thread.**
+  Morrisey extended the **July 21** storm State of Emergency in **12** counties — Barbour,
+  Doddridge, Harrison, Lewis, Pendleton, Pleasants, Randolph, Ritchie, Tucker, Tyler, Upshur and
+  Wetzel — **through Sept. 19**, while it **expires Aug. 20 in 43 others**. About **1,300 Upshur
+  homes**, roughly **10%** of the county, were hit. Federal disaster declarations cover
+  **Upshur, Lewis, Ritchie and Pleasants**; recovery centres open at **Weston and Buckhannon**;
+  county EM director **Steve Wykoff** says most residents have finished debris removal. WV
+  MetroNews. **News again on the Aug. 20 expiry in the other 43, or a new declaration.**
+- **greenbrier-casino** — **moved and ran as No. 11's second statewide brief**, the ledger's
+  Aug. 15 forward-dated row arriving. Lottery acting director **David Bradley** released a
+  letter Friday replying to Justice counsel **Steve Ruby**: approval of the new key members
+  "remains pending and cannot be completed without a properly noticed meeting and vote of the
+  Commission," and the casino **could keep operating** if the Justice side supplies "a sufficient
+  plan that appropriately walls off the holding company." About **90** jobs are at stake and
+  employees have **WARN** notices with a 60-day pay-and-benefits period. **Bradley told counsel
+  on July 10** the review was unlikely to finish before the **Aug. 26** regular meeting. WSAZ.
+  **The outlets still disagree on the filing day and the Volk deadline, so no filing date has
+  ever been printed.** **An actual closure, or the Aug. 26 vote, is the news.**
+- **lubeck-psd-rates** — new, and it is **the only regional line No. 11 could source.** About
+  **25** people came to Thursday's Wood County Commission hearing on Lubeck PSD's proposed **30%**
+  water and **14%** sewer increase; the district serves **over 4,900** customers including six
+  industrial ones. **Kevin Watkins** (Thrasher Group) said the plant "is almost at capacity";
+  Commissioner **Jimmy Colombo** and Commission President **Blair Couch** ("I have never heard
+  from anyone who said their water is bad or undrinkable") pushed back; PSD manager **Rocky
+  McConnell** quoted. Parkersburg News and Sentinel. **Vote 9:45 a.m. Monday, Aug. 17.**
+- **wvu-women-soccer** — new, ran in No. 11's Sports and in Sports & Sportsman No. 1.
+  **No. 20 West Virginia 2-0 Dayton** at **Dick Dlesk Soccer Stadium** Thursday — **Sophia
+  Nickel at 45:54**, 54 seconds into the second half, and a Dayton **own goal at 63:00** off a
+  **Maya Leoni** corner. Coach **Nikki Izzo-Brown**: "First game, you hope for 90 minutes of
+  perfection. The good thing is we won in 45 min." First of **10** home matches. WV MetroNews.
+  **Note this was corrected mid-run: it is the WOMEN's team. The men open Aug. 20 at Charlotte** —
+  and `docs/FAILURES.md` records that the men's opener was the brief lost to MetroNews'
+  interstitial on 2026-08-14, so the two are easy to confuse. Do not repeat the mix-up.
+- **sumo-off-basho** — the daily sumo search ran and **found something for the first time in
+  days**, from the JSA's own English page rather than a reseller: the **summer regional tour
+  (jungyo) is at Akita** on Aug. 15, and the **September Tokyo tournament is listed sold out on
+  every date**. No. 2 printed the Aug. 8 on-sale date; **the sellout is the new fact, not a
+  re-run of that one.** **`sumo.or.jp/En/` still does not print the Aki dates** — Sept 13-27
+  remains **derived and unconfirmed**, carried only by ticket and travel sites this paper will
+  not cite. **The Aug. 31 banzuke release is still the moment a citable outlet must print them.**
+- **mlb-aug-14** — Reds **1-0** over Miami (**Chase Burns** to **14-2, 2.47**; **Sandy
+  Alcantara** to 13-7) and Pirates **8-4** over Boston (**Bubba Chandler** to 6-8; **Jake
+  Bennett** to 7-6), from **mlb.com/scores**, opened twice. Also Cubs 3-0 Cardinals and Astros
+  10-7 Mariners in 10. **`docs/FAILURES.md` records an aggregator that had the Reds beating the
+  White Sox 9-8 the same day — it had merged two games.** Primary source won.
+- **hunter-greene-surgery** — **searched, real, and deliberately NOT run.** Reds ace **Hunter
+  Greene** had a **second Tommy John surgery** Wednesday, ending 2026 and likely all of 2027.
+  Every route to it failed: `mlb.com`'s own article returned **HTTP 406** and the rest were
+  aggregators. **It would have been the strongest Reds line in Sports & Sportsman No. 1 and was
+  dropped rather than written from a search snippet.** **Open it tomorrow and run it** — it is
+  still news a week from now.
+- **premier-league-preseason** — all three followed clubs are in their **final friendlies**
+  before the **Aug. 21** opener: Chelsea beat **AC Milan 3-0** Aug. 8 and drew **3-3** with Johor
+  Darul Ta'zim Aug. 9, and host **Real Sociedad** Aug. 15; Tottenham drew **1-1** with Getafe and
+  take **Hoffenheim** Aug. 15 and 16; Liverpool lost **3-2** to Monaco Aug. 9 and meet **Como**
+  Aug. 16. premierleague.com. **The ledger's Aug. 8 Chelsea-Milan row is now spent.**
+  **The Aug. 21 opening weekend is the first real football of the season for both papers.**
+- **nc-coastal-limits** — confirmed **today** off NCDMF's own HTML table and printed in Sports &
+  Sportsman No. 1: **flounder CLOSED and unlawful to possess**; **red drum** 18-27 in. TL, 1/day,
+  no gigging or spearing; **spotted seatrout** 14-20 in. slot with one over 26 in., 3/day;
+  **sheepshead** 14 in., 5/day. **The fall flounder opening was NOT printed**: the only dates
+  available were **NCWRC's** (the inland agency, wrong water) and DMF proclamation
+  **FF-27-2026**, which is **PDF-only and unreadable to this pipeline**. The DMF page that works
+  is the canonical one, **not** the `/open` variant, which serves a PDF. **Re-confirm the limits
+  each time; do not carry these forward from this ledger.**
+- **stanford-brain-immunity** — new, ran in No. 11's Sci/Tech. Stanford (**Julia Belk** first
+  author, **Siddhartha Jaiswal** senior, **Howard Chang** co-senior) traced somatic mutations in
+  paired blood and post-mortem brain tissue and found blood immune cells crossing into the brain
+  from **middle age** and becoming **microglia**, overturning the assumption that microglia are a
+  self-sustaining population set at birth. **Absent in mice and non-human primates** — a human
+  feature. *Nature*, **Aug. 14**. `source` names the institution, the convention since No. 4.
+- **estrogen-dementia** — new, ran in No. 11's Sci/Tech. Across **21,462** women, estrogen-only
+  menopausal hormone therapy users had **39%** lower odds of a dementia diagnosis and **35%**
+  lower odds of Alzheimer's pathology at autopsy. **Neurology**, **Aug. 12**; senior author
+  **Hadi Hosseini**. **The authors' own limitation — association, not causation — ran in the
+  brief**, because this is exactly the kind of health finding a reader acts on.
+- **double-chooz-antineutrinos** — **written and then cut for budget and age.** The Double Chooz
+  collaboration measured residual antineutrinos from a shut-down reactor at **Chooz**, France —
+  about **100** candidate events over **17.2 days** with both cores off, **Physical Review
+  Letters, Aug. 4**, quoted **Anthony Onillon** and **Thierry Lasserre** (MPIK). At 11 days it
+  was the oldest thing in the paper and it lost the third Sci/Tech slot. **Spent — do not run it
+  next week as if it were new.**
+
+**Run notes for tomorrow.** `config.head_start_minutes('2026-08-15')` returns **90**, not 60,
+and that is **correct now** — the two-paper morning moved the wake to **5:30** and
+`config.cron_for()` returns `30 9 * * *` to match. The edition.md text that says the head start
+"should be 60" predates the second paper; it is not a daylight-saving fault and needs no
+`FAILURES.md` line. **The 90 minutes were genuinely needed**: research ran about 20 minutes and
+the two papers were built inside it with room left, but only because the sportsman paper never
+reached validation, rendering or posting. **When the pipeline exists, budget for those three
+steps on top.** Also: an early clock-check is worth doing on purpose — this run spent its first
+twenty minutes believing it was far later than it was, and nearly shipped a thinner Times
+because of it. Read the clock before deciding anything is late.

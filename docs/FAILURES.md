@@ -331,3 +331,43 @@ and the failure protocol at the bottom of that file appends here too.
   is mechanical and now written in the ledger's standing commitments: **launch the post
   in the background on the first attempt, and never estimate elapsed time — read the
   clock.**
+- **2026-08-15** — *the second paper cannot ship: the pipeline flag does not exist* — This
+  was the morning **Sports & Sportsman** was scheduled to run its first edition, and it
+  could not. `instructions/routine.md` and `instructions/sportsman.md` both document
+  `python validate_edition.py <path> --sportsman`, `python render_edition.py --sportsman`
+  and `python post_discord.py --sportsman`. **No such flag exists in any of the three
+  scripts** — `grep -ci sportsman` returns **0** for `validate_edition.py`,
+  `render_edition.py` and `post_discord.py`. What *does* exist is the whole surrounding
+  layer: `config.py` carries 16 sportsman references (masthead, tagline,
+  `SPORTSMAN_SECTIONS`, `SPORTSMAN_WATERS`, `SPORTSMAN_AGENCIES`, `SPORTSMAN_MAX_PER_LEAGUE`,
+  `SPORTSMAN_TARGET_ET` 07:05, `SPORTSMAN_WEBHOOK_ENV`), `fetch_fishing.py` already reports
+  all four sportsman waters, both reference files are transcribed, and
+  `editions/sportsman/index.json` exists as an empty ledger. Commit `ca5293d` ("Sports &
+  Sportsman goes live tomorrow") shipped the identity, data and playbook and **never
+  shipped the pipeline**. There is no branch and no PR carrying it — `origin/main` is the
+  only ref and the PR list is empty. **Nothing was posted to the sportsman channel.** The
+  webhook was supplied and is fine; the destination was never the problem. Hand-building a
+  Discord payload was refused deliberately: `instructions/edition.md` forbids hand-edited
+  payloads and hand-written HTML in as many words, and a channel's first-ever message is
+  the worst possible place to improvise a format that no validator has ever checked.
+  **`editions/sportsman/2026-08-15.json` is written, researched and committed** as Vol. I
+  No. 1 to the contract in `instructions/sportsman.md`, so it can ship unchanged the
+  morning the flag lands. Its fishing numbers were hand-checked against `out/fishing.json`
+  in the absence of a validator and all four waters match.
+- **2026-08-15** — *source reachability* — `deq.nc.gov`'s size-and-bag-limits page serves the
+  table as **HTML at the canonical URL but as an unreadable PDF at the `/open` variant**, and
+  the flounder proclamation `FF-27-2026` is PDF-only and could not be read — so the fall
+  flounder opening date was **not printed**, only the closure that DMF's own HTML table
+  states. `med.stanford.edu` opened but `news.stanford.edu` **403'd**; `sdss.org` opened;
+  `espn.com` returned **empty markdown** for three separate pages (MLB scoreboard, two team
+  schedule pages, the confirmed-transfers story), which is the second morning running that
+  ESPN has been unusable. `herdzone.com` returned title-only markdown. `cbssports.com`
+  exceeded the 10 MB fetch limit on its scoreboard. `mlb.com/scores` opened cleanly twice and
+  is what the baseball lines rest on.
+- **2026-08-15** — *aggregator caught contradicting the primary source* — a radio-station
+  "sports daily digest" had **"Reds 9-8 over the White Sox"** for Aug. 14 while
+  `mlb.com/scores/2026-08-14` had **Reds 1-0 over Miami** and, separately, White Sox 9,
+  Tigers 5 — the digest had merged two games. MLB.com was re-opened and confirmed the same
+  line twice, and the digest's NFL preseason scores were **dropped entirely** rather than
+  carried on the same source's word. Worth remembering: that class of site is exactly where a
+  fabricated-looking number enters a paper that is otherwise careful.
