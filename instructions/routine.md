@@ -69,7 +69,10 @@ python validate_edition.py editions/sportsman/YYYY-MM-DD.json --sportsman \
     --fishing out/fishing.json
 python render_edition.py --sportsman --date YYYY-MM-DD
 DISCORD_SPORTSMAN_WEBHOOK_URL="<from your prompt>" python post_discord.py \
-    --sportsman --date YYYY-MM-DD --not-before 07:05
+    --sportsman --date YYYY-MM-DD --not-before 07:05 \
+    --page-url https://payne2225.github.io/ashgrove-times/sportsman/YYYY-MM-DD.html
+DISCORD_SPORTSMAN_WEBHOOK_URL="<from your prompt>" python post_discord.py \
+    --sportsman --date YYYY-MM-DD --backfill-link   # only if the link was omitted
 ```
 
 The validator must exit 0. **Fix the edition, never the validator** — not

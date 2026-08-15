@@ -1149,6 +1149,11 @@ def page_url(date: str) -> str:
     return f"{PAGES_BASE_URL}/editions/{date}.html"
 
 
+def sportsman_page_url(date: str) -> str:
+    """Permalink for a dated Sports & Sportsman edition."""
+    return f"{PAGES_BASE_URL}/sportsman/{date}.html"
+
+
 # ------------------------------------------------------------------- ledger
 
 # editions/index.json is the authority for monotonic edition numbers and the

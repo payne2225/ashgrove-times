@@ -2251,6 +2251,331 @@ def _check_ledger(edition: dict, date: str) -> tuple[list[str], list[str]]:
     return errors, notes
 
 
+# --------------------------------------------------- Sports & Sportsman
+
+# The second paper's contract. Kept apart from the newspaper checks for the
+# same reason the poster keeps a separate builder: the two papers share a
+# voice and a truth standard but not a shape, and one validator serving both
+# would weaken each. The instructions in instructions/sportsman.md are the
+# spec these checks enforce.
+
+SM_TOP_KEYS = {"edition_date", "edition_number", "volume", "sections",
+               "kicker", "sources_note"}
+SM_SECTION_ORDER = ("teams", "leagues", "seasons", "water")
+SM_SEASON_BUCKETS = ("coming_in", "prime", "going_out")
+SM_NUMBER_RE = re.compile(r"\d+:\d+|\d+(?:\.\d+)?")
+SM_MONTH_DAY_RE = re.compile(
+    r"\b(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec)\.?\s+(\d{1,2})\b")
+SM_MONTHS = {"jan": 1, "feb": 2, "mar": 3, "apr": 4, "may": 5, "jun": 6,
+             "jul": 7, "aug": 8, "sep": 9, "sept": 9, "oct": 10,
+             "nov": 11, "dec": 12}
+
+
+def _sm_briefs(section: dict, path: str) -> tuple[list[dict], list[str]]:
+    errors: list[str] = []
+    briefs = section.get("briefs")
+    if not isinstance(briefs, list):
+        return [], [f"{path}.briefs must be a list"]
+    out = []
+    for i, brief in enumerate(briefs):
+        where = f"{path}.briefs[{i}]"
+        if not isinstance(brief, dict):
+            errors.append(f"{where} must be an object")
+            continue
+        for key in ("headline", "summary", "source"):
+            if not _nonempty_str(brief.get(key)):
+                errors.append(f"{where}.{key} must be a non-empty string")
+        out.append(brief)
+    return out, errors
+
+
+def _sm_check_teams(section: dict) -> tuple[list[str], list[str]]:
+    """Every followed team is covered or accounted for — the section's job."""
+    errors: list[str] = []
+    notes: list[str] = []
+    briefs, brief_errors = _sm_briefs(section, "teams")
+    errors += brief_errors
+
+    # Coverage counts only UNAMBIGUOUS matches. "Spurs" in a football brief
+    # would otherwise mark San Antonio covered too, and then collide with a
+    # perfectly correct sat_out entry — which is exactly what happened on
+    # the first edition validated.
+    ambiguous = set(config.ambiguous_aliases())
+    covered: set[str] = set()
+    for brief in briefs:
+        text = f"{brief.get('headline', '')} {brief.get('summary', '')}"
+        low = text.lower()
+        for team in config.find_team(text):
+            plain = [n for n in config.team_names(team)
+                     if n.lower() in low and n.lower() not in ambiguous]
+            if plain:
+                covered.add(team["name"])
+
+    sat_out = section.get("sat_out")
+    accounted: set[str] = set()
+    known = {t["name"] for t in config.FOLLOWED_TEAMS}
+    if sat_out is not None:
+        if not isinstance(sat_out, list):
+            errors.append("teams.sat_out must be a list")
+        else:
+            for i, entry in enumerate(sat_out):
+                if not isinstance(entry, dict):
+                    errors.append(f"teams.sat_out[{i}] must be an object")
+                    continue
+                name = entry.get("team")
+                if name not in known:
+                    errors.append(
+                        f"teams.sat_out[{i}].team {name!r} is not in "
+                        "config.FOLLOWED_TEAMS")
+                elif not _nonempty_str(entry.get("reason")):
+                    errors.append(f"teams.sat_out[{i}].reason is required — "
+                                  "a team sits out for a stated reason")
+                else:
+                    accounted.add(name)
+
+    both = covered & accounted
+    if both:
+        errors.append(
+            "teams listed as sat_out but also covered in a brief: "
+            + ", ".join(sorted(both)))
+    missing = known - covered - accounted
+    if missing:
+        notes.append(
+            "followed teams neither covered nor in sat_out: "
+            + ", ".join(sorted(missing))
+            + " — every team is covered or accounted for, by name")
+    return errors, notes
+
+
+def _sm_check_seasons(section: dict, date: str | None) -> tuple[list[str], list[str]]:
+    """Season dates and limits: the one place being wrong has consequences.
+
+    WV entries are checked against the transcribed pamphlet — including its
+    expiry, after which the reference is dangerous rather than stale. NC
+    entries must be cited to Marine Fisheries with a link, because Topsail
+    is coastal water and NC dates are looked up live.
+    """
+    errors: list[str] = []
+    notes: list[str] = []
+
+    reference = None
+    try:
+        with open(_repo(*config.WV_SEASONS_REFERENCE.split("/")),
+                  encoding="utf-8") as f:
+            reference = json.load(f)
+    except (OSError, ValueError):
+        notes.append("WV seasons reference file unreadable — WV entries "
+                     "checked for citation only")
+
+    wv_current = config.wv_seasons_current(date) if _is_str(date) else True
+
+    def check_entry(entry: object, where: str) -> None:
+        if not isinstance(entry, dict):
+            errors.append(f"{where} must be an object")
+            return
+        state = entry.get("state")
+        if state not in ("WV", "NC"):
+            errors.append(f"{where}.state must be 'WV' or 'NC'")
+            return
+        if not _nonempty_str(entry.get("species")):
+            errors.append(f"{where}.species is required — a limit with no "
+                          "animal attached is unreadable")
+        if not _nonempty_str(entry.get("item")):
+            errors.append(f"{where}.item must be a non-empty string")
+            return
+        source = str(entry.get("source") or "")
+        if state == "WV":
+            if "WVDNR" not in source:
+                errors.append(f"{where}.source must cite WVDNR")
+            if not wv_current:
+                errors.append(
+                    f"{where}: the transcribed WV regulations expired "
+                    f"{config.WV_SEASONS_VALID_THROUGH} — print no WV date "
+                    "until the reference file is replaced")
+            elif reference:
+                _sm_check_wv_dates(entry, where, reference, errors, notes)
+        else:
+            if "NCDMF" not in source and "Marine Fisheries" not in source:
+                errors.append(
+                    f"{where}.source must cite NCDMF — Topsail is coastal "
+                    "water and the inland digest does not govern it")
+            if not _nonempty_str(entry.get("url")):
+                errors.append(f"{where}.url is required — NC limits are "
+                              "looked up live and linked")
+
+    for bucket in SM_SEASON_BUCKETS:
+        entries = section.get(bucket)
+        if entries is None:
+            continue
+        if not isinstance(entries, list):
+            errors.append(f"seasons.{bucket} must be a list")
+            continue
+        for i, entry in enumerate(entries):
+            check_entry(entry, f"seasons.{bucket}[{i}]")
+    for i, note in enumerate(section.get("notes") or []):
+        if isinstance(note, dict) and note.get("item"):
+            continue
+        errors.append(f"seasons.notes[{i}] must be an object with an item")
+    return errors, notes
+
+
+def _sm_check_wv_dates(entry: dict, where: str, reference: dict,
+                       errors: list[str], notes: list[str]) -> None:
+    """Any explicit date in a WV entry must exist in the pamphlet table."""
+    species = str(entry.get("species") or "").lower()
+    rows = [row for row in reference.get("seasons", [])
+            if species and (species in row.get("species", "").lower()
+                            or row.get("species", "").lower() in species)]
+    if not rows:
+        notes.append(f"{where}: species {entry.get('species')!r} not found "
+                     "in the WV reference table — confirm it by hand")
+        return
+    boundaries: set[tuple[int, int]] = set()
+    for row in rows:
+        for window in row.get("windows") or []:
+            for iso in window:
+                boundaries.add((int(iso[5:7]), int(iso[8:10])))
+    text = f"{entry.get('dates', '')} {entry.get('item', '')}"
+    for month_name, day in SM_MONTH_DAY_RE.findall(text):
+        claimed = (SM_MONTHS[month_name.lower()[:4].rstrip(".")], int(day))
+        if claimed not in boundaries:
+            errors.append(
+                f"{where} claims {month_name} {day} but no "
+                f"{entry.get('species')} window in the WV reference opens or "
+                "closes that day — a season date that contradicts the "
+                "pamphlet may not print")
+
+
+def _sm_check_water(section: dict, fishing: dict | None) -> tuple[list[str], list[str]]:
+    """Gauge lines trace to out/fishing.json, same rule as the stat strip."""
+    errors: list[str] = []
+    notes: list[str] = []
+    waters = section.get("waters")
+    if not isinstance(waters, list) or not waters:
+        return ["water.waters must be a non-empty list"], []
+    if fishing is None:
+        notes.append("no fishing data supplied — water lines checked for "
+                     "shape only")
+
+    records: list[tuple[str, str]] = []
+    if fishing:
+        for key in ("williams", "topsail"):
+            record = fishing.get(key)
+            if record:
+                records.append((str(record.get("water", key)),
+                                json.dumps(record)))
+        for record in fishing.get("ohio") or []:
+            records.append((str(record.get("water", "")), json.dumps(record)))
+
+    for i, entry in enumerate(waters):
+        where = f"water.waters[{i}]"
+        if not isinstance(entry, dict):
+            errors.append(f"{where} must be an object")
+            continue
+        name = str(entry.get("water") or entry.get("name") or "")
+        line = str(entry.get("line") or entry.get("read") or "")
+        if not name or not line:
+            errors.append(f"{where} needs both a water and a line")
+            continue
+        if not fishing:
+            continue
+        # Best word-overlap match, not substring: the edition says "Topsail
+        # Sound" while the fetcher says "Topsail Beach (surf and sound)",
+        # and both Ohio gauges share "Ohio River" — scoring picks Point
+        # Pleasant vs Huntington by their distinguishing words.
+        def score(rec_name: str) -> int:
+            rec_words = set(re.findall(r"[a-z]+", rec_name.lower()))
+            ours = set(re.findall(r"[a-z]+", name.lower()))
+            return len(rec_words & ours - {"river", "at", "the", "and"})
+        best = max((score(rec_name) for rec_name, _ in records), default=0)
+        matches = [blob for rec_name, blob in records
+                   if best and score(rec_name) == best]
+        if not matches:
+            errors.append(f"{where}.water {name!r} matches nothing in "
+                          "out/fishing.json — a water the fetcher did not "
+                          "report gets no line")
+            continue
+        haystack = " ".join(matches)
+        for token in SM_NUMBER_RE.findall(line):
+            if token in haystack:
+                continue
+            # Whole-number quotes of decimal readings are honest rounding.
+            if "." not in token and ":" not in token:
+                if re.search(rf"\b{token}\.\d", haystack):
+                    continue
+            errors.append(
+                f"{where}.line prints {token} but out/fishing.json has no "
+                f"such reading for {name} — same rule as the stat strip")
+        if re.search(r"\d{2,3}(?:\.\d)?\s*(?:°|degrees?|deg|F\b)", line) \
+                and "topsail" in name.lower() \
+                and "wrightsville" not in line.lower():
+            errors.append(
+                f"{where}: a Topsail water temperature must credit "
+                "Wrightsville Beach — the reading is measured 25 miles away")
+    return errors, notes
+
+
+def validate_sportsman(edition: dict, fishing: dict | None) -> tuple[list[str], list[str]]:
+    """The whole Sports & Sportsman gate: (errors, advisories)."""
+    errors: list[str] = []
+    notes: list[str] = []
+
+    missing = SM_TOP_KEYS - set(edition)
+    if missing:
+        errors.append(f"missing top-level key(s): {', '.join(sorted(missing))}")
+    unknown = set(edition) - SM_TOP_KEYS
+    if unknown:
+        errors.append(f"unknown top-level key(s): {', '.join(sorted(unknown))}"
+                      " (the sportsman contract is its own, not the Times')")
+
+    number = edition.get("edition_number")
+    if not isinstance(number, int) or number < 1:
+        errors.append("edition_number must be a positive integer")
+
+    sections = edition.get("sections")
+    if not isinstance(sections, list):
+        return errors + ["sections must be a list"], notes
+    ids = [s.get("id") for s in sections if isinstance(s, dict)]
+    if tuple(ids) != SM_SECTION_ORDER:
+        errors.append(
+            f"sections must be exactly {list(SM_SECTION_ORDER)} in order, "
+            f"got {ids}")
+        return errors, notes
+    by_id = {s["id"]: s for s in sections if isinstance(s, dict)}
+
+    team_errors, team_notes = _sm_check_teams(by_id["teams"])
+    errors += team_errors
+    notes += team_notes
+
+    _, league_errors = _sm_briefs(by_id["leagues"], "leagues")
+    errors += league_errors
+
+    season_errors, season_notes = _sm_check_seasons(
+        by_id["seasons"], edition.get("edition_date"))
+    errors += season_errors
+    notes += season_notes
+
+    water_errors, water_notes = _sm_check_water(by_id["water"], fishing)
+    errors += water_errors
+    notes += water_notes
+
+    # Exact size, measured off the real payload builder — never estimated.
+    try:
+        import post_discord
+        payload = post_discord.build_sportsman_payload(copy.deepcopy(edition))
+        chars = post_discord.embed_text_length(payload["embeds"])
+        if chars > 6000:
+            errors.append(f"embeds measure {chars} chars — over Discord's "
+                          "6000 ceiling")
+        elif chars > 5600:
+            notes.append(f"embeds measure {chars} chars — close to the 6000 "
+                         "ceiling")
+    except Exception as exc:  # noqa: BLE001 — measurement, not delivery
+        notes.append(f"could not measure the payload ({exc}); size unchecked")
+
+    return errors, notes
+
+
 def main() -> int:
     config.use_utf8_stdio()
     parser = argparse.ArgumentParser(description=__doc__)
@@ -2265,6 +2590,9 @@ def main() -> int:
                                help="out/fishing.json for the fishing-line check")
     fishing_group.add_argument("--no-fishing", action="store_true",
                                help="skip the fishing-line check (fixtures only)")
+    parser.add_argument("--sportsman", action="store_true",
+                        help="validate a Sports & Sportsman edition against "
+                             "its own contract instead of the newspaper's")
     parser.add_argument("--no-urls", action="store_true",
                         help="skip url liveness checks (offline)")
     parser.add_argument("--strict", action="store_true",
@@ -2285,6 +2613,35 @@ def main() -> int:
 
     errors: list[str] = []
     notes: list[str] = []
+
+    if args.sportsman:
+        fishing, fishing_notes = _resolve_fishing(
+            args.fishing, skip=args.no_fishing)
+        notes += fishing_notes
+        sm_errors, sm_notes = validate_sportsman(edition, fishing)
+        errors += sm_errors
+        notes += sm_notes
+        basename = os.path.basename(args.path)
+        dated = DATED_FILE_RE.match(basename)
+        if dated and edition.get("edition_date") != dated.group(1):
+            errors.append(
+                f"edition_date {edition.get('edition_date')!r} does not "
+                f"match the filename {basename}")
+        for note in notes:
+            print(f"WARN: {note}", file=sys.stderr)
+        for error in errors:
+            print(f"ERROR: {error}", file=sys.stderr)
+        if errors:
+            print(f"FAILED: {len(errors)} error(s)", file=sys.stderr)
+            return 1
+        if not args.quiet:
+            sections = {s.get("id"): s for s in edition.get("sections") or []}
+            briefs = sum(len(sections.get(k, {}).get("briefs") or [])
+                         for k in ("teams", "leagues"))
+            print(f"OK: {args.path} — Sports & Sportsman No. "
+                  f"{edition.get('edition_number')}, {briefs} briefs, "
+                  f"{len(sections.get('water', {}).get('waters') or [])} waters")
+        return 0
 
     # Resolved first: a dated edition is a real morning paper, and the
     # fetched-data gates are stricter for one than they are for a fixture.

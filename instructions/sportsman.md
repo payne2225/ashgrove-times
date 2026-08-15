@@ -220,10 +220,22 @@ If a water's reading is missing, that water gets no advice at all.
 python validate_edition.py editions/sportsman/YYYY-MM-DD.json --sportsman \
     --fishing out/fishing.json
 python render_edition.py --sportsman --date YYYY-MM-DD
-git add -A && git commit && git push
+git add -A && git commit && git push          # publishes site/sportsman/
 DISCORD_SPORTSMAN_WEBHOOK_URL="<from your prompt>" python post_discord.py \
-    --sportsman --date YYYY-MM-DD --not-before 07:30
+    --sportsman --date YYYY-MM-DD --not-before 07:05 \
+    --page-url https://payne2225.github.io/ashgrove-times/sportsman/YYYY-MM-DD.html
+DISCORD_SPORTSMAN_WEBHOOK_URL="<from your prompt>" python post_discord.py \
+    --sportsman --date YYYY-MM-DD --backfill-link   # only if the link was omitted
 ```
+
+Validate against the SAME `out/fishing.json` the edition was written from —
+the water check byte-matches gauge numbers, and the gauges drift, so a
+re-fetch between writing and validating fails honest lines.
+
+Same link rule as the Times: check the page URL returns 200 before passing
+`--page-url`; if Pages has not built yet, post without it and run
+`--backfill-link`, which waits out the build and edits the link in. Never
+stall the post waiting on a webpage.
 
 The webhook env var is **`DISCORD_SPORTSMAN_WEBHOOK_URL`** and it is a
 DIFFERENT channel from the main paper. Never post this edition with the

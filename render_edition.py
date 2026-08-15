@@ -1083,6 +1083,146 @@ def render_fallback_banner(out_path: str) -> bool:
 # CLI
 # --------------------------------------------------------------------------
 
+# --------------------------------------------------- Sports & Sportsman
+
+def _sm_roundup_item(blocks: dict[str, str], head: str, item: str,
+                     entry: dict) -> str:
+    """One notebook-style line: bold head, sentence, source."""
+    dateline = fill(blocks["ROUNDUP_DATELINE"], {
+        "PLACE": esc(head), "PEOPLE": "",
+    }) if head else ""
+    return fill(blocks["ROUNDUP_ITEM"], {
+        "DATELINE": dateline,
+        "ITEM": esc(item),
+        "SOURCE": _source_html(blocks, entry),
+    })
+
+
+def _sm_seasons_html(blocks: dict[str, str], section: dict) -> str:
+    """In Season as three labelled groups plus the notes, notebook-style."""
+    groups = []
+    for key, label in (("coming_in", "Coming in"), ("prime", "Prime"),
+                       ("going_out", "Going out")):
+        items = []
+        for entry in (section.get(key) or []):
+            if not isinstance(entry, dict):
+                continue
+            item = _norm(entry.get("item") or entry.get("text"))
+            if not item:
+                continue
+            head = _norm(entry.get("species"))
+            if head and entry.get("method"):
+                head += f" ({_norm(entry['method'])})"
+            if head and entry.get("dates"):
+                head += f", {_norm(entry['dates'])}"
+            items.append(_sm_roundup_item(blocks, head, item, entry))
+        if items:
+            groups.append(fill(blocks["WV_BLOCK"], {
+                "BLOCK_CLASS": "sm-seasons",
+                "BLOCK_LABEL": esc(label),
+                "ITEMS": "".join(items),
+            }))
+    notes = []
+    for entry in (section.get("notes") or []):
+        if isinstance(entry, dict) and _norm(entry.get("item")):
+            notes.append(_sm_roundup_item(
+                blocks, _norm(entry.get("state")), _norm(entry["item"]), entry))
+    if notes:
+        groups.append(fill(blocks["WV_BLOCK"], {
+            "BLOCK_CLASS": "sm-seasons",
+            "BLOCK_LABEL": "Also",
+            "ITEMS": "".join(notes),
+        }))
+    return "".join(groups)
+
+
+def render_sportsman_html(edition: dict) -> str:
+    """The Sports & Sportsman page, from the same template and tokens.
+
+    Reuses the broadsheet PAGE shell with the lead apparatus left empty —
+    this paper has no lead story, no stat strip, no weather ear and no
+    drawing, and an empty div costs nothing. What it has renders through
+    the same blocks the notebook already uses, so it inherits Ian's design
+    without a second stylesheet to keep in sync.
+    """
+    blocks = load_blocks()
+    date_iso = edition["edition_date"]
+    dateline = long_date(date_iso)
+    by_id = {s.get("id"): s for s in (edition.get("sections") or [])}
+
+    parts = []
+    for section_id in ("teams", "leagues"):
+        section = by_id.get(section_id)
+        if not section:
+            continue
+        briefs = [_brief_html(blocks, b) for b in (section.get("briefs") or [])]
+        briefs = [b for b in briefs if b]
+        if briefs:
+            parts.append(fill(blocks["SECTION"], {
+                "SECTION_LABEL": esc(_norm(section.get("label")) or section_id),
+                "BRIEFS": "".join(briefs),
+            }))
+
+    seasons = by_id.get("seasons")
+    if seasons:
+        body = _sm_seasons_html(blocks, seasons)
+        if body:
+            parts.append(fill(blocks["SECTION"], {
+                "SECTION_LABEL": esc(_norm(seasons.get("label")) or "In Season"),
+                "BRIEFS": body,
+            }))
+
+    water = by_id.get("water")
+    if water:
+        rows = _fishing_html(blocks, water.get("waters"))
+        if rows:
+            parts.append(fill(blocks["SECTION"], {
+                "SECTION_LABEL": esc(_norm(water.get("label")) or "On the Water"),
+                "BRIEFS": rows,
+            }))
+
+    folio = (f"Vol. {edition.get('volume', 'I')} — "
+             f"No. {edition.get('edition_number', '?')}")
+    values = {
+        "PAGE_TITLE": esc(f"{config.SPORTSMAN_MASTHEAD} — {dateline}"),
+        "META_DESCRIPTION": esc(
+            f"Sports & Sportsman for {dateline} — teams, seasons and the "
+            "morning's gauges."),
+        "MASTHEAD": esc(config.SPORTSMAN_MASTHEAD),
+        "TAGLINE": esc(config.SPORTSMAN_TAGLINE),
+        "TOP_LEFT": esc(folio),
+        "TOP_MID": esc(dateline),
+        "TOP_RIGHT": esc(TOP_RIGHT),
+        "WEATHER_EAR": "",
+        "LEAD_HEADLINE": "",
+        "LEAD_DEK": "",
+        "LEAD_BYLINE": "",
+        "LEAD_ART": "",
+        "LEAD_BODY": "",
+        "STAT_STRIP": "",
+        "SECTIONS": "\n\n  ".join(parts),
+        "KICKER": _kicker_html(blocks, edition.get("kicker")),
+        "SOURCES_NOTE": esc(_norm(edition.get("sources_note"))
+                            or "Compiled from wire reports"),
+        "ARCHIVE_LINK": "",
+    }
+    return fill(blocks["PAGE"], values)
+
+
+def write_sportsman_site(edition: dict) -> list[str]:
+    """site/sportsman/<date>.html plus index.html as the stable bookmark."""
+    html = render_sportsman_html(edition)
+    directory = os.path.join(config.SITE_DIR, "sportsman")
+    os.makedirs(directory, exist_ok=True)
+    dated = os.path.join(directory, f"{edition['edition_date']}.html")
+    written = []
+    for path in (dated, os.path.join(directory, "index.html")):
+        with open(path, "w", encoding="utf-8", newline="\n") as f:
+            f.write(html)
+        written.append(path)
+    return written
+
+
 def main() -> int:
     # A UnicodeEncodeError while PRINTING would fail a render that succeeded;
     # Nate's manual fallback runs happen on a cp1252 Windows console.
@@ -1094,6 +1234,9 @@ def main() -> int:
     parser.add_argument("--png", help="path for the hero card")
     parser.add_argument("--no-png", action="store_true",
                         help="skip the hero card, write HTML only")
+    parser.add_argument("--sportsman", action="store_true",
+                        help="render a Sports & Sportsman edition to "
+                             "site/sportsman/ (no hero card)")
     parser.add_argument("--fixture", action="store_true",
                         help="render editions/_fixture.json to out/ only")
     parser.add_argument("--make-fallback", action="store_true",
@@ -1108,7 +1251,14 @@ def main() -> int:
         return 0
 
     try:
-        edition_path = args.edition or (
+        if args.sportsman and not args.edition:
+            if not args.date:
+                print("ERROR: --sportsman needs --date", file=sys.stderr)
+                return 1
+            edition_path = os.path.join(
+                EDITIONS_DIR, "sportsman", f"{args.date}.json")
+        else:
+            edition_path = args.edition or (
             os.path.join(EDITIONS_DIR, "_fixture.json") if args.fixture
             else os.path.join(EDITIONS_DIR, f"{args.date}.json"))
         if not args.fixture and not args.date and not args.edition:
@@ -1128,6 +1278,14 @@ def main() -> int:
         print(f"ERROR: --date {args.date} does not match edition_date "
               f"{edition.get('edition_date')}", file=sys.stderr)
         return 1
+
+    if args.sportsman:
+        # No hero card and no newspaper site index — this paper's whole
+        # visual output is its page under site/sportsman/.
+        written = write_sportsman_site(edition)
+        for path in written:
+            print(f"OK: wrote {path}")
+        return 0
 
     # The fixture is a layout regression test, not a news day: it renders to
     # gitignored out/ and never touches the published site or the archive.

@@ -1191,7 +1191,14 @@ def backfill_page_url(
     # tip a one-message edition over the ceiling and make the trim ladder cut
     # briefs that are ALREADY PUBLISHED. A backfill must only ever add. The
     # content line is also where the link is actually legible.
-    if len(message_ids) == 1:
+    if _SPORTSMAN:
+        # The sports post is always one message with its own masthead line.
+        if len(message_ids) != 1:
+            notes.append("backfill skipped: sportsman ledger shows "
+                         f"{len(message_ids)} messages, expected 1")
+            return False, notes
+        contents = [_sm_masthead_line(edition, page_url)]
+    elif len(message_ids) == 1:
         contents = [_masthead_line(edition, page_url)]
     elif len(message_ids) == 2:
         contents = [_masthead_line(edition, page_url), _inside_line(page_url)]
@@ -1292,7 +1299,19 @@ def send_message(
 # --------------------------------------------------------------------------
 
 
-def build_sportsman_payload(edition: dict) -> dict:
+def _sm_masthead_line(edition: dict, page_url: str | None) -> str:
+    """Content line for the sports post — also what a backfill rewrites."""
+    folio = (f"No. {edition.get('edition_number', '?')} · "
+             f"Vol. {edition.get('volume', 'I')} · "
+             f"{_long_date(edition['edition_date'])}")
+    line = (f"\U0001F3DE️  **{config.SPORTSMAN_MASTHEAD}** — "
+            f"*{config.SPORTSMAN_TAGLINE}*\n-# {folio}")
+    if page_url:
+        line += f"\n\U0001F4D6  **Full edition on the web:** <{page_url}>"
+    return _clip(line, config.CONTENT_LIMIT)
+
+
+def build_sportsman_payload(edition: dict, page_url: str | None = None) -> dict:
     """The Sports & Sportsman message. Four embeds, its own masthead.
 
     A separate builder rather than a flag threaded through build_payload():
@@ -1387,12 +1406,9 @@ def build_sportsman_payload(edition: dict) -> dict:
         if bits:
             embeds[-1]["footer"] = {"text": _clip(" · ".join(bits), FOOTER_LIMIT)}
 
-    folio = (f"No. {edition.get('edition_number', '?')} · "
-             f"Vol. {edition.get('volume', 'I')} · "
-             f"{_long_date(edition['edition_date'])}")
-    content = (f"\U0001F3DE️  **{config.SPORTSMAN_MASTHEAD}** — "
-               f"*{config.SPORTSMAN_TAGLINE}*\n-# {folio}")
-    return {"content": _clip(content, config.CONTENT_LIMIT), "embeds": embeds}
+    if embeds and page_url:
+        _tail_link(embeds[-1], page_url)
+    return {"content": _sm_masthead_line(edition, page_url), "embeds": embeds}
 
 
 def load_edition(path: str) -> dict:
@@ -1490,7 +1506,9 @@ def _run_backfill(args, edition: dict) -> int:
         print(f"ERROR: no message ids recorded for {args.date}", file=sys.stderr)
         return 1
 
-    page_url = args.page_url or config.page_url(args.date)
+    page_url = args.page_url or (
+        config.sportsman_page_url(args.date) if args.sportsman
+        else config.page_url(args.date))
     deadline = time.monotonic() + max(0, args.backfill_wait)
     attempt = 0
     while True:
@@ -1513,7 +1531,10 @@ def _run_backfill(args, edition: dict) -> int:
         print(f"DRY RUN: {page_url} is live; would edit {len(message_ids)} message(s)")
         return 0
 
-    var = "DISCORD_TEST_WEBHOOK_URL" if args.test else "DISCORD_WEBHOOK_URL"
+    if args.sportsman:
+        var = config.SPORTSMAN_WEBHOOK_ENV
+    else:
+        var = "DISCORD_TEST_WEBHOOK_URL" if args.test else "DISCORD_WEBHOOK_URL"
     webhook_url = load_env_webhook(var)
     if not webhook_url:
         print(f"ERROR: {var} not set (env or .env)", file=sys.stderr)
@@ -1758,7 +1779,7 @@ def main() -> int:
     messages: list[dict] = []
 
     if args.sportsman:
-        payload = build_sportsman_payload(edition)
+        payload = build_sportsman_payload(edition, page_url)
         degraded.extend(clamp_payload(payload))
         messages = [payload]
         text_mode = False
