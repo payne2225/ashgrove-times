@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" width="640" height="400" role="img" aria-label="The Williams River at Cowen drawn at a low summer flow of 179 cubic feet a second, the channel narrowed to a thread between wide cobble bars with wooded banks converging upstream.">
+  <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+
+    <!-- far ridge, upstream -->
+    <path d="M0 132 L58 116 L96 124 L142 101 L188 114 L232 96 L276 108 L318 92 L360 104 L404 88 L448 102 L492 90 L540 106 L590 94 L640 108"/>
+    <path d="M188 114 L214 128 L246 118"/>
+
+    <!-- treeline mass, left bank -->
+    <path d="M0 152 L26 140 L44 150 L70 136 L92 148 L118 134 L146 146 L172 136 L200 148 L226 140 L254 152 L282 144"/>
+    <path d="M0 152 L0 196"/>
+    <path d="M40 146 L40 168"/>
+    <path d="M96 144 L96 170"/>
+    <path d="M152 143 L152 172"/>
+    <path d="M212 145 L212 174"/>
+
+    <!-- treeline mass, right bank -->
+    <path d="M640 158 L612 144 L588 156 L560 142 L534 154 L506 142 L478 154 L452 144 L424 156 L398 146 L370 156 L344 148"/>
+    <path d="M640 158 L640 200"/>
+    <path d="M600 150 L600 174"/>
+    <path d="M544 148 L544 176"/>
+    <path d="M486 148 L486 178"/>
+    <path d="M430 150 L430 180"/>
+
+    <!-- left bank edge, converging upstream -->
+    <path d="M0 268 L64 250 L134 232 L204 214 L262 200 L302 190 L326 182"/>
+    <path d="M0 300 L58 278 L128 256 L198 234 L256 214 L300 198 L328 186"/>
+
+    <!-- right bank edge, converging upstream -->
+    <path d="M640 282 L578 262 L512 244 L448 226 L396 210 L356 196 L332 184"/>
+    <path d="M640 318 L574 292 L506 268 L442 244 L390 224 L352 202 L332 188"/>
+
+    <!-- the low channel: a thread of water well inside the banks -->
+    <path d="M330 190 L318 208 L330 226 L312 248 L328 272 L300 300 L318 330 L286 362 L300 400"/>
+    <path d="M336 190 L352 210 L342 230 L364 252 L350 278 L382 306 L364 336 L400 366 L386 400"/>
+
+    <!-- current lines inside the channel -->
+    <path d="M332 236 L326 258"/>
+    <path d="M348 264 L340 286"/>
+    <path d="M330 296 L322 320"/>
+    <path d="M352 330 L342 356"/>
+
+    <!-- exposed cobble bar, river left - stones shrink with distance -->
+    <path d="M96 336 a22 13 0 1 0 44 0 a22 13 0 1 0 -44 0"/>
+    <path d="M156 310 a17 10 0 1 0 34 0 a17 10 0 1 0 -34 0"/>
+    <path d="M212 288 a13 8 0 1 0 26 0 a13 8 0 1 0 -26 0"/>
+    <path d="M258 262 a10 6 0 1 0 20 0 a10 6 0 1 0 -20 0"/>
+    <path d="M292 238 a7 4 0 1 0 14 0 a7 4 0 1 0 -14 0"/>
+    <path d="M40 372 a26 15 0 1 0 52 0 a26 15 0 1 0 -52 0"/>
+    <path d="M150 358 a19 11 0 1 0 38 0 a19 11 0 1 0 -38 0"/>
+
+    <!-- exposed cobble bar, river right -->
+    <path d="M470 330 a21 12 0 1 0 42 0 a21 12 0 1 0 -42 0"/>
+    <path d="M430 300 a16 9 0 1 0 32 0 a16 9 0 1 0 -32 0"/>
+    <path d="M400 274 a12 7 0 1 0 24 0 a12 7 0 1 0 -24 0"/>
+    <path d="M372 248 a9 5 0 1 0 18 0 a9 5 0 1 0 -18 0"/>
+    <path d="M544 362 a24 14 0 1 0 48 0 a24 14 0 1 0 -48 0"/>
+    <path d="M486 384 a18 10 0 1 0 36 0 a18 10 0 1 0 -36 0"/>
+
+    <!-- dry bar texture, short strokes following the drop downstream -->
+    <path d="M120 306 L134 310"/>
+    <path d="M186 284 L198 288"/>
+    <path d="M238 258 L248 262"/>
+    <path d="M448 356 L462 360"/>
+    <path d="M496 306 L508 310"/>
+    <path d="M418 276 L428 280"/>
+
+    <!-- waterline scar on the left bank, where the river ran a foot higher -->
+    <path d="M60 288 L126 266 L192 244 L250 224 L296 208" stroke-dasharray="7 9"/>
+    <path d="M598 300 L536 278 L474 256 L420 234 L376 216" stroke-dasharray="7 9"/>
+
+  </g>
+</svg>
