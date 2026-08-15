@@ -48,7 +48,7 @@ Read first, in this order:
 
 ## 1. Our Teams — the section this paper exists for
 
-`config.FOLLOWED_TEAMS` is the list, across six leagues. Read it at
+`config.FOLLOWED_TEAMS` is the list, across every league and the national team. Read it at
 runtime; teams get added and the code is what knows.
 
 | League | Teams |
