@@ -864,6 +864,14 @@ FOLLOWED_TEAMS = [
 
     {"league": "NFL", "name": "Cleveland Browns",
      "aliases": ("Browns",), "supporters": []},
+    {"league": "NFL", "name": "Cincinnati Bengals",
+     "aliases": ("Bengals",), "supporters": []},
+
+    # National team, not a league — "Soccer" keeps it out of the Premier
+    # League's per-league cap and search plan.
+    {"league": "Soccer", "name": "USMNT",
+     "aliases": ("U.S. men's national team", "US men's national team",
+                 "United States men's national team"), "supporters": []},
 ]
 
 

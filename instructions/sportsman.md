@@ -58,7 +58,8 @@ runtime; teams get added and the code is what knows.
 | MLS | Columbus Crew, FC Cincinnati |
 | MLB | Cincinnati Reds, Pittsburgh Pirates |
 | NBA | San Antonio Spurs |
-| NFL | Cleveland Browns |
+| NFL | Cleveland Browns, Cincinnati Bengals |
+| Soccer | USMNT |
 
 **Every followed team that played or made news gets a line.** That is the
 section's whole job. A one-run loss for the Reds matters more to this
