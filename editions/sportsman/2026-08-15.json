@@ -32,12 +32,13 @@
           "url": "https://www.premierleague.com/en/news/4606700/premier-league-clubs-2026-pre-season-fixtures-and-results"
         },
         {
-          "headline": "Reds blank Miami 1-0 behind Chase Burns",
-          "summary": "Burns improved to 14-2 with a 2.47 ERA, beating Sandy Alcantara, who fell to 13-7.",
+          "headline": "Greene has a second Tommy John as the Reds edge Miami",
+          "summary": "Cincinnati's ace is out for the rest of 2026 and all of 2027 after a second elbow reconstruction this week, ending a season of five starts, 27 2/3 innings and a 6.83 ERA. The Reds beat Miami 1-0 on Friday, Chase Burns going to 14-2 with a 2.47 ERA.",
           "team": "Cincinnati Reds",
           "league": "MLB",
-          "source": "MLB.com",
-          "url": "https://www.mlb.com/scores/2026-08-14"
+          "source": "MLB Trade Rumors",
+          "url": "https://www.mlbtraderumors.com/2026/08/hunter-greene-to-undergo-elbow-surgery.html",
+          "note": "Cross-checked against SI's Reds coverage, which agrees on the second Tommy John, the 2026-27 absence and the 27 2/3 innings / 6.83 ERA line. They disagree on his age (26 v 27) and on the year of his first Tommy John (2018 v 2019), so neither was printed. The 1-0 result and Burns' record come from mlb.com/scores."
         },
         {
           "headline": "Browns open the preseason at Chicago",
@@ -73,9 +74,21 @@
         }
       ],
       "sat_out": [
-        {"team": "Columbus Crew", "league": "MLS", "reason": "no result and no schedule page this desk could open"},
-        {"team": "FC Cincinnati", "league": "MLS", "reason": "no result and no schedule page this desk could open"},
-        {"team": "San Antonio Spurs", "league": "NBA", "reason": "out of season"}
+        {
+          "team": "Columbus Crew",
+          "league": "MLS",
+          "reason": "no result and no schedule page this desk could open"
+        },
+        {
+          "team": "FC Cincinnati",
+          "league": "MLS",
+          "reason": "no result and no schedule page this desk could open"
+        },
+        {
+          "team": "San Antonio Spurs",
+          "league": "NBA",
+          "reason": "out of season"
+        }
       ]
     },
     {
