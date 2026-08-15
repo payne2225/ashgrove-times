@@ -371,3 +371,4 @@ and the failure protocol at the bottom of that file appends here too.
   line twice, and the digest's NFL preseason scores were **dropped entirely** rather than
   carried on the same source's word. Worth remembering: that class of site is exactly where a
   fabricated-looking number enters a paper that is otherwise careful.
+- 2026-08-15T16:20:10Z · 2026-08-15 · post_discord: no verified page url; posting without links

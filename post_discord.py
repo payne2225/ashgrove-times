@@ -83,6 +83,9 @@ ATTACHMENT_COUNT_LIMIT = 10
 ATTACHMENT_DESC_LIMIT = 1024
 
 MIN_BRIEFS_PER_SECTION = 1
+# Sports & Sportsman gets its own ink so the two papers are
+# distinguishable at a glance in a busy server.
+SPORTSMAN_COLOR = int("3E3221", 16)
 NEVER_TRIM = ("wv",)
 FALLBACK_TRIM_ORDER = ("scitech", "world", "us", "sports")
 FRONT_PAGE_SECTIONS = ("us", "world")
@@ -1289,12 +1292,126 @@ def send_message(
 # --------------------------------------------------------------------------
 
 
+def build_sportsman_payload(edition: dict) -> dict:
+    """The Sports & Sportsman message. Four embeds, its own masthead.
+
+    A separate builder rather than a flag threaded through build_payload():
+    the two papers share a voice and a delivery mechanism but not a shape.
+    The Times has a lead, a stat strip and the WV notebook; this has teams,
+    leagues, a season calendar and gauges. Forcing one function to serve
+    both would make every future change to either one riskier.
+    """
+    by_id = {s.get("id"): s for s in (edition.get("sections") or [])}
+    embeds: list[dict] = []
+
+    def add(section_id: str, description: str, fields: list | None = None) -> None:
+        section = by_id.get(section_id)
+        if not section or not (description or fields):
+            return
+        meta = config.sportsman_section_by_id(section_id)
+        embed: dict = {
+            "title": f"{meta['emoji']} {section.get('label') or meta['label']}",
+            "color": SPORTSMAN_COLOR,
+        }
+        if description:
+            embed["description"] = _clip(description, DESCRIPTION_LIMIT)
+        if fields:
+            embed["fields"] = fields[:FIELD_COUNT_LIMIT]
+        embeds.append(embed)
+
+    # Our Teams, then the wider leagues. Both are plain brief blocks, so they
+    # reuse the newspaper's formatter and inherit its limits for free.
+    for section_id in ("teams", "leagues"):
+        section = by_id.get(section_id)
+        if not section:
+            continue
+        blocks = [_brief_block(b) for b in (section.get("briefs") or [])
+                  if isinstance(b, dict)]
+        add(section_id, "\n\n".join(b for b in blocks if b))
+
+    # In Season: the three buckets as separate fields, because "going out" is
+    # the one that saves somebody a wasted weekend and it has to be findable.
+    seasons = by_id.get("seasons")
+    if seasons:
+        fields: list[dict] = []
+        for key, label in (("coming_in", "Coming in"),
+                           ("prime", "Prime"),
+                           ("going_out", "Going out")):
+            lines = []
+            for entry in (seasons.get(key) or []):
+                if not isinstance(entry, dict):
+                    continue
+                text = (entry.get("item") or entry.get("text") or "").strip()
+                if not text:
+                    continue
+                # Lead with the species. A limit with no animal attached
+                # ("18-inch minimum, one per day") is unreadable, and the
+                # first version of this shipped exactly that.
+                head = str(entry.get("species") or "").strip()
+                if head and entry.get("method"):
+                    head += f" ({entry['method']})"
+                if head and entry.get("dates"):
+                    head += f", {entry['dates']}"
+                source = entry.get("source")
+                line = f"**{head}** — {text}" if head else text
+                lines.append(line + (f" · {source}" if source else ""))
+            if lines:
+                fields.append({"name": label,
+                               "value": _clip("\n".join(lines), FIELD_VALUE_LIMIT),
+                               "inline": False})
+        notes = [n for n in (seasons.get("notes") or []) if isinstance(n, dict)]
+        note_lines = [f"**{n.get('state', '')}** {n.get('item', '')}".strip()
+                      for n in notes if n.get("item")]
+        if note_lines:
+            fields.append({"name": "Also",
+                           "value": _clip("\n".join(note_lines), FIELD_VALUE_LIMIT),
+                           "inline": False})
+        add("seasons", "", fields)
+
+    # On the Water: one line per gauge, in the order the edition lists them.
+    water = by_id.get("water")
+    if water:
+        lines = []
+        for entry in (water.get("waters") or []):
+            if not isinstance(entry, dict):
+                continue
+            name = entry.get("water") or entry.get("name") or ""
+            body = (entry.get("line") or entry.get("read") or "").strip()
+            if name and body:
+                lines.append(f"**{name}** — {body}")
+        add("water", "\n".join(lines))
+
+    if embeds:
+        bits = [str(b).strip() for b in
+                (edition.get("kicker"), edition.get("sources_note")) if b]
+        if bits:
+            embeds[-1]["footer"] = {"text": _clip(" · ".join(bits), FOOTER_LIMIT)}
+
+    folio = (f"No. {edition.get('edition_number', '?')} · "
+             f"Vol. {edition.get('volume', 'I')} · "
+             f"{_long_date(edition['edition_date'])}")
+    content = (f"\U0001F3DE️  **{config.SPORTSMAN_MASTHEAD}** — "
+               f"*{config.SPORTSMAN_TAGLINE}*\n-# {folio}")
+    return {"content": _clip(content, config.CONTENT_LIMIT), "embeds": embeds}
+
+
 def load_edition(path: str) -> dict:
     with open(path, encoding="utf-8") as f:
         return json.load(f)
 
 
+_SPORTSMAN = False
+
+
 def _index_path() -> str:
+    """Each paper has its OWN delivery ledger.
+
+    They number independently — the Times is on No. 11 while Sports is on
+    No. 1 — so a shared index would collide and the idempotency gate would
+    read the wrong row.
+    """
+    if _SPORTSMAN:
+        return _repo("editions", "sportsman", "index.json")
     return _repo("editions", "index.json")
 
 
@@ -1563,6 +1680,11 @@ def main() -> int:
                              "(e.g. 07:00). The routine wakes early to do the "
                              "research; this is what keeps delivery at a "
                              "consistent hour. Ignored if the time has passed.")
+    parser.add_argument("--sportsman", action="store_true",
+                        help="post the Sports & Sportsman edition instead of "
+                             "the newspaper: its own contract, its own "
+                             "ledger, and its own channel via "
+                             "DISCORD_SPORTSMAN_WEBHOOK_URL")
     parser.add_argument("--backfill-link", action="store_true",
                         help="post nothing; wait for the Pages build and add "
                              "the permalink to the edition already posted for "
@@ -1581,7 +1703,14 @@ def main() -> int:
         print(f"ERROR: --date {args.date!r} is not YYYY-MM-DD", file=sys.stderr)
         return 1
 
-    edition_path = args.edition or _repo("editions", f"{args.date}.json")
+    global _SPORTSMAN
+    _SPORTSMAN = bool(args.sportsman)
+
+    if args.sportsman:
+        edition_path = args.edition or _repo(
+            "editions", "sportsman", f"{args.date}.json")
+    else:
+        edition_path = args.edition or _repo("editions", f"{args.date}.json")
     try:
         edition = load_edition(edition_path)
     except (OSError, ValueError) as exc:
@@ -1608,7 +1737,11 @@ def main() -> int:
 
     degraded: list[str] = []
     attachment: tuple[str, bytes] | None = None
-    if args.no_image or args.text:
+    if args.sportsman:
+        # Sports & Sportsman has no hero card. Without this it would attach
+        # the NEWSPAPER's, putting the Times' masthead on the sports post.
+        pass
+    elif args.no_image or args.text:
         degraded.append("image suppressed by flag")
     else:
         attachment, notes = resolve_attachment(args.date, args.attach)
@@ -1624,7 +1757,12 @@ def main() -> int:
     text_mode = args.text
     messages: list[dict] = []
 
-    if not text_mode:
+    if args.sportsman:
+        payload = build_sportsman_payload(edition)
+        degraded.extend(clamp_payload(payload))
+        messages = [payload]
+        text_mode = False
+    elif not text_mode:
         # Trimming to fit ONE message costs news; splitting into two costs
         # only a second post. On a full day the trimmer eats the West
         # Virginia notebook first, which is the section the readers actually
@@ -1695,7 +1833,10 @@ def main() -> int:
             print(f"DEGRADED: {note}", file=sys.stderr)
         return 0
 
-    var = "DISCORD_TEST_WEBHOOK_URL" if args.test else "DISCORD_WEBHOOK_URL"
+    if args.sportsman:
+        var = config.SPORTSMAN_WEBHOOK_ENV
+    else:
+        var = "DISCORD_TEST_WEBHOOK_URL" if args.test else "DISCORD_WEBHOOK_URL"
     webhook_url = load_env_webhook(var)
     if not webhook_url:
         print(f"ERROR: {var} not set (env or .env)", file=sys.stderr)
