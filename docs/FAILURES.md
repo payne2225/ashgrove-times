@@ -397,3 +397,12 @@ and the failure protocol at the bottom of that file appends here too.
   than written from two agreeing search snippets. **FC Cincinnati v Orlando City** likewise
   had no confirmable final score. `espn.com` was unusable for a **third** consecutive
   morning. `mlb.com/scores` and `premierleague.com` opened cleanly and carry the results.
+- 2026-08-16T11:00:03Z · 2026-08-16 · post_discord: split into FRONT PAGE and INSIDE messages to keep the notebook whole
+- **2026-08-16** — *edition split into two messages* — the Times posted as **2 messages**
+  (`split into FRONT PAGE and INSIDE messages to keep the notebook whole`), the second time
+  this has happened after No. 8 on 2026-08-12. Worth noting precisely: the desk trimmed to
+  **5,774** projected chars against the 5,800 ceiling, but the delivered payload measured
+  **5,988** because `--page-url` adds its link line *after* the validator's projection. **The
+  validator's number is not the number the splitter sees — budget roughly 200 chars of
+  headroom for the permalink, or a paper trimmed to just under the line still splits.** No
+  brief was dropped and the notebook stayed whole, so this is cosmetic, not a content loss.
