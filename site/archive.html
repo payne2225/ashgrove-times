@@ -536,6 +536,43 @@
     .columns { column-count: 5; }
   }
 
+  /* ---------- Sports & Sportsman page layout ----------
+     A true newsprint fill. Fixed left/right blocks stranded whitespace the
+     moment one side outgrew the other, so instead the whole paper flows
+     through balanced CSS columns: Our Teams runs down column one and spills
+     into column two, Around the Leagues starts right where it ends, and the
+     browser balances the column bottoms. Briefs and roundup lines are
+     atomic; sections and state blocks are allowed to break between them. */
+
+  @media (min-width: 1024px) {
+    .page.sportsman .sections {
+      display: block;   /* undo the Times grid — columns need flow layout */
+      column-count: 2;
+      column-gap: 34px;
+      column-rule: 1px solid var(--rule);
+    }
+  }
+
+  @media (min-width: 1320px) {
+    .page.sportsman .sections { column-count: 3; }
+  }
+
+  @media (min-width: 1024px) {
+    .page.sportsman .sections > .sec {
+      break-inside: auto;
+      border-left: 0;
+      padding-left: 0;
+      margin: 0 0 20px;
+    }
+    .page.sportsman .sec .two-col-briefs { column-count: 1; column-rule: none; }
+    .page.sportsman .brief,
+    .page.sportsman .roundup li { break-inside: avoid; }
+    .page.sportsman .section-label { break-after: avoid; margin-top: 0; }
+    .page.sportsman .sec + .sec .section-label { margin-top: 10px; }
+    .page.sportsman .wv-block { break-inside: auto; }
+    .page.sportsman .wv-block-label { break-after: avoid; }
+  }
+
   @media print {
     body { background: #fff; padding: 0; }
     .page { border: 0; box-shadow: none; max-width: none; }
@@ -549,7 +586,7 @@
 
   <div class="top-bar">
     <span>Back issues</span>
-    <span>Saturday, August 15, 2026</span>
+    <span>Sunday, August 16, 2026</span>
     <span>Price: Free</span>
   </div>
 
@@ -559,6 +596,10 @@
   <hr class="rule-thin">
 
   <ul class="issues"><li class="issue">
+      <span class="no">No. 12 · Sunday, August 16, 2026</span>
+      <span class="hed"><a href="editions/2026-08-16.html">Flores quake toll climbs to 51 as thousands leave home</a></span>
+    </li>
+    <li class="issue">
       <span class="no">No. 11 · Saturday, August 15, 2026</span>
       <span class="hed"><a href="editions/2026-08-15.html">Magnitude 7.7 quake off Flores kills at least 20 in Indonesia</a></span>
     </li>

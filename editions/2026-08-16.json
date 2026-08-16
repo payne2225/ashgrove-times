@@ -1,0 +1,166 @@
+{
+  "edition_date": "2026-08-16",
+  "edition_number": 12,
+  "volume": "I",
+  "lead": {
+    "headline": "Flores quake toll climbs to 51 as thousands leave home",
+    "dek": "Indonesia counts 341 aftershocks two days after a magnitude 7.7 struck off the island",
+    "byline": "Wire Reports",
+    "body": [
+      "At least 51 people are dead and about 5,000 displaced after a magnitude 7.7 earthquake struck off Flores island in eastern Indonesia early Saturday, Al Jazeera reported, citing the national disaster agency. The toll has more than doubled since Saturday morning.",
+      "The quake hit at 5:58 a.m. local time about 68 kilometers north-northwest of Ende at a depth of 10 kilometers, the U.S. Geological Survey said. Thirty-six people were seriously hurt and 77 slightly. It flattened 157 houses and damaged some 1,300 more.",
+      "More than 3,500 military and police have deployed and the government is weighing a state of emergency. A quake in the same waters in 1992 killed more than 2,500 people."
+    ],
+    "stat_strip": [
+      {"label": "S&P 500", "value": "7,785.76", "change": "-0.17%", "direction": "down"},
+      {"label": "Dow", "value": "53,732.41", "change": "-0.20%", "direction": "down"},
+      {"label": "Nasdaq", "value": "26,729.16", "change": "-0.28%", "direction": "down"},
+      {"label": "Bitcoin", "value": "$63,014", "change": "+0.14%", "direction": "up"}
+    ]
+  },
+  "sections": [
+    {
+      "id": "us",
+      "label": "U.S.",
+      "briefs": [
+        {
+          "headline": "Hurricane Lala closes on Hawaii's Big Island",
+          "summary": "Lala reached Category 1 with 75 mph winds, the island's first direct hit in 155 years. Gov. Josh Green told residents to shelter.",
+          "source": "PBS NewsHour",
+          "url": "https://www.pbs.org/newshour/nation/hawaiis-big-island-lashed-by-rain-and-wind-as-tropical-storm-lala-closes-in"
+        },
+        {
+          "headline": "Indiana flooding kills at least 5",
+          "summary": "The White River crested above 24 feet at Anderson, past the 1913 record, after 11 inches of rain in two days.",
+          "source": "PBS NewsHour",
+          "url": "https://www.pbs.org/newshour/nation/indiana-authorities-say-at-least-5-people-have-died-in-flooding-across-the-state"
+        },
+        {
+          "headline": "Trump says the USS Lincoln tour is not long enough",
+          "summary": "Asked Friday whether the nine-month deployment ran too long, Trump said it was \"not nearly long enough.\"",
+          "source": "NPR",
+          "url": "https://www.npr.org/2026/08/15/nx-s1-5932539/uss-lincoln-trump-dire-conditions"
+        },
+        {
+          "headline": "Memo would let U.S. firms hack foreign cybercriminals",
+          "summary": "A memorandum issued Aug. 14 lets vetted companies disrupt networks of designated foreign groups, subject to vetting and a bond.",
+          "source": "NPR",
+          "url": "https://www.npr.org/2026/08/15/nx-s1-5930311/trump-companies-hack-foreign-cybercriminals"
+        }
+      ]
+    },
+    {
+      "id": "world",
+      "label": "World",
+      "briefs": [
+        {
+          "headline": "Israeli strikes kill 11 in southern Lebanon",
+          "summary": "Strikes on Ansar and Deir al-Zahrani killed 11, three of them children, the Health Ministry said. It is the deadliest day since the June truce.",
+          "source": "PBS NewsHour",
+          "url": "https://www.pbs.org/newshour/world/israeli-airstrikes-on-southern-lebanon-kill-11-people-health-ministry-says"
+        },
+        {
+          "headline": "Bus crash on a Hungarian motorway kills 12",
+          "summary": "A Polish coach carrying 57 overturned on the M3 near Mezokeresztes about 1 a.m. Police said the driver likely fell asleep.",
+          "source": "Euronews",
+          "url": "https://www.euronews.com/2026/08/16/at-least-12-people-killed-in-a-polish-tourist-bus-crash-in-hungary"
+        },
+        {
+          "headline": "Ukraine sends about 600 drones at Moscow",
+          "summary": "Moscow's mayor said 201 were destroyed over the region and an 83-year-old man killed. Russian strikes on Kryvyi Rih killed a woman.",
+          "source": "Al Jazeera",
+          "url": "https://www.aljazeera.com/news/2026/8/16/russian-strikes-kill-ukrainian-woman-as-nato-jet-downs-drone-over-romania"
+        }
+      ]
+    },
+    {
+      "id": "wv",
+      "label": "West Virginia",
+      "notebook_title": "Mountaineer State Notebook",
+      "briefs": [
+        {
+          "headline": "CAMC settles unnecessary-surgery suit for $40M",
+          "summary": "The class covers more than 4,000 patients given hernia repairs during bariatric surgery. Two surgeons named in the 2025 filing have left the hospital.",
+          "source": "WV MetroNews",
+          "url": "https://wvmetronews.com/2026/08/14/camc-announces-40-million-settlement-in-lawsuit-connected-to-unnecessary-surgeries/"
+        },
+        {
+          "headline": "Justices close a $500M Greenbrier joint venture",
+          "summary": "Kennedy Lewis Investment Management takes 51% and the 90-job casino stays open. The Lottery Commission votes Aug. 26 on the new board.",
+          "source": "WV MetroNews",
+          "url": "https://wvmetronews.com/2026/08/14/justices-complete-half-billion-dollar-joint-venture-on-the-greenbrier/"
+        }
+      ],
+      "regional": [
+        {
+          "region_id": "huntington_cabell",
+          "place": "Huntington & the Cabell-Mason corridor",
+          "people": ["Trav", "Justin", "Nate", "Ian"],
+          "item": "Mayor Patrick Farrell gave the Public Safety Committee a Flock ordinance holding camera data seven days.",
+          "source": "WSAZ",
+          "url": "https://www.wsaz.com/2026/08/15/huntington-mayor-presents-proposed-flock-guardrails/"
+        },
+        {
+          "region_id": "putnam_kanawha",
+          "place": "Putnam / Kanawha - Charleston",
+          "people": ["Nate"],
+          "item": "Night work starts this month on the I-64 Carter bridge ahead of a $74M deck replacement.",
+          "source": "WV MetroNews",
+          "url": "https://wvmetronews.com/2026/08/14/night-time-work-to-prepare-states-busiest-bridge-for-74-million-rehab-expected-soon/"
+        }
+      ],
+      "away": [],
+      "fishing": [
+        {
+          "water": "Williams River (Cowen)",
+          "line": "141 cfs and falling at 1.84 feet - prime wading water.",
+          "source": "USGS 03186500"
+        },
+        {
+          "water": "Topsail Beach (surf and sound)",
+          "line": "Sound high 11:50 a.m. at Hampstead, lows 5:51 a.m. and 6:14 p.m.",
+          "source": "NOAA CO-OPS 8657813"
+        }
+      ]
+    },
+    {
+      "id": "scitech",
+      "label": "Science & Technology",
+      "briefs": [
+        {
+          "headline": "Detector reads a reactor that is switched off",
+          "summary": "Double Chooz logged about 100 antineutrinos over 17.2 days with both units offline, from decay in the cores and pools.",
+          "source": "Max Planck Institute for Nuclear Physics",
+          "url": "https://www.sciencedaily.com/releases/2026/08/260814011036.htm"
+        },
+        {
+          "headline": "Superconducting circuit runs as a quantum heat engine",
+          "summary": "A qubit, a resonator and a quantum refrigerator ran repeated Otto cycles near absolute zero, in Nature Communications.",
+          "source": "Aalto University",
+          "url": "https://www.sciencedaily.com/releases/2026/08/260814011041.htm"
+        },
+        {
+          "headline": "Ant and bee genetics fail to explain their colonies",
+          "summary": "Across nearly 69,000 insect species, haplodiploidy predicted eusociality only among ants, bees and stinging wasps.",
+          "source": "Arizona State University",
+          "url": "https://www.sciencedaily.com/releases/2026/08/260813045552.htm"
+        },
+        {
+          "headline": "Osaka rock yields 4 bones of a Cretaceous sea lizard",
+          "summary": "Bones collected near Kaizuka City in 1990-92 sat in rock 30 years, and include a first premaxilla for a Japanese mosasaur.",
+          "source": "Okayama University of Science",
+          "url": "https://www.sciencedaily.com/releases/2026/08/260813045555.htm"
+        }
+      ]
+    }
+  ],
+  "art": {
+    "file": "art/2026-08-16-lead.svg",
+    "placement": "lead",
+    "caption": "A hillside house in East Manggarai with its corrugated roof collapsed onto the stone foundation, an outbuilding still standing beside it.",
+    "credit": "Sketched from an NPR photograph"
+  },
+  "weather_ear": "The weather desk files at 7:15, right behind this page.",
+  "kicker": "The away desk and three of the five regions had nothing dated over the weekend.",
+  "sources_note": "Compiled from wire reports"
+}
