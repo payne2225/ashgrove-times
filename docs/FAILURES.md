@@ -372,3 +372,28 @@ and the failure protocol at the bottom of that file appends here too.
   carried on the same source's word. Worth remembering: that class of site is exactly where a
   fabricated-looking number enters a paper that is otherwise careful.
 - 2026-08-15T16:20:10Z · 2026-08-15 · post_discord: no verified page url; posting without links
+- **2026-08-16** — *budget trim, taken deliberately at the desk* — the edition came in at
+  **~7,169 projected embed chars against the 5,800 the trimmer watches**, the largest
+  overshoot yet, because four wire sections of four briefs each cost far more in **URL
+  characters** than `instructions/style.md`'s ~40-char worked example assumes (the PBS,
+  MetroNews and Al Jazeera links used today run **78-116 chars apiece**). The §5 cut ladder
+  was walked in order: the **away line** (Prince George, BC Conservative leader's visit —
+  researched, opened and sourced to CKPG Today) was dropped first, then summaries were
+  tightened throughout, and finally **one World brief** (Australia's November gun buyback,
+  Al Jazeera) was cut to land at **5,774**. Cutting a brief at the desk is worse than not
+  needing to, and better than letting `post_discord.py` silently drop the last Sci/Tech
+  brief at 7:00. **The structural note for whoever tunes this: at four briefs a section,
+  the per-brief cost is nearer 285 chars than the 245 the style book budgets, so a full
+  four-by-four edition does not fit and something gets cut every morning until either the
+  budget or the target brief count moves.**
+- **2026-08-16** — *fishing source degraded* — NOAA returned **no water temperature** for the
+  Wrightsville Beach gauge (`noaa-temp: NOAA: no water temperature returned`), so both papers
+  carried Topsail **tides only** and said so rather than reaching for yesterday's reading.
+  Williams, both Ohio gauges and the Hampstead sound station all reported normally.
+- **2026-08-16** — *sources that would not open* — `qcnews.com` and `washingtonpost.com`
+  **403'd** and `africa.espn.com` and `columbuscrew.com` returned title-only markdown, so the
+  **Columbus Crew's 3-1 loss at Charlotte could not be sourced from any article this desk
+  could read** and the Crew was moved to `sat_out` with that as the stated reason, rather
+  than written from two agreeing search snippets. **FC Cincinnati v Orlando City** likewise
+  had no confirmable final score. `espn.com` was unusable for a **third** consecutive
+  morning. `mlb.com/scores` and `premierleague.com` opened cleanly and carry the results.

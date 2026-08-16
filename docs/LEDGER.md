@@ -45,10 +45,12 @@ Four sections, all four maintained every run:
 | Open-ended | **Ian's answer on the WV outlet list.** `instructions/edition.md` marks the list provisional. When he answers, the playbook is edited and the answer is recorded here | **OPEN — unasked** |
 | 2026-08-06 | **Premier League clubs, answered the same day it was asked.** A reader asked for football in Sports and specified the shape himself: *"emphasis on news from the teams we like, general from the rest of the league."* The allegiances: **Chelsea** (Trav, Ian), **Tottenham** (Nate), **Liverpool** (Pat) — in `config.PREMIER_LEAGUE_SUPPORTERS`, first names only, handles deliberately not recorded because the repo is public. All three meet twice a season, so several times a year one fixture is a house derby; `config.is_house_derby()` catches it and the playbook says to write those straight down the middle | **CLOSED** |
 | Open-ended | **Pages build lag exceeds any sane pre-post poll.** 2026-08-06: `editions/2026-08-06.html` 404'd for the full 120s window so the link was omitted; it returned 200 about 9 minutes after the push (measured build **8m38s**, versus 23s the evening before). Pages is healthy — this is Actions queue lag, not an outage, so do **not** set `PAGES_ENABLED = False`. **RESOLVED 2026-08-06:** the paper no longer waits on it. `python post_discord.py --date YYYY-MM-DD --backfill-link` posts nothing, waits out the build (up to 15 min), and edits the permalink into the message already sent; `instructions/edition.md` §9.5 makes that step 9.5 whenever step 8 times out. It edits content only, never embeds, so it can never trim a published brief. No. 2 was backfilled by hand and now carries its link | **CLOSED** || Open-ended | **Launch `post_discord.py` in the background, and read the clock rather than estimating it.** Logged as a failure twice now, **2026-08-13 and 2026-08-14**, in identical form: the post was started in the foreground, `--not-before 07:00` slept, and the shell killed the command at its own timeout. Nothing posted either morning and `editions/index.json` proved it, so the cost is wasted minutes and a scare, not a lost paper. The companion error both mornings was believing the run was late — 6:23 ET read as 7:38 on the 13th, 6:29 ET read as 7:30 on the 14th. **The hold can sleep the better part of an hour, which is longer than a foreground command may live.** Neither paper was late | **OPEN — third occurrence would mean this row is not being read. 2026-08-15: launched in the background on the first attempt and the clock was read, not estimated — the row is being read** |
-| Open-ended | **THE `--sportsman` PIPELINE DOES NOT EXIST, AND IT BLOCKS THE SECOND PAPER.** `instructions/routine.md` and `instructions/sportsman.md` both document `validate_edition.py --sportsman`, `render_edition.py --sportsman` and `post_discord.py --sportsman`. `grep -ci sportsman` returns **0** in all three scripts. `config.py` has all 16 sportsman definitions, `fetch_fishing.py` already reports all four sportsman waters, both reference files are transcribed and `editions/sportsman/index.json` exists — commit `ca5293d` shipped everything *except* the pipeline. No branch, no PR. **2026-08-15: the first edition was researched and written to `editions/sportsman/2026-08-15.json` and could not be validated, rendered or posted.** Building the pipeline is a code change for Nate, not something the morning routine should improvise at 5:30 a.m.; hand-building a payload is forbidden by `instructions/edition.md` and was refused. **The edition JSON is ready and will ship unchanged the day the flag lands** | **OPEN — blocking** |
+| Open-ended | **THE `--sportsman` PIPELINE DOES NOT EXIST, AND IT BLOCKS THE SECOND PAPER.** `instructions/routine.md` and `instructions/sportsman.md` both document `validate_edition.py --sportsman`, `render_edition.py --sportsman` and `post_discord.py --sportsman`. `grep -ci sportsman` returns **0** in all three scripts. `config.py` has all 16 sportsman definitions, `fetch_fishing.py` already reports all four sportsman waters, both reference files are transcribed and `editions/sportsman/index.json` exists — commit `ca5293d` shipped everything *except* the pipeline. No branch, no PR. **2026-08-15: the first edition was researched and written to `editions/sportsman/2026-08-15.json` and could not be validated, rendered or posted.** Building the pipeline is a code change for Nate, not something the morning routine should improvise at 5:30 a.m.; hand-building a payload is forbidden by `instructions/edition.md` and was refused. **RESOLVED 2026-08-16.** The flag landed. `grep -ci sportsman` now returns **11 in `validate_edition.py`, 21 in `render_edition.py`, 32 in `post_discord.py`**, and No. 1 posted on **2026-08-15** (message `1538220774954115096`, link backfilled). No. 2 validated clean on the first pass, rendered, and posted today. The edition JSON written on the 15th shipped as promised | **CLOSED** |
 
 
 | 2026-08-15 | **Sports retired from the Times.** Nate's call once Sports & Sportsman shipped. Wire sections (U.S., World, Sci/Tech) now target FOUR briefs; sumo and the Premier League rules moved to `instructions/sportsman.md`. The archive keeps its shape via `config.RETIRED_SECTIONS` — do not add a sports section to any Times edition dated 2026-08-16 or later | **CLOSED** |
+| Open-ended | **The routine's stored prompt says Sports & Sportsman is on its first edition, and it is not.** The 2026-08-16 prompt read "THIS IS SPORTS & SPORTSMAN'S FIRST EDITION. It is Vol. I, No. 1 of that paper" — but it also said to **number it from its own ledger**, and `editions/sportsman/index.json` already carried **No. 1, posted 2026-08-15**, message `1538220774954115096`. `config.next_edition_number()` returned **2** and **2 is what shipped**, per `instructions/edition.md`'s "compute it, never guess it." The prompt was evidently written before the 15th's run succeeded and has not been updated. **Harmless this once because the ledger is authoritative and the instruction to use it was explicit — but a prompt that hard-codes an edition number will eventually contradict the ledger in the dangerous direction. Worth Nate editing the stored prompt** | **OPEN — for Nate** |
+| Open-ended | **Head start is now 90 minutes and the clock was read, not estimated.** `config.head_start_minutes('2026-08-16')` returns **90** and `config.cron_for()` returns `30 9 * * *`, which is the cron actually installed — the 5:30 ET wake for two papers. Neither daylight-saving row below has come due. **Noted because the desk again caught itself estimating the time rather than reading it** (mid-run it believed it was 6:45 ET when `TZ=America/New_York date` said **5:43**), the same error logged on 2026-08-13 and 2026-08-14. The fix that worked was running `date` before every scheduling decision instead of counting tool calls | **OPEN — read the clock, do not estimate it** |
 
 ## 2. Forward-dated events
 
@@ -87,7 +89,103 @@ Four sections, all four maintained every run:
 | **2026-09-12** | **WV squirrel opens, the first general season of the year** | Youth weekend Sept. 5-6, then Sept. 12 - Feb. 28, daily 6. WVDNR reference file. Until then West Virginia has nothing open but year-round species, which is why the sportsman calendar is thin in August |
 | **August 2026** | **WVDNR migratory bird regulations publish** | Goose, duck, dove, woodcock and snipe dates are **not** in the hunting summary table and come from a separate publication issued in August; HIP registration required. Watch for it — it is the next thing that fills the sportsman calendar |
 
+| **2026-08-17** | **Marshall v Ohio women's soccer result** | Played 7 p.m. Sunday at Hoops Family Field, both sides followed. Previewed in Sports & Sportsman No. 1 and deliberately **not re-run in No. 2** because the match had not kicked off when the paper posted. **The result is Monday's Our Teams line** |
+| **2026-08-21** | **Premier League 2026-27 opens** | Confirmed again on `premierleague.com` this morning. Chelsea closed pre-season 3-1 over Real Sociedad, Tottenham 3-0 over Hoffenheim; Arsenal met Manchester City in the Community Shield at Cardiff on Aug. 16. From Friday the football beat is results, not friendlies |
+| **2026-08-26** | **WV Lottery Commission votes on the new Greenbrier board** | The $500M Kennedy Lewis joint venture **closed** Aug. 14, KLIM taking **51%**; the 90-job casino stays open and unapproved board members must stay "insulated from casino operations" until the vote. Acting director **David Bradley** is disappointed the deal leaves ~**$3M** in DEP mining penalties unresolved; a **$47M** First Guaranty suit and a ~**$35M** coal judgment also remain. WV MetroNews. Ran as No. 12's second statewide brief |
+| **2026-08-24** | **Huntington council takes up the Flock ordinances** | Mayor **Patrick Farrell** presented his guardrails to the Public Safety Committee **Aug. 14**: retention cut to **seven days** (from 30, following a Flock policy change), misuse penalties and access controls. Councilwoman **Tia Rumbaugh** still wants stricter criminal penalties. **Final text was due for release Aug. 21** ahead of the Aug. 24 council meeting. WSAZ. Ran as No. 12's `huntington_cabell` line |
+| **2026-08-31** | **Aki banzuke (rankings) released** | Unchanged and now the load-bearing date: searched again this morning and the **Sept. 13-27 Aki dates are still carried only by ticket resellers, travel sites and fan databases**, which this paper does not cite. That is **four separate mornings** the JSA and the wires have failed to produce a citable schedule. The banzuke release is the moment Kyodo, Japan Times or NHK must print it. **Sumo sat out No. 2 on those grounds, which is the correct edition under Ian's rule, not a miss** |
+| **~2026-12-2027** | **Carter Memorial (Fort Hill) bridge rehab, I-64 Charleston** | **$74M** deck replacement, the first since the early 1970s, on a bridge carrying about **100,000 vehicles a day**. Triton Construction. Crossovers and median barrier work **Aug-Nov 2026**, deck replacement late winter/early spring 2027, completion **December 2027**. DOH spokesman **Brent Walker** quoted. WV MetroNews. Ran as No. 12's `putnam_kanawha` line — **the lane switch is the next line, not the prep work** |
+
 ## 3. Open threads
+
+- **flores-quake-2026** — 2026-08-16: **led No. 12**, its second front page in two days and it
+  moved hard. **51 dead** (from 20 when No. 11 led on it, and 47 on NPR's Saturday copy),
+  **36 seriously injured, 77 slightly**, about **5,000 displaced**, **341 aftershocks**.
+  Magnitude **7.7** at **5:58 a.m.** local Saturday, **68 km NNW of Ende**, depth **10 km**
+  (USGS). **157 houses flattened**, ~**1,300** damaged; tsunami warning issued and lifted, a
+  **1.61 m** wave at Riung. **3,500+** military and police, three helicopters, one rescue
+  vessel; a state of emergency was under consideration. A 1992 quake in the same waters killed
+  **2,500+**. Al Jazeera (Aug. 16) cross-checked against NPR and PBS (both Aug. 15, both at
+  47). **Al Jazeera's later figures ran and were attributed to it by name.** Expect the toll to
+  keep moving — re-check before citing.
+- **uss-lincoln-deployment** — 2026-08-16: **finally ran**, as No. 12's third U.S. brief, after
+  being held on 2026-08-14 for being the same theatre as the Hormuz lead. The hook is Trump's
+  answer Friday to whether the deployment ran too long: **"not nearly long enough."** Now
+  **nine months**. Crew families quoted by NPR on food shortages and plumbing failures;
+  **Karen Bramlett**, a sailor's grandmother, said he "needs to be ashamed of himself."
+  Acting Navy Secretary **Hung Cao** cited Iran and acknowledged "a small number of mental
+  health cases." **Sen. Ruben Gallego** wants a bipartisan oversight visit. NPR. **News again
+  on the George Washington actually relieving her, or on a congressional visit.**
+- **midwest-flooding-2026** — 2026-08-16: new, ran as No. 12's second U.S. brief. **At least
+  five dead in Indiana** — a boy killed by a falling tree, a woman swept away driving into
+  floodwater, a teen missing since Wednesday. **11+ inches in two days**; the **White River
+  crested above 24 feet at Anderson and Noblesville, past the 1913 record**. **350+
+  evacuations** in Delaware County, **95 people and 45 pets** rescued Saturday. Gov. **Mike
+  Braun** said Trump intended to approve his federal request. PBS NewsHour. **NPR's earlier
+  copy named West Virginia among the affected states but PBS's did not, and no WV detail was
+  obtainable, so the notebook did not carry it.** News again on the declaration or a WV impact.
+- **private-sector-cyberops** — 2026-08-16: new, ran as No. 12's fourth U.S. brief. A
+  presidential memorandum, **"Expanding Capabilities to Combat Transnational Cyber-Enabled
+  Crime,"** issued **Aug. 14**, lets vetted companies access and disrupt networks of designated
+  foreign groups. Companies contract with **DOJ or DHS**, undergo vetting and post a **$1M**
+  performance bond; **DOJ and DHS have two months** to settle the legal questions. It does not
+  authorise attacks on foreign governments. **Paul Rosenzweig** called it "a bad idea";
+  **Joshua Steinman** defended the targets as organised crime. NPR. **The first contract award,
+  or the first lawsuit, is the news.**
+- **lebanon-truce-strikes** — 2026-08-16: new, led No. 12's World section. Israeli strikes on
+  **Ansar** (seven killed, three of them children) and **Deir al-Zahrani** (four killed, 17
+  wounded) killed **11** Saturday, the deadliest day since the **June 20** truce. Israel said
+  it hit Hezbollah infrastructure in response to actions against its soldiers; Netanyahu's
+  office said Hezbollah wounded three soldiers. Lebanese PM **Nawaf Salam** said the Ansar dead
+  "are not military infrastructure." PBS NewsHour, carrying AP. **News again on a truce
+  collapse or a Lebanese diplomatic step.**
+- **hungary-bus-crash** — 2026-08-16: new, ran as No. 12's second World brief. A
+  **Polish-registered coach** with **57 passengers and two drivers**, Serbia to Poland,
+  overturned into a ditch on the **M3 near Mezokeresztes**, ~140 km east of Budapest, about
+  **1 a.m. Sunday**. **12 dead** (11 at the scene, one in hospital), **10 seriously** and
+  **37 slightly** injured. Police said the driver **likely fell asleep** and detained him.
+  Hungary's deadliest road accident since **2003**. Euronews. **A finding from the
+  investigation is the only thing that makes it news again.**
+- **ukraine-long-range-strikes** — 2026-08-16: new, ran as No. 12's third World brief. Ukraine
+  sent about **600 drones** at Moscow; Mayor **Sergei Sobyanin** said **201** were destroyed
+  over the region and an **83-year-old man** was killed in Moscow Oblast. Russian strikes hit
+  Kyiv and **Kryvyi Rih**, killing a woman and wounding six; three dead in Rostov. A Spanish
+  **F-18** on NATO duty downed a drone over Romania, the **fourth** such incident in 2026. UN
+  data put July's Ukrainian civilian casualties at **437 killed, 2,610 injured**, the worst
+  since 2022. Al Jazeera. **Live.**
+- **camc-hernia-settlement** — 2026-08-16: new, ran as No. 12's first statewide brief **and it
+  is the live WV thread.** **Charleston Area Medical Center** settled a class action for
+  **$40M** covering **more than 4,000** patients given unnecessary hernia repairs during
+  bariatric surgery. Filed **April 2025**; the two surgeons named, **Robert Shin** and
+  **Samuel Rossi**, no longer work there. Plaintiffs' counsel **Ben Salango** and **Dante
+  diTrapano**. Administered by Rust Consulting. WV MetroNews. **Court approval, or a per-patient
+  figure, is the news.**
+- **reactor-antineutrinos** — 2026-08-16: new, ran in Sci/Tech. **Max-Planck-Institut fuer
+  Kernphysik** (**Anthony Onillon**, **Thierry Lasserre**) and the **Double Chooz**
+  collaboration detected antineutrinos from a **shut-down** reactor for the first time: ~**100
+  candidate events** over **17.2 days** with both Chooz units offline, from decay in the cores
+  and spent-fuel pools, in a 30-cubic-metre scintillator **400 m** away. *Physical Review
+  Letters* 137(6). Points at shutdown verification and spent-fuel accounting. `source` names the
+  institution, the convention since No. 4.
+- **quantum-heat-engine** — 2026-08-16: new, ran in Sci/Tech. **Aalto University** (**Mikko
+  Moettoenen**, first author **Tuomas Uusnaekki**) ran the first cyclic **quantum heat engine**
+  in superconducting circuits — a transmon qubit, a resonator and a quantum refrigerator
+  completing repeated **Otto cycles** near absolute zero. *Nature Communications* 17(1). The
+  point is cutting the microwave cabling large quantum machines need; Finland targets **1,000
+  logical qubits by 2035**. News again on an autonomous version.
+- **haplodiploidy-overturned** — 2026-08-16: new, ran in Sci/Tech. **Arizona State University**
+  (**Sachin Suresh**, **Timothy Linksvayer**) tested the **60-year-old haplodiploidy
+  hypothesis** across nearly **69,000** insect species and found it predicts eusociality only
+  within **aculeate Hymenoptera** — ants, bees and stinging wasps — pointing instead at
+  stingers and nesting behaviour. *Current Biology* 36(15). Thread closes unless contested.
+- **osaka-mosasaur** — 2026-08-16: new, ran in Sci/Tech. **Okayama University of Science**
+  (**Shoji Hayashi**, **Yasuaki Takano**) identified four unrecognised mosasaur bones collected
+  at **Sobura, Kaizuka City, Osaka, in 1990-92** and left in rock ~**30 years**, including the
+  **first premaxilla confirmed in a Japanese specimen**; horn-like projections on the
+  basisphenoid suggest a possible new species. Presented **June 27, 2026** to the
+  Palaeontological Society of Japan. **Presented, not yet peer-reviewed — written as a
+  presentation, not a study.**
+
 
 - **hormuz-reopening** — 2026-08-14: **moved hard and led No. 10, its third front page** (it also led
   Nos. 1 and 5). Two **ADNOC** vessels were attacked crossing the strait **Thursday evening** — no injuries,
