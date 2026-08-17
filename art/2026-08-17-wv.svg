@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 506" role="img"
+     aria-label="Sketch: the Williams River at Cowen in flood, seen upstream from high on the bank. Brown water fills the channel from timber to timber, boiling over the drowned cobble bars, with drift caught against a leaning trunk.">
+  <defs>
+    <style>
+      .ink   { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; }
+      .mask  { fill: var(--parchment, #f4f0e6); stroke: currentColor;
+               stroke-linecap: round; stroke-linejoin: round; }
+      .faint { opacity: 0.3; }
+      .mid   { opacity: 0.58; }
+    </style>
+  </defs>
+
+  <g>
+    <!-- Far ridge, layered and rounded. Same country as the low-water sketch;
+         everything below the tree line is what changed. -->
+    <path class="mask" d="M0 186 C88 142 172 126 266 134 C354 141 402 114 484 112
+                          C576 110 638 134 724 128 C798 123 850 142 900 162
+                          V236 H0 Z" stroke-width="2.2"/>
+    <g class="ink faint" stroke-width="0.9">
+      <path d="M118 160c26 10 44 26 56 44M298 142c24 12 40 28 50 46M518 122c22 12 38 30 46 48M718 136c22 12 36 28 44 46"/>
+    </g>
+
+    <path class="mask" d="M0 236 C110 198 210 192 300 204 C392 216 452 194 540 192
+                          C632 190 700 212 790 206 C844 202 874 212 900 224
+                          V276 H0 Z" stroke-width="2.2"/>
+
+    <!-- Timber on both banks. The canopy line is unchanged; the water has
+         come up INTO the trunks, which is the whole picture. -->
+    <g>
+      <path class="mask" d="M0 278 C38 248 76 244 106 258 C130 240 166 240 188 258
+                            C212 242 246 246 262 264 C284 252 310 258 320 274
+                            L320 300 H0 Z" stroke-width="2"/>
+      <path class="mask" d="M580 274 C602 254 632 252 652 266 C674 248 708 248 728 264
+                            C754 246 790 250 808 268 C834 252 866 258 900 272
+                            V300 H580 Z" stroke-width="2"/>
+    </g>
+
+    <!-- Trunks standing in the water rather than above a gravel margin. -->
+    <g class="ink mid" stroke-width="1.4">
+      <path d="M54 268v70M148 266v66M236 272v58"/>
+      <path d="M626 274v58M714 268v64M802 272v56"/>
+    </g>
+
+    <!-- THE CHANNEL. Both banks still converge upstream, but the water line
+         is high on each one: bank-full, timber to timber. -->
+    <path class="ink" d="M0 338 C130 330 258 306 336 288" stroke-width="2.8"/>
+    <path class="ink" d="M900 332 C778 322 654 302 578 288" stroke-width="2.8"/>
+    <path class="ink mid" d="M336 288 C374 282 420 280 470 281 C516 282 552 285 578 288" stroke-width="1.8"/>
+
+    <!-- Drowned margin: a second line just inside the timber, showing the
+         water standing among the trunks instead of below them. -->
+    <g class="ink faint" stroke-width="1.1">
+      <path d="M0 320 C132 312 258 292 340 276M900 314 C780 304 656 290 574 276"/>
+    </g>
+
+    <!-- Surface. At 4620 cfs it is not riffle arcs but long seams and boils,
+         carried downstream and widening toward the reader. -->
+    <g class="ink mid" stroke-width="1.5">
+      <path d="M60 486c96-26 190-52 268-84M300 494c92-30 178-62 250-96M556 490c86-32 166-66 232-102"/>
+      <path d="M150 432c84-22 164-46 232-74M440 438c80-24 156-50 220-78"/>
+      <path d="M262 380c66-16 128-34 182-54M540 384c62-18 120-38 172-58"/>
+      <path d="M356 330c48-11 92-23 130-36M578 332c44-12 84-24 120-37"/>
+    </g>
+
+    <!-- Boils: closed loops where the current comes up off the drowned bars.
+         The bars themselves are gone under and are not drawn. -->
+    <g class="ink" stroke-width="1.3">
+      <path d="M196 458c26-14 60-12 76 6c14 16 2 32-24 34c-30 2-62-8-70-22c-6-10 2-16 18-18"/>
+      <path d="M418 414c22-11 50-9 63 6c11 13 1 26-20 28c-25 2-52-7-58-18c-5-9 1-14 15-16"/>
+      <path d="M640 440c24-12 55-10 69 6c12 14 1 28-22 30c-27 2-56-8-63-20c-5-9 2-15 16-16"/>
+      <path d="M330 352c17-8 39-7 49 5c9 10 1 20-15 22c-20 1-41-6-46-14c-4-7 1-11 12-13"/>
+    </g>
+    <g class="ink faint" stroke-width="1">
+      <path d="M214 470c22 10 50 10 72 0M432 424c18 8 42 8 60 0M656 450c20 9 46 9 66 0"/>
+    </g>
+
+    <!-- Standing wave train below the boils, shortening upstream. -->
+    <g class="ink mid" stroke-width="1.2">
+      <path d="M96 502c18-14 40-14 58 0c18 14 40 14 58 0M470 500c16-12 36-12 52 0c16 12 36 12 52 0"/>
+      <path d="M258 446c14-10 32-10 46 0c14 10 32 10 46 0M598 452c13-10 30-10 43 0c13 10 30 10 43 0"/>
+    </g>
+
+    <!-- A leaning trunk with drift rafted against the upstream side: the one
+         thing in the picture that says how long the water has been up. -->
+    <path class="ink" d="M742 300 C756 336 770 380 782 434" stroke-width="2.6"/>
+    <g class="ink mid" stroke-width="1.3">
+      <path d="M726 392 L790 380M720 404 L788 396M730 418 L792 410M736 372 L784 364"/>
+    </g>
+    <g class="ink faint" stroke-width="1">
+      <path d="M700 400c18-16 44-22 70-18M706 424c20-12 46-16 72-12"/>
+    </g>
+
+    <!-- High bank in the near corner: where the sketch is standing, well up
+         out of it. No gravel bar today, because there is none showing. -->
+    <path class="mask" d="M0 506 V446 C34 452 74 470 104 490 C124 500 138 504 148 506 Z" stroke-width="2"/>
+    <g class="ink faint" stroke-width="0.9">
+      <path d="M18 470c14 8 30 20 44 32M44 462c14 8 28 18 40 30M8 490c12 5 24 11 34 16"/>
+    </g>
+  </g>
+</svg>

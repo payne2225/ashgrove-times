@@ -1,0 +1,229 @@
+{
+  "edition_date": "2026-08-17",
+  "edition_number": 3,
+  "volume": "I",
+  "sections": [
+    {
+      "id": "teams",
+      "label": "Our Teams",
+      "briefs": [
+        {
+          "headline": "Pirates put up eight on Boston to take the finale 8-3",
+          "summary": "Pittsburgh scored twice in the first and five in the third. Kirby Yates took the win at 1-5; Patrick Sandoval fell to 1-2. The Bucs are 61-65, 16.5 back in the Central.",
+          "team": "Pittsburgh Pirates",
+          "league": "MLB",
+          "source": "MLB.com",
+          "url": "https://www.mlb.com/scores/2026-08-16"
+        },
+        {
+          "headline": "Miami score seven late and beat the Reds 7-1",
+          "summary": "Cincinnati led early before Miami took two in the eighth and five in the ninth. Josh Ekness won at 1-1; Tejay Antone fell to 2-2. The Reds are 59-64.",
+          "team": "Cincinnati Reds",
+          "league": "MLB",
+          "source": "MLB.com",
+          "url": "https://www.mlb.com/scores/2026-08-16"
+        }
+      ],
+      "sat_out": [
+        {
+          "team": "Marshall",
+          "league": "NCAA",
+          "reason": "hosted Ohio at 7 p.m. Sunday at Hoops Family Field; no outlet this desk could open had posted a result by press time, so no score is printed"
+        },
+        {
+          "team": "Ohio University",
+          "league": "NCAA",
+          "reason": "at Marshall Sunday night; same reason, no confirmable result"
+        },
+        {
+          "team": "West Virginia",
+          "league": "NCAA",
+          "reason": "no result dated Sunday; the men's soccer side open Aug. 20 at Charlotte"
+        },
+        {
+          "team": "Chelsea",
+          "league": "Premier League",
+          "reason": "pre-season closed Saturday and ran here yesterday; the league opens Friday"
+        },
+        {
+          "team": "Tottenham",
+          "league": "Premier League",
+          "reason": "pre-season closed Saturday and ran here yesterday; the league opens Friday"
+        },
+        {
+          "team": "Liverpool",
+          "league": "Premier League",
+          "reason": "no result this desk could confirm since the Como fixture; the league opens Friday"
+        },
+        {
+          "team": "Cleveland Browns",
+          "league": "NFL",
+          "reason": "lost the preseason opener at Chicago on Aug. 15 and ran here yesterday; nothing since"
+        },
+        {
+          "team": "Cincinnati Bengals",
+          "league": "NFL",
+          "reason": "beat Detroit 16-14 on Aug. 13; Sunday was a camp day and the next game is Aug. 22"
+        },
+        {
+          "team": "Columbus Crew",
+          "league": "MLS",
+          "reason": "no Sunday result this desk could confirm from a source it cites"
+        },
+        {
+          "team": "FC Cincinnati",
+          "league": "MLS",
+          "reason": "played Orlando City over the weekend; no final score this desk could confirm"
+        },
+        {
+          "team": "San Antonio Spurs",
+          "league": "NBA",
+          "reason": "out of season; the league opens Oct. 20"
+        },
+        {
+          "team": "USMNT",
+          "league": "Soccer",
+          "reason": "no fixture and no news"
+        }
+      ],
+      "note": "Sumo got its own search and sits out for a third straight edition. The Japan Sumo Association's own English pages carry nothing dated August beyond a museum calendar, and still do not print the September tournament's dates; the Aki banzuke (rankings) is not released until Aug. 31."
+    },
+    {
+      "id": "leagues",
+      "label": "Around the Leagues",
+      "capped_at": 2,
+      "briefs": [
+        {
+          "headline": "Cameroon beat Malawi 3-0 for a first WAFCON title",
+          "summary": "Marie Ngah scored in the 20th and first-half stoppage time and Naomi Eto in the 30th, in Rabat. Cameroon had lost three previous finals; Malawi were ranked 153rd and making their debut.",
+          "league": "Soccer",
+          "source": "Al Jazeera",
+          "url": "https://www.aljazeera.com/sports/2026/8/17/cameroon-dominates-malawi-to-win-first-womens-africa-cup-of-nations-title"
+        },
+        {
+          "headline": "Manchester City accept a 65.4M pound bid for Rodri",
+          "summary": "The 2024 Ballon d'Or winner, 30, has agreed a four-year deal with Barcelona after seven seasons and 298 appearances at City. He missed Sunday's 3-0 Community Shield loss to Arsenal after minor back surgery.",
+          "league": "Premier League",
+          "source": "Al Jazeera",
+          "url": "https://www.aljazeera.com/sports/2026/8/17/rodri-headed-to-barcelona-after-man-city-accepts-transfer-bid"
+        }
+      ],
+      "note": "MLB played a full Sunday card and none of it moved a division: Milwaukee lead the Central at 77-48, five clear of the Cubs. Sunday's NFL preseason and MLS results were available only from aggregators this desk does not cite."
+    },
+    {
+      "id": "seasons",
+      "label": "In Season",
+      "coming_in": [
+        {
+          "state": "WV",
+          "species": "Black bear",
+          "method": "Gun",
+          "dates": "Aug. 29 - Sept. 7",
+          "item": "WVDNR lists a gun bear season opening Aug. 29 in SELECTED COUNTIES only. The county list is not in the pamphlet's summary table, so no county is named here. Daily 1, possession 2, season limit 2; bag limits vary by county and permit class and are on pamphlet pages 33-39.",
+          "source": "WVDNR",
+          "reference": "reference/wv-hunting-2026-27.json",
+          "publication": "West Virginia Hunting and Trapping Regulations Summary, July 2026 - June 2027"
+        }
+      ],
+      "prime": [
+        {
+          "state": "NC",
+          "species": "Red drum",
+          "item": "Coastal waters: 18-inch minimum and 27-inch maximum total length, one per day. It is unlawful to possess a red drum over 27 inches.",
+          "source": "NCDMF",
+          "url": "https://www.deq.nc.gov/about/divisions/marine-fisheries/rules-proclamations-and-size-and-bag-limits/recreational-size-and-bag-limits"
+        },
+        {
+          "state": "NC",
+          "species": "Spotted seatrout",
+          "item": "Coastal waters: 14 to 20 inches total length, three per day, plus one fish over 26 inches.",
+          "source": "NCDMF",
+          "url": "https://www.deq.nc.gov/about/divisions/marine-fisheries/rules-proclamations-and-size-and-bag-limits/recreational-size-and-bag-limits"
+        },
+        {
+          "state": "NC",
+          "species": "Sheepshead",
+          "item": "Coastal waters: 14-inch minimum total length, five per day.",
+          "source": "NCDMF",
+          "url": "https://www.deq.nc.gov/about/divisions/marine-fisheries/rules-proclamations-and-size-and-bag-limits/recreational-size-and-bag-limits"
+        },
+        {
+          "state": "WV",
+          "species": "Coyote",
+          "item": "Open year round to hunting; additional regulations are on pamphlet page 6.",
+          "source": "WVDNR",
+          "reference": "reference/wv-hunting-2026-27.json"
+        }
+      ],
+      "going_out": [],
+      "notes": [
+        {
+          "state": "NC",
+          "item": "Bluefish is five per day from a for-hire vessel but three per day for private recreational anglers, which is the number that applies to most of this readership.",
+          "source": "NCDMF",
+          "url": "https://www.deq.nc.gov/about/divisions/marine-fisheries/rules-proclamations-and-size-and-bag-limits/recreational-size-and-bag-limits"
+        },
+        {
+          "state": "NC",
+          "item": "Flounder is closed in North Carolina coastal waters and unlawful to possess. Topsail Sound is coastal water, so Marine Fisheries governs it, not the inland digest.",
+          "source": "NCDMF",
+          "url": "https://www.deq.nc.gov/about/divisions/marine-fisheries/rules-proclamations-and-size-and-bag-limits/recreational-size-and-bag-limits"
+        },
+        {
+          "state": "WV",
+          "item": "Nothing else opens within two weeks. The first general season is squirrel on Sept. 12, with a youth weekend Sept. 5-6.",
+          "source": "WVDNR",
+          "reference": "reference/wv-hunting-2026-27.json"
+        },
+        {
+          "state": "WV",
+          "item": "Goose, duck, dove, woodcock and snipe dates are not in the summary table. They come from a separate WVDNR migratory bird publication issued in August, and HIP registration is required.",
+          "source": "WVDNR",
+          "reference": "reference/wv-hunting-2026-27.json"
+        }
+      ]
+    },
+    {
+      "id": "water",
+      "label": "On the Water",
+      "waters": [
+        {
+          "water": "Williams River",
+          "near": "Cowen",
+          "reading": "4620 cfs and rising, 7.55 feet.",
+          "read": "4620 cfs - blown out. Stay on the bank.",
+          "working": "Up from 179 cfs and 2.00 feet a day ago, so nothing is fishable and nothing is wadeable. The pocket water and plunge pools that are the whole river in August are gone under. As it drops the seams along the undercut banks clear first, and that is where a heavy stonefly nymph and a sculpin pattern go in.",
+          "source": "USGS 03186500"
+        },
+        {
+          "water": "Ohio River at Point Pleasant",
+          "near": "14 miles above R.C. Byrd Locks and Dam",
+          "reading": "27.96 feet and rising.",
+          "read": "28.0 ft and rising - up and pushing. Expect colour and current; fish the slack behind anything solid.",
+          "working": "Up nearly three feet in a day and coloured, so the fish are off the main current. Shad are the forage: work a white swimbait through the slack behind the wing dams and the barge cuts rather than the open channel.",
+          "source": "USGS 03201500"
+        },
+        {
+          "water": "Ohio River at Huntington",
+          "near": "below R.C. Byrd Locks and Dam",
+          "reading": "30.75 feet and rising.",
+          "read": "30.8 ft and rising - up and pushing. Expect colour and current; fish the slack behind anything solid.",
+          "working": "Also up nearly three feet. The lock wall and the riprap are the holding water while it is pushing; a crawfish-coloured crankbait tight to the rock is the second look after the swimbait.",
+          "source": "USGS 03206000"
+        },
+        {
+          "water": "Topsail Sound",
+          "near": "New Topsail Inlet",
+          "reading": "Sound highs 12:08 AM and 12:43 PM at Hampstead; lows 6:32 AM and 7:05 PM.",
+          "read": "Fish the moving water either side of high at 12:08 AM and 12:43 PM in the sound.",
+          "working": "Tide first: the 12:43 p.m. high is the one daylight window, and the push into it and the fall behind it are the hours. Mud minnows, shrimp and finger mullet are the forage, so work the grass edges and the oyster bars while the water is moving.",
+          "source": "NOAA CO-OPS 8657813",
+          "note": "Hampstead is the sound station and is the read that matters; the oceanfront station at Ocean City Beach pier runs over an hour ahead and is quoted only for a surf read. No water temperature is carried today - the Wrightsville Beach gauge returned none."
+        }
+      ],
+      "note": "USGS does not gauge the Ohio at R.C. Byrd, and the Corps tailwater data is not reachable from this pipeline. The two gauges above are the ones that bracket the dam, and neither is the tailwater."
+    }
+  ],
+  "kicker": "Two of the 14 followed teams played Sunday, and the Williams River is unfishable at 4620 cfs.",
+  "sources_note": "Compiled from wire reports, agency publications and the morning's gauges"
+}
