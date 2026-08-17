@@ -1291,7 +1291,18 @@ SPORTSMAN_SECTIONS = [
 
 # Stories per league in `leagues`, so one busy league cannot crowd out the
 # rest. `teams` is not capped by this — a followed team always gets its say.
-SPORTSMAN_MAX_PER_LEAGUE = 2
+# Raised 2 -> 3 on 2026-08-17 after Nate called the sport half skimpy; an
+# in-season league also earns a daily ROUNDUP brief (the day across MLB in
+# one paragraph), which is reporting, not a scoreboard.
+SPORTSMAN_MAX_PER_LEAGUE = 3
+
+# The two standing blocks that keep Our Teams from running thin on a quiet
+# day, added 2026-08-17. Standings and fixtures are INSTRUMENT READINGS,
+# like the river gauges: always true, always current, never padding. A
+# Monday with two games still answers "where do we stand and when do we
+# play next" for every in-season team.
+SPORTSMAN_STANDINGS_LABEL = "Where they stand"
+SPORTSMAN_UPCOMING_LABEL = "The week ahead"
 
 # ------------------------------------------------------------- the outdoors
 #

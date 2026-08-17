@@ -2338,12 +2338,38 @@ def _sm_check_teams(section: dict) -> tuple[list[str], list[str]]:
                 else:
                     accounted.add(name)
 
+    instrumented: set[str] = set()
+    # The standing blocks: optional, but every entry names a followed team
+    # and carries its reading. Standings and fixtures also count as
+    # accounting for a team — a club with no game but a standings line is
+    # not missing from the paper.
+    for key, required in (("standings", "line"), ("upcoming", "fixture")):
+        entries = section.get(key)
+        if entries is None:
+            continue
+        if not isinstance(entries, list):
+            errors.append(f"teams.{key} must be a list")
+            continue
+        for i, entry in enumerate(entries):
+            where = f"teams.{key}[{i}]"
+            if not isinstance(entry, dict):
+                errors.append(f"{where} must be an object")
+                continue
+            team = entry.get("team")
+            if not _nonempty_str(team) or not config.find_team(str(team)):
+                errors.append(f"{where}.team {team!r} is not a followed team")
+            elif not _nonempty_str(entry.get(required)):
+                errors.append(f"{where}.{required} is required")
+            else:
+                for match in config.find_team(str(team)):
+                    instrumented.add(match["name"])
+
     both = covered & accounted
     if both:
         errors.append(
             "teams listed as sat_out but also covered in a brief: "
             + ", ".join(sorted(both)))
-    missing = known - covered - accounted
+    missing = known - covered - accounted - instrumented
     if missing:
         notes.append(
             "followed teams neither covered nor in sat_out: "

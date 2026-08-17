@@ -1375,13 +1375,39 @@ def build_sportsman_payload(edition: dict, page_url: str | None = None) -> dict:
 
     # Our Teams, then the wider leagues. Both are plain brief blocks, so they
     # reuse the newspaper's formatter and inherit its limits for free.
+    #
+    # Our Teams also carries two standing blocks as fields — standings and
+    # the week's fixtures. They are instrument readings, like the gauges:
+    # always true, always current, and the reason a two-game Monday no
+    # longer reads skimpy (Nate, 2026-08-17).
     for section_id in ("teams", "leagues"):
         section = by_id.get(section_id)
         if not section:
             continue
         blocks = [_brief_block(b) for b in (section.get("briefs") or [])
                   if isinstance(b, dict)]
-        add(section_id, "\n\n".join(b for b in blocks if b))
+        fields: list[dict] = []
+        if section_id == "teams":
+            standing_lines = [
+                f"**{e['team']}** — {e['line']}"
+                for e in (section.get("standings") or [])
+                if isinstance(e, dict) and e.get("team") and e.get("line")]
+            if standing_lines:
+                fields.append({"name": config.SPORTSMAN_STANDINGS_LABEL,
+                               "value": _clip("\n".join(standing_lines),
+                                              FIELD_VALUE_LIMIT),
+                               "inline": False})
+            upcoming_lines = [
+                f"**{e['team']}** — {e['fixture']}"
+                + (f", {e['when']}" if e.get("when") else "")
+                for e in (section.get("upcoming") or [])
+                if isinstance(e, dict) and e.get("team") and e.get("fixture")]
+            if upcoming_lines:
+                fields.append({"name": config.SPORTSMAN_UPCOMING_LABEL,
+                               "value": _clip("\n".join(upcoming_lines),
+                                              FIELD_VALUE_LIMIT),
+                               "inline": False})
+        add(section_id, "\n\n".join(b for b in blocks if b), fields or None)
 
     # In Season and On the Water are grouped BY STATE, never intermingled.
     # Nate, 2026-08-15: West Virginia and North Carolina rules live under

@@ -82,7 +82,46 @@ prints the current list.
 
 **Out of season is not a gap.** The Browns in June, the Reds in January —
 say nothing rather than reaching for a roster-move filler. A team with no
-news simply does not appear.
+news simply does not appear in the briefs.
+
+### Where they stand, and The week ahead — the standing blocks
+
+Added 2026-08-17 after a two-game Monday read skimpy. **Standings and
+fixtures are instrument readings, like the river gauges** — always true,
+always current, never padding — so they run every day and they are what
+keeps a quiet morning from feeling thin:
+
+```json
+"standings": [
+  {"team": "Cincinnati Reds", "line": "59-64, fourth in the NL Central,
+   8.5 back", "source": "MLB.com", "url": "https://..."}
+],
+"upcoming": [
+  {"team": "Chelsea", "fixture": "at Crystal Palace", "when": "Friday,
+   3 p.m. ET", "source": "Premier League", "url": "https://..."}
+]
+```
+
+- **Standings for every IN-SEASON team, every day** — record, position,
+  games back or points, looked up fresh and cited. Out-of-season teams are
+  simply absent.
+- **The week ahead for any followed team playing in the next seven days.**
+  Day and time in ET. This answers the one question a sports section owes
+  its readers: when do we play next?
+- Same truth rule as everything else: looked up today, cited, linked.
+  Never from memory — a stale record is a wrong record by Tuesday.
+
+The validator requires each entry to name a followed team, and a team with
+a standings or fixture line counts as accounted for — it does not also
+need a brief or a sat_out entry.
+
+### Around the Leagues, in season
+
+`config.SPORTSMAN_MAX_PER_LEAGUE` is now **3**, and an in-season league
+earns a **daily roundup brief** — the day across MLB in one paragraph:
+who won the games that matter, a line score worth repeating, the standings
+movement. That is reporting, not a scoreboard; the test is whether a
+reader who follows the league would learn something.
 
 ### Sumo — inherited from the Times, Ian's rule intact
 

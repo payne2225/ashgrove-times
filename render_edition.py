@@ -1168,11 +1168,36 @@ def render_sportsman_html(edition: dict) -> str:
         if not section:
             continue
         briefs = [_brief_html(blocks, b) for b in (section.get("briefs") or [])]
-        briefs = [b for b in briefs if b]
-        if briefs:
+        body = "".join(b for b in briefs if b)
+        if section_id == "teams":
+            # The standing blocks: standings and fixtures, instrument
+            # readings that keep a quiet Monday from reading skimpy.
+            for key, label, fmt in (
+                    ("standings", config.SPORTSMAN_STANDINGS_LABEL,
+                     lambda e: (e.get("team"), _norm(e.get("line")))),
+                    ("upcoming", config.SPORTSMAN_UPCOMING_LABEL,
+                     lambda e: (e.get("team"),
+                                _norm(e.get("fixture"))
+                                + (f", {_norm(e['when'])}" if e.get("when")
+                                   else "")))):
+                items = []
+                for entry in (section.get(key) or []):
+                    if not isinstance(entry, dict):
+                        continue
+                    head, text = fmt(entry)
+                    if head and text:
+                        items.append(_sm_roundup_item(blocks, _norm(head),
+                                                      text, entry))
+                if items:
+                    body += fill(blocks["WV_BLOCK"], {
+                        "BLOCK_CLASS": "sm-teams",
+                        "BLOCK_LABEL": esc(label),
+                        "ITEMS": "".join(items),
+                    })
+        if body:
             parts.append(fill(blocks["SECTION"], {
                 "SECTION_LABEL": esc(_norm(section.get("label")) or section_id),
-                "BRIEFS": "".join(briefs),
+                "BRIEFS": body,
             }))
 
     seasons = by_id.get("seasons")
