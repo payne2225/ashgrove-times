@@ -160,7 +160,7 @@ Half this readership wanted the other score.
 ## 2. Around the Leagues — everything else
 
 The genuinely notable results and stories from the leagues above, capped at
-**`config.SPORTSMAN_MAX_PER_LEAGUE`** (2) so one busy league cannot eat the
+**`config.SPORTSMAN_MAX_PER_LEAGUE`** (3) so one busy league cannot eat the
 section. Standings at a turning point, a title race, a major injury, a
 trade that changes a division, a record.
 
