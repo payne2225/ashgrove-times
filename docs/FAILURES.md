@@ -406,3 +406,36 @@ and the failure protocol at the bottom of that file appends here too.
   validator's number is not the number the splitter sees — budget roughly 200 chars of
   headroom for the permalink, or a paper trimmed to just under the line still splits.** No
   brief was dropped and the notebook stayed whole, so this is cosmetic, not a content loss.
+- **2026-08-17** — *edition split into two messages, third occurrence* — the Times projected
+  **5,906** chars against the 5,800 ceiling and the dry run confirmed the split before it was
+  sent (`split into FRONT PAGE and INSIDE messages to keep the notebook whole`), after No. 8
+  and No. 12. The desk tightened every summary toward the low end of the target and **cut one
+  wire brief** (a Colombia tariff-request brief, the weakest World item and the fourth day the
+  Colombia quake would have appeared) and still could not reach the line. **Yesterday's
+  headroom note held and is now confirmed twice over.** The structural cause is the four-brief
+  wire sections plus long `sciencedaily.com` and `pbs.org` URLs: at four briefs a section runs
+  ~1,200 against a 1,000 allocation no matter how short the prose is. **This is a budget
+  arithmetic problem, not a discipline problem — `config.EMBED_BUDGET` and the four-brief
+  target cannot both be met, and one of them needs changing.** No brief was dropped by the
+  trimmer and the notebook stayed whole.
+- **2026-08-17** — *fishing source degraded, second consecutive morning* — NOAA again returned
+  **no water temperature** for the Wrightsville Beach gauge (`noaa-temp: NOAA: no water
+  temperature returned`), so both papers carried Topsail **tides only**. Williams, both Ohio
+  gauges and the Hampstead sound station reported normally.
+- **2026-08-17** — *sources that would not open* — the **Marshall v Ohio women's soccer result
+  could not be sourced** (both are followed teams and the ledger had committed to it):
+  `herdzone.com` returned **title-only markdown** on both the schedule page and the preview,
+  and `herdzone.com/news/` **404'd**; `espn.com` soccer scoreboards and `mlssoccer.com/scores`
+  were unusable for a **fourth** consecutive morning; `premierleague.com/en/news` returned
+  navigation only, so the Arsenal-City Community Shield score ran as one attributed clause
+  inside the Rodri brief rather than as its own item. Both teams moved to `sat_out` with the
+  reason stated. `mlb.com/scores`, `mlb.com/standings` and Al Jazeera opened cleanly.
+- **2026-08-17** — *stale search results nearly printed as today's news* — searches for West
+  Virginia flooding returned, mixed in with live copy and undated in the result list, the
+  **July 21-23 Upshur/Lewis disaster** (2 dead, National Guard, all 55 counties) and a **2022**
+  WCHS story reporting a state of emergency in Kanawha and Fayette. The 2022 piece was caught
+  only because it named **Gov. Jim Justice**, who has not been governor since 2025. **No state
+  of emergency was printed, because none could be confirmed for Sunday's storms.** The lesson
+  is the one the paper already knows and nearly missed anyway: open the article and read its
+  dateline before believing a search summary, especially when the search terms name a recurring
+  kind of event.

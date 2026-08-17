@@ -52,6 +52,10 @@ Four sections, all four maintained every run:
 | Open-ended | **The routine's stored prompt says Sports & Sportsman is on its first edition, and it is not.** The 2026-08-16 prompt read "THIS IS SPORTS & SPORTSMAN'S FIRST EDITION. It is Vol. I, No. 1 of that paper" — but it also said to **number it from its own ledger**, and `editions/sportsman/index.json` already carried **No. 1, posted 2026-08-15**, message `1538220774954115096`. `config.next_edition_number()` returned **2** and **2 is what shipped**, per `instructions/edition.md`'s "compute it, never guess it." The prompt was evidently written before the 15th's run succeeded and has not been updated. **Harmless this once because the ledger is authoritative and the instruction to use it was explicit — but a prompt that hard-codes an edition number will eventually contradict the ledger in the dangerous direction. Worth Nate editing the stored prompt** | **OPEN — for Nate** |
 | Open-ended | **Head start is now 90 minutes and the clock was read, not estimated.** `config.head_start_minutes('2026-08-16')` returns **90** and `config.cron_for()` returns `30 9 * * *`, which is the cron actually installed — the 5:30 ET wake for two papers. Neither daylight-saving row below has come due. **Noted because the desk again caught itself estimating the time rather than reading it** (mid-run it believed it was 6:45 ET when `TZ=America/New_York date` said **5:43**), the same error logged on 2026-08-13 and 2026-08-14. The fix that worked was running `date` before every scheduling decision instead of counting tool calls | **OPEN — read the clock, do not estimate it** |
 
+| Open-ended | **The stored prompt still says Sports & Sportsman is on its first edition. Third morning running.** The 2026-08-17 prompt again read "THIS IS SPORTS & SPORTSMAN'S FIRST EDITION. It is Vol. I, No. 1 of that paper," and again also said to **number it from its own ledger**. `editions/sportsman/index.json` carried **No. 1 (Aug. 15)** and **No. 2 (Aug. 16)**, both posted, so **No. 3 is what shipped**, per "compute it, never guess it." Harmless a second time for the same reason as the first — the ledger is authoritative and the instruction to use it is explicit — but the row was already flagged on 2026-08-16 as something for Nate to edit and it has not been edited. **The prompt also asks for "the extra care a first issue deserves," which is now advice attached to the wrong edition** | **OPEN — for Nate, second reminder** |
+| Open-ended | **The four-brief wire target and `config.EMBED_BUDGET` cannot both be satisfied.** No. 13 projected **5,906** against the 5,800 ceiling *after* every summary was cut to the low end of target and *after* a real wire brief was dropped, and it still split into two messages — the third split in six editions (Nos. 8, 12, 13). U.S. and Sci/Tech each project ~1,200 against a **1,000** allocation with four briefs, because a brief costs its whole URL and `sciencedaily.com` and `pbs.org` links run 60-110 chars each. **This is arithmetic, not discipline: either the wire target goes back to three, or the per-section allocations go up, or splitting stops being logged as degraded and becomes the normal shape.** A code and config decision for Nate | **OPEN — for Nate** |
+| Open-ended | **The clock was read, not estimated — but only after 40 minutes of estimating it.** `config.head_start_minutes('2026-08-17')` returned **90** and `config.cron_for()` returned `30 9 * * *`, the cron actually installed; neither daylight-saving row has come due. **Noted because the desk again drifted into estimating: mid-research it believed it was 6:25 ET when `TZ=America/New_York date` said 5:39** — the same error logged on 2026-08-13, 08-14 and 08-16. The drift was always in the same direction, believing the run later than it was, which is the direction that makes a desk cut research short. **The fix that works is running `date` before every scheduling judgment, not counting tool calls** | **OPEN — read the clock, do not estimate it** |
+
 ## 2. Forward-dated events
 
 | Date | Event | Note |
@@ -96,7 +100,129 @@ Four sections, all four maintained every run:
 | **2026-08-31** | **Aki banzuke (rankings) released** | Unchanged and now the load-bearing date: searched again this morning and the **Sept. 13-27 Aki dates are still carried only by ticket resellers, travel sites and fan databases**, which this paper does not cite. That is **four separate mornings** the JSA and the wires have failed to produce a citable schedule. The banzuke release is the moment Kyodo, Japan Times or NHK must print it. **Sumo sat out No. 2 on those grounds, which is the correct edition under Ian's rule, not a miss** |
 | **~2026-12-2027** | **Carter Memorial (Fort Hill) bridge rehab, I-64 Charleston** | **$74M** deck replacement, the first since the early 1970s, on a bridge carrying about **100,000 vehicles a day**. Triton Construction. Crossovers and median barrier work **Aug-Nov 2026**, deck replacement late winter/early spring 2027, completion **December 2027**. DOH spokesman **Brent Walker** quoted. WV MetroNews. Ran as No. 12's `putnam_kanawha` line — **the lane switch is the next line, not the prep work** |
 
+| **2026-08-18** | **Wood County Commission vote on the Lubeck PSD rate increase** | The vote was set for **9:45 a.m. Monday Aug. 17** on a proposed **30%** water and **14%** sewer increase — a 3,000-gallon bill going from **$34.35 to $44.73**. **This paper posts at 7 a.m., so the vote had not happened and no `mid_ohio_valley` line ran.** Parkersburg News and Sentinel. Separately, **Martin has announced his retirement from Lubeck PSD**, which was not run because its date could not be pinned inside 48 hours. **The outcome is Tuesday's regional line** |
+| **2026-08-18** | **Marshall v Ohio women's soccer, STILL OWED** | Played 7 p.m. **Sunday Aug. 16** at Hoops Family Field, both sides followed — the sportsman paper's house derby. Previewed in S&S No. 1, held out of No. 2 because it had not kicked off, and **held out of No. 3 because no outlet this desk could open had posted a result by 5:45 a.m. Monday** (`herdzone.com` title-only and its `/news/` index 404). **This is the second morning the ledger has carried this row unresolved. Try `therealwv.com`, WSAZ and the Ohio athletics site, not just herdzone** |
+| **~2026-08-17** | **Nucor Apple Grove sheriff's detail ends** | The 10-day security detail posted after the Aug. 7 threat closure was due to end about today. **Not searched this morning** — the flooding took the West Virginia sweep — so this is carried forward unchecked rather than reported as quiet. Check it tomorrow |
+| **2026-08-21** | **Premier League 2026-27 opens** | Unchanged. **Arsenal beat Manchester City 3-0 in the Community Shield on Sunday**, carried as one attributed clause inside the Rodri brief because `premierleague.com/en/news` returned navigation only and no readable match report could be opened |
+| **~2026-08-24** | **Rodri's move to Barcelona completes** | City accepted **65.4M pounds ($88.47M)**; the 30-year-old **2024 Ballon d'Or** winner agreed a **four-year** deal and was expected at Barcelona "the following week." He missed the Community Shield after **minor back surgery** and returned to training Friday. Al Jazeera, citing Sky Sports. Ran in S&S No. 3's Around the Leagues. **The completed transfer, or a collapse, is the news** |
+
 ## 3. Open threads
+
+- **wv-flooding-aug16** — 2026-08-17: **new, and it is the live WV thread.** A training axis of
+  thunderstorms sat over south-central West Virginia through Sunday, peaking at **11.8 inches
+  near Eskdale**, with **6 to 10+ inches** on the Eskdale-Kincaid-Oak Hill-Cunard-Danese line and
+  3 to 6 from Charleston through Marmet and Montgomery; rates ran **1.5 to 2.5 inches an hour**.
+  **Fayette, Kanawha and Raleigh** took the damage: **U.S. 60 at Kanawha Falls** hit by high
+  water, rock and mud, the **Fayette County Animal Shelter access bridge destroyed** near
+  Beckwith, **CSX washouts between Pratt and Montgomery**, Turnpike washouts and mudslides, high
+  water in homes at **Pax and Mount Hope**, and an eastbound **Amtrak** train stopped near Pratt
+  and reversed to Charleston. **Dozens of swift-water rescues in Charleston from about 8:30 p.m.,
+  easing by 10:30** — Garrison Ave., Rutledge Rd., Valley Rd. at Swarthmore, Green and Stockton,
+  Campbells Creek Dr., with **Elk Twomile Creek** out of its banks and pavement reportedly gone at
+  Chandler Dr. and Arnold St. NWS flash flood warning for Kanawha ran to **5:15 a.m. Monday**. WV
+  MetroNews and The Herald-Dispatch. **NO deaths, injuries or state of emergency were reported by
+  any outlet this desk could open, and none was printed** — see `docs/FAILURES.md` for the 2022
+  and July 2026 stories that search results tried to pass off as this one. **A damage estimate, a
+  declaration, a death, or a WVDOH road-reopening list is the news.**
+- **williams-river-flood** — 2026-08-17: the gauge is the story's second half. USGS 03186500 read
+  **4620 cfs and 7.55 feet at 5:15 a.m.**, against **179 cfs and 2.00 feet** 24 hours earlier — a
+  26-fold rise. The fetcher's verdict is **"blown out. Stay on the bank."** Both papers carried
+  it, and it was **today's drawing** (`art/2026-08-17-wv.svg`, placement `wv`), deliberately drawn
+  as the flood counterpart to the **2026-08-15** low-water sketch of the same reach at 179 cfs.
+  **The Ohio bracketed the dam rising too: Point Pleasant 27.96 ft, Huntington 30.75 ft, both up
+  nearly three feet in a day.** Watch the recession — the Williams dropping back under about 300
+  cfs is when the sportsman paper has wadeable water again.
+- **gaza-road-map** — 2026-08-17: **new, and it led No. 13.** **Jared Kushner** met Hamas chief
+  **Khalil al-Hayya** in **Cairo** on Sunday for **more than two hours**, with envoy **Steve
+  Witkoff** and Egyptian, Qatari and Turkish officials, seeking Hamas's commitment to a
+  **15-point** U.S. road map. The plan: Hamas hands weapons to a **Palestinian technocratic
+  committee**, Israeli forces halt attacks and withdraw, an international force separates them.
+  Hamas wants Israel back to the **"yellow line"** before a **14-day** negotiating period opens,
+  and has linked heavy weapons to Palestinian statehood, which Israel rejects. **Israeli forces
+  control about 60% of Gaza.** **Netanyahu rejected the road map last week** — "will not withdraw
+  from any position in Gaza until Hamas has been completely disarmed" — and meets Kushner, **Tony
+  Blair** and Board of Peace director **Nickolay Mladenov** on **Monday**. Saudi Arabia, the UAE,
+  Jordan, Pakistan and Indonesia issued a joint statement blaming Israel for obstructing the
+  effort. NPR cross-checked against PBS NewsHour and Euronews. **NPR dates the meeting Sunday
+  Aug. 16 and PBS's copy says Aug. 15; Aug. 16 is the Sunday, so the brief said "Sunday" and
+  printed no hard date.** **Monday's meeting is the news.**
+- **midwest-flooding-2026** — 2026-08-17: **moved and ran again as No. 13's first U.S. brief.**
+  Indiana's toll is now **at least 7** (from 5 in No. 12), per state homeland security
+  spokesperson **Liz Woods**: a **4-year-old** killed by a tree through his bedroom in Jennings
+  County, cyclist **James Briar**, 31, in Henry County, **Matthew Morey**, 19, from the
+  Mississinewa, **Stephanie Sallee**, 58, in a Delaware County cornfield. **Trump approved
+  federal disaster assistance**, which is the movement the ledger was waiting on. **350+
+  evacuations**, nearly **130,000** without power; Indianapolis Mayor **Joe Hogsett** called it
+  the worst in 30 years. PBS NewsHour. **Thread closes unless the toll moves again.**
+- **meta-addiction-trial** — 2026-08-17: new, ran as No. 13's second U.S. brief. **California,
+  Colorado, Kentucky and New Jersey** v Meta before **Judge Yvonne Gonzalez Rogers**, N.D. Cal.
+  in **Oakland**, ~**6 weeks**, seeking up to **$1.4 trillion** and product changes over designed
+  addictiveness and COPPA violations. Meta calls the claims "unsubstantiated." Meta lost a **$6M**
+  Los Angeles verdict and a **$567M** New Mexico judgment in 2026. NPR. **Note: NPR's copy says
+  "Tuesday, August 17," but Aug. 17 is a Monday, so the brief said "this week."** **A verdict or
+  an early ruling is the news.**
+- **lake-powell-record-low** — 2026-08-17: new, ran in No. 13's U.S. section. **3,519.91 feet**
+  Saturday, below the **April 2023** record, down **20+ feet** since January and about **30 feet**
+  above the elevation at which **Glen Canyon Dam** stops generating. **40M+ people** across seven
+  states; Powell and Mead's combined storage is at levels last seen **May 1957**. Reclamation
+  proposed a **10-year** plan in July with cuts for Arizona, California and Nevada; the seven
+  states have not agreed. PBS NewsHour. **News again on an agreement or on the turbine threshold.**
+- **korea-exercises-cut** — 2026-08-17: new, ran in No. 13's U.S. section. Trump told Defense
+  Secretary **Pete Hegseth** to "substantially reduce" joint drills, announced on social media
+  Sunday, calling them costly and a signal "totally inappropriate and hostile," and said North
+  Korea has been "unthreatening and respectful." **Ulchi Freedom Shield** was to run **11 days**
+  with **18,000** South Korean troops. North Korea threatened "stern steps" on Friday. He halted
+  the same drills in **2018**. NPR, also PBS. **Seoul's response is the news.**
+- **messina-art-heist** — 2026-08-17: new, led No. 13's World section. Thieves cut perimeter
+  fencing and an armoured case at the **MuMe** museum in **Messina, Sicily** about **9:50 p.m.
+  Sunday**, during **Ferragosto** and the Vara procession, taking a double-sided **Antonello da
+  Messina** panel (1465-74) and three sections of the **San Gregorio Polyptych** (1473) and
+  leaving the Saint Benedict and Saint Gregory panels behind. Up to **80M euros ($93M)**. Director
+  **Marisa Mercurio**: "We are devastated by what happened." Al Jazeera. **An arrest or a recovery
+  is the news.**
+- **zambia-election-2026** — 2026-08-17: new, ran in No. 13's World section. **Hakainde
+  Hichilema** (UPND) had nearly **59%** of votes counted, **Brian Mundubile** (NRPUP) about a
+  third; **50%+** avoids a runoff and final results are due within days. The opposition says armed
+  personnel entered Mundubile's Lusaka home Friday night, firing and wounding an MP. **EU
+  observers**: "competitive but skewed towards the incumbent," citing "heavy bias in state media";
+  a polling agent was killed near Lusaka on election day and counting was suspended six hours.
+  Al Jazeera. **The declared result is the news.**
+- **bihar-temple-deaths** — 2026-08-17: new, ran in No. 13's World section. An electric pole fell
+  at the **Ashok Dham** temple in **Lakhisarai, Bihar**, during **Shravan**, electrocuting
+  worshippers and setting off a crush: **at least 7 dead**, more than a dozen hospitalized. Police
+  officer **Shivam Kumar** quoted; Chief Minister **Samrat Choudhary** called it "extremely
+  tragic." Euronews, also Al Jazeera. **A cause finding is the news.** Thread closes otherwise.
+- **wv-pratt-whitney-bridgeport** — 2026-08-17: new, ran as No. 13's second statewide brief.
+  **Pratt & Whitney Canada** took a **nine-year, $1B** contract to overhaul **PT6A-68** engines for
+  the military's **T-6** trainers at **North Central West Virginia Airport, Bridgeport** (Harrison
+  County), where about **500** people work. Senior director **Anthony Hinton** said most of the
+  engines were built at Bridgeport in the late 1990s and early 2000s. Engines overhaul every **5
+  years or 4,500 flight hours**; ~**25,000** of ~**67,000** built remain in service. Mechanics come
+  through **Pierpont Community and Technical College** on airport grounds. WV MetroNews. **A
+  hiring number is the news.**
+- **digoxin-heart-failure** — 2026-08-17: new, ran in Sci/Tech. **University Medical Center
+  Groningen** (**Dirk Jan van Veldhuisen**, **Kevin Damman**, **Peter van der Meer**): **1,000**
+  patients across **43** Dutch centres, ~3 years, low-dose digoxin cut heart-failure admissions
+  **25%**; cardiovascular death and worsening fell **19%** but not significantly alone, significant
+  in a three-study meta-analysis. Under **10 cents a day**. *Nature Medicine* and *JAMA*, presented
+  at ESC Heart Failure in Barcelona. `source` names the institution, the convention since No. 4.
+  **News again if guidelines change.**
+- **baryon-junction** — 2026-08-17: new, ran in Sci/Tech. **Brookhaven National Laboratory**, STAR
+  detector at **RHIC** (2000 to early 2026): about **twice as many baryons** as expected emerging
+  perpendicular to the beams, evidence a **Y-shaped gluon "baryon junction"** carries baryon number
+  rather than the three valence quarks. **Zhangbu Xu** quoted. *Science* 393(6812):727. **News again
+  on a confirmation at another collider.**
+- **graphene-flexoelectricity** — 2026-08-17: new, ran in Sci/Tech. **Rice University**
+  (**Pulickel Ajayan**, lead author **Sathvik Ajay Iyengar**), with Sussex and Penn State: wrinkles
+  curved at **sub-nanometre** radius polarise graphene **100,000 to 10 million times** more strongly
+  than larger flexoelectric systems, and **sharpness matters more than height**. *Advanced Materials*,
+  DOI 10.1002/adma.202518224. **News again on a device.**
+- **covid-viral-reactivation** — 2026-08-17: new, ran in Sci/Tech. **Boston Children's Hospital**
+  (**Dr. Ofer Levy**) with 14 institutions: **1,154** patients at **20** hospitals, **200,000+**
+  samples, **11** viruses reactivating within **40 days** of hospitalisation — Epstein-Barr, herpes
+  simplex 1, cytomegalovirus, and **Anelloviridae**, which tracked most strongly with long COVID and
+  lasting disability. **Inflammation, not immunosuppression**, appeared to be the trigger, which
+  overturns the prevailing assumption. *Nature*, August 2026. **News again on a treatment target.**
 
 - **flores-quake-2026** — 2026-08-16: **led No. 12**, its second front page in two days and it
   moved hard. **51 dead** (from 20 when No. 11 led on it, and 47 on NPR's Saturday copy),
