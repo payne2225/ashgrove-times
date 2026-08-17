@@ -439,3 +439,4 @@ and the failure protocol at the bottom of that file appends here too.
   is the one the paper already knows and nearly missed anyway: open the article and read its
   dateline before believing a search summary, especially when the search terms name a recurring
   kind of event.
+- 2026-08-17T11:00:03Z · 2026-08-17 · post_discord: split into FRONT PAGE and INSIDE messages to keep the notebook whole
