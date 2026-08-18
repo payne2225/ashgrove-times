@@ -527,7 +527,7 @@ def render_archive_html(entries: list[dict]) -> str:
         "TOP_RIGHT": esc(TOP_RIGHT),
         "ISSUES": issues,
         "SOURCES_NOTE": esc("Compiled from wire reports"),
-        "HOME_HREF": esc("index.html"),
+        "HOME_HREF": esc("today.html"),
     }) + "\n"
 
 
@@ -545,7 +545,10 @@ def write_site(edition: dict, out_path: str) -> None:
     with open(out_path, "w", encoding="utf-8", newline="\n") as f:
         f.write(render_html(edition))
 
-    index_path = os.path.join(SITE_DIR, "index.html")
+    # site/index.html is the STATIC front door (Pat's bookmark, reaching
+    # both papers) and the renderer must never write it. Today's Times
+    # lives at today.html — same stable-bookmark behavior, one level in.
+    index_path = os.path.join(SITE_DIR, "today.html")
     _ensure_dir(index_path)
     with open(index_path, "w", encoding="utf-8", newline="\n") as f:
         f.write(render_html(edition, root=""))
