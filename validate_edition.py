@@ -2360,6 +2360,18 @@ def _sm_check_teams(section: dict) -> tuple[list[str], list[str]]:
                 errors.append(f"{where}.team {team!r} is not a followed team")
             elif not _nonempty_str(entry.get(required)):
                 errors.append(f"{where}.{required} is required")
+            elif key == "upcoming":
+                # Times are ET, always — alone or alongside the local zone,
+                # never missing. The readers are not doing timezone math
+                # over coffee: "Saturday, 17:30 BST" shipped on 2026-08-18
+                # and told nobody in West Virginia anything.
+                when = str(entry.get("when") or "")
+                has_time = re.search(r"\d{1,2}:\d{2}|\d{1,2}\s*[ap]\.?m",
+                                     when, re.I)
+                if has_time and "ET" not in when:
+                    errors.append(
+                        f"{where}.when {when!r} has a kickoff time with no "
+                        "ET — list ET alone or both zones, never neither")
             else:
                 for match in config.find_team(str(team)):
                     instrumented.add(match["name"])

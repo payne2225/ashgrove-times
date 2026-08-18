@@ -106,8 +106,11 @@ keeps a quiet morning from feeling thin:
   games back or points, looked up fresh and cited. Out-of-season teams are
   simply absent.
 - **The week ahead for any followed team playing in the next seven days.**
-  Day and time in ET. This answers the one question a sports section owes
-  its readers: when do we play next?
+  Day and time, and **the time is ET, always** — ET alone or ET alongside
+  the local zone, never missing. "Saturday, 17:30 BST" shipped once and
+  told nobody in West Virginia anything; the readers are not doing
+  timezone math over coffee. Convert it yourself: BST is ET plus five
+  hours in summer. The validator refuses a kickoff time without ET.
 - Same truth rule as everything else: looked up today, cited, linked.
   Never from memory — a stale record is a wrong record by Tuesday.
 
