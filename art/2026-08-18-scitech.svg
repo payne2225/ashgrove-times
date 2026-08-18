@@ -1,0 +1,125 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 506" role="img"
+     aria-label="Sketch: a spacewalk at the space station's Z1 truss. A spare dish antenna waits on an external stowage platform at left while the robotic arm reaches across a box truss, carrying one suited crew member; a second figure is tethered at the worksite where the old antenna sits on its mast.">
+  <defs>
+    <style>
+      .ink   { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; }
+      .mask  { fill: var(--parchment, #f4f0e6); stroke: currentColor;
+               stroke-linecap: round; stroke-linejoin: round; }
+      .faint { opacity: 0.28; }
+      .mid   { opacity: 0.55; }
+    </style>
+  </defs>
+
+  <g>
+    <!-- Star field, sparse. Kept to dots so it reads as depth behind the
+         hardware rather than as texture competing with it. -->
+    <g class="ink faint" stroke-width="2.4">
+      <path d="M62 54h0M148 96h0M232 40h0M318 122h0M404 62h0M498 34h0M596 108h0M690 48h0M772 118h0M846 70h0M108 168h0M262 200h0M708 190h0M818 218h0M40 240h0M872 300h0"/>
+    </g>
+
+    <!-- Earth limb across the bottom: one long arc, the horizon glow above it.
+         The curve is what says orbit; a flat line would have said desert. -->
+    <path class="mask" d="M-40 506 C120 402 320 352 470 350 C640 348 820 404 940 506 Z" stroke-width="2.4"/>
+    <g class="ink mid" stroke-width="1.1">
+      <path d="M-20 470 C130 378 330 330 470 328 C630 326 810 382 920 470"/>
+      <path d="M40 496 C170 414 340 372 470 370 C620 368 780 416 900 496"/>
+    </g>
+    <g class="ink faint" stroke-width="1">
+      <path d="M150 452c40-16 96-28 150-32M420 414c70-4 140 8 196 30M600 428c46 14 84 32 112 50"/>
+    </g>
+
+    <!-- MAIN TRUSS. A box truss is a ladder of bays with crossed diagonals;
+         drawing it as a plain bar was what made the first pass read as a
+         girder in a car park. The bays narrow to the right for depth. -->
+    <g class="ink" stroke-width="2.6">
+      <path d="M96 262 H700"/>
+      <path d="M96 322 H700"/>
+      <path d="M96 262 V322M196 264 V320M288 266 V318M372 268 V316M448 270 V314M516 272 V312M578 274 V310M636 276 V308M700 262 V322"/>
+    </g>
+    <g class="ink mid" stroke-width="1.5">
+      <path d="M96 262 L196 320M196 264 L288 318M288 266 L372 316M372 268 L448 314M448 270 L516 312M516 272 L578 310M578 274 L636 308M636 276 L700 306"/>
+      <path d="M196 264 L96 320M288 266 L196 318M372 268 L288 316M448 270 L372 314M516 272 L448 312M578 274 L516 310M636 276 L578 308M700 264 L636 306"/>
+    </g>
+
+    <!-- Radiator panel hanging below the truss, seen near edge-on. -->
+    <path class="mask" d="M300 322 L556 322 L586 372 L330 372 Z" stroke-width="2"/>
+    <g class="ink faint" stroke-width="1">
+      <path d="M336 322 L366 372M382 322 L412 372M428 322 L458 372M474 322 L504 372M520 322 L550 372"/>
+    </g>
+
+    <!-- LEFT: external stowage platform carrying the SPARE dish.
+         The dish is the errand, so it gets the cleanest geometry on the page. -->
+    <path class="mask" d="M40 300 H180 V330 H40 Z" stroke-width="2.2"/>
+    <g class="ink mid" stroke-width="1.2"><path d="M70 300 V330M110 300 V330M150 300 V330"/></g>
+    <g class="ink" stroke-width="2.4">
+      <path d="M110 300 V262"/>
+      <!-- Dish: an ellipse read at an angle, with its rim and feed horn. -->
+      <path d="M62 240 C62 214 92 198 122 198 C152 198 178 214 178 240
+               C178 264 152 278 122 278 C92 278 62 264 62 240 Z"/>
+    </g>
+    <g class="ink mid" stroke-width="1.2">
+      <path d="M74 236 C82 220 100 210 122 210 C144 210 162 220 170 236"/>
+      <path d="M120 198 V162M104 168 L120 152 L136 168"/>
+    </g>
+
+    <!-- RIGHT: the worksite. The OLD antenna on its mast off the Z1 truss,
+         drawn smaller than the spare because it is further away. -->
+    <g class="ink" stroke-width="2.4">
+      <path d="M700 282 H790"/>
+      <path d="M790 282 V236"/>
+      <path d="M752 218 C752 198 770 186 792 186 C814 186 832 198 832 218
+               C832 236 814 246 792 246 C770 246 752 236 752 218 Z"/>
+    </g>
+    <g class="ink mid" stroke-width="1.1">
+      <path d="M762 214 C770 202 780 196 792 196 C804 196 815 202 822 214"/>
+      <path d="M791 186 V160"/>
+    </g>
+
+    <!-- CANADARM2 reaching across the truss, carrying a crew member.
+         Two straight booms and an elbow joint - the bend is the whole read. -->
+    <g class="ink" stroke-width="5">
+      <path d="M636 276 L512 168"/>
+      <path d="M512 168 L364 196"/>
+    </g>
+    <g class="ink" stroke-width="2">
+      <path d="M506 156 a13 13 0 1 0 13 24 a13 13 0 1 0 -13 -24"/>
+      <path d="M352 186 L344 210"/>
+    </g>
+
+    <!-- Crew member on the arm's foot restraint. Contour only, no face:
+         helmet, torso, the backpack, arms and legs bent at the joints. -->
+    <g class="mask" stroke-width="2.2">
+      <path d="M326 176 a17 17 0 1 0 17 30 a17 17 0 1 0 -17 -30"/>
+      <path d="M312 206 h44 v46 h-44 Z"/>
+    </g>
+    <g class="ink" stroke-width="2.2">
+      <path d="M356 214 l30 -14M312 216 l-26 8"/>
+      <path d="M320 252 l-6 30M348 252 l8 28"/>
+      <path d="M356 210 h16 v26 h-16"/>
+    </g>
+
+    <!-- Second crew member, tethered at the worksite. Smaller for distance,
+         and the tether line is the thing that says "not floating away". -->
+    <g class="mask" stroke-width="2">
+      <path d="M690 232 a13 13 0 1 0 13 23 a13 13 0 1 0 -13 -23"/>
+      <path d="M679 256 h33 v35 h-33 Z"/>
+    </g>
+    <g class="ink" stroke-width="2">
+      <path d="M712 262 l24 -6M679 264 l-20 12"/>
+      <path d="M686 291 l-4 22M706 291 l6 21"/>
+    </g>
+    <g class="ink mid" stroke-width="1.4">
+      <path d="M679 280 C650 296 630 292 616 282"/>
+    </g>
+
+    <!-- Solar array off the far end, mostly out of frame: the station is
+         bigger than the page, and cropping it says so. -->
+    <g class="ink mid" stroke-width="2">
+      <path d="M790 262 H900"/>
+    </g>
+    <path class="mask" d="M818 262 L900 244 V300 L818 292 Z" stroke-width="1.8"/>
+    <g class="ink faint" stroke-width="0.9">
+      <path d="M836 260 V292M856 256 V294M876 252 V296"/>
+    </g>
+  </g>
+</svg>
