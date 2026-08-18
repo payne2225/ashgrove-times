@@ -440,3 +440,38 @@ and the failure protocol at the bottom of that file appends here too.
   dateline before believing a search summary, especially when the search terms name a recurring
   kind of event.
 - 2026-08-17T11:00:03Z · 2026-08-17 · post_discord: split into FRONT PAGE and INSIDE messages to keep the notebook whole
+- **2026-08-18** — *WV MetroNews became unreadable to this crawler.* Every
+  `wvmetronews.com` article fetched this morning returned the Cloudflare interstitial
+  ("One moment, please... Please wait while your request is being verified") instead of
+  copy — including the two stories the West Virginia sweep most wanted:
+  **"Goodwin declares State of Emergency in Charleston after devastating flooding"** and
+  **"Morrisey: flood recovery transitioning in Lewis County."** Both were reachable in
+  search summaries only. **Neither was printed from a snippet.** The Charleston mayoral
+  state of emergency therefore did **not** run at all, and the Lewis County story ran
+  instead from **West Virginia Public Broadcasting**, which was fetched and read in full.
+  This is the paper's best statewide daily going dark; if it holds tomorrow, the
+  provisional outlet list in `instructions/edition.md` is effectively one outlet shorter.
+  `wowktv.com` also returned **403** on both attempts. WCHS, WVPB, WSAZ, West Virginia
+  Watch (403 on one article), the Herald-Dispatch and the Parkersburg News and Sentinel
+  all opened normally.
+- **2026-08-18** — *budget trim, and the four-brief target lost again.* The edition first
+  projected **6,526** against the 5,600 target. The cut ladder ran to the bottom: the
+  **away line went** (Bennington's Battle Day parade, written and sourced), then the
+  **weakest regional line** (Marshall's fall semester opening, `huntington_cabell`), then
+  every summary was tightened toward the low end — and it was still over, so a **wire
+  brief was dropped**: Science & Technology ran **three** instead of four, losing a
+  University of Arizona item on Webb's "little red dots" (the weakest of the four, its
+  journal paper dated July 29). Final projection **5,662**, single message, nothing taken
+  by the trimmer. **This is the fourth edition in seven to hit the wall** and it is the
+  same arithmetic `docs/LEDGER.md` has flagged twice for Nate: four briefs at ~320 chars
+  each against a 1,000-char allocation cannot fit.
+- **2026-08-18** — *fishing source degraded, third consecutive morning* — NOAA again
+  returned **no water temperature** for the Wrightsville Beach gauge, so both papers
+  carried Topsail **tides only**. Williams and both Ohio gauges reported normally.
+- **2026-08-18** — *MLS standings unobtainable, so two followed teams sat out* —
+  `mlssoccer.com/standings`, its conference variant, `fccincinnati.com/standings` and
+  ESPN's MLS pages all returned navigation markup with no table, for a **fifth**
+  consecutive morning. A search summary put **FC Cincinnati first in the Eastern
+  Conference on 52 points and Columbus Crew sixth on 45**, sourced to aggregators this
+  paper does not cite. **Neither number was printed.** Both clubs are in season and both
+  went to `sat_out` saying so. Premier League, MLB and NFL fixtures all sourced cleanly.
