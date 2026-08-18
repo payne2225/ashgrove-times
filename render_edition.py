@@ -545,7 +545,7 @@ def write_site(edition: dict, out_path: str) -> None:
     with open(out_path, "w", encoding="utf-8", newline="\n") as f:
         f.write(render_html(edition))
 
-    # site/index.html is the STATIC front door (Pat's bookmark, reaching
+    # site/index.html is the STATIC Newsstand (Pat's bookmark, reaching
     # both papers) and the renderer must never write it. Today's Times
     # lives at today.html — same stable-bookmark behavior, one level in.
     index_path = os.path.join(SITE_DIR, "today.html")
