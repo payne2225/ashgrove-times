@@ -475,3 +475,49 @@ and the failure protocol at the bottom of that file appends here too.
   Conference on 52 points and Columbus Crew sixth on 45**, sourced to aggregators this
   paper does not cite. **Neither number was printed.** Both clubs are in season and both
   went to `sat_out` saying so. Premier League, MLB and NFL fixtures all sourced cleanly.
+- **2026-08-19** — *budget trim, and the four-brief target lost for a fifth time in eight
+  editions.* The edition first projected **7,213** against the 5,800 ceiling — the worst
+  overshoot yet, because this morning's stories sat on unusually long URLs (two
+  Herald-Dispatch article slugs at **138** and **145** characters each, an NPR slug at
+  **121**). The cut ladder ran to the bottom and past it: the **away desk was already
+  empty**, then the **weakest regional line went** (the Wood County assessor's **$357,000**
+  projected shortfall, `mid_ohio_valley`, written, opened and sourced from the Parkersburg
+  News and Sentinel), then every summary was tightened — and it was still ~1,400 over, so
+  **three wire briefs were dropped**: U.S. lost the **Meta child-safety trial opening** in
+  Oakland, World lost **UK inflation at a four-month high of 2.9%**, and Science &
+  Technology lost the **University of La Laguna Theban tomb** find. All three were written,
+  opened and sourced. U.S., World and Sci/Tech each ran **three**. Final projection
+  **5,565**, single message. **This is the same arithmetic `docs/LEDGER.md` has now flagged
+  for Nate four times: four briefs cannot fit a 1,000-character allocation when a brief
+  costs its whole URL.**
+- **2026-08-19** — *the sportsman calendar could not print a season date it had confirmed.*
+  WVDNR's **2026-27 migratory bird regulations** were found and read — dove **Sept. 1 -
+  Oct. 11** (first of three segments), daily 15 / possession 45, shooting hours noon to
+  sunset on Sept. 1; snipe **Sept. 1 - Dec. 16**, daily 8; sora and Virginia rail **Sept. 1
+  - Nov. 9**, daily 10 — confirmed on **two independently dated 2026 outlets** (West
+  Virginia Daily News, **July 14, 2026**; the Parsons Advocate, **July 21, 2026**), which is
+  the standard `instructions/sportsman.md` sets. **It still could not run.**
+  `validate_edition.py` cross-checks every WV season date against
+  `reference/wv-hunting-2026-27.json`, and migratory birds are **deliberately absent** from
+  that table — the file says so itself — so the validator raised four hard errors on dates
+  that are correct. **The entries were cut rather than routed around the check**, and the
+  In Season notes now say the regulations exist and where they live, without a date.
+  **This is a gap for Nate, not a source failure:** the reference file needs a migratory
+  bird section, or the validator needs to know those dates live in a separate publication.
+  Note also that WVDNR issued them in **July**, not August as the ledger expected, so the
+  desk missed them for four editions.
+- **2026-08-19** — *two followed teams' fixtures ran without times.* Marshall travel to
+  **High Point** and West Virginia host **Penn State** on Thursday. Penn State's own
+  schedule confirmed the date and Morgantown, and WTRF confirmed WVU's August card, but
+  **no page this desk could open stated a kick-off time** for either — `herdzone.com` and
+  `wvusports.com` both returned title-only markup, and `therealwv.com` **403**s. Search
+  summaries offered 4 p.m. and 7 p.m.; **neither was printed.** Both teams went to
+  `sat_out` saying exactly that.
+- **2026-08-19** — *fishing source degraded, fourth consecutive morning* — NOAA again
+  returned **no water temperature** for the Wrightsville Beach gauge, so both papers
+  carried Topsail **tides only**. Williams and both Ohio gauges reported normally.
+- **2026-08-19** — *no away line, second morning running.* Vermont searched (the Bennington
+  Battle Day parade is a standing annual event, already ruled out on Aug. 14) and Prince
+  George searched (a Fire Rescue media release on Barr Road, a Fraser River swim relay
+  arrival, a pool closure and a traffic-pattern change — nothing dated hard enough for a
+  line). Topsail is carried by its fishing line. `away: []` and the kicker says so.
