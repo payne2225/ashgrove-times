@@ -609,6 +609,27 @@
     .page.sportsman .wv-block-label { break-after: avoid; }
   }
 
+  /* ---------- the weather page (Jim Claudtore's briefing, typeset) ---- */
+
+  .wx-briefing { max-width: 760px; margin: 0 auto; font-size: 15px; line-height: 1.55; }
+  .wx-briefing p { margin: 0 0 12px; }
+  .wx-day {
+    font-family: var(--display); font-weight: 900; font-size: 26px;
+    line-height: 1.15; margin: 4px 0 6px;
+  }
+  .wx-dek { font-style: italic; font-size: 15px; color: var(--ink-soft); margin: 0 0 16px; }
+  .wx-loc {
+    font-family: var(--display); font-weight: 700; font-size: 17px;
+    border-top: 1px solid var(--rule); padding-top: 12px; margin: 18px 0 6px;
+  }
+  .wx-list { margin: 0 0 12px; padding-left: 20px; }
+  .wx-list li { margin-bottom: 6px; }
+  /* The weather page borrows the sportsman column fill at desktop; a single
+     long column reads better for a briefing, so undo the multi-column. */
+  @media (min-width: 1024px) {
+    .page.weather .sections { column-count: 1; column-rule: none; }
+  }
+
   @media print {
     body { background: #fff; padding: 0; }
     .page { border: 0; box-shadow: none; max-width: none; }

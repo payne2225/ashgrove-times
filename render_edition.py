@@ -1291,6 +1291,125 @@ def write_sportsman_site(edition: dict) -> list[str]:
     return written
 
 
+# ----------------------------------------------------------- weather page
+
+# Jim Claudtore's briefing, typeset. The Times READS the weatherman's
+# already-published briefing markdown and renders it into the house chrome;
+# nothing in the weatherman repo or routine is touched — that is Nate's
+# explicit boundary (2026-08-18: "don't change anything about The Weather
+# Claude without my consent").
+
+WEATHER_PING_RE = re.compile(r"\s*<@!?\d+>")
+WEATHER_SNOWFLAKE_RE = re.compile(r"\d{17,19}")
+
+
+def _weather_body(markdown: str) -> str:
+    """The briefing minus its frontmatter, with every Discord ping scrubbed.
+
+    THE SCRUB IS LOAD-BEARING. The briefing pings people by Discord user id
+    (`<@272...>`), and this repo is PUBLIC — an id may never reach the
+    rendered page. Verified after conversion, not assumed: any surviving
+    17-19 digit run refuses the render.
+    """
+    body = markdown
+    if body.startswith("---"):
+        end = body.find("\n---", 3)
+        if end != -1:
+            body = body[end + 4:]
+    return WEATHER_PING_RE.sub("", body).strip()
+
+
+def _weather_md_html(body: str) -> str:
+    """A deliberately small markdown converter for the briefing's dialect.
+
+    Headings, bold, italics and dash lists are all Jim writes. Anything
+    fancier lands as text, escaped — safer than importing a full parser for
+    content that ultimately comes from web fetches.
+    """
+    out: list[str] = []
+    in_list = False
+    for raw_line in body.split("\n"):
+        line = raw_line.rstrip()
+        if not line.strip():
+            if in_list:
+                out.append("</ul>")
+                in_list = False
+            continue
+        is_item = line.lstrip().startswith("- ")
+        if in_list and not is_item:
+            out.append("</ul>")
+            in_list = False
+        text = esc(line.lstrip("# ").strip() if line.startswith("#")
+                   else (line.lstrip()[2:] if is_item else line.strip()))
+        text = re.sub(r"\*\*(.+?)\*\*", r"<b>\1</b>", text)
+        text = re.sub(r"(?<!\*)\*(?!\*)(.+?)(?<!\*)\*(?!\*)", r"<i>\1</i>", text)
+        if line.startswith("### "):
+            out.append(f'<p class="wx-loc">{text}</p>')
+        elif line.startswith("## "):
+            out.append(f'<p class="wx-dek">{text}</p>')
+        elif line.startswith("# "):
+            out.append(f'<p class="wx-day">{text}</p>')
+        elif is_item:
+            if not in_list:
+                out.append('<ul class="wx-list">')
+                in_list = True
+            out.append(f"<li>{text}</li>")
+        else:
+            out.append(f"<p>{text}</p>")
+    if in_list:
+        out.append("</ul>")
+    return "\n".join(out)
+
+
+def render_weather_html(date_iso: str, briefing_md: str) -> str:
+    """Jim's briefing in the family chrome, under his own masthead."""
+    blocks = load_blocks()
+    body = _weather_body(briefing_md)
+    survivors = WEATHER_SNOWFLAKE_RE.findall(body)
+    if survivors:
+        raise ValueError(
+            f"briefing still carries {len(survivors)} Discord id(s) after "
+            "the scrub — refusing to render to a public page")
+    dateline = long_date(date_iso)
+    inner = _weather_md_html(body)
+    values = {
+        "PAGE_CLASS": "sportsman weather",
+        "PAGE_TITLE": esc(f"Jim Claudtore — {dateline}"),
+        "META_DESCRIPTION": esc(f"Jim Claudtore's forecast for {dateline}."),
+        "MASTHEAD": esc("JIM CLAUDTORE"),
+        "TAGLINE": esc("The Ashgrove Times — weather desk"),
+        "TOP_LEFT": esc("The Forecast"),
+        "TOP_MID": esc(dateline),
+        "TOP_RIGHT": esc(TOP_RIGHT),
+        "WEATHER_EAR": "",
+        "LEAD_HEADLINE": "",
+        "LEAD_DEK": "",
+        "LEAD_BYLINE": "",
+        "LEAD_ART": "",
+        "LEAD_BODY": "",
+        "STAT_STRIP": "",
+        "SECTIONS": f'<div class="wx-briefing">{inner}</div>',
+        "KICKER": "",
+        "SOURCES_NOTE": esc("Filed to the channel at 7:15 ET by Jim Claudtore"),
+        "ARCHIVE_LINK": "",
+    }
+    return fill(blocks["PAGE"], values)
+
+
+def write_weather_site(date_iso: str, briefing_md: str) -> list[str]:
+    """site/weather/<date>.html plus index.html as the stable bookmark."""
+    html_out = render_weather_html(date_iso, briefing_md)
+    directory = os.path.join(SITE_DIR, "weather")
+    os.makedirs(directory, exist_ok=True)
+    written = []
+    for path in (os.path.join(directory, f"{date_iso}.html"),
+                 os.path.join(directory, "index.html")):
+        with open(path, "w", encoding="utf-8", newline="\n") as f:
+            f.write(html_out)
+        written.append(path)
+    return written
+
+
 def main() -> int:
     # A UnicodeEncodeError while PRINTING would fail a render that succeeded;
     # Nate's manual fallback runs happen on a cp1252 Windows console.
@@ -1305,11 +1424,33 @@ def main() -> int:
     parser.add_argument("--sportsman", action="store_true",
                         help="render a Sports & Sportsman edition to "
                              "site/sportsman/ (no hero card)")
+    parser.add_argument("--weather", metavar="BRIEFING_MD",
+                        help="render a Jim Claudtore briefing markdown file "
+                             "to site/weather/ (requires --date)")
     parser.add_argument("--fixture", action="store_true",
                         help="render editions/_fixture.json to out/ only")
     parser.add_argument("--make-fallback", action="store_true",
                         help="redraw assets/masthead-fallback.png and exit")
     args = parser.parse_args()
+
+    if args.weather:
+        if not args.date:
+            print("ERROR: --weather needs --date", file=sys.stderr)
+            return 1
+        try:
+            with open(args.weather, encoding="utf-8") as f:
+                briefing = f.read()
+        except OSError as exc:
+            print(f"ERROR: cannot read briefing: {exc}", file=sys.stderr)
+            return 1
+        try:
+            for path in write_weather_site(args.date, briefing):
+                print(f"OK: wrote {path}")
+        except ValueError as exc:
+            # The id-scrub guard. Publishing wins nothing if it leaks a ping.
+            print(f"ERROR: {exc}", file=sys.stderr)
+            return 1
+        return 0
 
     if args.make_fallback:
         target = args.png or os.path.join(HERE, "assets", "masthead-fallback.png")

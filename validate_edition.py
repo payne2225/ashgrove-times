@@ -2602,20 +2602,27 @@ def validate_sportsman(edition: dict, fishing: dict | None) -> tuple[list[str], 
     errors += water_errors
     notes += water_notes
 
-    # Sumo advisory, inherited from the Times when Sports moved here: a
-    # basho in progress should be visible somewhere in the sport pages.
+    # Sumo runs EVERY day (Nate, 2026-08-18, overriding the off-month
+    # sits-out clause). The daily floor is a countdown to the next basho —
+    # an instrument reading, so requiring it daily cannot force fabrication.
     date = edition.get("edition_date")
-    if _is_str(date) and config.is_basho_window(date):
+    if _is_str(date):
         text = " ".join(
             f"{b.get('headline', '')} {b.get('summary', '')}"
             for sid in ("teams", "leagues")
             for b in (by_id.get(sid, {}).get("briefs") or [])
             if isinstance(b, dict)).lower()
         if not any(word in text for word in config.SUMO_KEYWORDS):
-            notes.append(
-                f"{date} falls inside a basho window and no sumo appears in "
-                "Our Teams or Around the Leagues — tournament coverage "
-                "should exist; confirm the dates by search")
+            if config.is_basho_window(date):
+                notes.append(
+                    f"{date} falls inside a basho window and no sumo appears "
+                    "anywhere — tournament coverage should exist; confirm the "
+                    "dates by search")
+            else:
+                notes.append(
+                    "no sumo line today — the desk runs daily, and the "
+                    "countdown to the next basho is the floor when the search "
+                    "comes back empty")
 
     # Exact size, measured off the real payload builder — never estimated.
     try:

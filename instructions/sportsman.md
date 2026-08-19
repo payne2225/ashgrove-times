@@ -126,11 +126,12 @@ who won the games that matter, a line score worth repeating, the standings
 movement. That is reporting, not a scoreboard; the test is whether a
 reader who follows the league would learn something.
 
-### Sumo — inherited from the Times, Ian's rule intact
+### Sumo — a daily desk
 
 The Times retired its Sports section on 2026-08-16 and this paper
-inherited the sumo desk whole. **Ian settled the rule: sumo is covered
-when there is something to cover, never a headline every day regardless.**
+inherited the sumo desk whole. Ian's original rule was covered-when-there-
+is-something-to-cover; **Nate widened it on 2026-08-18: a sumo line runs
+every day**, with the countdown floor below keeping it honest.
 
 - **Sumo gets its own dedicated search every day.** "No sumo today" is a
   conclusion you reach after searching, never a default.
@@ -140,9 +141,15 @@ when there is something to cover, never a headline every day regardless.**
   Around the Leagues: the day, the yusho race, marquee upsets, kinboshi,
   promotion runs, kyujo. Lead with the standing.
 - **Off months**, one line is the honest version: banzuke releases,
-  promotions, retirements, the next basho's confirmed dates. If a full
-  search finds nothing new, sumo sits out — never manufacture, and never
-  reach for the next-basho fallback twice in a week.
+  promotions, retirements, the next basho's confirmed dates.
+- **Nate overrode the sits-out clause on 2026-08-18: sumo runs EVERY
+  day.** The daily floor that keeps this honest is a COUNTDOWN, which is
+  an instrument reading like the gauges — "the Aki basho opens Sept. 13
+  in Tokyo, 26 days out" is true every morning and different every
+  morning. Use the ledger's confirmed dates; if only the derived window
+  exists, say so ("dates derived from the second-Sunday rule, unconfirmed
+  by the JSA"). Real news always outranks the countdown — the floor is
+  what you print when the search comes back empty, never instead of it.
 - Sources: the JSA's own pages (`sumo.or.jp`), Kyodo, Japan Times, NHK,
   Nippon.com, Mainichi.
 
