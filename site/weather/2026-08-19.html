@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Jim Claudtore&#x27;s forecast for Wednesday, August 19, 2026.">
+<title>Jim Claudtore — Wednesday, August 19, 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<style>
+  :root {
+    --parchment: #f4f0e6;
+    --parchment-alt: #e9e4d8;
+    --wv-tint: #ede7d6;
+    --ink: #1c1a16;
+    --ink-soft: #3a362a;
+    --ink-mute: #4a4536;
+    --ink-faint: #6b6555;
+    --rule: #c9c2ac;
+    --display: "Playfair Display", "Iowan Old Style", "Palatino Linotype",
+               Palatino, "Book Antiqua", Georgia, "Times New Roman", serif;
+    --alt: "Old Standard TT", "Playfair Display", Georgia, "Times New Roman", serif;
+    --body: "Source Serif 4", "Source Serif Pro", Charter, "Iowan Old Style",
+            Georgia, Cambria, "Times New Roman", serif;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    background: var(--parchment-alt);
+    margin: 0;
+    padding: 24px 12px 60px;
+    font-family: var(--body);
+    color: var(--ink);
+    font-kerning: normal;
+    text-rendering: optimizeLegibility;
+  }
+
+  .page {
+    max-width: 900px;
+    margin: 0 auto;
+    background: var(--parchment);
+    border: 1px solid var(--ink);
+    padding: 28px 34px 40px;
+    box-shadow: 0 2px 18px rgba(0, 0, 0, 0.18);
+  }
+
+  /* ---------- top bar and the weather ear ---------- */
+
+  .top-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 14px;
+    justify-content: space-between;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--ink);
+    padding-bottom: 6px;
+    margin-bottom: 10px;
+  }
+
+  /* The pointer to Claude the Weatherman's 7:15 forecast. Sits in the top
+     band rather than beside the masthead: at 58px the wordmark leaves about
+     120px of margin, which no ear fits into without shrinking the plate. */
+  .ear {
+    max-width: 320px;
+    margin: 0 0 6px auto;
+    text-wrap: balance;
+    border: 1px solid var(--ink);
+    background: var(--wv-tint);
+    padding: 5px 9px 6px;
+    font-size: 11px;
+    line-height: 1.35;
+    text-align: right;
+  }
+
+  .ear-label {
+    display: block;
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 9.5px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+
+  /* ---------- masthead ---------- */
+
+  .masthead {
+    text-align: center;
+    font-family: var(--alt);
+    font-weight: 700;
+    font-size: 58px;
+    letter-spacing: 1px;
+    margin: 6px 0 2px;
+    line-height: 1;
+  }
+
+  .tagline {
+    text-align: center;
+    font-style: italic;
+    font-size: 13px;
+    color: var(--ink-mute);
+    margin-bottom: 8px;
+  }
+
+  .rule-thick { border: none; border-top: 4px double var(--ink); margin: 6px 0 0; }
+  .rule-thin { border: none; border-top: 1px solid var(--ink); margin: 4px 0 16px; }
+
+  /* ---------- lead story ---------- */
+
+  .headline {
+    font-family: var(--display);
+    font-weight: 900;
+    font-size: 27px;
+    line-height: 1.15;
+    margin: 0 0 6px;
+  }
+
+  .subhead {
+    font-style: italic;
+    font-size: 14px;
+    color: var(--ink-soft);
+    margin: 0 0 10px;
+  }
+
+  .byline {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin: 0 0 12px;
+  }
+
+  .columns {
+    column-count: 2;
+    column-gap: 26px;
+    column-rule: 1px solid var(--rule);
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  .columns p { margin: 0 0 12px; }
+  .columns p:last-child { margin-bottom: 0; }
+
+  .drop {
+    float: left;
+    font-family: var(--display);
+    font-weight: 900;
+    font-size: 46px;
+    line-height: 0.8;
+    padding: 4px 6px 0 0;
+  }
+
+  /* ---------- stat strip ---------- */
+
+  .stat-strip {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid var(--ink);
+    border-bottom: 1px solid var(--ink);
+    padding: 8px 0;
+    margin: 18px 0;
+    font-size: 13px;
+  }
+
+  .stat-strip div { text-align: center; flex: 1; }
+
+  .stat-strip b {
+    display: block;
+    font-family: var(--display);
+    font-size: 15px;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .stat-label {
+    display: block;
+    font-size: 10.5px;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+
+  .stat-change {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3em;
+    margin-top: 1px;
+    font-size: 12px;
+    font-variant-numeric: tabular-nums;
+    color: var(--ink-soft);
+  }
+
+  /* Direction is a drawn triangle, not a glyph or a hue - it survives any
+     font fallback and reads without color vision. */
+  .tri {
+    width: 0;
+    height: 0;
+    border-left: 0.3em solid transparent;
+    border-right: 0.3em solid transparent;
+  }
+
+  .tri.up { border-bottom: 0.42em solid var(--ink); }
+  .tri.down { border-top: 0.42em solid var(--ink); }
+
+  .tri.flat {
+    width: 0.6em;
+    height: 2px;
+    border: 0;
+    background: var(--ink);
+  }
+
+  .stats-note {
+    margin: -8px 0 20px;
+    text-align: center;
+    font-size: 10.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+
+  /* ---------- sections ---------- */
+
+  .section-label {
+    font-family: var(--display);
+    font-weight: 900;
+    font-size: 15px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    background: var(--ink);
+    color: var(--parchment);
+    display: inline-block;
+    padding: 3px 10px;
+    margin: 26px 0 12px;
+  }
+
+  .brief {
+    margin-bottom: 14px;
+    font-size: 14.5px;
+    line-height: 1.5;
+  }
+
+  .brief-head {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 16px;
+    margin: 0 0 3px;
+  }
+
+  .brief p { margin: 0; }
+
+  .two-col-briefs {
+    column-count: 2;
+    column-gap: 26px;
+    column-rule: 1px solid var(--rule);
+  }
+
+  .two-col-briefs .brief { break-inside: avoid; page-break-inside: avoid; }
+  .two-col-briefs .brief:last-child { margin-bottom: 0; }
+
+  .src {
+    display: block;
+    margin-top: 3px;
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+
+  .src a { color: inherit; text-decoration-thickness: 1px; }
+  .src a:hover { color: var(--ink); }
+
+  /* ---------- West Virginia: the local anchor, not another wire section ---- */
+
+  .wv-box {
+    border: 2px solid var(--ink);
+    padding: 14px 18px;
+    margin-top: 10px;
+    background: var(--wv-tint);
+  }
+
+  .wv-title {
+    font-family: var(--display);
+    font-weight: 900;
+    font-size: 20px;
+    margin: 0 0 4px;
+  }
+
+  .wv-box > .brief:last-child { margin-bottom: 0; }
+
+  .wv-block {
+    margin-top: 14px;
+    padding-top: 11px;
+    border-top: 1px solid var(--rule);
+  }
+
+  .wv-block-label {
+    margin: 0 0 7px;
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+
+  .roundup { list-style: none; margin: 0; padding: 0; }
+
+  .roundup li {
+    margin: 0 0 8px;
+    font-size: 14px;
+    line-height: 1.45;
+  }
+
+  .roundup li:last-child { margin-bottom: 0; }
+
+  .roundup .src { display: inline; margin: 0 0 0 5px; }
+
+  .place,
+  .water {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 12.5px;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+  }
+
+  .folk { font-style: italic; color: var(--ink-mute); }
+
+  /* The out-of-town column: same shape as the regional roundup, one step
+     quieter, so it never competes with the in-state lines above it. */
+  .wv-away { border-left: 2px solid var(--rule); padding-left: 12px; }
+  .wv-away .roundup li { margin-bottom: 6px; font-size: 13px; color: var(--ink-soft); }
+  .wv-away .place { font-size: 11.5px; }
+
+  .wv-fishing { border-top: 1px solid var(--ink); }
+  .wv-fishing .roundup li { font-size: 13.5px; }
+
+  /* ---------- kicker and colophon ---------- */
+
+  .kicker {
+    margin-top: 26px;
+    padding: 12px 0;
+    border-top: 1px solid var(--ink);
+    border-bottom: 4px double var(--ink);
+    text-align: center;
+    font-style: italic;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .footer-note {
+    text-align: center;
+    font-size: 11px;
+    color: var(--ink-faint);
+    margin-top: 30px;
+    font-style: italic;
+  }
+
+  .footer-note a { color: inherit; }
+  .footer-note .sep { padding: 0 0.5em; }
+
+  /* ---------- archive ---------- */
+
+  .issues { list-style: none; margin: 18px 0 0; padding: 0; }
+
+  .issue {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2px 14px;
+    align-items: baseline;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .issue .no {
+    flex: 0 0 15rem;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+
+  .issue .hed {
+    flex: 1 1 16rem;
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.28;
+  }
+
+  .issue .hed a { color: inherit; text-decoration: none; }
+  .issue .hed a:hover { text-decoration: underline; }
+
+  .empty { margin-top: 20px; text-align: center; font-style: italic; }
+
+  /* ---------- the drawing ---------- */
+
+  .art { margin: 0 0 16px; }
+  .art svg { max-height: 46vh; object-fit: contain; }
+
+  /* currentColor is what makes the drawing ink rather than a picture: the
+     SVG inherits the page's colour, so it prints and inverts with the type
+     instead of sitting on top of it as a foreign object. */
+  .art svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    color: var(--ink);
+    background: var(--parchment);
+    border: 1px solid var(--ink);
+  }
+
+  .art figcaption {
+    margin-top: 5px;
+    font-size: 11.5px;
+    line-height: 1.4;
+    color: var(--ink-soft);
+  }
+
+  /* The credit is small caps and says "sketched" out loud - a reader must
+     never mistake the drawing for a photograph. */
+  .art-credit {
+    font-size: 10px;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    white-space: nowrap;
+  }
+
+  /* ---------- phone: most of the group opens this in Discord on mobile ---- */
+
+  @media (max-width: 840px) {
+    body { padding: 12px 8px 40px; }
+    .page { padding: 18px 16px 28px; }
+    /* THE ASHGROVE TIMES sets about 12.4x its font-size in Old Standard TT,
+       so 58px needs an 811px viewport. Below that the wordmark is measured
+       to the page rather than wrapped; /13 leaves slack for the fallback
+       serifs, which set wider. */
+    .masthead {
+      font-size: min(58px, calc((100vw - 48px) / 13));
+      letter-spacing: 0.5px;
+    }
+    .top-bar { justify-content: center; text-align: center; }
+    .ear { max-width: none; margin: 0 0 8px; text-align: center; }
+    .headline { font-size: 23px; }
+    .wv-box { padding: 12px 13px; }
+  }
+
+  @media (max-width: 640px) {
+    .columns,
+    .two-col-briefs { column-count: 1; column-rule: none; }
+    .stat-strip { flex-wrap: wrap; gap: 8px 0; }
+    .stat-strip div { flex: 0 0 50%; }
+    .issue .no { flex: 1 1 100%; }
+  }
+
+  /* ---------- desktop: this is where it becomes a real broadsheet --------
+
+     Everything above is the phone and tablet paper, which stays compact on
+     purpose. From here up the page stops being a narrow strip on a big
+     monitor and starts behaving like a front page: a wordmark that fills
+     the width, a lead that runs across several columns, and the wire
+     sections FLOWING through newspaper columns instead of stacking.
+
+     `.sections` uses CSS multi-column rather than grid because that is
+     genuinely how a page is set — copy fills column one, continues into
+     column two — and it keeps DOM order, so the phone layout and the
+     screen-reader order need no separate handling. */
+
+  @media (min-width: 1024px) {
+    body { padding: 34px 24px 70px; }
+    /* Art is furniture, not a banner. Left-aligned at roughly a third of
+       the measure so the lead still reads as the lead. */
+    .art { max-width: 480px; }
+    .art svg { max-height: none; }
+    .page { max-width: 1180px; padding: 34px 44px 46px; }
+    .masthead { font-size: 76px; letter-spacing: 2px; }
+    .tagline { font-size: 15px; margin-bottom: 10px; }
+    .headline { font-size: 40px; line-height: 1.08; }
+    .subhead { font-size: 17px; }
+    .columns { column-count: 3; font-size: 15.5px; }
+    .drop { font-size: 58px; }
+  }
+
+  @media (min-width: 1320px) {
+    .page { max-width: 1420px; padding: 40px 54px 56px; }
+    .art { max-width: 560px; }
+    .masthead { font-size: 96px; letter-spacing: 3px; }
+    .headline { font-size: 50px; }
+    .columns { column-count: 4; }
+
+    /* The wire sections sit side by side across the page, one to a column,
+       the way the four beats run across a front page below the fold.
+
+       GRID, not CSS multi-column. Multi-column was the first attempt and it
+       looked right until you counted: a `column-span: all` element splits
+       the flow, so the two sections above the notebook spread across four
+       columns and left two of them empty. Grid places each section in its
+       own column and lets the notebook span deliberately rather than as a
+       side effect. */
+    .sections {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      column-gap: 30px;
+      align-items: start;
+    }
+    .sec { margin-bottom: 20px; }
+    .sec .two-col-briefs { column-count: 1; column-rule: none; }
+    .sec .section-label { margin-top: 0; }
+    /* Rules between the wire columns, none before the first. */
+    .sec-wire + .sec-wire { border-left: 1px solid #c9c2ac; padding-left: 30px; }
+
+    /* The notebook is the anchor and it is wide content — four sub-blocks
+       that would strangle in a 300px column. It spans the whole measure as
+       a boxed feature, which is both where the space is and the treatment
+       Ian asked for. `order` moves it below the wire columns without
+       touching DOM order, so the phone layout and screen readers still get
+       Ian's sequence. */
+    .sec-wv { grid-column: 1 / -1; order: 9; margin: 10px 0 8px; }
+    .sec-wv .wv-box { padding: 22px 28px; column-count: 2; column-gap: 36px; }
+    .sec-wv .wv-title { column-span: all; font-size: 24px; }
+    .sec-wv .wv-box > .brief,
+    .sec-wv .wv-block { break-inside: avoid; }
+  }
+
+  @media (min-width: 1700px) {
+    .page { max-width: 1600px; }
+    .masthead { font-size: 108px; }
+    .sections { grid-template-columns: repeat(4, 1fr); }
+    .columns { column-count: 5; }
+  }
+
+  /* ---------- Sports & Sportsman page layout ----------
+     A true newsprint fill. Fixed left/right blocks stranded whitespace the
+     moment one side outgrew the other, so instead the whole paper flows
+     through balanced CSS columns: Our Teams runs down column one and spills
+     into column two, Around the Leagues starts right where it ends, and the
+     browser balances the column bottoms. Briefs and roundup lines are
+     atomic; sections and state blocks are allowed to break between them. */
+
+  @media (min-width: 1024px) {
+    .page.sportsman .sections {
+      display: block;   /* undo the Times grid — columns need flow layout */
+      column-count: 2;
+      column-gap: 34px;
+      column-rule: 1px solid var(--rule);
+    }
+  }
+
+  @media (min-width: 1320px) {
+    .page.sportsman .sections { column-count: 3; }
+  }
+
+  @media (min-width: 1024px) {
+    .page.sportsman .sections > .sec {
+      break-inside: auto;
+      border-left: 0;
+      padding-left: 0;
+      margin: 0 0 20px;
+    }
+    .page.sportsman .sec .two-col-briefs { column-count: 1; column-rule: none; }
+    .page.sportsman .brief,
+    .page.sportsman .roundup li { break-inside: avoid; }
+    .page.sportsman .section-label { break-after: avoid; margin-top: 0; }
+    .page.sportsman .sec + .sec .section-label { margin-top: 10px; }
+    .page.sportsman .wv-block { break-inside: auto; }
+    .page.sportsman .wv-block-label { break-after: avoid; }
+  }
+
+  /* ---------- the weather page (Jim Claudtore's briefing, typeset) ---- */
+
+  .wx-briefing { max-width: 760px; margin: 0 auto; font-size: 15px; line-height: 1.55; }
+  .wx-briefing p { margin: 0 0 12px; }
+  .wx-day {
+    font-family: var(--display); font-weight: 900; font-size: 26px;
+    line-height: 1.15; margin: 4px 0 6px;
+  }
+  .wx-dek { font-style: italic; font-size: 15px; color: var(--ink-soft); margin: 0 0 16px; }
+  .wx-loc {
+    font-family: var(--display); font-weight: 700; font-size: 17px;
+    border-top: 1px solid var(--rule); padding-top: 12px; margin: 18px 0 6px;
+  }
+  .wx-list { margin: 0 0 12px; padding-left: 20px; }
+  .wx-list li { margin-bottom: 6px; }
+  /* The weather page borrows the sportsman column fill at desktop; a single
+     long column reads better for a briefing, so undo the multi-column. */
+  @media (min-width: 1024px) {
+    .page.weather .sections { column-count: 1; column-rule: none; }
+  }
+
+  @media print {
+    body { background: #fff; padding: 0; }
+    .page { border: 0; box-shadow: none; max-width: none; }
+    .sections { display: grid; grid-template-columns: repeat(4, 1fr); column-gap: 24px; }
+    .sec-wv { grid-column: 1 / -1; order: 9; }
+  }
+</style>
+</head>
+<body>
+<div class="page sportsman weather">
+
+  <div class="top-bar">
+    <span>The Forecast</span>
+    <span>Wednesday, August 19, 2026</span>
+    <span>Price: Free</span>
+  </div>
+  
+  <div class="masthead">JIM CLAUDTORE</div>
+  <div class="tagline">&ldquo;The Ashgrove Times — weather desk&rdquo;</div>
+  <hr class="rule-thick">
+  <hr class="rule-thin">
+
+  <div class="headline"></div>
+  
+  <div class="byline"></div>
+
+  
+
+  <div class="columns"></div>
+
+  
+
+  <div class="sections">
+  <div class="wx-briefing"><p class="wx-day">☀️ Wednesday, August 19</p>
+<p class="wx-dek">Day two of the dry spell — the river heats back up, but the air stays easy; last clean day before Thursday&#x27;s rain</p>
+<p class="wx-loc">📍 Parkersburg — Pat</p>
+<p>Northern-river end keeps the muggiest edge of the crew — afternoon humidity around 61% off a 66°F dew point, and the coolest river high at 81°F (27°C), easing to a comfortable 65°F (18°C) tonight. Rain&#x27;s a no-show (chance under 20%, nothing on the gauge) and skies stay mostly bright. A still, warm, faintly sticky one — but the porch is open all day.</p>
+<p class="wx-loc">📍 Apple Grove — Nate &amp; Ian</p>
+<p>Warm and bright, and drier than yesterday — high near 83°F (28°C), afternoon humidity down to 55% off a 64°F dew point, overnight 67°F (19°C). Barely a 6% sprinkle chance, so effectively rain-free. Hurricane runs the same warm, dry setup, so Nate&#x27;s commute is just a bright one. Good day to leave the windows open and let the dry air walk through the house.</p>
+<p class="wx-loc">📍 Huntington — Trav</p>
+<p>Driest, hottest seat in the house — high near 86°F (30°C), but afternoon humidity crashes to 41% off a 60°F dew point, so it&#x27;s clean dry heat, not swamp. Rain-free, sunny, down to 68°F (20°C) overnight. The kind of bone-dry afternoon that makes the porch-and-blanket doctrine look downright reasonable. UV&#x27;s up near 7 — SPF or regret.</p>
+<p class="wx-loc">📍 Summersville — Clayton</p>
+<p>The cool, muggy holdout again. High only 79°F (26°C) — coolest of the crew — but the high country hangs onto the moisture, so it&#x27;s the muggiest air going at 66% this afternoon, easing to a comfortable 63°F (17°C) tonight. Rain still off the table today (6%); just a gray-around-the-edges plateau day before tomorrow&#x27;s storms roll in.</p>
+<p class="wx-loc">🍁 The Hart, Prince George — Kirsten</p>
+<p>Heads up — Open-Meteo&#x27;s feed dropped for Prince George this morning, so the Hart&#x27;s built straight off Environment Canada, and it&#x27;s another clean one: <b>sunny, high 26°C (79°F)</b> on clear, dry air (humidity 74% at the cool 13°C dawn, falling through a bright afternoon), west wind to 20 km/h, UV 6. Then a <b>clear, cool 10°C (50°F)</b> overnight — windows-wide sleeping air. Eighth straight bluebird day and the air&#x27;s pristine (AQI 22). The kind of late-summer run that pays back the smoke weeks with interest.</p>
+<p class="wx-loc">🎖️ Honorable mentions</p>
+<ul class="wx-list">
+<li><b>Lesage — Justin:</b> rides the dry downriver air — <b>85°F (29°C) / 67°F (19°C)</b>, afternoon humidity the crew&#x27;s lowest at 39%; though the county extension office&#x27;s soil-moisture probes within about forty feet of his place read anomalously high again, and the intern sent to recalibrate them has asked that Justin &quot;stop doing whatever it is he does near the sensors, especially after dark.&quot;</li>
+<li><b>Hinton — Greg:</b> New River Gorge country stays cool and mild — <b>82°F (28°C) / 65°F (18°C)</b>, humidity 61%, barely a 2% sprinkle. Storms hold off until tomorrow.</li>
+<li><b>North Bennington — Wes:</b> dry and pleasant, and the coolest night of anybody — <b>80°F (27°C) / 57°F (14°C)</b> on 53% air, rain-free. Vermont doing Vermont.</li>
+</ul>
+<p class="wx-loc">🌀 Quick hits</p>
+<ul class="wx-list">
+<li><b>Cowen, WV:</b> empty cabin, and the Open-Meteo feed timed out this morning — no hard numbers off it, but read it with the Summersville plateau: cool and mountain-muggy. The Williams River&#x27;s dropped hard, though — the Dyer gauge is down to 750 cfs from 3,750 a day ago (stage 3.4 ft, off 6.8), the week&#x27;s rain draining out fast.</li>
+</ul>
+<p class="wx-loc">🏖️ Topsail Beach, NC — beach &amp; inlet report</p>
+<p>Still the hot corner: a <b>Heat Advisory runs 11 AM–8 PM</b>, heat index climbing toward <b>109°F</b> on high heat and thick humidity. High near <b>91°F (33°C)</b>, barely backing off to a muggy <b>80°F (27°C)</b> overnight, humidity in the low 70s. Rain&#x27;s a no-show, so there&#x27;s no relief in it — hydrate and find shade through the afternoon. Air&#x27;s nudged to moderate too (AQI mid-50s now, topping low-80s on afternoon haze).</p>
+<p>🌊 <b>Tides:</b> their water — the Hampstead sound gauge — runs a midday high at <b>2:21 PM (3.9 ft)</b>, then falls all afternoon and evening to an <b>8:53 PM low (1.1 ft)</b>; that long fall is the red-drum window, and today it runs well past dark. The ocean/inlet reference (Ocean City Beach pier) leads out front: high 1:23 PM, low 7:49 PM. The sound lags the inlet about an hour — a touch more on the ebb (~65 min) than the flood (~60), since it drains slower than it fills, so that evening window stretches even longer than the clock says.</p>
+<p>🌙 <b>Moon:</b> waxing crescent, 37% lit and climbing toward first quarter — so these are gentle neap tides (today&#x27;s ocean swing just 3.4 ft), the inlet current soft. Easy water, not the funnel it runs on a full moon.</p>
+<p>🎣 <b>What&#x27;s running:</b> (monthly report, published Aug 3 — 16 days old, not a live read.) August is red-drum prime: topwater plugs at first light, then cut menhaden or finger mullet as it heats up — and the reds want the last of the falling tide, so that long afternoon-into-evening ebb toward the 8:53 low is your window (bring a headlamp, it runs past dark). Speckled trout are a dawn game in the heat — topwater in the first hour after sunrise, paddle tails in the deeper holes later. Surf City Pier&#x27;s giving up specks, pompano, sea mullet, spots and the odd red drum, plus Spanish over 3 lbs on plugs; Jolly Roger&#x27;s the trophy end — tarpon to an estimated 110 lbs and a 63-lb cobia on live king rigs off the end. Flounder are thick but stay catch-and-release; the harvest window doesn&#x27;t open till September.</p>
+<p>&gt; 🎯 <b>Confidence:</b> high — dry, bright, and warm crew-wide today with rain off the table, models in strong agreement. Bust case is minor: a stray mountain sprinkle sneaks into Summersville or the New River gorge a day early. The real heads-up is tomorrow — the next rain round arrives Thursday, and it looks like a genuine one: the river and mountains jump to a 50–60% chance.</p>
+<p>&gt; ⚠️ <b>Tonight:</b> the day&#x27;s only real danger is the Carolina coast — that Heat Advisory is no joke, heat index to 109°F, so hydrate and stay out of the worst of the afternoon sun. Up here it&#x27;s all upside; Trav&#x27;s porch-and-blanket exemption stands, as ever.</p>
+<p>-# WV sun&#x27;s down 8:17 at Apple Grove — golden-hour porch window is wide open. Air&#x27;s moderate crew-wide (AQI low-50s, topping upper-70s downriver on stagnant late-summer haze) — no smoke, just a still, dry ridge parked on us.</p>
+<p>-# SPC (Storm Prediction Center) · NWS (National Weather Service) · Open-Meteo · ECCC (Environment and Climate Change Canada) — data fetched 7:17 AM ET</p></div>
+  </div>
+
+  
+
+  <div class="footer-note">Filed to the channel at 7:15 ET by Jim Claudtore</div>
+
+</div>
+</body>
+</html>
