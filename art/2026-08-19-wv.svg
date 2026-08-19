@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 560" role="img" aria-label="Line drawing of two three-storey masonry commercial blocks at Thurmond, West Virginia, standing directly against the railroad track with a wooded gorge wall rising behind them">
+  <title>Thurmond commercial row</title>
+  <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+
+    <!-- gorge wall behind: treeline rising to the right -->
+    <path d="M0 214 L38 196 L62 205 L96 178 L128 190 L158 164 L196 176 L232 148 L268 158 L302 132 L340 142 L378 118 L416 128 L452 104 L492 114 L528 92 L566 100 L604 80 L644 88 L680 68 L720 76 L758 58 L800 66" stroke-width="1.3"/>
+    <path d="M0 236 L44 224 L82 232 L120 214 L164 224 L206 206 L248 214 L290 196 L334 204 L376 186 L420 194 L462 176 L506 184 L548 166 L592 174 L636 156 L680 164 L724 146 L768 154 L800 148" stroke-width="1"/>
+
+    <!-- bare trees on the slope -->
+    <path d="M118 214 L118 150"/>
+    <path d="M118 176 L102 158 M118 186 L134 166 M118 164 L108 148"/>
+    <path d="M246 190 L246 122"/>
+    <path d="M246 152 L228 132 M246 162 L264 140 M246 138 L236 120"/>
+    <path d="M398 158 L398 92"/>
+    <path d="M398 124 L380 104 M398 134 L416 112 M398 110 L388 94"/>
+    <path d="M600 108 L600 46"/>
+    <path d="M600 76 L582 56 M600 86 L618 64 M600 62 L590 46"/>
+    <path d="M714 96 L714 40"/>
+    <path d="M714 66 L698 48 M714 76 L730 54"/>
+
+    <!-- LEFT BLOCK: three storeys, receding to the left -->
+    <path d="M70 205 L330 150" stroke-width="2"/>
+    <path d="M70 205 L70 405" stroke-width="2"/>
+    <path d="M330 150 L330 430" stroke-width="2"/>
+    <path d="M70 405 L330 430" stroke-width="2"/>
+    <!-- roof parapet band -->
+    <path d="M70 213 L330 159"/>
+    <!-- floor bands -->
+    <path d="M70 268 L330 250"/>
+    <path d="M70 330 L330 322"/>
+    <path d="M70 366 L330 372"/>
+
+    <!-- left block, third-floor windows -->
+    <path d="M84 224 L84 256 L98 254 L98 221 Z"/>
+    <path d="M122 217 L122 250 L137 248 L137 214 Z"/>
+    <path d="M162 209 L162 244 L178 242 L178 206 Z"/>
+    <path d="M205 201 L205 237 L222 235 L222 197 Z"/>
+    <path d="M251 192 L251 230 L269 228 L269 188 Z"/>
+    <path d="M299 182 L299 222 L318 220 L318 178 Z"/>
+
+    <!-- left block, second-floor windows -->
+    <path d="M84 285 L84 318 L98 317 L98 283 Z"/>
+    <path d="M122 281 L122 315 L137 314 L137 279 Z"/>
+    <path d="M162 277 L162 312 L178 311 L178 275 Z"/>
+    <path d="M205 273 L205 309 L222 308 L222 271 Z"/>
+    <path d="M251 268 L251 305 L269 304 L269 266 Z"/>
+    <path d="M299 263 L299 301 L318 300 L318 261 Z"/>
+
+    <!-- left block storefronts and awnings -->
+    <path d="M78 372 L78 406 M108 374 L108 408 M148 376 L148 411 M192 379 L192 414 M240 382 L240 418 M292 385 L292 423"/>
+    <path d="M74 366 L112 348 L146 350 L110 369 Z"/>
+    <path d="M150 352 L190 334 L228 336 L188 355 Z"/>
+    <path d="M232 338 L276 320 L318 322 L274 341 Z"/>
+
+    <!-- MIDDLE: lower party wall between the two blocks -->
+    <path d="M330 150 L364 158 L364 434 L330 430" stroke-width="1.3"/>
+    <path d="M364 186 L430 178" stroke-width="1.3"/>
+    <path d="M364 434 L430 436" stroke-width="1.3"/>
+    <path d="M430 178 L430 436" stroke-width="1.3"/>
+    <path d="M392 300 L392 260 L410 258 L410 298 Z" stroke-width="1.2"/>
+
+    <!-- RIGHT BLOCK: taller, frontal, corbelled cornice -->
+    <path d="M430 122 L768 130" stroke-width="2"/>
+    <path d="M430 122 L430 436" stroke-width="2"/>
+    <path d="M768 130 L768 440" stroke-width="2"/>
+    <path d="M430 436 L768 440" stroke-width="2"/>
+    <path d="M430 146 L768 154"/>
+    <path d="M430 160 L768 168"/>
+    <!-- corbel dentils under the cornice -->
+    <path d="M444 146 L444 160 M470 147 L470 161 M496 147 L496 161 M522 148 L522 162 M548 148 L548 162 M574 149 L574 163 M600 149 L600 163 M626 150 L626 164 M652 150 L652 164 M678 151 L678 165 M704 151 L704 165 M730 152 L730 166 M756 152 L756 166" stroke-width="1.2"/>
+    <!-- floor bands -->
+    <path d="M430 262 L768 270"/>
+    <path d="M430 352 L768 360"/>
+
+    <!-- right block, third-floor arched windows -->
+    <path d="M452 246 L452 196 A13 13 0 0 1 478 197 L478 247 Z"/>
+    <path d="M528 248 L528 198 A13 13 0 0 1 554 199 L554 249 Z"/>
+    <path d="M604 250 L604 200 A13 13 0 0 1 630 201 L630 251 Z"/>
+    <path d="M680 252 L680 202 A13 13 0 0 1 706 203 L706 253 Z"/>
+
+    <!-- right block, second-floor arched windows -->
+    <path d="M452 336 L452 288 A13 13 0 0 1 478 289 L478 337 Z"/>
+    <path d="M528 338 L528 290 A13 13 0 0 1 554 291 L554 339 Z"/>
+    <path d="M604 340 L604 292 A13 13 0 0 1 630 293 L630 341 Z"/>
+    <path d="M680 342 L680 294 A13 13 0 0 1 706 295 L706 343 Z"/>
+
+    <!-- right block ground floor: awning, recessed entry, shuttered bay -->
+    <path d="M446 366 L446 436 M512 368 L512 437 M580 369 L580 438 M648 370 L648 438 M722 371 L722 439"/>
+    <path d="M448 396 L448 366 L510 368 L510 398 Z"/>
+    <path d="M448 396 L460 396 M472 396 L472 366 M484 397 L484 367 M496 397 L496 367"/>
+    <!-- doorway with steps -->
+    <path d="M596 438 L596 382 L634 383 L634 439"/>
+    <path d="M590 439 L640 440 M593 432 L637 433 M596 425 L634 426"/>
+    <!-- shuttered storefront -->
+    <path d="M664 436 L664 380 L712 381 L712 438"/>
+    <path d="M664 392 L712 393 M664 404 L712 405 M664 416 L712 417 M664 428 L712 429" stroke-width="1"/>
+
+    <!-- RAILROAD: two tracks across the foreground -->
+    <path d="M0 462 L800 470" stroke-width="1.8"/>
+    <path d="M0 476 L800 484" stroke-width="1.8"/>
+    <path d="M18 460 L18 478 M62 461 L62 479 M106 461 L106 479 M150 462 L150 480 M194 462 L194 480 M238 463 L238 481 M282 463 L282 481 M326 464 L326 482 M370 464 L370 482 M414 465 L414 483 M458 465 L458 483 M502 466 L502 484 M546 466 L546 484 M590 467 L590 485 M634 467 L634 485 M678 468 L678 486 M722 468 L722 486 M766 469 L766 487" stroke-width="1"/>
+
+    <path d="M0 516 L800 526" stroke-width="1.8"/>
+    <path d="M0 534 L800 544" stroke-width="1.8"/>
+    <path d="M14 513 L14 537 M66 514 L66 538 M118 514 L118 538 M170 515 L170 539 M222 516 L222 540 M274 516 L274 540 M326 517 L326 541 M378 518 L378 542 M430 518 L430 542 M482 519 L482 543 M534 520 L534 544 M586 520 L586 544 M638 521 L638 545 M690 522 L690 546 M742 522 L742 546 M794 523 L794 547" stroke-width="1"/>
+
+    <!-- ballast between and below the tracks -->
+    <path d="M30 496 L44 496 M74 498 L86 498 M120 495 L134 495 M168 499 L180 499 M214 496 L228 496 M262 500 L274 500 M310 497 L322 497 M358 501 L370 501 M406 498 L418 498 M454 502 L466 502 M502 499 L514 499 M550 503 L562 503 M598 500 L610 500 M646 504 L658 504 M694 501 L706 501 M742 505 L754 505" stroke-width="0.9"/>
+    <path d="M52 505 L62 505 M148 507 L158 507 M244 506 L254 506 M340 508 L350 508 M436 507 L446 507 M532 509 L542 509 M628 508 L638 508 M724 510 L734 510" stroke-width="0.9"/>
+    <path d="M24 552 L38 552 M96 554 L110 554 M172 551 L186 551 M250 555 L264 555 M330 552 L344 552 M412 556 L426 556 M494 553 L508 553 M576 557 L590 557 M658 554 L672 554 M740 558 L754 558" stroke-width="0.9"/>
+
+    <!-- signal post standing between the buildings and the track -->
+    <path d="M470 456 L470 404" stroke-width="1.4"/>
+    <path d="M460 404 L460 384 L482 384 L482 404 Z" stroke-width="1.3"/>
+  </g>
+</svg>

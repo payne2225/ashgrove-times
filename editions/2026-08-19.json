@@ -1,0 +1,154 @@
+{
+  "edition_date": "2026-08-19",
+  "edition_number": 15,
+  "volume": "I",
+  "lead": {
+    "headline": "Donalds and Jolly win Florida primaries for governor",
+    "dek": "Moody and Nixon take the Senate nominations as DeSantis reaches his term limit",
+    "byline": "Wire Reports",
+    "body": [
+      "Rep. Byron Donalds won Florida's Republican primary for governor Tuesday and former Rep. David Jolly won the Democratic nomination, setting the November race to succeed Gov. Ron DeSantis, who is term-limited.",
+      "Donalds, who had President Donald Trump's endorsement, took 47.8% against 25.2% for Jay Collins and 10.5% for James Fishback, with 99% counted, NBC News reported. Jolly, a former Republican, won 61% to 15.1% for Dayna Foster.",
+      "Ashley Moody took the Republican Senate nomination and Angie Nixon the Democratic, beating Alex Vindman. The Cook Political Report rates the governor's race Solid R."
+    ],
+    "stat_strip": [
+      {"label": "S&P 500", "value": "7,691.76", "change": "-0.69%", "direction": "down"},
+      {"label": "Dow", "value": "53,343.40", "change": "-0.22%", "direction": "down"},
+      {"label": "Nasdaq", "value": "26,289.71", "change": "-1.33%", "direction": "down"},
+      {"label": "Bitcoin", "value": "$64,334", "change": "+0.37%", "direction": "up"}
+    ]
+  },
+  "sections": [
+    {
+      "id": "us",
+      "label": "U.S.",
+      "briefs": [
+        {
+          "headline": "ABC and Disney sue the FCC over station licenses",
+          "summary": "The suit filed Tuesday calls the early renewal review of eight ABC stations retaliation for Jimmy Kimmel's monologues. Chairman Brendan Carr said no decision has been made.",
+          "source": "NPR",
+          "url": "https://www.npr.org/2026/08/18/nx-s1-5936406/abc-and-disney-sue-fcc-alleging-first-amendment-violations"
+        },
+        {
+          "headline": "Trump pauses 50% Canada tariffs for three days",
+          "summary": "The levies on about $20B of Canadian goods were to start Wednesday. Ottawa agreed to drop measures Washington calls discriminatory against U.S. alcohol, dairy and vehicles.",
+          "source": "CBS News",
+          "url": "https://www.cbsnews.com/news/trump-pauses-tariffs-canada/"
+        },
+        {
+          "headline": "Agriculture Department moves to end the roadless rule",
+          "summary": "Rescinding the 2001 rule would open tens of millions of acres from Alaska to Florida to roads and logging. Public comment runs through Sept. 21.",
+          "source": "NPR",
+          "url": "https://www.npr.org/2026/08/18/nx-s1-5936495/trump-administration-moves-to-open-untouched-national-forests-to-logging"
+        }
+      ]
+    },
+    {
+      "id": "world",
+      "label": "World",
+      "briefs": [
+        {
+          "headline": "UAE halts all trade with Iran indefinitely",
+          "summary": "The foreign ministry said Wednesday trade and financial transactions are stopped after two ballistic missiles were detected. Tehran called the claim a false flag.",
+          "source": "Al Jazeera",
+          "url": "https://www.aljazeera.com/news/2026/8/19/uae-imposes-indefinite-trade-embargo-on-iran-over-alleged-missile-attacks"
+        },
+        {
+          "headline": "Liberia agrees to take 1,200 deportees from the U.S.",
+          "summary": "The first 20 arrive Thursday under a one-year deal for third-country nationals. Information Minister Jerolinmek Piah called the step humanitarian.",
+          "source": "NPR",
+          "url": "https://www.npr.org/2026/08/19/nx-s1-5937389/liberia-to-take-deportees-from-us"
+        },
+        {
+          "headline": "Nine die in a Kolkata hotel fire",
+          "summary": "The blaze broke out early Wednesday in a building housing several hotels; six were injured. Fire services director Anuj Sharma said victims were found in bathrooms.",
+          "source": "Euronews",
+          "url": "https://www.euronews.com/2026/08/19/fire-in-building-housing-several-hotels-in-eastern-india-kills-at-least-nine-injures-six"
+        }
+      ]
+    },
+    {
+      "id": "wv",
+      "label": "West Virginia",
+      "notebook_title": "Mountaineer State Notebook",
+      "briefs": [
+        {
+          "headline": "Morrisey declares an emergency in all 55 counties",
+          "summary": "The Tuesday declaration covers storms from Sunday through Tuesday and runs 30 days. A woman died in Fayette County floodwaters.",
+          "source": "WV MetroNews",
+          "url": "https://wvmetronews.com/2026/08/18/morrisey-declares-state-of-emergency-in-all-55-counties-after-latest-batch-of-devastating-storms/"
+        },
+        {
+          "headline": "ACLU files notice of intent to sue over school funding",
+          "summary": "The Aug. 17 notice, for Lincoln County students, names the attorney general, legislative leaders and the state board. Board President Paul Hardesty said he was not surprised.",
+          "source": "The Herald-Dispatch",
+          "url": "https://www.herald-dispatch.com/news/hardesty-not-surprised-by-pending-school-funding-suit/article_725fe90c-5a7e-4571-abf2-114e4b223339.html"
+        }
+      ],
+      "regional": [
+        {
+          "region_id": "putnam_kanawha",
+          "place": "Putnam / Kanawha - Charleston",
+          "people": ["Nate"],
+          "item": "Water rose twelve feet into Sugar Creek Road homes in Charleston in under ten minutes, washing out culverts.",
+          "source": "WV MetroNews",
+          "url": "https://wvmetronews.com/2026/08/18/flood-victims-say-the-water-along-sugar-creek-in-charleston-came-up-fast/"
+        },
+        {
+          "region_id": "summers_new_river",
+          "place": "Summers / Hinton & the New River",
+          "people": ["Greg"],
+          "item": "Thurmond, population six, voted Aug. 11 to seek counsel against the Park Service demolishing 17 structures.",
+          "source": "The Herald-Dispatch",
+          "url": "https://www.herald-dispatch.com/news/town-of-thurmond-seeks-legal-help-to-block-demolition-of-historic-buildings/article_c4e62fa0-a490-4f91-affc-0f29999a29bf.html"
+        }
+      ],
+      "away": [],
+      "fishing": [
+        {
+          "water": "Williams River (Cowen)",
+          "line": "761 cfs and falling, 3.41 feet - blown out. Stay on the bank.",
+          "source": "USGS 03186500"
+        },
+        {
+          "water": "Topsail Beach (surf and sound)",
+          "line": "Sound highs 1:44 a.m. and 2:21 p.m.; lows 7:59 a.m. and 8:53 p.m.",
+          "source": "NOAA CO-OPS 8657813"
+        }
+      ]
+    },
+    {
+      "id": "scitech",
+      "label": "Science & Technology",
+      "briefs": [
+        {
+          "headline": "Spacewalk pulls a failed antenna but leaves the spare",
+          "summary": "Anil Menon and Sophie Adenot worked 6 hours 23 minutes Tuesday, running long on cables and bolts. Installation moves to Aug. 25.",
+          "source": "NASA",
+          "url": "https://www.nasa.gov/blogs/spacestation/2026/08/18/nasa-esa-astronauts-wrap-up-station-spacewalk/"
+        },
+        {
+          "headline": "Light-driven robots thinner than a hair carry bacteria",
+          "summary": "Wuerzburg used plasmonic nanoantennas and photon recoil to steer devices under a micrometre across, which picked up bacteria and released them on command.",
+          "source": "Universitaet Wuerzburg",
+          "url": "https://www.sciencedaily.com/releases/2026/08/260816044850.htm"
+        },
+        {
+          "headline": "Common blood pressure drugs tied to higher kidney risk",
+          "summary": "Among 31,031 adults with type 2 diabetes, those on dihydropyridine calcium-channel blockers had a 33% greater risk of a major kidney event. The work is observational.",
+          "source": "European Renal Association",
+          "url": "https://www.sciencedaily.com/releases/2026/08/260816044844.htm"
+        }
+      ]
+    }
+  ],
+  "art": {
+    "file": "art/2026-08-19-wv.svg",
+    "placement": "wv",
+    "caption": "Two of Thurmond's commercial blocks stand against the railroad below the gorge wall.",
+    "credit": "Sketched from a Wikimedia Commons photograph of Thurmond"
+  },
+  "weather_ear": "Jim Claudtore has the forecast at 7:15.",
+  "kicker": "The away desk was quiet; Vermont and Prince George had nothing dated.",
+  "sources_note": "Compiled from wire reports"
+}
