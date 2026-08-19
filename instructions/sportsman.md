@@ -150,8 +150,17 @@ every day**, with the countdown floor below keeping it honest.
   exists, say so ("dates derived from the second-Sunday rule, unconfirmed
   by the JSA"). Real news always outranks the countdown — the floor is
   what you print when the search comes back empty, never instead of it.
-- Sources: the JSA's own pages (`sumo.or.jp`), Kyodo, Japan Times, NHK,
-  Nippon.com, Mainichi.
+- **Sources — Nate, 2026-08-19: always check r/Sumo and the Japanese
+  outlets.** The daily sweep is BOTH of:
+  1. **r/Sumo** — fetch `old.reddit.com/r/Sumo/` (the old front end
+     answers; the JSON API 403s). It is the fastest wire for banzuke
+     leaks, kyujo news and retirement rumors — but it is a fan forum, so
+     it is LEAD-FINDING ONLY: whatever surfaces there gets confirmed at a
+     citable outlet before printing, and Reddit never appears in a
+     `source` field.
+  2. **The Japanese press** — the JSA's own pages (`sumo.or.jp`), Japan
+     Times sumo desk (fetchable, verified), Kyodo, NHK, Nippon.com,
+     Mainichi. These are what the paper cites.
 
 ### Premier League — the emphasis, and the house derby
 
@@ -276,6 +285,13 @@ readings for every water in `config.SPORTSMAN_WATERS`:
 **Numbers come from that file verbatim** — same rule as the main paper's
 stat strip. A fabricated flow is exactly as bad as a fabricated market
 close, and the validator checks it.
+
+**Topsail always carries the FULL daily tide table** — two highs and two
+lows (Nate, 2026-08-19). A lunar day runs ~24h50m, so on many calendar
+days only three events land inside midnight-to-midnight; the fetcher now
+pulls the complete cycle and tags any spillover event with its weekday
+("11:55 PM (Wed)") so nobody reads a Wednesday tide as Thursday's. Print
+all four events for the sound, every day, spillover tag included.
 
 **The R.C. Byrd tailwater is not available.** USGS does not gauge the Ohio
 at Byrd, and the Corps, who publish the tailwater, serve a certificate this

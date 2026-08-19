@@ -272,8 +272,36 @@ def fetch_williams(errors: list) -> dict | None:
 
 # -------------------------------------------------------------- Topsail Beach
 
+def _pick_tide_cycle(events: list[dict], today: "dt.date") -> list[dict]:
+    """The full 2-high/2-low cycle centred on today, spillover included.
+
+    Nate, 2026-08-19: always the complete daily table, even when one of the
+    four events lands late the day before or early the day after — a lunar
+    day runs ~24h50m, so on many calendar days only three events fall
+    inside midnight-to-midnight and the missing one is exactly the one a
+    trip plan needs. From three days of predictions, take the window of
+    four consecutive events (they alternate H/L by nature) whose centre
+    sits closest to today's noon, and tag anything outside today with its
+    weekday so nobody reads a Wednesday tide as Thursday's.
+    """
+    if len(events) < 4:
+        return events
+    noon = dt.datetime.combine(today, dt.time(12, 0))
+    best, best_gap = events[:4], None
+    for i in range(len(events) - 3):
+        window = events[i:i + 4]
+        centre = window[0]["_when"] + (window[3]["_when"] - window[0]["_when"]) / 2
+        gap = abs((centre - noon).total_seconds())
+        if best_gap is None or gap < best_gap:
+            best, best_gap = window, gap
+    return best
+
+
 def fetch_topsail_tides(stamp: str, errors: list) -> list:
-    """Today's highs and lows at both stations bracketing the inlet."""
+    """The full daily tide cycle at both stations bracketing the inlet."""
+    today = dt.datetime.strptime(stamp, "%Y%m%d").date()
+    begin = (today - dt.timedelta(days=1)).strftime("%Y%m%d")
+    end = (today + dt.timedelta(days=1)).strftime("%Y%m%d")
     out = []
     for st in TOPSAIL_TIDE_STATIONS:
         def _fetch(st=st):
@@ -282,7 +310,7 @@ def fetch_topsail_tides(stamp: str, errors: list) -> list:
                 # datum and interval=hilo are BOTH mandatory here - without
                 # hilo the API 400s and blames the datum, misleadingly.
                 {"product": "predictions", "application": "ashgrove-times",
-                 "begin_date": stamp, "end_date": stamp, "datum": "MLLW",
+                 "begin_date": begin, "end_date": end, "datum": "MLLW",
                  "station": st["id"], "time_zone": "lst_ldt",
                  "units": "english", "interval": "hilo", "format": "json"})
             # NOAA answers 200 with an error body, so raise_for_status() never
@@ -297,7 +325,16 @@ def fetch_topsail_tides(stamp: str, errors: list) -> list:
                     # Platform-independent 12-hour format (no %-I / %#I).
                     "time_local": t.strftime("%I:%M %p").lstrip("0"),
                     "height_ft": round(float(p["v"]), 1),
+                    "_when": t,
                 })
+            events = _pick_tide_cycle(events, today)
+            for event in events:
+                when = event.pop("_when")
+                if when.date() != today:
+                    # Spillover carries its weekday so a Wednesday tide can
+                    # never be read as Thursday's.
+                    event["day"] = when.strftime("%a")
+                    event["time_local"] += f" ({event['day']})"
             return {"station": st["name"], "station_id": st["id"],
                     "side": st["side"], "note": st["note"], "events": events}
 
