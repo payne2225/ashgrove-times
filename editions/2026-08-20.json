@@ -1,0 +1,154 @@
+{
+  "edition_date": "2026-08-20",
+  "edition_number": 16,
+  "volume": "I",
+  "lead": {
+    "headline": "Russian missile barrage kills at least 12 in Kyiv",
+    "dek": "A nine-story block collapsed in Solomianskyi district and a children's hospital was damaged.",
+    "byline": "Wire Reports",
+    "body": [
+      "At least 12 people were killed and 33 wounded in a Russian ballistic missile barrage on Kyiv overnight, city officials said. Al Jazeera put the toll at 13.",
+      "Strikes hit the Sviatoshynskyi, Solomianskyi and Shevchenkivskyi districts. A nine-story residential building collapsed and caught fire and people were trapped at a second block, Mayor Vitali Klitschko said on Telegram. Two fuel facilities were struck and parts of two districts lost power.",
+      "Kyiv has few interceptors left for ballistic threats, and Al Jazeera said the shortage will tell when Russia turns to energy infrastructure before winter. Parliament confirmed Yevhenii Khmara as defense minister the day before, 312-2."
+    ],
+    "stat_strip": [
+      {"label": "S&P 500", "value": "7,707.98", "change": "+0.21%", "direction": "up"},
+      {"label": "Dow", "value": "53,463.05", "change": "+0.22%", "direction": "up"},
+      {"label": "Nasdaq", "value": "26,331.09", "change": "+0.16%", "direction": "up"},
+      {"label": "Bitcoin", "value": "$71,752", "change": "+11.53%", "direction": "up"}
+    ]
+  },
+  "sections": [
+    {
+      "id": "us",
+      "label": "U.S.",
+      "briefs": [
+        {
+          "headline": "National debt passes $40 trillion, up $1T since March",
+          "summary": "The mark came Wednesday, five months after $39 trillion. Margaret Spellings of the Bipartisan Policy Center called the path plainly unsustainable.",
+          "source": "PBS NewsHour",
+          "url": "https://www.pbs.org/newshour/economy/the-u-s-national-debt-now-stands-at-40-trillion"
+        },
+        {
+          "headline": "Oversight shrinks as ICE detainees file grievances",
+          "summary": "NPR found the complaint system barely operational. The detention ombudsman closed in May and the civil rights office fell from about 150 staff to a few.",
+          "source": "NPR",
+          "url": "https://www.npr.org/2026/08/20/nx-s1-5850361/grievance-ice-detention-immigrants"
+        },
+        {
+          "headline": "Cessna pilot dies in a midair collision in Pennsylvania",
+          "summary": "A Cessna 150 hit a State Police Bell 407 hovering for training at Carlisle Airport about 7 p.m. Wednesday. Both troopers escaped with minor injuries.",
+          "source": "CBS News",
+          "url": "https://www.cbsnews.com/news/small-plane-state-police-helicopter-midair-collision-carlisle-pennsylvania/"
+        }
+      ]
+    },
+    {
+      "id": "world",
+      "label": "World",
+      "briefs": [
+        {
+          "headline": "Trump announces an economic operation against Iran",
+          "summary": "He promised economic warfare on an unprecedented scale and threatened any country whose banks or airports help Tehran. Iran called it economic terrorism.",
+          "source": "Al Jazeera",
+          "url": "https://www.aljazeera.com/news/2026/8/19/trump-announces-most-crushing-economic-operation-ever-against-iran"
+        },
+        {
+          "headline": "North Korea fires a suspected missile toward the sea",
+          "summary": "Japan's prime minister's office reported Thursday's launch off the east coast, a day after Seoul and Washington cut back the Ulchi Freedom Shield drills.",
+          "source": "NPR",
+          "url": "https://www.npr.org/2026/08/20/g-s1-139381/north-korea-suspected-missile"
+        },
+        {
+          "headline": "More than 100 die in a Central African mine collapse",
+          "summary": "Tunnels gave way Tuesday at an artisanal gold mine near Baboua. A Red Cross volunteer said more than 100 bodies were recovered and others are still buried.",
+          "source": "Al Jazeera",
+          "url": "https://www.aljazeera.com/news/2026/8/19/dozens-killed-after-gold-mine-collapse-in-central-african-republic"
+        }
+      ]
+    },
+    {
+      "id": "wv",
+      "label": "West Virginia",
+      "notebook_title": "Mountaineer State Notebook",
+      "briefs": [
+        {
+          "headline": "Morrisey commits $145M to water and sewer projects",
+          "summary": "Announced in Beckley on Wednesday after a two-day southern listening tour. Matching money could leverage about $450 million more, the state says.",
+          "source": "WV Public Broadcasting",
+          "url": "https://wvpublic.org/story/government/morrisey-struggling-communities-to-get-145-million-for-water-projects/"
+        },
+        {
+          "headline": "Federal grand jury indicts former delegate Pritt",
+          "summary": "Three felony counts, including sexual exploitation of a child and witness tampering, over conduct alleged in Fayette County. He resigned in July.",
+          "source": "WV MetroNews",
+          "url": "https://wvmetronews.com/2026/08/19/former-west-virginia-teacher-and-delegate-elliott-pritt-indicted-on-child-exploitation-charges/"
+        }
+      ],
+      "regional": [
+        {
+          "region_id": "putnam_kanawha",
+          "place": "Putnam / Kanawha - Charleston",
+          "people": ["Nate"],
+          "item": "A semitruck crossed a barrier and fell off Interstate 64/77 downtown early Wednesday, critically injuring two people.",
+          "source": "The Herald-Dispatch",
+          "url": null
+        },
+        {
+          "region_id": "mid_ohio_valley",
+          "place": "Mid-Ohio Valley / Parkersburg",
+          "people": ["Pat"],
+          "item": "The three candidates on the District 12 ballot said Wednesday they are unconcerned by Vernon Criss's write-in bid.",
+          "source": "Parkersburg News and Sentinel",
+          "url": "https://www.newsandsentinel.com/news/local-news/2026/08/house-candidates-unbothered-by-criss-write-in-effort/"
+        }
+      ],
+      "away": [],
+      "fishing": [
+        {
+          "water": "Williams River (Cowen)",
+          "line": "451 cfs and falling - pushy. Wadeable at the edges, not across.",
+          "source": "USGS 03186500"
+        },
+        {
+          "water": "Topsail Beach (surf and sound)",
+          "line": "Sound highs 2:30 a.m. and 3:07 p.m. at Hampstead; lows 8:46 a.m. and 9:45 p.m.",
+          "source": "NOAA CO-OPS 8657813"
+        }
+      ]
+    },
+    {
+      "id": "scitech",
+      "label": "Science & Technology",
+      "briefs": [
+        {
+          "headline": "NASA gives up on saving the Swift telescope",
+          "summary": "Katalyst's Link craft could not hold its pointing after an uncontrolled spin, ending a $30M boost attempt. Swift, up since 2004, reenters this year.",
+          "source": "CBS News",
+          "url": "https://www.cbsnews.com/news/nasa-swift-space-telescope-rescue-mission-called-off/"
+        },
+        {
+          "headline": "China rolls out Chang'e-7 for the lunar south pole",
+          "summary": "The probe and its Long March-5 Y14 moved to the Wenchang pad Wednesday. An orbiter, lander, rover and a hopping probe will hunt water ice in dark craters.",
+          "source": "China Manned Space Agency",
+          "url": "https://news.cgtn.com/news/2026-08-19/China-prepares-to-launch-Chang-e-7-lunar-probe--1PJoxLa6h7W/p.html"
+        },
+        {
+          "headline": "Stacked mummies chart 300 years in a Theban tomb",
+          "summary": "Researchers found 16 mummies and a mummified dog in chamber three of TT 209, a shift from single coffins to dense stacked burials.",
+          "source": "University of La Laguna",
+          "url": "https://www.frontiersin.org/news/2026/08/18/egyptian-tomb-burial-trends-over-time"
+        }
+      ]
+    }
+  ],
+  "art": {
+    "file": "art/2026-08-20-scitech.svg",
+    "placement": "scitech",
+    "caption": "The Swift observatory in orbit, its telescope tube between two solar wings.",
+    "credit": "Sketched from a NASA illustration of the Neil Gehrels Swift Observatory"
+  },
+  "weather_ear": "The weather desk files at 7:15, right behind this page.",
+  "kicker": "Statewide runs two briefs today; the notebook is carrying three regions and two waters.",
+  "sources_note": "Compiled from wire reports"
+}

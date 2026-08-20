@@ -573,6 +573,27 @@
     .page.sportsman .wv-block-label { break-after: avoid; }
   }
 
+  /* ---------- the weather page (Jim Claudtore's briefing, typeset) ---- */
+
+  .wx-briefing { max-width: 760px; margin: 0 auto; font-size: 15px; line-height: 1.55; }
+  .wx-briefing p { margin: 0 0 12px; }
+  .wx-day {
+    font-family: var(--display); font-weight: 900; font-size: 26px;
+    line-height: 1.15; margin: 4px 0 6px;
+  }
+  .wx-dek { font-style: italic; font-size: 15px; color: var(--ink-soft); margin: 0 0 16px; }
+  .wx-loc {
+    font-family: var(--display); font-weight: 700; font-size: 17px;
+    border-top: 1px solid var(--rule); padding-top: 12px; margin: 18px 0 6px;
+  }
+  .wx-list { margin: 0 0 12px; padding-left: 20px; }
+  .wx-list li { margin-bottom: 6px; }
+  /* The weather page borrows the sportsman column fill at desktop; a single
+     long column reads better for a briefing, so undo the multi-column. */
+  @media (min-width: 1024px) {
+    .page.weather .sections { column-count: 1; column-rule: none; }
+  }
+
   @media print {
     body { background: #fff; padding: 0; }
     .page { border: 0; box-shadow: none; max-width: none; }
@@ -586,7 +607,7 @@
 
   <div class="top-bar">
     <span>Back issues</span>
-    <span>Wednesday, August 19, 2026</span>
+    <span>Thursday, August 20, 2026</span>
     <span>Price: Free</span>
   </div>
 
@@ -596,6 +617,10 @@
   <hr class="rule-thin">
 
   <ul class="issues"><li class="issue">
+      <span class="no">No. 16 · Thursday, August 20, 2026</span>
+      <span class="hed"><a href="editions/2026-08-20.html">Russian missile barrage kills at least 12 in Kyiv</a></span>
+    </li>
+    <li class="issue">
       <span class="no">No. 15 · Wednesday, August 19, 2026</span>
       <span class="hed"><a href="editions/2026-08-19.html">Donalds and Jolly win Florida primaries for governor</a></span>
     </li>

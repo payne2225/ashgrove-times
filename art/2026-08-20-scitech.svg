@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 506" role="img"
+     aria-label="Sketch: the Neil Gehrels Swift Observatory in low orbit, a boxed spacecraft bus carrying a stubby telescope tube and a dish antenna, with two ribbed solar wings spread either side above the curve of the Earth.">
+  <defs>
+    <style>
+      .ink   { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; }
+      .mask  { fill: var(--parchment, #f4f0e6); stroke: currentColor;
+               stroke-linecap: round; stroke-linejoin: round; }
+      .faint { opacity: 0.3; }
+      .mid   { opacity: 0.58; }
+    </style>
+  </defs>
+
+  <g>
+    <!-- The Earth limb, low and far. It is the only thing in the frame with
+         a soft edge, and it sets the scale: everything above it is small. -->
+    <path class="ink mid" stroke-width="2.4"
+          d="M-40 486 C120 402 330 356 520 358 C700 360 838 400 940 462"/>
+    <g class="ink faint" stroke-width="1">
+      <path d="M40 470 C180 412 340 380 470 378"/>
+      <path d="M540 380 C700 388 820 420 900 462"/>
+      <path d="M210 430 C300 404 396 392 470 390"/>
+    </g>
+
+    <!-- Scattered stars, kept sparse. A crowded field reads as noise. -->
+    <g class="ink faint" stroke-width="1.6">
+      <path d="M96 84v0M188 152v0M262 62v0M700 96v0M792 168v0M646 44v0M842 74v0M124 232v0M812 268v0"/>
+    </g>
+
+    <!-- LEFT SOLAR WING. Angled back and drawn shorter than the right one so
+         the pair reads as perspective rather than as a flat symmetrical
+         diagram - the mistake the river sketch taught. -->
+    <path class="mask" stroke-width="2.2"
+          d="M126 214 L322 176 L332 240 L136 274 Z"/>
+    <g class="ink faint" stroke-width="0.9">
+      <path d="M165 207 L173 267M204 199 L212 260M243 192 L251 253M282 184 L290 246"/>
+      <path d="M130 244 L327 208"/>
+    </g>
+    <!-- Yoke joining wing to bus. -->
+    <path class="ink" stroke-width="2.2" d="M332 214 L372 218M332 228 L372 228"/>
+
+    <!-- RIGHT SOLAR WING, nearer the viewer: longer, and set a little lower. -->
+    <path class="mask" stroke-width="2.2"
+          d="M528 226 L768 196 L780 272 L540 296 Z"/>
+    <g class="ink faint" stroke-width="0.9">
+      <path d="M576 220 L586 290M624 214 L634 284M672 208 L682 278M720 202 L730 272"/>
+      <path d="M534 262 L774 234"/>
+    </g>
+    <path class="ink" stroke-width="2.2" d="M492 232 L528 236M492 246 L528 248"/>
+
+    <!-- THE BUS. A plain box in three-quarter view: front face, top face and
+         one side face, so the solid has corners instead of being a rectangle. -->
+    <path class="mask" stroke-width="2.6" d="M372 210 L492 198 L492 288 L372 296 Z"/>
+    <path class="mask" stroke-width="2.6" d="M372 210 L406 186 L522 176 L492 198 Z"/>
+    <path class="mask" stroke-width="2.6" d="M492 198 L522 176 L522 264 L492 288 Z"/>
+    <g class="ink faint" stroke-width="0.9">
+      <path d="M386 222 L478 213M386 240 L478 231M386 258 L478 249"/>
+      <path d="M500 196 L514 184M500 218 L514 206M500 240 L514 228"/>
+    </g>
+
+    <!-- THE TELESCOPE. A stubby tube on the top face, canted up and to the
+         left, with a squared-off aperture and a sunshade lip at the mouth. -->
+    <path class="mask" stroke-width="2.4" d="M410 186 L358 108 L406 92 L456 172 Z"/>
+    <path class="mask" stroke-width="2.4" d="M358 108 L406 92 L426 66 L378 82 Z"/>
+    <path class="ink" stroke-width="1.8" d="M368 96 L416 80"/>
+    <g class="ink faint" stroke-width="0.9">
+      <path d="M392 168 L426 156M382 148 L416 137M372 130 L406 118"/>
+    </g>
+
+    <!-- Dish antenna on the far corner of the top face, pointing back down
+         toward the Earth limb. The story is a spacecraft that could not be
+         reached, so the dish is drawn small and turned away. -->
+    <path class="mask" stroke-width="2" d="M498 172 C512 156 540 152 552 164 C540 178 512 184 498 172 Z"/>
+    <path class="ink" stroke-width="1.8" d="M524 176 L520 200"/>
+
+    <!-- Star trackers and the second instrument aperture on the front face. -->
+    <path class="ink" stroke-width="1.8" d="M444 268 L444 288 L470 286 L470 266 Z"/>
+    <path class="ink faint" stroke-width="1.4" d="M450 272 L464 271"/>
+  </g>
+</svg>
