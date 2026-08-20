@@ -521,3 +521,39 @@ and the failure protocol at the bottom of that file appends here too.
   George searched (a Fire Rescue media release on Barr Road, a Fraser River swim relay
   arrival, a pool closure and a traffic-pattern change — nothing dated hard enough for a
   line). Topsail is carried by its fishing line. `away: []` and the kicker says so.
+- **2026-08-20** — *budget trim, two cuts before the gate would pass.* No. 16 projected
+  **6,144** against the 5,800 ceiling on the first validate, with `wv` alone at **2,071**
+  against its 1,500 allocation. Two cuts, in the playbook's order: the **`huntington_cabell`**
+  regional line went (Treasurer Larry Pack presenting Cabell County schools an unclaimed
+  property check for $42,869.04, The Herald-Dispatch — real, opened, sourced, and the
+  weakest of the three), and the **`putnam_kanawha` line's URL was set to `null`**, a
+  165-character Herald-Dispatch slug, keeping the reporting and the outlet name while
+  spending nothing on the link. Final projection **5,496**. **The cause is URL length, not
+  prose** — the fifth consecutive morning this row has been written, and the arithmetic has
+  not changed since 08-17.
+- **2026-08-20** — *fishing source degraded, fifth consecutive morning* — NOAA again
+  returned **no water temperature** for the Wrightsville Beach gauge, so both papers carried
+  Topsail **tides only**. Williams and both Ohio gauges reported normally.
+- **2026-08-20** — *no away line, third morning running.* Vermont searched (nothing dated
+  inside 48 hours on VTDigger or the Bennington Banner), Prince George searched (council
+  non-profit funding deferred to a future meeting, a Canfor Leisure Pool closure Aug. 17 -
+  Sept. 6, a draft-horse title and a missing-person notice last seen Aug. 7 — none of it
+  news inside the window). Topsail is carried by its fishing line. `away: []`.
+- **2026-08-20** — *`validate_edition.py --sportsman` does not credit `upcoming` fixtures.*
+  The advisory named **Chelsea, Tottenham, Liverpool, Cleveland Browns and Cincinnati
+  Bengals** as "neither covered nor in sat_out" while all five carried cited, ET-converted
+  fixture lines in `upcoming`. `instructions/sportsman.md` says plainly that "a team with a
+  standings or fixture line counts as accounted for — it does not also need a brief or a
+  sat_out entry," so the validator credits `briefs`, `standings` and `sat_out` but not
+  `upcoming`. Advisory only, so the edition shipped unchanged; putting five clubs with
+  Friday-to-Monday fixtures into `sat_out` would have been the false statement. **A code
+  fix for Nate.**
+- **2026-08-20** — *the clone was in detached HEAD and local `main` was stale.* `git push`
+  was rejected non-fast-forward; `git status -sb` read `## HEAD (no branch)` and local
+  `main` sat at `c376454`, two commits behind `origin/main` at `8089c3a`, while the work
+  was committed on the detached head at `a813241`. Fixed with `git branch -f main a813241
+  && git checkout main && git push -u origin main`, a clean fast-forward from `8089c3a`
+  with no history discarded. **Cost about a minute.** The routine's `git pull` in
+  `instructions/routine.md` step 1 also fails on a detached head ("Please specify which
+  branch you want to merge with") and needs `git pull --rebase origin main` — worth the
+  playbook saying so.
