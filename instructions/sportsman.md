@@ -286,6 +286,29 @@ readings for every water in `config.SPORTSMAN_WATERS`:
 stat strip. A fabricated flow is exactly as bad as a fabricated market
 close, and the validator checks it.
 
+**The whole Topsail beach-and-inlet report lives HERE now** — Nate moved
+it out of Jim Claudtore's briefing on 2026-08-21 because it ran his post
+long. Jim keeps only warning-level Topsail alerts. That makes this
+paper's Topsail block the crew's only daily read on their beach water,
+and it carries four beats:
+
+1. **The full tide table** (below).
+2. **Moon** — `topsail.moon` in out/fishing.json: phase, illumination,
+   and what it means for the water. New and full mean spring tides —
+   bigger swings, harder inlet current, more bait moving; quarters mean
+   neap. A fishing fact, not decoration.
+3. **What's running** — read `reference/topsail-fishing.md` FIRST (ported
+   from Jim's repo; it has the Fisherman's Post feed route, the
+   tide-stage-by-species patterns, the seasonal calendar and the
+   regulations). The reports are MONTHLY: state the publish date and age
+   every time, never present one as today's conditions, and never invent
+   one when the fetch fails — fall back to the seasonal pattern, labeled
+   as such. Tie species to TODAY'S tide times ("reds want the last of the
+   fall, which runs into tonight's 10:34 low").
+4. **Beach conditions, when they matter** — an active Heat Advisory, rip
+   current statement or Beach Hazards line for Topsail, looked up and
+   cited (NWS Wilmington). Quiet days carry no beach-weather line.
+
 **Topsail always carries the FULL daily tide table** — two highs and two
 lows (Nate, 2026-08-19). A lunar day runs ~24h50m, so on many calendar
 days only three events land inside midnight-to-midnight; the fetcher now

@@ -363,12 +363,35 @@ def fetch_topsail_water_temp(errors: list) -> dict | None:
     return safe(_fetch, "noaa-temp", errors)
 
 
+def moon_phase(now_utc: "dt.datetime") -> dict:
+    """Approximate phase + illumination, good to about a day.
+
+    Ported from Jim Claudtore's fetch_weather.py on 2026-08-21, when the
+    Topsail report moved to Sports & Sportsman. A fishing fact, not
+    decoration: new and full moons mean spring tides (bigger swings, harder
+    inlet current), quarters mean neap.
+    """
+    import math
+    ref = dt.datetime(2000, 1, 6, 18, 14, tzinfo=dt.timezone.utc)
+    synodic = 29.53058867
+    age = ((now_utc - ref).total_seconds() / 86400.0) % synodic
+    frac = age / synodic
+    illum = round((1 - math.cos(2 * math.pi * frac)) / 2 * 100)
+    names = [(0.22, "waxing crescent"), (0.28, "first quarter"),
+             (0.47, "waxing gibbous"), (0.53, "full moon"),
+             (0.72, "waning gibbous"), (0.78, "last quarter"),
+             (0.97, "waning crescent"), (1.01, "new moon")]
+    name = "new moon" if frac < 0.03 else next(n for cut, n in names if frac <= cut)
+    return {"phase": name, "illumination_pct": illum, "age_days": round(age, 1)}
+
+
 def fetch_topsail(stamp: str, errors: list) -> dict | None:
     tides = fetch_topsail_tides(stamp, errors)
     temp = fetch_topsail_water_temp(errors)
     if not tides and not temp:
         return None
-    out: dict = {"water": "Topsail Beach (surf and sound)", "tides": tides}
+    out: dict = {"water": "Topsail Beach (surf and sound)", "tides": tides,
+                 "moon": moon_phase(dt.datetime.now(dt.timezone.utc))}
     if temp:
         out["water_temp"] = temp
     # Lead the read with the SOUND. The crew fishes the backwater, and the
