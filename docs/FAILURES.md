@@ -557,3 +557,45 @@ and the failure protocol at the bottom of that file appends here too.
   `instructions/routine.md` step 1 also fails on a detached head ("Please specify which
   branch you want to merge with") and needs `git pull --rebase origin main` — worth the
   playbook saying so.
+
+- **2026-08-21** — *the clone was in detached HEAD again, second morning running.* Same
+  shape as 2026-08-20: `git pull` in `instructions/routine.md` step 1 failed with "Please
+  specify which branch you want to merge with," and `git checkout main` aborted because the
+  work was uncommitted. Local `main` and the detached head were both at `80b56a8`, so
+  nothing was behind this time and no history was at risk. Fixed the same way —
+  `git branch -f main dbf5b44 && git checkout main && git push -u origin main`, a clean
+  fast-forward. **Two mornings in a row means this is the clone's normal state, not an
+  accident.** The playbook's step 1 should read `git pull --rebase origin main`, and the
+  commit step should expect a detached head.
+- **2026-08-21** — *budget trim: one regional line and one lead paragraph cut.* The first
+  pass projected **6,691** against the 5,800 ceiling. Cut, in this order: the lead's third
+  paragraph (Bessent's buyback and the mortgage/auto/housing-starts tail, folded into
+  paragraph two); every brief summary tightened toward the low end of target; and the
+  `huntington_cabell` line — the Sanitary Board closing the 20th Street underpass Wednesday
+  9 a.m. to 4:30 p.m. for pump work, written, opened and sourced to The Herald-Dispatch,
+  then cut. That is **four separate mornings** a Cabell line has been written and cut for
+  budget (Aug. 13, 14, and now 21). Shipped at **5,574 projected**. The Herald-Dispatch's
+  article URLs run ~140 characters, which is most of what that line cost.
+- **2026-08-21** — *NOAA returned no water temperature for a fifth straight morning.*
+  `noaa-temp: RuntimeError: NOAA: no water temperature returned` for the Wrightsville Beach
+  gauge, so both papers carried Topsail **tides only**. Williams and both Ohio gauges
+  reported normally. Five mornings is no longer a blip — worth Nate checking whether the
+  station is retired.
+- **2026-08-21** — *r/Sumo could not be reached, so half the daily sumo sweep did not run.*
+  `instructions/sportsman.md` requires BOTH r/Sumo and the Japanese press every day.
+  `old.reddit.com/r/Sumo/` returned "unable to fetch from old.reddit.com" from this
+  pipeline — a tool-level block, not a 403 from Reddit. The Japanese-press half ran
+  normally (JSA English pages fetched, Kyodo/NHK searched). Lead-finding only was lost, not
+  a citable source, so nothing printed is affected. **Note it if it repeats.**
+- **2026-08-21** — *`validate_edition.py --sportsman` still does not credit `upcoming`
+  fixtures.* Identical advisory to 2026-08-20, naming **Chelsea, Tottenham, Liverpool,
+  Cleveland Browns and Cincinnati Bengals** while all five carried cited, ET-converted
+  fixture lines. The warning even contradicts itself in its own text ("neither covered nor
+  in sat_out: ... — every team is covered or accounted for, by name"). Advisory only;
+  shipped unchanged. **Second occurrence of a code fix already logged for Nate.**
+- **2026-08-21** — *`herdzone.com` opened headline-only for the third time.* Both the
+  Aug. 16 "Contest With Ohio Postponed" story and the women's soccer schedule page returned
+  a title and no body. The postponement is therefore reported in the Our Teams note as a
+  fixture this desk could not read past the headline, and **no result or reason was
+  printed**. Marshall's own athletics site is effectively unreadable to this pipeline; the
+  High Point athletics site opened in full and carried the match report used instead.

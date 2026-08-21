@@ -56,6 +56,9 @@ Four sections, all four maintained every run:
 | Open-ended | **The four-brief wire target and `config.EMBED_BUDGET` cannot both be satisfied.** No. 13 projected **5,906** against the 5,800 ceiling *after* every summary was cut to the low end of target and *after* a real wire brief was dropped, and it still split into two messages — the third split in six editions (Nos. 8, 12, 13). U.S. and Sci/Tech each project ~1,200 against a **1,000** allocation with four briefs, because a brief costs its whole URL and `sciencedaily.com` and `pbs.org` links run 60-110 chars each. **This is arithmetic, not discipline: either the wire target goes back to three, or the per-section allocations go up, or splitting stops being logged as degraded and becomes the normal shape.** A code and config decision for Nate | **OPEN — for Nate** |
 | Open-ended | **The clock was read, not estimated — but only after 40 minutes of estimating it.** `config.head_start_minutes('2026-08-17')` returned **90** and `config.cron_for()` returned `30 9 * * *`, the cron actually installed; neither daylight-saving row has come due. **Noted because the desk again drifted into estimating: mid-research it believed it was 6:25 ET when `TZ=America/New_York date` said 5:39** — the same error logged on 2026-08-13, 08-14 and 08-16. The drift was always in the same direction, believing the run later than it was, which is the direction that makes a desk cut research short. **The fix that works is running `date` before every scheduling judgment, not counting tool calls** | **OPEN — read the clock, do not estimate it** |
 
+| Open-ended | **The stored prompt still says Sports & Sportsman is on its first edition. Fourth morning.** The 2026-08-21 prompt again read "THIS IS SPORTS & SPORTSMAN'S FIRST EDITION. It is Vol. I, No. 1 of that paper," and again also said to **number it from its own ledger**. `editions/sportsman/index.json` carried **Nos. 1 through 6, all posted** (Aug. 15-20), so **No. 7 is what shipped**, per "compute it, never guess it." Flagged on 2026-08-16 and again on 2026-08-17 and it has not been edited. The prompt's "take the extra care a first issue deserves" is now four days of advice attached to the wrong edition. **OPEN — for Nate, third reminder** |
+| Open-ended | **Head start was 90 and the clock was read, not estimated — cleanly this time.** `config.head_start_minutes('2026-08-21')` returned **90** and `config.cron_for()` returned `30 9 * * *`, the cron actually installed. Neither daylight-saving row has come due. **`TZ=America/New_York date` was run before every scheduling decision and there was no drift in either direction**, which breaks the run of estimation errors logged on 2026-08-13, 08-14, 08-16 and 08-17. The whole run — both papers researched, written, validated, rendered, committed and pushed — finished at **5:52 a.m. ET, 22 minutes after the 5:30 wake**, leaving 68 minutes of hold. **The head start is not the constraint it was; if anything it is now generous** |
+
 ## 2. Forward-dated events
 
 | Date | Event | Note |
@@ -105,6 +108,17 @@ Four sections, all four maintained every run:
 | **~2026-08-17** | **Nucor Apple Grove sheriff's detail ends** | The 10-day security detail posted after the Aug. 7 threat closure was due to end about today. **Not searched this morning** — the flooding took the West Virginia sweep — so this is carried forward unchecked rather than reported as quiet. Check it tomorrow |
 | **2026-08-21** | **Premier League 2026-27 opens** | Unchanged. **Arsenal beat Manchester City 3-0 in the Community Shield on Sunday**, carried as one attributed clause inside the Rodri brief because `premierleague.com/en/news` returned navigation only and no readable match report could be opened |
 | **~2026-08-24** | **Rodri's move to Barcelona completes** | City accepted **65.4M pounds ($88.47M)**; the 30-year-old **2024 Ballon d'Or** winner agreed a **four-year** deal and was expected at Barcelona "the following week." He missed the Community Shield after **minor back surgery** and returned to training Friday. Al Jazeera, citing Sky Sports. Ran in S&S No. 3's Around the Leagues. **The completed transfer, or a collapse, is the news** |
+
+| **2026-08-31** | **Aki banzuke (rankings) released** | Unchanged and still the load-bearing date. Searched again this morning: the **Sept. 13-27 Aki dates are still carried only by ticket resellers, travel sites and fan databases**, which this paper does not cite — an **eighth** straight morning. `sumo.or.jp/En/` was fetched and its newest item is still the **Aug. 5** museum-calendar update; the September page says only that every day is sold out. The banzuke release is the moment Kyodo, NHK or the Japan Times must print the dates. **The countdown ran as S&S No. 7's sumo line, pegged to the banzuke at 10 days out rather than to the basho at 23, so it is a different sentence from No. 6's** |
+| **2026-08-16 — RESOLVED** | **Marshall v Ohio women's soccer, the house derby this paper owed since No. 1** | **It was never played. `herdzone.com` carries "Herd Women's Soccer's Contest With Ohio Postponed," dated Aug. 16 — postponed for thunderstorms in the Huntington area, no makeup date scheduled.** The story would open only to its headline, as herdzone always does for this pipeline, so **no result, reason or makeup date was printed as fact**; S&S No. 7's Our Teams note reports it as a fixture the desk could not read past the headline. **The row that sat open across Nos. 2, 3 and 4 waiting for a result was waiting for a match that did not happen.** Watch the Marshall schedule for a makeup date |
+| **2026-09-08** | **Direct testimony due in the MARL transmission line case** | PSC staff moved **Aug. 19** to toll the case at least 60 days or dismiss it, saying five route changes NextEra filed **July 30** give three newly affected landowners **39 days**. The line is **107.5 miles at 500 kilovolts**, Dunkard Township, Pa. to Gore, Va. **Note the two readable outlets disagree on the West Virginia counties — WVPB lists Monongalia, Preston, Mineral and Hampshire; WV MetroNews adds Jefferson — so no county count was printed.** Route changes add about **$1M**. Evidentiary hearing late October. WV Public Broadcasting. Ran as No. 17's first statewide brief. **The commission's ruling on the motion is the news** |
+| **open** | **Bluefield State University Board of Governors emergency session** | Met **Thursday evening Aug. 20** in closed session on a notice giving the purpose as **"Imminent Substantial harm to the institution,"** and announced nothing afterward. The administration said it "have not been provided information regarding the purpose of the meeting beyond what appears in the public notice." President **Dr. Darrin Martin** has led the school since November 2024 and previously worked to restore its standing with the Higher Learning Commission after a critical 2023 governance report. WV MetroNews. Ran as No. 17's second statewide brief. **Whatever the board was meeting about is the news** |
+| **2026-09-04** | **Kanawha County curbside flood debris pickup ends** | Runs **Aug. 24 to Sept. 4** in the unincorporated county — Campbells Creek, Cabin Creek, Rutledge Road and Cross Lanes — for construction debris, flood-damaged furniture, appliances, vegetative debris and household hazardous materials, placed on the public right-of-way; crews will not enter private property. WSAZ. Ran as No. 17's `putnam_kanawha` line |
+| **~2026-08-22** | **FEMA mobile centre in Ritchie County closes** | Open daily from 7 a.m. in **Auburn** through Saturday evening, for residents hit by **July's** flooding. Sheriff **Bryan Davis** is pressing people to apply — "You're not obligated to pay anything. It's a grant" — and says many eligible residents are still reluctant. WV MetroNews. Ran as No. 17's `mid_ohio_valley` line. **Note this is the JULY flood, not the Aug. 16 one** |
+| **2026-08-26** | **20th Street underpass closes, Huntington** | Wednesday, 9 a.m. to 4:30 p.m., Huntington Sanitary Board work on the pumps under the roadway; no detour given. The Herald-Dispatch. **Written, opened, sourced and CUT FOR BUDGET** — the fourth Cabell line to be cut this way. Only a line at all on a thin Cabell morning |
+| **open** | **Transportation Safety Board investigation, Prince George plane crash** | A **Beech King Air 200** with **eight aboard** left Prince George Airport about 11 a.m. Thursday for the Kemess Creek area and made an emergency landing on **Foothills Boulevard** just north of North Nechako Road about **2:18 p.m.**, hitting vehicles. **One person in a ground vehicle was killed and two were hospitalized; nobody aboard the aircraft was reported hurt.** TSB investigators were due Friday morning. CKPG Today. Ran as No. 17's away line — **the first away line since Aug. 12** and the first from Prince George since No. 1. **A cause finding is the news** |
+| **2026-09-01 → 2026-09-14** | **NC recreational southern flounder season** | One fish per person per day, **15-inch** minimum, hook and line and gig only, coastal and joint waters, under proclamation **FF-27-2026**. Closed and unlawful to possess until then. NCDMF, confirmed on `deq.nc.gov` this morning. Ran as S&S No. 7's "coming in" |
+| **2026-09-05 → 2026-09-06** | **WV youth squirrel weekend, then the general season Sept. 12** | Youth daily 6, possession 12, season limit 12 (pamphlet page 40); the general gray, black, albino and fox squirrel season runs **Sept. 12 - Feb. 28** at a daily 6 and possession 24. WVDNR via `reference/wv-hunting-2026-27.json`, `valid_through` **2027-06-30** checked against the edition date. Ran as S&S No. 7's second "coming in" |
 
 ## 3. Open threads
 
@@ -1145,7 +1159,160 @@ Four sections, all four maintained every run:
   make it news again.
 -->
 
+- **treasury-yields-2026** — 2026-08-21: **new, and it led No. 17.** The **30-year Treasury
+  bond** reached **5.3%** this week, its highest since **2007**, against **1.7%** in 2021.
+  **David Lynch**, global economics correspondent for The Washington Post, told PBS NewsHour
+  that companies have borrowed about **$500 billion** this year for AI infrastructure,
+  competing with governments for scarce capital, and that the national debt passed
+  **$40 trillion** this week — double a decade ago. Treasury Secretary **Scott Bessent**
+  said **Wednesday Aug. 19** the government would increase buybacks of long-dated debt and
+  expected yields to fall; stocks fell again **Thursday** as that relief faded.
+  **30-year mortgages past 6.6% and heading toward 7%; auto loans following; housing starts
+  down last month.** PBS NewsHour, cross-checked against Yahoo Finance (read).
+  **`cnbc.com` and `thestreet.com` both 403 this crawler**, so the exact index point moves
+  were not printed in the body — the stat strip carries the percentages from
+  `out/stats.json`. **Fed Chair Kevin Warsh speaks at Jackson Hole next week; that is the
+  news.**
+- **uss-lincoln-deployment** — 2026-08-21: **it finally moved and the thread CLOSES.** The
+  carrier has **left the Middle East** after **nine months**, about **three weeks** from San
+  Diego with roughly **5,000** sailors and Marines; the Japan-based **USS George Washington**
+  has arrived to relieve her. She sailed **Nov. 21, 2025**. CBS News. NPR ran a companion
+  piece the same morning on the psychology of long deployments — **Armen Kurdian**, **Jack
+  Stuster**, **Dr. Phillip Hunt** — against Acting Navy Secretary **Hung Cao** calling the
+  coverage "dishonest" and Hegseth calling the conditions reports "overstated"; **that half
+  was not printed**, because the news is the departure. Ran as No. 17's first U.S. brief.
+  **News again only on the homecoming or a congressional inquiry.**
+- **flock-backlash-2026** — 2026-08-21: **new, ran as No. 17's second U.S. brief, and it is
+  the national half of a story this paper already carries locally.** NPR counted vandalism
+  of Flock plate readers in **at least 36 states** and **100+ cities** that have switched
+  cameras off or cancelled contracts; **5,000+** agencies use Flock and there are
+  **130,000+** AI plate readers on U.S. streets. **Clare Garvie** (NYU Policing Project),
+  **Jay Stanley** (ACLU) and Flock CEO **Garrett Langley** quoted; **25,000+** registered for
+  DeFlock's National Week of Action. **NPR's piece does not mention West Virginia or
+  Huntington.** The Herald-Dispatch separately carried "Flock announces changes amid
+  backlash" on Aug. 20 — **not run, because the national brief covers it and the Huntington
+  ordinance is its own forward-dated row (Aug. 24)**. Careful not to run all three at once.
+- **congo-ebola** — 2026-08-21: **moved and ran as No. 17's lead World brief, its third
+  appearance** (Nos. 1 and 11 before it). **2,476 dead of 5,208 confirmed cases**, a
+  **47.5%** fatality rate reaching **70%** in harder-to-reach parts of North Kivu — up from
+  **2,100 of 4,600** when No. 11 ran it. The movement is the vaccine: Congo gets **70,000
+  Ervebo doses**, **20,000** into a **Phase 3 trial** of whether it works against
+  **Bundibugyo** and **50,000** for frontline and health workers. Ervebo is licensed only
+  for the Ebola virus strain; WHO says early lab and animal data suggest some protection.
+  **Tedros Adhanom Ghebreyesus** called it "an important example of global solidarity in
+  action." Transmission is believed to have started in the mining town of **Mongbwalu** as
+  early as **February**; declared **May 15**; spreading about **three times faster** than the
+  2014-16 West African epidemic. PBS NewsHour. **A trial result is the news.**
+- **e1-settlement** — 2026-08-21: new, ran in No. 17's World section. Israel opened tenders
+  for **more than 1,200** housing units in the **E1** project, of **at least 3,400** total
+  across about **12 square kilometres**, connecting occupied East Jerusalem to **Maale
+  Adumim** and cutting the West Bank's link to East Jerusalem. The **UK, France, Germany,
+  Italy, the Netherlands, Canada and Norway** issued a joint statement calling it
+  "unacceptable" and warning of "legal and reputational consequences," urging Israel to
+  retract. Egypt's foreign ministry, Malaysian PM **Anwar Ibrahim** and the UN spokesperson
+  also objected. Al Jazeera. **An Israeli response, or a named consequence, is the news.**
+- **berlin-arms-cache** — 2026-08-21: new, ran in No. 17's World section. German security
+  authorities found a professionally set-up depot holding **two live firearms** in a
+  **Brandenburg** forest near Berlin. The **BfV** believes it is a Russian "dead letterbox"
+  and suspects the weapons were for agents conducting "kinetic operations." **Sinan Selen**,
+  head of the domestic service, has previously warned of assassinations targeting defence
+  industry managers, exiled opposition figures and Ukraine supporters. **No arrests.** The
+  Russian embassy did not answer; Moscow has called similar accusations conspiracy theories.
+  Reported by NDR, WDR and Süddeutsche Zeitung, carried by Euronews. **An arrest is the news.**
+- **wv-flood-recovery-aug16** — 2026-08-21: the Aug. 16 flooding thread has moved from rescue
+  to **recovery bureaucracy**, which is where it stops being a lead and becomes notebook
+  lines. Kanawha County debris pickup **Aug. 24 - Sept. 4**; **United Way of Central West
+  Virginia** (president **Margaret O'Neal**, brought in by Charleston Mayor **Amy Shuler
+  Goodwin**) ran about **150 sandwiches** Monday and Tuesday and is taking donations, with
+  **WV 211** as the assistance line — **searched, opened and judged too soft for a line**.
+  Also open on MetroNews and not run: Harrison County urging flood victims to log damage,
+  Mount Hope recovering from creek high water. WV MetroNews, WSAZ. **A damage total, a
+  federal declaration, or a WVDOH reopening list is what makes it a brief again.**
+- **colorectal-screening-sweden** — 2026-08-21: new, ran in Sci/Tech. **Karolinska
+  Institutet** and **Umeå University**, led by **Johannes Blom**: the Stockholm-Gotland
+  programme, **376,511** participants, up to **14 years**, **1,668** colorectal cancer
+  deaths in follow-up. Taking part cut mortality risk **43%**; being merely invited cut it
+  **26%**. Stool test for occult blood, positive results to colonoscopy. *JAMA Network Open*,
+  August 2026. `source` names the institution, the convention since No. 4.
+- **grand-canyon-escarpment** — 2026-08-21: new, ran in Sci/Tech **and was nearly the
+  drawing**. **University of Southampton** (lead author Prof. **Thomas Gernon**) with GFZ
+  Helmholtz, Potsdam and Illinois Urbana-Champaign: a **~1 km** high "Great Escarpment of
+  Laurentia," formed about **800 million years ago** in the breakup of **Rodinia**, stripped
+  up to **8 km** of rock and exposed the canyon's basement about a billion years before the
+  Colorado River — an explanation for the **Great Unconformity**. Spanned thousands of km
+  across Arizona, Utah, Idaho, Wyoming, Colorado, Texas, Oklahoma, Arkansas, Missouri and
+  Illinois. *Geology*, 2026. **A good rung-2 art subject if the lead is ever undrawable.**
+- **quantum-droplets-monash** — 2026-08-21: new, ran in Sci/Tech. **Monash University**
+  (PhD candidate **Sam Foster**, Assoc. Prof. **Jesper Levinsen**, Prof. **Meera Parish**)
+  with Heidelberg: bosons and fermions in a resonant mixture can balance attraction against
+  fermion pressure into a self-bound droplet, and the theory now extends to **strong**
+  interactions where earlier work handled only weak ones. Says existing ultracold-atom labs
+  could make one. *Physical Review Letters* 137(7), Aug. 21, 2026. **News again on an actual
+  droplet in a lab.**
+
 ## 4. Recently covered
+
+### 2026-08-21 — No. 17, and Sports & Sportsman No. 7
+- lead: **treasury-yields-2026** — the 30-year bond at 5.3%, its highest since 2007, and
+  mortgages past 6.6%. **RUNG 1 ART, and it was handed to the desk:** PBS's `og:image` for
+  the piece is the entrance to the U.S. Department of the Treasury — three doors, two bronze
+  roundels, an inscribed frieze and a broad flight of steps. No people, no faces, pure
+  geometry. Drawn as `art/2026-08-21-lead.svg`, `placement: lead`, and it renders with the
+  lead, before the U.S. section. **Only the second rung-1 drawing in a week; the lesson is
+  to fetch the lead's og:image before assuming the lead is undrawable, because a building
+  facade is the single most reliable subject on the list.**
+- us: uss-lincoln-deployment (**it moved and the thread closes**), flock-backlash-2026,
+  ca-14-special-election (**Aisha Wahab, first Afghan American in Congress, beat Melissa
+  Hernandez; they meet again in November**)
+- world: congo-ebola (**third appearance, and the vaccine is the movement**), e1-settlement,
+  berlin-arms-cache
+- wv statewide: marl-transmission-psc (**WV Public Broadcasting, deliberately not MetroNews,
+  for source diversity — and the two disagree on the county list, so no count was printed**),
+  bluefield-state-emergency-session
+- wv regional: putnam_kanawha — kanawha-debris-pickup; mid_ohio_valley — ritchie-fema-centre
+- wv away: **prince_george — pg-plane-crash. The first away line since Aug. 12, ending an
+  eight-edition drought.** `ckpgtoday.ca` opened cleanly and is confirmed readable; **CBC's
+  BC page 403s this crawler**, so CKPG is the Prince George outlet that works
+- huntington_cabell: **line written, opened, sourced and CUT FOR BUDGET — fourth time.** The
+  20th Street underpass closure. See `docs/FAILURES.md`
+- nicholas_webster, summers_new_river: **no line.** Nicholas/Webster is on the **same three
+  standing items** it has carried since Aug. 12 (the Aug. 23 DUI checkpoint, the Aug. 30 lake
+  cleanup, the LUCAS screening unit); Summers/New River had nothing newer than a Bridge Day
+  vendor announcement for **Oct. 17**. **Summers has now run dry every morning of this
+  paper's life**
+- scitech: colorectal-screening-sweden, grand-canyon-escarpment, quantum-droplets-monash.
+  **All three came through ScienceDaily but `source` names the institution**, which is the
+  convention and which also satisfies three bylines. `nature.com/news` now **303s to
+  `idp.nature.com`** and needs an account; **`arstechnica.com` is unreachable from this
+  pipeline entirely** — both are new losses worth remembering
+- **fishing: both waters. Williams 350 cfs and falling, 2.55 ft**, against **755 cfs** 24
+  hours earlier. The fetcher's read ran nearly verbatim: "pushy. Wadeable at the edges, not
+  across." **No NOAA water temperature for a fifth morning**, so Topsail ran tides only
+- **stocking: silent no-op.** Nothing named the Williams, the Cranberry or the Summersville
+  tailwater. `wvdnr.gov` not fetched (expired certificate)
+- **BUDGET: first pass projected 6,691; shipped at 5,574 projected.** Cut the lead's third
+  paragraph, tightened every summary, and cut the Cabell line. **Then a second measurement
+  showed 5,333 and the `mid_ohio_valley` line was put BACK** — worth recording, because the
+  ladder is easy to over-apply: cut to the number, re-measure, and restore what fits
+- **S&S No. 7 — teams that ran:** West Virginia (women's soccer, 2-1 over No. 23 Penn State,
+  first win over them since 2017), Marshall (0-4 at High Point, Sabba Haghgoo hat trick),
+  Cincinnati Reds (10-9 to St. Louis after a six-run third). **Sat out:** Ohio University,
+  San Antonio Spurs, USMNT. **Accounted for by standings or fixtures:** Pirates, FC
+  Cincinnati, Columbus Crew, Browns, Bengals, Chelsea, Tottenham, Liverpool
+- **S&S — the football season starts tonight.** Arsenal v Coventry, 3 p.m. ET Friday.
+  Liverpool open under **Andoni Iraola** and Chelsea under **Xabi Alonso** — both new
+  managers, and **the first morning this paper has had a reason to say so**. From tomorrow
+  the football beat is results, not fixtures. **Tottenham at Brentford Sat 12:30 p.m. ET,
+  Liverpool at Newcastle Sun 11:30 a.m. ET, Chelsea at Fulham Mon 3 p.m. ET** — all three
+  ET-converted from BST at plus five, all cited to Sky Sports because **`espn.com`'s fixtures
+  story and `premierleague.com` both returned empty to this crawler this morning**
+- **Do not re-run tomorrow without movement:** the USS Lincoln (**closed — only the
+  homecoming**); Wahab; the E1 statement (**an Israeli response is the news**); the Berlin
+  cache (**an arrest**); the Ebola doses (**a trial result**); the three science papers; the
+  Kanawha debris schedule; the Ritchie FEMA centre. **The ones that should run: the WVU
+  women against Duquesne Sunday 1 p.m.; the Premier League results from Saturday, which are
+  the first of the season; and the Bluefield State board, whose emergency session announced
+  nothing and is the most interesting unanswered question in the state this morning.**
 
 ### 2026-08-14 — No. 10
 - lead: **hormuz-reopening**, its third front page — two ADNOC vessels attacked Thursday evening, the UAE
