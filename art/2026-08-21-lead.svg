@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 660" role="img" aria-label="Line drawing of the Treasury Department entrance in Washington: a broad flight of stone steps rising to three tall doors beneath an inscribed stone frieze, with two brass handrails and two bronze roundels on the wall.">
+  <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+
+    <!-- column plinths and balustrade above the frieze -->
+    <path d="M60 8 L60 44 M132 8 L132 44 M60 44 L132 44 M56 48 L136 48"/>
+    <path d="M436 8 L436 44 M508 8 L508 44 M436 44 L508 44 M432 48 L512 48"/>
+    <path d="M812 8 L812 44 M884 8 L884 44 M812 44 L884 44 M808 48 L888 48"/>
+    <path d="M136 20 L432 20 M136 40 L432 40 M512 20 L808 20 M512 40 L808 40"/>
+    <path d="M168 20 L168 40 M200 20 L200 40 M232 20 L232 40 M264 20 L264 40 M296 20 L296 40 M328 20 L328 40 M360 20 L360 40 M392 20 L392 40"/>
+    <path d="M544 20 L544 40 M576 20 L576 40 M608 20 L608 40 M640 20 L640 40 M672 20 L672 40 M704 20 L704 40 M736 20 L736 40 M768 20 L768 40"/>
+
+    <!-- cornice and the inscribed frieze band -->
+    <path d="M0 56 L1000 56 M0 62 L1000 62"/>
+    <path d="M0 140 L1000 140"/>
+    <text x="500" y="112" fill="currentColor" stroke="none" font-family="Georgia, 'Times New Roman', serif" font-size="27" letter-spacing="7" text-anchor="middle">THE DEPARTMENT OF THE TREASURY</text>
+
+    <!-- coursed stone of the wall -->
+    <path d="M0 176 L1000 176" stroke-width="1"/>
+    <path d="M0 244 L1000 244" stroke-width="1"/>
+    <path d="M0 312 L1000 312" stroke-width="1"/>
+    <path d="M0 380 L1000 380" stroke-width="1"/>
+    <path d="M64 140 L64 176 M300 140 L300 176 M596 140 L596 176 M900 140 L900 176" stroke-width="1"/>
+    <path d="M120 176 L120 244 M368 176 L368 244 M672 176 L672 244 M944 176 L944 244" stroke-width="1"/>
+    <path d="M40 244 L40 312 M336 244 L336 312 M636 244 L636 312 M916 244 L916 312" stroke-width="1"/>
+    <path d="M100 312 L100 380 M392 312 L392 380 M700 312 L700 380 M960 312 L960 380" stroke-width="1"/>
+
+    <!-- left doorway -->
+    <path d="M150 162 L266 162 L266 396 L150 396 Z"/>
+    <path d="M158 172 L258 172 L258 388 L158 388 Z" stroke-width="1.5"/>
+    <path d="M208 172 L208 388" stroke-width="1.5"/>
+    <path d="M158 216 L258 216 M158 260 L258 260 M158 304 L258 304 M158 348 L258 348" stroke-width="1.5"/>
+
+    <!-- centre doorway -->
+    <path d="M442 162 L558 162 L558 396 L442 396 Z"/>
+    <path d="M450 172 L550 172 L550 388 L450 388 Z" stroke-width="1.5"/>
+    <path d="M500 172 L500 388" stroke-width="1.5"/>
+    <path d="M450 216 L550 216 M450 260 L550 260 M450 304 L550 304 M450 348 L550 348" stroke-width="1.5"/>
+
+    <!-- right doorway -->
+    <path d="M734 162 L850 162 L850 396 L734 396 Z"/>
+    <path d="M742 172 L842 172 L842 388 L742 388 Z" stroke-width="1.5"/>
+    <path d="M792 172 L792 388" stroke-width="1.5"/>
+    <path d="M742 216 L842 216 M742 260 L842 260 M742 304 L842 304 M742 348 L842 348" stroke-width="1.5"/>
+
+    <!-- two bronze roundels set in the wall between the doors -->
+    <circle cx="352" cy="228" r="31"/>
+    <circle cx="352" cy="228" r="24" stroke-width="1.5"/>
+    <circle cx="352" cy="228" r="11" stroke-width="1.5"/>
+    <circle cx="656" cy="228" r="31"/>
+    <circle cx="656" cy="228" r="24" stroke-width="1.5"/>
+    <circle cx="656" cy="228" r="11" stroke-width="1.5"/>
+
+    <!-- the flight of steps, treads widening as they come forward -->
+    <path d="M0 400 L1000 400"/>
+    <path d="M0 404 L1000 400" stroke-width="1"/>
+    <path d="M0 438 L1000 430"/>
+    <path d="M0 444 L1000 436" stroke-width="1"/>
+    <path d="M0 482 L1000 470"/>
+    <path d="M0 489 L1000 477" stroke-width="1"/>
+    <path d="M0 530 L1000 514"/>
+    <path d="M0 538 L1000 522" stroke-width="1"/>
+    <path d="M0 582 L1000 562"/>
+    <path d="M0 591 L1000 571" stroke-width="1"/>
+    <path d="M0 638 L1000 614"/>
+
+    <!-- joints in the treads -->
+    <path d="M296 400 L294 438 M604 400 L606 430" stroke-width="1"/>
+    <path d="M212 438 L208 482 M520 430 L518 470 M828 430 L832 470" stroke-width="1"/>
+    <path d="M370 482 L366 530 M690 470 L694 514" stroke-width="1"/>
+    <path d="M150 530 L144 582 M480 514 L478 562 M810 514 L816 562" stroke-width="1"/>
+    <path d="M300 582 L294 638 M640 562 L646 614" stroke-width="1"/>
+
+    <!-- left handrail, high beside the doors and falling away to the left -->
+    <path d="M312 288 L156 470" stroke-width="3"/>
+    <path d="M312 288 L312 300 M156 470 L156 484" stroke-width="3"/>
+    <path d="M300 302 L300 404 M262 348 L262 442 M224 393 L224 486 M186 438 L186 534" stroke-width="2.5"/>
+    <path d="M292 402 L308 402 M254 440 L270 440 M216 484 L232 484 M178 532 L194 532" stroke-width="2"/>
+
+    <!-- right handrail, falling away to the right -->
+    <path d="M690 286 L844 470" stroke-width="3"/>
+    <path d="M690 286 L690 298 M844 470 L844 484" stroke-width="3"/>
+    <path d="M702 300 L702 402 M740 346 L740 440 M778 391 L778 484 M816 436 L816 532" stroke-width="2.5"/>
+    <path d="M694 400 L710 400 M732 438 L748 438 M770 482 L786 482 M808 530 L824 530" stroke-width="2"/>
+
+  </g>
+</svg>

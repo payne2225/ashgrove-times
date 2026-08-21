@@ -1,0 +1,162 @@
+{
+  "edition_date": "2026-08-21",
+  "edition_number": 17,
+  "volume": "I",
+  "lead": {
+    "headline": "Treasury yields hit their highest since 2007 as stocks fall",
+    "dek": "The same bond paid 1.7% in 2021. Thirty-year mortgages are now past 6.6%.",
+    "byline": "Wire Reports",
+    "body": [
+      "The yield on the 30-year Treasury bond reached 5.3% this week, its highest since 2007, PBS NewsHour reported, as heavy government and corporate borrowing drove up the return investors demand for lending to the government.",
+      "David Lynch of The Washington Post told the program that companies have borrowed about $500 billion this year for artificial-intelligence infrastructure, competing with governments for scarce capital. The national debt passed $40 trillion this week. Treasury Secretary Scott Bessent said Wednesday he would increase buybacks of long-dated debt; stocks fell again Thursday as that relief faded."
+    ],
+    "stat_strip": [
+      {"label": "S&P 500", "value": "7,641.16", "change": "-0.87%", "direction": "down"},
+      {"label": "Dow", "value": "52,759.21", "change": "-1.32%", "direction": "down"},
+      {"label": "Nasdaq", "value": "26,067.17", "change": "-1.00%", "direction": "down"},
+      {"label": "Bitcoin", "value": "$77,661", "change": "+8.07%", "direction": "up"}
+    ]
+  },
+  "sections": [
+    {
+      "id": "us",
+      "label": "U.S.",
+      "briefs": [
+        {
+          "headline": "USS Abraham Lincoln leaves the Middle East after nine months",
+          "summary": "The carrier and about 5,000 sailors and Marines are three weeks from San Diego. The USS George Washington has arrived to relieve it.",
+          "source": "CBS News",
+          "url": "https://www.cbsnews.com/news/uss-abraham-lincoln-leaves-middle-east-deployment/"
+        },
+        {
+          "headline": "Flock license plate cameras vandalized in 36 states",
+          "summary": "NPR counted damage reports in at least 36 states, and more than 100 cities have switched cameras off or cancelled contracts.",
+          "source": "NPR",
+          "url": "https://www.npr.org/2026/08/21/nx-s1-5939851/flock-cameras-police-block-surveillance-vandalize"
+        },
+        {
+          "headline": "Wahab wins the California special election for Swalwell's seat",
+          "summary": "The state lawmaker takes the 14th District through January and is the first Afghan American in Congress.",
+          "source": "PBS NewsHour",
+          "url": "https://www.pbs.org/newshour/politics/state-lawmaker-aisha-wahab-wins-california-special-election-to-replace-former-rep-swalwell"
+        }
+      ]
+    },
+    {
+      "id": "world",
+      "label": "World",
+      "briefs": [
+        {
+          "headline": "Congo to get 70,000 Ebola doses as deaths pass 2,400",
+          "summary": "The Bundibugyo outbreak has killed 2,476 of 5,208 confirmed cases. Twenty thousand doses go to a trial against that strain.",
+          "source": "PBS NewsHour",
+          "url": "https://www.pbs.org/newshour/health/congo-to-receive-70000-doses-of-ervebo-ebola-vaccine-which-was-effective-in-past-outbreaks"
+        },
+        {
+          "headline": "Seven countries call Israel's E1 settlement plan unacceptable",
+          "summary": "Israel opened tenders for more than 1,200 homes in a project of at least 3,400. Britain, France, Germany, Canada and three others objected.",
+          "source": "Al Jazeera",
+          "url": "https://www.aljazeera.com/news/2026/8/21/europe-canada-condemn-israeli-plans-for-new-west-bank-settlement"
+        },
+        {
+          "headline": "German intelligence finds an arms cache in a Brandenburg forest",
+          "summary": "The domestic intelligence service said the depot was a Russian dead-letter drop and that two firearms in it were meant for agents.",
+          "source": "Euronews",
+          "url": "https://www.euronews.com/my-europe/2026/08/21/weapons-for-putins-agents-secret-arms-cache-found-in-berlin-forest"
+        }
+      ]
+    },
+    {
+      "id": "wv",
+      "label": "West Virginia",
+      "notebook_title": "Mountaineer State Notebook",
+      "briefs": [
+        {
+          "headline": "PSC staff moves to pause or dismiss a 500-kilovolt line case",
+          "summary": "Staff said five route changes NextEra filed July 30 give three newly affected landowners 39 days on a 107.5-mile line.",
+          "source": "WV Public Broadcasting",
+          "url": "https://wvpublic.org/story/energy-environment/transmission-lines-psc-application-recommended-for-delay-possible-dismissal/"
+        },
+        {
+          "headline": "Bluefield State board meets in emergency session, says nothing",
+          "summary": "The notice gave the purpose as imminent substantial harm to the institution. The administration said it was told nothing more.",
+          "source": "WV MetroNews",
+          "url": "https://wvmetronews.com/2026/08/20/bluefield-state-university-bog-meets-in-emergency-session-over-something-that-could-cause-harm-to-the-institution/"
+        }
+      ],
+      "regional": [
+        {
+          "region_id": "putnam_kanawha",
+          "place": "Putnam / Kanawha - Charleston",
+          "people": ["Nate"],
+          "item": "Curbside flood debris pickup starts Monday on Campbells Creek, Cabin Creek and Cross Lanes, through Sept. 4.",
+          "source": "WSAZ",
+          "url": "https://www.wsaz.com/2026/08/20/kanawha-county-begins-flood-debris-pickup-communities-recover/"
+        },
+        {
+          "region_id": "mid_ohio_valley",
+          "place": "Mid-Ohio Valley / Parkersburg",
+          "people": ["Pat"],
+          "item": "A mobile FEMA center is open daily in Ritchie County through Saturday for residents hit by July's flooding.",
+          "source": "WV MetroNews",
+          "url": "https://wvmetronews.com/2026/08/20/fema-center-active-in-ritchie-county/"
+        }
+      ],
+      "away": [
+        {
+          "region_id": "prince_george",
+          "place": "Prince George, BC",
+          "people": ["Kirsten"],
+          "item": "A Beech King Air 200 landed on Foothills Boulevard Thursday, hit cars and killed one person on the ground.",
+          "source": "CKPG Today",
+          "url": "https://ckpgtoday.ca/2026/08/20/transportation-safety-board-set-to-arrive-in-prince-george-friday-to-investigate-plane-crash/"
+        }
+      ],
+      "fishing": [
+        {
+          "water": "Williams River (Cowen)",
+          "line": "350 cfs and falling - pushy. Wadeable at the edges, not across.",
+          "source": "USGS 03186500"
+        },
+        {
+          "water": "Topsail Beach (surf and sound)",
+          "line": "Sound highs 3:15 a.m. and 3:56 p.m. at Hampstead; the afternoon tide is bigger at 3.9 feet.",
+          "source": "NOAA CO-OPS 8657813"
+        }
+      ]
+    },
+    {
+      "id": "scitech",
+      "label": "Science & Technology",
+      "briefs": [
+        {
+          "headline": "Home stool test cut colorectal cancer deaths 43% in Sweden",
+          "summary": "Karolinska Institutet followed 376,511 people for up to 14 years. Those merely invited to screen cut their risk 26%.",
+          "source": "Karolinska Institutet",
+          "url": "https://www.sciencedaily.com/releases/2026/08/260820202833.htm"
+        },
+        {
+          "headline": "A lost cliff may explain the Grand Canyon's missing billion years",
+          "summary": "Southampton geologists date a kilometre-high escarpment to the breakup of Rodinia 800 million years ago.",
+          "source": "University of Southampton",
+          "url": "https://www.sciencedaily.com/releases/2026/08/260820202828.htm"
+        },
+        {
+          "headline": "Physicists describe a droplet that holds itself together",
+          "summary": "Monash University calculates that bosons and fermions can balance attraction against pressure to form a stable drop.",
+          "source": "Monash University",
+          "url": "https://www.sciencedaily.com/releases/2026/08/260820202846.htm"
+        }
+      ]
+    }
+  ],
+  "art": {
+    "file": "art/2026-08-21-lead.svg",
+    "placement": "lead",
+    "caption": "The steps and doorways of the Treasury Department in Washington.",
+    "credit": "Sketched from a PBS NewsHour photograph"
+  },
+  "weather_ear": "The forecast follows at 7:15, from Jim Claudtore.",
+  "kicker": "The away desk files from Prince George, its first line since Aug. 12.",
+  "sources_note": "Compiled from wire reports"
+}
