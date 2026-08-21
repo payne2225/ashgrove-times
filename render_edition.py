@@ -181,7 +181,7 @@ NEWSDESK_NAME = "THE NEWS DESK"
 WEATHER_NAME = "THE WEATHER CLAUDE"
 
 _NAV_TARGETS = (
-    ("newsstand", "The Newsstand", "index.html"),
+    ("newsstand", "Home", "index.html"),
     ("news", "The News Desk", "today.html"),
     ("sportsman", "Sports &amp; Sportsman", "sportsman/"),
     ("weather", "The Weather Claude", "weather/"),
