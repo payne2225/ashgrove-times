@@ -531,16 +531,25 @@
     .tagline { font-size: 15px; margin-bottom: 10px; }
     .headline { font-size: 40px; line-height: 1.08; }
     .subhead { font-size: 17px; }
-    .columns { column-count: 3; font-size: 15.5px; }
+    .columns { column-count: 2; font-size: 15.5px; }
     .drop { font-size: 58px; }
+
+    .lead-block {
+      display: grid;
+      grid-template-columns: minmax(240px, 27%) 1fr;
+      gap: 0 30px;
+      align-items: start;
+    }
+    .lead-block .art { max-width: none; margin: 0; }
+    /* Cap the drawing so its bottom lands near the text's, instead of
+       running past it and opening a hole under the columns. */
+    .lead-block .art svg { max-height: 210px; width: 100%; }
   }
 
   @media (min-width: 1320px) {
     .page { max-width: 1420px; padding: 40px 54px 56px; }
-    .art { max-width: 560px; }
     .masthead { font-size: 96px; letter-spacing: 3px; }
     .headline { font-size: 50px; }
-    .columns { column-count: 4; }
 
     /* The wire sections sit side by side across the page, one to a column,
        the way the four beats run across a front page below the fold.
@@ -580,7 +589,6 @@
     .page { max-width: 1600px; }
     .masthead { font-size: 108px; }
     .sections { grid-template-columns: repeat(4, 1fr); }
-    .columns { column-count: 5; }
   }
 
   /* ---------- Sports & Sportsman page layout ----------
@@ -672,7 +680,8 @@
   <div class="subhead">The same bond paid 1.7% in 2021. Thirty-year mortgages are now past 6.6%.</div>
   <div class="byline">By Wire Reports</div>
 
-  <figure class="art">
+  <div class="lead-block">
+    <figure class="art">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 660" role="img" aria-label="Line drawing of the Treasury Department entrance in Washington: a broad flight of stone steps rising to three tall doors beneath an inscribed stone frieze, with two brass handrails and two bronze roundels on the wall.">
   <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 
@@ -761,8 +770,8 @@
 </svg>
   <figcaption><span class="art-caption">The steps and doorways of the Treasury Department in Washington.</span> <span class="art-credit">Sketched from a PBS NewsHour photograph</span></figcaption>
 </figure>
-
-  <div class="columns"><p><span class="drop">T</span>he yield on the 30-year Treasury bond reached 5.3% this week, its highest since 2007, PBS NewsHour reported, as heavy government and corporate borrowing drove up the return investors demand for lending to the government.</p><p>David Lynch of The Washington Post told the program that companies have borrowed about $500 billion this year for artificial-intelligence infrastructure, competing with governments for scarce capital. The national debt passed $40 trillion this week. Treasury Secretary Scott Bessent said Wednesday he would increase buybacks of long-dated debt; stocks fell again Thursday as that relief faded.</p></div>
+    <div class="columns"><p><span class="drop">T</span>he yield on the 30-year Treasury bond reached 5.3% this week, its highest since 2007, PBS NewsHour reported, as heavy government and corporate borrowing drove up the return investors demand for lending to the government.</p><p>David Lynch of The Washington Post told the program that companies have borrowed about $500 billion this year for artificial-intelligence infrastructure, competing with governments for scarce capital. The national debt passed $40 trillion this week. Treasury Secretary Scott Bessent said Wednesday he would increase buybacks of long-dated debt; stocks fell again Thursday as that relief faded.</p></div>
+  </div>
 
   <div class="stat-strip"><div><b>7,641.16</b><span class="stat-label">S&amp;P 500</span><span class="stat-change"><span class="tri down" aria-hidden="true"></span>-0.87%</span></div><div><b>52,759.21</b><span class="stat-label">Dow</span><span class="stat-change"><span class="tri down" aria-hidden="true"></span>-1.32%</span></div><div><b>26,067.17</b><span class="stat-label">Nasdaq</span><span class="stat-change"><span class="tri down" aria-hidden="true"></span>-1.00%</span></div><div><b>$77,661</b><span class="stat-label">Bitcoin</span><span class="stat-change"><span class="tri up" aria-hidden="true"></span>+8.07%</span></div></div>
   <p class="stats-note">Market data compiled before the opening bell</p>
