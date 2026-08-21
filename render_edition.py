@@ -171,6 +171,76 @@ def _region_meta() -> dict[str, dict]:
 # HTML
 # --------------------------------------------------------------------------
 
+# ------------------------------------------------- family banner and nav
+
+# The section names, settled by Nate 2026-08-21. The WHOLE publication is
+# The Ashgrove Times — every page carries that as a banner above its own
+# section masthead. "News desk" is the standard two-word form.
+FAMILY_NAME = "The Ashgrove Times"
+NEWSDESK_NAME = "THE NEWS DESK"
+WEATHER_NAME = "THE WEATHER CLAUDE"
+
+_NAV_TARGETS = (
+    ("newsstand", "The Newsstand", "index.html"),
+    ("news", "The News Desk", "today.html"),
+    ("sportsman", "Sports &amp; Sportsman", "sportsman/"),
+    ("weather", "The Weather Claude", "weather/"),
+)
+
+
+def _family_line() -> str:
+    return f'<div class="family-line">{esc(FAMILY_NAME)}</div>'
+
+
+def _nav_html(current: str, root: str) -> str:
+    """Buttons to every other section plus the Newsstand.
+
+    `root` is the relative path back to the site root, exactly as
+    render_html already uses it — "" from a root-level page, "../" from a
+    dated page one directory down.
+    """
+    buttons = [
+        f'<a href="{root}{href}">{label}</a>'
+        for key, label, href in _NAV_TARGETS if key != current
+    ]
+    return '<nav class="paper-nav">' + "".join(buttons) + "</nav>"
+
+
+def _tide_table_html() -> str:
+    """Today's full tide cycle as a real table, straight from the fetcher.
+
+    Reads out/fishing.json rather than the edition: the table is
+    instrument data, the same standing as the gauges, and going through
+    the fetcher's own file means no hand can mistype a tide. Absent or
+    tide-less data renders nothing — a missing table beats a stale one.
+    """
+    try:
+        with open(os.path.join(OUT_DIR, "fishing.json"), encoding="utf-8") as f:
+            tides = (json.load(f).get("topsail") or {}).get("tides") or []
+    except (OSError, ValueError):
+        return ""
+    rows = []
+    for station in tides:
+        events = station.get("events") or []
+        if len(events) < 4:
+            continue
+        side = "Sound (where you fish)" if station.get("side") == "sound" \
+            else "Ocean (surf)"
+        cells = "".join(
+            f"<td>{esc(e.get('time_local'))}<br>"
+            f"{esc(e.get('height_ft'))} ft</td>" for e in events[:4])
+        rows.append(f"<tr><td>{esc(side)}</td>{cells}</tr>")
+    if not rows:
+        return ""
+    heads = "".join(
+        f"<th>{esc(e.get('type', '').title())}</th>"
+        for e in (tides[0].get("events") or [])[:4])
+    return (
+        '<table class="tide-table">'
+        "<caption>Topsail tides — the full day</caption>"
+        f"<tr><th>Water</th>{heads}</tr>" + "".join(rows) + "</table>")
+
+
 def render_html(edition: dict, root: str = "../") -> str:
     """Fill the broadsheet template for one edition.
 
@@ -199,7 +269,9 @@ def render_html(edition: dict, root: str = "../") -> str:
         "PAGE_CLASS": "",
         "PAGE_TITLE": esc(f"{config.MASTHEAD} — {dateline}"),
         "META_DESCRIPTION": esc(description[:300]),
-        "MASTHEAD": esc(config.MASTHEAD),
+        "FAMILY_LINE": _family_line(),
+        "NAV": _nav_html("news", root),
+        "MASTHEAD": esc(NEWSDESK_NAME),
         "TAGLINE": esc(config.TAGLINE),
         "TOP_LEFT": esc(folio_left(edition)),
         "TOP_MID": esc(dateline),
@@ -1245,7 +1317,7 @@ def render_sportsman_html(edition: dict) -> str:
         if water_groups:
             parts.append(fill(blocks["SECTION"], {
                 "SECTION_LABEL": esc(_norm(water.get("label")) or "On the Water"),
-                "BRIEFS": "".join(water_groups),
+                "BRIEFS": _tide_table_html() + "".join(water_groups),
             }))
 
     folio = (f"Vol. {edition.get('volume', 'I')} — "
@@ -1256,8 +1328,10 @@ def render_sportsman_html(edition: dict) -> str:
         "META_DESCRIPTION": esc(
             f"Sports & Sportsman for {dateline} — teams, seasons and the "
             "morning's gauges."),
+        "FAMILY_LINE": _family_line(),
+        "NAV": _nav_html("sportsman", "../"),
         "MASTHEAD": esc(config.SPORTSMAN_MASTHEAD),
-        "TAGLINE": esc(config.SPORTSMAN_TAGLINE),
+        "TAGLINE": esc("For the Fellers"),
         "TOP_LEFT": esc(folio),
         "TOP_MID": esc(dateline),
         "TOP_RIGHT": esc(TOP_RIGHT),
@@ -1376,8 +1450,10 @@ def render_weather_html(date_iso: str, briefing_md: str) -> str:
         "PAGE_CLASS": "sportsman weather",
         "PAGE_TITLE": esc(f"Jim Claudtore — {dateline}"),
         "META_DESCRIPTION": esc(f"Jim Claudtore's forecast for {dateline}."),
-        "MASTHEAD": esc("JIM CLAUDTORE"),
-        "TAGLINE": esc("The Ashgrove Times — weather desk"),
+        "FAMILY_LINE": _family_line(),
+        "NAV": _nav_html("weather", "../"),
+        "MASTHEAD": esc(WEATHER_NAME),
+        "TAGLINE": esc("with Jim Claudtore, filed at 7:15 ET"),
         "TOP_LEFT": esc("The Forecast"),
         "TOP_MID": esc(dateline),
         "TOP_RIGHT": esc(TOP_RIGHT),

@@ -88,6 +88,53 @@
     color: var(--ink-mute);
   }
 
+  /* The family banner: the WHOLE thing is The Ashgrove Times (Nate,
+     2026-08-21), so every section page carries it above its own name. */
+  .family-line {
+    text-align: center;
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin: 2px 0 0;
+  }
+
+  /* Section-to-section buttons, house-styled like the section labels. */
+  .paper-nav { text-align: center; margin: 0 0 18px; }
+  .paper-nav a {
+    display: inline-block;
+    border: 1px solid var(--ink);
+    background: var(--wv-tint);
+    color: var(--ink);
+    text-decoration: none;
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 11.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    margin: 0 4px 6px;
+  }
+  .paper-nav a:hover { background: var(--ink); color: var(--parchment); }
+
+  /* The tide table: a real table, because Nate asked for one. */
+  .tide-table { border-collapse: collapse; margin: 10px auto 4px; font-size: 13.5px; }
+  .tide-table caption {
+    font-family: var(--display); font-weight: 700; font-size: 13px;
+    letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-mute);
+    padding-bottom: 6px;
+  }
+  .tide-table th, .tide-table td {
+    border: 1px solid var(--rule); padding: 4px 12px; text-align: center;
+  }
+  .tide-table th {
+    font-family: var(--display); font-size: 11.5px; letter-spacing: 0.08em;
+    text-transform: uppercase; background: var(--wv-tint);
+  }
+  .tide-table td:first-child { font-weight: 600; }
+
   /* ---------- masthead ---------- */
 
   .masthead {

@@ -1346,6 +1346,34 @@ def _water_state(name: str) -> str:
     return ""
 
 
+def _tide_block() -> str:
+    """The full Topsail tide cycle as an aligned code block.
+
+    Discord embeds have no tables; a code block is the honest substitute.
+    Reads the fetcher's own file so no hand can mistype a tide, and
+    returns nothing when the data is absent — same rule as everywhere.
+    """
+    try:
+        with open(_repo("out", "fishing.json"), encoding="utf-8") as f:
+            tides = (json.load(f).get("topsail") or {}).get("tides") or []
+    except (OSError, ValueError):
+        return ""
+    lines = []
+    for station in tides:
+        events = (station.get("events") or [])[:4]
+        if len(events) < 4:
+            continue
+        label = "Sound" if station.get("side") == "sound" else "Ocean"
+        cells = " | ".join(
+            f"{e.get('type', '')[0].upper()} {e.get('time_local', ''):>14}"
+            for e in events)
+        lines.append(f"{label:>5}  {cells}")
+    if not lines:
+        return ""
+    body = "\n".join(lines)
+    return f"\n**Topsail tides — the full day**\n```\n{body}\n```"
+
+
 def build_sportsman_payload(edition: dict, page_url: str | None = None) -> dict:
     """The Sports & Sportsman message. Four embeds, its own masthead.
 
@@ -1476,7 +1504,7 @@ def build_sportsman_payload(edition: dict, page_url: str | None = None) -> dict:
             if grouped.get(state):
                 header = f"__{state_label}__\n" if state_label else ""
                 blocks.append(header + "\n".join(grouped[state]))
-        add("water", "\n\n".join(blocks))
+        add("water", "\n\n".join(blocks) + _tide_block())
 
     if embeds:
         bits = [str(b).strip() for b in

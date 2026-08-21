@@ -88,6 +88,53 @@
     color: var(--ink-mute);
   }
 
+  /* The family banner: the WHOLE thing is The Ashgrove Times (Nate,
+     2026-08-21), so every section page carries it above its own name. */
+  .family-line {
+    text-align: center;
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin: 2px 0 0;
+  }
+
+  /* Section-to-section buttons, house-styled like the section labels. */
+  .paper-nav { text-align: center; margin: 0 0 18px; }
+  .paper-nav a {
+    display: inline-block;
+    border: 1px solid var(--ink);
+    background: var(--wv-tint);
+    color: var(--ink);
+    text-decoration: none;
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 11.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    margin: 0 4px 6px;
+  }
+  .paper-nav a:hover { background: var(--ink); color: var(--parchment); }
+
+  /* The tide table: a real table, because Nate asked for one. */
+  .tide-table { border-collapse: collapse; margin: 10px auto 4px; font-size: 13.5px; }
+  .tide-table caption {
+    font-family: var(--display); font-weight: 700; font-size: 13px;
+    letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-mute);
+    padding-bottom: 6px;
+  }
+  .tide-table th, .tide-table td {
+    border: 1px solid var(--rule); padding: 4px 12px; text-align: center;
+  }
+  .tide-table th {
+    font-family: var(--display); font-size: 11.5px; letter-spacing: 0.08em;
+    text-transform: uppercase; background: var(--wv-tint);
+  }
+  .tide-table td:first-child { font-weight: 600; }
+
   /* ---------- masthead ---------- */
 
   .masthead {
@@ -611,10 +658,13 @@
     <span>Price: Free</span>
   </div>
   
+  <div class="family-line">The Ashgrove Times</div>
   <div class="masthead">SPORTS &amp; SPORTSMAN</div>
-  <div class="tagline">&ldquo;The Ashgrove Times&rdquo;</div>
+  <div class="tagline">&ldquo;For the Fellers&rdquo;</div>
   <hr class="rule-thick">
   <hr class="rule-thin">
+
+  <nav class="paper-nav"><a href="../index.html">The Newsstand</a><a href="../today.html">The News Desk</a><a href="../weather/">The Weather Claude</a></nav>
 
   <div class="headline"></div>
   
@@ -674,7 +724,7 @@
 
   <section class="sec sec-wire">
   <div class="section-label">On the Water</div>
-  <div class="two-col-briefs"><div class="wv-block sm-water">
+  <div class="two-col-briefs"><table class="tide-table"><caption>Topsail tides — the full day</caption><tr><th>Water</th><th>High</th><th>Low</th><th>High</th><th>Low</th></tr><tr><td>Sound (where you fish)</td><td>3:15 AM<br>3.0 ft</td><td>9:34 AM<br>0.6 ft</td><td>3:56 PM<br>3.9 ft</td><td>10:34 PM<br>1.2 ft</td></tr><tr><td>Ocean (surf)</td><td>2:29 AM<br>3.1 ft</td><td>8:22 AM<br>0.9 ft</td><td>3:23 PM<br>4.4 ft</td><td>10:00 PM<br>1.3 ft</td></tr></table><div class="wv-block sm-water">
       <p class="wv-block-label">West Virginia</p>
       <ul class="roundup"><li><span class="place">Williams River</span> &mdash; 350 cfs and falling, 2.55 feet. 350 cfs - pushy. Wadeable at the edges, not across. Off 755 cfs a day ago and still dropping, so the storm water is on its way out rather than blown out. At this height it is a heavy-nymph-on-the-seam problem and not a long-leader one: a weighted stonefly or a sculpin along the undercut banks and the soft edges, and stay out of the main current.<span class="src">USGS 03186500</span></li><li><span class="place">Ohio River at Point Pleasant</span> &mdash; 25.7 feet and falling. 25.7 ft and falling - normal pool. Ordinary bank access. Down four feet on the day and settled at pool, which puts fish back on structure. Shad are the forage: a white swimbait across the wing dams and the riprap is the first look, and the barge cuts hold fish now the colour is clearing.<span class="src">USGS 03201500</span></li><li><span class="place">Ohio River at Huntington</span> &mdash; 28.5 feet and falling. 28.5 ft and falling - up and pushing. Expect colour and current; fish the slack behind anything solid. Off seven and a half feet from yesterday, the biggest drop on the paper this morning, but still high and coloured. Debris is the hazard. The slack behind the lock wall and the rock is where to start, and a crawfish-coloured crankbait tight to the riprap is the second look.<span class="src">USGS 03206000</span></li></ul>
     </div><div class="wv-block sm-water">
