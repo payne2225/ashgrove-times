@@ -599,3 +599,55 @@ and the failure protocol at the bottom of that file appends here too.
   fixture this desk could not read past the headline, and **no result or reason was
   printed**. Marshall's own athletics site is effectively unreadable to this pipeline; the
   High Point athletics site opened in full and carried the match report used instead.
+- **2026-08-22** — *The four-brief wire target broke the embed budget again, and this time a
+  real brief was cut for it.* The first honest draft of No. 18 projected **7,299** against
+  the 5,800 ceiling — the worst overshoot logged. Tightening every summary to the low end
+  of target and cutting the lead to two paragraphs got it to **6,094**, still over. The
+  **U.S. section was dropped to three briefs**, losing a sourced TikTok/COPPA settlement
+  brief (Euronews, $400M), and four more summaries were shortened, to reach **5,783**.
+  Shipped as one message. This is the *third* consecutive escalation of the row already open
+  for Nate: three briefs was the old target and four does not fit. **The section that gave
+  is U.S., chosen by this desk rather than by the trimmer at post time.**
+- **2026-08-22** — *A regional line shipped with `url: null` for budget, not for sourcing.*
+  The `huntington_cabell` line (Synthesis Health into Marshall's Med-Tech building) was
+  opened and read at The Herald-Dispatch, but that outlet's article URL is **185 characters**
+  and the notebook was 218 over its 1,500 allocation. The `source` name stands; the link was
+  dropped. Same root cause as the Aug. 21 Cabell cut — **Herald-Dispatch URLs are the single
+  most expensive item in the notebook** and the fourth time in ten days a Cabell line has
+  been damaged by it.
+- **2026-08-22** — *NOAA returned no water temperature for a sixth straight morning.*
+  `noaa-temp: RuntimeError: NOAA: no water temperature returned` for Wrightsville Beach.
+  Both papers carried Topsail **tides only**; the Times fishing line omits the temperature
+  rather than naming an unattributed one. Williams and both Ohio gauges reported normally.
+  **Six mornings. This is not a blip and the station should be presumed retired until Nate
+  checks it.**
+- **2026-08-22** — *r/Sumo unreachable for a second straight morning.* `old.reddit.com/r/Sumo/`
+  returned "unable to fetch from old.reddit.com" — the same tool-level block as Aug. 21, not
+  a Reddit 403. Only the Japanese-press half of the required daily sweep ran (JSA English
+  pages fetched, Aki dates searched). Lead-finding only was lost; nothing printed is
+  affected. **Second occurrence — the sweep is now reliably half a sweep.**
+- **2026-08-22** — *`validate_edition.py --sportsman` still does not credit `upcoming`
+  fixtures.* Third identical advisory (Aug. 20, 21, 22), naming **Chelsea, Tottenham,
+  Liverpool, Cleveland Browns and Cincinnati Bengals** while all five carried cited,
+  ET-converted fixture lines, and again contradicting itself in its own text. Advisory only;
+  shipped unchanged. **Third occurrence of a code fix already logged for Nate.**
+- **2026-08-22** — *Both papers write the same payload file.* `post_discord.py --dry-run`
+  wrote `out/2026-08-22.payload.json` for the Times and then the sportsman dry run
+  **overwrote the same path**. The payloads are the record of what shipped, so on any morning
+  both papers post, the Times payload is lost. Harmless to delivery, but it defeats the
+  "settled by a file, not a memory" guarantee. **The sportsman payload wants its own name.**
+- **2026-08-22** — *VTDigger returned 403, so Vermont could not be swept.* The away desk ran
+  empty: Vermont unreachable, Prince George had nothing past the plane crash No. 17 already
+  carried, and Topsail is covered by the fishing line. An empty away desk is a legal edition,
+  but Vermont was **not searched**, it was **blocked**, and that is a different thing.
+- 2026-08-22T11:00:03Z · 2026-08-22 · post_discord: split into FRONT PAGE and INSIDE messages to keep the notebook whole
+- **2026-08-22** — *The Times split into two messages anyway, at 5,997 actual against 5,783
+  projected.* After cutting a wire brief and tightening eight summaries to clear the 5,800
+  ceiling, the validator projected **5,783** — and `post_discord.py` reported **5,997** at
+  post time, splitting into FRONT PAGE and INSIDE "to keep the notebook whole." The **214-char
+  gap is the `--page-url` permalink**, which the validator's projection does not count. So the
+  desk was tightening against a number that is structurally ~200 low whenever the link goes
+  out, which is every morning Pages is green. **The cut wire brief bought nothing.** Fourth
+  split in eleven editions (Nos. 8, 12, 13, 18). **Either the validator should add the page-url
+  cost to its projection, or the ceiling it advises against should drop by ~250** — this is the
+  concrete, fixable half of the four-brief budget row already open for Nate.

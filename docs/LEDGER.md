@@ -2209,3 +2209,113 @@ Both papers landed **exactly on their holds**: the Times at **7:00** (No. 16, me
 **The research is not outrunning the head start.** Both papers were researched, written, validated, rendered and pushed by **5:51 ET** — 69 minutes before the first hold released — and both permalinks went green **about 90 seconds** after the push, so both posts carried `--page-url` at launch. The 5:30 wake is correct and does not need moving. Research ran roughly **5:32 to 5:50** for both papers together, the fastest of the two-paper mornings so far, helped by MetroNews, the Herald-Dispatch, NPR, PBS, Al Jazeera, Euronews and CBS all opening on the first attempt.
 
 **Both posters were launched `setsid nohup` on the first attempt and `PPID` was verified as 1 before walking away.** The 08-19 row's fix was read and applied. Note for the next shift: a harness `Monitor` task is capped at **30 minutes** even when a longer timeout is requested, which is shorter than a 67-minute hold — a backgrounded `until [ "$(ps -eo args | grep -c '[p]ost_discord.py --')" -eq 0 ]; do sleep 20; done` waiter is what survived the wait and reported both exits.
+
+---
+
+## 2026-08-22 — No. 18 (Times) and No. 8 (Sports & Sportsman)
+
+| Open-ended | **The stored prompt still says Sports & Sportsman is on its first edition. FIFTH morning.** The 2026-08-22 prompt again read "THIS IS SPORTS & SPORTSMAN'S FIRST EDITION. It is Vol. I, No. 1 of that paper," and again also said to **number it from its own ledger**. `editions/sportsman/index.json` carried **Nos. 1 through 7, all posted** (Aug. 15-21), so **No. 8 is what shipped**, per "compute it, never guess it." Flagged on 2026-08-16, 08-17 and 08-21 and still not edited. The prompt's "take the extra care a first issue deserves" is now five days of advice attached to the wrong edition | **OPEN — for Nate, fourth reminder** |
+| Open-ended | **Head start was 90 and the clock was read, not estimated — cleanly, second morning running.** `config.head_start_minutes('2026-08-22')` returned **90** and `config.cron_for()` returned `30 9 * * *`, the cron actually installed. Neither daylight-saving row has come due. `TZ=America/New_York date` was run before every scheduling decision. **Both papers were researched, written, validated, rendered, committed and pushed by 5:53 a.m. ET, 23 minutes after the 5:30 wake** — and Pages went green in **11 seconds**, so both posts carried their permalinks with no backfill. The head start is comfortably generous at 90 minutes | |
+
+### Forward-dated events added or moved
+
+| Date | Event | Note |
+|---|---|---|
+| **2026-08-24** | **U.S.-Canada tariff retaliation takes shape** | Talks collapsed Friday night and **50% tariffs on about $20bn** in Canadian goods took effect at midnight — hockey sticks, building materials, liquors, some clothing. **Carney suspended negotiations, recalled negotiators to Ottawa** and said Canada will match "dollar for dollar." **Greer** said Canada declined to finalize a deal reached earlier in the week; the U.S. had offered cuts on steel, aluminum, autos, lumber. **Provincial bans on American alcohol** were a sticking point. Duties imposed under **Section 338, Tariff Act of 1930**, so legal challenges are expected. NPR cross-checked against NBC News. **Led No. 18. What Canada actually imposes, and the first lawsuit, are the news** |
+| **2026-08-31** | **Aki banzuke (rankings) released** | Unchanged and still the load-bearing date. Searched again: the **Sept. 13-27 Aki dates are carried only by ticket resellers, travel sites and fan databases** — a **ninth** straight morning. `sumo.or.jp/En/` fetched; newest English item is still the **Aug. 5** museum-calendar update and the September page says only that every day is sold out. The countdown ran as S&S No. 8's sumo line pegged to the **banzuke at nine days out**, a different sentence from No. 7's ten |
+| **2026-08-24** | **Huntington council takes up the Flock ordinances** | Unchanged from No. 12/No. 17. Separately, **residents launched a ballot initiative Aug. 20 to ban surveillance tech in Huntington** (The Herald-Dispatch) — written and **not run**, at 48 hours old on a morning the Cabell line went to Synthesis Health. **If the ordinance vote moves Monday, the initiative is the second half of that story** |
+| **summer 2027** | **Synthesis Health takes Marshall's Med-Tech building** | Radiology-AI firm moving into the **IDEA District**; CEO **Murray A. Reicher** expects **200 to 300 jobs in Huntington over five years**. Construction starts summer 2027. Partners named: LG NOVA, Aurion Capital, IRC Holdings, the state, Marshall. The Herald-Dispatch. Ran as No. 18's `huntington_cabell` line, **link dropped for budget**. **A hiring number or a groundbreaking is the news** |
+| **open** | **Parkersburg municipal services garage replacement** | **Rep. Riley Moore** presented **$1M** in Community Project Funding Friday for a **55-year-old** garage Mayor **Tom Joyce** says cannot house the city's larger equipment. Joyce: the $1M "is a great start, but it's not going to be enough to complete." No total cost or timeline yet. WTAP. Ran as No. 18's `mid_ohio_valley` line. **A total project cost is the news** |
+| **open** | **Four dead in the Charleston interstate crash** | Single vehicle, eastbound at the **I-77/I-64 split** about **10:52 p.m. Friday**, into the median wall and off into the **Martin Marietta yard** below near Pennsylvania Avenue. **Names not released**; Charleston police investigating. **Second median incident at that spot in a week** — a tractor-trailer went over the wall Wednesday and both occupants survived. **Note WSAZ carried "at least 2 dead" against MetroNews' four; the later, more complete MetroNews figure ran and WSAZ's was not averaged in.** WV MetroNews. Led No. 18's notebook. **Names, a cause, or a barrier review is the news** |
+| **open** | **Pentagon fires the Stars and Stripes masthead** | Editor-in-chief **Erik Slavin**, Middle East reporter **Lara Korte** and publisher **Max Lederer** got separation notices Friday for insubordination after a CBS interview on editorial independence. Navy Capt. **William Urban** had been installed as military deputy to the publisher without notice. National Press Club president **Mark Schoeff Jr.** called it "another brazen attempt by the Pentagon to dictate coverage." PBS NewsHour. Ran in No. 18's U.S. **A reinstatement, a suit, or the next editor is the news** |
+| **2026-09-01 → 2026-09-14** | **NC recreational southern flounder season** | Unchanged and now **ten days out**. One fish per person per day, **15-inch** minimum, hook and line and gig only, coastal and joint waters, proclamation **FF-27-2026**, every kept fish reported. Confirmed today on the **NCDEQ** press release. Ran as S&S No. 8's "coming in" |
+| **2026-08-29 → 2026-09-07** | **WV gun bear season, selected counties** | **Seven days out.** Daily 1, possession 2, season limit 2; **the county list is not in the pamphlet's summary table so no county was named**, and deer/bear bag limits sit on pages 33-39. WVDNR via `reference/wv-hunting-2026-27.json`, `valid_through` **2027-06-30** checked against the edition date. Ran as S&S No. 8's first "coming in" |
+| **2026-08-23 → 2026-08-24** | **Premier League matchweek 1, all three followed clubs** | Season opened Friday: **Arsenal 3-0 Coventry** (Havertz, Saka, Odegaard; Coventry back after 25 years). **Tottenham at Brentford Sat. 12:30 p.m. ET**, **Liverpool at Newcastle Sun. 11:30 a.m. ET** (confirmed on Newcastle's own site), **Chelsea at Fulham Mon. 3 p.m. ET**. From Monday the football beat is results. **Note: a fixtures-page fetch contradicted itself, listing Newcastle v Liverpool in matchweek 1 and then claiming Liverpool's opener was Aug. 29 v Nottingham Forest; the club's own page settled it and the Aug. 29 claim was discarded** |
+| **2026-08-22** | **Both NFL clubs at home in preseason week two** | **Browns v Buffalo 1 p.m. ET** at Huntington Bank Field (confirmed on clevelandbrowns.com), **Bengals v Chicago 7 p.m. ET** (NFL.com). **A search result claimed Browns-Bengals met each other today; the primary schedules disproved it and it was discarded.** Ran as S&S No. 8's fixtures — **the results are Sunday's Our Teams lines** |
+
+### Open threads
+
+- **williams-river-recession** — 2026-08-22: the flood is nearly out. USGS 03186500 read **258 cfs and
+  2.28 feet at 5:15 a.m.**, off **446 cfs** 24 hours earlier and off **4620 cfs** at the Aug. 17 peak.
+  The fetcher's verdict is **"258 cfs - pushy. Wadeable at the edges, not across."** Both papers carried
+  it, and it was **today's drawing** (`art/2026-08-22-wv.svg`, placement `wv`) — deliberately the third
+  picture of the same reach: the **2026-08-15** low-water sketch at 179 cfs, the **2026-08-17** blown-out
+  one at 4620, and today's water back inside its banks with the flood's drift line still hung on the
+  trees. **The Ohio is splitting: Point Pleasant steady at 25.97 ft (pool), Huntington 30.43 ft and
+  falling, still 4.5 ft above the pool side.** Watch for the Williams under about 200 cfs — that is
+  wadeable water and the end of this thread.
+- **us-canada-trade-war** — 2026-08-22: **new, and it led No. 18.** See the forward-dated row above.
+  This is the movement on the thread No. 15 opened as "Trump pauses 50% Canada tariffs for three days";
+  the pause ran out and the tariffs landed. **Live.**
+- **somalia-aid-cuts** — 2026-08-22: new, ran in No. 18's World. UNICEF (**James Elder**: "This is the
+  wrong moment to retreat"): a **32%** jump in severe acute malnutrition admissions in the first half of
+  2026, nutrition funding down **more than 80%**, **200+** facilities closed and up to **618** at risk,
+  nearly **1.9 million** children projected malnourished, ~**1 million** under five at risk of losing
+  services. Somalia was excluded from a **$2bn** U.S. humanitarian pledge. Drought displaced ~**500,000**
+  Jan-April on top of **3.3 million**. A record El Nino is forecast to bring flooding. Al Jazeera.
+  **News again on the El Nino flooding or on restored funding.**
+- **ceuta-border-crisis** — 2026-08-22: new, ran in No. 18's World. **18 unidentified men** buried Friday
+  in the enclave's Muslim cemetery, **numbered graves** for later identification, Islamic rites. From the
+  late-July mass crossing: **72,000+** crossed from Morocco, **90+** died, the deadliest incident on
+  Spain's border; **5,000-10,000** migrants remain. Cemetery director **Said Mohammed** quoted; the
+  **Moroccan Association for Human Rights** called it "a new human tragedy" and wants burials suspended
+  pending repatriation. Separately Spain **rejected Morocco's call for sovereignty talks** on Ceuta and
+  Melilla. Euronews. **Identifications, repatriations, or the sovereignty dispute are the news.**
+- **lebanon-economy** — 2026-08-22: new, ran in No. 18's World. World Bank projects a **6.4%** contraction
+  in 2026 against **4.2%** growth last year, from fighting that began in **March**; inflation to **17.5%**.
+  Parliament passed bank-resolution amendments, welcomed by the IMF, which will resume technical meetings
+  in Beirut. Former economy minister **Alain Hakim** quoted. Al Jazeera. **The IMF's assessment is the news.**
+- **borneo-fire-season** — 2026-08-22: new, ran in No. 18's World. **154,000+** hotspots by **Aug. 11**
+  (up 60% from July), **48,889 hectares** burned across six priority provinces by Aug. 9, **28,680** of it
+  West Kalimantan; visibility down to **1-10 metres** in places. Sarawak's API passed **200** on Aug. 12
+  and **Kuching was the world's most polluted major city** on Aug. 11; six schools moved online. **48,000**
+  personnel and **35** aircraft deployed against BNPB's lowest budget in 15 years (**491bn rupiah**).
+  **12 detained** for arson and illegal land clearing. An **81%** chance of a "very strong" El Nino by
+  Oct-Dec. Mongabay. **Live, and it is the same El Nino driving the Somalia thread.**
+- **scotus-ballroom** — 2026-08-22: new, ran in No. 18's U.S. The Court **stayed the injunction** against
+  the **90,000-square-foot** East Wing addition; **Chief Justice John Roberts** signed the brief order.
+  The **National Trust for Historic Preservation** sued and argues letting construction proceed ends the
+  case in practice. **NPR's own copy carries both $250M and "at least $300M" for the cost, so no cost
+  figure was printed** — the square footage ran instead. **A merits ruling is the news.**
+- **alaska-radar-crash** — 2026-08-22: new, ran in No. 18's U.S. A civilian-contracted charter left
+  Anchorage and went down Thursday afternoon on approach to the **Cape Newenham Long Range Radar Site**,
+  ~**450 miles west**; **all 8 aboard died**, two pilots and six passengers. **NTSB** investigating
+  (**Clint Johnson**, Alaska chief); **Lt. Gen. Robert Davis** quoted. NPR. **A cause finding is the news.**
+- **sprint-exerkines** — 2026-08-22: new, ran in Sci/Tech. **Rockefeller University** (**Luke Olsen**):
+  six **30-second** sprints changed nearly **a quarter** of measured blood proteins and **200+**
+  metabolites against **under 0.25%** for 90 minutes of moderate cycling; **32 of 33** proteins tied to
+  lower disease risk moved with sprinting versus three. Cross-referenced against **53,000+** UK Biobank
+  participants. *Cell Reports Medicine*, DOI 10.1016/j.xcrm.2026.102988.
+- **queen-bee-offloading** — 2026-08-22: new, ran in Sci/Tech. **University of California, Davis**
+  (**Sascha Nicklisch**, **Angela Encerrado-Manriquez**, with LLNL's **Bruce Buchholz**): nanocolonies of
+  one queen and 60 workers fed radiolabelled **methyl parathion**. Workers filtered **95%** on day one and
+  **86%** by day 10; queens laying **1,500-2,000 eggs a day** offload the rest into them. *Current Biology*
+  36(15):3734, DOI 10.1016/j.cub.2026.06.022.
+- **teeth-pancreatic-survival** — 2026-08-22: new, ran in Sci/Tech. **Hiroshima University**
+  (**Kenichiro Uemura**): **339** consecutive radical pancreatectomies **2014-2022**; **21+** natural
+  teeth gave median overall survival **60.7 months** against **39.1**. Chewing function itself was **not**
+  independently associated, which is the interesting part — Uemura reads it as lifelong inflammation,
+  frailty and nutrition. Single-centre, Japanese cohort. *Journal of Hepato-Biliary-Pancreatic Sciences*,
+  DOI 10.1002/jhbp.70113. **Needs multicentre validation before it moves again.**
+- **light-ion-nuclear-shapes** — 2026-08-22: new, ran in Sci/Tech. **CERN**, **CMS** detector: oxygen-oxygen
+  and neon-neon collisions at **5.36 TeV** per nucleon pair show significant elliptic and triangular flow,
+  with neon-20's stronger elliptic signal fitting a **bowling-pin** shape against oxygen-16's **tetrahedron**.
+  **Triangular-flow measurements did not match predictions** and the collaboration says so. *Physical Review
+  Letters* (2026). **News again on the triangular-flow discrepancy resolving.**
+
+### Retired this morning
+
+- **prince-george-plane-crash** — searched again; the only movement is Foothills Boulevard reopening
+  Friday evening and a paramedic count (**10 assessed, 2 transported**). No TSB cause finding. **Not run;
+  the away desk went empty rather than re-report No. 17's line.** Row stays in forward-dated events until
+  the TSB reports.
+- **marshall-ohio-womens-soccer** — stays closed. It was postponed Aug. 16 and no makeup date has appeared.
+
+### Covered slugs, 2026-08-22
+
+`us-canada-tariffs-50`, `scotus-ballroom-stay`, `alaska-radar-crash-8`, `stars-and-stripes-firings`,
+`somalia-child-malnutrition`, `ceuta-18-burials`, `lebanon-world-bank-6-4`, `borneo-haze-sarawak`,
+`charleston-i77-crash-4`, `wv-canvass-5-percent`, `synthesis-health-idea-district`,
+`parkersburg-garage-1m`, `sprint-exerkines`, `queen-bee-pesticide-eggs`, `teeth-pancreatic-survival`,
+`cms-oxygen-neon-shapes`, `reds-arizona-9-0`, `pirates-dodgers-10th`, `arsenal-coventry-3-0`,
+`mlb-brewers-80-49`, `aki-banzuke-nine-days`
