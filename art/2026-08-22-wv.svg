@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 506" role="img"
+     aria-label="Sketch: the Williams River at Cowen falling back after the flood, at 258 cubic feet a second and a gauge height of 2.28 feet. The channel still carries water between wooded banks, a bar breaks the surface on the near right, and a line of stranded drift marks how high the water stood.">
+  <defs>
+    <style>
+      .ink   { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; }
+      .mask  { fill: var(--parchment, #f4f0e6); stroke: currentColor;
+               stroke-linecap: round; stroke-linejoin: round; }
+      .faint { opacity: 0.28; }
+      .mid   { opacity: 0.55; }
+    </style>
+  </defs>
+
+  <g>
+    <!-- Far ridge, rounded and layered. The overlap of the two ridges is
+         what puts distance behind the water. -->
+    <path class="mask" d="M0 190 C88 146 168 128 264 136 C352 143 400 116 482 114
+                          C574 112 636 136 722 130 C798 125 850 144 900 164
+                          V238 H0 Z" stroke-width="2.2"/>
+    <g class="ink faint" stroke-width="0.9">
+      <path d="M116 164c26 10 44 26 56 44M296 144c24 12 40 28 50 46M516 124c22 12 38 30 46 48M716 138c22 12 36 28 44 46"/>
+    </g>
+
+    <path class="mask" d="M0 240 C108 202 208 196 298 208 C390 220 450 198 538 196
+                          C630 194 698 216 788 210 C842 206 872 216 900 228
+                          V284 H0 Z" stroke-width="2.2"/>
+
+    <!-- Timber down to both banks, canopy read as lumps rather than trees. -->
+    <g class="ink" stroke-width="1.6">
+      <path d="M0 286c18-14 34-6 46-18 14-14 30-4 44-16 13-11 27-2 40-13 12-10 26-3 38-13
+               11-9 24-2 35-11 10-8 22-2 32-10"/>
+      <path d="M900 288c-18-14-34-6-46-18-14-14-30-4-44-16-13-11-27-2-40-13-12-10-26-3-38-13
+               -11-9-24-2-35-11-10-8-22-2-32-10"/>
+    </g>
+    <g class="ink mid" stroke-width="1.1">
+      <path d="M22 292v-16M64 282v-14M108 288v-15M152 278v-13M196 284v-14M240 276v-12M284 282v-12"/>
+      <path d="M878 294v-16M836 284v-14M792 290v-15M748 280v-13M704 286v-14M660 278v-12M616 284v-12"/>
+    </g>
+
+    <!-- The banks converge upstream. Left bank. -->
+    <path class="ink" stroke-width="2.4"
+          d="M0 372 C74 358 150 344 224 330 C296 316 356 304 404 296 C438 290 456 287 470 286"/>
+    <!-- Right bank. -->
+    <path class="ink" stroke-width="2.4"
+          d="M900 396 C818 378 730 360 650 344 C578 330 528 314 494 300 C482 295 476 290 472 286"/>
+
+    <!-- THE FLOOD LINE. Six days ago this reach ran at 4620 cfs; the water is
+         back down to 258 and what it left is a band of stranded drift and
+         stripped bank well above the present surface. This band is the
+         difference between today's drawing and the low-water one. -->
+    <g class="ink" stroke-width="1.3">
+      <path d="M0 344 C76 331 152 318 226 305 C298 292 356 281 402 274"/>
+      <path d="M900 366 C820 349 734 332 656 317 C586 303 538 291 506 282"/>
+    </g>
+    <g class="ink mid" stroke-width="1.1">
+      <!-- drift lodged along that line, thinning with distance -->
+      <path d="M34 341l16-7 15 7M96 331l14-6 13 6M158 320l12-5 12 5M214 310l11-5 10 5M264 301l9-4 9 4M310 293l8-4 8 4"/>
+      <path d="M862 362l-16-7-15 7M800 349l-14-6-13 6M738 337l-12-5-12 5M682 326l-11-5-10 5M632 316l-9-4-9 4M586 306l-8-4-8 4"/>
+    </g>
+    <!-- a bigger raft of drift hung up against a trunk on the left bank -->
+    <g class="ink" stroke-width="1.4">
+      <path d="M120 346l34-16 30 12-30 12z"/>
+      <path d="M126 336l40-14M132 350l38-16"/>
+    </g>
+
+    <!-- Water surface: the channel is carrying, not threading. Current lines
+         run with the banks and converge upstream. -->
+    <g class="ink" stroke-width="1.2">
+      <path d="M0 402 C90 386 184 368 272 350 C348 335 408 320 452 306"/>
+      <path d="M0 434 C104 414 208 392 306 370 C384 353 434 334 470 314"/>
+      <path d="M900 424 C812 404 722 384 640 364 C570 347 522 328 492 310"/>
+      <path d="M900 458 C798 434 700 410 610 386 C540 368 500 346 480 322"/>
+    </g>
+    <g class="ink mid" stroke-width="1">
+      <path d="M60 470 C160 448 260 424 352 400M240 486 C330 464 416 440 492 416"/>
+      <path d="M840 486 C752 462 668 438 596 414"/>
+    </g>
+
+    <!-- A bar breaking the surface on the near right: the first cobbles back
+         out of the water as the river drops. They shrink upstream. -->
+    <g class="mask" stroke-width="1.6">
+      <path d="M624 462 C664 444 726 436 790 442 C842 447 874 456 892 466
+               C846 480 760 486 700 482 C662 479 638 472 624 462 Z"/>
+    </g>
+    <g class="ink" stroke-width="1.4">
+      <path d="M660 460c8-7 20-8 28-2M706 452c9-7 22-8 31-2M756 450c8-6 20-7 28-1M812 456c7-5 18-6 25-1"/>
+      <path d="M684 472c7-5 17-6 24-1M742 470c7-5 17-6 24-1M800 472c6-4 15-5 21-1"/>
+    </g>
+
+    <!-- Standing rocks in the left channel, wet to a line an inch or two up:
+         the water is dropping off them. Each is smaller than the last. -->
+    <g class="mask" stroke-width="1.6">
+      <path d="M96 428c14-16 38-18 52-4 10 10 8 22-6 27-18 6-40 2-50-8-4-5-2-11 4-15z"/>
+      <path d="M226 396c11-12 30-14 41-3 8 8 6 18-5 21-14 5-31 1-39-6-3-4-2-8 3-12z"/>
+      <path d="M330 368c8-9 22-10 30-2 6 6 4 13-4 15-10 4-23 1-29-4-2-3-1-6 3-9z"/>
+      <path d="M408 344c6-7 16-8 22-2 4 5 3 10-3 11-8 3-17 1-21-3-2-2-1-4 2-6z"/>
+    </g>
+    <g class="ink faint" stroke-width="1">
+      <path d="M92 440c16 5 38 6 54 1M222 404c12 4 28 4 40 1M328 376c9 3 21 3 29 1M406 350c7 2 15 2 21 1"/>
+    </g>
+    <!-- water breaking around the two nearest rocks -->
+    <g class="ink mid" stroke-width="1">
+      <path d="M148 424c14 4 24 12 28 22M92 424c-12 3-20 10-24 19"/>
+      <path d="M268 393c11 3 19 9 22 17M224 392c-9 2-16 7-19 14"/>
+    </g>
+  </g>
+</svg>
