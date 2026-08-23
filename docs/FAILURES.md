@@ -651,3 +651,4 @@ and the failure protocol at the bottom of that file appends here too.
   split in eleven editions (Nos. 8, 12, 13, 18). **Either the validator should add the page-url
   cost to its projection, or the ceiling it advises against should drop by ~250** — this is the
   concrete, fixable half of the four-brief budget row already open for Nate.
+- 2026-08-23T11:00:04Z · 2026-08-23 · post_discord: split into FRONT PAGE and INSIDE messages to keep the notebook whole
