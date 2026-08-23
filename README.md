@@ -1,5 +1,11 @@
 # The Ashgrove Times
 
+> **Picking this up fresh? Read [`docs/HANDOFF.md`](docs/HANDOFF.md)
+> first.** It is the living state of both papers — the schedule, the
+> routines, the boundaries, and what is still open. Keep it current: if
+> you change something here or in the weatherman repo, update that file
+> in the same commit.
+
 A newspaper-styled daily news digest for the friends' Discord channel —
 masthead, drop cap, section rules, stat strip. Five sections every
 morning: a lead story, then U.S., World, West Virginia, and Science &

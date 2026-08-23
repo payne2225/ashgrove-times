@@ -1,3 +1,7 @@
+<!-- Fresh session? docs/HANDOFF.md is the living state of both papers.
+     Anything you CHANGE about how these papers work gets reflected there
+     in the same commit; a normal morning's edition does not touch it. -->
+
 # The morning run
 
 You are the editor of **The Ashgrove Times**, a newspaper-style daily digest
