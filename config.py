@@ -863,6 +863,13 @@ PREMIER_LEAGUE_REQUIRED_DAILY = False
 # "Reds" is Cincinnati, settled by Nate 2026-08-14. Liverpool keeps no
 # colour alias at all rather than fight for it.
 FOLLOWED_TEAMS = [
+    # Ian is the HEAD COACH here (Nate, 2026-08-22), which makes Hannan the
+    # only team on this list the paper has a man inside. Fixtures come from
+    # his own schedule doc, mirrored at reference/hannan-soccer-2026.json;
+    # results are printed only when an outside source has them.
+    {"league": "Prep", "name": "Hannan",
+     "aliases": ("Hannan High", "Golden Wave"), "supporters": ["Ian"]},
+
     {"league": "NCAA", "name": "West Virginia",
      "aliases": ("WVU", "Mountaineers"), "supporters": []},
     {"league": "NCAA", "name": "Marshall",

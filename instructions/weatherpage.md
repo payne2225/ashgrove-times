@@ -5,11 +5,21 @@ posted and archived, and typeset it onto the Times site at
 `site/weather/<date>.html` (plus `site/weather/index.html` as the stable
 bookmark). That is the whole job.
 
-**THE BOUNDARY, set by Nate on 2026-08-18: nothing about The Weather
-Claude changes without his consent.** This job READS the weatherman repo
-and writes ONLY to ashgrove-times. Never commit to the weatherman repo,
-never edit its files, never touch its routines, never post to Discord —
-Jim already posted; this is typesetting, not delivery.
+**THE BOUNDARY — set 2026-08-18, amended 2026-08-22.** Nate has folded
+The Weather Claude into the Times session, so the boundary now has two
+halves:
+
+- **The interactive session owns both repos.** Working with Nate, it may
+  develop weatherman directly — playbooks, config, scripts, routines,
+  commits and pushes. Things the channel *experiences* (post times, the
+  persona, the format, who gets pinged) still need his say-so first.
+- **THIS ROUTINE STAYS READ-ONLY, unchanged.** It is unattended, it runs
+  while everyone is asleep, and it has no reason to write to weatherman:
+  it READS that repo and writes ONLY to ashgrove-times. Never commit to
+  the weatherman repo, never edit its files, never touch its routines,
+  never post to Discord — Jim already posted; this is typesetting, not
+  delivery. An unattended job holding write access to a live publishing
+  repo is how a broken 7:15 post happens with nobody awake to catch it.
 
 ## Steps
 

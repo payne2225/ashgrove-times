@@ -162,6 +162,32 @@ every day**, with the countdown floor below keeping it honest.
      Times sumo desk (fetchable, verified), Kyodo, NHK, Nippon.com,
      Mainichi. These are what the paper cites.
 
+### Hannan soccer — Ian coaches this one
+
+**Ian is the head coach of Hannan High School boys varsity soccer**
+(Nate, 2026-08-22). No other team on the list has one of the readers on
+the sideline, and the paper covers it accordingly — during the season it
+is a standing beat, not an occasional novelty.
+
+`reference/hannan-soccer-2026.json` is the schedule, taken from Ian's own
+doc. That makes it **authoritative for fixtures** — date, site, opponent,
+kickoff — so The week ahead can carry his matches with no search at all,
+and should, every day one falls inside seven days. Ashton is the home
+venue; two "home" fixtures are played elsewhere and the file says so.
+
+**It is NOT a source for results.** A score gets printed only when an
+outside source has it and can be cited — WVSSAC, the Point Pleasant
+Register, WV MetroNews, a school or county post. If nobody reported the
+match, the honest line is that the result was not published, or nothing
+at all. Never infer a score from a schedule, and never write the
+scoreline you would expect. Ian will read it, which raises the cost of
+being wrong from embarrassing to personal.
+
+Coverage worth writing when it exists: results with a scorer if reported,
+the record as it builds, sectional and playoff seeding as October
+closes, and weather postponements — a called-off match IS the news that
+day. Kickoff times follow the ET rule like everything else.
+
 ### Premier League — the emphasis, and the house derby
 
 Also inherited. The clubs are in `config.FOLLOWED_TEAMS`: **Chelsea (Trav,

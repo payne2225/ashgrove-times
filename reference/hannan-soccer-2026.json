@@ -1,0 +1,30 @@
+{
+  "_source": "Ian's own schedule doc, shared by Nate 2026-08-22: https://docs.google.com/document/d/1-H56NF7tk-tYK8TLAwJYJEaFEtk1-5kmcTKcBfhg6_0",
+  "_authority": "Ian is the HEAD COACH, so this file is authoritative for FIXTURES (date, venue, opponent, kickoff). It is NOT a source for RESULTS - a score is printed only when found and cited at an outside source, never inferred and never asked-for-and-assumed.",
+  "_sync": "This file exists in BOTH repos (ashgrove-times/reference and weatherman/reference) because the two morning routines each check out only their own repo. Correct one, correct the other.",
+  "team": "Hannan High School Golden Wave",
+  "sport": "boys varsity soccer",
+  "coach": "Ian (head coach)",
+  "home_venue": {"name": "Hannan High School", "town": "Ashton", "state": "WV",
+                 "county": "Mason", "note": "About 8 miles down the Ohio from Apple Grove - same county, same weather."},
+  "season": "2026 fall",
+  "timezone": "All kickoff times are ET, evening (p.m.). The source doc writes them bare.",
+  "fixtures": [
+    {"date": "2026-08-25", "site": "home", "opponent": "Calvary", "kickoff": "5:00 p.m. ET", "venue_town": null, "note": "Opponent's home town unconfirmed - home match, so venue is Ashton."},
+    {"date": "2026-08-27", "site": "away", "opponent": "St. Mary's", "kickoff": "6:30 p.m. ET", "venue_town": "St. Marys, WV"},
+    {"date": "2026-08-31", "site": "home", "opponent": "Buffalo", "kickoff": "TBD", "venue_town": "Ashton, WV", "note": "GIRLS match. Kickoff still TBD in the source doc - do not invent a time."},
+    {"date": "2026-09-01", "site": "away", "opponent": "Roane", "kickoff": "6:30 p.m. ET", "venue_town": "Spencer, WV"},
+    {"date": "2026-09-03", "site": "home", "opponent": "Logan", "kickoff": "6:00 p.m. ET", "venue_town": "Ashton, WV"},
+    {"date": "2026-09-09", "site": "home", "opponent": "Point JV", "kickoff": "6:00 p.m. ET", "venue_town": "Ashton, WV"},
+    {"date": "2026-09-10", "site": "home", "opponent": "Westside", "kickoff": "6:00 p.m. ET", "venue_town": "Institute, WV", "note": "Home fixture played at the Shawnee Sports Complex, not Ashton."},
+    {"date": "2026-09-15", "site": "home", "opponent": "Parkersburg Catholic", "kickoff": "6:00 p.m. ET", "venue_town": "Ashton, WV"},
+    {"date": "2026-09-17", "site": "away", "opponent": "Westside", "kickoff": "6:00 p.m. ET", "venue_town": "Beckley, WV", "note": "Played at the Beckley YMCA."},
+    {"date": "2026-09-22", "site": "away", "opponent": "Calvary", "kickoff": "6:00 p.m. ET", "venue_town": null, "note": "Venue town unconfirmed - confirm before naming it."},
+    {"date": "2026-09-24", "site": "home", "opponent": "Roane", "kickoff": "6:00 p.m. ET", "venue_town": "Ashton, WV"},
+    {"date": "2026-09-29", "site": "away", "opponent": "Roane", "kickoff": "6:30 p.m. ET", "venue_town": "Spencer, WV"},
+    {"date": "2026-10-01", "site": "away", "opponent": "Buffalo", "kickoff": "5:00 p.m. ET", "venue_town": "Buffalo, WV", "note": "Girls match precedes the varsity match."},
+    {"date": "2026-10-09", "site": "away", "opponent": "Point JV", "kickoff": "6:00 p.m. ET", "venue_town": "Point Pleasant, WV"},
+    {"date": "2026-10-13", "site": "away", "opponent": "Logan", "kickoff": "6:30 p.m. ET", "venue_town": "Logan, WV"},
+    {"date": "2026-10-15", "site": "home", "opponent": "St. Mary's", "kickoff": "6:00 p.m. ET", "venue_town": "Ashton, WV"}
+  ]
+}
