@@ -2319,3 +2319,5 @@ Both papers landed **exactly on their holds**: the Times at **7:00** (No. 16, me
 `parkersburg-garage-1m`, `sprint-exerkines`, `queen-bee-pesticide-eggs`, `teeth-pancreatic-survival`,
 `cms-oxygen-neon-shapes`, `reds-arizona-9-0`, `pirates-dodgers-10th`, `arsenal-coventry-3-0`,
 `mlb-brewers-80-49`, `aki-banzuke-nine-days`
+| 2026-08-23 | Weatherman Watchdog live (trig_01THzxTGHkdRgJWJwBZwjKQX, 8:00 ET daily) — posts only on failure |
+| 2026-08-23 | All five routines now claude-fable-5; Jim wakes 7:00 ET and holds to 7:15 with post_discord --at, so DST no longer inverts the morning |
