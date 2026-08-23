@@ -652,3 +652,17 @@ and the failure protocol at the bottom of that file appends here too.
   cost to its projection, or the ceiling it advises against should drop by ~250** — this is the
   concrete, fixable half of the four-brief budget row already open for Nate.
 - 2026-08-23T11:00:04Z · 2026-08-23 · post_discord: split into FRONT PAGE and INSIDE messages to keep the notebook whole
+- 2026-08-23 — *No Topsail water temperature for a second straight morning.* `fetch_fishing.py`
+  logged `noaa-temp: NOAA: no water temperature returned`; both papers ran tides without a
+  temperature line, per the omit-on-failure rule.
+- 2026-08-23 — *The Japan Times sumo desk now returns HTTP 402.* It is the named citable
+  English outlet for sumo, and its absence had a cost this morning: r/Sumo (answering for the
+  first time since Aug. 19) carried a report that Yokozuna Hoshoryu had late-July knee surgery
+  and is doubtful for the Aki basho, and no outlet this pipeline can open and cite carries it —
+  NHK World, Kyodo English and Mainichi English are all unfetchable, and the sumo-stats sites
+  that do carry it are synthesizers this paper does not cite. **The report was deliberately not
+  printed.** The Aug. 31 banzuke coverage will force a citable outlet to say it.
+- 2026-08-23 — *A written, sourced `mid_ohio_valley` line was cut for budget* (trees down in
+  Wood and Washington counties after Saturday's storms, WTAP) — the weakest line went per the
+  cut ladder when the projection ran 6,009 against 5,800. The Times still split at 6,223 actual;
+  the ~214-char projection gap is again the `--page-url` permalink, per the row logged 2026-08-22.

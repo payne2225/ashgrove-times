@@ -2321,3 +2321,47 @@ Both papers landed **exactly on their holds**: the Times at **7:00** (No. 16, me
 `mlb-brewers-80-49`, `aki-banzuke-nine-days`
 | 2026-08-23 | Weatherman Watchdog live (trig_01THzxTGHkdRgJWJwBZwjKQX, 8:00 ET daily) — posts only on failure |
 | 2026-08-23 | All five routines now claude-fable-5; Jim wakes 7:00 ET and holds to 7:15 with post_discord --at, so DST no longer inverts the morning |
+
+## 2026-08-23 — No. 19 (Times) and No. 9 (Sports & Sportsman)
+
+| Open-ended | **The stored prompt was fixed.** The 2026-08-23 prompt no longer claims Sports & Sportsman is on its first edition — it describes the two-paper 7:00/7:05 morning, carries the Hannan soccer rules, and the ledger numbering ran unopposed (No. 9 shipped from `editions/sportsman/index.json`). The four-morning-old row for Nate about the first-edition line can be considered answered | **CLOSED — observed fixed** |
+| Open-ended | **Head start 90, clock read not estimated, both papers held from the background.** `config.head_start_minutes('2026-08-23')` = 90, `config.cron_for()` = `30 9 * * *` (installed). Both papers researched, written, validated, rendered and pushed by **6:03 a.m. ET**, 33 minutes after the 5:30 wake. Posts launched in background at 6:03 with `--not-before`; the Times **held 57 minutes and landed 7:00:04**, sport **held 62 and landed 7:05:04**. The sequence held exactly as designed | |
+
+### Forward-dated events added or moved
+
+| Date | Event | Note |
+|---|---|---|
+| **2026-09-08** | **Canada's retaliatory tariffs take effect** | Carney, Saturday in Ottawa: steel, dairy, appliances, farm equipment, paper, electronics, matched "dollar for dollar"; "We take this step reluctantly." Greer says no new talks planned; Trump posted Canada "wants the benefits of being a State, without being one." NPR cross-checked against Al Jazeera. **Led No. 19.** The imposition itself, a climb-down, or the first Section 338 lawsuit is the news |
+| **2026-08-31** | **Aki banzuke — now the sumo desk's forcing date** | Dates uncited by the JSA a TENTH morning. **And a real story is waiting on it: r/Sumo (answering for the first time since Aug. 19) carried a report that Yokozuna Hoshoryu had right-knee surgery in late July and is doubtful for the Aki basho.** Japan Times is paywalled (402), NHK/Kyodo/Mainichi English unfetchable, sumo-stats sites are synthesizers — **so it was NOT printed** (`docs/FAILURES.md`). At the banzuke, a yokozuna kyujo will be citable somewhere; check that day |
+| **2026-08-25** | **Hannan open at home to Calvary, 5 p.m. ET at Ashton** | First fixtures the paper has carried from `reference/hannan-soccer-2026.json` (also Thu Aug. 27 at St. Mary's, 6:30). Ran in No. 9's week ahead. **Tuesday's result is Wednesday's line and comes ONLY from an outside outlet** — WVSSAC, Point Pleasant Register, MetroNews, a school or county post. Never from the schedule |
+| **open** | **I-64/77 split safety review** | WVDOT (spokesman Brent Walker) says it is weighing anti-skid surfacing, rumble strips, speed reduction and warning lights after the fourth barrier crash there since 2022; walls are 1970s-built and meet federal standards. WSAZ. Ran as No. 19's second statewide brief — the movement on the four-dead crash thread. Victim names, a cause, or an actual installation is the news |
+| **2026-08-23** | **Liverpool at Newcastle, 11:30 a.m. ET today; Chelsea at Fulham Monday 3 p.m. ET** | Both confirmed on Sky Sports today (note: Newcastle's own match page misread as 15:30 UK on one fetch; Sky's "kick-off is 4.30pm" settled it at 11:30 ET). **Results are Monday's and Tuesday's Our Teams lines.** Spurs lost the opener 3-0 at Brentford and Hull beat Manchester United 2-0 — both ran today, spent |
+| **2026-08-23** | **WVU women's soccer host Duquesne, 1 p.m. ET** | Closes the opening homestand; ran in No. 9's week ahead (WV Sports Nation). The result is Monday's line |
+| **2026-08-20** | **Marshall men's soccer won their opener 2-1 over Fairfield** | Adam N'Goran, last-second, No. 17 ranking (herdzone.com, found today). **Never printed — the result predates this desk finding it and is now three days old.** Do not run it as fresh; it can ride as one clause the next time Marshall soccer makes news |
+| **2026-09-01 → 09-14** | NC flounder season | Reconfirmed today on the NCDEQ release (FF-27-2026); ran as No. 9's "coming in" at nine days out. NCDMF limits page (effective July 1, 2026) reconfirmed for the prime block |
+| **2026-08-29** | WV gun bear, selected counties | Six days out in No. 9; county list still not in the pamphlet summary, so still unnamed |
+
+### Open threads
+
+- **williams-river-recession** — 242 cfs and falling at 5:15 a.m. (off 346), 2.23 ft; "pushy, wadeable
+  at the edges." Both papers carried it. Under ~200 cfs is wading water and the end of this thread —
+  possibly tomorrow. The Ohio keeps converging: Point Pleasant 24.98 ft (pool), Huntington 27.77 and
+  falling, 2.8 ft apart.
+- **us-canada-trade-war** — see the Sept. 8 row. Live and leading.
+- **charleston-i77-crash** — moved to the WVDOT review row above. Names still unreleased; the Kanawha
+  River body (No. 19's regional line) is a separate, unidentified case with the medical examiner.
+- **prince-george-plane-crash** — the engine-power finding (RCMP/TSB, via Global News) ran as No. 19's
+  away line, the desk's first Prince George line since No. 17. The TSB's actual report stays the trigger.
+- **hoshoryu-aki-doubt** — NEW, unprinted, waiting on a citable source. See the Aug. 31 row.
+- **wv-storm-emergency** — quiet today; Weston got a surplus street sweeper for flood cleanup (MetroNews,
+  Aug. 22) — small, not run, available as a Lewis-adjacent statewide clause if the thread needs it.
+
+### Covered slugs, 2026-08-23
+
+`canada-retaliation-sept8`, `visa-ban-voided`, `colorado-river-cuts-2028`, `alex-jones-1-5m`,
+`tiktok-coppa-400m`, `middlesbrough-wrong-way-7`, `iran-sanctions-enemy`, `kazakhstan-unicameral-vote`,
+`ibaraki-quake-37`, `clay-county-crash-2`, `wvdot-split-review`, `kanawha-river-body`,
+`pg-engine-power`, `black-holes-spin-flares`, `jwst-hidden-mass`, `greenland-shark-eyes`,
+`vitamin-d-cognition-54`, `reds-11-5-arizona`, `pirates-dodgers-4-3`, `browns-bills-31-7`,
+`bengals-bears-27-9`, `brentford-spurs-3-0`, `nashville-crew-3-2`, `fcc-seattle-1-1`,
+`hull-united-2-0`, `brewers-81-49`, `aki-banzuke-eight-days`, `hannan-calvary-preview`
