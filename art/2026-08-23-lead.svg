@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" role="img"
+     aria-label="Sketch: a container freight yard. A reach stacker holds one container in the air beside a wall of stacked containers rising six high, with a rail catenary line crossing the sky behind the machine.">
+  <defs>
+    <style>
+      .ink   { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; }
+      .mask  { fill: var(--parchment, #f4f0e6); stroke: currentColor;
+               stroke-linecap: round; stroke-linejoin: round; }
+      .faint { opacity: 0.3; }
+      .mid   { opacity: 0.55; }
+    </style>
+  </defs>
+
+  <g>
+    <!-- Catenary wires and mast, top left: the yard sits on a rail line. -->
+    <g class="ink faint" stroke-width="1.2">
+      <path d="M10 60 C150 78 290 88 430 92"/>
+      <path d="M10 84 C150 98 290 106 430 108"/>
+      <path d="M180 20 L184 96"/>
+      <path d="M150 34 L214 40"/>
+    </g>
+
+    <!-- The container wall, right side: columns of long boxes, six high.
+         Each tier drawn as its own rectangle so the stack reads as stacked,
+         not as one striped slab. -->
+    <g class="ink" stroke-width="2.4">
+      <!-- column A (part cut by right edge) -->
+      <path d="M760 60 H900 M760 60 V540 M760 140 H900 M760 220 H900 M760 300 H900 M760 380 H900 M760 460 H900"/>
+      <!-- column B -->
+      <path d="M560 100 H760 V540 H560 Z M560 172 H760 M560 244 H760 M560 316 H760 M560 388 H760 M560 462 H760"/>
+      <!-- column C, one tier shorter: the skyline steps down -->
+      <path d="M400 170 H560 V540 H400 Z M400 242 H560 M400 314 H560 M400 388 H560 M400 462 H560"/>
+    </g>
+    <!-- Corrugation: vertical ribs, sparse so the boxes stay boxes. -->
+    <g class="ink faint" stroke-width="1">
+      <path d="M790 74 V128 M822 74 V128 M854 74 V128 M886 74 V128"/>
+      <path d="M790 154 V208 M822 154 V208 M854 154 V208 M886 154 V208"/>
+      <path d="M790 234 V288 M822 234 V288 M854 234 V288 M886 234 V288"/>
+      <path d="M790 314 V368 M822 314 V368 M854 314 V368 M886 314 V368"/>
+      <path d="M584 114 V160 M616 114 V160 M648 114 V160 M680 114 V160 M712 114 V160 M740 114 V160"/>
+      <path d="M584 186 V232 M616 186 V232 M648 186 V232 M680 186 V232 M712 186 V232 M740 186 V232"/>
+      <path d="M584 258 V304 M616 258 V304 M648 258 V304 M680 258 V304 M712 258 V304 M740 258 V304"/>
+      <path d="M584 330 V376 M616 330 V376 M648 330 V376 M680 330 V376 M712 330 V376 M740 330 V376"/>
+      <path d="M424 184 V230 M456 184 V230 M488 184 V230 M520 184 V230 M544 184 V230"/>
+      <path d="M424 256 V302 M456 256 V302 M488 256 V302 M520 256 V302 M544 256 V302"/>
+      <path d="M424 330 V376 M456 330 V376 M488 330 V376 M520 330 V376 M544 330 V376"/>
+    </g>
+    <!-- Door bars and corner castings on a few tiers, the detail that says
+         "shipping container" rather than "brick". -->
+    <g class="ink mid" stroke-width="1.4">
+      <path d="M768 66 h8 v10 h-8 z M892 66 h6 v10 h-6 z"/>
+      <path d="M566 106 h8 v10 h-8 z M750 106 h8 v10 h-8 z"/>
+      <path d="M406 176 h8 v10 h-8 z M550 176 h8 v10 h-8 z"/>
+      <path d="M660 396 V456 M672 396 V456"/>
+      <path d="M470 396 V456 M482 396 V456"/>
+    </g>
+
+    <!-- A lower stack behind the machine, left edge. -->
+    <g class="ink" stroke-width="2.2">
+      <path d="M0 300 H120 V540 H0 M0 380 H120 M0 460 H120"/>
+    </g>
+    <g class="ink faint" stroke-width="1">
+      <path d="M24 314 V366 M56 314 V366 M88 314 V366"/>
+      <path d="M24 394 V446 M56 394 V446 M88 394 V446"/>
+    </g>
+
+    <!-- The reach stacker. Mast first: two rails with cross-bracing. -->
+    <g class="ink" stroke-width="2.6">
+      <path d="M250 96 L242 470"/>
+      <path d="M286 96 L280 470"/>
+    </g>
+    <g class="ink mid" stroke-width="1.3">
+      <path d="M249 140 L285 160 M248 190 L284 210 M247 240 L283 260 M246 290 L282 310 M245 340 L281 360 M244 390 L280 410"/>
+    </g>
+    <!-- Spreader beam across the mast top, gripping the lifted box. -->
+    <g class="ink" stroke-width="2.4">
+      <path d="M196 128 H340"/>
+      <path d="M204 128 V150 M332 128 V150"/>
+    </g>
+    <!-- The lifted container, hanging left of the mast, drawn end-on angle:
+         long side plus a hint of the near end face. -->
+    <g class="ink" stroke-width="2.6">
+      <path d="M120 150 H332 V226 H120 Z"/>
+      <path d="M120 150 L104 170 V246 L120 226"/>
+      <path d="M104 246 H304"/>
+    </g>
+    <g class="ink faint" stroke-width="1">
+      <path d="M150 158 V218 M180 158 V218 M210 158 V218 M240 158 V218 M270 158 V218 M300 158 V218"/>
+    </g>
+    <g class="ink mid" stroke-width="1.4">
+      <path d="M124 154 h8 v10 h-8 z M320 154 h8 v10 h-8 z M124 212 h8 v10 h-8 z M320 212 h8 v10 h-8 z"/>
+    </g>
+
+    <!-- Machine body: engine deck, cab with glazing, counterweight tail. -->
+    <g class="ink" stroke-width="2.6">
+      <path d="M242 470 H180 L172 430 H242"/>
+      <path d="M280 430 H396 V470 H280"/>
+      <path d="M310 430 V386 H368 L382 430"/>
+    </g>
+    <g class="ink mid" stroke-width="1.4">
+      <path d="M318 394 H360 L370 424 H318 Z"/>
+      <path d="M326 430 V470"/>
+    </g>
+    <!-- Wheels: big front pair under the mast, rear pair under the tail. -->
+    <g class="ink" stroke-width="2.4">
+      <circle cx="220" cy="496" r="34"/>
+      <circle cx="220" cy="496" r="14"/>
+      <circle cx="368" cy="496" r="30"/>
+      <circle cx="368" cy="496" r="12"/>
+    </g>
+    <g class="ink faint" stroke-width="1">
+      <path d="M220 462 V478 M220 514 V530 M186 496 H202 M238 496 H254"/>
+    </g>
+
+    <!-- Ground line and yard markings. -->
+    <g class="ink" stroke-width="2">
+      <path d="M0 540 H900"/>
+    </g>
+    <g class="ink faint" stroke-width="1.2">
+      <path d="M20 552 H90 M140 552 H210 M300 552 H370 M470 552 H540 M640 552 H710 M800 552 H870"/>
+    </g>
+  </g>
+</svg>
