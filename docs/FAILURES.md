@@ -666,3 +666,4 @@ and the failure protocol at the bottom of that file appends here too.
   Wood and Washington counties after Saturday's storms, WTAP) — the weakest line went per the
   cut ladder when the projection ran 6,009 against 5,800. The Times still split at 6,223 actual;
   the ~214-char projection gap is again the `--page-url` permalink, per the row logged 2026-08-22.
+- 2026-08-24T11:00:04Z · 2026-08-24 · post_discord: split into FRONT PAGE and INSIDE messages to keep the notebook whole
