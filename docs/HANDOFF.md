@@ -154,20 +154,19 @@ an outside source has it and can be cited. Ian reads the paper.
 
 ## 9. Open items
 
-- **Topsail water temperature is GONE, not flaky.** NOAA station **8658163
-  (Wrightsville Beach) no longer offers the `water_temperature` product** —
-  its own metadata no longer lists it and the datagetter answers "This
-  product may not be offered at this station" for `latest` and for a 72-hour
-  range alike. Verified 2026-08-24, after six failures in one stretch and
-  three more Aug. 22-24. The omit-on-failure rule has been doing its job, so
-  nothing false was printed, but the line is not coming back on its own.
-  Working substitutes checked live the same day: **Wilmington 8658120**
-  (87.3F, ~30 mi, but Cape Fear RIVER water at the port), **Beaufort Duke
-  Marine Lab 8656483** (85.3F, ~60 mi NE, estuarine — the closest match in
-  water TYPE), **Springmaid Pier SC 8661070** (83.8F, ~85 mi SW, oceanfront).
-  A 3.5F spread across the three, so the choice is editorial, not technical.
-  **Waiting on Nate** — the printed line names its station and distance, and
-  that is something the channel experiences.
+- **The Topsail water temperature moved stations — watch it this week.**
+  NOAA dropped the `water_temperature` product from **8658163 Wrightsville
+  Beach** outright (its own metadata no longer lists it; the datagetter
+  refuses `latest` and a 72-hour range alike), which is what the nine
+  omitted temperature lines through Aug. 24 actually were. Nate chose
+  **8656483, Beaufort, Duke Marine Lab** — 60 miles up the coast, estuarine,
+  the closest match in water TYPE to the sound the crew fishes. Wilmington
+  (8658120) is nearer at ~30 miles but is Cape Fear RIVER water at the port
+  and read 2F warmer the day the three were compared. First reading back:
+  **85.1F, 2026-08-24 13:54**, zero source errors. **The station identity
+  now lives in `config.TOPSAIL_TEMP_*` and NOWHERE else** — the fetcher
+  imports it and the validator gates on it, so the next retirement is five
+  lines. **Confirm the line actually prints tomorrow morning.**
 - **DST on the four un-held crons** — due before 2026-11-01 (section 3).
 - **Report card commitments** from the backfilled Aug 09–15 card: model
   QPF over about two inches is a ceiling stated as a range, and the

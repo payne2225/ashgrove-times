@@ -266,10 +266,12 @@ forecasts.** The register is a gauge report: number, trend, verdict.
 - Numbers come from `out/fishing.json` verbatim. Same truth rule as the
   stat strip — a fabricated flow is exactly as bad as a fabricated close.
 - **Attribute the borrowed number.** The Topsail water temperature is
-  measured at Wrightsville Beach, 25 miles **down** the coast, and the line
-  says so. "Water 83F" is a lie of omission; "83F at Wrightsville Beach, 25
-  miles down the coast" is a fact. If it will not fit, the temperature comes
-  out and the tides stay.
+  measured at **Beaufort, 60 miles up the coast** (since 2026-08-24; it was
+  Wrightsville Beach, 25 miles down the coast, until NOAA retired that
+  station's thermometer). The line says so. "Water 85F" is a lie of
+  omission; "85F at Beaufort, 60 miles up the coast" is a fact. If it will
+  not fit, the temperature comes out and the tides stay. Take the name and
+  the distance from `water_temp` in `out/fishing.json`, never from memory.
 - **Topsail tides mean the SOUND.** The crew fishes the backwater two
   nautical miles north of New Topsail Inlet, and the oceanfront station runs
   over an hour ahead of it. Lead with Hampstead; name the surf only when you
@@ -289,8 +291,8 @@ Good:
 110 cfs and falling - prime wading water.
 Water is 71F - too warm to fish for trout. Released fish die at these
 temperatures. Leave them alone.
-Sound highs 2:27 a.m. and 3:09 p.m.; water 83F at Wrightsville Beach, 25
-miles down the coast.
+Sound highs 2:27 a.m. and 3:09 p.m.; water 85F at Beaufort, 60 miles up
+the coast.
 ```
 
 Bad — invented, laundered, or chatty:

@@ -503,14 +503,22 @@ Quote the oceanfront station **only** for an explicit surf read, and say
 on the water an hour off the tide — that is worse than no fishing line.
 `source` is `"NOAA CO-OPS 8657813"` for the sound, `8657419` for the surf.
 
-**The water temperature is not Topsail's.** It comes from Wrightsville
-Beach, 25 miles **down** the coast (southwest — not up it) —
-`water_temp.station`, `water_temp.miles_away` and `water_temp.bearing` say
-so, and **the published line must say so too**. "Water 83F" is a
-fabrication; "83F at Wrightsville Beach, 25 miles down the coast" is a fact.
-If naming the station will not fit, drop the temperature and keep the tides.
+**The water temperature is not Topsail's.** Since 2026-08-24 it comes from
+**Beaufort, 60 miles up the coast** (northeast) — `water_temp.station`,
+`water_temp.miles_away` and `water_temp.bearing` say so, and **the published
+line must say so too**. "Water 85F" is a fabrication; "85F at Beaufort, 60
+miles up the coast" is a fact. If naming the station will not fit, drop the
+temperature and keep the tides. Never write the station name from memory:
+it changed once and it will change again, so read
+`water_temp.station` out of `out/fishing.json`.
 
-> `{"water": "Topsail Beach (surf and sound)", "line": "Sound highs 2:27 a.m. and 3:09 p.m.; water 83F at Wrightsville Beach, 25 miles down the coast.", "source": "NOAA CO-OPS 8657813"}`
+> `{"water": "Topsail Beach (surf and sound)", "line": "Sound highs 2:27 a.m. and 3:09 p.m.; water 85F at Beaufort, 60 miles up the coast.", "source": "NOAA CO-OPS 8657813"}`
+
+The old station, Wrightsville Beach (25 miles down the coast), reported
+until NOAA dropped water temperature from it entirely in mid-August. Six
+mornings ran without a temperature before anyone looked at why. **If this
+line goes quiet for two mornings running, check the STATION, not the
+weather** — `config.TOPSAIL_TEMP_*` is the only place to change it.
 
 `water` is copied verbatim from `config.FISHING_WATERS` — `"Williams River
 (Cowen)"` and `"Topsail Beach (surf and sound)"`. Any other string is a

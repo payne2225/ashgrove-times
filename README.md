@@ -183,12 +183,14 @@ written. Two waters, both keyless and free:
   that bracket New Topsail Inlet (`8657419` Ocean City Beach pier, ocean;
   `8657813` Hampstead, sound — they disagree by ~75 minutes and are
   reported separately, never averaged), plus water temperature from
-  `8658163` **Wrightsville Beach, 25 miles away**.
+  `8656483` **Beaufort, Duke Marine Lab, 60 miles up the coast** (since
+  2026-08-24 — NOAA dropped the product from `8658163` Wrightsville Beach,
+  which had held the job until then).
 
 That last attribution is not optional: the Topsail water temperature is
-Wrightsville's and must be labeled as Wrightsville's. **When a source
-fails, the line is omitted** — the fetcher records the error and never
-substitutes a plausible number. USGS 503s happen; a morning with only the
+the borrowed station's and must be labeled as the borrowed station's.
+**When a source fails, the line is omitted** — the fetcher records the
+error and never substitutes a plausible number. USGS 503s happen; a morning with only the
 Topsail line is a correct morning.
 
 WVDNR's trout-stocking page serves an **expired TLS certificate**, so
@@ -468,10 +470,14 @@ python post_discord.py --date 2026-08-05 --attach out/ashgrove-2026-08-05.png
   therefore a web-search item in the playbook with a silent no-op
   fallback, never a fetch. Reaching it means `verify=False`, which is not
   worth a stocking line.
-- **The Topsail water temperature is Wrightsville Beach's**, 25 miles up
-  the coast — station `8657419` has no temperature sensor. It ships with
-  the station name and distance attached. Printing it as Topsail's own
-  water temperature is a fabrication, just a quiet one.
+- **The Topsail water temperature is borrowed**, currently Beaufort's, 60
+  miles up the coast — station `8657419` has no temperature sensor. It
+  ships with the station name and distance attached. Printing it as
+  Topsail's own water temperature is a fabrication, just a quiet one. The
+  station is not permanent: Wrightsville Beach held the job until NOAA
+  retired its thermometer in August 2026, and six mornings ran without a
+  temperature before anybody asked why. `config.TOPSAIL_TEMP_*` is the one
+  place that identity lives; the fetcher and the validator both read it.
 - **The two Topsail tide stations are not interchangeable.** Ocean City
   Beach pier is open coast; Hampstead is behind the island and lags by
   roughly 75 minutes. Both are reported and labeled; averaging them

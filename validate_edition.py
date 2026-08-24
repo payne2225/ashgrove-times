@@ -34,9 +34,10 @@ Five rules here are load-bearing and worth stating plainly:
    that failed produces no line — never an invented one. EVERY NUMBER the
    line prints has to be a number that fetcher wrote for that water, and
    when the Williams gauge reads warm enough to kill released trout the
-   line has to say so. A Topsail water temperature has to credit
-   Wrightsville Beach, 25 miles away, because that is where the number
-   comes from — in any form it is printed, not just "83F".
+   line has to say so. A Topsail water temperature has to credit the
+   station in config.TOPSAIL_TEMP_STATION_NAME, because that is where the
+   number comes from — in any form it is printed, not just "85F", and in
+   any reading field, not just `line`.
 4. THE WEST VIRGINIA NOTEBOOK IS ONE SENTENCE PER REGION. `regional` and
    `away` items are pointers, not briefs. Region ids must exist in
    config.REGIONS, away entries must be flagged is_away there, and all
@@ -2599,12 +2600,32 @@ def _sm_check_water(section: dict, fishing: dict | None) -> tuple[list[str], lis
             errors.append(
                 f"{where}.line prints {token} but out/fishing.json has no "
                 f"such reading for {name} — same rule as the stat strip")
-        if re.search(r"\d{2,3}(?:\.\d)?\s*(?:°|degrees?|deg|F\b)", line) \
-                and "topsail" in name.lower() \
-                and "wrightsville" not in line.lower():
+        # The same guard the Times uses on the same water, rather than the
+        # weaker trailing-F regex this branch carried: "water 85 degrees"
+        # credits nobody just as loudly as "85F" does.
+        #
+        # Read the READING fields, not just `line`. This paper puts the tide
+        # table and the temperature in `reading` and the advice in `read`,
+        # and `line` resolves to `read` — so an uncredited temperature in
+        # `reading` walked straight past this gate. `working` is excluded on
+        # purpose: it is prose, and prose full of numbers. Today's entry
+        # alone carries "an 85% waxing gibbous" and "tarpon to 110 pounds",
+        # and the bare-number heuristic reads the first as a temperature —
+        # which it very nearly is, since the water read 85F the same morning.
+        # A reading goes in a reading field. The CREDIT is looked for
+        # everywhere, because crediting the station in any of them is honest.
+        credit_text = " ".join(str(entry.get(k) or "") for k in
+                               ("line", "reading", "read", "working", "source"))
+        prints_temp = any(_temperature_mentioned(str(entry.get(k) or ""))
+                          for k in ("line", "reading", "read"))
+        if (prints_temp
+                and "topsail" in name.lower()
+                and config.TOPSAIL_TEMP_STATION_NAME.lower()
+                not in credit_text.lower()):
             errors.append(
                 f"{where}: a Topsail water temperature must credit "
-                "Wrightsville Beach — the reading is measured 25 miles away")
+                f"{config.TOPSAIL_TEMP_STATION_NAME} — the reading is measured "
+                f"{config.TOPSAIL_TEMP_MILES} miles away")
     return errors, notes
 
 

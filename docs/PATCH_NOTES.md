@@ -44,6 +44,29 @@ day — the whole point of that file is that somebody eventually reads it.
   Aug. 20-24 now names only **Hannan**, which was genuinely uncovered before
   its season opened, and stripping `upcoming` from an edition brings the
   advisory straight back.
+- **The Topsail water temperature came back, from a different station.**
+  Nine mornings of `noaa-temp: no water temperature returned` were not an
+  outage: NOAA removed the `water_temperature` product from **8658163
+  Wrightsville Beach** entirely, and the station's own metadata no longer
+  lists it. Nate picked **8656483, Beaufort, Duke Marine Lab** — 60 miles up
+  the coast and estuarine, over the nearer Wilmington (8658120, ~30 miles)
+  because Wilmington is Cape Fear River water at the state port and read 2F
+  warmer the day the three were compared. First reading back: 85.1F, zero
+  source errors. The station now lives in `config.TOPSAIL_TEMP_*` and
+  nowhere else — `fetch_fishing.py` imports it instead of restating it, and
+  the validator's attribution gate reads the same constants, so a fetcher
+  that disagreed with the gate can no longer fail every edition it feeds.
+- **The sportsman attribution gate was checking the wrong field.** It read
+  `entry["line"] or entry["read"]` — the advice sentence — while this paper
+  puts the tide table and the temperature in `reading`. An uncredited water
+  temperature walked straight past it. It now reads every reading field, and
+  uses the same `_temperature_mentioned()` guard the Times uses on the same
+  water rather than the weaker trailing-F regex, so "water 85 degrees"
+  fails like "85F" does. `working` stays excluded on purpose: it is prose,
+  and 2026-08-24's entry alone carries "an 85% waxing gibbous" and "tarpon
+  to 110 pounds" — the bare-number heuristic reads the first as a
+  temperature, which it very nearly is, since the water read 85F that
+  morning. A reading goes in a reading field.
 - **The two papers no longer overwrite each other's payload file.** Both
   wrote `out/<date>.payload.json`, and since they post five minutes apart the
   sportsman run destroyed the Times' record of what shipped on every morning

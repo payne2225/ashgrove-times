@@ -346,8 +346,10 @@ def _fishing_line(entry: dict) -> str:
     """`**Williams River (Cowen)** — 110 cfs and falling. · USGS 03186500`
 
     The source string is whatever fetch_fishing.py attributed the reading to,
-    printed verbatim: the Topsail water temperature is Wrightsville Beach's,
-    25 miles away, and this line is where that stays honest.
+    printed verbatim: the Topsail water temperature is borrowed from a
+    station 60 miles up the coast, and this line is where that stays honest.
+    Never restate the station here — config.TOPSAIL_TEMP_* names it, and it
+    has already changed once.
     """
     water = str(entry.get("water") or "").strip()
     line = str(entry.get("line") or "").strip()

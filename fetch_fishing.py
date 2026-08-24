@@ -12,7 +12,8 @@ Sources, all free and keyless:
   - USGS instantaneous values for the Williams River at Dyer (03186500):
     discharge, stage, and water temperature when the gauge reports it.
   - NOAA CO-OPS tide predictions for the two stations that bracket New
-    Topsail Inlet, plus water temperature from Wrightsville Beach.
+    Topsail Inlet, plus water temperature from the borrowed station
+    named in config.TOPSAIL_TEMP_STATION_NAME.
   - USGS stage for the two Ohio River gauges bracketing R.C. Byrd Locks and
     Dam. The dam's own tailwater is Corps data and is NOT reachable; see
     OHIO_GAUGES for what was checked.
@@ -38,6 +39,8 @@ import os
 import sys
 import urllib.parse
 import urllib.request
+
+import config
 
 try:
     import requests
@@ -106,11 +109,18 @@ TOPSAIL_TIDE_STATIONS = [
      "note": "oceanfront, 11 mi along the open coast - the surf read, and it "
              "runs well ahead of the sound"},
 ]
-# 8657419 does not offer water temperature; Wrightsville Beach is the nearest
-# station that does. It is 25 miles SOUTHWEST down the coast, not up it.
-# Attributed honestly rather than passed off as Topsail's own.
-TOPSAIL_TEMP_STATION = {"id": "8658163", "name": "Wrightsville Beach",
-                        "miles_away": 25, "bearing": "down the coast"}
+# 8657419 offers no water temperature, so the reading is borrowed from the
+# nearest station of the right KIND of water and attributed honestly rather
+# than passed off as Topsail's own. The station identity lives in config.py
+# and nowhere else: the validator gates printed lines on the same constants,
+# and a fetcher that disagreed with the gate would fail every edition it
+# fed. Import rather than restate. (Wrightsville Beach, 8658163, held this
+# job until NOAA dropped the product from it — see config.py for that.)
+TOPSAIL_TEMP_STATION = {"id": config.TOPSAIL_TEMP_STATION_ID,
+                        "name": config.TOPSAIL_TEMP_STATION_NAME,
+                        "label": config.TOPSAIL_TEMP_STATION_LABEL,
+                        "miles_away": config.TOPSAIL_TEMP_MILES,
+                        "bearing": config.TOPSAIL_TEMP_BEARING}
 
 
 def get(url: str, params: dict) -> dict:

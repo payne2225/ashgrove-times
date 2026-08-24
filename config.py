@@ -706,11 +706,25 @@ FISHING_WATERS = {
     "topsail": "Topsail Beach (surf and sound)",
 }
 
-# Topsail has no water-temperature station of its own. The reading comes
-# from Wrightsville Beach, 25 miles down the coast, and any line that
-# prints a Topsail water temperature has to say so.
-TOPSAIL_TEMP_STATION_NAME = "Wrightsville Beach"
-TOPSAIL_TEMP_MILES = 25
+# Topsail has no water-temperature station of its own, so the reading is
+# borrowed and the line has to say whose it is. This block is the ONE place
+# that identity lives: fetch_fishing.py fetches by it and validate_edition.py
+# gates on it, so a station change is these five lines and nothing else.
+#
+# Changed 2026-08-24 (Nate): Wrightsville Beach (8658163) went dark. Not a
+# hiccup — NOAA dropped `water_temperature` from the station's own product
+# list, and the datagetter refuses `latest` and a 72-hour range alike. Six
+# failures in one stretch and three more Aug. 22-24, all correctly omitted
+# rather than guessed. Beaufort is farther than Wilmington (8658120, ~30 mi)
+# but Wilmington is Cape Fear RIVER water at the state port and read 2F
+# warmer the day they were compared; Beaufort is estuarine, which is the
+# water the crew actually fishes. Distance and bearing are great-circle from
+# their spot two nautical miles north of New Topsail Inlet.
+TOPSAIL_TEMP_STATION_ID = "8656483"
+TOPSAIL_TEMP_STATION_NAME = "Beaufort"  # what a printed line must credit
+TOPSAIL_TEMP_STATION_LABEL = "Beaufort, Duke Marine Lab"  # NOAA's own name
+TOPSAIL_TEMP_MILES = 60
+TOPSAIL_TEMP_BEARING = "up the coast"
 
 # Not fetched, on purpose: wvdnr.gov serves an EXPIRED TLS certificate, so
 # trout stocking is a web-search item in the playbook with a silent no-op
