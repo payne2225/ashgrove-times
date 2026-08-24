@@ -274,6 +274,9 @@ def render_html(edition: dict, root: str = "../") -> str:
     }) if ear else ""
 
     description = f"{headline} {dek}".strip() or config.TAGLINE
+    lead_art = _art_html(blocks, _art_for(edition, config.ART_PLACEMENT_LEAD))
+    sections_html, wire_count = _sections_html(
+        blocks, edition.get("sections") or [], edition)
 
     values = {
         "PAGE_CLASS": "",
@@ -291,10 +294,12 @@ def render_html(edition: dict, root: str = "../") -> str:
         "LEAD_HEADLINE": esc(headline),
         "LEAD_DEK": dek_html,
         "LEAD_BYLINE": esc(f"By {lead.get('byline') or config.BYLINE}"),
-        "LEAD_ART": _art_html(blocks, _art_for(edition, config.ART_PLACEMENT_LEAD)),
+        "LEAD_ART": lead_art,
+        "LEAD_BLOCK_CLASS": _lead_block_class(lead_art),
         "LEAD_BODY": _lead_body_html(blocks, lead.get("body") or []),
         "STAT_STRIP": _stat_strip_html(blocks, lead.get("stat_strip") or []),
-        "SECTIONS": _sections_html(blocks, edition.get("sections") or [], edition),
+        "SECTIONS": sections_html,
+        "SECTIONS_STYLE": _sections_style(wire_count),
         "KICKER": _kicker_html(blocks, edition.get("kicker")),
         "SOURCES_NOTE": esc(edition.get("sources_note")
                             or "Compiled from wire reports"),
@@ -324,6 +329,23 @@ def _art_for(edition: dict, placement: str) -> dict | None:
     if (art.get("placement") or config.ART_PLACEMENT_LEAD) != placement:
         return None
     return art
+
+
+def _lead_block_class(lead_art: str) -> str:
+    """Classes for the lead block, which layout depends on entirely.
+
+    At desktop widths the block is a two-column grid — drawing at roughly a
+    third of the measure, story beside it. With no drawing the story became
+    the FIRST grid child and inherited that narrow column, leaving three
+    quarters of a 1,420px page empty beside eight lines of type. It read
+    fine on a phone, where the grid does not apply, which is why it went a
+    while unnoticed (Pat, 2026-08-24: "there is a ton of white space").
+
+    Art placement is an editorial choice made fresh every morning — the
+    2026-08-24 drawing went to Science & Technology — so "no drawing today"
+    is a normal day, not an edge case, and the page has to be correct on it.
+    """
+    return "lead-block with-art" if lead_art.strip() else "lead-block no-art"
 
 
 def _art_html(blocks: dict[str, str], art: object) -> str:
@@ -400,20 +422,40 @@ def _stat_strip_html(blocks: dict[str, str], entries: list) -> str:
     })
 
 
-def _sections_html(blocks: dict[str, str], sections: list, edition: dict) -> str:
+def _sections_style(wire_count: int) -> str:
+    """Tell the stylesheet how many wire columns there actually are.
+
+    The desktop grid was written `repeat(4, 1fr)` for "the four beats", but
+    only THREE of config.SECTIONS are wire sections — West Virginia is the
+    fourth and it spans the whole measure on its own row. The grid therefore
+    always carried one empty track, which at 1,600px is a quarter of the
+    front page standing blank from the section labels down to the notebook,
+    on every desktop edition since the layout was written (Pat, 2026-08-24).
+
+    Counted from what RENDERED, not from config: a section with no briefs
+    renders nothing, and on that morning the page should close up to two
+    columns rather than hold a gap open for news that does not exist.
+    """
+    return f' style="--wire-cols: {max(1, wire_count)}"'
+
+
+def _sections_html(blocks: dict[str, str], sections: list, edition: dict) -> tuple[str, int]:
     by_id = {s.get("id"): s for s in sections}
     ordered = [by_id[m["id"]] for m in config.SECTIONS if m["id"] in by_id]
     ordered += [s for s in sections if s.get("id") not in
                 {m["id"] for m in config.SECTIONS}]
 
     out = []
+    wire = 0
     for section in ordered:
-        rendered = (_wv_section_html(blocks, section, edition)
-                    if section.get("id") == "wv"
+        is_wv = section.get("id") == "wv"
+        rendered = (_wv_section_html(blocks, section, edition) if is_wv
                     else _wire_section_html(blocks, section, edition))
         if rendered:
             out.append(rendered)
-    return "\n\n  ".join(out)
+            if not is_wv:
+                wire += 1
+    return ("\n\n  ".join(out), wire)
 
 
 def _wire_section_html(blocks: dict[str, str], section: dict, edition: dict) -> str:
@@ -1352,6 +1394,8 @@ def render_sportsman_html(edition: dict) -> str:
         "LEAD_DEK": "",
         "LEAD_BYLINE": "",
         "LEAD_ART": "",
+        "LEAD_BLOCK_CLASS": _lead_block_class(""),
+        "SECTIONS_STYLE": "",
         "LEAD_BODY": "",
         "STAT_STRIP": "",
         "SECTIONS": "\n\n  ".join(parts),
@@ -1475,6 +1519,8 @@ def render_weather_html(date_iso: str, briefing_md: str) -> str:
         "LEAD_DEK": "",
         "LEAD_BYLINE": "",
         "LEAD_ART": "",
+        "LEAD_BLOCK_CLASS": _lead_block_class(""),
+        "SECTIONS_STYLE": "",
         "LEAD_BODY": "",
         "STAT_STRIP": "",
         "SECTIONS": f'<div class="wx-briefing">{inner}</div>',

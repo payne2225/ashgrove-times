@@ -90,6 +90,12 @@ drift apart.
 Pages build via GitHub Actions with **unbounded lag** — 23 seconds to 9
 minutes observed. Post on time, backfill the link when the build lands.
 
+**Never bulk re-render the archive.** `_tide_table_html()` reads the current
+`out/fishing.json`, so re-rendering an old dated page typesets TODAY's tides
+into it. A layout change reaches `today.html` and everything rendered after
+it; the back issues keep the layout they were published with, which is the
+correct trade.
+
 ## 5. The one boundary left
 
 `instructions/weatherpage.md` holds it. The interactive session may

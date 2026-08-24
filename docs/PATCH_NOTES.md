@@ -52,7 +52,45 @@ why the Aug. 18 "17:30 BST" miss looked like the check working. Repaired,
 both forms tested, and the whole repo scanned for the same corruption.
 
 
-## 2026-08-24 — the nav row repeats at the foot of every page
+## 2026-08-24 — the desktop front page stops leaving a quarter of itself blank
+
+Pat: "the pages look really good on mobile, but some of us read them on
+desktop and it looks bad. There is a ton of white space." Two separate
+layout bugs, both invisible on a phone because both live in `min-width`
+media queries.
+
+- **The lead block was a grid sized for a drawing that was not there.**
+  `.lead-block` is `grid-template-columns: minmax(240px, 27%) 1fr` at
+  desktop — art at a third of the measure, story beside it. With no art the
+  STORY became the first grid child, inherited the 27% art column, and left
+  three quarters of a 1,420px page white beside eight lines of type. Art
+  placement is an editorial choice made fresh each morning and the drawing
+  goes to another section more often than not — **six of the last eight
+  editions**, so most desktop front pages have looked like this. The grid is
+  now scoped to `.lead-block.with-art`; without art the lead runs the full
+  measure at two columns (1024px+) and three (1320px+). Three, not four,
+  even at 1,600px: the lead runs about 700 characters and a fourth column
+  would set it three lines deep and read as a caption.
+- **The sections grid was `repeat(4, 1fr)` with only three wire sections.**
+  The comment said "the four beats", but the fourth is West Virginia, and
+  the notebook spans the whole measure on its own row — so the fourth track
+  was always empty, a quarter of the page blank from the section labels all
+  the way down to the notebook, on every desktop edition since the layout
+  was written. The renderer now counts what actually RENDERED and passes it
+  as `--wire-cols`, so a morning where a section comes up empty closes to
+  two columns instead of holding a gap open for news that does not exist.
+
+Verified with headless screenshots at 1600, 1440, 1280 and 1100 desktop and
+390 mobile: mobile is byte-for-byte the same layout, the with-art lead is
+unchanged, and the front page is ~300px shorter.
+
+**Past editions were deliberately NOT re-rendered.** `_tide_table_html()`
+reads the CURRENT `out/fishing.json`, so re-rendering an August 20th page
+today would typeset today's tides into it. The archive keeps the old layout
+rather than gaining today's water.
+
+
+
 
 Nate: the reading flow is top to bottom, and then you want the next section —
 but the only way to it was back up at the masthead. Every rendered page now

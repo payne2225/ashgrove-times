@@ -578,22 +578,39 @@
     .columns { column-count: 2; font-size: 15.5px; }
     .drop { font-size: 58px; }
 
-    .lead-block {
+    /* WITH a drawing: art at roughly a third of the measure, story beside
+       it. Scoped to .with-art deliberately — when this rule was on the bare
+       .lead-block and the day's drawing went to another section, the story
+       became the first grid child, inherited the 27% art column, and left
+       three quarters of the page white beside eight lines of type. */
+    .lead-block.with-art {
       display: grid;
       grid-template-columns: minmax(240px, 27%) 1fr;
       gap: 0 30px;
       align-items: start;
     }
-    .lead-block .art { max-width: none; margin: 0; }
+    .lead-block.with-art .art { max-width: none; margin: 0; }
     /* Cap the drawing so its bottom lands near the text's, instead of
        running past it and opening a hole under the columns. */
-    .lead-block .art svg { max-height: 210px; width: 100%; }
+    .lead-block.with-art .art svg { max-height: 210px; width: 100%; }
+
+    /* WITHOUT one: nothing shares this line of the page, so the lead runs
+       the full measure. Column COUNT rather than width, because a lead is
+       short and a fixed column-width would leave a half-empty third column
+       on a thin news day. */
+    .lead-block.no-art .columns { column-count: 2; }
   }
 
   @media (min-width: 1320px) {
     .page { max-width: 1420px; padding: 40px 54px 56px; }
     .masthead { font-size: 96px; letter-spacing: 3px; }
     .headline { font-size: 50px; }
+
+    /* Three columns across ~1,310px of measure is about 420px a column —
+       roughly 58 characters, which is a newspaper line. Two would set 85+
+       and read like a blog. Measured against a real lead: 766 characters on
+       2026-08-24, which fills three columns about five lines deep. */
+    .lead-block.no-art .columns { column-count: 3; }
 
     /* The wire sections sit side by side across the page, one to a column,
        the way the four beats run across a front page below the fold.
@@ -606,7 +623,11 @@
        side effect. */
     .sections {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      /* As many columns as there are wire sections, set by the renderer.
+         Hard-coding 4 counted West Virginia as a beat, but the notebook
+         spans the whole measure on its own row — so the fourth track was
+         always empty, a quarter of the page blank beside the news. */
+      grid-template-columns: repeat(var(--wire-cols, 3), 1fr);
       column-gap: 30px;
       align-items: start;
     }
@@ -632,7 +653,9 @@
   @media (min-width: 1700px) {
     .page { max-width: 1600px; }
     .masthead { font-size: 108px; }
-    .sections { grid-template-columns: repeat(4, 1fr); }
+    /* Three, not four, even here. The lead runs about 700 characters — a
+       fourth column would set it three lines deep and read as a caption
+       rather than as the day's story. */
   }
 
   /* ---------- Sports & Sportsman page layout ----------
@@ -696,7 +719,7 @@
   @media print {
     body { background: #fff; padding: 0; }
     .page { border: 0; box-shadow: none; max-width: none; }
-    .sections { display: grid; grid-template-columns: repeat(4, 1fr); column-gap: 24px; }
+    .sections { display: grid; grid-template-columns: repeat(var(--wire-cols, 3), 1fr); column-gap: 24px; }
     .sec-wv { grid-column: 1 / -1; order: 9; }
   }
 </style>
@@ -722,14 +745,14 @@
   {{LEAD_DEK}}
   <div class="byline">{{LEAD_BYLINE}}</div>
 
-  <div class="lead-block">
+  <div class="{{LEAD_BLOCK_CLASS}}">
     {{LEAD_ART}}
     <div class="columns">{{LEAD_BODY}}</div>
   </div>
 
   {{STAT_STRIP}}
 
-  <div class="sections">
+  <div class="sections"{{SECTIONS_STYLE}}>
   {{SECTIONS}}
   </div>
 
