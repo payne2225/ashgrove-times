@@ -2365,3 +2365,43 @@ Both papers landed **exactly on their holds**: the Times at **7:00** (No. 16, me
 `vitamin-d-cognition-54`, `reds-11-5-arizona`, `pirates-dodgers-4-3`, `browns-bills-31-7`,
 `bengals-bears-27-9`, `brentford-spurs-3-0`, `nashville-crew-3-2`, `fcc-seattle-1-1`,
 `hull-united-2-0`, `brewers-81-49`, `aki-banzuke-eight-days`, `hannan-calvary-preview`
+
+## 2026-08-24 — No. 20 (Times) and No. 10 (Sports & Sportsman)
+
+| Open-ended | **Head start 90, clock read not estimated, both papers held from the background.** `config.head_start_minutes('2026-08-24')` = 90, `config.cron_for()` = `30 9 * * *` (installed). Both papers researched, written, validated, rendered and pushed by **5:54 a.m. ET**, 24 minutes after the 5:30 wake. Posts launched in background at 5:55 with `--not-before`; the Times **held 65 minutes and landed 7:00**, sport **held 70 and landed 7:05:04**. The sequence held exactly as designed | |
+
+### Forward-dated events added or moved
+
+| Date | Event | Note |
+|---|---|---|
+| **2026-08-24** | **Bessent's Iran sanctions press conference, this afternoon** | The "economic D-Day" rollout ran in No. 20's U.S. **The two readable outlets disagreed on the presser's time and even its date (Euronews 7 p.m. CET Monday; Al Jazeera 17:00 GMT "Aug. 26"), so neither was printed.** What is actually announced — secondary sanctions on buyers of Iranian oil, China at ~90% of purchases — is Tuesday's follow-up |
+| **open** | **Hawk Fire, Reno — NEW THREAD, led No. 20** | 15,000+ acres, 0% contained Sunday evening, 42,000 evacuated with 45,000 more warned, six hurt, human-caused per a Truckee Meadows battalion chief; Lombardo emergency, Guard helicopters and 60 troops. NPR, cross-checked against AP syndication (WSLS). **Containment, damage counts, or a cause finding is the news** |
+| **2026-08-24/25** | **Tropical Storm Moke over the Big Island through Monday** | Up to 15 inches forecast a week after Lala's 30+; Green requested a presidential emergency declaration. NPR. The flooding it actually delivers is Tuesday's line |
+| **2026-08-25** | **Huntington Flock ordinance vote outcome** | Council met tonight (7:30) on Farrell's revised ordinance; opponents canvassed all nine districts over the weekend for a ballot ban. Ran as No. 20's `huntington_cabell` line. **The vote is Tuesday's line** |
+| **2026-08-25** | **Hannan open at home to Calvary, 5 p.m. at Ashton** | Ran again in No. 10's week ahead with Thursday at St. Mary's. **Wednesday's line is the result and comes ONLY from an outside outlet** — never from the schedule |
+| **2026-08-26** | **Lottery Commission votes on the Greenbrier board** | First Guaranty's **$52.3M** judgment ask (2020 Main Street loan, delinquent since Dec. 2023, ~$20,626/day interest accruing) ran as No. 20's second statewide brief, Herald-Dispatch, **link dropped for budget**. The vote is Wednesday's brief |
+| **2026-08-30** | **Roman Space Telescope launches, 7:26 a.m. ET, Falcon Heavy, LC-39A** | Confirmed on NASA's own countdown page — flight readiness review complete, eight months early. Ran in No. 20's Sci/Tech and as today's drawing. **The launch is Sunday's news; this paper posts 26 minutes before liftoff** |
+| **2026-08-31** | **Aki banzuke — ELEVENTH morning the Sept. 13-27 dates are uncited by the JSA** | And the first morning **r/Sumo was unfetchable from this environment entirely** (`old.reddit.com` refused, not a 403 — the fetch tool declines the domain). The sweep ran on the JSA and searches only; the **Hoshoryu knee-surgery report stays unprinted** for want of a citable outlet. The countdown ran as No. 10's sumo line at seven days, with the JSA's own all-days-sold-out line as the second fact |
+
+### Open threads
+
+- **williams-river-recession — CLOSED.** USGS 03186500 read **179 cfs and 2.00 feet at 5:15 a.m.**, first
+  reading under 200 since the Aug. 16 flood; the fetcher's verdict is **"prime wading water"** and it ran
+  in both papers and as the Times kicker. The thread opened Aug. 17 at 4,620 cfs and ends here, eight days
+  later. The Ohio is still converging behind it: Point Pleasant 25.06 (pool), Huntington 27.79 and falling.
+- **hawk-fire-reno** — new, led No. 20. See the forward-dated row.
+- **us-canada-trade-war** — quiet Sunday; nothing ran. NPR carries Carney saying Canada is "at war" with
+  the U.S. if the thread needs a reopening line before the Sept. 8 tariffs.
+- **hoshoryu-aki-doubt** — still unprinted, still waiting on a citable outlet; the banzuke should force it.
+- **charleston-i77-crash** — victim names still unreleased; not searched this morning, the WV sweep went
+  to McCuskey, the Greenbrier and Flock. Check names and the WVDOT review Tuesday.
+
+### Covered slugs, 2026-08-24
+
+`hawk-fire-reno-42k`, `moke-hawaii-15in`, `grayson-dies-prison`, `iran-econ-dday-presser`,
+`pacific-drugboat-2`, `conakry-landfill-30`, `hassoun-life-sentence`, `kyiv-coalition-300-interceptors`,
+`kazakhstan-adilet-71`, `mccuskey-opioid-redirect`, `first-guaranty-52m-greenbrier`,
+`flock-canvass-council`, `vt-vets-home-vandalism`, `roman-launch-aug30`, `apoe4-nell2-reversible`,
+`ucsd-dna-initiator`, `multilingual-brain-aging`, `newcastle-liverpool-2-2`, `reds-dbacks-3-5`,
+`pirates-dodgers-0-4-sweep`, `wvu-duquesne-2-0`, `mancity-brighton-mw1-close`, `brewers-braves-4-2`,
+`aki-banzuke-seven-days`

@@ -667,3 +667,12 @@ and the failure protocol at the bottom of that file appends here too.
   cut ladder when the projection ran 6,009 against 5,800. The Times still split at 6,223 actual;
   the ~214-char projection gap is again the `--page-url` permalink, per the row logged 2026-08-22.
 - 2026-08-24T11:00:04Z · 2026-08-24 · post_discord: split into FRONT PAGE and INSIDE messages to keep the notebook whole
+- 2026-08-24 — *No Topsail water temperature for a THIRD straight morning.* `fetch_fishing.py`
+  logged `noaa-temp: NOAA: no water temperature returned`; both papers ran tides without a
+  temperature line, per the omit-on-failure rule. Three mornings is starting to look like the
+  NOAA product moved rather than hiccupped — worth a look at the station/product id.
+- 2026-08-24 — *r/Sumo was unfetchable outright* — the fetch tool refuses `old.reddit.com` in this
+  environment ("unable to fetch from old.reddit.com"), which is different from the API 403 the
+  playbook works around. The daily sumo sweep ran on the JSA's pages and searches only, and the
+  Hoshoryu report stayed unprinted a second morning. If this recurs the playbook's fan-wire step
+  needs an alternate route.
