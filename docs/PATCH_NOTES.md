@@ -4,6 +4,53 @@ Running changelog. Dated entries, newest first. Touched only when
 behavior changes, not every edition — the per-day record lives in
 `editions/index.json`, and degraded runs go in `docs/FAILURES.md`.
 
+## 2026-08-24 — three advisories the desk had been logging for weeks
+
+Nothing editorial changed. These are three defects the morning routine found,
+wrote down in `docs/FAILURES.md`, worked around, and then hit again the next
+day — the whole point of that file is that somebody eventually reads it.
+
+- **The budget projection was ~107 characters low, every single morning.**
+  Same bug as 2026-08-05's masked-source-link miss, one seam over:
+  `_exact_measure()` built the payload with `page_url=None`, so it never
+  counted the "Read the full edition on the web" line that `--page-url`
+  appends to the last embed's description — 107 chars Discord counts exactly
+  like copy. Against an `EMBED_HARD` of 5,800 that is the difference between
+  safe and split. On **2026-08-22** the desk cut a written, sourced wire
+  brief to reach a projected **5,783**, and the paper split anyway at a real
+  **5,890**; the cut bought nothing. Four splits in eleven editions (Nos. 8,
+  12, 13, 18) were read against the same low number. The validator now
+  measures with the permalink `instructions/routine.md` actually passes
+  (`config.page_url` / `config.sportsman_page_url`, skipped when
+  `PAGES_ENABLED` is False), and re-measuring 2026-08-22 gives 5,890 on the
+  nose. `post_discord.tail_link_text()` was split out of `_tail_link()` so
+  there is one definition of that line rather than two.
+- **The permalink gets its own `section_chars` key, not a section's.** It
+  rides the LAST embed, so a naive tally billed it to whichever section ran
+  last and reported that section over its allocation for a cost no editing
+  can reach. It is not `chrome` either — chrome's 200 is the closing footer,
+  which the desk *can* shorten. `permalink` has no line in
+  `config.EMBED_BUDGET` on purpose: it is paid out of the 200 of headroom
+  `EMBED_HARD` already leaves above `EMBED_TARGET`, so it counts in the total
+  and is never something a person can be told to tighten.
+- **`--sportsman` never credited `upcoming` fixtures.** The comment said
+  "Standings and fixtures also count as accounting for a team" and the code
+  said otherwise: `instrumented.add()` sat in an `else` branch only
+  `standings` could reach, so a club with a cited, ET-converted fixture line
+  was still reported missing. Identical advisories ran **2026-08-20, 21 and
+  22** naming Chelsea, Tottenham, Liverpool, the Browns and the Bengals while
+  all five carried fixtures — a note that contradicted itself in its own
+  text. Fixed by hoisting the instrumentation out of the branch. Re-running
+  Aug. 20-24 now names only **Hannan**, which was genuinely uncovered before
+  its season opened, and stripping `upcoming` from an edition brings the
+  advisory straight back.
+- **The two papers no longer overwrite each other's payload file.** Both
+  wrote `out/<date>.payload.json`, and since they post five minutes apart the
+  sportsman run destroyed the Times' record of what shipped on every morning
+  both papers ran. Sports & Sportsman now writes
+  `out/<date>.sportsman.payload.json`. Harmless to delivery, but "the run is
+  settled by a file, not by somebody's memory" was not true while it lasted.
+
 ## 2026-08-05 — first end-to-end run: seam fixes
 
 The revision round above was written by five parallel passes that never ran

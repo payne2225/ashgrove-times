@@ -366,8 +366,33 @@ def _iter_strings(node: object, path: str = ""):
 # difference between "tighten a summary now" and "the trimmer quietly deletes
 # the West Virginia notebook at post time".
 #
+# The measurement also passes the PERMALINK, for the same reason it passes
+# masked source links: `post_discord --page-url` appends "Read the full
+# edition on the web" to the last embed's description, and those 107 chars
+# are counted by Discord exactly like copy. Measuring without it made every
+# projection ~107 low against an EMBED_HARD of 5,800 — on 2026-08-22 the desk
+# cut a written, sourced wire brief to reach a projected 5,783, and the paper
+# split anyway at a real 5,890. The cut bought nothing. Four splits in eleven
+# editions were read the same way.
+#
 # The approximation survives as a fallback for the shape-only case (a bare
 # checkout without post_discord, or an edition too malformed to build).
+
+
+def _measured_page_url(edition: dict, sportsman: bool = False) -> str | None:
+    """The permalink the routine will actually pass, or None if Pages is off.
+
+    Not a guess: `instructions/routine.md` posts both papers with the dated
+    url config builds here, so measuring with it measures what ships. When
+    PAGES_ENABLED is False nothing links and there is no cost to count.
+    """
+    if not getattr(config, "PAGES_ENABLED", False):
+        return None
+    date = edition.get("edition_date") if isinstance(edition, dict) else None
+    if not _is_str(date):
+        return None
+    return (config.sportsman_page_url(date) if sportsman
+            else config.page_url(date))
 
 
 def _exact_measure(edition: dict) -> dict | None:
@@ -383,12 +408,24 @@ def _exact_measure(edition: dict) -> dict | None:
         return None
     try:
         working = copy.deepcopy(edition)
-        embeds = post_discord.build_payload(working, None, None).get("embeds") or []
+        page_url = _measured_page_url(working)
+        embeds = post_discord.build_payload(working, None, page_url).get("embeds") or []
         present = post_discord._present_sections(working)
     except Exception:  # a malformed edition is the shape checks' problem
         return None
     if not embeds:
         return None
+
+    # The permalink line rides the LAST embed's description, so a naive
+    # per-embed tally bills it to whichever section happens to run last and
+    # reports that section over its allocation for a cost it did not incur.
+    # It gets its own key instead. Not 'chrome' either: chrome's 200 is the
+    # closing footer, which the desk can shorten, and this line is a fixed
+    # cost no editing can reach. It has no allocation in config.EMBED_BUDGET
+    # deliberately — it is paid out of the 200 of headroom EMBED_HARD already
+    # leaves above EMBED_TARGET, so it counts in the TOTAL and is never a
+    # section anyone can be told to tighten.
+    tail = len(post_discord.tail_link_text(page_url))
 
     sizes: dict[str, int] = {}
     chrome = 0
@@ -398,8 +435,13 @@ def _exact_measure(edition: dict) -> dict | None:
         key = "lead" if i == 0 else (
             present[i - 1] if i - 1 < len(present) else f"embed{i}"
         )
-        sizes[key] = sizes.get(key, 0) + post_discord.embed_text_length([embed]) - footer
+        body = post_discord.embed_text_length([embed]) - footer
+        if tail and i == len(embeds) - 1:
+            body -= tail
+        sizes[key] = sizes.get(key, 0) + body
     sizes["chrome"] = chrome
+    if tail:
+        sizes["permalink"] = tail
     return {"sizes": sizes, "total": post_discord.embed_text_length(embeds)}
 
 
@@ -2358,9 +2400,11 @@ def _sm_check_teams(section: dict) -> tuple[list[str], list[str]]:
             team = entry.get("team")
             if not _nonempty_str(team) or not config.find_team(str(team)):
                 errors.append(f"{where}.team {team!r} is not a followed team")
-            elif not _nonempty_str(entry.get(required)):
+                continue
+            if not _nonempty_str(entry.get(required)):
                 errors.append(f"{where}.{required} is required")
-            elif key == "upcoming":
+                continue
+            if key == "upcoming":
                 # Times are ET, always — alone or alongside the local zone,
                 # never missing. The readers are not doing timezone math
                 # over coffee: "Saturday, 17:30 BST" shipped on 2026-08-18
@@ -2372,9 +2416,15 @@ def _sm_check_teams(section: dict) -> tuple[list[str], list[str]]:
                     errors.append(
                         f"{where}.when {when!r} has a kickoff time with no "
                         "ET — list ET alone or both zones, never neither")
-            else:
-                for match in config.find_team(str(team)):
-                    instrumented.add(match["name"])
+            # BOTH keys instrument a team, which is what the comment above has
+            # always claimed. Until 2026-08-24 this line sat in an `else` the
+            # `upcoming` branch could never reach, so a club with a cited,
+            # ET-converted fixture was still reported missing: the advisories
+            # of 2026-08-20, 21 and 22 named Chelsea, Tottenham, Liverpool,
+            # the Browns and the Bengals while all five carried fixture lines,
+            # and the note contradicted itself in its own text.
+            for match in config.find_team(str(team)):
+                instrumented.add(match["name"])
 
     both = covered & accounted
     if both:
@@ -2624,10 +2674,14 @@ def validate_sportsman(edition: dict, fishing: dict | None) -> tuple[list[str], 
                     "countdown to the next basho is the floor when the search "
                     "comes back empty")
 
-    # Exact size, measured off the real payload builder — never estimated.
+    # Exact size, measured off the real payload builder — never estimated,
+    # and measured WITH the permalink the routine passes: those ~108 chars
+    # ride the last embed's description and Discord counts them like copy.
     try:
         import post_discord
-        payload = post_discord.build_sportsman_payload(copy.deepcopy(edition))
+        sm_url = _measured_page_url(edition, sportsman=True)
+        payload = post_discord.build_sportsman_payload(
+            copy.deepcopy(edition), sm_url)
         chars = post_discord.embed_text_length(payload["embeds"])
         if chars > 6000:
             errors.append(f"embeds measure {chars} chars — over Discord's "

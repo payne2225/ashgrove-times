@@ -886,6 +886,16 @@ trim adjectives, cut a redundant clause, shorten a headline. It is far
 better for you to tighten prose than for the trimmer to silently drop the
 last brief of Science & Technology at post time.
 
+That total now includes the **permalink** — the "Read the full edition on
+the web" line `--page-url` appends to the last embed, 107 chars Discord
+counts exactly like copy. It appears in `section_chars` under its own
+`permalink` key with no allocation, because no amount of editing reaches
+it. Before 2026-08-24 the projection left it out and ran ~107 low against
+an `EMBED_HARD` of 5800, which is how the desk cut a written, sourced wire
+brief on 2026-08-22 to reach a projected 5783 and split anyway at a real
+5890. **The number the validator prints is now the number the poster will
+measure.** If it says you are under, you are under.
+
 The expanded WV notebook is now the usual source of budget pressure. **Cut
 in this order**, and stop as soon as you are under:
 

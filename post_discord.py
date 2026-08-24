@@ -575,6 +575,18 @@ def _inside_line(page_url: str | None) -> str:
     return line
 
 
+def tail_link_text(page_url: str | None) -> str:
+    """The permalink line appended to the last embed, or "" when unlinked.
+
+    Public because validate_edition.py measures with it: the line is ~107
+    chars Discord counts as copy, and the validator has to attribute them
+    to chrome rather than to whichever section happens to run last.
+    """
+    if not page_url:
+        return ""
+    return f"\n\n\U0001f4d6 [Read the full edition on the web]({page_url})"
+
+
 def _tail_link(embed: dict, page_url: str | None) -> None:
     """Repeat the permalink at the very bottom of the post.
 
@@ -588,7 +600,7 @@ def _tail_link(embed: dict, page_url: str | None) -> None:
     """
     if not page_url:
         return
-    line = f"\n\n\U0001f4d6 [Read the full edition on the web]({page_url})"
+    line = tail_link_text(page_url)
     body = embed.get("description") or ""
     if len(body) + len(line) <= DESCRIPTION_LIMIT:
         embed["description"] = body + line
@@ -1700,9 +1712,19 @@ def log_failures(date: str, notes: list[str]) -> None:
             f.write(f"- {_utc_stamp()} · {date} · post_discord: {_scrub(note)}\n")
 
 
-def write_payload_file(date: str, messages: list[dict]) -> str:
-    """Persist the exact JSON body sent, so a failed run is still recoverable."""
-    path = _repo("out", f"{date}.payload.json")
+def write_payload_file(date: str, messages: list[dict],
+                       sportsman: bool = False) -> str:
+    """Persist the exact JSON body sent, so a failed run is still recoverable.
+
+    The two papers get two filenames. They post minutes apart on the same
+    date, and while both wrote `<date>.payload.json` the sportsman run
+    silently overwrote the Times': on any morning both papers ran, the record
+    of what the Times actually shipped was gone by 7:05. Harmless to
+    delivery, fatal to the guarantee that a run is settled by a file rather
+    than by somebody's memory of it.
+    """
+    stem = f"{date}.sportsman" if sportsman else date
+    path = _repo("out", f"{stem}.payload.json")
     os.makedirs(os.path.dirname(path), exist_ok=True)
     finalized = [_finalize(m) for m in messages]
     with open(path, "w", encoding="utf-8") as f:
@@ -1943,7 +1965,7 @@ def main() -> int:
                 print(f"ERROR: {problem}", file=sys.stderr)
             return 1
 
-    payload_file = write_payload_file(args.date, messages)
+    payload_file = write_payload_file(args.date, messages, args.sportsman)
 
     if args.dry_run:
         for i, message in enumerate(messages, 1):

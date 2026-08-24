@@ -11,7 +11,7 @@ have to ask anyone to write a handoff again.
 > exists now, what is decided, what is open. Delete what stopped being
 > true rather than appending to it.
 
-Last updated: **2026-08-23**
+Last updated: **2026-08-24**
 
 ---
 
@@ -154,6 +154,20 @@ an outside source has it and can be cited. Ian reads the paper.
 
 ## 9. Open items
 
+- **Topsail water temperature is GONE, not flaky.** NOAA station **8658163
+  (Wrightsville Beach) no longer offers the `water_temperature` product** —
+  its own metadata no longer lists it and the datagetter answers "This
+  product may not be offered at this station" for `latest` and for a 72-hour
+  range alike. Verified 2026-08-24, after six failures in one stretch and
+  three more Aug. 22-24. The omit-on-failure rule has been doing its job, so
+  nothing false was printed, but the line is not coming back on its own.
+  Working substitutes checked live the same day: **Wilmington 8658120**
+  (87.3F, ~30 mi, but Cape Fear RIVER water at the port), **Beaufort Duke
+  Marine Lab 8656483** (85.3F, ~60 mi NE, estuarine — the closest match in
+  water TYPE), **Springmaid Pier SC 8661070** (83.8F, ~85 mi SW, oceanfront).
+  A 3.5F spread across the three, so the choice is editorial, not technical.
+  **Waiting on Nate** — the printed line names its station and distance, and
+  that is something the channel experiences.
 - **DST on the four un-held crons** — due before 2026-11-01 (section 3).
 - **Report card commitments** from the backfilled Aug 09–15 card: model
   QPF over about two inches is a ceiling stated as a range, and the

@@ -396,6 +396,11 @@ The webhook env var is **`DISCORD_SPORTSMAN_WEBHOOK_URL`** and it is a
 DIFFERENT channel from the main paper. Never post this edition with the
 newspaper's webhook.
 
+This paper's record of what shipped is **`out/YYYY-MM-DD.sportsman.payload.json`**
+— its own file since 2026-08-24. The Times keeps `out/YYYY-MM-DD.payload.json`,
+and before the split the sportsman run overwrote it every morning both papers
+ran.
+
 `--not-before 07:30` puts it half an hour behind the paper and fifteen
 minutes behind Jim Claudtore, so the morning reads paper, weather, sport.
 
