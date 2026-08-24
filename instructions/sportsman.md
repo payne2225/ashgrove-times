@@ -113,6 +113,27 @@ keeps a quiet morning from feeling thin:
   hours in summer. The validator refuses a kickoff time without ET.
 - Same truth rule as everything else: looked up today, cited, linked.
   Never from memory — a stale record is a wrong record by Tuesday.
+- **A games-back figure belongs to ONE team, and it is that team's
+  DEFICIT.** It is never somebody else's lead. A division leader's margin
+  is the games-back of the team in **second**, which is the row directly
+  under the leader — not the row your eye landed on. Read the row you are
+  about to name, and name it.
+- **Say the place and the club from the same row.** "Second-place
+  Pittsburgh" is a claim about Pittsburgh's position and it has to survive
+  being checked against the standings block in this same paper. The
+  validator now refuses an edition whose brief and whose standings block
+  disagree about where a team sits, and warns when a games-back figure
+  turns up attached to a different team than the one the block gives it to.
+
+> **This is written down because it shipped.** No. 10, 2026-08-24: "the
+> Brewers hold the NL Central at 81-50, 18.5 clear of second-place
+> Pittsburgh," under a headline saying Milwaukee "still lead by 18.5."
+> Pittsburgh was **fourth**, 18.5 **back**; the Brewers led the Cubs by
+> six. The standings block in the very same edition said "63-69, fourth in
+> the NL Central, 18.5 back" — the paper had it right in one place and
+> printed the opposite in another. **Pat caught it in the channel.** The
+> desk read a table, took a row that was not the one it meant, and then
+> asserted a relationship between two numbers without checking it.
 
 The validator requires each entry to name a followed team, and a team with
 a standings or fixture line counts as accounted for — it does not also

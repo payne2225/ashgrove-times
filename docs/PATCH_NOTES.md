@@ -4,6 +4,54 @@ Running changelog. Dated entries, newest first. Touched only when
 behavior changes, not every edition — the per-day record lives in
 `editions/index.json`, and degraded runs go in `docs/FAILURES.md`.
 
+## 2026-08-24 — the paper is checked against its own standings block
+
+No. 10 printed "the Brewers hold the NL Central at 81-50, 18.5 clear of
+second-place Pittsburgh" under a headline saying Milwaukee "still lead by
+18.5." Pittsburgh was FOURTH and 18.5 BACK; Milwaukee led second-place
+Chicago by six. Verified against MLB's stats API: MIL 81-50, CHC 75-56 (6.0),
+STL 66-66 (15.5), PIT 63-69 (18.5), CIN 62-69 (19.0). Pat caught it in the
+channel.
+
+What makes it a fixable defect rather than a bad morning is that the SAME
+EDITION had it right. The teams section carried "Pittsburgh Pirates: 63-69,
+fourth in the NL Central, 18.5 back." The paper printed a fact and its
+contradiction in two places a reader can see at once, and that is something
+a validator can be asked to notice.
+
+- **`_sm_check_standings_agreement()`** reads every brief in the edition
+  against the standings block. A brief calling a team "second-place" when
+  the block says fourth is a **hard error** — two printed ordinals for one
+  team cannot both be true. A games-back figure appearing on a team the
+  block does not give it to is an **advisory**, because two divisions can
+  honestly produce the same half-game number; it asks rather than fails.
+  Both halves of this miss are caught: the summary by the error, the
+  headline by the advisory.
+- **Subjects match on word overlap, not the alias table.** A brief names a
+  club by its CITY — "second-place Pittsburgh" — and the alias table has
+  "Pirates" and "Bucs", not "Pittsburgh". Adding city aliases would collide
+  on their own terms: this desk follows the Cincinnati Reds AND FC
+  Cincinnati. An ambiguous subject returns None and the gate stays silent,
+  which is the right behaviour for a check whose whole claim is that it only
+  fires on a contradiction provable from the paper's own words.
+- **The games-back advisory runs per FIELD.** A headline is read alone, so
+  "Milwaukee still lead by 18.5" answers for itself even though the summary
+  two clauses later does name Pittsburgh.
+- Twelve past editions re-validated: zero false positives.
+- `instructions/sportsman.md` gets the rule in the desk's own words — a
+  games-back figure is one team's deficit and never another's lead, and a
+  leader's margin is the games-back of the row directly underneath.
+
+**A latent `\b` was a literal backspace character.** While checking the new
+regexes for the escaping problem that produced them, `[ap]\.?m\b` in
+`_sm_check_teams` turned out to carry a raw 0x08 instead of a word boundary
+— and it predates this session. The no-colon branch of the ET check could
+therefore never match, so "Saturday, 3 p.m. BST" sailed through the gate
+written to stop exactly that; only the colon form was ever caught, which is
+why the Aug. 18 "17:30 BST" miss looked like the check working. Repaired,
+both forms tested, and the whole repo scanned for the same corruption.
+
+
 ## 2026-08-24 — the nav row repeats at the foot of every page
 
 Nate: the reading flow is top to bottom, and then you want the next section —

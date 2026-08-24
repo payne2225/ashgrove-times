@@ -2337,6 +2337,187 @@ def _sm_briefs(section: dict, path: str) -> tuple[list[dict], list[str]]:
     return out, errors
 
 
+# ---------------------------------------- the paper against its own standings
+
+# 2026-08-24, No. 10: a brief printed "the Brewers hold the NL Central at
+# 81-50, 18.5 clear of second-place Pittsburgh", and the headline over it
+# said Milwaukee "still lead by 18.5". Pittsburgh is FOURTH, 18.5 BACK; the
+# Brewers lead the Cubs by six. The desk had read the standings table and
+# taken the wrong row, then asserted a relationship between the two numbers
+# it had not checked.
+#
+# What makes it catchable is that the SAME EDITION had it right: the teams
+# section carried "Pittsburgh Pirates - 63-69, fourth in the NL Central,
+# 18.5 back". The paper contradicted itself in two places a reader can see
+# at once, which is worse than being thin and is exactly what a validator
+# can be asked to notice. Pat caught it in the channel before this did.
+#
+# Gate 1 is a hard error, because two printed ordinals for one team cannot
+# both be true. Gate 2 is an advisory: a games-back figure reappearing on a
+# different team is usually the same conflation, but two divisions can
+# honestly produce the same half-game figure, so it asks rather than fails.
+
+_ORDINAL_WORDS = {
+    "first": 1, "second": 2, "third": 3, "fourth": 4, "fifth": 5,
+    "sixth": 6, "seventh": 7, "eighth": 8, "ninth": 9, "tenth": 10,
+    "eleventh": 11, "twelfth": 12,
+}
+# "last" is a real standings word but not a number, so it compares only
+# against itself. Never guess that "last" and "fifth" agree: a five-team
+# division makes them the same and a six-team one does not.
+_ORDINAL_LAST = "last"
+
+_STANDINGS_PLACE_RE = re.compile(
+    r"\b(" + "|".join(list(_ORDINAL_WORDS) + [_ORDINAL_LAST]) + r")\b\s+in\s+the\b",
+    re.I)
+_BRIEF_PLACE_RE = re.compile(
+    r"\b(" + "|".join(list(_ORDINAL_WORDS) + [_ORDINAL_LAST]) + r")-place\s+"
+    r"([A-Z][\w.'&-]*(?:\s+[A-Z][\w.'&-]*)*)",
+)
+# Games back is written with a half: 6.0, 15.5, 18.5. Whole numbers collide
+# with scores, ages and everything else, so only the decimal form is tracked
+# — which is what the miss actually printed.
+_GAMES_BACK_RE = re.compile(r"\b(\d{1,2}\.\d)\b")
+
+
+def _place_of(text: str, pattern: "re.Pattern[str]") -> str | None:
+    """The ordinal a standings line or a brief states, lowercased, or None."""
+    if not _is_str(text):
+        return None
+    found = pattern.search(text)
+    return found.group(1).lower() if found else None
+
+
+def _all_briefs(edition: dict) -> list[tuple[str, dict]]:
+    """(path, brief) for every brief in the edition, whatever section."""
+    out: list[tuple[str, dict]] = []
+    sections = edition.get("sections")
+    if not isinstance(sections, list):
+        return out
+    for section in sections:
+        if not isinstance(section, dict):
+            continue
+        briefs = section.get("briefs")
+        if not isinstance(briefs, list):
+            continue
+        for i, brief in enumerate(briefs):
+            if isinstance(brief, dict):
+                out.append((f"{section.get('id')}.briefs[{i}]", brief))
+    return out
+
+
+_SUBJECT_STOPWORDS = {"fc", "the", "of", "united", "city", "club"}
+
+
+def _subject_words(text: str) -> set[str]:
+    """Distinguishing lowercase words, for matching a name to a name."""
+    return {w for w in re.findall(r"[a-z]+", (text or "").lower())
+            if len(w) > 2 and w not in _SUBJECT_STOPWORDS}
+
+
+def _standings_subject(subject: str, places: dict) -> str | None:
+    """Which standings team a brief's subject names, or None.
+
+    Matched on word overlap rather than config.find_team(), because a brief
+    calls a club by its CITY — "second-place Pittsburgh" — and the alias
+    table carries "Pirates" and "Bucs" but not "Pittsburgh". Adding city
+    aliases there would collide on their own terms: this desk follows both
+    the Cincinnati Reds and FC Cincinnati.
+
+    Returns None when nothing matches AND when more than one thing does. An
+    ambiguous subject is exactly when a validator should keep quiet — the
+    whole point of this gate is that it only fires on a contradiction it can
+    prove from the paper's own words.
+    """
+    subject = (subject or "").strip().strip(".,;:'\"")
+    words = _subject_words(subject)
+    if not words:
+        return None
+    hits = {name for name in places if _subject_words(name) & words}
+    for team in config.find_team(subject):
+        if team["name"] in places:
+            hits.add(team["name"])
+    return next(iter(hits)) if len(hits) == 1 else None
+
+
+def _sm_check_standings_agreement(edition: dict,
+                                  teams: dict) -> tuple[list[str], list[str]]:
+    """No brief may contradict the standings block in the same edition."""
+    errors: list[str] = []
+    notes: list[str] = []
+
+    entries = teams.get("standings")
+    if not isinstance(entries, list):
+        return errors, notes
+
+    # team name -> (stated place, the line it came from), and the deficits
+    # the block attributes, keyed by the figure.
+    places: dict[str, tuple[str, str]] = {}
+    deficits: dict[str, str] = {}
+    for entry in entries:
+        if not isinstance(entry, dict):
+            continue
+        name = entry.get("team")
+        line = entry.get("line")
+        if not _nonempty_str(name) or not _is_str(line):
+            continue
+        place = _place_of(line, _STANDINGS_PLACE_RE)
+        if place:
+            places[str(name)] = (place, line)
+        for figure in _GAMES_BACK_RE.findall(line):
+            deficits.setdefault(figure, str(name))
+
+    if not places and not deficits:
+        return errors, notes
+
+    for path, brief in _all_briefs(edition):
+        text = " ".join(str(brief.get(k) or "")
+                        for k in ("headline", "summary"))
+        if not text.strip():
+            continue
+
+        for stated, subject in _BRIEF_PLACE_RE.findall(text):
+            stated = stated.lower()
+            matched = _standings_subject(subject, places)
+            if matched is None:
+                continue  # unknown or ambiguous subject: say nothing
+            place, line = places[matched]
+            if stated == place:
+                continue
+            # "last" is only comparable to itself.
+            if _ORDINAL_LAST in (stated, place):
+                continue
+            errors.append(
+                f"{path} calls {matched} {stated}-place, but this "
+                f"edition's own standings block says {place}: "
+                f"{line!r} — one of the two is wrong and both are printed"
+            )
+
+        # Per FIELD, not over the pair. A headline is read alone — it is the
+        # whole of what a scroller sees — so "Milwaukee still lead by 18.5"
+        # has to answer for itself even when the summary underneath does
+        # name Pittsburgh two clauses later.
+        for field in ("headline", "summary"):
+            part = str(brief.get(field) or "")
+            if not part.strip():
+                continue
+            named = {t["name"] for t in config.find_team(part)}
+            named |= {name for name in places
+                      if _subject_words(name) & _subject_words(part)}
+            for figure in sorted(set(_GAMES_BACK_RE.findall(part))):
+                owner = deficits.get(figure)
+                if not owner or owner in named:
+                    continue
+                notes.append(
+                    f"{path}.{field} prints {figure}, which this edition's "
+                    f"standings block attributes to {owner} — confirm whose "
+                    "games-back figure this is; a deficit is not somebody "
+                    "else's lead"
+                )
+
+    return errors, notes
+
+
 def _sm_check_teams(section: dict) -> tuple[list[str], list[str]]:
     """Every followed team is covered or accounted for — the section's job."""
     errors: list[str] = []
@@ -2411,7 +2592,7 @@ def _sm_check_teams(section: dict) -> tuple[list[str], list[str]]:
                 # over coffee: "Saturday, 17:30 BST" shipped on 2026-08-18
                 # and told nobody in West Virginia anything.
                 when = str(entry.get("when") or "")
-                has_time = re.search(r"\d{1,2}:\d{2}|\d{1,2}\s*[ap]\.?m",
+                has_time = re.search(r"\d{1,2}:\d{2}|\d{1,2}\s*[ap]\.?m\b",
                                      when, re.I)
                 if has_time and "ET" not in when:
                     errors.append(
@@ -2663,6 +2844,14 @@ def validate_sportsman(edition: dict, fishing: dict | None) -> tuple[list[str], 
 
     _, league_errors = _sm_briefs(by_id["leagues"], "leagues")
     errors += league_errors
+
+    # Run this AFTER the briefs are shape-checked and against the whole
+    # edition, not one section: the contradiction that prompted it was a
+    # leagues brief disagreeing with the teams block.
+    agree_errors, agree_notes = _sm_check_standings_agreement(
+        edition, by_id["teams"])
+    errors += agree_errors
+    notes += agree_notes
 
     season_errors, season_notes = _sm_check_seasons(
         by_id["seasons"], edition.get("edition_date"))

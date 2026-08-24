@@ -676,3 +676,24 @@ and the failure protocol at the bottom of that file appends here too.
   playbook works around. The daily sumo sweep ran on the JSA's pages and searches only, and the
   Hoshoryu report stayed unprinted a second morning. If this recurs the playbook's fan-wire step
   needs an alternate route.
+- **2026-08-24** — *The paper printed a false standings fact, and contradicted itself
+  doing it.* No. 10's MLB brief read "the Brewers hold the NL Central at 81-50, 18.5 clear
+  of second-place Pittsburgh," under the headline "Atlanta cools Milwaukee, who still lead
+  by 18.5." **Pittsburgh was fourth and 18.5 BACK; Milwaukee led second-place Chicago by
+  six.** Confirmed against MLB's own stats API: MIL 81-50, CHC 75-56 (6.0), STL 66-66
+  (15.5), PIT 63-69 (18.5), CIN 62-69 (19.0). The desk read the standings table, took a row
+  it did not mean, and then asserted a relationship between two numbers it had not checked.
+  **The same edition's standings block had it right** — "Pittsburgh Pirates: 63-69, fourth
+  in the NL Central, 18.5 back" — so the paper printed both the fact and its contradiction.
+  **Pat caught it in the channel, not the pipeline.** Corrected in the edition JSON and
+  re-rendered the same day; the Discord post stands as sent. A new gate
+  (`_sm_check_standings_agreement`) now hard-fails a brief whose place claim disagrees with
+  the edition's own standings block and warns when a games-back figure appears on a team
+  the block does not give it to; both halves of this miss are caught by it. The rule is
+  written into `instructions/sportsman.md` in the desk's own words.
+- **2026-08-24** — *A latent `\b` in the fixture-time check had been a literal backspace
+  character.* `[ap]\.?m\b` in `_sm_check_teams` carried a raw 0x08 instead of a word
+  boundary, so the no-colon branch of the ET regex could never match: "Saturday, 3 p.m.
+  BST" passed the gate that exists to stop exactly that, and only the colon form
+  ("15:30 BST", which is what shipped on Aug. 18) was ever caught. Predates this session —
+  found while checking a new regex for the same corruption. Repaired and both forms tested.
