@@ -118,6 +118,14 @@
     margin: 0 4px 6px;
   }
   .paper-nav a:hover { background: var(--ink); color: var(--parchment); }
+  /* The same row repeated at the foot of the page, where a reader who has
+     finished actually is. Ruled off above so it reads as the end of the
+     paper rather than as one more thing to read. */
+  .paper-nav-foot {
+    margin: 22px 0 2px;
+    padding-top: 16px;
+    border-top: 1px solid var(--rule);
+  }
 
   /* The tide table: a real table, because Nate asked for one. */
   .tide-table { border-collapse: collapse; margin: 10px auto 4px; font-size: 13.5px; }
@@ -672,7 +680,7 @@
   <hr class="rule-thick">
   <hr class="rule-thin">
 
-  <nav class="paper-nav"><a href="../index.html">Home</a><a href="../today.html">The News Desk</a><a href="../weather/">The Weather Claude</a></nav>
+  <nav class="paper-nav" aria-label="Sections"><a href="../index.html">Home</a><a href="../today.html">The News Desk</a><a href="../weather/">The Weather Claude</a></nav>
 
   <div class="headline"></div>
   
@@ -736,7 +744,7 @@
 
   <section class="sec sec-wire">
   <div class="section-label">On the Water</div>
-  <div class="two-col-briefs"><table class="tide-table"><caption>Topsail tides — the full day</caption><tr><th>Water</th><th>Low</th><th>High</th><th>Low</th><th>High</th></tr><tr><td>Sound (where you fish)</td><td>12:07 AM<br>1.1 ft</td><td>5:48 AM<br>3.1 ft</td><td>12:01 PM<br>0.5 ft</td><td>6:30 PM<br>4.0 ft</td></tr><tr><td>Ocean (surf)</td><td>5:24 AM<br>3.3 ft</td><td>11:12 AM<br>0.7 ft</td><td>5:59 PM<br>4.7 ft</td><td>12:25 AM (Tue)<br>0.9 ft</td></tr></table><div class="wv-block sm-water">
+  <div class="two-col-briefs"><table class="tide-table"><caption>Topsail tides — the full day</caption><tr><th>Water</th><th>High</th><th>Low</th><th>High</th><th>Low</th></tr><tr><td>Sound (where you fish)</td><td>3:15 AM<br>3.0 ft</td><td>9:34 AM<br>0.6 ft</td><td>3:56 PM<br>3.9 ft</td><td>10:34 PM<br>1.2 ft</td></tr><tr><td>Ocean (surf)</td><td>2:29 AM<br>3.1 ft</td><td>8:22 AM<br>0.9 ft</td><td>3:23 PM<br>4.4 ft</td><td>10:00 PM<br>1.3 ft</td></tr></table><div class="wv-block sm-water">
       <p class="wv-block-label">West Virginia</p>
       <ul class="roundup"><li><span class="place">Williams River</span> &mdash; 179 cfs and falling, 2.0 feet. 179 cfs - prime wading water. First reading under 200 cfs since the Aug. 16 flood, off 258 a day ago and clearing. Back to pocket-water fishing: a caddis or stonefly nymph on a long leader through the plunge pools, dries where fish show against the undercut banks.<span class="src">USGS 03186500</span></li><li><span class="place">Ohio River at Point Pleasant</span> &mdash; 25.06 feet, falling. 25.1 ft and falling - normal pool. Ordinary bank access. Pool and settling, which stacks fish on structure. Shad are the forage: a white swimbait worked across the wing dams and riprap seams.<span class="src">USGS 03201500</span></li><li><span class="place">Ohio River at Huntington</span> &mdash; 27.79 feet and falling. 27.8 ft and falling - up and pushing. Expect colour and current; fish the slack behind anything solid. Down two and a half feet on the day but still coloured. Stay on the slack behind rock and the lock wall; a crawfish-coloured crankbait tight to the riprap until it greens up.<span class="src">USGS 03206000</span></li></ul>
     </div><div class="wv-block sm-water">
@@ -749,6 +757,8 @@
   <div class="kicker">Matchweek one closes tonight; Hannan kicks off tomorrow at Ashton.</div>
 
   <div class="footer-note">Compiled from league, agency and gauge sources</div>
+
+  <nav class="paper-nav paper-nav-foot" aria-label="Sections, repeated"><a href="../index.html">Home</a><a href="../today.html">The News Desk</a><a href="../weather/">The Weather Claude</a></nav>
 
 </div>
 </body>

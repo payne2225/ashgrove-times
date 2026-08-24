@@ -118,6 +118,14 @@
     margin: 0 4px 6px;
   }
   .paper-nav a:hover { background: var(--ink); color: var(--parchment); }
+  /* The same row repeated at the foot of the page, where a reader who has
+     finished actually is. Ruled off above so it reads as the end of the
+     paper rather than as one more thing to read. */
+  .paper-nav-foot {
+    margin: 22px 0 2px;
+    padding-top: 16px;
+    border-top: 1px solid var(--rule);
+  }
 
   /* The tide table: a real table, because Nate asked for one. */
   .tide-table { border-collapse: collapse; margin: 10px auto 4px; font-size: 13.5px; }
@@ -672,7 +680,7 @@
   <hr class="rule-thick">
   <hr class="rule-thin">
 
-  <nav class="paper-nav"><a href="../index.html">Home</a><a href="../today.html">The News Desk</a><a href="../sportsman/">Sports &amp; Sportsman</a></nav>
+  <nav class="paper-nav" aria-label="Sections"><a href="../index.html">Home</a><a href="../today.html">The News Desk</a><a href="../sportsman/">Sports &amp; Sportsman</a></nav>
 
   <div class="headline"></div>
   
@@ -719,6 +727,8 @@
   
 
   <div class="footer-note">Filed to the channel at 7:15 ET by Jim Claudtore</div>
+
+  <nav class="paper-nav paper-nav-foot" aria-label="Sections, repeated"><a href="../index.html">Home</a><a href="../today.html">The News Desk</a><a href="../sportsman/">Sports &amp; Sportsman</a></nav>
 
 </div>
 </body>

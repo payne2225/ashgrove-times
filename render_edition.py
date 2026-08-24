@@ -192,18 +192,28 @@ def _family_line() -> str:
     return f'<div class="family-line">{esc(FAMILY_NAME)}</div>'
 
 
-def _nav_html(current: str, root: str) -> str:
+def _nav_html(current: str, root: str, foot: bool = False) -> str:
     """Buttons to every other section plus the Newsstand.
 
     `root` is the relative path back to the site root, exactly as
     render_html already uses it — "" from a root-level page, "../" from a
     dated page one directory down.
+
+    Every page carries the same buttons TWICE, under the masthead and again
+    at the very bottom (Nate, 2026-08-24). A reader finishes a page at the
+    bottom, which is exactly where the decision to read the next section
+    gets made; sending them back up to the masthead to act on it is the
+    kind of small friction that ends a reading session. The foot copy is
+    the same links in the same order — a reader who learned the row at the
+    top should not have to re-read it at the bottom.
     """
     buttons = [
         f'<a href="{root}{href}">{label}</a>'
         for key, label, href in _NAV_TARGETS if key != current
     ]
-    return '<nav class="paper-nav">' + "".join(buttons) + "</nav>"
+    classes = "paper-nav paper-nav-foot" if foot else "paper-nav"
+    label = ' aria-label="Sections, repeated"' if foot else ' aria-label="Sections"'
+    return f'<nav class="{classes}"{label}>' + "".join(buttons) + "</nav>"
 
 
 def _tide_table_html() -> str:
@@ -271,6 +281,7 @@ def render_html(edition: dict, root: str = "../") -> str:
         "META_DESCRIPTION": esc(description[:300]),
         "FAMILY_LINE": _family_line(),
         "NAV": _nav_html("news", root),
+        "NAV_FOOT": _nav_html("news", root, foot=True),
         "MASTHEAD": esc(NEWSDESK_NAME),
         "TAGLINE": esc(config.TAGLINE),
         "TOP_LEFT": esc(folio_left(edition)),
@@ -1330,6 +1341,7 @@ def render_sportsman_html(edition: dict) -> str:
             "morning's gauges."),
         "FAMILY_LINE": _family_line(),
         "NAV": _nav_html("sportsman", "../"),
+        "NAV_FOOT": _nav_html("sportsman", "../", foot=True),
         "MASTHEAD": esc(config.SPORTSMAN_MASTHEAD),
         "TAGLINE": esc("For the Fellers"),
         "TOP_LEFT": esc(folio),
@@ -1452,6 +1464,7 @@ def render_weather_html(date_iso: str, briefing_md: str) -> str:
         "META_DESCRIPTION": esc(f"Jim Claudtore's forecast for {dateline}."),
         "FAMILY_LINE": _family_line(),
         "NAV": _nav_html("weather", "../"),
+        "NAV_FOOT": _nav_html("weather", "../", foot=True),
         "MASTHEAD": esc(WEATHER_NAME),
         "TAGLINE": esc("with Jim Claudtore, filed at 7:15 ET"),
         "TOP_LEFT": esc("The Forecast"),

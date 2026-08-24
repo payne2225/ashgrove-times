@@ -4,6 +4,25 @@ Running changelog. Dated entries, newest first. Touched only when
 behavior changes, not every edition — the per-day record lives in
 `editions/index.json`, and degraded runs go in `docs/FAILURES.md`.
 
+## 2026-08-24 — the nav row repeats at the foot of every page
+
+Nate: the reading flow is top to bottom, and then you want the next section —
+but the only way to it was back up at the masthead. Every rendered page now
+carries the same buttons again below the colophon, ruled off so it reads as
+the end of the paper rather than as more paper. Both rows are built by the
+same `_nav_html()`, which grew a `foot=True` that only changes the class and
+the aria-label, so the links can never drift apart. `{{NAV_FOOT}}` is a
+required template token like every other, and `fill()` raises on a missing
+one — a renderer that forgot a page would fail loudly rather than ship a
+page with half the navigation.
+
+Covers all four page shapes off the PAGE block: `today.html`, dated
+`editions/`, `sportsman/`, `weather/`. **`site/archive.html` is deliberately
+untouched** — it has never carried the nav row at ALL, top or bottom, and
+giving it only a foot copy would be a stranger page than it is now. Its
+"Today's edition" footer link still gets a reader out.
+
+
 ## 2026-08-24 — three advisories the desk had been logging for weeks
 
 Nothing editorial changed. These are three defects the morning routine found,

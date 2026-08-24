@@ -81,7 +81,12 @@ write. It links the three sections:
 | The Weather Claude | `/weather/` | `render_edition.py --weather` |
 
 Every section page carries THE ASHGROVE TIMES as a family banner above
-its own masthead, plus nav buttons (Home and the other two sections).
+its own masthead, plus nav buttons (Home and the other two sections)
+**twice — under the masthead and again at the foot of the page** (Nate,
+2026-08-24). A reader finishes at the bottom, which is where the decision to
+read the next section gets made; the top row alone made that a scroll back
+up. Both rows come from `_nav_html()` in `render_edition.py`, so they cannot
+drift apart.
 Pages build via GitHub Actions with **unbounded lag** — 23 seconds to 9
 minutes observed. Post on time, backfill the link when the build lands.
 

@@ -118,6 +118,14 @@
     margin: 0 4px 6px;
   }
   .paper-nav a:hover { background: var(--ink); color: var(--parchment); }
+  /* The same row repeated at the foot of the page, where a reader who has
+     finished actually is. Ruled off above so it reads as the end of the
+     paper rather than as one more thing to read. */
+  .paper-nav-foot {
+    margin: 22px 0 2px;
+    padding-top: 16px;
+    border-top: 1px solid var(--rule);
+  }
 
   /* The tide table: a real table, because Nate asked for one. */
   .tide-table { border-collapse: collapse; margin: 10px auto 4px; font-size: 13.5px; }
@@ -674,7 +682,7 @@
   <hr class="rule-thick">
   <hr class="rule-thin">
 
-  <nav class="paper-nav"><a href="../index.html">Home</a><a href="../sportsman/">Sports &amp; Sportsman</a><a href="../weather/">The Weather Claude</a></nav>
+  <nav class="paper-nav" aria-label="Sections"><a href="../index.html">Home</a><a href="../sportsman/">Sports &amp; Sportsman</a><a href="../weather/">The Weather Claude</a></nav>
 
   <div class="headline">Wildfire on Reno&#x27;s edge forces tens of thousands to evacuate</div>
   <div class="subhead">The human-caused Hawk Fire burned 15,000 acres with no containment; the National Guard is mobilized</div>
@@ -844,6 +852,8 @@
   <div class="kicker">The Williams is back to prime wading water for the first time since the Aug. 16 flood.</div>
 
   <div class="footer-note">Compiled from wire reports<span class="sep">&middot;</span><a href="../archive.html">Back issues</a></div>
+
+  <nav class="paper-nav paper-nav-foot" aria-label="Sections, repeated"><a href="../index.html">Home</a><a href="../sportsman/">Sports &amp; Sportsman</a><a href="../weather/">The Weather Claude</a></nav>
 
 </div>
 </body>

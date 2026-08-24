@@ -154,6 +154,14 @@
     margin: 0 4px 6px;
   }
   .paper-nav a:hover { background: var(--ink); color: var(--parchment); }
+  /* The same row repeated at the foot of the page, where a reader who has
+     finished actually is. Ruled off above so it reads as the end of the
+     paper rather than as one more thing to read. */
+  .paper-nav-foot {
+    margin: 22px 0 2px;
+    padding-top: 16px;
+    border-top: 1px solid var(--rule);
+  }
 
   /* The tide table: a real table, because Nate asked for one. */
   .tide-table { border-collapse: collapse; margin: 10px auto 4px; font-size: 13.5px; }
@@ -728,6 +736,8 @@
   {{KICKER}}
 
   <div class="footer-note">{{SOURCES_NOTE}}{{ARCHIVE_LINK}}</div>
+
+  {{NAV_FOOT}}
 
 </div>
 </body>
