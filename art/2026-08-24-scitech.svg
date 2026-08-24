@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" role="img"
+     aria-label="The Roman Space Telescope in flight: barrel, angled aperture shade, twin solar wings and a dish antenna against a field of stars.">
+  <!-- Sketched after viewing NASA's Roman launch-page illustration; drawn freehand as line work. -->
+  <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+
+    <!-- ===== stars ===== -->
+    <g stroke-width="1.1">
+      <path d="M60 50 l8 0 M64 46 l0 8"/>
+      <path d="M560 70 l7 0 M563.5 66.5 l0 7"/>
+      <path d="M110 320 l6 0 M113 317 l0 6"/>
+      <path d="M590 300 l6 0 M593 297 l0 6"/>
+      <path d="M520 350 l5 0 M522.5 347.5 l0 5"/>
+      <circle cx="150" cy="90" r="1.2"/>
+      <circle cx="240" cy="45" r="1.2"/>
+      <circle cx="480" cy="40" r="1.2"/>
+      <circle cx="612" cy="150" r="1.2"/>
+      <circle cx="40" cy="200" r="1.2"/>
+      <circle cx="90" cy="140" r="1.2"/>
+      <circle cx="570" cy="220" r="1.2"/>
+      <circle cx="200" cy="360" r="1.2"/>
+      <circle cx="430" cy="370" r="1.2"/>
+      <circle cx="300" cy="30" r="1.2"/>
+    </g>
+
+    <!-- ===== telescope barrel, axis tilted up-left ===== -->
+    <!-- open aperture end (ellipse), pointing up-left -->
+    <ellipse cx="238" cy="128" rx="34" ry="52" transform="rotate(-24 238 128)"/>
+    <!-- inner rim of the open barrel -->
+    <ellipse cx="242" cy="131" rx="27" ry="42" transform="rotate(-24 242 131)"/>
+    <!-- barrel walls back to the bus -->
+    <path d="M262 84 L392 154"/>
+    <path d="M216 176 L344 246"/>
+    <!-- barrel seam rings -->
+    <path d="M300 104 c14 12 20 34 14 56" stroke-width="1.2"/>
+    <path d="M336 124 c14 12 20 34 14 56" stroke-width="1.2"/>
+
+    <!-- ===== aperture shade: the raised visor over the open end ===== -->
+    <path d="M262 84 L206 30 L118 76 L182 140 Z"/>
+    <!-- shade underside edge -->
+    <path d="M182 140 L216 176" stroke-width="1.2"/>
+    <!-- shade stiffening lines -->
+    <path d="M196 44 L124 82" stroke-width="1"/>
+    <path d="M214 62 L148 100" stroke-width="1"/>
+
+    <!-- ===== spacecraft bus: boxy body aft of the barrel ===== -->
+    <path d="M392 154 L448 186 L432 262 L344 246 Z"/>
+    <!-- bus side face -->
+    <path d="M448 186 L470 176 L458 250 L432 262 Z"/>
+    <!-- bus panel seams -->
+    <path d="M404 196 L444 214" stroke-width="1"/>
+    <path d="M396 224 L438 240" stroke-width="1"/>
+    <!-- small radiator fin on top of bus -->
+    <path d="M416 150 L446 134 L462 144 L436 162"/>
+
+    <!-- ===== solar wings: two panel arrays swept back and down ===== -->
+    <!-- near wing -->
+    <path d="M366 252 L322 330 L392 352 L428 268 Z"/>
+    <path d="M344 290 L410 310" stroke-width="1"/>
+    <path d="M355 271 L419 289" stroke-width="1"/>
+    <path d="M333 309 L401 331" stroke-width="1"/>
+    <path d="M377 258 L347 336" stroke-width="1"/>
+    <path d="M398 264 L367 342" stroke-width="1"/>
+    <!-- far wing, partly behind the bus -->
+    <path d="M452 246 L492 316 L544 292 L500 226 Z"/>
+    <path d="M470 260 L516 302" stroke-width="1"/>
+    <path d="M484 252 L530 296" stroke-width="1"/>
+    <path d="M466 282 L520 258" stroke-width="1"/>
+
+    <!-- ===== high-gain dish on a boom, aft and below ===== -->
+    <path d="M458 250 L500 286" stroke-width="1.2"/>
+    <ellipse cx="514" cy="296" rx="20" ry="12" transform="rotate(-32 514 296)"/>
+    <path d="M508 290 l7 6" stroke-width="1"/>
+  </g>
+</svg>
