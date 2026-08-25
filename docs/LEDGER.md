@@ -2405,3 +2405,41 @@ Both papers landed **exactly on their holds**: the Times at **7:00** (No. 16, me
 `ucsd-dna-initiator`, `multilingual-brain-aging`, `newcastle-liverpool-2-2`, `reds-dbacks-3-5`,
 `pirates-dodgers-0-4-sweep`, `wvu-duquesne-2-0`, `mancity-brighton-mw1-close`, `brewers-braves-4-2`,
 `aki-banzuke-seven-days`
+
+## 2026-08-25 — No. 21 (Times) and No. 11 (Sports & Sportsman)
+
+| Open-ended | **Head start 90, posts launched in background, both papers held to their slots.** Researched, written, validated, rendered and pushed by 6:26 a.m.; posts launched 5:52 with `--not-before`. The Times **held 68 minutes and landed 7:00:0x** (two messages, split as designed); sport **held 73 and landed 7:05:07**. Pages built in ~30 seconds, so both posts carried their permalink from the start — no backfill needed | |
+
+### Forward-dated events added or moved
+
+| Date | Event | Note |
+|---|---|---|
+| **~2026-08-28** | **Bessent's promised bank sanction** | Operation Economic Outcast led No. 21: nearly 60 entities/vessels sanctioned, secondary sanctions widened to digital assets, tech, gold, aviation, shipping; Bessent said a **major financial institution** doing Iran business will be sanctioned **by week's end**. That named bank is the follow-up. NPR, CBS |
+| **2026-08-25** | **Talwani deadline on the mail-voting order, 5:30 p.m. ET today** | SCOTUS paused her June ruling for 23 states + D.C. (ran in No. 21). The administration appeals to the 1st Circuit if she does not pause her own ruling by today's deadline; a separate USPS injunction still stands. NPR |
+| **2026-08-26** | **Hannan's opener result — ONLY from an outside outlet** | Played Calvary at Ashton tonight, 5 p.m. Wednesday's line is the result from WVSSAC, the Point Pleasant Register, MetroNews or a school/county post — never the schedule, never assumed |
+| **open** | **Marshall women's soccer v Wright State (Sun Aug 23) STILL uncited** | A 3-2 Marshall win surfaced ONLY in search snippets; herdzone and wsuraiders both render title-only to this pipeline. Sat out No. 11 on those grounds. Try WCHS, Herald-Dispatch, WMUL (marshall.edu/wmul) tomorrow |
+| **open** | **Flock ordinance second reading, next Huntington council meeting** | Advanced Monday; Rumbaugh's misdemeanor amendment failed 6-4, her discrimination-language amendment passed 10-0; contract still unsigned; retention now seven days. Ran as No. 21's `huntington_cabell` line. WV MetroNews |
+| **open** | **PSC ruling on the MARL delay-or-dismiss motion** | The WV Energy Users Group joined the call to pause; opposition letters 6,757 to 152. Sept. 8 testimony date may move. Ran as No. 21's second statewide brief. WV MetroNews |
+| **open** | **NYT response to the $9.25M Spears verdict** | Ran as No. 21's first statewide brief. Alabama's damages cap trims the award by more than $2M (CBS); an appeal is the likely next move |
+| **2026-08-30** | **NFL cutdown, 6 p.m. ET Sunday** | 53-man rosters due; waivers 1 p.m. Monday. Browns close preseason v New England Thursday, Bengals at Philadelphia Friday. Ran in No. 11's leagues and week ahead. Bengals.com |
+| **2026-08-29/30** | **PL matchweek two, all three clubs at home... two of them** | Liverpool v Forest Sat 7:30 a.m. ET, Tottenham v Newcastle Sat 12:30 p.m. ET, Chelsea v Brighton Sun 9 a.m. ET; Tottenham first at Charlton in the League Cup Wed 2:45 p.m. ET. Sky Sports |
+| **2026-08-31** | **Aki banzuke — TWELFTH morning the Sept. 13-27 dates are uncited** | r/Sumo unreachable a third straight morning; Japan Times sumo desk now returns 402. The countdown ran as No. 11's sumo line at six days |
+
+### Open threads
+
+- **operation-economic-outcast** — announced, led No. 21. Next: the named bank, and any "seismic" Iranian response.
+- **hawk-fire-reno** — moved: 27% contained, 32 homes destroyed, evacuations eased 42,000 → 23,000. Ran in No. 21's U.S. Containment and cause next.
+- **us-canada-trade-war** — not run today. Ontario's premier attacked Trump Monday ("bully", "dictator"); Sept. 8 is the tariff date.
+- **hoshoryu-aki-doubt** — still unprinted for want of a citable outlet; the banzuke should force it Monday.
+- **charleston-i77-crash** — victims named (ran as No. 21's `putnam_kanawha` line, all four Raleigh County, 20-21). WVDOT's review of the elevated split continues.
+- **topsail-water-temp — RESOLVED.** The Beaufort station returned **83.3F** this morning, the first temperature since NOAA dropped it at Wrightsville; the 2026-08-24 station change in `config.TOPSAIL_TEMP_*` works. Both papers carried it.
+- **vtdigger-403** — second occurrence (first 2026-08-22): the homepage 403'd, Vermont went unswept, and the away desk ran empty.
+
+### Covered slugs, 2026-08-25
+
+`operation-economic-outcast`, `scotus-mail-voting-pause`, `hawk-fire-27pct`, `asylum-visa-revocation-200k`,
+`bahrain-navy-families-limbo`, `pomas-tornado-31`, `colombia-immigration-raids`, `pakistan-iran-talks-tehran`,
+`indonesia-peatland-fires`, `spears-nyt-9-25m`, `marl-delay-energy-users`, `flock-second-reading`,
+`i77-victims-named`, `wood-assessor-cuts`, `ocean-sst-record-21-1c`, `moon-microbes-goddard`,
+`supercentenarian-cd4`, `depression-neurogenesis-atlas`, `chelsea-fulham-3-2-alonso`, `reds-giants-0-5`,
+`pirates-padres-3-2-12inn`, `nfl-cutdown-aug30`, `aki-banzuke-six-days`

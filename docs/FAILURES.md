@@ -698,3 +698,11 @@ and the failure protocol at the bottom of that file appends here too.
   ("15:30 BST", which is what shipped on Aug. 18) was ever caught. Predates this session —
   found while checking a new regex for the same corruption. Repaired and both forms tested.
 - 2026-08-25T11:00:03Z · 2026-08-25 · post_discord: split into FRONT PAGE and INSIDE messages to keep the notebook whole
+- 2026-08-25 — *r/Sumo unfetchable a THIRD straight morning* (the fetch tool refuses
+  `old.reddit.com`), and the Japan Times sumo desk returned **402 Payment Required** — a new
+  loss. The daily sweep ran on the JSA's pages and searches only; the Aki dates stayed
+  uncited a twelfth morning and the countdown ran as the floor. The fan-wire step needs an
+  alternate route if this holds.
+- 2026-08-25 — *VTDigger's homepage returned 403 again* (second occurrence; first
+  2026-08-22). Vermont went unswept and the away desk ran empty — Prince George had no new
+  movement either, so `away: []` was the honest notebook.
