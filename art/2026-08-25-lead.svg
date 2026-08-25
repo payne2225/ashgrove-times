@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 506" role="img"
+     aria-label="Sketch: the Treasury Department lectern before Monday's sanctions announcement - a wooden podium carrying the department's round seal, two slim microphones rising from its top, and draped flags hanging in folds behind it.">
+  <defs>
+    <style>
+      .ink   { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; }
+      .mask  { fill: var(--parchment, #f4f0e6); stroke: currentColor;
+               stroke-linecap: round; stroke-linejoin: round; }
+      .faint { opacity: 0.3; }
+      .mid   { opacity: 0.58; }
+    </style>
+  </defs>
+
+  <g>
+    <!-- Backdrop wall, hinted by a single cornice line -->
+    <g class="ink faint" stroke-width="1">
+      <path d="M40 60 H860"/>
+    </g>
+
+    <!-- Left flag: departmental banner on a pole, hanging in folds -->
+    <g>
+      <path class="mask" d="M118 74 C112 150 116 260 110 356 C130 368 156 366 178 356
+                            C186 352 196 354 202 358 C210 280 206 160 212 82
+                            C182 68 146 66 118 74 Z" stroke-width="2.2"/>
+      <g class="ink mid" stroke-width="1.1">
+        <path d="M138 80 C134 170 138 270 132 352"/>
+        <path d="M166 80 C162 170 166 268 162 352"/>
+        <path d="M190 82 C188 170 192 266 190 352"/>
+      </g>
+      <!-- pole and finial -->
+      <path class="ink" stroke-width="2.4" d="M165 470 V44"/>
+      <circle class="ink" stroke-width="1.6" cx="165" cy="38" r="5"/>
+      <!-- tasselled cord -->
+      <g class="ink faint" stroke-width="1">
+        <path d="M165 52 C150 70 142 92 146 116"/>
+        <path d="M146 116 c-2 8 -6 12 -10 14 M146 116 c4 7 4 13 2 18"/>
+      </g>
+    </g>
+
+    <!-- Right flag: mirrored banner -->
+    <g>
+      <path class="mask" d="M688 82 C694 160 690 280 698 358 C704 354 714 352 722 356
+                            C744 366 770 368 790 356 C784 260 788 150 782 74
+                            C754 66 718 68 688 82 Z" stroke-width="2.2"/>
+      <g class="ink mid" stroke-width="1.1">
+        <path d="M710 82 C712 170 708 266 710 352"/>
+        <path d="M734 80 C738 170 734 268 738 352"/>
+        <path d="M762 80 C766 170 762 270 768 352"/>
+      </g>
+      <path class="ink" stroke-width="2.4" d="M735 470 V44"/>
+      <circle class="ink" stroke-width="1.6" cx="735" cy="38" r="5"/>
+      <g class="ink faint" stroke-width="1">
+        <path d="M735 52 C750 70 758 92 754 116"/>
+        <path d="M754 116 c2 8 6 12 10 14 M754 116 c-4 7 -4 13 -2 18"/>
+      </g>
+    </g>
+
+    <!-- Center flag: stripes, hanging behind the podium -->
+    <g>
+      <path class="mask" d="M368 66 C364 120 368 180 362 240 C382 254 420 260 452 258
+                            C492 256 520 248 536 236 C530 178 534 120 530 66 C478 54 420 54 368 66 Z" stroke-width="2.2"/>
+      <g class="ink mid" stroke-width="1">
+        <path d="M382 92 C434 102 470 102 520 92"/>
+        <path d="M378 122 C434 132 470 132 522 122"/>
+        <path d="M374 152 C434 162 470 162 524 152"/>
+        <path d="M370 182 C434 192 470 192 526 182"/>
+        <path d="M366 212 C434 222 472 222 528 212"/>
+        <path d="M363 240 C434 252 476 250 532 238"/>
+      </g>
+      <!-- canton -->
+      <path class="ink" stroke-width="1.4" d="M368 66 C367 88 367 110 365 132 C392 138 414 138 438 134 C438 110 439 86 440 62"/>
+    </g>
+
+    <!-- Podium: angled reading top, tapering wooden body -->
+    <path class="mask" d="M318 262 L582 262 L566 248 L334 248 Z" stroke-width="2.4"/>
+    <path class="mask" d="M330 262 L570 262 L544 470 L356 470 Z" stroke-width="2.6"/>
+    <!-- wood grain, faint verticals following the taper -->
+    <g class="ink faint" stroke-width="0.9">
+      <path d="M396 268 L404 464"/>
+      <path d="M504 268 L496 464"/>
+      <path d="M348 300 L552 300"/>
+      <path d="M352 380 L548 380"/>
+    </g>
+
+    <!-- Microphones: two slim gooseneck stalks off the reading top -->
+    <g class="ink" stroke-width="1.8">
+      <path d="M436 250 C432 224 430 200 436 178 C438 170 444 166 450 166"/>
+      <path d="M464 250 C462 226 462 204 468 184 C470 176 476 172 482 172"/>
+    </g>
+    <g class="mask" stroke-width="1.6">
+      <rect x="448" y="160" width="14" height="10" rx="4"/>
+      <rect x="480" y="166" width="14" height="10" rx="4"/>
+    </g>
+
+    <!-- The seal: outer ring, lettering band as tick marks, inner shield -->
+    <circle class="mask" cx="450" cy="360" r="62" stroke-width="2.6"/>
+    <circle class="ink" cx="450" cy="360" r="46" stroke-width="1.4"/>
+    <g class="ink faint" stroke-width="1">
+      <path d="M450 302 l0 6 M482 310 l-3 6 M506 330 l-5 4 M514 358 l-6 1 M508 388 l-6 -2 M488 408 l-4 -5 M450 418 l0 -6 M412 408 l4 -5 M392 388 l6 -2 M386 358 l6 1 M394 330 l5 4 M418 310 l3 6"/>
+    </g>
+    <!-- shield with chevron, scales above, key below -->
+    <path class="ink" stroke-width="1.8" d="M424 336 C440 330 460 330 476 336 C476 356 474 376 450 390 C426 376 424 356 424 336 Z"/>
+    <path class="ink" stroke-width="1.4" d="M428 356 L446 344 L454 344 L472 356 M428 362 L446 350 L454 350 L472 362"/>
+    <!-- scales: beam and two pans -->
+    <g class="ink" stroke-width="1.2">
+      <path d="M438 340 H462 M450 336 V340"/>
+      <path d="M438 340 l-3 5 M438 340 l3 5 M432 345 a6 3 0 0 0 12 0"/>
+      <path d="M462 340 l-3 5 M462 340 l3 5 M456 345 a6 3 0 0 0 12 0"/>
+    </g>
+    <!-- key, lying horizontal under the chevron -->
+    <g class="ink" stroke-width="1.2">
+      <circle cx="438" cy="374" r="4"/>
+      <path d="M442 374 H464 M458 374 v4 M464 374 v5"/>
+    </g>
+
+    <!-- Floor line -->
+    <g class="ink faint" stroke-width="1.1">
+      <path d="M60 470 H840"/>
+    </g>
+  </g>
+</svg>
