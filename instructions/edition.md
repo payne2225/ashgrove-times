@@ -228,15 +228,41 @@ The notebook has **four parts, in this order**:
 
 | Part | JSON key | Shape | Required |
 |---|---|---|---|
-| Statewide briefs | `briefs` | normal brief | **always**, 2–3 |
+| Statewide briefs | `briefs` | normal brief | **always**, 3–5 |
 | Regional roundup | `regional` | **one sentence** each | only where there is real news |
 | Away desk | `away` | **one sentence** each | only where there is real news |
-| Fishing | `fishing` | one line per water | whatever `out/fishing.json` supports |
+| Vacation Hotspots | `hotspots` | **one sentence** each | only where there is real news |
 
-**"Keep it fairly lean" is a hard instruction, not a preference.** Regional
-and away entries are **one sentence**. Not a brief, not two sentences, no
-"what happens next" clause. If an item genuinely deserves more room, it is
-not a regional line — it is a statewide brief, and it moves to `briefs`.
+#### It got bigger on 2026-08-26, and here is why
+
+Nate: *"the West Virginia section is pretty skimpy."* He was right, and the
+reason is worth knowing so nobody quietly shrinks it back. Two statewide
+briefs and six notebook lines were never an editorial judgement — they were
+**the Discord embed budget**. The paper used to BE the Discord message, that
+message caps at 6,000 characters, and West Virginia's share of it was 1,500.
+The section this paper exists for was the smallest thing on the page because
+of a limit in a chat app.
+
+The paper does not post that way any more (see §9). So:
+
+- **Statewide briefs: 3–5**, four on a normal morning. These are real briefs
+  — headline, summary, source, link — and they are the heart of the section.
+- **Notebook lines: about nine** across regional, away and hotspots, against
+  six before. Still a target and still never a quota.
+- **A line may run to 150 characters**, up from 110. That is not permission
+  to write a brief in the notebook: it is room for the "because" clause that
+  110 characters kept cutting off, which is what made lines read like a
+  headline with the news removed.
+
+**More room is not more words about the same news.** If West Virginia had a
+thin morning, it is thin — the fix for a skimpy section is to look harder,
+not to write longer. The one thing that would be worse than a small West
+Virginia section is a padded one.
+
+**Regional, away and hotspot entries are still ONE SENTENCE.** Not a brief,
+not two sentences, no "what happens next" clause. If an item genuinely
+deserves more room, it is not a notebook line — it is a statewide brief, and
+it moves to `briefs`.
 
 **Only a region with genuine news gets a line.** Three regions on a Tuesday
 is a normal Tuesday. Zero regions is legal. A day where all five regions
@@ -404,19 +430,128 @@ The freed budget went to the wire sections: **U.S., World and Science &
 Technology now target FOUR briefs each** (`config.EMBED_BUDGET` allocates
 1,000 characters per section). Everything else about a brief is unchanged.
 
+#### Vacation Hotspots — `hotspots`
+
+Replaced "On the Water" on **2026-08-26** (Nate). That block printed gauge
+readings and tide times, which are instrument data, and the water has
+belonged to Sports & Sportsman since 2026-08-21 — the News Desk was printing
+the same numbers twice. **Do not put a gauge reading, a tide time or a water
+temperature in this block.** If you catch yourself typing "cfs", you are
+writing the other paper.
+
+This block covers **the two places this crew actually goes**:
+
+| `hotspot_id` | `place` | What it covers |
+|---|---|---|
+| `cabin` | Webster County & Cowen | Cowen, Webster Springs, Camden-on-Gauley, Cherry River |
+| `topsail` | Topsail Island & the coast | Topsail Beach, Surf City, North Topsail Beach, Hampstead, Sneads Ferry |
+
+**Wilmington counts only when the story is genuinely big** — a port strike,
+a hurricane, a hospital closing. Not a restaurant opening, not a high school
+game, not a StarNews feature. The test: would somebody with a beach week
+booked need to know?
+
+**Summersville is a judgement call.** It sits in the `nicholas_webster`
+region too, so a Summersville story belongs in **Around the State** unless
+it actually reaches Cowen — a road, a water line, a school district.
+Deciding it twice is how the same story ends up in two blocks of one box.
+
+What earns a line: a road closed or reopened, a bridge weight limit, a
+festival, a beach access, a dune project, a pier, an ordinance, a zoning
+fight, a storm's aftermath, a business that mattered to somebody. What does
+not: weather (Jim has it), fishing conditions (Sports has them), and
+anything you would not tell a friend who was driving down next weekend.
+
+```json
+{"hotspot_id": "topsail", "place": "Topsail Island & the coast",
+ "item": "Surf City reopened the south-end beach access it closed for dune work in June, a week before the Labor Day weekend it was aiming at.",
+ "source": "WECT", "url": "https://www.wect.com/..."}
+```
+
+`place` is copied **verbatim** from `config.HOTSPOTS`; there is no `people`
+key, because nobody lives there. One sentence, 170 characters hard, ~130 to
+aim at — a little longer than a regional line on purpose, since nobody in
+the group reads these towns' papers and the line has to land cold.
+
+**A morning with no hotspot news runs no hotspot lines.** Two out-of-state
+towns will not both have news every day, and inventing one for a place
+people plan trips around is worse than inventing one anywhere else.
+
+### British Columbia — STANDING SECTION
+
+```
+Prince George BC news {Month D, YYYY}
+British Columbia {topic} {Month D, YYYY}
+{CBC British Columbia OR Prince George Citizen} {Month D, YYYY}
+```
+
+**Added 2026-08-26 for Kirsten**, who lives in Prince George. It was one
+sentence on the Away Desk, sharing a sub-block with Wes's Vermont — which is
+not coverage of a place somebody actually lives. The `prince_george` Away
+Desk line is **retired**; the validator refuses it, because covering the
+same town in two places on one page is worse than covering it once properly.
+
+It is a normal wire section: **two to three briefs**, headline, summary,
+source, link. Prince George first when Prince George has news, and the
+province when it does not — B.C. wildfire service, the legislature in
+Victoria, the Interior, the north. **Vancouver is B.C. and counts**, but a
+section that is three Vancouver briefs is the same failure as a World
+section that is three briefs from one country.
+
+Trusted and readable: **CBC British Columbia**, **Prince George Citizen**,
+**Vancouver Sun**, **CTV Vancouver**, **Global BC**.
+
+**She reads this.** The same rule that governs Jim applies here: no coping
+advice, ever — if the news is a fire or a flood near her, it is reported as
+news, with numbers and distances, and it does not tell her how to feel about
+it.
+
+### Artificial Intelligence — STANDING SECTION
+
+```
+AI news {Month D, YYYY}
+{AI regulation OR AI policy} {Month D, YYYY}
+{model release OR AI research} {Month D, YYYY}
+```
+
+**Added 2026-08-26.** It had been living inside Science & Technology and
+quietly eating it — telescopes and medicine losing slots to model releases.
+Two to three briefs.
+
+**What this section is for:** capability results with a method behind them,
+regulation and court decisions, deployments with a measured outcome, labour
+and energy effects, security and misuse with a named incident. Research from
+a lab, a university or a journal.
+
+**What it is not:** a product-launch feed. **A model release is only a brief
+when something is actually claimed and measured** — a benchmark, a price
+change with a number, a capability with a demonstration. "Company announces
+model" is a press release, and this paper does not print press releases.
+Funding rounds are business news and mostly not news at all. A vendor blog
+post is a source about that vendor and nothing else.
+
+**Say which company.** "An AI company" is not reporting. And when a claim
+comes from the company that made the thing, the line says so.
+
 ### Science & Technology
 
 ```
 science news {Month D, YYYY}
 {journal: Nature OR Science OR NEJM} study {Month YYYY}
 NASA OR ESA OR SpaceX launch {Month D, YYYY}
-AI research announcement {Month D, YYYY}
 ```
 
 Prefer peer-reviewed results, agency announcements, and reported technology
 news with a named institution behind it. **Product launches, funding
 rounds, and vendor blog posts are not science.** A gadget review is never a
 brief.
+
+**AI moved out on 2026-08-26** and has its own section. That is not a
+boundary to police pedantically — a Nature paper on protein folding that
+happens to use a model is Science, and an AI-safety regulation is AI. The
+test is what the story is ABOUT. What it does mean is that Sci/Tech no
+longer has to spend a slot on the week's model release, which is why it was
+running thin.
 
 ---
 
@@ -473,8 +608,14 @@ a reason to hold the paper.** The notebook simply runs no fishing lines.
 Never pass `verify=False` anywhere, and never point this script at
 `wvdnr.gov` (see stocking, below).
 
-Turn the file into **at most two one-line entries** in the WV notebook's
-`fishing` array. Copy numbers; do not recompute, re-round, or convert them.
+> **As of 2026-08-26 this file does NOT feed the News Desk.** The notebook's
+> water block became Vacation Hotspots and carries news, not readings.
+> `out/fishing.json` is still fetched here because **Sports & Sportsman runs
+> off it** and both papers are researched in the same wake-up — the fetch
+> stays, the Times' use of it ends. The validator refuses a `fishing` array
+> in a News Desk edition dated on or after 2026-08-26 and tells you where it
+> went. Everything below describes the SPORTS paper's use of the file; see
+> `instructions/sportsman.md` for its contract.
 
 **Williams River (Cowen)** — from `williams`: `discharge_cfs`,
 `discharge_cfs_trend` (`rising` / `falling` / `steady`), `read`, and
@@ -983,67 +1124,84 @@ costs more than either.
 
 ---
 
-## 9. Post
+## 9. Post — ONE message, and it is a link
+
+**Changed 2026-08-26 (Nate). The paper no longer goes to Discord.** One
+message a morning in **#the-ashgrove-times**: what is in today's edition,
+and a link to Home. The reader clicks through to the website for the paper
+itself. **Sports & Sportsman does not post to Discord at all any more** —
+Home links it, so do the nav buttons on every page, and a second post was a
+second notification for the same trip.
+
+Why this matters to you, the desk: **the 6,000-character ceiling is gone.**
+Four of eleven editions had split in two; a written, sourced wire brief was
+cut for budget on 2026-08-22; the West Virginia notebook was capped at six
+lines because that is what the embed paid for. None of that was journalism —
+it was a chat app's shape pressing on the paper. Write the edition the news
+deserves and let the page be as long as it is.
 
 The task prompt provides `DISCORD_WEBHOOK_URL`. Inspect first, then send:
 
 ```
-python post_discord.py --date YYYY-MM-DD --attach out/ashgrove-YYYY-MM-DD.png --dry-run
+python post_discord.py --date YYYY-MM-DD --digest --dry-run
 ```
 
 ```
-DISCORD_WEBHOOK_URL="<from your prompt>" python post_discord.py \
-  --date YYYY-MM-DD \
-  --attach out/ashgrove-YYYY-MM-DD.png \
-  --not-before 07:00 \
-  --page-url https://payne2225.github.io/ashgrove-times/editions/YYYY-MM-DD.html
+DISCORD_WEBHOOK_URL="<from your prompt>" python post_discord.py   --date YYYY-MM-DD   --digest   --attach out/ashgrove-YYYY-MM-DD.png   --not-before 07:00
 ```
 
-**Always pass `--not-before 07:00`.** You wake at 6:00 because the research
-is slow and variable — 37 minutes on 2026-08-06 — but the readers get their
-paper at seven, the same as yesterday and tomorrow. The flag sleeps until
-7:00 ET and then posts. If you ran long and it is already past, it posts
-immediately and says so; that is not an error. Note that the sandbox clock
-is UTC, so do not try to time this yourself — the flag converts.
+`--digest` builds the whole thing: masthead line, the lead headline and dek,
+one line per section with its top headline, a Sports & Sportsman tease read
+from `editions/sportsman/YYYY-MM-DD.json`, and the link. It is always ONE
+message — there is no trim ladder, no split, and no budget to write against.
+
+`--index-url` defaults to `config.home_url()`. **It links Home, not the
+dated edition**, and that is deliberate: Home reaches all three papers,
+while a dated permalink reaches one third of one of them.
+
+**Always pass `--not-before 07:00`.** You wake at 5:30 because the research
+is slow and variable, but the readers get their paper at seven, the same as
+yesterday and tomorrow. The flag sleeps until 7:00 ET and then posts. If you
+ran long and it is already past, it posts immediately and says so; that is
+not an error. The sandbox clock is UTC, so do not try to time this yourself
+— the flag converts.
 
 That hold is also free Pages build time. Push in step 7, and by 7:00 the
-permalink has usually gone green on its own.
+site has usually gone green on its own. **The digest does not need the Pages
+build to be finished**: it links Home, which has existed since August 5th,
+so there is nothing to backfill and no reason to hold the post for a build.
 
-Drop `--page-url` when Pages is disabled or was not green. Use
-`--attach assets/masthead-fallback.png` when the hero render failed.
+Use `--attach assets/masthead-fallback.png` when the hero render failed.
 
 Confirm exit 0. The script writes `out/YYYY-MM-DD.payload.json` — the exact
-bytes it sent — so any argument about what shipped is settled by a file,
-not a memory.
+bytes it sent — so any argument about what shipped is settled by a file, not
+a memory.
 
 Never pass `--force` unless your task prompt explicitly says to. That flag
 is the only thing standing between a retry and a double paper.
 
+### The old full-embed path
+
+`post_discord.py` still knows how to post the whole paper as embeds, with
+the trim ladder and the FRONT PAGE / INSIDE split. **The routine does not
+use it and neither should you** — it is kept for a deliberate one-off, and
+running it by accident would put a 3,000-word paper in the channel that
+nobody asked for. If you find yourself reaching for it, that is a question
+for Nate, not a judgement call.
+
 ---
 
-## 9.5. Backfill the link — only if step 8 timed out
+## 9.5. Backfill the link — RETIRED 2026-08-26
 
-If you posted without `--page-url`, run this now. It posts nothing. It waits
-for the Pages build (up to 15 minutes), then edits the permalink into the
-message you already sent:
+There is nothing to backfill any more. The digest links **Home**, which has
+existed since 2026-08-05 and is never rebuilt from an edition, so the post
+is never waiting on a Pages build and never publishes a 404. `--backfill-link`
+still works and still edits a permalink into an old-style post; the routine
+has no use for it.
 
-```
-DISCORD_WEBHOOK_URL="<from your prompt>" python post_discord.py \
-  --date YYYY-MM-DD --backfill-link
-```
-
-Readers see an ordinary Discord edit. The paper was on time and the link
-arrives when it is real, which is strictly better than either waiting or
-publishing a 404.
-
-It edits **only the content line**, never the embeds — growing the embeds
-could tip a one-message edition over the ceiling and make the trim ladder
-cut briefs that are already published. A backfill may only ever add.
-
-It is safe to run twice: a row that already carries a `page_url` is left
-alone. If it gives up, it says so and logs to `docs/FAILURES.md`; the
-permalink is still reachable from `archive.html`, so this is a blemish and
-not a failure. Note it in the ledger and move on.
+Step 8's short Pages wait stays, for a different reason: it is how you learn
+the build is green before you walk away, and the dated page is what
+`archive.html` links.
 
 ---
 

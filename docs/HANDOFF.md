@@ -11,14 +11,14 @@ have to ask anyone to write a handoff again.
 > exists now, what is decided, what is open. Delete what stopped being
 > true rather than appending to it.
 
-Last updated: **2026-08-24**
+Last updated: **2026-08-25**
 
 ---
 
 ## 1. What this is
 
-Three daily posts to the friends' Discord (Ashgrove Gaming), plus a
-public website. Two repos:
+**Two daily Discord posts and a website** (changed 2026-08-25 — it was three
+posts and the papers themselves went to the channel). Two repos:
 
 | Repo | Visibility | Holds |
 |---|---|---|
@@ -34,9 +34,8 @@ drives everything. The one carve-out is in section 5.
 
 | ET | What | Routine |
 |---|---|---|
-| 5:30 | Wake, research BOTH papers before either posts | Times |
-| 7:00 | **The News Desk** posts | Times |
-| 7:05 | **Sports & Sportsman** posts | same routine |
+| 5:30 | Wake, research and PUBLISH both papers | Times |
+| 7:00 | **The digest posts** — one message, what is in today's edition and a link to Home | Times |
 | 7:15 | **Jim Claudtore's briefing** posts | weatherman |
 | 8:00 | Watchdog — silent unless something failed | watchdog |
 | 8:10 | Weather page typeset onto the site | weather-page |
@@ -68,17 +67,77 @@ still raw UTC and will each shift an hour on **2026-11-01** — the papers
 to 4:30 ET, the weather page to 7:10, the report card to 17:00. Either
 move them that week or give them the same hold.
 
+## 3.5 The channel gets a doorbell, not the paper (2026-08-25)
+
+Nate: *"let's actually stop trying to post the full Times to Discord. Let's
+just have one post that links to the index page."*
+
+- **#the-ashgrove-times** — ONE message a morning: masthead line, the lead
+  headline and dek, a line per section with its top headline, a Sports &
+  Sportsman tease, and a link to **Home**. `post_discord.py --digest`.
+- **#the-weather-claude** — unchanged. Jim posts exactly as he always has.
+- **#sports-and-sportsman** — **retired.** That paper is still written,
+  validated, rendered and pushed every morning; it just is not posted. Home
+  and the nav buttons reach it.
+
+**What this bought the journalism, which is the part worth protecting:** the
+6,000-character embed ceiling is gone. Four of eleven editions had split in
+two; a sourced wire brief was cut for budget on 2026-08-22; the West
+Virginia notebook was capped at six lines because that is what the embed
+paid for. `EMBED_BUDGET` still exists but it is now an editorial guide to
+PROPORTION, and nothing truncates a long section any more.
+
+**The digest links Home, not the dated edition** — Home reaches all three
+papers, a permalink reaches a third of one. There is nothing to backfill.
+
+## 3.6 What the paper carries (2026-08-26)
+
+Two new standing sections and a rebuilt notebook, all live from the
+2026-08-26 edition; `config.sections_for(date)` and
+`config.WV_SUBHEADS_CHANGED_ON` date-scope every one of these so the archive
+still validates as the paper it was.
+
+- **British Columbia** — Kirsten's. Was one Away Desk sentence sharing a
+  block with Wes's Vermont. Now a wire section, 2–3 briefs. The
+  `prince_george` Away Desk line is **retired and refused by the validator**.
+- **Artificial Intelligence** — was eating Science & Technology's slots.
+  Now top-level, 2–3 briefs, and a model release is only a brief when
+  something is measured.
+- **West Virginia got bigger.** 3–5 statewide briefs (was 2–3), ~9 notebook
+  lines (was 6), 150 chars a line (was 110). Those old numbers were the
+  embed budget, never an editorial judgement.
+- **"On the Water" → "Vacation Hotspots"** (`fishing` → `hotspots`). It
+  carries NEWS from the two places the crew goes — Webster County/Cowen and
+  Topsail Island/the coast — not gauge readings. The water belongs to Sports
+  & Sportsman and this was the last of that overlap. `topsail` is promoted
+  out of the Away Desk too.
+
+Vermont is now the only Away Desk region.
+
 ## 4. The website
 
-`https://payne2225.github.io/ashgrove-times/` — the **Newsstand**, a
-static hand-kept page (`site/index.html`) that the renderer must never
-write. It links the three sections:
+`https://payne2225.github.io/ashgrove-times/home.html` — **Home**, a static
+hand-kept page (`site/home.html`) that the renderer must never write. It was
+called The Newsstand until 2026-08-25, while the nav button that reached it
+had said Home since 2026-08-21. `site/index.html` is now a redirect to it so
+a bare `/` still resolves, and it carries the same `<title>` and
+`<meta description>` so a link to the root still unfurls correctly in
+Discord. **Home's title and description are what the channel sees every
+morning** — they are the shop window, not housekeeping. It links:
 
 | Section | URL | Written by |
 |---|---|---|
 | The News Desk | `/today.html` and `/editions/<date>.html` | `render_edition.py` |
 | Sports & Sportsman | `/sportsman/` | `render_edition.py --sportsman` |
 | The Weather Claude | `/weather/` | `render_edition.py --weather` |
+
+**The weather page was rebuilt 2026-08-25** to set as a newspaper rather
+than as a pasted Discord transcript: headline and dek from Jim's `#`/`##`
+lines, each location report a wire section with a black label chip, stacked
+headings combined into one section, his `>` confidence note as a boxed
+feature, and his `-#` small-text lines as the colophon. Emoji are stripped
+from headings — a newspaper has type for that. **None of this touches what
+Jim posts**; the renderer only ever reads his archived markdown.
 
 Every section page carries THE ASHGROVE TIMES as a family banner above
 its own masthead, plus nav buttons (Home and the other two sections)

@@ -99,10 +99,16 @@ LEAD_OPTIONAL_KEYS: set[str] = set()
 SECTION_KEYS = {"id", "label", "briefs"}
 # West Virginia is the only section with a shape of its own: Ian's .wv-box
 # instead of the two-column brief layout, and three optional sub-arrays.
-WV_SECTION_KEYS = SECTION_KEYS | {"notebook_title", "regional", "away", "fishing"}
+WV_SECTION_KEYS = SECTION_KEYS | {"notebook_title"} | set(config.WV_ALL_SUBHEAD_KEYS)
 BRIEF_KEYS = {"headline", "summary", "source", "url"}
 REGION_ITEM_KEYS = {"region_id", "place", "people", "item", "source", "url"}
 REGION_ITEM_REQUIRED = {"region_id", "place", "people", "item", "source"}
+
+# A Vacation Hotspot line is a regional line with no `people`: nobody in the
+# group lives in Cowen or on Topsail Island, they GO there, which is the
+# whole reason the block exists.
+HOTSPOT_ITEM_KEYS = {"hotspot_id", "place", "item", "source", "url"}
+HOTSPOT_ITEM_REQUIRED = {"hotspot_id", "place", "item", "source"}
 FISHING_KEYS = {"water", "line", "source", "url"}
 FISHING_REQUIRED = {"water", "line", "source"}
 STAT_KEYS = {"label", "value", "change", "direction"}
@@ -326,7 +332,7 @@ def _wv_items_of(edition: dict) -> list[tuple[str, dict]]:
     if section is None:
         return []
     out: list[tuple[str, dict]] = []
-    for key in ("regional", "away", "fishing"):
+    for key in config.WV_ALL_SUBHEAD_KEYS:
         entries = section.get(key)
         if not isinstance(entries, list):
             continue
@@ -478,14 +484,14 @@ def _notebook_extras_block(section: dict) -> str:
         return ""
     chunks: list[str] = []
     for key, label_key in (("regional", "place"), ("away", "place"),
-                           ("fishing", "water")):
+                           ("hotspots", "place"), ("fishing", "water")):
         entries = section.get(key)
         if not isinstance(entries, list) or not entries:
             continue
         lines = [_notebook_line(e, label_key) for e in entries if isinstance(e, dict)]
         if not lines:
             continue
-        chunks.append(f"**{config.WV_SUBHEADS[key]}**")
+        chunks.append(f"**{config.wv_subhead(key)}**")
         chunks.extend(lines)
     return "\n".join(chunks)
 
@@ -1013,6 +1019,73 @@ def _check_region_item(entry: object, path: str, want_away: bool) -> list[str]:
     return errors
 
 
+def _check_hotspot_item(entry: object, path: str) -> list[str]:
+    """One Vacation Hotspots line: a real hotspot, real news, one sentence.
+
+    Same register as a regional line and the same truth rules, with two
+    differences. There is no `people` — nobody lives there. And the line is
+    allowed a few more characters, because these are towns nobody in the
+    group reads a local paper for, so it has to carry enough context to land
+    cold: "Surf City" alone means nothing without saying it is the island.
+    """
+    if not isinstance(entry, dict):
+        return [f"{path} must be an object"]
+
+    errors: list[str] = []
+    missing = HOTSPOT_ITEM_REQUIRED - set(entry)
+    if missing:
+        errors.append(f"{path} missing key(s): {', '.join(sorted(missing))}")
+    unknown = set(entry) - HOTSPOT_ITEM_KEYS
+    if unknown:
+        errors.append(f"{path} has unknown key(s): {', '.join(sorted(unknown))}")
+
+    hotspot = None
+    hid = entry.get("hotspot_id")
+    if not _nonempty_str(hid):
+        errors.append(f"{path}.hotspot_id must be a non-empty string")
+    else:
+        try:
+            hotspot = config.hotspot_by_id(hid)
+        except KeyError:
+            errors.append(
+                f"{path}.hotspot_id {hid!r} is not in config.HOTSPOTS "
+                f"(expected one of {config.HOTSPOT_IDS})"
+            )
+
+    if hotspot is not None and entry.get("place") != hotspot["place"]:
+        errors.append(
+            f"{path}.place is {entry.get('place')!r}, expected "
+            f"{hotspot['place']!r} — config.HOTSPOTS is the one source of truth"
+        )
+
+    item = entry.get("item")
+    if not _nonempty_str(item):
+        errors.append(f"{path}.item must be a non-empty string")
+    else:
+        if len(item) > config.HOTSPOT_ITEM_MAX_CHARS:
+            errors.append(
+                f"{path}.item is {len(item)} chars "
+                f"(max {config.HOTSPOT_ITEM_MAX_CHARS}) — a hotspot line is "
+                "one sentence, not a brief"
+            )
+        count = sentence_count(item)
+        if count > 1:
+            errors.append(
+                f"{path}.item runs {count} sentences; Vacation Hotspots is "
+                "ONE sentence per place — cut it or drop the place"
+            )
+        if "\n" in item:
+            errors.append(f"{path}.item must be a single line")
+
+    if not _nonempty_str(entry.get("source")):
+        errors.append(f"{path}.source must be a non-empty string")
+
+    url = entry.get("url")
+    if url is not None and not _is_str(url):
+        errors.append(f"{path}.url must be a string or null")
+    return errors
+
+
 # ------------------------------------------- fishing numbers, traced to file
 
 # The stat strip byte-matches every value it prints against out/stats.json,
@@ -1349,6 +1422,18 @@ def _check_notebook(
             item_path = f"{path}.{key}[{j}]"
             errors += _check_region_item(entry, item_path, want_away)
             rid = entry.get("region_id") if isinstance(entry, dict) else None
+            # Date-scoped: an edition published before the promotion is a
+            # correct record of a paper that ran, not a mistake to flag.
+            if (_is_str(rid)
+                    and rid in config.PROMOTED_REGION_IDS
+                    and _is_str(edition_date)
+                    and edition_date >= config.WV_SUBHEADS_CHANGED_ON):
+                errors.append(
+                    f"{item_path}.region_id {rid!r} was promoted out of the "
+                    f"notebook on {config.WV_SUBHEADS_CHANGED_ON} — it belongs to "
+                    f"{config.PROMOTED_REGION_IDS[rid]} now, and covering the "
+                    "same town in both places is worse than covering it once"
+                )
             if _is_str(rid):
                 if rid in seen:
                     errors.append(
@@ -1357,7 +1442,46 @@ def _check_notebook(
                 else:
                     seen[rid] = item_path
 
+    hotspot_entries = section.get("hotspots")
+    if hotspot_entries is not None:
+        if not isinstance(hotspot_entries, list):
+            errors.append(f"{path}.hotspots must be a list (empty is fine)")
+        else:
+            if len(hotspot_entries) > config.HOTSPOT_MAX:
+                errors.append(
+                    f"{path}.hotspots has {len(hotspot_entries)} entries "
+                    f"(max {config.HOTSPOT_MAX}, one per hotspot) — a place "
+                    "cannot file twice"
+                )
+            seen_hot: dict[str, str] = {}
+            for j, entry in enumerate(hotspot_entries):
+                item_path = f"{path}.hotspots[{j}]"
+                errors += _check_hotspot_item(entry, item_path)
+                hid = entry.get("hotspot_id") if isinstance(entry, dict) else None
+                if _is_str(hid):
+                    if hid in seen_hot:
+                        errors.append(
+                            f"{item_path}.hotspot_id {hid!r} duplicates "
+                            f"{seen_hot[hid]}"
+                        )
+                    else:
+                        seen_hot[hid] = item_path
+
+    # "On the Water" was retired from the News Desk on 2026-08-25. It printed
+    # gauge and tide READINGS, which are instrument data, and the water has
+    # belonged to Sports & Sportsman since 2026-08-21 — this was the last of
+    # that overlap. Archived editions keep theirs and are validated below as
+    # they always were.
     fishing_entries = section.get("fishing")
+    if (fishing_entries
+            and _is_str(edition_date)
+            and edition_date >= config.WV_SUBHEADS_CHANGED_ON):
+        errors.append(
+            f"{path}.fishing was retired from the News Desk on "
+            f"{config.WV_SUBHEADS_CHANGED_ON} — gauge and tide readings belong "
+            "to Sports & Sportsman, and this block is now 'hotspots' "
+            "(Vacation Hotspots), which carries NEWS from Cowen and Topsail"
+        )
     if fishing_entries is not None:
         if not isinstance(fishing_entries, list):
             errors.append(f"{path}.fishing must be a list (empty is fine)")
@@ -1585,13 +1709,12 @@ def _check_budgets(edition: dict) -> list[str]:
                     f"(embed description limit {config.EMBED_DESC_LIMIT})"
                 )
 
-    floor = irreducible_chars(edition)
-    if floor > config.EMBED_HARD:
-        errors.append(
-            f"even trimmed to {config.BRIEFS_MIN} brief per section the message "
-            f"projects to {floor} chars (hard {config.EMBED_HARD}) — no trim can "
-            "fix this; shorten the lead or the West Virginia notebook"
-        )
+    # The old check here was a HARD ERROR: "even trimmed to one brief per
+    # section this will not fit 6,000 characters." It was correct while the
+    # paper WAS the Discord message. Since 2026-08-25 the channel gets a
+    # one-message digest and a link, so there is no ceiling to fail against
+    # and no trimmer waiting to eat the notebook. Length is now an editorial
+    # question, and it is answered by an advisory in _budget_advisory().
     return errors
 
 
@@ -1846,32 +1969,30 @@ def _weather_ear_advisory(edition: dict) -> list[str]:
 
 
 def _budget_advisory(edition: dict) -> list[str]:
-    """Which line of config.EMBED_BUDGET the edition overspent, and by how much."""
+    """Section proportion, as guidance — not a ceiling any more.
+
+    Every line here used to be about fitting Discord's 6,000 characters.
+    Since the channel gets a digest and a link, none of it truncates
+    anything: an over-long section is now only ever out of PROPORTION with
+    the rest of the page, which is worth saying once and never worth failing
+    an edition over.
+    """
     notes: list[str] = []
-    if config.EMBED_BUDGET_TOTAL > config.EMBED_TARGET:
-        notes.append(
-            f"config.EMBED_BUDGET sums to {config.EMBED_BUDGET_TOTAL} but "
-            f"EMBED_TARGET is {config.EMBED_TARGET} — the allocation no longer "
-            "closes; fix config.py, not the edition"
-        )
 
     for key, size in section_chars(edition).items():
         allocation = config.embed_budget(key)
-        if allocation and size > allocation:
+        if allocation and size > allocation * 1.35:
             notes.append(
-                f"{key} projects to {size} chars against its {allocation} "
-                "allocation (config.EMBED_BUDGET)"
+                f"{key} runs {size} chars against a {allocation} guide — long "
+                "enough to be out of proportion with the rest of the page"
             )
 
     total = estimate_embed_chars(edition)
-    if total > config.EMBED_HARD:
+    if total > config.EDITION_LONG_CHARS:
         notes.append(
-            f"embed text projects to ~{total} chars (hard {config.EMBED_HARD}) — "
-            "post_discord.py will trim briefs"
-        )
-    elif total > config.EMBED_TARGET:
-        notes.append(
-            f"embed text projects to ~{total} chars (target {config.EMBED_TARGET})"
+            f"the edition runs ~{total} chars against a "
+            f"{config.EDITION_TARGET_CHARS} guide — a long paper is allowed on "
+            "a big day, but check it is news and not padding"
         )
     return notes
 
@@ -1885,7 +2006,7 @@ def _notebook_advisory(edition: dict, fishing: dict | None) -> list[str]:
     notes: list[str] = []
     counts = {
         key: len(section[key])
-        for key in ("regional", "away", "fishing")
+        for key in config.WV_ALL_SUBHEAD_KEYS
         if isinstance(section.get(key), list)
     }
     if not any(counts.values()):

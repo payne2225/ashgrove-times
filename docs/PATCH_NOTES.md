@@ -52,6 +52,116 @@ why the Aug. 18 "17:30 BST" miss looked like the check working. Repaired,
 both forms tested, and the whole repo scanned for the same corruption.
 
 
+## 2026-08-25 — the channel gets a doorbell; the paper gets its space back
+
+Nate: *"let's actually stop trying to post the full Times to Discord. Let's
+just have one post that links to the index page."*
+
+- **`post_discord.py --digest`** builds ONE message: masthead line, the lead
+  headline and dek, a line per section with its top headline, a Sports &
+  Sportsman tease read from that paper's own JSON, and a link to Home.
+  Measured on 2026-08-24's edition: **821 characters.** There is no trim
+  ladder, no split and no budget, because nothing in a table of contents can
+  reach 6,000 characters.
+- **#sports-and-sportsman is retired.** That paper is still researched,
+  written, validated, rendered and pushed every morning — it just is not
+  posted. `instructions/sportsman.md` says so in a box, because the risk of
+  this change is a desk that quietly gets lazier once the notification goes
+  away.
+- **#the-weather-claude is untouched.** Jim posts exactly as he always has.
+- **The full-embed path still exists** and the instructions say plainly that
+  the routine does not use it and neither should the desk.
+
+What this is really about is the journalism. Four of eleven editions had
+split in two. A written, sourced wire brief was cut for budget on
+2026-08-22. The West Virginia notebook — the reason this paper exists — was
+capped at six lines because that is what a 1,500-character embed allocation
+paid for. None of that was an editorial judgement; it was a chat app's shape
+pressing on the paper. So:
+
+- **`EMBED_HARD` stops being a gate.** The hard error in `_check_budgets`
+  ("even trimmed to one brief per section this will not fit") is gone —
+  there is no ceiling to fail against and no trimmer waiting to eat the
+  notebook. `_budget_advisory` now speaks about PROPORTION, fires at 1.35×
+  a section's guide, and never fails an edition.
+- `EDITION_TARGET_CHARS` / `EDITION_LONG_CHARS` replace the delivery ceiling
+  with an editorial one. A long paper on a big day is allowed.
+
+**Home, and `/home.html`.** The landing page called itself "The Newsstand"
+while the nav button that reached it had said "Home" since 2026-08-21, and
+its Discord unfurl advertised two papers when there are three. It is now
+Home, at `home.html`, with a description that names all three and says when
+they file. `site/index.html` became a redirect carrying the same title and
+description, so a bare `/` still resolves AND still unfurls correctly.
+
+
+## 2026-08-25 — the weather page is typeset, not pasted
+
+Nate: *"make the newspaper weather page look like the other newspaper
+pages."* It had been one 760px column of Jim's Discord message with the
+emoji headers, the bullet lists and the literal `-#` small-text markers
+still in it — a chat log in a nice font, stranding two thirds of a desktop
+page.
+
+Jim's markdown is a stable dialect, so it maps onto the paper's own
+furniture rather than needing a general parser:
+
+| Briefing | Page |
+|---|---|
+| `# <day>` | the headline |
+| `## <dek>` | the dek |
+| `### <place — person>` | a section label, the same black chip the wire sections use |
+| consecutive `###` with no body | ONE section, labels joined — that is what a stack MEANS: three towns sharing one forecast |
+| `- <item>` | the notebook's roundup list |
+| `> <text>` | a boxed feature, the way the notebook is boxed |
+| `-# <text>` | the colophon |
+
+Emoji are stripped from headings: they are how a Discord post signals a
+heading, and a newspaper has type for that. `PAGE_CLASS` dropped
+`"sportsman"` — the page had been borrowing that paper's flowed columns,
+which is what kept the whole briefing in one stripe down the middle.
+
+**Nothing here touches what Jim posts to the channel.** This module only
+ever reads his archived markdown, and the read-only boundary in
+`instructions/weatherpage.md` is unchanged.
+
+
+## 2026-08-26 — British Columbia, Artificial Intelligence, and a bigger notebook
+
+All live from the 2026-08-26 edition. Every one of these is date-scoped so
+the archive still validates as the paper it actually was: `sections_for()`
+learned a `since` key (the mirror of `RETIRED_SECTIONS`), and
+`WV_SUBHEADS_CHANGED_ON` gates the notebook changes.
+
+- **British Columbia** — Kirsten's, and a standing section. It had been one
+  sentence on the Away Desk sharing a sub-block with Wes's Vermont, which is
+  not coverage of a place somebody actually lives. The `prince_george` Away
+  Desk line is retired and the validator refuses it by name, pointing at
+  where the coverage went: the same town in two places on one page is worse
+  than one place done properly.
+- **Artificial Intelligence** — top-level rather than a block inside Science
+  & Technology, which it had been quietly eating; telescopes and medicine
+  were losing slots to model releases. The instructions are blunt that a
+  model release is a brief only when something is measured, because the
+  failure mode of an AI section is a product-launch feed.
+- **West Virginia got bigger**: 3–5 statewide briefs (was 2–3), ~9 notebook
+  lines (was 6), 150 characters a line (was 110). Nate called it skimpy and
+  he was right — those numbers were the embed budget, not a judgement about
+  West Virginia.
+- **"On the Water" → "Vacation Hotspots"** (`fishing` → `hotspots`). It
+  carried gauge readings and tide times, which are instrument data, and the
+  water has belonged to Sports & Sportsman since 2026-08-21 — this was the
+  last of that overlap. It now carries NEWS from Webster County/Cowen and
+  Topsail Island/the coast, with Wilmington allowed only when the story is
+  genuinely big. `topsail` is promoted out of the Away Desk too, leaving
+  Vermont as its only region.
+
+**Layout.** Five wire sections across a 1,490px measure would be 274px a
+column, so past four the page wraps to three wide columns over two rows —
+and the last section widens to fill whatever the last row would otherwise
+leave empty, which is the same hole this file complained about yesterday.
+
+
 ## 2026-08-24 — the desktop front page stops leaving a quarter of itself blank
 
 Pat: "the pages look really good on mobile, but some of us read them on

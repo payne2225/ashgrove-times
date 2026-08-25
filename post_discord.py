@@ -96,12 +96,12 @@ FRONT_PAGE_SECTIONS = ("us", "world")
 # fixed here; the visible subheads come from config so the broadsheet, the
 # hero card and this embed all print the same words.
 WV_SECTION_ID = "wv"
-WV_FIELD_KEYS = ("regional", "away", "fishing")
+WV_FIELD_KEYS = config.WV_ALL_SUBHEAD_KEYS
 # Optional content yields to confirmed content: three briefs a section is a
 # settled editorial requirement, these arrays are explicitly optional. Away
 # goes first because it is the least West Virginian; fishing goes last because
 # it is two lines and the most distinctive thing in the paper.
-WV_EXTRA_TRIM_ORDER = ("away", "regional", "fishing")
+WV_EXTRA_TRIM_ORDER = ("away", "regional", "hotspots", "fishing")
 
 # ...but not to nothing on the first squeeze. config.EMBED_BUDGET closes only
 # if a brief costs headline + summary + source NAME; the masked link this
@@ -110,7 +110,7 @@ WV_EXTRA_TRIM_ORDER = ("away", "regional", "fishing")
 # lands entirely on the notebook — which would delete Ian's local anchor every
 # single morning. This floor costs ~325 chars and is surrendered only after
 # every trimmable section is already down to a single brief.
-WV_EXTRA_FLOOR = {"away": 0, "regional": 1, "fishing": 1}
+WV_EXTRA_FLOOR = {"away": 0, "regional": 1, "hotspots": 1, "fishing": 1}
 
 IMAGE_EXTENSIONS = (".png", ".webp", ".jpg", ".jpeg", ".gif")
 MIME_TYPES = {
@@ -215,6 +215,11 @@ def _clip(text: str | None, limit: int) -> str:
     if len(text) <= limit:
         return text
     return text[: limit - 1].rstrip() + "…"
+
+
+def _is_text(value: object) -> bool:
+    """A non-empty string, whitespace not counting as content."""
+    return isinstance(value, str) and bool(value.strip())
 
 
 def _color(value: object) -> int:
@@ -454,7 +459,7 @@ def _wv_fields(edition: dict) -> tuple[list[dict], list[str]]:
             # paper vanishes over a line that was optional to begin with.
             fields_for_key, dropped = [], list(lines)
         else:
-            fields_for_key, dropped = _notebook_field(config.WV_SUBHEADS[key], lines, remaining)
+            fields_for_key, dropped = _notebook_field(config.wv_subhead(key), lines, remaining)
         packed[key] = fields_for_key
         used += len(fields_for_key)
         if dropped:
@@ -624,6 +629,150 @@ def _closing_footer(edition: dict) -> dict | None:
     if not bits:
         return None
     return {"text": _clip(" · ".join(bits), FOOTER_LIMIT)}
+
+
+# --------------------------------------------------- the daily digest post
+
+# Nate, 2026-08-25: stop posting the whole paper to Discord. One message a
+# morning in #the-ashgrove-times that says what is in today's edition and
+# links the Home page; the reader goes to the website for the paper itself.
+# Sports & Sportsman stops posting to Discord ENTIRELY — Home links it, and
+# so do the nav buttons on every page, so a second post was a second
+# notification for the same trip.
+#
+# What this buys, beyond a quieter channel: the paper stops being written
+# against a 6,000-character ceiling. Four splits in eleven editions, a
+# sourced wire brief cut for budget on 2026-08-22, a West Virginia notebook
+# capped at six lines because that is what the embed paid for — all of that
+# was Discord's shape pressing on the journalism. The website has no such
+# limit and never did.
+#
+# The digest links HOME, not the dated edition. Home carries all three
+# sections and always points at today, so one link reaches the whole paper;
+# a dated permalink would reach one third of it.
+
+DIGEST_MAX_INSIDE = 8       # section lines in the "Inside" list
+DIGEST_TEASE_CHARS = 88     # per line, before the ellipsis
+
+
+def _digest_tease(section: dict) -> str:
+    """The first brief's headline, clipped, or "" for an empty section."""
+    briefs = section.get("briefs") if isinstance(section, dict) else None
+    if not isinstance(briefs, list):
+        return ""
+    for brief in briefs:
+        if isinstance(brief, dict) and _is_text(brief.get("headline")):
+            return _clip(str(brief["headline"]).strip(), DIGEST_TEASE_CHARS)
+    return ""
+
+
+def _digest_inside(edition: dict) -> list[str]:
+    """One line per section that actually ran, label then its top headline."""
+    lines: list[str] = []
+    sections = edition.get("sections")
+    if not isinstance(sections, list):
+        return lines
+    by_id = {s.get("id"): s for s in sections if isinstance(s, dict)}
+    for meta in sorted(config.SECTIONS, key=lambda m: m["order"]):
+        section = by_id.get(meta["id"])
+        if not section:
+            continue
+        tease = _digest_tease(section)
+        if not tease:
+            continue
+        lines.append(f"{meta['emoji']}  **{meta['label']}** — {tease}")
+        if len(lines) >= DIGEST_MAX_INSIDE:
+            break
+    return lines
+
+
+def build_digest_payload(
+    edition: dict,
+    index_url: str | None,
+    sportsman: dict | None = None,
+    image_filename: str | None = None,
+) -> dict:
+    """The single morning message: what is in the paper, and where it is.
+
+    ONE message, always — there is nothing here that can grow to 6,000
+    characters, which is the entire point of the change. The lead headline
+    is the embed title and carries the link; the section list underneath is
+    a table of contents, not a summary, and deliberately does not try to be
+    a substitute for reading the paper.
+    """
+    dek = edition.get("lead", {}).get("dek") if isinstance(
+        edition.get("lead"), dict) else None
+    lead = edition.get("lead") if isinstance(edition.get("lead"), dict) else {}
+
+    body: list[str] = []
+    if _is_text(dek):
+        body.append(f"*{_scrub(str(dek).strip())}*")
+
+    inside = _digest_inside(edition)
+    if inside:
+        body.append("")
+        body.append("__**Inside today**__")
+        body.extend(inside)
+
+    if isinstance(sportsman, dict):
+        tease = _sm_digest_tease(sportsman)
+        if tease:
+            body.append("")
+            body.append(f"🏟  **Sports & Sportsman** — {tease}")
+
+    if index_url:
+        body.append("")
+        body.append(f"📖  [Read today's paper]({index_url})")
+
+    embed: dict = {
+        "title": _clip(_scrub(str(lead.get("headline") or config.MASTHEAD)),
+                       config.EMBED_TITLE_LIMIT),
+        "description": _clip("\n".join(body), DESCRIPTION_LIMIT),
+        "color": config.LEAD_COLOR,
+    }
+    if index_url:
+        embed["url"] = index_url
+    footer = _closing_footer(edition)
+    if footer:
+        embed["footer"] = footer
+    if image_filename:
+        embed["image"] = {"url": f"attachment://{image_filename}"}
+
+    payload: dict = {
+        "content": _digest_content_line(edition, index_url),
+        "embeds": [embed],
+    }
+    if image_filename:
+        payload["attachments"] = [{"id": 0, "filename": image_filename}]
+    return payload
+
+
+def _digest_content_line(edition: dict, index_url: str | None) -> str:
+    """The line above the embed: masthead, folio, and the plain link."""
+    folio = (
+        f"No. {edition.get('edition_number', '?')} · "
+        f"Vol. {edition.get('volume', 'I')} · "
+        f"{_long_date(edition.get('edition_date') or '')}"
+    )
+    lines = [f"📰  **{config.MASTHEAD}** — *{config.TAGLINE}*",
+             f"-# {folio}"]
+    if index_url:
+        lines.append(f"<{index_url}>")
+    return _clip("\n".join(lines), config.CONTENT_LIMIT)
+
+
+def _sm_digest_tease(sportsman: dict) -> str:
+    """Sports & Sportsman's top line, for the one post that mentions it."""
+    sections = sportsman.get("sections")
+    if not isinstance(sections, list):
+        return ""
+    for section in sections:
+        if not isinstance(section, dict):
+            continue
+        for brief in (section.get("briefs") or []):
+            if isinstance(brief, dict) and _is_text(brief.get("headline")):
+                return _clip(str(brief["headline"]).strip(), DIGEST_TEASE_CHARS)
+    return ""
 
 
 def build_payload(
@@ -1010,7 +1159,7 @@ def _text_notebook_blocks(edition: dict) -> list[str]:
         entries = [e for e in _wv_entries(edition, key) if isinstance(e, dict)]
         if not entries:
             continue
-        lines = [f"### {config.WV_SUBHEADS[key]}"]
+        lines = [f"### {config.wv_subhead(key)}"]
         for entry in entries:
             if key == "fishing":
                 water = str(entry.get("water") or "").strip()
@@ -1844,6 +1993,22 @@ def main() -> int:
     parser.add_argument("--backfill-wait", type=int, default=config.PAGES_BACKFILL_WAIT_SECONDS,
                         help="seconds to wait for the Pages build during "
                              "--backfill-link (default %(default)s)")
+    parser.add_argument("--digest", action="store_true",
+                        help="post the ONE-message daily digest — what is in "
+                             "today's edition, and a link to Home — "
+                             "instead of the whole paper as embeds. This is "
+                             "what the routine does as of 2026-08-25; the "
+                             "full-embed path below is kept for a one-off.")
+    parser.add_argument("--digest-sportsman", metavar="PATH", default=None,
+                        help="Sports & Sportsman edition JSON to tease inside "
+                             "the digest (default editions/sportsman/<date>."
+                             "json when it exists). That paper no longer posts "
+                             "to Discord at all; this line is how it is "
+                             "announced.")
+    parser.add_argument("--index-url", default=None,
+                        help="Home url the digest links (default "
+                             "config.PAGES_BASE_URL). The INDEX, not the dated "
+                             "edition: it reaches all three sections.")
     parser.add_argument("--force", action="store_true",
                         help="post even if this date is already recorded as posted")
     args = parser.parse_args()
@@ -1908,7 +2073,30 @@ def main() -> int:
     text_mode = args.text
     messages: list[dict] = []
 
-    if args.sportsman:
+    if args.digest:
+        # One message, always. Nothing in a digest can reach 6,000 chars, so
+        # there is no trim ladder, no split, and no budget to write against.
+        sm_path = args.digest_sportsman or _repo(
+            "editions", "sportsman", f"{args.date}.json")
+        sportsman_edition = None
+        if os.path.exists(sm_path):
+            try:
+                sportsman_edition = load_edition(sm_path)
+            except (OSError, ValueError) as exc:
+                degraded.append(
+                    f"could not read {os.path.basename(sm_path)} for the "
+                    f"digest tease ({exc}); posting without it")
+        else:
+            degraded.append(
+                "no Sports & Sportsman edition found for the digest tease")
+        index_url = args.index_url or (
+            config.home_url() if config.PAGES_ENABLED else None)
+        payload = build_digest_payload(
+            edition, index_url, sportsman_edition, image_filename)
+        degraded.extend(clamp_payload(payload))
+        messages = [payload]
+        text_mode = False
+    elif args.sportsman:
         payload = build_sportsman_payload(edition, page_url)
         degraded.extend(clamp_payload(payload))
         messages = [payload]

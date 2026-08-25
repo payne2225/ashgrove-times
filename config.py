@@ -371,6 +371,38 @@ SECTIONS = [
         "standing": False,
         "trim_priority": 4,
     },
+    # Added 2026-08-25 (Nate). Two standing sections the paper had been
+    # covering by accident or not at all.
+    #
+    # British Columbia is Kirsten's. It was a single Away Desk sentence
+    # sharing a sub-block with Wes's Vermont, which is not coverage of a
+    # place somebody actually lives. It gets briefs like anywhere else, and
+    # the Away Desk line for Prince George is retired so that no town is
+    # covered twice on the same page.
+    {
+        "id": "bc",
+        "label": "British Columbia",
+        "emoji": "\U0001F341",
+        "color": _color("6B3B2E"),
+        "order": 4,
+        "standing": True,
+        "trim_priority": 6,
+        "since": "2026-08-26",
+    },
+    # Artificial Intelligence, standing and top-level rather than a block
+    # inside Science & Technology, because it had been quietly eating
+    # Sci/Tech's slots — telescopes and medicine losing to model releases.
+    # Both get their own room now.
+    {
+        "id": "ai",
+        "label": "Artificial Intelligence",
+        "emoji": "\U0001F916",
+        "color": _color("3F4A5A"),
+        "order": 6,
+        "standing": True,
+        "trim_priority": 5,
+        "since": "2026-08-26",
+    },
 ]
 
 SECTION_IDS = [s["id"] for s in SECTIONS]
@@ -397,9 +429,20 @@ RETIRED_SECTIONS = {
 }
 
 
+# A section that started mid-run carries `since`. Without it, adding
+# British Columbia on 2026-08-25 would have made every edition back to
+# 2026-08-05 invalid for not containing a section that did not exist when
+# it was published. RETIRED_SECTIONS is the same idea pointing backwards.
+SECTION_START_KEY = "since"
+
+
 def sections_for(date: str | None) -> list[dict]:
     """The section contract as of a date — the archive keeps its shape."""
-    live = list(SECTIONS)
+    live = [
+        s for s in SECTIONS
+        if not (date and s.get(SECTION_START_KEY)
+                and date < s[SECTION_START_KEY])
+    ]
     for retired in RETIRED_SECTIONS.values():
         if date and date <= retired["retired_after"]:
             live.append(retired["meta"])
@@ -538,7 +581,20 @@ REGIONS = [
 
 REGION_IDS = [r["region_id"] for r in REGIONS]
 WV_REGION_IDS = [r["region_id"] for r in REGIONS if not r["is_away"]]
-AWAY_REGION_IDS = [r["region_id"] for r in REGIONS if r["is_away"]]
+
+# A region that outgrew a one-sentence Away Desk line and was given its own
+# home in the paper (Nate, 2026-08-25). It stays in REGIONS because the
+# roster is still true — somebody still lives there and those are still the
+# right outlets — but it no longer files a notebook line, because covering
+# the same town twice on one page is worse than covering it once properly.
+# The value is where the coverage went, and the validator prints it.
+PROMOTED_REGION_IDS = {
+    "prince_george": "the British Columbia section",
+    "topsail": "the notebook's Vacation Hotspots block",
+}
+
+AWAY_REGION_IDS = [r["region_id"] for r in REGIONS
+                   if r["is_away"] and r["region_id"] not in PROMOTED_REGION_IDS]
 
 _REGIONS_BY_ID = {r["region_id"]: r for r in REGIONS}
 
@@ -645,12 +701,28 @@ EMBED_BUDGET = {
     "lead": 900,
     "us": 1000,
     "world": 1000,
-    "wv": 1500,
+    "wv": 2600,
+    "bc": 900,
     "scitech": 1000,
+    "ai": 900,
     "chrome": 200,   # the closing footer: kicker + sources_note + weather ear
 }
 
 EMBED_BUDGET_TOTAL = sum(EMBED_BUDGET.values())
+
+# What EMBED_BUDGET now means (2026-08-25). It used to be a DELIVERY budget:
+# the paper went to Discord as embeds and Discord counts 6,000 characters a
+# message, so every allocation above was really a share of that ceiling. The
+# paper no longer posts that way — one digest message links the website — so
+# these numbers stopped being a limit and became an EDITORIAL guide: roughly
+# how long each section should run before it is out of proportion with the
+# rest of the page.
+#
+# That is why the totals below are advisory in both directions. Nothing
+# truncates an over-long section any more; a validator note is the entire
+# consequence, and a genuinely big news day is allowed to run long.
+EDITION_TARGET_CHARS = EMBED_BUDGET_TOTAL
+EDITION_LONG_CHARS = int(EMBED_BUDGET_TOTAL * 1.3)
 
 
 def embed_budget(key: str) -> int:
@@ -673,17 +745,112 @@ WV_NOTEBOOK_TITLE = "Mountaineer State Notebook"
 WV_SUBHEADS = {
     "regional": "Around the State",
     "away": "The Away Desk",
-    "fishing": "On the Water",
+    "hotspots": "Vacation Hotspots",
 }
 
-WV_BRIEFS_TARGET = 2      # statewide items; 3 only when the notebook is lean
-WV_BRIEFS_MAX = 3
+# Retired from the News Desk 2026-08-25. "On the Water" carried gauge and
+# tide READINGS — 179 cfs, high at 5:48 — which is instrument data, and the
+# water has belonged to Sports & Sportsman since 2026-08-21. Printing it in
+# both papers was the last of that overlap. The block keeps its place in
+# the notebook and changes what it is FOR: news from the two places this
+# crew actually goes, which is a thing no other section covers.
+WV_RETIRED_SUBHEADS = {"fishing": "On the Water"}
+WV_SUBHEADS_CHANGED_ON = "2026-08-26"
 
-# Regional and away entries are ONE SENTENCE. Not a brief, not two clauses
-# stapled together — the ceiling is what keeps the notebook from eating the
-# rest of the paper.
-WV_ITEM_TARGET_CHARS = 110
-WV_ITEM_MAX_CHARS = 140
+
+# Every sub-block label the notebook has ever had, live or retired. Code
+# that RENDERS an archived edition looks up here; code that tells the desk
+# what to WRITE uses wv_subheads_for(date). Iterating both "hotspots" and
+# "fishing" and skipping the empty one costs nothing and means no renderer
+# needs to know today's date to draw a 2026-08-10 page correctly.
+WV_ALL_SUBHEAD_KEYS = ("regional", "away", "hotspots", "fishing")
+
+
+def wv_subhead(key: str) -> str:
+    """The label for any notebook sub-block, retired ones included."""
+    if key in WV_SUBHEADS:
+        return WV_SUBHEADS[key]
+    if key in WV_RETIRED_SUBHEADS:
+        return WV_RETIRED_SUBHEADS[key]
+    raise KeyError(
+        f"unknown notebook sub-block {key!r}; known: "
+        f"{', '.join(WV_ALL_SUBHEAD_KEYS)}"
+    )
+
+
+def wv_subheads_for(date: str | None) -> dict:
+    """The notebook's sub-blocks as of a date — the archive keeps its shape."""
+    if date and date < WV_SUBHEADS_CHANGED_ON:
+        out = {"regional": WV_SUBHEADS["regional"], "away": WV_SUBHEADS["away"]}
+        out.update(WV_RETIRED_SUBHEADS)
+        return out
+    return dict(WV_SUBHEADS)
+
+
+# The two places the crew leaves home for. NOT a fishing report and NOT a
+# weather report — both of those have their own homes — but what is going
+# ON in the town: a road closed, a festival, a pier reopening, a zoning
+# fight, an ordinance, a business that mattered to somebody.
+HOTSPOTS = [
+    {
+        "hotspot_id": "cabin",
+        "place": "Webster County & Cowen",
+        "towns": ["Cowen", "Webster Springs", "Camden-on-Gauley",
+                  "Cherry River", "Summersville"],
+        "outlets": ["The Webster Echo", "WV MetroNews", "The Register-Herald",
+                    "Nicholas Chronicle"],
+        "note": "the cabin. Summersville only when the story reaches Cowen — "
+                "otherwise it belongs to the Nicholas & Webster regional line",
+    },
+    {
+        "hotspot_id": "topsail",
+        "place": "Topsail Island & the coast",
+        "towns": ["Topsail Beach", "Surf City", "North Topsail Beach",
+                  "Hampstead", "Sneads Ferry"],
+        "outlets": ["WECT", "Wilmington StarNews", "The Pender-Topsail Post",
+                    "WWAY", "Jacksonville Daily News"],
+        "note": "the beach. Wilmington ONLY when the story is genuinely big — "
+                "a port strike or a hurricane, not a restaurant opening",
+    },
+]
+
+HOTSPOT_IDS = [h["hotspot_id"] for h in HOTSPOTS]
+_HOTSPOTS_BY_ID = {h["hotspot_id"]: h for h in HOTSPOTS}
+
+
+def hotspot_by_id(hid: str) -> dict:
+    """A hotspot definition by id. Raises KeyError on an unknown id."""
+    try:
+        return _HOTSPOTS_BY_ID[hid]
+    except KeyError:
+        raise KeyError(
+            f"unknown hotspot_id {hid!r}; known: {', '.join(HOTSPOT_IDS)}"
+        ) from None
+
+
+# One line each, same register as a regional line but allowed a little more
+# room: these are places nobody in the group reads a local paper for, so the
+# line has to carry enough context to land cold.
+HOTSPOT_MAX = len(HOTSPOTS)
+HOTSPOT_ITEM_TARGET_CHARS = 130
+HOTSPOT_ITEM_MAX_CHARS = 170
+
+# Raised 2026-08-25 (Nate: "the West Virginia section is pretty skimpy").
+# Two statewide briefs and six notebook lines was never an editorial
+# judgement — it was the Discord embed budget, which the paper no longer
+# posts against. West Virginia is the reason this paper exists and it was
+# the smallest thing on the page.
+WV_BRIEFS_TARGET = 4      # statewide items
+WV_BRIEFS_MAX = 6
+
+# Regional and away entries are ONE SENTENCE — still. The ceiling went up
+# with the budget (110 to 150) because 110 characters could not carry a
+# story that needed a "because" clause, and the line came out reading like
+# a headline with the news removed. It is NOT permission to write a brief
+# here: a notebook line is a pointer, and a region with a real story to
+# tell should be filing a statewide brief instead.
+WV_ITEM_TARGET_CHARS = 150
+WV_ITEM_MAX_CHARS = 190
 WV_PLACE_MAX_CHARS = 48
 WV_REGIONAL_MAX = len(WV_REGION_IDS)
 WV_AWAY_MAX = len(AWAY_REGION_IDS)
@@ -692,7 +859,7 @@ WV_AWAY_MAX = len(AWAY_REGION_IDS)
 # the WV allocation actually pays for. This is a target, never a gate — a
 # real eighth item beats an artificial cap, and nothing may drop genuine
 # news to hit a number.
-WV_NOTEBOOK_LINES_TARGET = 6
+WV_NOTEBOOK_LINES_TARGET = 9
 
 # Fishing lines carry measured numbers, so they get a little more room than
 # a regional sentence and are allowed to run past one sentence.
@@ -1201,6 +1368,15 @@ PAGES_WAIT_SECONDS = 120
 # queue does not care about our deadline, so this window is generous. The
 # paper is already out; nobody is waiting on this.
 PAGES_BACKFILL_WAIT_SECONDS = 900
+
+
+def home_url() -> str:
+    """The page the daily Discord post links, and the nav's Home button.
+
+    home.html rather than the bare root: the root is a redirect stub, and a
+    link that resolves in one hop unfurls in Discord without a round trip.
+    """
+    return f"{PAGES_BASE_URL}/home.html"
 
 
 def page_url(date: str) -> str:

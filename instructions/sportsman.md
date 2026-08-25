@@ -413,9 +413,24 @@ Same link rule as the Times: check the page URL returns 200 before passing
 `--backfill-link`, which waits out the build and edits the link in. Never
 stall the post waiting on a webpage.
 
-The webhook env var is **`DISCORD_SPORTSMAN_WEBHOOK_URL`** and it is a
-DIFFERENT channel from the main paper. Never post this edition with the
-newspaper's webhook.
+> ### This paper no longer posts to Discord (2026-08-26)
+>
+> Nate retired the #sports-and-sportsman post. **Write it, validate it,
+> render it, commit it, push it — and stop there.** It is reached from Home
+> and from the nav buttons on every page of the site, and it gets a tease
+> line inside the Times' one daily digest post, which reads its top headline
+> straight out of `editions/sportsman/YYYY-MM-DD.json`.
+>
+> So the two posting commands above are **retired**, and
+> `DISCORD_SPORTSMAN_WEBHOOK_URL` is no longer used by the routine. Nothing
+> else about this paper changes: same contract, same validator, same hard
+> gate, same standards. A paper nobody is pinged about is still a paper, and
+> the one thing that would make this change a mistake is if the sports desk
+> quietly got lazier because the notification went away.
+>
+> **`--not-before 07:05` is gone with it.** There is no delivery to
+> sequence; render it whenever it is ready, and push before the digest goes
+> out at 7:00 so the link it advertises is real.
 
 This paper's record of what shipped is **`out/YYYY-MM-DD.sportsman.payload.json`**
 — its own file since 2026-08-24. The Times keeps `out/YYYY-MM-DD.payload.json`,

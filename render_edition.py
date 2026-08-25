@@ -68,7 +68,11 @@ NOTEBOOK_TITLE = getattr(config, "WV_NOTEBOOK_TITLE", "Mountaineer State Noteboo
 _SUBHEADS = getattr(config, "WV_SUBHEADS", {}) or {}
 REGIONAL_LABEL = _SUBHEADS.get("regional", "Around the State")
 AWAY_LABEL = _SUBHEADS.get("away", "The Away Desk")
-FISHING_LABEL = _SUBHEADS.get("fishing", "On the Water")
+HOTSPOTS_LABEL = _SUBHEADS.get("hotspots", "Vacation Hotspots")
+# Retired from this paper 2026-08-25, kept so archived pages still draw the
+# block they were published with.
+FISHING_LABEL = getattr(config, "WV_RETIRED_SUBHEADS", {}).get(
+    "fishing", "On the Water")
 
 MONTHS = ("January", "February", "March", "April", "May", "June", "July",
           "August", "September", "October", "November", "December")
@@ -181,7 +185,10 @@ NEWSDESK_NAME = "THE NEWS DESK"
 WEATHER_NAME = "THE WEATHER CLAUDE"
 
 _NAV_TARGETS = (
-    ("newsstand", "Home", "index.html"),
+    # home.html, not index.html: the button has said Home since 2026-08-21
+    # and as of 2026-08-25 so does the page and the url. site/index.html is
+    # a redirect kept only so a bare / still resolves.
+    ("newsstand", "Home", "home.html"),
     ("news", "The News Desk", "today.html"),
     ("sportsman", "Sports &amp; Sportsman", "sportsman/"),
     ("weather", "The Weather Claude", "weather/"),
@@ -193,7 +200,7 @@ def _family_line() -> str:
 
 
 def _nav_html(current: str, root: str, foot: bool = False) -> str:
-    """Buttons to every other section plus the Newsstand.
+    """Buttons to every other section plus Home.
 
     `root` is the relative path back to the site root, exactly as
     render_html already uses it — "" from a root-level page, "../" from a
@@ -436,7 +443,20 @@ def _sections_style(wire_count: int) -> str:
     renders nothing, and on that morning the page should close up to two
     columns rather than hold a gap open for news that does not exist.
     """
-    return f' style="--wire-cols: {max(1, wire_count)}"'
+    # Five wire sections across a 1,490px measure is 274px a column, which
+    # is about 37 characters — a column that narrow reads as a list, not as
+    # news. Past four, the page wraps to three wide columns over two rows
+    # instead, which is what a broadsheet does with the same problem.
+    count = max(1, wire_count)
+    cols = count if count <= 4 else 3
+    # A last row that does not divide evenly leaves a hole. Five sections in
+    # three columns puts two on row two and stands the third track empty,
+    # which is the same kind of gap that made this page look unfinished at
+    # 1,600px in the first place. The last section widens to close it — a
+    # newspaper sets a short final column wide rather than leaving air.
+    remainder = count % cols
+    span = (cols - remainder + 1) if remainder else 1
+    return f' style="--wire-cols: {cols}; --wire-last-span: {span}"'
 
 
 def _sections_html(blocks: dict[str, str], sections: list, edition: dict) -> tuple[str, int]:
@@ -481,8 +501,14 @@ def _wv_section_html(blocks: dict[str, str], section: dict, edition: dict) -> st
     regional = _roundup_html(blocks, section.get("regional"),
                              REGIONAL_LABEL, "wv-regional")
     away = _roundup_html(blocks, section.get("away"), AWAY_LABEL, "wv-away")
-    fishing = _fishing_html(blocks, section.get("fishing"))
-    if not (briefs or regional or away or fishing):
+    # The block that closes the box. Since 2026-08-25 it is Vacation
+    # Hotspots — news from Cowen and Topsail — and before that it was the
+    # water report. An edition has one or the other, never both, so this
+    # renders whichever it was published with and no page needs to know
+    # today's date to draw an old one correctly.
+    closing = (_hotspots_html(blocks, section.get("hotspots"))
+               or _fishing_html(blocks, section.get("fishing")))
+    if not (briefs or regional or away or closing):
         return ""
     return fill(blocks["WV_SECTION"], {
         "SECTION_LABEL": esc(_section_label(section)),
@@ -491,7 +517,7 @@ def _wv_section_html(blocks: dict[str, str], section: dict, edition: dict) -> st
         "BRIEFS": "".join(briefs),
         "REGIONAL": regional,
         "AWAY": away,
-        "FISHING": fishing,
+        "CLOSING_BLOCK": closing,
     })
 
 
@@ -533,6 +559,43 @@ def _roundup_html(blocks: dict[str, str], entries: object, label: str,
         "BLOCK_CLASS": esc(block_class),
         "BLOCK_LABEL": esc(label),
         "ITEMS": "".join(row[1] for row in rows),
+    })
+
+
+def _hotspots_html(blocks: dict[str, str], entries: object) -> str:
+    """Cowen and Topsail — the two places this crew goes. News, not water.
+
+    Rows sort into config.HOTSPOTS order so the block reads the same way
+    every morning. There is no `people` tag: nobody lives in these towns,
+    which is the whole reason the block is called what it is called.
+    """
+    order = {h["hotspot_id"]: i for i, h in enumerate(config.HOTSPOTS)}
+    rows: list[tuple[int, str]] = []
+    for entry in (entries or []):
+        if not isinstance(entry, dict):
+            continue
+        item = _norm(entry.get("item"))
+        place = _norm(entry.get("place"))
+        if not (item and place):
+            continue
+        rows.append((
+            order.get(entry.get("hotspot_id"), len(order)),
+            fill(blocks["ROUNDUP_ITEM"], {
+                "DATELINE": fill(blocks["ROUNDUP_DATELINE"], {
+                    "PLACE": esc(place),
+                    "PEOPLE": "",
+                }),
+                "ITEM": esc(item),
+                "SOURCE": _source_html(blocks, entry),
+            }),
+        ))
+    if not rows:
+        return ""
+    rows.sort(key=lambda row: row[0])
+    return fill(blocks["WV_BLOCK"], {
+        "BLOCK_CLASS": esc("wv-hotspots"),
+        "BLOCK_LABEL": esc(HOTSPOTS_LABEL),
+        "ITEMS": "".join(html for _, html in rows),
     })
 
 
@@ -670,9 +733,11 @@ def write_site(edition: dict, out_path: str) -> None:
     with open(out_path, "w", encoding="utf-8", newline="\n") as f:
         f.write(render_html(edition))
 
-    # site/index.html is the STATIC Newsstand (Pat's bookmark, reaching
-    # both papers) and the renderer must never write it. Today's Times
-    # lives at today.html — same stable-bookmark behavior, one level in.
+    # site/home.html is the STATIC Home page (Pat's bookmark, reaching all
+    # three papers, and the page the daily Discord post links) and the
+    # renderer must NEVER write it — nor site/index.html, which is now a
+    # redirect to it so a bare / still resolves. Today's Times lives at
+    # today.html, same stable-bookmark behaviour, one level in.
     index_path = os.path.join(SITE_DIR, "today.html")
     _ensure_dir(index_path)
     with open(index_path, "w", encoding="utf-8", newline="\n") as f:
@@ -1449,50 +1514,171 @@ def _weather_body(markdown: str) -> str:
     return WEATHER_PING_RE.sub("", body).strip()
 
 
-def _weather_md_html(body: str) -> str:
-    """A deliberately small markdown converter for the briefing's dialect.
+# ------------------------------------------------ the weather page, typeset
 
-    Headings, bold, italics and dash lists are all Jim writes. Anything
-    fancier lands as text, escaped — safer than importing a full parser for
-    content that ultimately comes from web fetches.
+# Nate, 2026-08-25: "make the newspaper weather page look like the other
+# newspaper pages." It had been a transcript — one 760px column of Jim's
+# Discord message with the emoji headers, the bullet lists and the "-#"
+# small-text markers still in it. It read as a chat log somebody had pasted
+# into a nice font.
+#
+# The briefing's markdown is not arbitrary; it is a stable dialect Jim
+# writes every morning, so it maps cleanly onto the paper's own furniture:
+#
+#   # <day>              -> the page headline
+#   ## <dek>             -> the dek under it
+#   ### <place - person> -> a section label, the same black chip the wire
+#                           sections use. Consecutive ### with no body
+#                           between them are a STACK sharing one report, and
+#                           they become one section with a combined label.
+#   - <item>             -> the notebook's roundup list
+#   > <text>             -> a boxed feature, the way the notebook is boxed
+#   -# <text>            -> the colophon under the page
+#
+# Emoji are stripped from headings. They are how a Discord post signals a
+# heading; a newspaper has type for that, and the black label chip is the
+# paper's own answer to the same problem. NOTHING here touches what Jim
+# posts to the channel — this module only ever reads his archived markdown.
+
+_WX_HEADING_EMOJI = re.compile(
+    "^[" 
+    "\U0001F300-\U0001FAFF"   # pictographs, symbols, flags
+    "\u2600-\u27BF"           # the older miscellaneous ranges
+    "\uFE0F\u200D\u20E3"    # variation selector, ZWJ, keycap
+    "]+[ \t]*"
+)
+
+
+def _wx_strip_emoji(text: str) -> str:
+    """Drop the leading emoji a Discord heading uses as its bullet."""
+    previous = None
+    while previous != text:
+        previous = text
+        text = _WX_HEADING_EMOJI.sub("", text).lstrip()
+    return text.strip()
+
+
+def _wx_inline(text: str) -> str:
+    """Escape, then re-apply the only two inline marks Jim uses."""
+    out = esc(text)
+    out = re.sub(r"[*][*](.+?)[*][*]", r"<b>\1</b>", out)
+    out = re.sub(r"(?<![*])[*](?![*])(.+?)(?<![*])[*](?![*])",
+                 r"<i>\1</i>", out)
+    return out
+
+
+def _wx_parse(body: str) -> dict:
+    """The briefing as a document: day, dek, sections, boxes, notes.
+
+    A section is {"labels": [...], "blocks": [("p", text) | ("ul", [items])]}.
+    Stacked headings are collected into `labels` together because that is
+    what they mean — three towns under one shared forecast, which Jim writes
+    when the weather does not respect a county line.
     """
-    out: list[str] = []
-    in_list = False
-    for raw_line in body.split("\n"):
-        line = raw_line.rstrip()
-        if not line.strip():
-            if in_list:
-                out.append("</ul>")
-                in_list = False
+    doc = {"day": "", "dek": "", "sections": [], "boxes": [], "notes": []}
+    current: dict | None = None
+    pending_labels: list[str] = []
+    list_buffer: list[str] = []
+
+    def flush_list():
+        nonlocal list_buffer
+        if list_buffer and current is not None:
+            current["blocks"].append(("ul", list_buffer))
+        list_buffer = []
+
+    def open_section():
+        nonlocal current, pending_labels
+        current = {"labels": pending_labels, "blocks": []}
+        doc["sections"].append(current)
+        pending_labels = []
+
+    for raw in body.split("\n"):
+        line = raw.rstrip()
+        stripped = line.strip()
+        if not stripped:
+            flush_list()
             continue
-        is_item = line.lstrip().startswith("- ")
-        if in_list and not is_item:
-            out.append("</ul>")
-            in_list = False
-        text = esc(line.lstrip("# ").strip() if line.startswith("#")
-                   else (line.lstrip()[2:] if is_item else line.strip()))
-        text = re.sub(r"\*\*(.+?)\*\*", r"<b>\1</b>", text)
-        text = re.sub(r"(?<!\*)\*(?!\*)(.+?)(?<!\*)\*(?!\*)", r"<i>\1</i>", text)
-        if line.startswith("### "):
-            out.append(f'<p class="wx-loc">{text}</p>')
-        elif line.startswith("## "):
-            out.append(f'<p class="wx-dek">{text}</p>')
-        elif line.startswith("# "):
-            out.append(f'<p class="wx-day">{text}</p>')
-        elif is_item:
-            if not in_list:
-                out.append('<ul class="wx-list">')
-                in_list = True
-            out.append(f"<li>{text}</li>")
+
+        if stripped.startswith("-# "):
+            flush_list()
+            doc["notes"].append(stripped[3:].strip())
+            continue
+        if stripped.startswith("> "):
+            flush_list()
+            doc["boxes"].append(_wx_strip_emoji(stripped[2:]))
+            continue
+        if stripped.startswith("### "):
+            flush_list()
+            pending_labels.append(_wx_strip_emoji(stripped[4:]))
+            current = None       # body after the LAST of a stack opens it
+            continue
+        if stripped.startswith("## "):
+            doc["dek"] = _wx_strip_emoji(stripped[3:])
+            continue
+        if stripped.startswith("# "):
+            doc["day"] = _wx_strip_emoji(stripped[2:])
+            continue
+
+        if current is None:
+            if not pending_labels:
+                # Prose before any heading: rare, but it is still the day's
+                # report and dropping it would be the worst kind of quiet.
+                pending_labels = []
+            open_section()
+
+        if stripped.startswith("- "):
+            list_buffer.append(stripped[2:].strip())
         else:
-            out.append(f"<p>{text}</p>")
-    if in_list:
-        out.append("</ul>")
-    return "\n".join(out)
+            flush_list()
+            current["blocks"].append(("p", stripped))
+
+    flush_list()
+    if pending_labels:                     # trailing headings with no body
+        doc["sections"].append({"labels": pending_labels, "blocks": []})
+    return doc
+
+
+def _wx_section_html(blocks: dict[str, str], section: dict) -> str:
+    """One location report as a wire section: label chip, then prose."""
+    label = " · ".join(l for l in section["labels"] if l)
+    parts: list[str] = []
+    for kind, payload in section["blocks"]:
+        if kind == "p":
+            parts.append(f"<p>{_wx_inline(payload)}</p>")
+        else:
+            items = "".join(f"<li>{_wx_inline(i)}</li>" for i in payload)
+            parts.append(f'<ul class="roundup wx-roundup">{items}</ul>')
+    if not (label or parts):
+        return ""
+    return fill(blocks["SECTION"], {
+        "SECTION_LABEL": esc(label),
+        "BRIEFS": "".join(parts) or "<p class=\"wx-empty\">&mdash;</p>",
+    })
+
+
+def _wx_box_html(boxes: list[str]) -> str:
+    """Jim's confidence note, boxed the way the notebook is boxed."""
+    if not boxes:
+        return ""
+    paragraphs = "".join(f"<p>{_wx_inline(b)}</p>" for b in boxes if b.strip())
+    if not paragraphs:
+        return ""
+    return (
+        '<section class="sec sec-wv wx-confidence">'
+        '<div class="wv-box">' + paragraphs + "</div></section>"
+    )
 
 
 def render_weather_html(date_iso: str, briefing_md: str) -> str:
-    """Jim's briefing in the family chrome, under his own masthead."""
+    """Jim's briefing, typeset as a newspaper page rather than a transcript.
+
+    Same chrome as the other two papers: family banner, masthead, nav, a
+    headline and dek, location reports as wire sections across the measure,
+    Jim's confidence note as a boxed feature, and his small-text lines as
+    the colophon. `PAGE_CLASS` is now just "weather" — it used to borrow
+    "sportsman" for that page's flowed columns, which is what kept the whole
+    briefing in one 760px stripe down the middle of a 1,600px page.
+    """
     blocks = load_blocks()
     body = _weather_body(briefing_md)
     survivors = WEATHER_SNOWFLAKE_RE.findall(body)
@@ -1501,11 +1687,31 @@ def render_weather_html(date_iso: str, briefing_md: str) -> str:
             f"briefing still carries {len(survivors)} Discord id(s) after "
             "the scrub — refusing to render to a public page")
     dateline = long_date(date_iso)
-    inner = _weather_md_html(body)
+    doc = _wx_parse(body)
+
+    rendered = [_wx_section_html(blocks, sec) for sec in doc["sections"]]
+    rendered = [html for html in rendered if html]
+    parts = list(rendered)
+    box = _wx_box_html(doc["boxes"])
+    if box:
+        parts.append(box)
+
+    # The colophon carries Jim's own small-text lines — the sunset, the
+    # shared air-quality note, the source list — because that is exactly
+    # what a colophon is, and they were rendering as literal "-#" before.
+    note_bits = [esc(n) for n in doc["notes"] if n.strip()]
+    sources_note = ("  ".join(note_bits) if note_bits
+                    else esc("Filed to the channel at 7:15 ET by Jim Claudtore"))
+
+    headline = doc["day"] or f"The forecast, {dateline}"
+    dek_html = (fill(blocks["DEK"], {"DEK": esc(doc["dek"])})
+                if doc["dek"] else "")
+
     values = {
-        "PAGE_CLASS": "sportsman weather",
-        "PAGE_TITLE": esc(f"Jim Claudtore — {dateline}"),
-        "META_DESCRIPTION": esc(f"Jim Claudtore's forecast for {dateline}."),
+        "PAGE_CLASS": "weather",
+        "PAGE_TITLE": esc(f"The Weather Claude — {dateline}"),
+        "META_DESCRIPTION": esc(
+            doc["dek"] or f"Jim Claudtore's forecast for {dateline}.")[:300],
         "FAMILY_LINE": _family_line(),
         "NAV": _nav_html("weather", "../"),
         "NAV_FOOT": _nav_html("weather", "../", foot=True),
@@ -1515,17 +1721,17 @@ def render_weather_html(date_iso: str, briefing_md: str) -> str:
         "TOP_MID": esc(dateline),
         "TOP_RIGHT": esc(TOP_RIGHT),
         "WEATHER_EAR": "",
-        "LEAD_HEADLINE": "",
-        "LEAD_DEK": "",
-        "LEAD_BYLINE": "",
+        "LEAD_HEADLINE": esc(headline),
+        "LEAD_DEK": dek_html,
+        "LEAD_BYLINE": esc("By Jim Claudtore"),
         "LEAD_ART": "",
         "LEAD_BLOCK_CLASS": _lead_block_class(""),
-        "SECTIONS_STYLE": "",
+        "SECTIONS_STYLE": _sections_style(len(rendered)),
         "LEAD_BODY": "",
         "STAT_STRIP": "",
-        "SECTIONS": f'<div class="wx-briefing">{inner}</div>',
+        "SECTIONS": "\n\n  ".join(parts),
         "KICKER": "",
-        "SOURCES_NOTE": esc("Filed to the channel at 7:15 ET by Jim Claudtore"),
+        "SOURCES_NOTE": sources_note,
         "ARCHIVE_LINK": "",
     }
     return fill(blocks["PAGE"], values)

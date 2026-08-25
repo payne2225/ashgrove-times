@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Jim Claudtore&#x27;s forecast for Tuesday, August 25, 2026.">
-<title>Jim Claudtore — Tuesday, August 25, 2026</title>
+<meta name="description" content="Bluebird, part three — and a flawless evening for Hannan&#x27;s opener">
+<title>The Weather Claude — Tuesday, August 25, 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
@@ -596,6 +596,10 @@
       align-items: start;
     }
     .sec { margin-bottom: 20px; }
+    /* Close the hole a ragged last row would leave — see _sections_style(). */
+    .sections > .sec-wire:last-of-type {
+      grid-column: span var(--wire-last-span, 1);
+    }
     .sec .two-col-briefs { column-count: 1; column-rule: none; }
     .sec .section-label { margin-top: 0; }
     /* Rules between the wire columns, none before the first. */
@@ -674,11 +678,20 @@
   }
   .wx-list { margin: 0 0 12px; padding-left: 20px; }
   .wx-list li { margin-bottom: 6px; }
-  /* The weather page borrows the sportsman column fill at desktop; a single
-     long column reads better for a briefing, so undo the multi-column. */
-  @media (min-width: 1024px) {
-    .page.weather .sections { column-count: 1; column-rule: none; }
-  }
+  /* The weather page stopped borrowing the sportsman column fill on
+     2026-08-25 — it sets as a newspaper page now, with the same section
+     grid the front page uses, so there is no multi-column flow left to
+     undo. What it does need is its own handling of Jim's confidence note,
+     which is a single paragraph inside a full-width box: the notebook's
+     two columns would split one short paragraph down the middle. */
+  .wx-confidence .wv-box { column-count: 1; }
+  .wx-confidence .wv-box p { margin: 0 0 10px; max-width: 92ch; }
+  .wx-confidence .wv-box p:last-child { margin-bottom: 0; }
+  .wx-roundup { margin: 0; }
+  /* Jim writes in half a dozen short reports rather than long copy, so the
+     label chip has to survive a stacked heading — three towns sharing one
+     forecast — without pushing the section out of its column. */
+  .page.weather .section-label { white-space: normal; line-height: 1.35; }
 
   @media print {
     body { background: #fff; padding: 0; }
@@ -689,7 +702,7 @@
 </style>
 </head>
 <body>
-<div class="page sportsman weather">
+<div class="page weather">
 
   <div class="top-bar">
     <span>The Forecast</span>
@@ -703,11 +716,11 @@
   <hr class="rule-thick">
   <hr class="rule-thin">
 
-  <nav class="paper-nav" aria-label="Sections"><a href="../index.html">Home</a><a href="../today.html">The News Desk</a><a href="../sportsman/">Sports &amp; Sportsman</a></nav>
+  <nav class="paper-nav" aria-label="Sections"><a href="../home.html">Home</a><a href="../today.html">The News Desk</a><a href="../sportsman/">Sports &amp; Sportsman</a></nav>
 
-  <div class="headline"></div>
-  
-  <div class="byline"></div>
+  <div class="headline">Tuesday, August 25</div>
+  <div class="subhead">Bluebird, part three — and a flawless evening for Hannan&#x27;s opener</div>
+  <div class="byline">By Jim Claudtore</div>
 
   <div class="lead-block no-art">
     
@@ -716,39 +729,45 @@
 
   
 
-  <div class="sections">
-  <div class="wx-briefing"><p class="wx-day">☀️ Tuesday, August 25</p>
-<p class="wx-dek">Bluebird, part three — and a flawless evening for Hannan&#x27;s opener</p>
-<p class="wx-loc">📍 Apple Grove — Nate &amp; Ian</p>
-<p>Match day. Hannan opens the season at home in Ashton, 5 PM against Calvary, and the sky is handing the opener a gift: <b>79°F (26°C)</b> at kickoff, full sun, rain a flat zero, wind under 6 mph, humidity 33%. No lightning anywhere on the board tonight — the coach&#x27;s weather call is &quot;play,&quot; and the second half runs into golden hour ahead of the 8:09 sunset. The day around it: sunny, high <b>81°F (27°C)</b>, afternoon humidity 40%, down to <b>54°F (12°C)</b> overnight. Nate — the run up from Hurricane to make kickoff is windows-down weather. One heads-up, coach: Thursday&#x27;s away match at St. Marys sits right where the next front comes calling — real numbers for that town Thursday morning.</p>
-<p class="wx-loc">📍 Parkersburg — Pat</p>
-<p class="wx-loc">📍 Huntington — Trav</p>
-<p class="wx-loc">📍 Summersville — Clayton</p>
-<p>Third straight bluebird, same script river to ridge: wall-to-wall sun, rain a hard zero, and the air still running dry. Parkersburg tops at <b>80°F (27°C)</b> on 49% afternoon humidity; Huntington&#x27;s the warm, arid end again at <b>84°F (29°C)</b> and 29% — chapstick territory; Summersville holds the cool seat at <b>76°F (24°C)</b> and 53%. Tonight: <b>57°F (14°C)</b> at Parkersburg, <b>59°F (15°C)</b> at Huntington, <b>56°F (13°C)</b> on the plateau. Bank it — this is the last day the dome coasts. The warm rebuild starts tomorrow: mid-80s Wednesday, flirting with 90 by Thursday.</p>
-<p class="wx-loc">🍁 The Hart, Prince George — Kirsten</p>
-<p>Her turn in the warm seat. Sunny morning, then a mix of sun and cloud with a <b>30% shot at a late-afternoon shower and a rumble of thunder</b> hanging around into the evening before it clears late. High <b>28°C (82°F)</b>, humidex 30, afternoon humidity 31%. Environment Canada keeps writing &quot;hazy&quot; into every period — but the air is clean right now (AQI 28) and only nudges moderate later, so it reads as a milk-sky day, not smoke at the nose. The payoff comes overnight: clearing skies and down to <b>10°C (50°F)</b> — the cool refill arrives right on schedule.</p>
-<p class="wx-loc">🎖️ Honorable mentions</p>
-<ul class="wx-list">
-<li><b>Lesage — Justin:</b> the dry championship continues — sunny, <b>83°F (28°C) / 58°F (14°C)</b>, afternoon humidity 30%; a flawless golf afternoon, though the course nearest Lesage has quietly removed the ball washer from the third tee, citing &quot;Justin&quot; as the complete explanation.</li>
-<li><b>Hinton — Greg:</b> New River Gorge country stays sunny and settled — <b>78°F (26°C) / 54°F (12°C)</b>, humidity 47%, another crisp night on the way.</li>
-<li><b>North Bennington — Wes:</b> the one seat under actual weather — gray and breezy with showers on a 40% chance, gusts near 20 mph, <b>71°F (22°C) / 50°F (10°C)</b>, humidity 70%. Vermont is out there paying for everyone else&#x27;s sunshine.</li>
-</ul>
-<p class="wx-loc">🌀 Quick hits</p>
-<ul class="wx-list">
-<li><b>Cowen, WV:</b> empty cabin, mountain-crisp — sunny, H <b>74°F (23°C) / L 55°F (13°C)</b>, humidity 56%.</li>
-</ul>
-<p class="wx-loc">🏖️ Topsail Beach, NC — beach report</p>
-<p>Standard-issue August soup: high <b>87°F (31°C)</b>, easing only to <b>72°F (22°C)</b> overnight, afternoon humidity 64% off a 70°F dew point, sea breeze gusting to 17 mph. The only storm ink near anyone today is general-thunder shading along the coast — a stray rumble at worst. <b>UV 7 — sunscreen isn&#x27;t optional.</b> Air runs moderate midday (AQI to 79).</p>
-<p>&gt; 🎯 <b>Confidence:</b> high — day three under the same high-pressure dome writes itself: sunny, dry, done. The only wildcards live at the edges: whether Kirsten&#x27;s 30% evening rumble actually shows, and how wet Vermont&#x27;s shower day turns.</p>
-<p>-# WV sun&#x27;s down 8:09 at Apple Grove. One shared note: late-summer haze nudges the whole crew&#x27;s air into moderate today (AQI 50s, Huntington up to 76) — hazy sky, not smoke.</p>
-<p>-# SPC (Storm Prediction Center) · NWS (National Weather Service) · Open-Meteo · ECCC (Environment and Climate Change Canada) — data fetched 7:23 AM ET</p></div>
+  <div class="sections" style="--wire-cols: 3; --wire-last-span: 1">
+  <section class="sec sec-wire">
+  <div class="section-label">Apple Grove — Nate &amp; Ian</div>
+  <div class="two-col-briefs"><p>Match day. Hannan opens the season at home in Ashton, 5 PM against Calvary, and the sky is handing the opener a gift: <b>79°F (26°C)</b> at kickoff, full sun, rain a flat zero, wind under 6 mph, humidity 33%. No lightning anywhere on the board tonight — the coach&#x27;s weather call is &quot;play,&quot; and the second half runs into golden hour ahead of the 8:09 sunset. The day around it: sunny, high <b>81°F (27°C)</b>, afternoon humidity 40%, down to <b>54°F (12°C)</b> overnight. Nate — the run up from Hurricane to make kickoff is windows-down weather. One heads-up, coach: Thursday&#x27;s away match at St. Marys sits right where the next front comes calling — real numbers for that town Thursday morning.</p></div>
+</section>
+
+  <section class="sec sec-wire">
+  <div class="section-label">Parkersburg — Pat · Huntington — Trav · Summersville — Clayton</div>
+  <div class="two-col-briefs"><p>Third straight bluebird, same script river to ridge: wall-to-wall sun, rain a hard zero, and the air still running dry. Parkersburg tops at <b>80°F (27°C)</b> on 49% afternoon humidity; Huntington&#x27;s the warm, arid end again at <b>84°F (29°C)</b> and 29% — chapstick territory; Summersville holds the cool seat at <b>76°F (24°C)</b> and 53%. Tonight: <b>57°F (14°C)</b> at Parkersburg, <b>59°F (15°C)</b> at Huntington, <b>56°F (13°C)</b> on the plateau. Bank it — this is the last day the dome coasts. The warm rebuild starts tomorrow: mid-80s Wednesday, flirting with 90 by Thursday.</p></div>
+</section>
+
+  <section class="sec sec-wire">
+  <div class="section-label">The Hart, Prince George — Kirsten</div>
+  <div class="two-col-briefs"><p>Her turn in the warm seat. Sunny morning, then a mix of sun and cloud with a <b>30% shot at a late-afternoon shower and a rumble of thunder</b> hanging around into the evening before it clears late. High <b>28°C (82°F)</b>, humidex 30, afternoon humidity 31%. Environment Canada keeps writing &quot;hazy&quot; into every period — but the air is clean right now (AQI 28) and only nudges moderate later, so it reads as a milk-sky day, not smoke at the nose. The payoff comes overnight: clearing skies and down to <b>10°C (50°F)</b> — the cool refill arrives right on schedule.</p></div>
+</section>
+
+  <section class="sec sec-wire">
+  <div class="section-label">Honorable mentions</div>
+  <div class="two-col-briefs"><ul class="roundup wx-roundup"><li><b>Lesage — Justin:</b> the dry championship continues — sunny, <b>83°F (28°C) / 58°F (14°C)</b>, afternoon humidity 30%; a flawless golf afternoon, though the course nearest Lesage has quietly removed the ball washer from the third tee, citing &quot;Justin&quot; as the complete explanation.</li><li><b>Hinton — Greg:</b> New River Gorge country stays sunny and settled — <b>78°F (26°C) / 54°F (12°C)</b>, humidity 47%, another crisp night on the way.</li><li><b>North Bennington — Wes:</b> the one seat under actual weather — gray and breezy with showers on a 40% chance, gusts near 20 mph, <b>71°F (22°C) / 50°F (10°C)</b>, humidity 70%. Vermont is out there paying for everyone else&#x27;s sunshine.</li></ul></div>
+</section>
+
+  <section class="sec sec-wire">
+  <div class="section-label">Quick hits</div>
+  <div class="two-col-briefs"><ul class="roundup wx-roundup"><li><b>Cowen, WV:</b> empty cabin, mountain-crisp — sunny, H <b>74°F (23°C) / L 55°F (13°C)</b>, humidity 56%.</li></ul></div>
+</section>
+
+  <section class="sec sec-wire">
+  <div class="section-label">Topsail Beach, NC — beach report</div>
+  <div class="two-col-briefs"><p>Standard-issue August soup: high <b>87°F (31°C)</b>, easing only to <b>72°F (22°C)</b> overnight, afternoon humidity 64% off a 70°F dew point, sea breeze gusting to 17 mph. The only storm ink near anyone today is general-thunder shading along the coast — a stray rumble at worst. <b>UV 7 — sunscreen isn&#x27;t optional.</b> Air runs moderate midday (AQI to 79).</p></div>
+</section>
+
+  <section class="sec sec-wv wx-confidence"><div class="wv-box"><p><b>Confidence:</b> high — day three under the same high-pressure dome writes itself: sunny, dry, done. The only wildcards live at the edges: whether Kirsten&#x27;s 30% evening rumble actually shows, and how wet Vermont&#x27;s shower day turns.</p></div></section>
   </div>
 
   
 
-  <div class="footer-note">Filed to the channel at 7:15 ET by Jim Claudtore</div>
+  <div class="footer-note">WV sun&#x27;s down 8:09 at Apple Grove. One shared note: late-summer haze nudges the whole crew&#x27;s air into moderate today (AQI 50s, Huntington up to 76) — hazy sky, not smoke.  SPC (Storm Prediction Center) · NWS (National Weather Service) · Open-Meteo · ECCC (Environment and Climate Change Canada) — data fetched 7:23 AM ET</div>
 
-  <nav class="paper-nav paper-nav-foot" aria-label="Sections, repeated"><a href="../index.html">Home</a><a href="../today.html">The News Desk</a><a href="../sportsman/">Sports &amp; Sportsman</a></nav>
+  <nav class="paper-nav paper-nav-foot" aria-label="Sections, repeated"><a href="../home.html">Home</a><a href="../today.html">The News Desk</a><a href="../sportsman/">Sports &amp; Sportsman</a></nav>
 
 </div>
 </body>

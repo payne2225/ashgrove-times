@@ -596,6 +596,10 @@
       align-items: start;
     }
     .sec { margin-bottom: 20px; }
+    /* Close the hole a ragged last row would leave — see _sections_style(). */
+    .sections > .sec-wire:last-of-type {
+      grid-column: span var(--wire-last-span, 1);
+    }
     .sec .two-col-briefs { column-count: 1; column-rule: none; }
     .sec .section-label { margin-top: 0; }
     /* Rules between the wire columns, none before the first. */
@@ -674,11 +678,20 @@
   }
   .wx-list { margin: 0 0 12px; padding-left: 20px; }
   .wx-list li { margin-bottom: 6px; }
-  /* The weather page borrows the sportsman column fill at desktop; a single
-     long column reads better for a briefing, so undo the multi-column. */
-  @media (min-width: 1024px) {
-    .page.weather .sections { column-count: 1; column-rule: none; }
-  }
+  /* The weather page stopped borrowing the sportsman column fill on
+     2026-08-25 — it sets as a newspaper page now, with the same section
+     grid the front page uses, so there is no multi-column flow left to
+     undo. What it does need is its own handling of Jim's confidence note,
+     which is a single paragraph inside a full-width box: the notebook's
+     two columns would split one short paragraph down the middle. */
+  .wx-confidence .wv-box { column-count: 1; }
+  .wx-confidence .wv-box p { margin: 0 0 10px; max-width: 92ch; }
+  .wx-confidence .wv-box p:last-child { margin-bottom: 0; }
+  .wx-roundup { margin: 0; }
+  /* Jim writes in half a dozen short reports rather than long copy, so the
+     label chip has to survive a stacked heading — three towns sharing one
+     forecast — without pushing the section out of its column. */
+  .page.weather .section-label { white-space: normal; line-height: 1.35; }
 
   @media print {
     body { background: #fff; padding: 0; }
@@ -705,7 +718,7 @@
   <hr class="rule-thick">
   <hr class="rule-thin">
 
-  <nav class="paper-nav" aria-label="Sections"><a href="../index.html">Home</a><a href="../sportsman/">Sports &amp; Sportsman</a><a href="../weather/">The Weather Claude</a></nav>
+  <nav class="paper-nav" aria-label="Sections"><a href="../home.html">Home</a><a href="../sportsman/">Sports &amp; Sportsman</a><a href="../weather/">The Weather Claude</a></nav>
 
   <div class="headline">Treasury launches &#x27;Operation Economic Outcast&#x27; against Iran</div>
   <div class="subhead">Nearly 60 entities and vessels sanctioned; Trump to press foreign leaders to cut Tehran off</div>
@@ -742,7 +755,7 @@
         <path d="M190 82 C188 170 192 266 190 352"/>
       </g>
       <!-- pole and finial -->
-      <path class="ink" stroke-width="2.4" d="M165 356 V44"/>
+      <path class="ink" stroke-width="2.4" d="M165 470 V44"/>
       <circle class="ink" stroke-width="1.6" cx="165" cy="38" r="5"/>
       <!-- tasselled cord -->
       <g class="ink faint" stroke-width="1">
@@ -761,7 +774,7 @@
         <path d="M734 80 C738 170 734 268 738 352"/>
         <path d="M762 80 C766 170 762 270 768 352"/>
       </g>
-      <path class="ink" stroke-width="2.4" d="M735 356 V44"/>
+      <path class="ink" stroke-width="2.4" d="M735 470 V44"/>
       <circle class="ink" stroke-width="1.6" cx="735" cy="38" r="5"/>
       <g class="ink faint" stroke-width="1">
         <path d="M735 52 C750 70 758 92 754 116"/>
@@ -771,29 +784,29 @@
 
     <!-- Center flag: stripes, hanging behind the podium -->
     <g>
-      <path class="mask" d="M382 66 C378 130 382 210 378 292 C420 304 478 304 520 292
-                            C516 210 520 130 516 66 C474 56 424 56 382 66 Z" stroke-width="2.2"/>
+      <path class="mask" d="M368 66 C364 120 368 180 362 240 C382 254 420 260 452 258
+                            C492 256 520 248 536 236 C530 178 534 120 530 66 C478 54 420 54 368 66 Z" stroke-width="2.2"/>
       <g class="ink mid" stroke-width="1">
-        <path d="M394 96 C434 104 464 104 506 96"/>
-        <path d="M392 128 C434 136 464 136 508 128"/>
-        <path d="M390 160 C434 168 464 168 508 160"/>
-        <path d="M389 192 C434 200 464 200 509 192"/>
-        <path d="M388 224 C434 232 464 232 510 224"/>
-        <path d="M388 256 C434 264 464 264 510 256"/>
+        <path d="M382 92 C434 102 470 102 520 92"/>
+        <path d="M378 122 C434 132 470 132 522 122"/>
+        <path d="M374 152 C434 162 470 162 524 152"/>
+        <path d="M370 182 C434 192 470 192 526 182"/>
+        <path d="M366 212 C434 222 472 222 528 212"/>
+        <path d="M363 240 C434 252 476 250 532 238"/>
       </g>
       <!-- canton -->
-      <path class="ink" stroke-width="1.4" d="M382 66 C381 90 382 112 381 134 C404 140 424 140 446 136 C446 112 447 88 448 64"/>
+      <path class="ink" stroke-width="1.4" d="M368 66 C367 88 367 110 365 132 C392 138 414 138 438 134 C438 110 439 86 440 62"/>
     </g>
 
     <!-- Podium: angled reading top, tapering wooden body -->
-    <path class="mask" d="M330 262 L570 262 L556 250 L344 250 Z" stroke-width="2.4"/>
-    <path class="mask" d="M338 262 L562 262 L588 470 L312 470 Z" stroke-width="2.6"/>
+    <path class="mask" d="M318 262 L582 262 L566 248 L334 248 Z" stroke-width="2.4"/>
+    <path class="mask" d="M330 262 L570 262 L544 470 L356 470 Z" stroke-width="2.6"/>
     <!-- wood grain, faint verticals following the taper -->
     <g class="ink faint" stroke-width="0.9">
-      <path d="M392 268 L382 464"/>
-      <path d="M508 268 L518 464"/>
-      <path d="M344 300 L556 300"/>
-      <path d="M336 380 L564 380"/>
+      <path d="M396 268 L404 464"/>
+      <path d="M504 268 L496 464"/>
+      <path d="M348 300 L552 300"/>
+      <path d="M352 380 L548 380"/>
     </g>
 
     <!-- Microphones: two slim gooseneck stalks off the reading top -->
@@ -841,7 +854,7 @@
   <div class="stat-strip"><div><b>7,652.86</b><span class="stat-label">S&amp;P 500</span><span class="stat-change"><span class="tri down" aria-hidden="true"></span>-0.28%</span></div><div><b>53,417.16</b><span class="stat-label">Dow</span><span class="stat-change"><span class="tri up" aria-hidden="true"></span>+0.26%</span></div><div><b>25,980.19</b><span class="stat-label">Nasdaq</span><span class="stat-change"><span class="tri down" aria-hidden="true"></span>-0.76%</span></div><div><b>$79,821</b><span class="stat-label">Bitcoin</span><span class="stat-change"><span class="tri up" aria-hidden="true"></span>+3.10%</span></div></div>
   <p class="stats-note">Market data compiled before the opening bell</p>
 
-  <div class="sections" style="--wire-cols: 3">
+  <div class="sections" style="--wire-cols: 3; --wire-last-span: 1">
   <section class="sec sec-wire">
   <div class="section-label">U.S.</div>
   <div class="two-col-briefs"><div class="brief">
@@ -919,7 +932,7 @@
 
   <div class="footer-note">Compiled from wire reports<span class="sep">&middot;</span><a href="../archive.html">Back issues</a></div>
 
-  <nav class="paper-nav paper-nav-foot" aria-label="Sections, repeated"><a href="../index.html">Home</a><a href="../sportsman/">Sports &amp; Sportsman</a><a href="../weather/">The Weather Claude</a></nav>
+  <nav class="paper-nav paper-nav-foot" aria-label="Sections, repeated"><a href="../home.html">Home</a><a href="../sportsman/">Sports &amp; Sportsman</a><a href="../weather/">The Weather Claude</a></nav>
 
 </div>
 </body>

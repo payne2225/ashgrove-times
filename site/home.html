@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<!-- HOME. Static and hand-kept: the renderer must never write this file
+     (write_site targets today.html). Pat asked for one bookmarkable page
+     that reaches every paper. If a fourth ever ships, it gets a card here.
+
+     THIS IS THE PAGE THE DAILY DISCORD POST LINKS, so its <title> and
+     <meta description> are what the channel actually sees in the unfurl —
+     they are the paper's shop window, not housekeeping. Renamed from "The
+     Newsstand" to "Home" 2026-08-25 (Nate): the nav button had said Home
+     since 2026-08-21 and the page it landed on called itself something
+     else. site/index.html now redirects here so a bare / still works. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="The News Desk, Sports &amp; Sportsman and The Weather Claude — the morning papers, filed daily from 7:00 ET.">
+<title>Home — The Ashgrove Times</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<style>
+  :root {
+    --parchment: #f4f0e6; --parchment-alt: #e9e4d8; --wv-tint: #ede7d6;
+    --ink: #1c1a16; --ink-soft: #3a362a; --ink-mute: #4a4536;
+    --ink-faint: #6b6555; --rule: #c9c2ac;
+    --display: "Playfair Display", Georgia, "Times New Roman", serif;
+    --alt: "Old Standard TT", "Playfair Display", Georgia, serif;
+    --body: "Source Serif 4", Charter, Georgia, serif;
+  }
+  * { box-sizing: border-box; }
+  body {
+    background: var(--parchment-alt); margin: 0; padding: 32px 14px 60px;
+    font-family: var(--body); color: var(--ink);
+  }
+  .page {
+    max-width: 720px; margin: 0 auto; background: var(--parchment);
+    border: 1px solid var(--ink); padding: 34px 38px 40px;
+    box-shadow: 0 2px 18px rgba(0,0,0,0.18); text-align: center;
+  }
+  .masthead {
+    font-family: var(--alt); font-weight: 700; font-size: min(52px, 9vw);
+    line-height: 1; margin: 8px 0 2px; letter-spacing: 1px;
+  }
+  .tagline { font-style: italic; font-size: 13px; color: var(--ink-mute); }
+  .rule-thick { border: 0; border-top: 4px double var(--ink); margin: 14px 0 0; }
+  .rule-thin { border: 0; border-top: 1px solid var(--ink); margin: 4px 0 26px; }
+  .stand-label {
+    font-family: var(--display); font-weight: 900; font-size: 14px;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--ink-mute); margin: -8px 0 16px;
+  }
+  .papers { display: grid; gap: 18px; text-align: left; }
+  a.paper {
+    display: block; border: 2px solid var(--ink); background: var(--wv-tint);
+    padding: 18px 22px; text-decoration: none; color: var(--ink);
+  }
+  a.paper:hover { background: var(--parchment); }
+  .paper h2 {
+    font-family: var(--display); font-weight: 900; font-size: 24px;
+    margin: 0 0 4px;
+  }
+  .paper p { margin: 0; font-size: 14.5px; color: var(--ink-soft); line-height: 1.45; }
+  .paper .hours {
+    display: block; margin-top: 8px; font-size: 11px; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--ink-faint);
+  }
+  .small-links { margin-top: 24px; font-size: 13px; }
+  .small-links a { color: var(--ink-soft); }
+  .footer-note {
+    margin-top: 30px; font-size: 11px; font-style: italic; color: var(--ink-faint);
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="masthead">THE ASHGROVE TIMES</div>
+  <div class="tagline">&ldquo;For the Fellers&rdquo;</div>
+  <hr class="rule-thick"><hr class="rule-thin">
+
+  <div class="stand-label">Home</div>
+
+  <div class="papers">
+    <a class="paper" href="today.html">
+      <h2>The News Desk</h2>
+      <p>The morning paper &mdash; the lead, U.S., World, the Mountaineer
+      State Notebook, British Columbia, Science &amp; Technology and
+      Artificial Intelligence.</p>
+      <span class="hours">Every morning at 7:00 ET</span>
+    </a>
+    <a class="paper" href="sportsman/">
+      <h2>Sports &amp; Sportsman</h2>
+      <p>Our teams, the leagues, the season calendar, and the morning&rsquo;s
+      water &mdash; gauges, tides, and what&rsquo;s working.</p>
+      <span class="hours">Every morning at 7:05 ET</span>
+    </a>
+    <a class="paper" href="weather/">
+      <h2>The Weather Claude</h2>
+      <p>The forecast with Jim Claudtore &mdash; the whole crew&rsquo;s
+      weather, the Hart, and Topsail, as filed to the channel.</p>
+      <span class="hours">Every morning at 7:15 ET</span>
+    </a>
+  </div>
+
+  <div class="small-links">
+    <a href="archive.html">Back issues of the Times</a>
+  </div>
+
+  <div class="footer-note">One post a morning in the channel; the papers themselves live here.</div>
+</div>
+</body>
+</html>

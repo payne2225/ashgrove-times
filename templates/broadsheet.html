@@ -632,6 +632,10 @@
       align-items: start;
     }
     .sec { margin-bottom: 20px; }
+    /* Close the hole a ragged last row would leave — see _sections_style(). */
+    .sections > .sec-wire:last-of-type {
+      grid-column: span var(--wire-last-span, 1);
+    }
     .sec .two-col-briefs { column-count: 1; column-rule: none; }
     .sec .section-label { margin-top: 0; }
     /* Rules between the wire columns, none before the first. */
@@ -710,11 +714,20 @@
   }
   .wx-list { margin: 0 0 12px; padding-left: 20px; }
   .wx-list li { margin-bottom: 6px; }
-  /* The weather page borrows the sportsman column fill at desktop; a single
-     long column reads better for a briefing, so undo the multi-column. */
-  @media (min-width: 1024px) {
-    .page.weather .sections { column-count: 1; column-rule: none; }
-  }
+  /* The weather page stopped borrowing the sportsman column fill on
+     2026-08-25 — it sets as a newspaper page now, with the same section
+     grid the front page uses, so there is no multi-column flow left to
+     undo. What it does need is its own handling of Jim's confidence note,
+     which is a single paragraph inside a full-width box: the notebook's
+     two columns would split one short paragraph down the middle. */
+  .wx-confidence .wv-box { column-count: 1; }
+  .wx-confidence .wv-box p { margin: 0 0 10px; max-width: 92ch; }
+  .wx-confidence .wv-box p:last-child { margin-bottom: 0; }
+  .wx-roundup { margin: 0; }
+  /* Jim writes in half a dozen short reports rather than long copy, so the
+     label chip has to survive a stacked heading — three towns sharing one
+     forecast — without pushing the section out of its column. */
+  .page.weather .section-label { white-space: normal; line-height: 1.35; }
 
   @media print {
     body { background: #fff; padding: 0; }
@@ -831,7 +844,7 @@
   <div class="wv-box">
     <div class="wv-title">{{NOTEBOOK_TITLE}}</div>
     {{ART}}
-    {{BRIEFS}}{{REGIONAL}}{{AWAY}}{{FISHING}}
+    {{BRIEFS}}{{REGIONAL}}{{AWAY}}{{CLOSING_BLOCK}}
   </div>
 </section>
 <!--{/BLOCK:WV_SECTION}-->
