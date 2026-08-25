@@ -697,3 +697,4 @@ and the failure protocol at the bottom of that file appends here too.
   BST" passed the gate that exists to stop exactly that, and only the colon form
   ("15:30 BST", which is what shipped on Aug. 18) was ever caught. Predates this session —
   found while checking a new regex for the same corruption. Repaired and both forms tested.
+- 2026-08-25T11:00:03Z · 2026-08-25 · post_discord: split into FRONT PAGE and INSIDE messages to keep the notebook whole
