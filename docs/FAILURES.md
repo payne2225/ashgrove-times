@@ -708,3 +708,4 @@ and the failure protocol at the bottom of that file appends here too.
   movement either, so `away: []` was the honest notebook.
 - 2026-08-26 — S&S No. 12's mourning dove "coming in" entry ran WITHOUT dates: the 2026-27 migratory bird summary is published, but the pamphlet reference carries no migratory windows and wvdnr.gov's expired certificate blocks the agency PDF, so the validator refused Sept. 1/Oct. 11 and the entry announced the publication only. Fix is transcribing the migratory summary into reference/ (ledger row for Nate).
 - 2026-08-26 — r/Sumo (old.reddit.com) unreachable from this environment a fourth straight morning; the sumo sweep ran on the JSA's pages and searches alone.
+- 2026-08-26T11:00:02Z · 2026-08-26 · post_discord: no verified page url; posting without links
