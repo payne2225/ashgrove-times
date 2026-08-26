@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 560" role="img"
+     aria-label="Plan view of Petermann Fjord: the calved ice island drifts free above the glacier tongue's broken front, rifts crossing the ice behind it">
+  <!-- All marks stroke in currentColor; no fills but faint hatching. -->
+  <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+
+    <!-- ===== West fjord wall (left), rough highland with drainage ===== -->
+    <g stroke-width="2">
+      <path d="M10 555 L60 470 L95 400 L120 330 L150 265 L185 210 L230 165 L285 130 L330 108"/>
+    </g>
+    <g stroke-width="1" opacity="0.8">
+      <!-- dendritic drainage running back from the wall -->
+      <path d="M60 470 l-32 -14 m32 14 l-20 -34"/>
+      <path d="M95 400 l-36 -10 m36 10 l-26 -28 m26 28 l-8 -40"/>
+      <path d="M120 330 l-40 -6 m40 6 l-30 -26"/>
+      <path d="M150 265 l-38 -14 m38 14 l-18 -34"/>
+      <path d="M185 210 l-36 -20 m36 20 l-12 -36"/>
+      <path d="M230 165 l-30 -26 m30 26 l-4 -38"/>
+      <path d="M285 130 l-24 -30"/>
+      <!-- ridge shading ticks -->
+      <path d="M48 500 l18 -12 M78 442 l18 -12 M105 372 l17 -11 M133 300 l17 -10 M166 240 l16 -11 M206 188 l15 -11 M256 148 l15 -9"/>
+    </g>
+
+    <!-- ===== East fjord wall (right), with side glaciers feathering in ===== -->
+    <g stroke-width="2">
+      <path d="M750 40 L700 90 L662 150 L640 215 L628 285 L622 355 L626 425 L638 490 L652 555"/>
+    </g>
+    <g stroke-width="1" opacity="0.8">
+      <path d="M700 90 l34 6 m-34 -6 l26 24"/>
+      <path d="M662 150 l40 4 m-40 -4 l30 20"/>
+      <path d="M640 215 l42 2 m-42 -2 l34 16"/>
+      <path d="M628 285 l44 0 m-44 0 l36 12"/>
+      <path d="M622 355 l44 -2 m-44 2 l38 10"/>
+      <path d="M626 425 l42 -4 m-42 4 l36 8"/>
+      <path d="M638 490 l38 -6"/>
+      <!-- a tributary glacier notch -->
+      <path d="M672 320 q26 -8 52 -4 M676 338 q24 -6 46 -4"/>
+    </g>
+
+    <!-- ===== Glacier tongue, entering lower right, smooth with flowlines ===== -->
+    <g stroke-width="2">
+      <!-- tongue margins -->
+      <path d="M368 555 L390 470 L410 400 L428 340"/>
+      <path d="M600 555 L590 480 L578 410 L568 352"/>
+      <!-- the new calving front: jagged across the tongue -->
+      <path d="M428 340 l22 -12 l16 10 l20 -16 l18 8 l24 -14 l20 10 l20 -14"/>
+    </g>
+    <g stroke-width="1" opacity="0.75">
+      <!-- longitudinal flowlines -->
+      <path d="M398 555 Q416 460 436 366"/>
+      <path d="M428 555 Q444 462 462 372"/>
+      <path d="M458 555 Q472 464 488 374"/>
+      <path d="M490 555 Q502 466 514 372"/>
+      <path d="M522 555 Q532 468 542 366"/>
+      <path d="M554 555 Q560 470 562 360"/>
+      <!-- rifts propagating behind the front -->
+      <path d="M404 452 l40 -18 l30 12 l38 -20 l32 10 l40 -16" stroke-dasharray="7 5"/>
+      <path d="M394 508 l44 -14 l34 10 l40 -16 l36 8 l40 -12" stroke-dasharray="7 5"/>
+    </g>
+
+    <!-- ===== The calved ice island, drifted up-fjord, lozenge tilted ===== -->
+    <g stroke-width="2.5">
+      <path d="M418 96 L472 70 L520 84 L548 140 L540 208 L500 252 L452 244 L420 190 L412 136 Z"/>
+    </g>
+    <g stroke-width="1" opacity="0.75">
+      <!-- carried flowlines, inherited from the tongue and now askew -->
+      <path d="M436 110 Q470 132 516 210"/>
+      <path d="M452 96 Q490 126 532 196"/>
+      <path d="M424 140 Q456 168 490 240"/>
+      <!-- a corner scar where it left the front -->
+      <path d="M500 252 l14 12"/>
+    </g>
+
+    <!-- ===== Open water: scattered floes and brash between island and front ===== -->
+    <g stroke-width="1" opacity="0.7">
+      <ellipse cx="392" cy="300" rx="10" ry="6"/>
+      <ellipse cx="428" cy="284" rx="6" ry="4"/>
+      <ellipse cx="472" cy="300" rx="8" ry="5"/>
+      <ellipse cx="512" cy="290" rx="5" ry="3"/>
+      <ellipse cx="548" cy="304" rx="9" ry="5"/>
+      <ellipse cx="586" cy="290" rx="5" ry="3"/>
+      <ellipse cx="368" cy="262" rx="5" ry="3"/>
+      <ellipse cx="580" cy="252" rx="7" ry="4"/>
+      <ellipse cx="604" cy="222" rx="5" ry="3"/>
+      <!-- brash ice ticks -->
+      <path d="M406 322 l10 -3 M446 314 l9 -3 M492 318 l10 -2 M534 322 l9 -3 M566 268 l8 -3 M420 258 l8 -3"/>
+    </g>
+
+    <!-- ===== Pack ice at the fjord mouth, upper left ===== -->
+    <g stroke-width="1" opacity="0.7">
+      <ellipse cx="120" cy="60" rx="16" ry="9"/>
+      <ellipse cx="170" cy="92" rx="11" ry="7"/>
+      <ellipse cx="86" cy="110" rx="9" ry="6"/>
+      <ellipse cx="216" cy="56" rx="8" ry="5"/>
+      <ellipse cx="256" cy="88" rx="12" ry="6"/>
+      <ellipse cx="308" cy="60" rx="7" ry="4"/>
+      <ellipse cx="352" cy="86" rx="9" ry="5"/>
+      <ellipse cx="304" cy="24" rx="10" ry="5"/>
+      <ellipse cx="196" cy="24" rx="12" ry="6"/>
+      <path d="M140 130 l12 -4 M236 118 l11 -4 M330 116 l10 -4 M382 52 l10 -4"/>
+    </g>
+  </g>
+</svg>
