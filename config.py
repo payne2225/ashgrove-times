@@ -379,9 +379,14 @@ SECTIONS = [
     # place somebody actually lives. It gets briefs like anywhere else, and
     # the Away Desk line for Prince George is retired so that no town is
     # covered twice on the same page.
+    # Upgraded from "British Columbia" to a three-tier beat 2026-08-26
+    # (Nate). One province was too narrow to fill honestly every morning and
+    # too wide to be about anywhere in particular. National, provincial and
+    # local each get their own block, so the section always has somewhere to
+    # go and Kirsten's own city never gets crowded out by Vancouver.
     {
         "id": "bc",
-        "label": "British Columbia",
+        "label": "Canada",
         "emoji": "\U0001F341",
         "color": _color("6B3B2E"),
         "order": 4,
@@ -406,6 +411,58 @@ SECTIONS = [
 ]
 
 SECTION_IDS = [s["id"] for s in SECTIONS]
+
+# The Canada section's three tiers, printed in this order: local first,
+# because the section exists for somebody who lives in Prince George, and a
+# national-first ordering would bury her city under Ottawa every morning.
+# The West Virginia notebook makes the same choice in the other direction
+# and for the same reason — it leads with the state because the readers are
+# in it.
+CANADA_TIERS = [
+    {
+        "tier": "prince_george",
+        "label": "Prince George",
+        "note": "the city itself and the surrounding north — Nechako, Fraser, "
+                "the Cariboo, Lheidli T'enneh",
+        "outlets": ["CKPG Today", "Prince George Citizen",
+                    "CBC Daybreak North", "My PG Now"],
+    },
+    {
+        "tier": "bc",
+        "label": "British Columbia",
+        "note": "the province: Victoria, the Interior, the coast, wildfire "
+                "service, and Vancouver when it is genuinely provincial news",
+        "outlets": ["CBC British Columbia", "Vancouver Sun", "CTV Vancouver",
+                    "Global BC"],
+    },
+    {
+        "tier": "canada",
+        "label": "Across Canada",
+        "note": "the country: Ottawa, the other provinces, national economy, "
+                "anything a Canadian would call national news",
+        "outlets": ["CBC News", "Global News", "CTV News", "The Globe and Mail",
+                    "National Post"],
+    },
+]
+
+CANADA_TIER_IDS = [t["tier"] for t in CANADA_TIERS]
+_CANADA_TIERS_BY_ID = {t["tier"]: t for t in CANADA_TIERS}
+
+
+def canada_tier(tier: str) -> dict:
+    """A Canada-section tier by id. Raises KeyError on an unknown one."""
+    try:
+        return _CANADA_TIERS_BY_ID[tier]
+    except KeyError:
+        raise KeyError(
+            f"unknown tier {tier!r}; known: {', '.join(CANADA_TIER_IDS)}"
+        ) from None
+
+
+# Every tier files, from this date. Dated forward one day so the desk reads
+# the instructions before the gate closes, and so today's edition — written
+# when the section was still one province — stays valid as what it was.
+CANADA_TIERS_REQUIRED_FROM = "2026-08-27"
 
 # Sections set BELOW the flowed wire columns, at the full measure, rather
 # than inside them. West Virginia has always sat here — it is the local

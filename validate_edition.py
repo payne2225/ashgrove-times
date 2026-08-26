@@ -103,6 +103,8 @@ WV_SECTION_KEYS = (SECTION_KEYS | {"notebook_title"}
                    | set(config.WV_ALL_SUBHEAD_KEYS)
                    | set(config.NOTEBOOK_EMPTY_NOTE_KEYS.values()))
 BRIEF_KEYS = {"headline", "summary", "source", "url"}
+# The Canada section tags each brief with which tier it belongs to.
+CANADA_BRIEF_KEYS = BRIEF_KEYS | {"tier"}
 REGION_ITEM_KEYS = {"region_id", "place", "people", "item", "source", "url"}
 REGION_ITEM_REQUIRED = {"region_id", "place", "people", "item", "source"}
 
@@ -906,17 +908,24 @@ def _check_stat_strip(
     return errors
 
 
-def _check_brief(brief: object, path: str) -> list[str]:
+def _check_brief(brief: object, path: str, section_id: str = "") -> list[str]:
     if not isinstance(brief, dict):
         return [f"{path} must be an object"]
 
+    allowed = CANADA_BRIEF_KEYS if section_id == "bc" else BRIEF_KEYS
     errors: list[str] = []
     missing = BRIEF_KEYS - set(brief)
     if missing:
         errors.append(f"{path} missing key(s): {', '.join(sorted(missing))}")
-    unknown = set(brief) - BRIEF_KEYS
+    unknown = set(brief) - allowed
     if unknown:
         errors.append(f"{path} has unknown key(s): {', '.join(sorted(unknown))}")
+
+    tier = brief.get("tier")
+    if tier is not None and tier not in config.CANADA_TIER_IDS:
+        errors.append(
+            f"{path}.tier is {tier!r} — the Canada section's tiers are "
+            f"{', '.join(config.CANADA_TIER_IDS)}")
 
     if not _nonempty_str(brief.get("headline")):
         errors.append(f"{path}.headline must be a non-empty string")
@@ -1610,7 +1619,26 @@ def _check_sections(
                 if expected["standing"] else ""
             errors.append(f"section {sid!r} has no briefs{standing}")
         for j, brief in enumerate(briefs):
-            errors.extend(_check_brief(brief, f"sections[{i}].briefs[{j}]"))
+            errors.extend(
+                _check_brief(brief, f"sections[{i}].briefs[{j}]", sid))
+
+        # Canada files a brief at EVERY tier — Prince George, the province,
+        # the country. One province was too narrow to fill honestly every
+        # morning and too wide to be about anywhere in particular; three
+        # tiers means the section always has somewhere to go, and Kirsten's
+        # own city never gets crowded out by Vancouver or by Ottawa.
+        if (sid == "bc"
+                and _is_str(edition_date)
+                and edition_date >= config.CANADA_TIERS_REQUIRED_FROM):
+            present = {b.get("tier") for b in briefs if isinstance(b, dict)}
+            for meta in config.CANADA_TIERS:
+                if meta["tier"] in present:
+                    continue
+                errors.append(
+                    f"sections[{i}] has no {meta['tier']!r} brief — Canada "
+                    f"runs one at every tier. {meta['label']}: {meta['note']}. "
+                    f"Try {', '.join(meta['outlets'][:3])}"
+                )
 
     extra = sections[len(expected_sections):]
     for k, section in enumerate(extra, start=len(expected_sections)):

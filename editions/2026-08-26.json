@@ -171,25 +171,28 @@
     },
     {
       "id": "bc",
-      "label": "British Columbia",
+      "label": "Canada",
       "briefs": [
         {
           "headline": "Prince George-Valemount's Bird quits Conservative caucus",
           "summary": "Rosalyn Bird will sit as an independent, the third Conservative MLA to leave recently, saying parties should not overshadow the duty to constituents.",
           "source": "CKPG Today",
-          "url": "https://ckpgtoday.ca/2026/08/25/bird-leaves-conservative-caucus-will-sit-as-independent-mla/"
+          "url": "https://ckpgtoday.ca/2026/08/25/bird-leaves-conservative-caucus-will-sit-as-independent-mla/",
+          "tier": "prince_george"
         },
         {
           "headline": "Ottawa commits $38M to Nechako salmon hatchery",
           "summary": "The federal facility near the Fraser confluence, run with the Lheidli T'enneh First Nation, will raise 400,000 juvenile chinook a year; the final phase is due in spring 2028.",
           "source": "CKPG Today",
-          "url": "https://ckpgtoday.ca/2026/08/25/nechako-salmon-hatchery-hailed-as-major-step-toward-rebuilding-struggling-stocks/"
+          "url": "https://ckpgtoday.ca/2026/08/25/nechako-salmon-hatchery-hailed-as-major-step-toward-rebuilding-struggling-stocks/",
+          "tier": "prince_george"
         },
         {
           "headline": "Eby presses Ottawa for non-tariff measures against U.S.",
           "summary": "The premier asked British Columbians not to travel south and urged Canada to rethink a $12 billion fighter-jet buy and phase out U.S. thermal coal exports through Delta.",
           "source": "Global News",
-          "url": "https://globalnews.ca/news/12034728/bc-premier-responds-canada-counter-tariffs-live-bc-liquor-store/"
+          "url": "https://globalnews.ca/news/12034728/bc-premier-responds-canada-counter-tariffs-live-bc-liquor-store/",
+          "tier": "bc"
         }
       ]
     },

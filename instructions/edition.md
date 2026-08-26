@@ -622,34 +622,64 @@ and the search ladder that make that achievable without inventing anything —
 because inventing a line for a place people plan trips around would be worse
 than inventing one anywhere else.
 
-### British Columbia — STANDING SECTION
+### Canada — STANDING SECTION, THREE TIERS
 
 ```
-Prince George BC news {Month D, YYYY}
-British Columbia {topic} {Month D, YYYY}
-{CBC British Columbia OR Prince George Citizen} {Month D, YYYY}
+Prince George BC news {Month D, YYYY}          (CKPG Today, PG Citizen)
+British Columbia {topic} {Month D, YYYY}       (CBC BC, Vancouver Sun)
+Canada news {Month D, YYYY}                    (CBC News, Globe and Mail)
 ```
 
-**Added 2026-08-26 for Kirsten**, who lives in Prince George. It was one
-sentence on the Away Desk, sharing a sub-block with Wes's Vermont — which is
-not coverage of a place somebody actually lives. The `prince_george` Away
-Desk line is **retired**; the validator refuses it, because covering the
-same town in two places on one page is worse than covering it once properly.
+**Added 2026-08-26 for Kirsten**, who lives in Prince George, and widened
+from "British Columbia" to "Canada" the same day. One province was too
+narrow to fill honestly every morning and too wide to be about anywhere in
+particular. The `prince_george` Away Desk line is **retired** and the
+validator refuses it — covering the same town twice on one page is worse
+than covering it once properly.
 
-It is a normal wire section: **two to three briefs**, headline, summary,
-source, link. Prince George first when Prince George has news, and the
-province when it does not — B.C. wildfire service, the legislature in
-Victoria, the Interior, the north. **Vancouver is B.C. and counts**, but a
-section that is three Vancouver briefs is the same failure as a World
-section that is three briefs from one country.
+It renders **below the West Virginia notebook**, at the full measure, in
+three columns. Each brief carries a `tier`, and **every tier files** from
+2026-08-27:
 
-Trusted and readable: **CBC British Columbia**, **Prince George Citizen**,
-**Vancouver Sun**, **CTV Vancouver**, **Global BC**.
+| `tier` | Prints as | What belongs there |
+|---|---|---|
+| `prince_george` | Prince George | the city and the surrounding north — Nechako, Fraser, the Cariboo, Lheidli T'enneh |
+| `bc` | British Columbia | the province: Victoria, the Interior, the coast, wildfire service. **Vancouver counts** when the story is genuinely provincial |
+| `canada` | Across Canada | Ottawa, the other provinces, the national economy — what a Canadian would call national news |
 
-**She reads this.** The same rule that governs Jim applies here: no coping
-advice, ever — if the news is a fire or a flood near her, it is reported as
-news, with numbers and distances, and it does not tell her how to feel about
-it.
+```json
+{"headline": "Ottawa commits $38M to Nechako salmon hatchery",
+ "summary": "The federal facility near the Fraser confluence, run with the Lheidli T'enneh First Nation, will raise 400,000 juvenile chinook a year.",
+ "source": "CKPG Today", "url": "https://ckpgtoday.ca/...", "tier": "prince_george"}
+```
+
+**Tier by WHERE THE STORY IS, not by who announced it.** Ottawa funding a
+hatchery outside Prince George is a Prince George story — the money came
+from Ottawa, the fish are in the Nechako. A federal budget that mentions
+B.C. in passing is `canada`.
+
+**Local first, deliberately.** The column order is Prince George, then the
+province, then the country, because this section exists for somebody who
+lives in Prince George and a national-first ordering would bury her city
+under Ottawa every morning. The West Virginia notebook makes the same choice
+in the other direction and for the same reason.
+
+**One brief per tier is the floor, not the ceiling.** A big day in Prince
+George can run two or three there. A tier with nothing renders nothing and
+the section closes up — but that is for an edition BEFORE 2026-08-27 or a
+genuine outage, not a normal morning. Canada always has national news;
+"nothing happened in Canada today" is never true and the validator will say
+so by name.
+
+Readable: **CKPG Today**, **Prince George Citizen**, **CBC Daybreak North**
+and **My PG Now** for the north; **CBC British Columbia**, **Vancouver
+Sun**, **CTV Vancouver**, **Global BC** for the province; **CBC News**,
+**Global News**, **CTV News**, **The Globe and Mail**, **National Post** for
+the country.
+
+**She reads this.** The rule that governs Jim applies here: no coping
+advice, ever. If the news is a fire or a flood near her it is reported as
+news, with numbers and distances, and it does not tell her how to feel.
 
 ### Artificial Intelligence — STANDING SECTION
 

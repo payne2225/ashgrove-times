@@ -512,10 +512,13 @@ def _sections_html(blocks: dict[str, str], sections: list, edition: dict) -> tup
     anchors: list[str] = []
     for section in ordered:
         sid = section.get("id")
-        rendered = (_wv_section_html(blocks, section, edition) if sid == "wv"
-                    else _wire_section_html(
-                        blocks, section, edition,
-                        anchor=sid in ANCHOR_SECTION_IDS))
+        if sid == "wv":
+            rendered = _wv_section_html(blocks, section, edition)
+        elif sid == "bc":
+            rendered = _canada_section_html(blocks, section, edition)
+        else:
+            rendered = _wire_section_html(
+                blocks, section, edition, anchor=sid in ANCHOR_SECTION_IDS)
         if not rendered:
             continue
         (anchors if sid in ANCHOR_SECTION_IDS else wires).append(rendered)
@@ -555,6 +558,52 @@ def _wire_section_html(blocks: dict[str, str], section: dict, edition: dict,
         html = html.replace('class="sec sec-wire"',
                             'class="sec sec-wire sec-anchor"', 1)
     return html
+
+
+def _canada_section_html(blocks: dict[str, str], section: dict,
+                        edition: dict) -> str:
+    """Canada in three tiers: Prince George, the province, the country.
+
+    Local first. The section exists for somebody who lives in Prince George,
+    and a national-first ordering would bury her city under Ottawa every
+    morning — the same reasoning that makes the notebook lead with West
+    Virginia rather than with Washington.
+
+    A brief with no `tier` falls to the province, which is where the section
+    was before it had tiers at all: an untagged brief on an old edition was
+    written as British Columbia coverage and still is.
+    """
+    grouped: dict[str, list[str]] = {t: [] for t in config.CANADA_TIER_IDS}
+    for brief in (section.get("briefs") or []):
+        if not isinstance(brief, dict):
+            continue
+        html = _brief_html(blocks, brief)
+        if not html:
+            continue
+        tier = brief.get("tier")
+        grouped.setdefault(
+            tier if tier in grouped else "bc", []).append(html)
+
+    tiers = []
+    for meta in config.CANADA_TIERS:
+        items = grouped.get(meta["tier"]) or []
+        if not items:
+            continue          # an empty tier renders nothing, never a gap
+        tiers.append(fill(blocks["CANADA_TIER"], {
+            "TIER_LABEL": esc(meta["label"]),
+            "BRIEFS": "".join(items),
+        }))
+    if not tiers:
+        return ""
+
+    body = (f'<div class="tiers" style="--tier-cols: {len(tiers)}">'
+            + "".join(tiers) + "</div>")
+    html = fill(blocks["SECTION"], {
+        "SECTION_LABEL": esc(_section_label(section)),
+        "BRIEFS": _art_html(blocks, _art_for(edition, "bc")) + body,
+    })
+    return html.replace('class="sec sec-wire"',
+                        'class="sec sec-wire sec-anchor sec-canada"', 1)
 
 
 def _wv_section_html(blocks: dict[str, str], section: dict, edition: dict) -> str:

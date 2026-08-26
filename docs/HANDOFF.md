@@ -97,8 +97,12 @@ Two new standing sections and a rebuilt notebook, all live from the
 `config.WV_SUBHEADS_CHANGED_ON` date-scope every one of these so the archive
 still validates as the paper it was.
 
-- **British Columbia** — Kirsten's. Was one Away Desk sentence sharing a
-  block with Wes's Vermont. Now a wire section, 2–3 briefs. The
+- **Canada** (section id still `bc`) — Kirsten's. Was one Away Desk sentence
+  sharing a block with Wes's Vermont; then a British Columbia wire section;
+  since 2026-08-26 a **three-tier** section set below the notebook at full
+  measure. Every brief carries a `tier` — `prince_george`, `bc`, `canada` —
+  and **all three file** from 2026-08-27. Local column first, on purpose:
+  the section exists for somebody who lives in Prince George. The
   `prince_george` Away Desk line is **retired and refused by the validator**.
 - **Artificial Intelligence** — was eating Science & Technology's slots.
   Now top-level, 2–3 briefs, and a model release is only a brief when
