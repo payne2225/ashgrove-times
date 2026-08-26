@@ -2443,3 +2443,58 @@ Both papers landed **exactly on their holds**: the Times at **7:00** (No. 16, me
 `i77-victims-named`, `wood-assessor-cuts`, `ocean-sst-record-21-1c`, `moon-microbes-goddard`,
 `supercentenarian-cd4`, `depression-neurogenesis-atlas`, `chelsea-fulham-3-2-alonso`, `reds-giants-0-5`,
 `pirates-padres-3-2-12inn`, `nfl-cutdown-aug30`, `aki-banzuke-six-days`
+
+## 2026-08-26 — No. 22 (Times) and No. 12 (Sports & Sportsman)
+
+| Open-ended | **First morning under the digest contract, and it held.** One message, Times webhook only; Sports & Sportsman written, validated, rendered and pushed with no post of its own, teased inside the digest. Both papers researched, written, validated, rendered and pushed by **6:00 a.m. ET**, 30 minutes after the 5:30 wake; the digest launched in background at 6:05 with `--not-before 07:00`. Pages built both dated pages inside a minute of the push. The clock was read, not estimated | |
+| Open-ended | **The new sections filled honestly on day one.** British Columbia debuted at three briefs (two CKPG Today, one Global News — Prince George first, per the playbook) and Artificial Intelligence at two (IEEE Spectrum, Euronews) after a thin genuine AI wire; the notebook ran four statewide and three regional lines, with away, hotspots both empty and the kicker saying so. Nothing was padded to fill the new space | |
+| **For Nate** | **The WV migratory bird summary needs transcribing into `reference/`.** The 2026-27 summary is published (WV Explorer, July 14) and the ledger's watch row resolved — but the validator rightly refused the dove dates because the pamphlet table carries `migratory: true` with **no windows**, and `wvdnr.gov` still serves an expired certificate so the agency PDF cannot be fetched from here. The In Season entry ran DATELESS, announcing the publication and the HIP requirement only. Until the migratory summary is transcribed the way the hunting pamphlet was, no WV dove/goose/woodcock date can print | **OPEN** |
+
+### Forward-dated events added or moved
+
+| Date | Event | Note |
+|---|---|---|
+| **~2026-08-28** | **Bessent's named bank sanction** | Still unannounced Tuesday. The follow-up stands |
+| **2026-08-26** | **Lottery Commission Greenbrier vote is TODAY** | Meeting is after this paper posts; **the outcome is Thursday's brief** |
+| **open** | **Hannan-Calvary result STILL OWED** | Played Tuesday 5 p.m. at Ashton per the coach's schedule. By 6 a.m. Wednesday NO outside outlet had a score — MaxPreps shows the fixture unscored on both teams' pages, and searches at the Point Pleasant Register and WVSSAC surfaced nothing. The teams note said so in print. **Thursday they play at St. Mary's, 6:30**; check for the Calvary result alongside it. Never the schedule, never assumed |
+| **open** | **Marshall-Wright State (Aug. 23) STILL uncited — fourth morning** | herdzone and wsuraiders render title-only; WMUL's archive stops at the Aug. 20 preview. The 3-2 scoreline exists only in search snippets and stays unprinted. Try WCHS and the Herald-Dispatch sport pages directly tomorrow |
+| **2026-08-31** | **Aki banzuke — THIRTEENTH morning the Sept. 13-27 dates are uncited, and r/Sumo unreachable a FOURTH** | JSA's English site still shows only the museum calendar and sold-out notices. The countdown ran in No. 12 pegged to Monday's banzuke. **Hoshoryu's knee-surgery report stays unprinted** for want of a citable outlet; the banzuke should force it |
+| **2026-08-30** | **Roman Space Telescope launch, 7:26 a.m. ET Sunday** | Unchanged; Sunday's paper posts 26 minutes before liftoff |
+| **2026-08-30** | **NFL cutdown, 6 p.m. ET Sunday** | Browns close preseason v New England Thursday 8 ET, Bengals at Philadelphia Friday 8 ET — both in No. 12's week ahead |
+| **2026-11-03** | **South Carolina Senate: Graham v Andrews** | The runoff resolved — **Darline Graham beat Ralph Norman Tuesday** with Trump's backing, ran as No. 22's first U.S. brief. The old "runoff date not established" row closes here. Annie Andrews, pediatrician, is the Democratic nominee |
+| **~2026-09-24** | **DMV contract cancellation takes effect; rebid follows** | AstreaX's $63.5M award pulled after lawmakers asked why Tyler Technologies' $30M bid lost; DOT plans a narrower rebid. WSAZ and MetroNews both carried it; WSAZ's investigation prompted the interim questions. The rebid's shape is the follow-up |
+| **2026-08-27** | **Tottenham at Charlton, League Cup second round, 2:45 p.m. ET today** | The result is Thursday's Our Teams line |
+| **2026-09-01** | **NC flounder opens (six days), WV gun bear Saturday (three)** | Both reconfirmed today — flounder on the NCDEQ release (FF-27-2026), bear from the reference file, county list still unnamed because the pamphlet table has none |
+
+### Open threads
+
+- **dolly-parton-dies** — led No. 22, with the WV angle (50,000 Imagination Library children, the 2022 Clay
+  Center visit) as the notebook's first statewide brief. Arrangements, the Dollywood succession and the
+  Imagination Library's future are the follow-ups.
+- **operation-economic-outcast** — the named bank "by week's end" is the trigger. Iran-Oman agreed a
+  seven-mile temporary Hormuz corridor Wednesday (No. 22's fourth World brief) — the first movement on the
+  route dispute that broke the June memorandum; technical talks on a permanent lane follow.
+- **hawk-fire-reno** — 85% contained, 47 homes, ~5,000 still out. A cause finding or full containment
+  probably closes the thread.
+- **us-canada-trade-war** — Eby's non-tariff push (no U.S. travel, the $12B fighter-jet buy, Westshore
+  thermal coal) ran as the BC section's third brief. Sept. 8 tariffs stand.
+- **huntington-vacated-residences** — six properties, ~40 students in a downtown hotel; permanent housing
+  and the buildings' fate are next. Separate from the Flock thread, whose second reading is at the next
+  council meeting.
+- **putnam-google-datacenter** — Putnam United's resolution heard for three hours; commissioners say HB 2014
+  leaves them nothing. A legislative move in Charleston would be the next line.
+- **marl-psc** — ruling on the delay-or-dismiss motion still pending.
+- **prince-george-plane-crash** — quiet; the TSB report stays the trigger. BC's section debut used Bird's
+  caucus exit, the Nechako hatchery and Eby instead.
+- **wvu-mens-soccer** — 1-1 after the 1-0 home opener win; at UNC-Greensboro Friday.
+
+### Covered slugs, 2026-08-26
+
+`dolly-parton-dies-80`, `graham-runoff-win`, `talwani-violation-rule-publishes`, `hawk-fire-85pct`,
+`power-shutoffs-million-august`, `kenscoff-raid-47`, `pims-nursery-fire-14`, `pomas-tornado-39-injured`,
+`iran-oman-hormuz-corridor`, `dolly-wv-imagination-50k`, `dmv-contract-canceled-63m`,
+`hazelton-bop-smith-resigns`, `kanawha-field-transfusion`, `marshall-frat-houses-vacated`,
+`putnam-google-resolution`, `parkersburg-grants-water`, `bird-independent-mla`, `nechako-hatchery-38m`,
+`eby-non-tariff`, `shingrix-dementia-24pct`, `petermann-ice-island`, `chromosome-highways`,
+`gravity-clusters-cmb`, `delft-llm-robotaxi`, `ox-alpha-openrouter`, `wvu-st-bonaventure-1-0`,
+`reds-giants-1-3`, `pirates-padres-0-1`, `baleba-united-70m`, `mets-brewers-10inn`, `aki-banzuke-five-days`

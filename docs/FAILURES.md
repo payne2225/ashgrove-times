@@ -706,3 +706,5 @@ and the failure protocol at the bottom of that file appends here too.
 - 2026-08-25 — *VTDigger's homepage returned 403 again* (second occurrence; first
   2026-08-22). Vermont went unswept and the away desk ran empty — Prince George had no new
   movement either, so `away: []` was the honest notebook.
+- 2026-08-26 — S&S No. 12's mourning dove "coming in" entry ran WITHOUT dates: the 2026-27 migratory bird summary is published, but the pamphlet reference carries no migratory windows and wvdnr.gov's expired certificate blocks the agency PDF, so the validator refused Sept. 1/Oct. 11 and the entry announced the publication only. Fix is transcribing the migratory summary into reference/ (ledger row for Nate).
+- 2026-08-26 — r/Sumo (old.reddit.com) unreachable from this environment a fourth straight morning; the sumo sweep ran on the JSA's pages and searches alone.
