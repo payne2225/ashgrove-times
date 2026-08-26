@@ -99,7 +99,9 @@ LEAD_OPTIONAL_KEYS: set[str] = set()
 SECTION_KEYS = {"id", "label", "briefs"}
 # West Virginia is the only section with a shape of its own: Ian's .wv-box
 # instead of the two-column brief layout, and three optional sub-arrays.
-WV_SECTION_KEYS = SECTION_KEYS | {"notebook_title"} | set(config.WV_ALL_SUBHEAD_KEYS)
+WV_SECTION_KEYS = (SECTION_KEYS | {"notebook_title"}
+                   | set(config.WV_ALL_SUBHEAD_KEYS)
+                   | set(config.NOTEBOOK_EMPTY_NOTE_KEYS.values()))
 BRIEF_KEYS = {"headline", "summary", "source", "url"}
 REGION_ITEM_KEYS = {"region_id", "place", "people", "item", "source", "url"}
 REGION_ITEM_REQUIRED = {"region_id", "place", "people", "item", "source"}
@@ -1467,6 +1469,38 @@ def _check_notebook(
                     else:
                         seen_hot[hid] = item_path
 
+    # The away desk and Vacation Hotspots FILE EVERY MORNING (Nate,
+    # 2026-08-26). Both ran zero on their first day, which is what prompted
+    # the rule: "there is always stuff to report. Always."
+    #
+    # The escape is deliberately narrow and deliberately visible. An empty
+    # block is allowed only with a note naming what was actually searched,
+    # so the desk cannot silently skip and nobody has to reconstruct later
+    # whether a place was quiet or was never looked at. Writing that note is
+    # a failure to log, not a way out — instructions/edition.md says so.
+    #
+    # It is an ERROR rather than an advisory because an advisory is exactly
+    # what this was, and the block still went empty. It is not a hard
+    # unconditional error, because a paper that cannot ship at all over one
+    # missing notebook line would be a worse trade than the one it fixes.
+    if _is_str(edition_date) and edition_date >= config.WV_SUBHEADS_CHANGED_ON:
+        for key in config.NOTEBOOK_ALWAYS_FILLS:
+            entries = section.get(key)
+            if isinstance(entries, list) and entries:
+                continue
+            note_key = config.NOTEBOOK_EMPTY_NOTE_KEYS[key]
+            if _nonempty_str(section.get(note_key)):
+                continue
+            errors.append(
+                f"{path}.{key} is empty and there is no {note_key} — "
+                f"{config.wv_subhead(key)} runs EVERY morning. Widen to "
+                f"{config.NOTEBOOK_LOOKBACK_DAYS} days and work the search "
+                "ladder (local outlets, then council/commission/school/DOT "
+                "postings, then social media as a LEAD). If you genuinely "
+                f"came up empty, set {note_key} to what you searched and log "
+                "it in docs/FAILURES.md"
+            )
+
     # "On the Water" was retired from the News Desk on 2026-08-25. It printed
     # gauge and tide READINGS, which are instrument data, and the water has
     # belonged to Sports & Sportsman since 2026-08-21 — this was the last of
@@ -2440,7 +2474,8 @@ SM_MONTHS = {"jan": 1, "feb": 2, "mar": 3, "apr": 4, "may": 5, "jun": 6,
              "nov": 11, "dec": 12}
 
 
-def _sm_briefs(section: dict, path: str) -> tuple[list[dict], list[str]]:
+def _sm_briefs(section: dict, path: str,
+               edition_date: object = None) -> tuple[list[dict], list[str]]:
     errors: list[str] = []
     briefs = section.get("briefs")
     if not isinstance(briefs, list):
@@ -2454,6 +2489,7 @@ def _sm_briefs(section: dict, path: str) -> tuple[list[dict], list[str]]:
         for key in ("headline", "summary", "source"):
             if not _nonempty_str(brief.get(key)):
                 errors.append(f"{where}.{key} must be a non-empty string")
+        errors += _sm_check_result(brief, where, edition_date)
         out.append(brief)
     return out, errors
 
@@ -2561,6 +2597,179 @@ def _standings_subject(subject: str, places: dict) -> str | None:
     return next(iter(hits)) if len(hits) == 1 else None
 
 
+# ------------------------------------------ who actually won the ball game
+
+# TWICE IN THREE DAYS the sports desk read a table correctly and stated the
+# relationship backwards:
+#
+#   2026-08-24  "18.5 clear of second-place Pittsburgh" — Pittsburgh is
+#               FOURTH and 18.5 BACK; Milwaukee led the Cubs by six.
+#   2026-08-26  "Pirates blanked 1-0 by the Padres" — Pittsburgh WON 1-0,
+#               and had won the night before in 12. Pat, in the channel:
+#               "so it was half right."
+#
+# Half right is the signature of this bug. Every number printed was real and
+# every number was in the source, so the stat-strip style of check — does
+# this token appear in the fetched file — passes it clean. What was wrong
+# was the DIRECTION, and direction lives in a verb.
+#
+# The cure is to stop keeping the direction only in prose. A brief that
+# reports a game carries `result`: who won, who lost, the score. Two things
+# then become possible that were not before. The desk has to write the
+# winner down as a fact rather than imply it in a sentence — which is most
+# of the fix, because "winner: Pittsburgh Pirates" sitting above "Pirates
+# blanked by the Padres" is hard to type without noticing. And the
+# validator can read the verb and check it points the same way.
+
+_SCORE_RE = re.compile(r"\b\d{1,2}\s*[-–]\s*\d{1,2}\b")
+
+# Verbs that put the SUBJECT on the winning side, and on the losing side.
+# Deliberately a short list of what this desk actually writes, not an
+# attempt at English: a pattern that does not match costs nothing, while a
+# pattern that matches wrongly would fail a correct edition.
+_WON_VERBS = (
+    "beat", "beats", "defeated", "defeats", "downed", "downs", "edged",
+    "edges", "topped", "tops", "routed", "routs", "shut out", "shuts out",
+    "blanked", "blanks", "swept", "sweeps", "held off", "holds off",
+    "overcame", "overcomes", "outlasted", "outlasts",
+)
+_LOST_VERBS = (
+    "lost to", "loses to", "fell to", "falls to", "beaten by", "swept by",
+    "blanked by", "shut out by", "routed by", "edged by", "downed by",
+    "topped by", "defeated by", "outlasted by",
+)
+
+
+def _sm_result_direction(text: str, winner: str, loser: str) -> str | None:
+    """Which way the PROSE says it went: "winner", "loser", or None.
+
+    Works on word POSITIONS rather than on a regular expression, for two
+    reasons. The passive is the whole problem — "Pirates blanked 1-0 by the
+    Padres" puts the score between the verb and the "by", so a pattern that
+    wants them adjacent reads it as an active win and gets it exactly
+    backwards, which is the bug this function exists to catch. And it means
+    no word-boundary escapes to get wrong.
+
+    Returns None whenever nothing recognised is found, which is the common
+    case and never an error: this looks for a CONTRADICTION, it does not
+    police how a sentence may be built.
+    """
+    words = re.findall(r"[a-z]+", (text or "").lower())
+    if not words:
+        return None
+    joined = " " + " ".join(words) + " "
+
+    def at(phrase: str) -> int:
+        return joined.find(" " + phrase + " ")
+
+    # A team gets called by its city as often as by its nickname —
+    # "Pittsburgh fell to San Diego" names neither Pirates nor Padres — so
+    # look for ANY word of the name. Words the two teams share are dropped
+    # first, which is what keeps a Yankees/Mets brief from resolving both
+    # teams to "new york".
+    w_words = set(re.findall(r"[a-z]+", winner.lower()))
+    l_words = set(re.findall(r"[a-z]+", loser.lower()))
+    w_only, l_only = w_words - l_words, l_words - w_words
+
+    def team_at(candidates: set) -> int:
+        hits = [at(word) for word in candidates]
+        hits = [h for h in hits if h >= 0]
+        return min(hits) if hits else -1
+
+    wi, li = team_at(w_only), team_at(l_only)
+    if wi < 0 or li < 0:
+        return None
+
+    for verb in _WON_VERBS + _LOST_VERBS:
+        vi = at(verb)
+        if vi < 0:
+            continue
+        # Whichever team is mentioned last BEFORE the verb is its subject.
+        before = [(wi, "w"), (li, "l")]
+        before = [(pos, who) for pos, who in before if 0 <= pos < vi]
+        if not before:
+            continue          # the verb leads the sentence; no subject to read
+        subject = max(before)[1]
+        other_at = li if subject == "w" else wi
+        tail = joined[vi:other_at] if other_at > vi else ""
+        passive = " by " in tail
+        lost = verb in _LOST_VERBS
+        # A loss verb ("fell to") is already a loss; a win verb turns into
+        # one when the subject is the object of a "by".
+        subject_lost = lost or passive
+        if subject == "w":
+            return "loser" if subject_lost else "winner"
+        return "winner" if subject_lost else "loser"
+    return None
+
+
+def _sm_check_result(brief: dict, path: str,
+                     edition_date: object = None) -> list[str]:
+    """A game report states who won, and the prose has to agree with it."""
+    errors: list[str] = []
+    text = f"{brief.get('headline', '')} {brief.get('summary', '')}"
+    result = brief.get("result")
+
+    if result is None:
+        required = (_is_str(edition_date)
+                    and edition_date >= config.SM_RESULT_REQUIRED_FROM)
+        if required and _SCORE_RE.search(text):
+            errors.append(
+                f"{path} prints a score but has no `result` — a brief that "
+                "reports a game says who won, as data, not only in the "
+                'sentence: "result": {"winner": "<team>", "loser": '
+                '"<team>", "score": "3-2"}. Two reversed results in three '
+                "days is what this exists to stop"
+            )
+        return errors
+
+    if not isinstance(result, dict):
+        return [f"{path}.result must be an object"]
+    unknown = set(result) - {"winner", "loser", "score", "note"}
+    if unknown:
+        errors.append(
+            f"{path}.result has unknown key(s): {', '.join(sorted(unknown))}")
+    for key in ("winner", "loser", "score"):
+        if not _nonempty_str(result.get(key)):
+            errors.append(f"{path}.result.{key} must be a non-empty string")
+    if errors:
+        return errors
+
+    winner, loser = str(result["winner"]), str(result["loser"])
+    if winner.strip().lower() == loser.strip().lower():
+        errors.append(f"{path}.result names {winner!r} as both winner and loser")
+        return errors
+
+    # The score is written winner-first, so the first number is the larger.
+    score = str(result["score"])
+    pair = re.match(r"^\s*(\d{1,2})\s*[-–]\s*(\d{1,2})\s*$", score)
+    if not pair:
+        errors.append(
+            f"{path}.result.score is {score!r} — write it as digits, "
+            'winner first: "1-0"')
+    else:
+        high, low_ = int(pair.group(1)), int(pair.group(2))
+        if high < low_:
+            errors.append(
+                f"{path}.result.score is {score!r} but the score is written "
+                f"WINNER FIRST, so {result['winner']} would have lost it")
+        elif high == low_ and "draw" not in str(result.get("note", "")).lower():
+            errors.append(
+                f"{path}.result.score is {score!r}, a level score, but a "
+                "winner is named — set result.note to say it was a draw or "
+                "how it was decided")
+
+    said = _sm_result_direction(text, winner, loser)
+    if said == "loser":
+        errors.append(
+            f"{path} names {winner} the winner in `result`, but the brief "
+            f"reads as though {winner} LOST — check the box score and fix "
+            "whichever one is wrong. This is the exact shape of the "
+            "2026-08-26 Pirates headline"
+        )
+    return errors
+
+
 def _sm_check_standings_agreement(edition: dict,
                                   teams: dict) -> tuple[list[str], list[str]]:
     """No brief may contradict the standings block in the same edition."""
@@ -2639,11 +2848,12 @@ def _sm_check_standings_agreement(edition: dict,
     return errors, notes
 
 
-def _sm_check_teams(section: dict) -> tuple[list[str], list[str]]:
+def _sm_check_teams(section: dict,
+                    edition_date: object = None) -> tuple[list[str], list[str]]:
     """Every followed team is covered or accounted for — the section's job."""
     errors: list[str] = []
     notes: list[str] = []
-    briefs, brief_errors = _sm_briefs(section, "teams")
+    briefs, brief_errors = _sm_briefs(section, "teams", edition_date)
     errors += brief_errors
 
     # Coverage counts only UNAMBIGUOUS matches. "Spurs" in a football brief
@@ -2959,11 +3169,13 @@ def validate_sportsman(edition: dict, fishing: dict | None) -> tuple[list[str], 
         return errors, notes
     by_id = {s["id"]: s for s in sections if isinstance(s, dict)}
 
-    team_errors, team_notes = _sm_check_teams(by_id["teams"])
+    team_errors, team_notes = _sm_check_teams(by_id["teams"],
+                                              edition.get("edition_date"))
     errors += team_errors
     notes += team_notes
 
-    _, league_errors = _sm_briefs(by_id["leagues"], "leagues")
+    _, league_errors = _sm_briefs(by_id["leagues"], "leagues",
+                                  edition.get("edition_date"))
     errors += league_errors
 
     # Run this AFTER the briefs are shape-checked and against the whole

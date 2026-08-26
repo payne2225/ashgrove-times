@@ -390,6 +390,52 @@ If a water's reading is missing, that water gets no advice at all.
 
 ---
 
+## 4.9. Who won — `result` on every game report
+
+**From 2026-08-27, a brief that prints a score carries `result`.** Not a
+style preference; a gate. The validator refuses the brief without it.
+
+```json
+{"headline": "Pirates shut out the Padres 1-0 a night after winning in 12",
+ "summary": "San Diego has scored twice across the series' first 21 innings; Pittsburgh is fourth in the NL Central, 6.5 out of a wild card.",
+ "source": "MLB.com", "url": "https://www.mlb.com/scores/2026-08-25",
+ "result": {"winner": "Pittsburgh Pirates", "loser": "San Diego Padres", "score": "1-0"}}
+```
+
+- `score` is **winner first**, digits only: `"1-0"`, `"3-2"`, `"4-0"`.
+- A draw sets `note`: `{"winner": "...", "loser": "...", "score": "2-2",
+  "note": "draw"}`, or how it was decided — `"note": "Chelsea on penalties"`.
+- The validator then reads the sentence and checks the verb points the same
+  way as `result`. If the prose reads as though the winner lost, it fails.
+
+### Why this exists — read this once
+
+Twice in three days this desk read a table correctly and stated the
+relationship **backwards**:
+
+| | Printed | Actually |
+|---|---|---|
+| Aug. 24 | "18.5 clear of second-place Pittsburgh" | Pittsburgh is **fourth**, 18.5 **back**; Milwaukee led the Cubs by six |
+| Aug. 26 | "Pirates blanked 1-0 by the Padres" | **Pittsburgh won** the shutout, and had won the night before in 12 |
+
+Pat caught both, in the channel, in front of everybody. On the second one he
+posted the box score and wrote *"so it was half right."*
+
+**Half right is the signature.** Every number in both briefs was real and
+every number was in the source, which is why the byte-match checks — the
+ones that make a fabricated river reading impossible — waved them straight
+through. What was wrong was the direction, and the direction was living in a
+verb where nothing could check it.
+
+So write the winner down as a fact. Most of the value is not the validator:
+it is that `"winner": "Pittsburgh Pirates"` sitting directly above "Pirates
+blanked by the Padres" is very hard to type without seeing it.
+
+**Read the box score, not the recap headline.** Both misses came from
+skimming. The line score has the runs in it and it is never ambiguous.
+
+---
+
 ## 5. Validate, render, post
 
 ```

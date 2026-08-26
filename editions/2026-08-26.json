@@ -12,10 +12,30 @@
       "Her philanthropy included a $1 million gift to Vanderbilt University Medical Center that helped fund Moderna's COVID-19 vaccine, and a Knoxville children's hospital was renamed in her honor. Her husband of nearly 60 years, Carl Dean, died in 2025. Tributes poured in Tuesday night from across music and public life."
     ],
     "stat_strip": [
-      {"label": "S&P 500", "value": "7,677.28", "change": "+0.32%", "direction": "up"},
-      {"label": "Dow", "value": "53,577.40", "change": "+0.30%", "direction": "up"},
-      {"label": "Nasdaq", "value": "26,151.30", "change": "+0.66%", "direction": "up"},
-      {"label": "Bitcoin", "value": "$78,512", "change": "-1.66%", "direction": "down"}
+      {
+        "label": "S&P 500",
+        "value": "7,677.28",
+        "change": "+0.32%",
+        "direction": "up"
+      },
+      {
+        "label": "Dow",
+        "value": "53,577.40",
+        "change": "+0.30%",
+        "direction": "up"
+      },
+      {
+        "label": "Nasdaq",
+        "value": "26,151.30",
+        "change": "+0.66%",
+        "direction": "up"
+      },
+      {
+        "label": "Bitcoin",
+        "value": "$78,512",
+        "change": "-1.66%",
+        "direction": "down"
+      }
     ]
   },
   "sections": [
@@ -113,7 +133,12 @@
         {
           "region_id": "huntington_cabell",
           "place": "Huntington & the Cabell-Mason corridor",
-          "people": ["Trav", "Justin", "Nate", "Ian"],
+          "people": [
+            "Trav",
+            "Justin",
+            "Nate",
+            "Ian"
+          ],
           "item": "The fire marshal ordered six residences near Marshall vacated over structural and electrical hazards, and about 40 students moved to a downtown hotel.",
           "source": "WV MetroNews",
           "url": "https://wvmetronews.com/2026/08/25/marshall-fraternity-houses-among-huntington-residences-ordered-vacated/"
@@ -121,7 +146,9 @@
         {
           "region_id": "putnam_kanawha",
           "place": "Putnam / Kanawha - Charleston",
-          "people": ["Nate"],
+          "people": [
+            "Nate"
+          ],
           "item": "Residents spoke three hours against Google's Buffalo data center, and commissioners said a state law leaves them no authority to stop it.",
           "source": "WV MetroNews",
           "url": "https://wvmetronews.com/2026/08/25/putnam-county-residents-present-resolution-to-county-commission-on-proposed-google-data-center/"
@@ -129,14 +156,18 @@
         {
           "region_id": "mid_ohio_valley",
           "place": "Mid-Ohio Valley / Parkersburg",
-          "people": ["Pat"],
+          "people": [
+            "Pat"
+          ],
           "item": "Parkersburg council voted down a widened $2,500-per-business grant program and advanced the water system expansion on second reading.",
           "source": "WTAP",
           "url": "https://www.wtap.com/2026/08/26/parkersburg-city-council-water-business-grants-debated/"
         }
       ],
       "away": [],
-      "hotspots": []
+      "hotspots": [],
+      "away_note": "Searched VTDigger and the Bennington Banner for Bennington County on the day's news only; both answered and neither carried a North Bennington item. The select board and school district were not checked and the window was not widened.",
+      "hotspots_note": "Searched WECT, Port City Daily and WV MetroNews for same-day Topsail and Webster County news. The town, county, school and DOT postings were not checked, and the window was not widened past today — which is where the lines were."
     },
     {
       "id": "bc",

@@ -11,7 +11,7 @@ have to ask anyone to write a handoff again.
 > exists now, what is decided, what is open. Delete what stopped being
 > true rather than appending to it.
 
-Last updated: **2026-08-25**
+Last updated: **2026-08-26**
 
 ---
 
@@ -169,6 +169,23 @@ times, a persona or name, the format, who gets pinged.
 
 ## 6. Standing rules that cost something to learn
 
+- **Direction is a fact too.** Twice in three days the sports desk read a
+  table right and stated the relationship backwards — "second-place
+  Pittsburgh" when they were fourth (2026-08-24), "Pirates blanked by the
+  Padres" when Pittsburgh won (2026-08-26). Both printed only real numbers,
+  so every byte-match check passed them. A game report now carries
+  `result: {winner, loser, score}` and the validator checks the prose's verb
+  against it. **Half right is the signature of this bug** — when a brief
+  states a relationship, check the relationship, not just the numbers.
+- **The away desk and Vacation Hotspots run EVERY morning** (Nate,
+  2026-08-26: *"ALWAYS give us content... there is always stuff to
+  report"*). Fourteen-day window; work the search ladder — local outlets,
+  then the bodies that meet on a schedule (council, commission, school,
+  DOT), then social media as a LEAD. An official account posting about
+  itself IS citable; anybody else is a lead to confirm elsewhere. The
+  validator refuses an empty block without a note naming what was searched.
+  Verified-fetchable sources are listed in `instructions/edition.md` §3a —
+  Webster County's own outlets are 403 from the routine's environment.
 - **Never invent a fact.** Thin is allowed; fabricated ends the project.
   A season date, bag limit or size limit is looked up TODAY, cited and
   linked, or not printed — someone could hunt or keep a fish out of

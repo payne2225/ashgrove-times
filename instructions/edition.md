@@ -175,7 +175,9 @@ Confirmed readable, and where each earns its place:
 | Science & tech | Nature, journal and university press releases, NASA/NOAA/NIH, Ars Technica, IEEE Spectrum, Electrek, CIDRAP |
 | Sports | ESPN, NFL.com, team and athletics sites (`wvusports.com`), Nippon.com and NHK for sumo |
 | West Virginia | WV MetroNews, Herald-Dispatch, WSAZ, WTAP, Register-Herald, WV Watch, WVPB, WOWK, WCHS |
-| Away desk | VTDigger (Vermont), CKPG Today (Prince George), WWAY and Port City Daily (Topsail) |
+| Away desk | VTDigger, Bennington Banner (North Bennington, VT) |
+| British Columbia | CKPG Today, Prince George Citizen, CBC British Columbia, Global News |
+| Vacation Hotspots | WECT, WWAY, Port City Daily, Pender-Topsail Post (Topsail); WV MetroNews, Register-Herald, Nicholas Chronicle (Webster) — **plus town, county, school and DOT postings, which is where most days' line actually lives** |
 
 Primary sources outrank aggregators every time — the agency release, the
 paper itself, the team's own site. When two readable outlets disagree on a
@@ -230,8 +232,8 @@ The notebook has **four parts, in this order**:
 |---|---|---|---|
 | Statewide briefs | `briefs` | normal brief | **always**, 3–5 |
 | Regional roundup | `regional` | **one sentence** each | only where there is real news |
-| Away desk | `away` | **one sentence** each | only where there is real news |
-| Vacation Hotspots | `hotspots` | **one sentence** each | only where there is real news |
+| Away desk | `away` | **one sentence** each | **EVERY MORNING — never empty** |
+| Vacation Hotspots | `hotspots` | **one sentence** each | **EVERY MORNING — never empty** |
 
 #### It got bigger on 2026-08-26, and here is why
 
@@ -264,11 +266,19 @@ not two sentences, no "what happens next" clause. If an item genuinely
 deserves more room, it is not a notebook line — it is a statewide brief, and
 it moves to `briefs`.
 
-**Only a region with genuine news gets a line.** Three regions on a Tuesday
-is a normal Tuesday. Zero regions is legal. A day where all five regions
-have a line should be rare and should be because five things happened.
-**Thin beats padded** — this is the exact place a paper starts inventing,
-because a roll call of towns creates a slot that begs to be filled.
+**Only a region with genuine news gets a line** — this applies to
+`regional`, the five West Virginia regions, and to nothing else. Three
+regions on a Tuesday is a normal Tuesday. Zero is legal. All five should be
+rare and should be because five things happened. **Thin beats padded** —
+this is the exact place a paper starts inventing, because a roll call of
+towns creates a slot that begs to be filled.
+
+**`away` and `hotspots` are the exception and they are NOT optional.** Those
+two blocks file every morning; see "A block that never runs empty". The
+difference is not a double standard about truth — the same never-invent rule
+binds all three — it is that those two places get ONE line each and a
+fourteen-day window, so "nothing at all happened" is a statement about how
+hard you looked rather than about the place.
 
 #### Outlets — OPEN QUESTION FOR IAN, still unanswered
 
@@ -371,33 +381,166 @@ outcome for most regions on most days.
 the four strongest and let the fifth go — a notebook is a selection, not a
 roll call.
 
-#### Part 3 — away desk (`away`)
+#### Part 3 — away desk (`away`) — NEVER EMPTY
 
-Same rules, one sentence, out-of-state but still crew. `region_id` and
-`place` again come from `config.REGIONS`.
+One region now, and it files **every single morning**:
 
 | `region_id` | Place | Who |
 |---|---|---|
 | `vermont` | North Bennington, VT | Wes |
-| `prince_george` | Prince George, BC | Kirsten |
-| `topsail` | Topsail Beach, NC | the beach place |
 
 ```
-vermont         Bennington VT news {Month D, YYYY}      (VTDigger, Bennington Banner)
-prince_george   Prince George BC news {Month D, YYYY}   (Prince George Citizen, CBC BC)
-topsail         Topsail Beach OR Pender County NC news  (WECT, Wilmington StarNews)
+Bennington VT news {Month D, YYYY}          (VTDigger, Bennington Banner)
+Bennington County {topic} {Month YYYY}       (select board, school district)
+"North Bennington" OR Bennington {Month YYYY}
 ```
 
-**At most two away lines in an edition**, and the away desk is the first
-thing to go when the notebook is long. Topsail's fishing line already
-covers Topsail on a quiet day; do not run both a nothing-happened away line
-and a fishing line for the same place.
+Prince George moved to its own section and Topsail moved to Vacation
+Hotspots, both on 2026-08-26; `config.PROMOTED_REGION_IDS` refuses them here.
 
-#### Part 4 — fishing (`fishing`)
+**See "A block that never runs empty" below — it governs this block too.**
 
-Comes from `out/fishing.json`, not from searching. See **§3.2**. Do not
-research fishing conditions by hand and do not write a fishing line for a
-water the fetcher did not report.
+#### Part 4 — Vacation Hotspots (`hotspots`) — NEVER EMPTY
+
+The two places the crew actually goes. Covered in full above; the rule that
+matters most is immediately below, and it applies to both blocks.
+
+### A block that never runs empty
+
+**Nate, 2026-08-26, after the away desk and Vacation Hotspots both ran zero
+on their first morning:**
+
+> *"ALWAYS give us content. If it's a few days old that's fine, but there is
+> always stuff to report. Always. If you need to, search reddit, facebook,
+> and other social media to help."*
+
+He is right, and the reason the first morning came up empty is that the desk
+searched **today's news** in **three outlets** and stopped. A county and a
+barrier island always have something going on. You have to go and get it.
+
+**This does NOT loosen the never-invent rule. Not by one inch.** Everything
+below is about looking harder and looking wider — never about lowering the
+bar for what may be printed. A line still names a source and still describes
+something that actually happened.
+
+#### 1. Widen the window before you widen anything else
+
+These blocks are **not a daily news wire**. They are "what is going on in
+the place." A **fourteen-day** window is fair game, and a week-old story
+that nobody in the group has heard is news to them.
+
+**Anything not from the last day or two SAYS WHEN**: "last Tuesday," "on the
+9th," "since the start of the month." A reader must never be able to mistake
+an older item for this morning's. That single habit is what makes a widened
+window honest instead of sloppy.
+
+#### 2. Then widen the sources — the search ladder
+
+Work down it and stop when you have a line. Do not stop at rung 1 because
+rung 1 is where an empty block comes from.
+
+1. **The local outlets** — the ones in the table above.
+2. **Government that publishes on a schedule.** This is the reliable one and
+   it is where most days' line lives, because these bodies MEET whether or
+   not anything dramatic happens: town council and select board agendas and
+   minutes, county commission, planning and zoning, the school district, the
+   sheriff and fire department, DOT/NCDOT and the state road bulletins,
+   parks and recreation, water and sewer authorities.
+3. **Institutions with a calendar** — the library, the volunteer fire
+   department, the chamber of commerce, the fair, festivals, the piers, the
+   state park, the ferry.
+4. **Social media, per the rules in §3 below** — Reddit, Facebook, the town
+   and county pages, community groups.
+
+#### 3. Social media: a LEAD is not a SOURCE
+
+Nate asked for social media and it belongs in the ladder. It also has to be
+handled properly, because this paper has already refused to print a true
+story that only Reddit carried (the Hoshoryu knee-surgery report, 2026-08-23
+— see `docs/FAILURES.md`). That judgement was correct and it still stands.
+
+**The distinction is not "social media, yes or no." It is who is posting.**
+
+**CITABLE — an official or primary account speaking about itself.** A town,
+county, sheriff's office, fire department, school district, DOT, park,
+library, chamber, or a business posting about its own hours, closure or
+opening. That is a primary source, exactly like a press release, and it
+happens to live on Facebook. Cite it as what it is:
+
+- `"source": "Town of Surf City"` · `"source": "Webster County OES"`
+- `"source": "Surf City Fire Department"`
+
+**A LEAD ONLY — anybody else.** A resident's post, a comment thread, a
+subreddit, a community group, a screenshot, a local-news-aggregator page.
+Use it to learn what to go looking for, then **find it at rung 1, 2 or 3 and
+cite THAT**. If you cannot confirm it anywhere, it does not run. A rumour
+about somebody's hometown is worse than no line, not better.
+
+Useful for lead-finding: `r/Wilmington`, `r/WestVirginia`,
+`r/topsailisland`, county and town Facebook pages, "Topsail Island" and
+"Webster County" community groups.
+
+#### 3a. Sources VERIFIED to answer from this environment (2026-08-26)
+
+Checked by hand the day the rule was written, because "search harder" is
+useless advice without somewhere to search. **Start here.**
+
+| Source | URL | State |
+|---|---|---|
+| North Topsail Beach — town news | `northtopsailbeachnc.gov/news` | **fetches.** Dated items, several a month |
+| Surf City — news flash | `surfcitync.gov/civicalerts` | **fetches.** Bids, RFPs, projects, dated |
+| Topsail Beach — town news | `topsailbeachnc.gov/About-Topsail-Beach/News` | try it; the site answered search |
+| North Topsail Beach — meetings | `northtopsailbeachnc.gov/meetings` | agendas and cancellations |
+| Webster County Commission | `webstercountywv.com` · `webstercounty.wv.gov` | meets the 1st and 3rd Wednesday |
+
+**Blocked from here, do not burn time on them:** `webconews.com` (The
+Webster Echo — 403, and `wvecho.com` now redirects to it), `wowktv.com`
+Webster County page (403), `wvfairsandfestivals.org` (403). If one of these
+starts answering again, say so in the run report.
+
+**Real examples the ladder produced on the day it was written**, both from
+rung 2 after rung 1 was blocked: North Topsail Beach posting a major water
+main break on HWY 210 into Sneads Ferry (Aug. 14), and Surf City putting
+segment 5 of the JH Batts multi-use path out to bid (Aug. 25, bids due
+Oct. 12). Neither is dramatic. Both are exactly the kind of thing somebody
+with a beach week booked would want to know, and both are citable.
+
+#### 3b. The trap, with a real example
+
+A search summary is **not a source**, and it will hand you a confident wrong
+answer. Looking for a Cowen line on 2026-08-26, a search returned "the
+Webster County Woodchopping Festival, September 2–5, 2026" — plausible,
+specific, and **wrong**. The festival is Memorial Day weekend; the 61st ran
+in May. Printing it would have put a wrong date for the county's biggest
+event in a paper that a Webster County reader would open.
+
+**Open the page. Read the date on the page.** If you cannot open a page that
+says it, you do not have it — and that rule is what this whole block's
+freedom to widen its window is paid for with.
+
+**Never quote or paraphrase a private individual's post**, even a public
+one. These are small towns and the people in them did not ask to be in a
+newspaper.
+
+#### 4. What still may NOT run
+
+- Weather. Jim has it, in both places, every morning.
+- Fishing conditions, gauge readings, tide times. Sports & Sportsman has
+  them, and that overlap is exactly what this block replaced.
+- A line that says nothing happened. "A quiet week in Cowen" is not a line,
+  it is an empty block with a sentence on top.
+- Anything you could not point at a source for.
+
+#### 5. If you genuinely come up empty
+
+Then say so, in the edition, where it can be seen. `away_note` and
+`hotspots_note` take a **short sentence naming what you actually searched**
+— the outlets, the bodies, the queries. The validator requires entries OR
+that note, so the block cannot silently go missing again.
+
+**Treat writing that note as a failure, not an out.** Log it in
+`docs/FAILURES.md` too. If it happens twice in a week, the search ladder is
+not being worked and that is worth telling Nate.
 
 #### Privacy — this repo is public
 
@@ -473,9 +616,11 @@ key, because nobody lives there. One sentence, 170 characters hard, ~130 to
 aim at — a little longer than a regional line on purpose, since nobody in
 the group reads these towns' papers and the line has to land cold.
 
-**A morning with no hotspot news runs no hotspot lines.** Two out-of-state
-towns will not both have news every day, and inventing one for a place
-people plan trips around is worse than inventing one anywhere else.
+**This block runs EVERY morning** (Nate, 2026-08-26). Both places, ideally;
+one at minimum. See **"A block that never runs empty"** below for the window
+and the search ladder that make that achievable without inventing anything —
+because inventing a line for a place people plan trips around would be worse
+than inventing one anywhere else.
 
 ### British Columbia — STANDING SECTION
 

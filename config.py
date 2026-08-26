@@ -831,6 +831,20 @@ def hotspot_by_id(hid: str) -> dict:
 # One line each, same register as a regional line but allowed a little more
 # room: these are places nobody in the group reads a local paper for, so the
 # line has to carry enough context to land cold.
+# These two blocks FILE EVERY MORNING (Nate, 2026-08-26, after both ran zero
+# on their first day): "ALWAYS give us content. If it's a few days old
+# that's fine, but there is always stuff to report. Always."
+#
+# This does not loosen the never-invent rule — it widens the window and the
+# search, which is a different thing. A county and a barrier island always
+# have something going on; a fourteen-day window plus the government bodies
+# that meet on a schedule is what makes that reliably true. The validator
+# refuses an empty block unless the edition carries a note naming what was
+# actually searched, so it can never again go missing quietly.
+NOTEBOOK_ALWAYS_FILLS = ("away", "hotspots")
+NOTEBOOK_EMPTY_NOTE_KEYS = {"away": "away_note", "hotspots": "hotspots_note"}
+NOTEBOOK_LOOKBACK_DAYS = 14
+
 HOTSPOT_MAX = len(HOTSPOTS)
 HOTSPOT_ITEM_TARGET_CHARS = 130
 HOTSPOT_ITEM_MAX_CHARS = 170
@@ -904,6 +918,18 @@ WVDNR_STOCKING_IS_SEARCH_ONLY = True
 # news" and its absence is not an error. SUMO_REQUIRED_DAILY stays False —
 # nothing may fail an edition for a missing sumo brief.
 SUMO_REQUIRED_DAILY = False
+
+# A sports brief that reports a game carries `result` — winner, loser,
+# score — from this date. Added after TWO reversed results in three days
+# (2026-08-24 "18.5 clear of second-place Pittsburgh" when Pittsburgh was
+# fourth and 18.5 back; 2026-08-26 "Pirates blanked 1-0 by the Padres" when
+# Pittsburgh won the shutout). Both printed only real numbers, so every
+# byte-match check passed them: what was wrong was the DIRECTION, and
+# direction was living in a verb where nothing could check it.
+#
+# Dated forward one day so the desk reads the instructions before the gate
+# closes, and so the archive stays valid as the paper it actually was.
+SM_RESULT_REQUIRED_FROM = "2026-08-27"
 SUMO_LEADS_SPORTS_IN_BASHO = True
 SUMO_BASHO_DAYS = 15
 SUMO_BASHO_MONTHS = [1, 3, 5, 7, 9, 11]

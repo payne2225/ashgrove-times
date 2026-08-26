@@ -24,12 +24,17 @@
           "url": "https://www.mlb.com/scores/2026-08-25"
         },
         {
-          "headline": "Pirates blanked 1-0 by the Padres a night after winning in 12",
-          "summary": "Pittsburgh has scored once across the series' first 21 innings; the shutout leaves the Pirates fourth in the NL Central, 6.5 out of a wild card.",
+          "headline": "Pirates shut out the Padres 1-0 a night after winning in 12",
+          "summary": "San Diego has scored twice across the series' first 21 innings; Pittsburgh is fourth in the NL Central, 6.5 out of a wild card.",
           "team": "Pittsburgh Pirates",
           "league": "MLB",
           "source": "MLB.com",
-          "url": "https://www.mlb.com/scores/2026-08-25"
+          "url": "https://www.mlb.com/scores/2026-08-25",
+          "result": {
+            "winner": "Pittsburgh Pirates",
+            "loser": "San Diego Padres",
+            "score": "1-0"
+          }
         }
       ],
       "sat_out": [

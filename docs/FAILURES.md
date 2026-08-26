@@ -709,3 +709,39 @@ and the failure protocol at the bottom of that file appends here too.
 - 2026-08-26 — S&S No. 12's mourning dove "coming in" entry ran WITHOUT dates: the 2026-27 migratory bird summary is published, but the pamphlet reference carries no migratory windows and wvdnr.gov's expired certificate blocks the agency PDF, so the validator refused Sept. 1/Oct. 11 and the entry announced the publication only. Fix is transcribing the migratory summary into reference/ (ledger row for Nate).
 - 2026-08-26 — r/Sumo (old.reddit.com) unreachable from this environment a fourth straight morning; the sumo sweep ran on the JSA's pages and searches alone.
 - 2026-08-26T11:00:02Z · 2026-08-26 · post_discord: no verified page url; posting without links
+- **2026-08-26** — *The away desk and Vacation Hotspots both ran EMPTY on the first
+  morning of the new contract.* Nate: "ALWAYS give us content. If it's a few days old
+  that's fine, but there is always stuff to report. Always." The cause was not a quiet
+  Tuesday — it was searching **today's news at three outlets and stopping**. Checked by
+  hand the same afternoon: `northtopsailbeachnc.gov/news` and `surfcitync.gov/civicalerts`
+  both fetch and both carried dated, citable items inside the window (a major water main
+  break on HWY 210 into Sneads Ferry, Aug. 14; segment 5 of the JH Batts multi-use path
+  out to bid, Aug. 25). The lines were there. **Both blocks now file every morning, the
+  window is 14 days, and the validator refuses an empty block without a note naming what
+  was searched** — today's edition carries those notes rather than pretending.
+- **2026-08-26** — *Webster County's local outlets are 403 from this environment.*
+  `wvecho.com` now 301s to `webconews.com`, which returns 403; the WOWK Webster County
+  page and `wvfairsandfestivals.org` also 403. Rung 1 is effectively closed for the cabin
+  hotspot, which makes the county commission and town postings the primary route rather
+  than the fallback. Logged so the next run does not rediscover it at 5:30 a.m.
+- **2026-08-26** — *A search summary handed over a confidently wrong festival date.*
+  Hunting a Cowen line, a search returned "Webster County Woodchopping Festival,
+  September 2-5, 2026". The festival is **Memorial Day weekend** — the 61st ran in May.
+  Not printed; caught by checking the source. Recorded in `instructions/edition.md` as the
+  worked example of why a search summary is not a source, since the failure mode is a
+  wrong date for the county's biggest event in a paper Webster County people read.
+- **2026-08-26** — *The sports desk reversed a result: "Pirates blanked 1-0 by the
+  Padres."* **Pittsburgh WON the shutout** (MLB statsapi: Pirates 1, Padres 0, Aug. 25),
+  and had won the night before in 12 (Pirates 3, Padres 2/F12) — the summary's "Pittsburgh
+  has scored once across the series' first 21 innings" was San Diego's line, not
+  Pittsburgh's. The standings half was right (fourth in the NL Central, 6.5 out of a wild
+  card, both confirmed). Pat caught it in the channel with the box score: *"so it was half
+  right."* **Second reversed relationship in three days** after the 2026-08-24
+  "second-place Pittsburgh" miss. Corrected in place and re-rendered.
+  **Structural fix, same commit:** a brief that prints a score now carries
+  `result: {winner, loser, score}` from 2026-08-27, and the validator reads the prose's
+  verb and fails the brief if it points the other way — verified against the exact
+  headline that shipped. Every number in both misses was real and in the source, which is
+  why byte-matching passed them; direction was living in a verb where nothing could check
+  it.
+
