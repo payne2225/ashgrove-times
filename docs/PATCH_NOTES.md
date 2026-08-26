@@ -52,6 +52,33 @@ why the Aug. 18 "17:30 BST" miss looked like the check working. Repaired,
 both forms tested, and the whole repo scanned for the same corruption.
 
 
+## 2026-08-26 — a rule under the columns, and B.C. moves down beside the notebook
+
+Two of Nate's, on the flowed layout he had just approved.
+
+**A rule between the wire columns and the anchor sections.** A column bottom
+is a ragged edge, so without one the notebook read as one more thing the
+last column happened to run into. `.rule-anchor` is the only horizontal rule
+inside the page body — the masthead's pair is chrome — and it lives in the
+BASE stylesheet rather than a breakpoint, because the sections stack on a
+phone and the break still needs saying there.
+
+**British Columbia sits below West Virginia now.** It was one more column of
+wire; it is now an anchor section at the full measure, directly under the
+notebook. The pairing is the point — these are the two sections about places
+somebody in the group actually lives, and they read together at the foot of
+the page. Its briefs run in three columns of their own, because a
+full-measure section set in one column would put 85 characters on a line,
+which is the problem the reflow just solved.
+
+`config.ANCHOR_SECTION_IDS` and `config.sections_in_reading_order()` hold
+this, not the renderer, for one reason: **the Discord digest lists sections
+in the order a reader will meet them on the page**, and a contents list that
+disagrees with the page is worse than no contents list. The digest now reads
+U.S., World, Science & Technology, Artificial Intelligence, West Virginia,
+British Columbia — which is the page.
+
+
 ## 2026-08-26 — the wire sections flow instead of being placed
 
 Pat: *"Good info, but lots and lots of unused space."* He was right, and it

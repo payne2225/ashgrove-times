@@ -407,6 +407,28 @@ SECTIONS = [
 
 SECTION_IDS = [s["id"] for s in SECTIONS]
 
+# Sections set BELOW the flowed wire columns, at the full measure, rather
+# than inside them. West Virginia has always sat here — it is the local
+# anchor and its boxed notebook is wide content. British Columbia joined it
+# 2026-08-26 (Nate), and the pairing is the point: these are the two
+# sections about places somebody in the group actually lives, so they read
+# together at the foot of the page rather than B.C. being one more column
+# of wire.
+#
+# It lives in config because it is the page's READING ORDER, and more than
+# the renderer needs to know it — the Discord digest's table of contents
+# lists sections in the order a reader will meet them on the page, and a
+# contents list that disagrees with the page is worse than none.
+ANCHOR_SECTION_IDS = ("wv", "bc")
+
+
+def sections_in_reading_order(date: str | None = None) -> list[dict]:
+    """Section metadata in the order the PAGE presents it, not config order."""
+    live = sections_for(date)
+    wires = [s for s in live if s["id"] not in ANCHOR_SECTION_IDS]
+    anchors = [s for s in live if s["id"] in ANCHOR_SECTION_IDS]
+    return wires + anchors
+
 # Sections the Times used to carry. Nate retired Sports on 2026-08-15, the
 # day Sports & Sportsman shipped — sport now has its own paper, and the
 # freed budget goes to a fourth brief in each wire section. The metadata

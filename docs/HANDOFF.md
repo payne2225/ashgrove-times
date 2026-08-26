@@ -131,6 +131,16 @@ morning** — they are the shop window, not housekeeping. It links:
 | Sports & Sportsman | `/sportsman/` | `render_edition.py --sportsman` |
 | The Weather Claude | `/weather/` | `render_edition.py --weather` |
 
+**Page layout (2026-08-26).** The wire sections FLOW through balanced
+columns — a grid stranded 28% of the section area as white. Two sections do
+not flow: **West Virginia and British Columbia are anchors**, set at the
+full measure below the columns and separated from them by the page's one
+horizontal rule. `config.ANCHOR_SECTION_IDS` and
+`sections_in_reading_order()` are the single source of that order, because
+the Discord digest's contents list follows it too. **A spanning element must
+never go inside `.wire-flow`** — that splits a multi-column flow and strands
+columns, which is why this was a grid the first time.
+
 **The weather page was rebuilt 2026-08-25** to set as a newspaper rather
 than as a pasted Discord transcript: headline and dek from Jim's `#`/`##`
 lines, each location report a wire section with a black label chip, stacked

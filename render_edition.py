@@ -448,6 +448,12 @@ def _stat_strip_html(blocks: dict[str, str], entries: list) -> str:
     })
 
 
+# Which sections sit below the flow rather than in it. Defined in config,
+# because the Discord digest lists sections in the order a reader meets them
+# on the page and must not drift from this.
+ANCHOR_SECTION_IDS = config.ANCHOR_SECTION_IDS
+
+
 def wire_flow(sections: list[str]) -> str:
     """Wrap the wire sections in the container their copy flows through.
 
@@ -505,26 +511,50 @@ def _sections_html(blocks: dict[str, str], sections: list, edition: dict) -> tup
     wires: list[str] = []
     anchors: list[str] = []
     for section in ordered:
-        is_wv = section.get("id") == "wv"
-        rendered = (_wv_section_html(blocks, section, edition) if is_wv
-                    else _wire_section_html(blocks, section, edition))
+        sid = section.get("id")
+        rendered = (_wv_section_html(blocks, section, edition) if sid == "wv"
+                    else _wire_section_html(
+                        blocks, section, edition,
+                        anchor=sid in ANCHOR_SECTION_IDS))
         if not rendered:
             continue
-        (anchors if is_wv else wires).append(rendered)
+        (anchors if sid in ANCHOR_SECTION_IDS else wires).append(rendered)
     wire = len(wires)
-    out = ([wire_flow(wires)] if wires else []) + anchors
+
+    out: list[str] = []
+    if wires:
+        out.append(wire_flow(wires))
+        if anchors:
+            # The wire columns end on a ragged edge, and without a rule the
+            # notebook reads as one more thing the last column ran into
+            # (Nate, 2026-08-26). This is the only horizontal rule inside
+            # the page body; the masthead's pair is chrome.
+            out.append('<hr class="rule-anchor">')
+    out += anchors
     return ("\n\n  ".join(out), wire)
 
 
-def _wire_section_html(blocks: dict[str, str], section: dict, edition: dict) -> str:
+def _wire_section_html(blocks: dict[str, str], section: dict, edition: dict,
+                       anchor: bool = False) -> str:
+    """A wire section. `anchor` places it below the flow at full measure.
+
+    An anchored section is the same markup with one extra class, so its
+    briefs can run across the page in their own columns rather than down a
+    single 417px one — a full-measure section set in one column would run
+    85-character lines, which is the opposite of the problem being solved.
+    """
     briefs = [_brief_html(blocks, b) for b in (section.get("briefs") or [])]
     briefs = [b for b in briefs if b]
     if not briefs:
         return ""
-    return fill(blocks["SECTION"], {
+    html = fill(blocks["SECTION"], {
         "SECTION_LABEL": esc(_section_label(section)),
         "BRIEFS": _art_html(blocks, _art_for(edition, section.get("id", ""))) + "".join(briefs),
     })
+    if anchor:
+        html = html.replace('class="sec sec-wire"',
+                            'class="sec sec-wire sec-anchor"', 1)
+    return html
 
 
 def _wv_section_html(blocks: dict[str, str], section: dict, edition: dict) -> str:

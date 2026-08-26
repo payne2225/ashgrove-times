@@ -673,7 +673,10 @@ def _digest_inside(edition: dict) -> list[str]:
     if not isinstance(sections, list):
         return lines
     by_id = {s.get("id"): s for s in sections if isinstance(s, dict)}
-    for meta in sorted(config.SECTIONS, key=lambda m: m["order"]):
+    # Page reading order, not config order: the notebook and British
+    # Columbia are set below the wire columns, so that is where a reader
+    # meets them and that is where a contents list should put them.
+    for meta in config.sections_in_reading_order(edition.get("edition_date")):
         section = by_id.get(meta["id"])
         if not section:
             continue

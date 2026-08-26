@@ -102,6 +102,18 @@
   }
 
   /* Section-to-section buttons, house-styled like the section labels. */
+  /* The rule that closes the wire columns off from the anchor sections
+     below them (Nate, 2026-08-26). A column bottom is a ragged edge, and
+     without this the notebook read as one more thing the last column ran
+     into. In the BASE stylesheet, not a breakpoint: the sections stack on a
+     phone and the break between the wire and the anchors still needs
+     saying — a browser-default <hr> in a letterpress page does not. */
+  .rule-anchor {
+    border: 0;
+    border-top: 1px solid var(--ink);
+    margin: 6px 0 16px;
+  }
+
   .paper-nav { text-align: center; margin: 0 0 18px; }
   .paper-nav a {
     display: inline-block;
@@ -618,6 +630,18 @@
     .sec .two-col-briefs { column-count: 1; column-rule: none; }
     .sec .section-label { margin-top: 0; }
 
+
+    /* Anchored sections — the notebook and British Columbia — take the full
+       measure below the flow. Their briefs run in their own columns, since
+       one column across 1,310px would set 85-character lines. */
+    .sec-anchor { margin: 0 0 18px; }
+    .sec-anchor .two-col-briefs {
+      column-count: 3;
+      column-gap: 30px;
+      column-rule: 1px solid var(--rule);
+    }
+    .sec-anchor .brief { break-inside: avoid; }
+
     /* The notebook is the anchor and it is wide content — four sub-blocks
        that would strangle in a 300px column. It takes the whole measure as
        a boxed feature, which is both where the space is and the treatment
@@ -904,20 +928,6 @@
 </section>
 
   <section class="sec sec-wire">
-  <div class="section-label">British Columbia</div>
-  <div class="two-col-briefs"><div class="brief">
-      <div class="brief-head">Prince George-Valemount&#x27;s Bird quits Conservative caucus</div>
-      <p>Rosalyn Bird will sit as an independent, the third Conservative MLA to leave recently, saying parties should not overshadow the duty to constituents.</p><span class="src"><a href="https://ckpgtoday.ca/2026/08/25/bird-leaves-conservative-caucus-will-sit-as-independent-mla/" rel="noopener nofollow">CKPG Today</a></span>
-    </div><div class="brief">
-      <div class="brief-head">Ottawa commits $38M to Nechako salmon hatchery</div>
-      <p>The federal facility near the Fraser confluence, run with the Lheidli T&#x27;enneh First Nation, will raise 400,000 juvenile chinook a year; the final phase is due in spring 2028.</p><span class="src"><a href="https://ckpgtoday.ca/2026/08/25/nechako-salmon-hatchery-hailed-as-major-step-toward-rebuilding-struggling-stocks/" rel="noopener nofollow">CKPG Today</a></span>
-    </div><div class="brief">
-      <div class="brief-head">Eby presses Ottawa for non-tariff measures against U.S.</div>
-      <p>The premier asked British Columbians not to travel south and urged Canada to rethink a $12 billion fighter-jet buy and phase out U.S. thermal coal exports through Delta.</p><span class="src"><a href="https://globalnews.ca/news/12034728/bc-premier-responds-canada-counter-tariffs-live-bc-liquor-store/" rel="noopener nofollow">Global News</a></span>
-    </div></div>
-</section>
-
-  <section class="sec sec-wire">
   <div class="section-label">Artificial Intelligence</div>
   <div class="two-col-briefs"><div class="brief">
       <div class="brief-head">Dutch lab lets riders adjust a robotaxi&#x27;s driving in plain words</div>
@@ -928,6 +938,8 @@
     </div></div>
 </section>
   </div>
+
+  <hr class="rule-anchor">
 
   <section class="sec sec-wv">
   <div class="section-label">West Virginia</div>
@@ -951,6 +963,20 @@
       <ul class="roundup"><li><span class="place">Huntington &amp; the Cabell-Mason corridor</span> <span class="folk">(Trav, Justin, Nate and Ian)</span> &mdash; The fire marshal ordered six residences near Marshall vacated over structural and electrical hazards, and about 40 students moved to a downtown hotel.<span class="src"><a href="https://wvmetronews.com/2026/08/25/marshall-fraternity-houses-among-huntington-residences-ordered-vacated/" rel="noopener nofollow">WV MetroNews</a></span></li><li><span class="place">Putnam / Kanawha - Charleston</span> <span class="folk">(Nate)</span> &mdash; Residents spoke three hours against Google&#x27;s Buffalo data center, and commissioners said a state law leaves them no authority to stop it.<span class="src"><a href="https://wvmetronews.com/2026/08/25/putnam-county-residents-present-resolution-to-county-commission-on-proposed-google-data-center/" rel="noopener nofollow">WV MetroNews</a></span></li><li><span class="place">Mid-Ohio Valley / Parkersburg</span> <span class="folk">(Pat)</span> &mdash; Parkersburg council voted down a widened $2,500-per-business grant program and advanced the water system expansion on second reading.<span class="src"><a href="https://www.wtap.com/2026/08/26/parkersburg-city-council-water-business-grants-debated/" rel="noopener nofollow">WTAP</a></span></li></ul>
     </div>
   </div>
+</section>
+
+  <section class="sec sec-wire sec-anchor">
+  <div class="section-label">British Columbia</div>
+  <div class="two-col-briefs"><div class="brief">
+      <div class="brief-head">Prince George-Valemount&#x27;s Bird quits Conservative caucus</div>
+      <p>Rosalyn Bird will sit as an independent, the third Conservative MLA to leave recently, saying parties should not overshadow the duty to constituents.</p><span class="src"><a href="https://ckpgtoday.ca/2026/08/25/bird-leaves-conservative-caucus-will-sit-as-independent-mla/" rel="noopener nofollow">CKPG Today</a></span>
+    </div><div class="brief">
+      <div class="brief-head">Ottawa commits $38M to Nechako salmon hatchery</div>
+      <p>The federal facility near the Fraser confluence, run with the Lheidli T&#x27;enneh First Nation, will raise 400,000 juvenile chinook a year; the final phase is due in spring 2028.</p><span class="src"><a href="https://ckpgtoday.ca/2026/08/25/nechako-salmon-hatchery-hailed-as-major-step-toward-rebuilding-struggling-stocks/" rel="noopener nofollow">CKPG Today</a></span>
+    </div><div class="brief">
+      <div class="brief-head">Eby presses Ottawa for non-tariff measures against U.S.</div>
+      <p>The premier asked British Columbians not to travel south and urged Canada to rethink a $12 billion fighter-jet buy and phase out U.S. thermal coal exports through Delta.</p><span class="src"><a href="https://globalnews.ca/news/12034728/bc-premier-responds-canada-counter-tariffs-live-bc-liquor-store/" rel="noopener nofollow">Global News</a></span>
+    </div></div>
 </section>
   </div>
 
