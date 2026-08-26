@@ -576,42 +576,56 @@
        2026-08-24, which fills three columns about five lines deep. */
     .lead-block.no-art .columns { column-count: 3; }
 
-    /* The wire sections sit side by side across the page, one to a column,
-       the way the four beats run across a front page below the fold.
+    /* The wire sections FLOW through these columns; they are not placed in
+       them. (2026-08-26 — this was a grid until Pat said "lots and lots of
+       unused space.")
 
-       GRID, not CSS multi-column. Multi-column was the first attempt and it
-       looked right until you counted: a `column-span: all` element splits
-       the flow, so the two sections above the notebook spread across four
-       columns and left two of them empty. Grid places each section in its
-       own column and lets the notebook span deliberately rather than as a
-       side effect. */
-    .sections {
-      display: grid;
-      /* As many columns as there are wire sections, set by the renderer.
-         Hard-coding 4 counted West Virginia as a beat, but the notebook
-         spans the whole measure on its own row — so the fourth track was
-         always empty, a quarter of the page blank beside the news. */
-      grid-template-columns: repeat(var(--wire-cols, 3), 1fr);
+       A grid gave each section its own cell and made every row as tall as
+       its tallest member. On an ordinary morning — U.S. 524px, World 637px,
+       Sci/Tech 901px — that stood 28% of the section area empty, and a last
+       row that did not divide evenly was worse. Copy that runs down one
+       column and continues into the next cannot leave a hole, whatever
+       shape the news turns out to be that day. Measured on the 2026-08-26
+       edition: the section block went 1917px to 999px and the page 3093px
+       to 2653px, with nothing added and nothing cut.
+
+       The original objection to multi-column here was real and is now
+       answered rather than ignored: a `column-span: all` child splits a
+       flow and strands columns, which is exactly what happened the first
+       time. So the notebook is not a child of the flow at all — it is a
+       sibling block below it, and nothing inside the flow spans.
+
+       Sports & Sportsman has set this way since it launched. */
+    .sections { display: block; }
+    .wire-flow {
+      column-count: var(--wire-cols, 3);
       column-gap: 30px;
-      align-items: start;
+      column-rule: 1px solid #c9c2ac;
     }
+    .wire-flow > .sec {
+      break-inside: auto;      /* a section MAY continue into the next column */
+      border-left: 0;
+      padding-left: 0;
+      margin: 0 0 18px;
+    }
+    /* ...but a brief, the drawing, and a label stranded from the brief
+       under it may not be split. Those are the atoms. */
+    .wire-flow .brief { break-inside: avoid; }
+    .wire-flow .art { break-inside: avoid; }
+    .wire-flow .section-label { break-after: avoid; margin-top: 0; }
+    .wire-flow .sec + .sec .section-label { margin-top: 12px; }
     .sec { margin-bottom: 20px; }
-    /* Close the hole a ragged last row would leave — see _sections_style(). */
-    .sections > .sec-wire:last-of-type {
-      grid-column: span var(--wire-last-span, 1);
-    }
     .sec .two-col-briefs { column-count: 1; column-rule: none; }
     .sec .section-label { margin-top: 0; }
-    /* Rules between the wire columns, none before the first. */
-    .sec-wire + .sec-wire { border-left: 1px solid #c9c2ac; padding-left: 30px; }
 
     /* The notebook is the anchor and it is wide content — four sub-blocks
-       that would strangle in a 300px column. It spans the whole measure as
+       that would strangle in a 300px column. It takes the whole measure as
        a boxed feature, which is both where the space is and the treatment
-       Ian asked for. `order` moves it below the wire columns without
-       touching DOM order, so the phone layout and screen readers still get
-       Ian's sequence. */
-    .sec-wv { grid-column: 1 / -1; order: 9; margin: 10px 0 8px; }
+       Ian asked for. It sits BELOW the flow because the renderer emits it
+       as a sibling after .wire-flow, not because of a CSS `order` — that
+       was a grid trick and the grid is gone. Screen readers and the phone
+       layout get the same sequence the markup has. */
+    .sec-wv { margin: 10px 0 8px; }
     .sec-wv .wv-box { padding: 22px 28px; column-count: 2; column-gap: 36px; }
     .sec-wv .wv-title { column-span: all; font-size: 24px; }
     .sec-wv .wv-box > .brief,
@@ -696,7 +710,7 @@
   @media print {
     body { background: #fff; padding: 0; }
     .page { border: 0; box-shadow: none; max-width: none; }
-    .sections { display: grid; grid-template-columns: repeat(var(--wire-cols, 3), 1fr); column-gap: 24px; }
+    .wire-flow { column-count: var(--wire-cols, 3); column-gap: 24px; }
     .sec-wv { grid-column: 1 / -1; order: 9; }
   }
 </style>
@@ -732,7 +746,8 @@
   <div class="stat-strip"><div><b>7,677.28</b><span class="stat-label">S&amp;P 500</span><span class="stat-change"><span class="tri up" aria-hidden="true"></span>+0.32%</span></div><div><b>53,577.40</b><span class="stat-label">Dow</span><span class="stat-change"><span class="tri up" aria-hidden="true"></span>+0.30%</span></div><div><b>26,151.30</b><span class="stat-label">Nasdaq</span><span class="stat-change"><span class="tri up" aria-hidden="true"></span>+0.66%</span></div><div><b>$78,512</b><span class="stat-label">Bitcoin</span><span class="stat-change"><span class="tri down" aria-hidden="true"></span>-1.66%</span></div></div>
   <p class="stats-note">Market data compiled before the opening bell</p>
 
-  <div class="sections" style="--wire-cols: 3; --wire-last-span: 2">
+  <div class="sections" style="--wire-cols: 3">
+  <div class="wire-flow">
   <section class="sec sec-wire">
   <div class="section-label">U.S.</div>
   <div class="two-col-briefs"><div class="brief">
@@ -765,30 +780,6 @@
       <div class="brief-head">Iran and Oman agree on temporary Hormuz shipping lane</div>
       <p>The seven-mile corridor announced in Tehran runs partly through Iranian waters; Iran says the strait stays restricted until U.S. commitments under the June memorandum are met.</p><span class="src"><a href="https://www.aljazeera.com/economy/2026/8/26/top-official-says-iran-oman-have-agreed-new-temporary-hormuz-route" rel="noopener nofollow">Al Jazeera</a></span>
     </div></div>
-</section>
-
-  <section class="sec sec-wv">
-  <div class="section-label">West Virginia</div>
-  <div class="wv-box">
-    <div class="wv-title">Mountaineer State Notebook</div>
-    
-    <div class="brief">
-      <div class="brief-head">State mourns Parton, patron to 50,000 young readers</div>
-      <p>Her Imagination Library mails free monthly books to about 50,000 West Virginia children; Gov. Patrick Morrisey called her &#x27;a true American icon,&#x27; recalling her 2022 Clay Center visit.</p><span class="src"><a href="https://wvmetronews.com/2026/08/25/dolly-remembered-in-west-virginia/" rel="noopener nofollow">WV MetroNews</a></span>
-    </div><div class="brief">
-      <div class="brief-head">State cancels $63.5M DMV modernization contract</div>
-      <p>Transportation Secretary Todd Rumbaugh pulled the AstreaX award as &#x27;too costly&#x27; after lawmakers asked why a $30 million rival bid lost; a narrower rebid is planned.</p><span class="src"><a href="https://www.wsaz.com/2026/08/25/wsaz-investigates-wva-department-transportation-cancels-contract-dmv-project-after-questioning/" rel="noopener nofollow">WSAZ</a></span>
-    </div><div class="brief">
-      <div class="brief-head">Hazelton workers cheer prisons deputy director&#x27;s exit</div>
-      <p>Josh Smith, the first senior Bureau of Prisons leader with a criminal record, resigned; the Hazelton union local cites 75% staffing and forced overtime.</p><span class="src"><a href="https://wvmetronews.com/2026/08/25/fci-hazelton-workers-applaud-resignation-of-bop-deputy-director-former-inmate/" rel="noopener nofollow">WV MetroNews</a></span>
-    </div><div class="brief">
-      <div class="brief-head">Kanawha paramedics log county&#x27;s first field transfusion</div>
-      <p>A county ambulance crew gave blood in the field five days after the program launched; its director says units can now intercept for neighboring counties.</p><span class="src"><a href="https://www.wsaz.com/2026/08/25/kanawha-county-paramedics-complete-first-blood-transfusion-field/" rel="noopener nofollow">WSAZ</a></span>
-    </div><div class="wv-block wv-regional">
-      <p class="wv-block-label">Around the State</p>
-      <ul class="roundup"><li><span class="place">Huntington &amp; the Cabell-Mason corridor</span> <span class="folk">(Trav, Justin, Nate and Ian)</span> &mdash; The fire marshal ordered six residences near Marshall vacated over structural and electrical hazards, and about 40 students moved to a downtown hotel.<span class="src"><a href="https://wvmetronews.com/2026/08/25/marshall-fraternity-houses-among-huntington-residences-ordered-vacated/" rel="noopener nofollow">WV MetroNews</a></span></li><li><span class="place">Putnam / Kanawha - Charleston</span> <span class="folk">(Nate)</span> &mdash; Residents spoke three hours against Google&#x27;s Buffalo data center, and commissioners said a state law leaves them no authority to stop it.<span class="src"><a href="https://wvmetronews.com/2026/08/25/putnam-county-residents-present-resolution-to-county-commission-on-proposed-google-data-center/" rel="noopener nofollow">WV MetroNews</a></span></li><li><span class="place">Mid-Ohio Valley / Parkersburg</span> <span class="folk">(Pat)</span> &mdash; Parkersburg council voted down a widened $2,500-per-business grant program and advanced the water system expansion on second reading.<span class="src"><a href="https://www.wtap.com/2026/08/26/parkersburg-city-council-water-business-grants-debated/" rel="noopener nofollow">WTAP</a></span></li></ul>
-    </div>
-  </div>
 </section>
 
   <section class="sec sec-wire">
@@ -938,7 +929,32 @@
 </section>
   </div>
 
-  <div class="kicker">British Columbia and Artificial Intelligence open as standing sections today; Vermont, both hotspots, Nicholas and Summers were quiet.</div>
+  <section class="sec sec-wv">
+  <div class="section-label">West Virginia</div>
+  <div class="wv-box">
+    <div class="wv-title">Mountaineer State Notebook</div>
+    
+    <div class="brief">
+      <div class="brief-head">State mourns Parton, patron to 50,000 young readers</div>
+      <p>Her Imagination Library mails free monthly books to about 50,000 West Virginia children; Gov. Patrick Morrisey called her &#x27;a true American icon,&#x27; recalling her 2022 Clay Center visit.</p><span class="src"><a href="https://wvmetronews.com/2026/08/25/dolly-remembered-in-west-virginia/" rel="noopener nofollow">WV MetroNews</a></span>
+    </div><div class="brief">
+      <div class="brief-head">State cancels $63.5M DMV modernization contract</div>
+      <p>Transportation Secretary Todd Rumbaugh pulled the AstreaX award as &#x27;too costly&#x27; after lawmakers asked why a $30 million rival bid lost; a narrower rebid is planned.</p><span class="src"><a href="https://www.wsaz.com/2026/08/25/wsaz-investigates-wva-department-transportation-cancels-contract-dmv-project-after-questioning/" rel="noopener nofollow">WSAZ</a></span>
+    </div><div class="brief">
+      <div class="brief-head">Hazelton workers cheer prisons deputy director&#x27;s exit</div>
+      <p>Josh Smith, the first senior Bureau of Prisons leader with a criminal record, resigned; the Hazelton union local cites 75% staffing and forced overtime.</p><span class="src"><a href="https://wvmetronews.com/2026/08/25/fci-hazelton-workers-applaud-resignation-of-bop-deputy-director-former-inmate/" rel="noopener nofollow">WV MetroNews</a></span>
+    </div><div class="brief">
+      <div class="brief-head">Kanawha paramedics log county&#x27;s first field transfusion</div>
+      <p>A county ambulance crew gave blood in the field five days after the program launched; its director says units can now intercept for neighboring counties.</p><span class="src"><a href="https://www.wsaz.com/2026/08/25/kanawha-county-paramedics-complete-first-blood-transfusion-field/" rel="noopener nofollow">WSAZ</a></span>
+    </div><div class="wv-block wv-regional">
+      <p class="wv-block-label">Around the State</p>
+      <ul class="roundup"><li><span class="place">Huntington &amp; the Cabell-Mason corridor</span> <span class="folk">(Trav, Justin, Nate and Ian)</span> &mdash; The fire marshal ordered six residences near Marshall vacated over structural and electrical hazards, and about 40 students moved to a downtown hotel.<span class="src"><a href="https://wvmetronews.com/2026/08/25/marshall-fraternity-houses-among-huntington-residences-ordered-vacated/" rel="noopener nofollow">WV MetroNews</a></span></li><li><span class="place">Putnam / Kanawha - Charleston</span> <span class="folk">(Nate)</span> &mdash; Residents spoke three hours against Google&#x27;s Buffalo data center, and commissioners said a state law leaves them no authority to stop it.<span class="src"><a href="https://wvmetronews.com/2026/08/25/putnam-county-residents-present-resolution-to-county-commission-on-proposed-google-data-center/" rel="noopener nofollow">WV MetroNews</a></span></li><li><span class="place">Mid-Ohio Valley / Parkersburg</span> <span class="folk">(Pat)</span> &mdash; Parkersburg council voted down a widened $2,500-per-business grant program and advanced the water system expansion on second reading.<span class="src"><a href="https://www.wtap.com/2026/08/26/parkersburg-city-council-water-business-grants-debated/" rel="noopener nofollow">WTAP</a></span></li></ul>
+    </div>
+  </div>
+</section>
+  </div>
+
+  <div class="kicker">British Columbia and Artificial Intelligence open as standing sections today; Nicholas and Summers were quiet, and the away desk and Vacation Hotspots came up empty on their first morning.</div>
 
   <div class="footer-note">Compiled from wire reports<span class="sep">&middot;</span><a href="archive.html">Back issues</a></div>
 

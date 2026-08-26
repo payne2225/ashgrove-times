@@ -223,19 +223,38 @@ def _nav_html(current: str, root: str, foot: bool = False) -> str:
     return f'<nav class="{classes}"{label}>' + "".join(buttons) + "</nav>"
 
 
-def _tide_table_html() -> str:
+def _tide_table_html(date_iso: str | None = None) -> str:
     """Today's full tide cycle as a real table, straight from the fetcher.
 
-    Reads out/fishing.json rather than the edition: the table is
-    instrument data, the same standing as the gauges, and going through
-    the fetcher's own file means no hand can mistype a tide. Absent or
-    tide-less data renders nothing — a missing table beats a stale one.
+    Reads out/fishing.json rather than the edition: the table is instrument
+    data, the same standing as the gauges, and going through the fetcher's
+    own file means no hand can mistype a tide. Absent or tide-less data
+    renders nothing — a missing table beats a stale one.
+
+    THE DATE IS CHECKED, since 2026-08-26. This function reads a live file
+    while every other part of the page comes from the edition JSON, so
+    re-rendering a page with an old fishing.json silently typesets the wrong
+    day's tides into it — which is exactly what happened when the
+    2026-08-26 sports page was re-rendered to correct a headline and went
+    out carrying 2026-08-21's tide times. Nothing else on the page could
+    have revealed it. A mismatched file now renders no table at all, and
+    says so on stderr rather than quietly.
     """
     try:
         with open(os.path.join(OUT_DIR, "fishing.json"), encoding="utf-8") as f:
-            tides = (json.load(f).get("topsail") or {}).get("tides") or []
+            data = json.load(f)
     except (OSError, ValueError):
         return ""
+    fetched = data.get("date") or (data.get("generated_at") or "")[:10]
+    if date_iso and fetched and fetched != date_iso:
+        print(
+            f"WARN: out/fishing.json is dated {fetched} but this page is "
+            f"{date_iso} — tide table omitted rather than printing the wrong "
+            "day's water; re-run fetch_fishing.py",
+            file=sys.stderr,
+        )
+        return ""
+    tides = (data.get("topsail") or {}).get("tides") or []
     rows = []
     for station in tides:
         events = station.get("events") or []
@@ -429,6 +448,20 @@ def _stat_strip_html(blocks: dict[str, str], entries: list) -> str:
     })
 
 
+def wire_flow(sections: list[str]) -> str:
+    """Wrap the wire sections in the container their copy flows through.
+
+    The West Virginia notebook is deliberately NOT in here. It is the one
+    section that spans the full measure, and a spanning element inside a
+    multi-column flow splits it — which is what made the grid the right
+    answer the first time this page was laid out. Kept outside, as a
+    sibling block below the flow, both work.
+    """
+    return ('<div class="wire-flow">' + "\n  "
+            + ("\n\n  ").join(sections)
+            + "\n  </div>")
+
+
 def _sections_style(wire_count: int) -> str:
     """Tell the stylesheet how many wire columns there actually are.
 
@@ -443,20 +476,24 @@ def _sections_style(wire_count: int) -> str:
     renders nothing, and on that morning the page should close up to two
     columns rather than hold a gap open for news that does not exist.
     """
-    # Five wire sections across a 1,490px measure is 274px a column, which
-    # is about 37 characters — a column that narrow reads as a list, not as
-    # news. Past four, the page wraps to three wide columns over two rows
-    # instead, which is what a broadsheet does with the same problem.
+    # The wire sections FLOW through these columns rather than being placed
+    # in a grid (2026-08-26). The grid put each section in its own cell and
+    # made every row as tall as its tallest member, so on 2026-08-26's paper
+    # — U.S. 524px, World 637px, Sci/Tech 901px — 28% of the section area
+    # was white, and the second row was worse. Flowing means copy runs down
+    # column one and continues into column two, the browser evens the
+    # bottoms, and no arrangement of uneven sections can leave a hole.
+    # Measured on that same edition: the section block went 1917px -> 999px
+    # and the page 3093px -> 2653px, with nothing added or removed.
+    #
+    # Sports & Sportsman has laid out this way since it launched, which is
+    # why that page never had this problem. The original objection to it
+    # here — that `column-span: all` splits a flow and strands columns — is
+    # answered by keeping the notebook OUT of the flow entirely: it is a
+    # sibling block below, not a spanning child.
     count = max(1, wire_count)
-    cols = count if count <= 4 else 3
-    # A last row that does not divide evenly leaves a hole. Five sections in
-    # three columns puts two on row two and stands the third track empty,
-    # which is the same kind of gap that made this page look unfinished at
-    # 1,600px in the first place. The last section widens to close it — a
-    # newspaper sets a short final column wide rather than leaving air.
-    remainder = count % cols
-    span = (cols - remainder + 1) if remainder else 1
-    return f' style="--wire-cols: {cols}; --wire-last-span: {span}"'
+    cols = 1 if count == 1 else (2 if count == 2 else 3)
+    return f' style="--wire-cols: {cols}"'
 
 
 def _sections_html(blocks: dict[str, str], sections: list, edition: dict) -> tuple[str, int]:
@@ -465,16 +502,17 @@ def _sections_html(blocks: dict[str, str], sections: list, edition: dict) -> tup
     ordered += [s for s in sections if s.get("id") not in
                 {m["id"] for m in config.SECTIONS}]
 
-    out = []
-    wire = 0
+    wires: list[str] = []
+    anchors: list[str] = []
     for section in ordered:
         is_wv = section.get("id") == "wv"
         rendered = (_wv_section_html(blocks, section, edition) if is_wv
                     else _wire_section_html(blocks, section, edition))
-        if rendered:
-            out.append(rendered)
-            if not is_wv:
-                wire += 1
+        if not rendered:
+            continue
+        (anchors if is_wv else wires).append(rendered)
+    wire = len(wires)
+    out = ([wire_flow(wires)] if wires else []) + anchors
     return ("\n\n  ".join(out), wire)
 
 
@@ -1435,7 +1473,8 @@ def render_sportsman_html(edition: dict) -> str:
         if water_groups:
             parts.append(fill(blocks["SECTION"], {
                 "SECTION_LABEL": esc(_norm(water.get("label")) or "On the Water"),
-                "BRIEFS": _tide_table_html() + "".join(water_groups),
+                "BRIEFS": (_tide_table_html(edition.get("edition_date"))
+                           + "".join(water_groups)),
             }))
 
     folio = (f"Vol. {edition.get('volume', 'I')} — "
@@ -1648,11 +1687,21 @@ def _wx_section_html(blocks: dict[str, str], section: dict) -> str:
         else:
             items = "".join(f"<li>{_wx_inline(i)}</li>" for i in payload)
             parts.append(f'<ul class="roundup wx-roundup">{items}</ul>')
-    if not (label or parts):
+    if not parts:
+        # A heading with nothing under it is not a section. Stacked headings
+        # are merged into the one that HAS the body, so this only happens on
+        # a trailing heading, and an empty label chip on the page is worse
+        # than the heading simply not appearing.
         return ""
+    if not label:
+        # Prose before the first heading — Jim's scene-setter on some
+        # mornings. It is real copy and it runs, but it gets no label chip,
+        # because an empty chip reads as a rendering fault.
+        return ('<section class="sec sec-wire wx-standfirst">'
+                + "".join(parts) + "</section>")
     return fill(blocks["SECTION"], {
         "SECTION_LABEL": esc(label),
-        "BRIEFS": "".join(parts) or "<p class=\"wx-empty\">&mdash;</p>",
+        "BRIEFS": "".join(parts),
     })
 
 
@@ -1691,7 +1740,9 @@ def render_weather_html(date_iso: str, briefing_md: str) -> str:
 
     rendered = [_wx_section_html(blocks, sec) for sec in doc["sections"]]
     rendered = [html for html in rendered if html]
-    parts = list(rendered)
+    # Same flow as the front page: Jim writes half a dozen short reports of
+    # wildly different lengths, which is precisely the shape a grid strands.
+    parts = [wire_flow(rendered)] if rendered else []
     box = _wx_box_html(doc["boxes"])
     if box:
         parts.append(box)

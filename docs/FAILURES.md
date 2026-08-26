@@ -744,4 +744,19 @@ and the failure protocol at the bottom of that file appends here too.
   headline that shipped. Every number in both misses was real and in the source, which is
   why byte-matching passed them; direction was living in a verb where nothing could check
   it.
+- **2026-08-26** — *Re-rendering the sports page to correct a headline typeset the WRONG
+  DAY'S TIDES into it, and that shipped.* Fixing the reversed Pirates result meant running
+  `render_edition.py --sportsman`, and `_tide_table_html()` reads `out/fishing.json` LIVE
+  while everything else on the page comes from the edition JSON. The local file was from
+  **2026-08-21**, so the published page went from the correct 1:39/7:27 AM to 3:21/9:34 AM
+  — a four-hour error in a tide table for people who fish it. Nothing on the page could
+  have revealed it; it was caught by diffing against the routine's own commit.
+  **Fixed:** refetched (the 08-26 predictions came back identical to the routine's, so the
+  correct table is restored) and `_tide_table_html()` now takes the page's date and
+  **renders no table at all when the file's date does not match**, with a warning on
+  stderr. "A missing table beats a stale one" was already the function's stated principle;
+  it just was not checking. Verified both ways.
+  The general lesson is bigger than the tide table: **any renderer that reads a live file
+  is a re-render hazard**, and `docs/HANDOFF.md` §4 already warned about it for the
+  archive. The warning was right and it was not enough, because this was TODAY's page.
 

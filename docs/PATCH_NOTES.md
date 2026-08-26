@@ -52,6 +52,53 @@ why the Aug. 18 "17:30 BST" miss looked like the check working. Repaired,
 both forms tested, and the whole repo scanned for the same corruption.
 
 
+## 2026-08-26 — the wire sections flow instead of being placed
+
+Pat: *"Good info, but lots and lots of unused space."* He was right, and it
+was structural rather than a shortage of news.
+
+The wire sections were in a CSS grid, one section per cell, and a grid row
+is as tall as its tallest member. On that morning's paper: U.S. 524px, World
+637px, Science & Technology 901px — **641px of dead column in the first row
+alone**, and a second row where a double-width Artificial Intelligence cell
+stood 260px empty. Measured across the whole block: **28% of the section
+area was white** (491,677 of 1,755,631 px²).
+
+Filling that with more briefs would have been the wrong fix. To close a
+ragged row by content you have to grow every section up to whatever the
+tallest happens to be, and the tallest changes every morning — that is a
+recipe for padding, in a paper whose whole discipline is not padding.
+
+So the sections **flow** now. Copy runs down column one and continues into
+column two; the browser evens the bottoms; no arrangement of uneven sections
+can leave a hole. Same content, same day, nothing added or cut:
+
+| | Grid | Flowed |
+|---|---|---|
+| Section block | 1,917px | **999px** |
+| Whole page | 3,093px | **2,653px** |
+| Wasted area | 28% | **none** |
+
+The original objection to multi-column here was real, and it is answered
+rather than ignored: a `column-span: all` child splits a flow and strands
+columns, which is what happened the first time this page was laid out. The
+notebook is therefore not in the flow at all — it is a sibling block below
+it, and nothing inside the flow spans. Sports & Sportsman has set this way
+since it launched, which is why that page never had the problem.
+
+**The trade-off, stated plainly:** sections no longer sit in tidy vertical
+blocks. World can begin in column one and finish at the top of column two.
+That is how a broadsheet reads and it is the price of the space; each brief
+carries its own bold headline, so nothing becomes hard to follow.
+
+The weather page got the same treatment — half a dozen reports of wildly
+different lengths is precisely the shape a grid strands — and shed two
+rendering artifacts with it: an empty label chip above Jim's scene-setting
+paragraph, and an em-dash placeholder under a heading with no body.
+
+Yesterday's last-section-spanning rule is gone. It patched the symptom.
+
+
 ## 2026-08-25 — the channel gets a doorbell; the paper gets its space back
 
 Nate: *"let's actually stop trying to post the full Times to Discord. Let's

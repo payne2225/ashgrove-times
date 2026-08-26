@@ -576,42 +576,56 @@
        2026-08-24, which fills three columns about five lines deep. */
     .lead-block.no-art .columns { column-count: 3; }
 
-    /* The wire sections sit side by side across the page, one to a column,
-       the way the four beats run across a front page below the fold.
+    /* The wire sections FLOW through these columns; they are not placed in
+       them. (2026-08-26 — this was a grid until Pat said "lots and lots of
+       unused space.")
 
-       GRID, not CSS multi-column. Multi-column was the first attempt and it
-       looked right until you counted: a `column-span: all` element splits
-       the flow, so the two sections above the notebook spread across four
-       columns and left two of them empty. Grid places each section in its
-       own column and lets the notebook span deliberately rather than as a
-       side effect. */
-    .sections {
-      display: grid;
-      /* As many columns as there are wire sections, set by the renderer.
-         Hard-coding 4 counted West Virginia as a beat, but the notebook
-         spans the whole measure on its own row — so the fourth track was
-         always empty, a quarter of the page blank beside the news. */
-      grid-template-columns: repeat(var(--wire-cols, 3), 1fr);
+       A grid gave each section its own cell and made every row as tall as
+       its tallest member. On an ordinary morning — U.S. 524px, World 637px,
+       Sci/Tech 901px — that stood 28% of the section area empty, and a last
+       row that did not divide evenly was worse. Copy that runs down one
+       column and continues into the next cannot leave a hole, whatever
+       shape the news turns out to be that day. Measured on the 2026-08-26
+       edition: the section block went 1917px to 999px and the page 3093px
+       to 2653px, with nothing added and nothing cut.
+
+       The original objection to multi-column here was real and is now
+       answered rather than ignored: a `column-span: all` child splits a
+       flow and strands columns, which is exactly what happened the first
+       time. So the notebook is not a child of the flow at all — it is a
+       sibling block below it, and nothing inside the flow spans.
+
+       Sports & Sportsman has set this way since it launched. */
+    .sections { display: block; }
+    .wire-flow {
+      column-count: var(--wire-cols, 3);
       column-gap: 30px;
-      align-items: start;
+      column-rule: 1px solid #c9c2ac;
     }
+    .wire-flow > .sec {
+      break-inside: auto;      /* a section MAY continue into the next column */
+      border-left: 0;
+      padding-left: 0;
+      margin: 0 0 18px;
+    }
+    /* ...but a brief, the drawing, and a label stranded from the brief
+       under it may not be split. Those are the atoms. */
+    .wire-flow .brief { break-inside: avoid; }
+    .wire-flow .art { break-inside: avoid; }
+    .wire-flow .section-label { break-after: avoid; margin-top: 0; }
+    .wire-flow .sec + .sec .section-label { margin-top: 12px; }
     .sec { margin-bottom: 20px; }
-    /* Close the hole a ragged last row would leave — see _sections_style(). */
-    .sections > .sec-wire:last-of-type {
-      grid-column: span var(--wire-last-span, 1);
-    }
     .sec .two-col-briefs { column-count: 1; column-rule: none; }
     .sec .section-label { margin-top: 0; }
-    /* Rules between the wire columns, none before the first. */
-    .sec-wire + .sec-wire { border-left: 1px solid #c9c2ac; padding-left: 30px; }
 
     /* The notebook is the anchor and it is wide content — four sub-blocks
-       that would strangle in a 300px column. It spans the whole measure as
+       that would strangle in a 300px column. It takes the whole measure as
        a boxed feature, which is both where the space is and the treatment
-       Ian asked for. `order` moves it below the wire columns without
-       touching DOM order, so the phone layout and screen readers still get
-       Ian's sequence. */
-    .sec-wv { grid-column: 1 / -1; order: 9; margin: 10px 0 8px; }
+       Ian asked for. It sits BELOW the flow because the renderer emits it
+       as a sibling after .wire-flow, not because of a CSS `order` — that
+       was a grid trick and the grid is gone. Screen readers and the phone
+       layout get the same sequence the markup has. */
+    .sec-wv { margin: 10px 0 8px; }
     .sec-wv .wv-box { padding: 22px 28px; column-count: 2; column-gap: 36px; }
     .sec-wv .wv-title { column-span: all; font-size: 24px; }
     .sec-wv .wv-box > .brief,
@@ -696,7 +710,7 @@
   @media print {
     body { background: #fff; padding: 0; }
     .page { border: 0; box-shadow: none; max-width: none; }
-    .sections { display: grid; grid-template-columns: repeat(var(--wire-cols, 3), 1fr); column-gap: 24px; }
+    .wire-flow { column-count: var(--wire-cols, 3); column-gap: 24px; }
     .sec-wv { grid-column: 1 / -1; order: 9; }
   }
 </style>
@@ -777,7 +791,7 @@
 
   <section class="sec sec-wire">
   <div class="section-label">On the Water</div>
-  <div class="two-col-briefs"><table class="tide-table"><caption>Topsail tides — the full day</caption><tr><th>Water</th><th>High</th><th>Low</th><th>High</th><th>Low</th></tr><tr><td>Sound (where you fish)</td><td>3:15 AM<br>3.0 ft</td><td>9:34 AM<br>0.6 ft</td><td>3:56 PM<br>3.9 ft</td><td>10:34 PM<br>1.2 ft</td></tr><tr><td>Ocean (surf)</td><td>2:29 AM<br>3.1 ft</td><td>8:22 AM<br>0.9 ft</td><td>3:23 PM<br>4.4 ft</td><td>10:00 PM<br>1.3 ft</td></tr></table><div class="wv-block sm-water">
+  <div class="two-col-briefs"><table class="tide-table"><caption>Topsail tides — the full day</caption><tr><th>Water</th><th>Low</th><th>High</th><th>Low</th><th>High</th></tr><tr><td>Sound (where you fish)</td><td>1:39 AM<br>0.9 ft</td><td>7:27 AM<br>3.3 ft</td><td>1:40 PM<br>0.5 ft</td><td>7:59 PM<br>4.1 ft</td></tr><tr><td>Ocean (surf)</td><td>1:01 AM<br>0.7 ft</td><td>6:51 AM<br>3.8 ft</td><td>12:43 PM<br>0.4 ft</td><td>7:17 PM<br>5.0 ft</td></tr></table><div class="wv-block sm-water">
       <p class="wv-block-label">West Virginia</p>
       <ul class="roundup"><li><span class="place">Williams River</span> &mdash; 106 cfs and falling, 1.67 feet. 106 cfs - prime wading water. Off 176 a day ago and settling toward summer low - a long-leader game now: small caddis and stonefly nymphs through the plunge pools, and a dry along the undercut banks where fish show.<span class="src">USGS 03186500</span></li><li><span class="place">Ohio River at Point Pleasant</span> &mdash; 25.32 feet, steady. 25.3 ft - normal pool. Ordinary bank access. A steady pool stacks fish on structure. Shad are the forage: a white swimbait across the wing dams and the barge-cut seams, early, before the sun gets on the water.<span class="src">USGS 03201500</span></li><li><span class="place">Ohio River at Huntington</span> &mdash; 26.09 feet and falling. 26.1 ft and falling - normal pool. Ordinary bank access. Down 1.7 feet on the day, and both gauges now read normal pool - the Aug. 16 flood&#x27;s last push is through. As the water greens up, a crawfish-colored crankbait tight to the riprap and the lock wall.<span class="src">USGS 03206000</span></li></ul>
     </div><div class="wv-block sm-water">
