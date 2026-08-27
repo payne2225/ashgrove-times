@@ -2498,3 +2498,55 @@ Both papers landed **exactly on their holds**: the Times at **7:00** (No. 16, me
 `eby-non-tariff`, `shingrix-dementia-24pct`, `petermann-ice-island`, `chromosome-highways`,
 `gravity-clusters-cmb`, `delft-llm-robotaxi`, `ox-alpha-openrouter`, `wvu-st-bonaventure-1-0`,
 `reds-giants-1-3`, `pirates-padres-0-1`, `baleba-united-70m`, `mets-brewers-10inn`, `aki-banzuke-five-days`
+
+## 2026-08-27 — No. 23 (Times) and No. 13 (Sports & Sportsman)
+
+| Open-ended | **Both never-empty blocks filed on their second morning.** The away desk ran the Bennington resort-permit appeal (Aug. 11, dated in print — 16 days, just past the 14-day window, taken over an empty block per Nate's ALWAYS-content rule) and Vacation Hotspots ran both places: Gauley season Sept. 11 (WV Explorer, published Aug. 26) for the cabin, and Surf City's JH Batts path segment-5 bid (posted Aug. 3, updated Aug. 25, bids due Oct. 12) for Topsail — the second item the 08-26 ladder verification found, printed a day later. `surfcitync.gov/civicalerts` and `northtopsailbeachnc.gov/news` both still answer | |
+| Open-ended | **The sandbox checked out a DETACHED HEAD this morning.** `git status` read "HEAD detached from refs/heads/main" from session start, and the routine's opening `git pull` failed silently ("not currently on a branch") without anyone noticing until the push. HEAD was origin/main's tip plus nothing, so `git checkout -B main HEAD && git push -u origin main` fixed it cleanly — but a morning where origin had moved overnight would have needed an actual rebase. **Check `git status` FIRST tomorrow, before the pull** | **OPEN — for tomorrow's desk** |
+| Open-ended | **The stored schedule prompt is a day behind the routine — again.** This morning's trigger prompt still instructs TWO Discord posts (the Times at 7:00, Sports & Sportsman at 7:05 with `DISCORD_SPORTSMAN_WEBHOOK_URL` and `--sportsman`), but `instructions/routine.md` was changed 2026-08-26 (Nate) to ONE digest message with sport publishing to the website only. The prompt itself says to follow routine.md end to end, so the repo governed and one digest went out — but this is the same stored-prompt drift the "first edition" rows logged four times in August. **Worth Nate updating the stored prompt to match the digest contract** | **OPEN — for Nate** |
+| Open-ended | **Two search-result traps dodged in one morning, same shape as the Woodchopping Festival.** (1) A search summary offered "the state wants to test 90 wells in southern Bennington for PFAS" as this week's news — the page is from OCTOBER 2023. (2) Another presented Putnam County's superintendent vote as "Wednesday evening" — the vote was MAY 27. Both were caught only by opening the page and reading the date on it. The regional line ran the McCuskey/Kanawha Hope Scholarship letter (WV Watch, Aug. 25) instead | |
+
+### Forward-dated events added or moved
+
+| Date | Event | Note |
+|---|---|---|
+| **open** | **Nepal glacial flood — the toll is moving fast** | Led No. 23 at "at least 160" (PBS; NPR's later copy had 162 in Nepal alone) with ~400 missing in Nepal and 558 reported missing in Tibet by Chinese state media. The numbers WILL move — re-check before citing any of today's figures tomorrow. Follow-ups: the toll, the foreign nationals (47 Americans), India/China rescue help, the ICIMOD early-warning angle |
+| **~court approval** | **Meta settlement: $17B/51 states (NPR), WV share $114M+ (MetroNews)** | Ran as No. 23's first U.S. brief and third WV statewide brief. The meta-addiction-trial thread CLOSES — settled midway through the Oakland trial's second week. NPR said "up to $17 billion," others $18B with Texas's separate deal; the paper printed NPR's figure and did not mix totals. Follow-up: judicial approval, and whether YouTube/TikTok settle (triggers another $5B) |
+| **2026-08-28** | **Bessent's named bank sanction — still unannounced Thursday** | "By week's end" expires tomorrow. Searched again this morning: nothing. The row stands one more day |
+| **2026-08-30** | **Roman Space Telescope launch, 7:26 a.m. ET Sunday** | Ran as No. 23's third Sci/Tech brief (encapsulated Aug. 21, nine months early). Sunday's paper posts 26 minutes before liftoff — the launch RESULT is Monday's brief |
+| **2026-08-30** | **NFL cutdown 6 p.m. Sunday; Browns close preseason TONIGHT, Bengals Friday** | Both finales in No. 13's week ahead. Cut-down casualties are Monday's teams material |
+| **2026-08-29** | **WV gun bear opens Saturday, selected counties** | Ran in No. 13's coming-in with the no-county-list caveat, reference file checked against valid_through 2027-06-30 |
+| **2026-09-01** | **NC flounder opens Tuesday (FF-27-2026, reconfirmed on deq.nc.gov today)** | One fish/day, 15-inch minimum. The On the Water block tied it to the sound report's "flounder everywhere" line — opening-day is Tuesday's natural On the Water lead |
+| **2026-08-31** | **Aki banzuke Monday — FOURTEENTH morning the Sept. 13-27 dates are uncited, r/Sumo unreachable a FIFTH** | JSA English page still shows only the Aug. 5 museum item and sold-out notices. No. 13's sumo line pegged the countdown to the banzuke at four days. Hoshoryu surgery report still unprinted for want of a citable outlet — Monday should force everything |
+| **open** | **Hannan-Calvary result STILL OWED, third morning; Hannan play at St. Mary's TONIGHT 6:30** | MaxPreps still shows the Aug. 25 fixture unscored ("Overall 0-0"); searches at the Point Pleasant Register and WVSSAC surfaced nothing. The teams note said so in print again. Friday's line is tonight's result from an outside outlet — never the schedule, never assumed |
+| **open** | **Marshall-Wright State (Aug. 23) STILL uncited — FIFTH morning, and a trap in it** | A search this morning served Marshall's 2-1 win over Wright State WITH scorers — from AUGUST 2025 (herdzone news/2025/8/27). The 2026 result exists only as a 3-2 snippet. Do not let the dated-2025 recap masquerade as the missing result |
+| **2026-08-29** | **Provincial state of emergency in B.C. expires Saturday** | Bald Range at 25,021 ha ran as the BC tier brief (Today in BC, Aug. 23 — the freshest openable). Renewal or lapse of the emergency is Saturday's news; a fresher fire update should be sought daily while orders stand |
+| **2026-09-08** | **Canada's 700-product counter-tariffs take effect** | The list ran as No. 23's Canada brief (Global News). The effective date is a standing follow-up |
+| **~2026-09-09** | **DoubleTree housing for displaced Marshall students runs out** | Today's huntington_cabell line. What happens to the ~40 students after Sept. 9 is the follow-up; WSAZ Investigates is inside the inspection reports |
+| **2026-10-11** | **Eagle Horizon separations take effect, Boone County** | 71 jobs, WARN notice, no reason given (WSAZ). Ran statewide. A reason, a buyer, or the date arriving is the news |
+
+### Open threads
+
+- **nepal-glacial-flood** — new, led No. 23. See forward-dated row; the toll and the missing counts are the live numbers.
+- **operation-economic-outcast** — the tanker disabled Monday off Musandam ran as No. 23's Hormuz brief (Maritime Executive; IMO: 68 incidents, 20 seafarers dead in six months). The named bank is still owed by week's end.
+- **king-harald-health** — new. Palace: "extremely serious," Haakon regent. The succession, if it comes, is a lead candidate.
+- **kenscoff-raid** — moved: Izo 2's hostage video and the UN's church-compound detail ran as the World lead brief. The hostages' fate is the thread.
+- **nigeria-borgu-kidnapping** — new: manhunt ordered, toll 40+, up-to-500 abduction figure unverified. A confirmed abduction count or rescues is the news.
+- **greenbrier-lottery** — RESOLVED and the thread closes: license approved Wednesday, KLIM 51%/three seats under chairman Lloyd Charles Nathan, Jill Justice on the board. Ran statewide.
+- **huntington-vacated-residences** — moved: DoubleTree through Sept. 9 ran as the Cabell line. Sept. 9 is the next trigger.
+- **hawk-fire-reno** — not run today; containment was 85% Tuesday. A cause finding or full containment closes it.
+- **us-canada-trade-war** — the counter-tariff list ran (Canada tier). Sept. 8 stands.
+- **putnam-google-datacenter** — not run; the PG brief's data-centre echo is coincidence, not movement. A legislative move in Charleston is the trigger.
+- **marl-psc** — ruling still pending, not run.
+- **wvu-mens-soccer** — 1-1, at UNC-Greensboro Friday; result is Saturday's line if citable.
+
+### Covered slugs, 2026-08-27
+
+`nepal-glacial-flood-160`, `meta-17b-settlement`, `pa-measles-deaths-first-2026`, `ice-virginia-maryland-1300`,
+`spacex-starbase-louisiana-100b`, `kenscoff-hostage-video`, `nigeria-borgu-manhunt`, `hormuz-tanker-disabled-musandam`,
+`king-harald-extremely-serious`, `greenbrier-license-approved`, `eagle-horizon-boone-71`, `wv-meta-share-114m`,
+`marshall-students-doubletree`, `kanawha-hope-letter-reword`, `bennington-resort-appeal`, `gauley-season-sept11`,
+`surf-city-path-seg5-bid`, `pg-infrastructure-data-centres`, `bald-range-25021-holds`, `canada-tariff-list-700`,
+`mars-south-interior-molten`, `jurassic-katydid-ultrasound`, `roman-fairing-sunday`, `ucl-ai-brain-surgery`,
+`mturk-closes-sept30`, `openai-jalapeno-per-watt`, `tottenham-charlton-5-1`, `reds-giants-10-9`,
+`pirates-padres-0-3`, `brewers-mets-8-1-lead-6-5`, `aki-banzuke-four-days`
