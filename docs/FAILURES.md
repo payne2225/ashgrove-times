@@ -760,3 +760,4 @@ and the failure protocol at the bottom of that file appends here too.
   is a re-render hazard**, and `docs/HANDOFF.md` §4 already warned about it for the
   archive. The warning was right and it was not enough, because this was TODAY's page.
 
+- 2026-08-27T11:00:01Z · 2026-08-27 · post_discord: no verified page url; posting without links
