@@ -955,8 +955,16 @@
 <!--{/BLOCK:FISHING_ITEM}-->
 
 
+<!-- Source links leave the paper, so they open in a NEW TAB (Nate,
+     2026-08-26: clicking one navigated away from the edition). Only
+     OUTBOUND links do this. The nav buttons, "Back issues" and the archive
+     rows are all inside the paper and stay in the same tab — a reader
+     moving between the three sections should not collect a tab each time.
+     `rel="noopener"` is what makes target="_blank" safe and was already
+     here; `nofollow` is because a wire brief is a citation, not an
+     endorsement. -->
 <!--{BLOCK:SOURCE_LINK}-->
-<span class="src"><a href="{{URL}}" rel="noopener nofollow">{{SOURCE}}</a></span>
+<span class="src"><a href="{{URL}}" target="_blank" rel="noopener nofollow">{{SOURCE}}</a></span>
 <!--{/BLOCK:SOURCE_LINK}-->
 
 

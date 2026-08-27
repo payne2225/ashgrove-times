@@ -52,6 +52,25 @@ why the Aug. 18 "17:30 BST" miss looked like the check working. Repaired,
 both forms tested, and the whole repo scanned for the same corruption.
 
 
+## 2026-08-26 — source links open in a new tab
+
+Nate: clicking a source navigated away from the edition. A citation is a
+place you go to check something and then come back from, so it opens in a
+new tab now — `target="_blank"` on the `SOURCE_LINK` block, which is the one
+place in the template that emits an outbound link.
+
+**Only outbound links.** The nav buttons, "Back issues" and the archive rows
+are all inside the paper and stay in the same tab: a reader moving between
+the three sections should not collect a tab every time they do it.
+
+`rel="noopener"` was already on that block and is what makes
+`target="_blank"` safe; `nofollow` stays because a wire brief is a citation,
+not an endorsement.
+
+Audited across the whole site after re-rendering — 68 outbound links, all
+opening in a new tab, and not one internal link doing so.
+
+
 ## 2026-08-26 — a rule under the columns, and B.C. moves down beside the notebook
 
 Two of Nate's, on the flowed layout he had just approved.
