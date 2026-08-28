@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 720" role="img"
+     aria-label="Rescuers in vests lead residents across a mud-buried valley floor past a flood-gutted house standing on bare pillars, wooded ridges and clouds behind">
+  <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+
+    <!-- distant ridgeline, left to center -->
+    <path d="M0,318 L36,296 74,270 118,246 158,232 196,220 232,214 268,222 300,236 330,252 356,268 378,282 398,296 414,308"/>
+    <path d="M0,352 L40,336 84,318 130,304 172,296 210,294 246,300 282,312 314,326 344,342 368,356"/>
+    <!-- tree texture on the near ridge -->
+    <path d="M60,332 q6,-14 12,0 M96,320 q6,-14 12,0 M134,308 q6,-13 12,0 M172,300 q6,-13 12,0 M210,298 q6,-12 12,0 M248,304 q6,-12 12,0 M286,316 q6,-12 12,0 M322,330 q6,-12 12,0"/>
+    <path d="M42,344 q5,-11 10,0 M78,334 q5,-11 10,0 M116,322 q5,-11 10,0 M154,312 q5,-11 10,0 M192,306 q5,-11 10,0 M230,308 q5,-11 10,0 M268,318 q5,-11 10,0 M304,330 q5,-11 10,0 M338,344 q5,-11 10,0"/>
+
+    <!-- clouds banked against the ridge -->
+    <path d="M120,262 q16,-18 38,-12 q10,-16 30,-10 q18,-12 34,0 q14,-4 20,8"/>
+    <path d="M212,238 q14,-14 32,-8 q12,-12 28,-4 q12,-6 18,6"/>
+
+    <!-- the gutted house, center-right -->
+    <!-- main block: two storeys stripped to frame, standing on exposed pillars -->
+    <path d="M560,470 L560,332 L820,318 L820,462"/>
+    <!-- roof slab and torn eave -->
+    <path d="M548,336 L836,320 M548,336 L560,332 M836,320 L820,318"/>
+    <!-- floor slab between storeys -->
+    <path d="M560,402 L820,392"/>
+    <!-- open bays, upper storey -->
+    <path d="M590,398 L590,344 M640,396 L640,342 M692,392 L692,338 M744,390 L744,334 M796,388 L796,330"/>
+    <path d="M590,344 L796,330"/>
+    <!-- balcony with broken balustrade, lower storey left -->
+    <path d="M560,430 L668,424 M572,430 L572,452 M590,429 L590,451 M608,428 L608,450 M626,427 L626,449 M644,426 L644,448 M560,452 L668,446"/>
+    <!-- lower bays right -->
+    <path d="M700,458 L700,404 M752,456 L752,402 M804,454 L804,400"/>
+    <!-- undermined base: slab on bare pillars, rubble beneath -->
+    <path d="M560,470 L586,470 M586,470 L586,500 M610,468 L610,502 M700,464 L700,506 M766,462 L766,508 M820,462 L820,510"/>
+    <path d="M560,470 L820,462"/>
+    <path d="M556,506 q22,10 48,4 q20,8 42,2 q26,10 50,2 q22,8 44,2 q30,8 56,0 q18,6 34,0"/>
+    <!-- hanging rebar and debris off the balcony edge -->
+    <path d="M652,426 q4,18 -2,34 M662,425 q6,16 2,30"/>
+    <!-- rooftop upper room and vegetation -->
+    <path d="M700,332 L700,258 L820,250 L820,318"/>
+    <path d="M690,262 L832,252"/>
+    <path d="M712,258 q4,-16 14,-6 q6,-12 14,-2 q8,-10 14,0 M770,254 q6,-14 14,-4 q8,-8 12,2"/>
+    <!-- roof railing -->
+    <path d="M700,290 L820,282 M712,300 L712,262 M744,298 L744,258 M776,296 L776,256 M808,294 L808,254"/>
+
+    <!-- distant houses at right edge -->
+    <path d="M876,392 L876,352 L920,348 L920,388 M876,352 L898,340 L920,348"/>
+    <path d="M902,436 L902,404 L944,400 L944,432 M902,404 L924,394 L944,400"/>
+
+    <!-- foreground rescuer, seen from behind, hands on hips -->
+    <!-- helmet -->
+    <path d="M636,132 q-30,-26 -66,-6 q-16,10 -14,32 q0,14 10,20 L648,170 q10,-24 -12,-38"/>
+    <path d="M566,166 q36,14 82,4"/>
+    <!-- head/neck -->
+    <path d="M580,178 q4,16 20,20 q16,-2 22,-14"/>
+    <!-- vest over shoulders, back panel -->
+    <path d="M560,208 q-26,10 -30,44 L524,330 q40,14 78,10 q36,-2 62,-12 L658,252 q-4,-34 -26,-42 q-36,-12 -72,-2"/>
+    <!-- vest label patch and stripes -->
+    <path d="M556,238 L646,232 L648,258 L558,264 Z"/>
+    <path d="M528,296 q56,14 128,2 M526,314 q58,14 132,2"/>
+    <!-- arms akimbo -->
+    <path d="M560,214 q-40,18 -44,58 q0,16 18,22 l22,6 M630,208 q38,20 40,58 q0,16 -18,20 l-22,4"/>
+    <!-- shorts and legs -->
+    <path d="M528,340 q40,12 128,2 L652,414 q-2,26 -8,44 M534,342 L540,416 q2,24 6,42"/>
+    <path d="M548,344 q10,38 4,70 M626,342 q6,40 2,72"/>
+    <!-- pack slung at the waist -->
+    <path d="M624,330 q34,-6 44,10 q8,14 -2,26 q-18,10 -40,2"/>
+
+    <!-- file of figures crossing the mud, left-center, walking away -->
+    <!-- rescuer 1 -->
+    <path d="M150,406 q-12,-22 8,-32 q18,-8 26,8 q6,14 -6,24 M148,410 q-16,12 -14,44 l-2,52 q22,8 46,2 l2,-52 q2,-30 -12,-44"/>
+    <path d="M136,436 L182,432 M134,456 L182,452"/>
+    <path d="M140,508 q-2,34 -6,60 M172,506 q4,32 2,60 M134,568 l-12,10 M174,566 l10,12"/>
+    <path d="M148,444 q-14,10 -18,30 l-4,18 M180,440 q14,12 16,34 l2,14"/>
+    <!-- resident beside, long dress -->
+    <path d="M216,420 q-10,-18 6,-26 q16,-6 22,8 q4,12 -6,20 M214,424 q-14,10 -14,36 l-4,66 q22,10 44,2 l0,-66 q0,-26 -12,-38"/>
+    <path d="M198,528 q20,10 44,2 M206,530 q-2,26 -4,44 M232,530 q2,26 2,44"/>
+    <!-- rescuer 2, mid file -->
+    <path d="M296,404 q-10,-20 8,-28 q16,-6 24,8 q4,12 -6,20 M294,408 q-16,10 -14,40 l-2,48 q22,8 42,2 l2,-48 q2,-30 -12,-42"/>
+    <path d="M282,432 L324,428 M280,450 L324,446"/>
+    <path d="M286,498 q-2,30 -6,54 M314,496 q4,30 2,54"/>
+    <!-- figure stooping between, helped along -->
+    <path d="M352,428 q-8,-16 6,-22 q14,-6 20,6 q4,10 -4,16 M350,432 q-14,8 -16,32 l-6,54 q20,8 40,2 l2,-54 q0,-24 -10,-34"/>
+    <path d="M330,518 q-4,22 -8,38 M362,516 q2,22 0,40"/>
+    <!-- rescuer 3 -->
+    <path d="M416,398 q-10,-20 8,-28 q16,-6 22,8 q4,12 -6,20 M414,402 q-16,10 -14,38 l-2,46 q20,8 40,2 l2,-46 q2,-28 -10,-40"/>
+    <path d="M402,424 L442,420 M400,442 L442,438"/>
+    <path d="M406,486 q-2,28 -6,52 M432,484 q4,28 2,52"/>
+    <!-- resident at the head of the file -->
+    <path d="M472,414 q-8,-16 6,-22 q14,-6 18,6 q4,10 -4,16 M470,418 q-12,8 -12,30 l-4,58 q18,8 36,2 l2,-58 q0,-22 -10,-32"/>
+    <path d="M458,506 q-2,24 -4,42 M482,506 q2,24 2,42"/>
+
+    <!-- braided mud flow across the foreground -->
+    <path d="M0,470 q120,-16 260,-8 q160,8 340,-6"/>
+    <path d="M0,530 q140,-18 300,-8 q180,10 360,-8 q120,-10 300,-4"/>
+    <path d="M0,600 q170,-22 360,-10 q200,12 420,-10 q100,-8 180,-4"/>
+    <path d="M60,660 q180,-20 380,-8 q220,12 460,-12"/>
+    <path d="M120,706 q220,-22 480,-6 q180,8 360,-14"/>
+    <!-- channels and puddles -->
+    <path d="M80,646 q20,-8 44,-2 q10,4 2,10 q-22,6 -44,0 q-8,-4 -2,-8"/>
+    <path d="M300,676 q24,-8 50,-2 q10,4 0,10 q-26,6 -50,0 q-8,-4 0,-8"/>
+    <path d="M212,560 q14,-6 30,-2 q8,4 0,8 q-16,4 -30,0 q-6,-4 0,-6"/>
+    <!-- scattered rock -->
+    <path d="M420,610 l10,-6 12,4 -2,10 -14,2 Z M660,586 l8,-6 12,2 0,10 -12,4 Z M760,640 l10,-8 14,4 -2,12 -16,2 Z M180,624 l8,-6 10,2 0,8 -10,4 Z M520,656 l8,-6 12,2 0,10 -12,4 Z"/>
+    <!-- snagged line trailing in the mud -->
+    <path d="M700,530 q30,16 24,44 q-4,18 -22,22"/>
+  </g>
+</svg>
