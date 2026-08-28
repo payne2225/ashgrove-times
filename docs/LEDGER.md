@@ -2552,3 +2552,52 @@ Both papers landed **exactly on their holds**: the Times at **7:00** (No. 16, me
 `mars-south-interior-molten`, `jurassic-katydid-ultrasound`, `roman-fairing-sunday`, `ucl-ai-brain-surgery`,
 `mturk-closes-sept30`, `openai-jalapeno-per-watt`, `tottenham-charlton-5-1`, `reds-giants-10-9`,
 `pirates-padres-0-3`, `brewers-mets-8-1-lead-6-5`, `aki-banzuke-four-days`
+
+## 2026-08-28 — No. 24 (Times) and No. 14 (Sports & Sportsman)
+
+| Open-ended | **Third morning under the digest contract.** Both papers researched, written, validated, rendered and pushed by **5:56 a.m. ET**, 26 minutes after the 5:30 wake; Pages built both dated pages inside two minutes of the push — fast enough that the digest launched at 5:58 **with a verified `--page-url` for the first time since the digest began**, so the index record carries the permalink instead of the standing "no verified page url" degraded line. Held for 7:00 with `--not-before` | |
+| Open-ended | **The sandbox checked out a DETACHED HEAD again — second morning running.** Caught at session start this time per yesterday's note, fixed before the pull with `git checkout -B main HEAD` + upstream re-set while HEAD matched origin/main's tip. This now looks structural to the environment, not a one-off. **Check `git status` first every morning** | **OPEN — recurring** |
+| Open-ended | **The stored schedule prompt is still a day behind — third morning.** It again instructed TWO Discord posts (7:00 Times, 7:05 sport with the sportsman webhook). routine.md governed; one digest went out, sport published to the web only. Still worth Nate updating the stored prompt | **OPEN — for Nate** |
+| Open-ended | **Webster County came up genuinely empty for Vacation Hotspots** after the full ladder (Webster Echo /news 404s though the domain answers; county site static; WOAY, WV Explorer, MetroNews, school and DOT sweeps). The block filed on Topsail alone (Surf City parking RFP, posted Aug. 18) — one place is the stated minimum, not a failure, but a second straight empty Cowen morning should go to FAILURES per the twice-a-week rule | |
+
+### Forward-dated events added or moved
+
+| Date | Event | Note |
+|---|---|---|
+| **open** | **Nepal barrier lake — the follow-up IS tomorrow's likely lead** | Led No. 24: 469 dead/977 missing (Nepal PM's office, Friday), 3/558 Tibet, ~2M m³ impounded with 3M more coming inside three days. A burst, a drainage, or the toll are all movement. ~90 Americans unaccounted (NPR); no confirmed American deaths as of Thursday |
+| **2026-08-29** | **Bessent's named bank — "by week's end" expires TODAY and nothing came** | Searched again this morning: still unannounced. If Saturday passes empty, the broken deadline is itself the brief |
+| **2026-08-31** | **Aki banzuke Monday — FIFTEENTH morning the Sept. 13-27 dates are uncited; r/Sumo unreachable a SIXTH** | JSA English site: September tickets sold out, still no dates posted. No. 14's sumo line pegged the countdown to Monday's banzuke at three days. Hoshoryu surgery report still unprinted |
+| **open** | **Hannan now owes TWO results: Calvary (Aug. 25, fourth morning) and St. Mary's (Thursday night)** | MaxPreps lists both fixtures unscored ("Report Score"). The teams note said so in print again. Next: at Roane Tue Sept. 1 6:30, home v Logan Thu Sept. 3 6:00. Never the schedule, never assumed |
+| **open** | **Marshall-Wright State (Aug. 23) uncited a SIXTH morning** | herdzone still renders title-only, even the /schedule/text variant. The 3-2 exists only in snippets and stays unprinted |
+| **open** | **WVU women at Princeton (Thu) — result to chase tomorrow** | No. 7 WVU played 7 p.m. Thursday; nothing citable by 6 a.m. Try wvusports recap, Dominion Post, goprincetontigers news page. The men opened at UNC Greensboro Friday night — both results are Saturday material |
+| **2026-08-30** | **Roman Space Telescope launch 7:26 a.m. ET Sunday; NFL cutdown 6 p.m. ET Sunday** | Sunday's paper posts before liftoff; the launch result and cut-down casualties are Monday's briefs. Bengals closed preseason at Philadelphia Friday night — result is Saturday's teams line |
+| **2026-08-29** | **WV gun bear opens TODAY (Saturday), selected counties** | Ran as No. 14's coming-in with the no-county-list caveat, file checked against valid_through 2027-06-30 |
+| **2026-09-01** | **NC flounder opens Tuesday — FF-27-2026 reconfirmed on deq.nc.gov this morning** | One/day, 15-inch minimum. Tuesday's On the Water lead writes itself |
+| **2026-10-05** | **Quebec election — NEW thread** | Fréchette dissolved the legislature Thursday; 39-day campaign, CAQ after 8 years, trade war central. Ran as No. 24's Canada-tier brief (CTV) |
+| **open** | **Anthropic-Nscale $45B at Monarch (Mason County) — NEW thread, and it is a HOME-REGION story** | Bloomberg-reported Thursday, Nscale declined comment: formal confirmation is the follow-up; first capacity late 2027; E&Y jobs study (6,000/700) and $105M tax projections are already circulating (MetroNews). Ran as No. 24's first WV brief |
+| **open** | **King Harald thread CLOSES — he died Friday 6:35 a.m. Oslo time** | Ran as No. 24's World lead brief. Follow-ups: Haakon's council of state and regnal name, the funeral date |
+| **2026-09-08** | **Canada's counter-tariffs take effect; MARL testimony date** | Both stand. B.C.'s wildfire state of emergency ENDED Thursday, two days early (ran as bc-tier brief) — the Aug. 29 expiry row closes |
+
+### Open threads
+
+- **nepal-barrier-lake** — see forward-dated row; the lake is the live story now.
+- **operation-economic-outcast** — the named bank is now overdue; Araghchi's "pressure doesn't work" after the Qatar PM's Tehran visit ran as No. 24's Hormuz brief (Euronews). Qatar's phased-corridor plan is movement to watch.
+- **kenscoff-hostages** — moved: Thursday's near-silent police presser ran (AP via Korea Times). The hostages' fate is still the thread.
+- **zambia-mundubile** — NEW: treason questioning, warn-and-caution statements recorded; formal charges or release is next (Al Jazeera).
+- **lisa-cook-firing** — NEW/revived: her lawyers' letter answered the second removal attempt; the White House's next move or a filing is the trigger.
+- **greenbrier-justice-morrisey** — the feud ran statewide; watch for an actual governor's-race declaration behind it.
+- **huntington-vacated-residences** — not run today; Sept. 9 DoubleTree deadline stands.
+- **marl-psc** — ruling still pending, not run.
+- **meta-settlement-approval** — judicial approval watch, not run.
+- **akers-ethics-case** — RESOLVED and closed: Supreme Court dismissed Wednesday, ran statewide.
+- **prince-george-plane-crash** — quiet; TSB report stays the trigger. PG tier used the Ancient Forest centre opening instead.
+
+### Covered slugs, 2026-08-28
+
+`nepal-toll-469-barrier-lake`, `cook-second-ouster-letter`, `ice-july-record-noncriminal`, `artemis-ii-space-medal`,
+`ed-accreditation-nprm-comment`, `king-harald-dies-89`, `kenscoff-police-presser`, `qatar-pm-tehran-hormuz`,
+`zambia-mundubile-treason`, `anthropic-nscale-45b-monarch`, `greenbrier-justice-morrisey-feud`, `akers-case-dismissed`,
+`yeager-lightning-damage`, `holcomb-murder-charge`, `vt-veterans-home-vandalism`, `surf-city-goldsboro-rfp`,
+`ancient-forest-centre-opens`, `bc-emergency-ends-early`, `quebec-oct5-campaign`, `mtg-i2-ariane6-gto`,
+`washu-pain-brake`, `hubble-lkh-merger`, `wsu-grcop42-ai-print`, `alberta-ai-town-halls`,
+`browns-patriots-37-13`, `brewers-mets-8-2-lead-7`, `aki-banzuke-three-days`
