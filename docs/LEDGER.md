@@ -2601,3 +2601,58 @@ Both papers landed **exactly on their holds**: the Times at **7:00** (No. 16, me
 `ancient-forest-centre-opens`, `bc-emergency-ends-early`, `quebec-oct5-campaign`, `mtg-i2-ariane6-gto`,
 `washu-pain-brake`, `hubble-lkh-merger`, `wsu-grcop42-ai-print`, `alberta-ai-town-halls`,
 `browns-patriots-37-13`, `brewers-mets-8-2-lead-7`, `aki-banzuke-three-days`
+
+## 2026-08-29 — No. 25 (Times) and No. 15 (Sports & Sportsman)
+
+| Open-ended | **Fourth morning under the digest contract.** Both papers researched, written, validated, rendered and pushed by **6:01 a.m. ET**, 31 minutes after the 5:30 wake; Pages built both dated pages inside 20 seconds of the push, so the digest launched in background at 6:01 with a verified `--page-url` and `--not-before 07:00`. No detached HEAD this morning — the checkout came up clean on `main`, breaking the two-morning streak; still worth a `git status` first every day | |
+| Open-ended | **The stored schedule prompt is still a day behind — fourth morning.** It again instructed TWO Discord posts (7:00 Times, 7:05 sport with `DISCORD_SPORTSMAN_WEBHOOK_URL` and `--sportsman`), and it also said to follow routine.md end to end. routine.md governed; one digest went out, sport published to the web only, the sportsman webhook untouched. Still worth Nate updating the stored prompt to the digest contract | **OPEN — for Nate** |
+| Open-ended | **Hannan's two owed results finally posted, at MaxPreps.** The Aug. 25 opener printed as a 2-1 Calvary win at Ashton and Thursday at St. Marys printed as a **7-0 Hannan win** — the program's first of the fall, led No. 15's Our Teams with `result` carried. Both scores from MaxPreps, neither from the schedule file. The Calvary/St. Mary's watch rows CLOSE | |
+| Open-ended | **Webster County empty a SECOND morning for Vacation Hotspots** after the full ladder again (Echo blocked, Chronicle stale since May, county sites static, MetroNews/Register-Herald/WOAY sweeps, DOT search, WV Explorer — its Gauley-season item ran Aug. 27 and is spent). Topsail filed (Pender school board on Topsail Middle, WECT), so the block was not empty and no FAILURES line — but a third straight empty Webster morning should go to Nate as a sourcing gap, not just a quiet county | **watch** |
+| Open-ended | **Four search-result traps dodged in one morning.** (1) A "Summersville considers goose mitigation" item is WV Watch from AUGUST 2025; (2) the Kennedy/Maynard verdict surfacing under Friday's date is from MAY; (3) an NBER "no AI productivity impact" survey offered as Friday news is a FEBRUARY paper; (4) "Marshall outscored... Tyler" is Marshall, TEXAS high school football. All caught by opening pages and reading dates. The WVU men's 2-2 at UNC Greensboro headline could NOT be dated (WBOY/WTRF 403) against an identical 2022-24 scoreline with the same scorers, so it did not print | |
+
+### Forward-dated events added or moved
+
+| Date | Event | Note |
+|---|---|---|
+| **open** | **Nepal barrier lake still the lead** | No. 25 led with the rescue RESUMING after the overflow pause: 626 dead (Nepal police), 7 Tibet, 2,426 missing Nepal side (517 foreign), 554 Tibet, per Saturday's Al Jazeera. Byers: dam "highly unstable," gradual drainage the best outcome. The toll, the lake, and any confirmed American deaths are tomorrow's numbers — re-check everything before reprinting |
+| **2026-08-28** | **Bessent's named bank LANDED — the watch row closes** | Banque Misr's UAE branches, Friday: proposed rule severing U.S. correspondent access (30-day comment), plus OFAC designations on Bank Melli's Dubai branch manager and a Hong Kong launderer. Ran as No. 25's second World brief (AP via KSAT). Follow-ups: the rule finalizing, Egypt's reaction |
+| **2026-08-30** | **Roman launches 7:26 a.m. TOMORROW — go for launch, 60% weather** | LRR completed Friday; backup window Monday 7:22. Ran as No. 25's fourth Sci/Tech brief. **The launch result is Monday's brief**, and Sunday's paper posts 26 minutes before liftoff |
+| **2026-08-30** | **NFL cutdown 6 p.m. ET TOMORROW** | Bengals closed preseason 30-13 in Philadelphia (No. 15's teams brief); Browns done Thursday. Cut casualties are Monday's teams material |
+| **2026-08-31** | **Aki banzuke MONDAY — SIXTEENTH morning the Sept. 13-27 dates are uncited; r/Sumo unreachable a SEVENTH** | JSA English page: tickets sold out, no dates, museum item Aug. 28. No. 15 pegged the countdown at two days. Monday should force the dates, the new rankings, and the Hoshoryu knee story into citable print |
+| **2026-09-01** | **NC flounder opens Tuesday (FF-27-2026, reconfirmed on deq.nc.gov again today)** | One/day, 15-inch minimum, hook-and-line and gig, mandatory harvest reporting. Tuesday's On the Water lead |
+| **2026-09-01** | **Hannan at Roane, Spencer, 6:30 — first match with a record to report (1-1)** | Wednesday's paper carries the result IF an outside outlet has it; MaxPreps now demonstrably updates for Hannan, check it first |
+| **2026-09-03** | **Talwani preliminary-injunction hearing on the USPS mail-ballot rule** | The 14-day TRO ran as No. 25's second U.S. brief (Reuters via The Daily Record). The hearing outcome is Thursday's brief |
+| **2026-09-05** | **College football opens for all three: WVU v Coastal Carolina (noon, home), Marshall at Penn State (3:30, FS1, first-ever trip), Ohio at Nebraska** | WVU and Marshall ran in No. 15's week ahead with ET times; Ohio's kickoff time still unconfirmed, so it stayed in sat_out |
+| **2026-09-02** | **Webster County Commission meets (first Wednesday)** | The reliable rung for the empty cabin block — check for an agenda or minutes |
+| **2026-08-30** | **Crew v New England and FC Cincinnati v Nashville results (both played Saturday night)** | Both were week-ahead entries with ET times; results are Sunday's teams material. MLS standings ran unchanged (FOX Sports) since neither had played since the last table |
+
+### Open threads
+
+- **nepal-barrier-lake** — the lead again; see forward-dated row.
+- **operation-economic-outcast** — the named bank landed (Banque Misr). Thread continues on the rule's 30-day comment window and Iran's "economic terrorism" response.
+- **kenscoff-hostages** — moved: Haitians demanding answers, complicity-or-negligence investigation opened (Haitian Times). The hostages' fate is still the thread.
+- **nigeria-borgu** — moved: IGP Disu deployed a rescue team under AIG Olaiya with DSS and military components; bishops decried (This Day). Rescues or a confirmed count is next.
+- **norway-succession** — Haakon VIII named, procession Friday evening, mourning until the funeral; the funeral date is the next brief.
+- **venezuela-oil-deal** — NEW: 65B barrels/17 fields, 55% effective output, 100-year rights (NPR). Congressional reaction, the unnamed operator, and any production reality are follow-ups.
+- **usps-mail-ballot-rule** — TRO through ~Sept. 11, hearing Sept. 3.
+- **anthropic-pentagon-ruling** — NEW: Judge Lin ordered the designation rescinded; an appeal is the next move to watch.
+- **bc-conservative-exodus** — Day and Wat make five exits under Findlay; caucus turmoil ongoing (Global News). Findlay's survival is the thread.
+- **us-canada-trade-war** — Carney rebuffed the Lake America rename (Time); counter-tariffs effective Sept. 8.
+- **huntington-vacated-residences** — moved: reclassification ended the eviction notices, do-not-enter signs instead, violations unfixed (MetroNews regional line). Sept. 9 DoubleTree deadline stands.
+- **bluefield-state** — NEW: Martin fired, Deeb acting, third-party audit ordered (WVPB). The audit's findings are the follow-up.
+- **marl-psc** — ruling still pending, not run.
+- **meta-settlement-approval** — judicial approval watch, not run.
+- **wvu-mens-soccer** — played UNCG Friday; result uncited (WBOY 403) — chase Sunday. Women's Princeton match outcome also unestablished.
+- **marshall-wright-state** — uncited a seventh morning; likely dead as news, drop unless it surfaces alongside fresher Marshall soccer coverage.
+
+### Covered slugs, 2026-08-29
+
+`nepal-rescue-resumes-633`, `venezuela-oil-65b-55pct`, `usps-talwani-tro`, `park-pardon-hochul`,
+`lake-ontario-rename-eo`, `haakon-viii-regnal`, `banque-misr-uae-sanction`, `kenscoff-answers-demanded`,
+`borgu-rescue-team`, `ohio-county-correctional-closes`, `snap-hot-food-waiver-four`, `bluefield-state-martin-fired`,
+`martinsburg-thousand-year-rain`, `huntington-reclassification-evictions`, `gessel-kanawha-seat`,
+`bennington-pfoa-class-action`, `topsail-middle-school-future`, `pg-election-signs`, `bc-conservatives-day-wat`,
+`carney-lake-ontario-rebuff`, `prosthe6-eye-drops`, `curiosity-1km-panorama`, `betelgeuse-companion-image`,
+`roman-go-for-launch`, `anthropic-pentagon-ruling`, `ai-cyber-letter-100`, `hannan-st-marys-7-0`,
+`hannan-calvary-1-2`, `reds-cubs-10-8`, `pirates-cardinals-1-4`, `bengals-eagles-30-13`,
+`brewers-rangers-6-1`, `aki-banzuke-two-days`
