@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 720" role="img"
+     aria-label="A lone rescuer in a striped vest and helmet walks the mud-buried valley floor with a shovel, past a one-storey house choked to its windows with flood debris, sagging power lines overhead">
+  <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+
+    <!-- hillside above, dense foliage read as looped canopy -->
+    <path d="M0,150 q22,-26 48,-16 q18,-22 44,-12 q20,-18 44,-6 q24,-16 46,-2 q20,-12 42,2 q24,-10 44,6 q22,-8 40,8"/>
+    <path d="M0,110 q26,-22 52,-10 q22,-18 46,-6 q24,-14 46,0 q22,-12 44,4"/>
+    <path d="M310,158 q18,-16 40,-8 q18,-14 38,-2 q20,-10 38,6 q18,-8 34,8"/>
+    <!-- hillside foot dropping to the debris bank, upper right -->
+    <path d="M470,160 q60,26 110,58 q70,44 120,64 q90,38 180,52 q40,6 80,8"/>
+    <path d="M560,236 q50,26 104,44 q80,28 150,40 q70,12 146,16"/>
+
+    <!-- debris slope, right, with rock outcrop -->
+    <path d="M760,340 q44,10 82,30 q40,20 62,44 q30,30 56,44"/>
+    <path d="M804,414 L800,470 M846,432 L844,486 M888,456 L886,504"/>
+    <path d="M786,362 q28,4 52,18 M842,394 q26,10 44,26"/>
+    <!-- boulders at the outcrop foot -->
+    <path d="M772,470 q4,-26 32,-28 q30,-4 40,18 q6,20 -10,30 q-28,12 -50,-2 q-14,-8 -12,-18 Z"/>
+    <path d="M846,496 q6,-20 30,-20 q26,2 30,22 q2,18 -18,24 q-26,6 -38,-8 q-6,-10 -4,-18 Z"/>
+
+    <!-- ruined house, left of center: roof slab on cracked posts -->
+    <path d="M96,306 L468,296 M96,306 L102,336 L462,326 L468,296"/>
+    <path d="M108,318 L456,309"/>
+    <!-- posts holding the slab -->
+    <path d="M148,336 L150,420 M160,335 L162,419 M366,330 L368,470 M380,330 L382,468 M448,327 L450,404"/>
+    <!-- wall run beneath, mud-stained -->
+    <path d="M102,336 q2,52 4,96 L360,470 M462,326 L458,472"/>
+    <path d="M106,432 L360,470 L458,472"/>
+    <path d="M108,398 q120,-4 246,-8"/>
+    <path d="M112,414 l52,6 M176,422 l58,8 M244,432 l54,10 M308,444 l46,10"/>
+    <!-- window bay choked with driftwood -->
+    <path d="M196,344 L198,414 M330,340 L332,410"/>
+    <path d="M200,368 q30,-14 58,2 q26,-12 46,4 M202,388 q36,-10 64,4 q30,-8 52,4"/>
+    <path d="M214,356 l26,10 M258,352 l30,8 M296,358 l24,10"/>
+    <!-- crumpled sheet metal at the left corner -->
+    <path d="M30,420 L96,398 L118,412 L54,438 Z M42,428 L104,404 M36,434 L110,410"/>
+    <!-- rubble and timber jammed behind the house -->
+    <path d="M118,412 q40,24 92,34 q60,12 116,20 q66,8 122,8"/>
+    <path d="M150,432 l38,-16 M212,446 l44,-12 M286,458 l40,-8"/>
+
+    <!-- sagging power lines crossing the frame -->
+    <path d="M0,120 Q480,300 960,216"/>
+    <path d="M0,168 Q450,330 960,268"/>
+
+    <!-- the rescuer, centre-right: helmet, mask, striped vest, shovel -->
+    <!-- helmet and head, no facial detail; mask line only -->
+    <path d="M604,414 q-12,2 -14,14 q-2,12 10,16 q14,4 20,-6 q4,-10 -4,-18 q-6,-6 -12,-6 Z"/>
+    <path d="M592,432 q10,8 24,6"/>
+    <!-- torso and vest -->
+    <path d="M598,444 q-12,10 -14,30 q-2,22 2,36 L630,508 q6,-24 4,-44 q-2,-16 -12,-22 q-12,-6 -24,2 Z"/>
+    <path d="M588,470 q22,8 44,4 M586,486 q22,8 44,4"/>
+    <!-- arms: right hand down the shaft, left on hip -->
+    <path d="M598,450 q-14,10 -18,30 q-2,10 4,16 M628,452 q10,10 8,26 l-6,14"/>
+    <!-- shorts and legs mid-stride -->
+    <path d="M590,510 q-2,16 2,26 l-6,40 q0,6 6,8 M626,508 q4,18 0,30 l10,36 q2,6 -4,8"/>
+    <path d="M586,584 l-10,8 20,2 M636,590 l16,6 -20,4"/>
+    <!-- shovel, blade down at his boot -->
+    <path d="M580,494 L562,566 q-2,8 -8,12"/>
+    <path d="M548,580 q-12,4 -10,18 q2,12 16,10 q12,-4 10,-16 q0,-10 -16,-12 Z"/>
+
+    <!-- buried valley floor: mud sheets, cobbles, stranded timber -->
+    <path d="M0,506 q140,10 260,6 q180,-6 340,4 q200,10 360,4"/>
+    <path d="M0,600 q200,14 420,6 q260,-8 540,8"/>
+    <path d="M60,548 l108,-10 M118,560 l84,-4"/>
+    <path d="M290,556 l150,-16 M320,570 l132,-10"/>
+    <path d="M700,548 l120,6 M760,568 l96,10"/>
+    <!-- cobbles scattered through the mud -->
+    <path d="M96,632 q8,-10 20,-2 q6,8 -4,12 q-12,4 -16,-10 M212,652 q8,-10 20,-2 q6,8 -4,12 q-12,4 -16,-10 M420,640 q8,-10 20,-2 q6,8 -4,12 q-12,4 -16,-10"/>
+    <path d="M560,662 q8,-10 20,-2 q6,8 -4,12 q-12,4 -16,-10 M724,648 q8,-10 20,-2 q6,8 -4,12 q-12,4 -16,-10 M860,668 q8,-10 20,-2 q6,8 -4,12 q-12,4 -16,-10"/>
+    <path d="M160,688 l64,-6 M356,696 l58,-4 M636,700 l70,-6"/>
+  </g>
+</svg>
