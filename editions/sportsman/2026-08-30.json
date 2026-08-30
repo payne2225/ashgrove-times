@@ -1,0 +1,364 @@
+{
+  "edition_date": "2026-08-30",
+  "edition_number": 16,
+  "volume": "I",
+  "sections": [
+    {
+      "id": "teams",
+      "label": "Our Teams",
+      "briefs": [
+        {
+          "headline": "Tottenham beaten 2-0 at home by Newcastle, still pointless",
+          "summary": "Anthony Elanga and Yoane Wissa scored in a ten-minute second-half stretch Saturday in London; Spurs have lost both league matches and sit bottom of the table.",
+          "team": "Tottenham",
+          "league": "Premier League",
+          "source": "FOX Sports",
+          "url": "https://www.foxsports.com/soccer/premier-league-tottenham-hotspur-vs-newcastle-aug-29-2026-game-boxscore-891085",
+          "result": {
+            "winner": "Newcastle",
+            "loser": "Tottenham",
+            "score": "2-0"
+          }
+        },
+        {
+          "headline": "Liverpool twice behind, twice level in 2-2 with Forest",
+          "summary": "Dan Ndoye and a Morgan Gibbs-White penalty had Forest ahead at Anfield Saturday before Victor Munoz leveled in the 82nd; Andoni Iraola is still without a win after two draws.",
+          "team": "Liverpool",
+          "league": "Premier League",
+          "source": "FOX Sports",
+          "url": "https://www.foxsports.com/soccer/premier-league-liverpool-vs-nottingham-aug-29-2026-game-boxscore-891082",
+          "result": {
+            "winner": "Liverpool",
+            "loser": "Nottingham Forest",
+            "score": "2-2",
+            "note": "draw"
+          }
+        },
+        {
+          "headline": "Reds routed 17-5 at Wrigley as Crow-Armstrong homers three times",
+          "summary": "Pete Crow-Armstrong drove in six Saturday, a day after Cincinnati took the series opener; the Reds are last in the NL Central with a month left.",
+          "team": "Cincinnati Reds",
+          "league": "MLB",
+          "source": "MLB.com",
+          "url": "https://www.mlb.com/gameday/reds-vs-cubs/2026/08/29/824637/final",
+          "result": {
+            "winner": "Chicago Cubs",
+            "loser": "Cincinnati Reds",
+            "score": "17-5"
+          }
+        },
+        {
+          "headline": "Pirates break out for a 6-2 win in St. Louis",
+          "summary": "Rafael Flores Jr.'s three-run homer and a Brandon Lowe solo shot backed six pitchers Saturday; a team that had scored eight runs in six games held St. Louis to three hits.",
+          "team": "Pittsburgh Pirates",
+          "league": "MLB",
+          "source": "CBS Sports",
+          "url": "https://www.cbssports.com/mlb/gametracker/boxscore/MLB_20260829_PIT@STL/",
+          "result": {
+            "winner": "Pittsburgh Pirates",
+            "loser": "St. Louis Cardinals",
+            "score": "6-2"
+          }
+        },
+        {
+          "headline": "FC Cincinnati blanked 4-0 by East-leading Nashville",
+          "summary": "Sam Surridge, Hany Mukhtar and two late goals did it at Geodis Park Saturday; Cincinnati stay sixth in the East as Nashville pull clear on top.",
+          "team": "FC Cincinnati",
+          "league": "MLS",
+          "source": "FOX Sports",
+          "url": "https://www.foxsports.com/soccer/mls-nashville-sc-vs-fc-cincinnati-aug-29-2026-game-boxscore-647293",
+          "result": {
+            "winner": "Nashville SC",
+            "loser": "FC Cincinnati",
+            "score": "4-0"
+          }
+        },
+        {
+          "headline": "Both Marshall soccer sides draw on the road",
+          "summary": "The No. 12 men held UC Santa Barbara 1-1 Thursday on Thiago Apolinario's goal; the women drew 3-3 at Belmont on Wiktoria Mikrut's hat trick, the program's tenth.",
+          "team": "Marshall",
+          "league": "NCAA",
+          "source": "The Herald-Dispatch",
+          "url": "https://www.herald-dispatch.com/sports/marshall_sports/marshall-notebook-herd-soccer-teams-each-draw-on-the-road/article_179b209f-adc6-45dd-8dbf-c1537284600d.html",
+          "result": {
+            "winner": "Marshall",
+            "loser": "UC Santa Barbara",
+            "score": "1-1",
+            "note": "draw"
+          }
+        }
+      ],
+      "sat_out": [
+        {
+          "team": "West Virginia",
+          "league": "NCAA",
+          "reason": "the men's Friday 1-1 at UNC Greensboro exists only on listings this desk cannot open and date; the women play at Army today"
+        },
+        {
+          "team": "Cleveland Browns",
+          "league": "NFL",
+          "reason": "cutdown day - rosters due at 53 by 6 p.m. ET; no Cleveland moves reported by press time"
+        },
+        {
+          "team": "Cincinnati Bengals",
+          "league": "NFL",
+          "reason": "cutdown day - no Cincinnati moves reported by press time; waivers clear Monday at 1 p.m. ET"
+        },
+        {
+          "team": "Columbus Crew",
+          "league": "MLS",
+          "reason": "Saturday's match with New England was moved to today at 4:30 p.m. ET"
+        },
+        {
+          "team": "Ohio University",
+          "league": "NCAA",
+          "reason": "quiet until Saturday's noon ET football opener at Nebraska"
+        },
+        {
+          "team": "San Antonio Spurs",
+          "league": "NBA",
+          "reason": "offseason"
+        },
+        {
+          "team": "USMNT",
+          "league": "Soccer",
+          "reason": "no window until the Sept. 26 Peru friendly in Orlando"
+        }
+      ],
+      "standings": [
+        {
+          "team": "Pittsburgh Pirates",
+          "line": "66-71, fourth in the NL Central, 19.5 back",
+          "source": "MLB.com",
+          "url": "https://www.mlb.com/standings/"
+        },
+        {
+          "team": "Cincinnati Reds",
+          "line": "64-72, fifth in the NL Central, 21 back",
+          "source": "MLB.com",
+          "url": "https://www.mlb.com/standings/"
+        },
+        {
+          "team": "Chelsea",
+          "line": "3 points from one match, eighth in the Premier League",
+          "source": "FOX Sports",
+          "url": "https://www.foxsports.com/soccer/premier-league/standings"
+        },
+        {
+          "team": "Liverpool",
+          "line": "2 points from two draws, 11th in the Premier League",
+          "source": "FOX Sports",
+          "url": "https://www.foxsports.com/soccer/premier-league/standings"
+        },
+        {
+          "team": "Tottenham",
+          "line": "0 points from two matches, 20th and last in the Premier League",
+          "source": "FOX Sports",
+          "url": "https://www.foxsports.com/soccer/premier-league/standings"
+        },
+        {
+          "team": "FC Cincinnati",
+          "line": "31 points, sixth in the Eastern Conference",
+          "source": "FOX Sports",
+          "url": "https://www.foxsports.com/soccer/mls/standings"
+        },
+        {
+          "team": "Columbus Crew",
+          "line": "20 points, 15th in the Eastern Conference",
+          "source": "FOX Sports",
+          "url": "https://www.foxsports.com/soccer/mls/standings"
+        }
+      ],
+      "upcoming": [
+        {
+          "team": "Chelsea",
+          "fixture": "vs. Brighton",
+          "when": "Today, 9 a.m. ET",
+          "source": "Premier League",
+          "url": "https://www.premierleague.com/en/news/4675097/all-380-fixtures-for-202627-premier-league-season"
+        },
+        {
+          "team": "Columbus Crew",
+          "fixture": "vs. New England, moved from Saturday",
+          "when": "Today, 4:30 p.m. ET",
+          "source": "New England Revolution",
+          "url": "https://www.revolutionsoccer.net/news/matchday-guide-revs-at-columbus-crew-august-29-2026"
+        },
+        {
+          "team": "West Virginia",
+          "fixture": "women's soccer at Army",
+          "when": "Today, 1 p.m. ET",
+          "source": "WV MetroNews",
+          "url": "https://wvmetronews.com/2026/08/26/seventh-ranked-mountaineers-look-to-continue-winning-ways-away-from-morgantown/"
+        },
+        {
+          "team": "Marshall",
+          "fixture": "women's soccer at UT Martin",
+          "when": "Tonight, 8 p.m. ET",
+          "source": "The Herald-Dispatch",
+          "url": "https://www.herald-dispatch.com/sports/marshall_sports/marshall-notebook-herd-soccer-teams-each-draw-on-the-road/article_179b209f-adc6-45dd-8dbf-c1537284600d.html"
+        },
+        {
+          "team": "Hannan",
+          "fixture": "at Roane, in Spencer",
+          "when": "Tuesday, Sept. 1, 6:30 p.m. ET",
+          "source": "Hannan schedule",
+          "url": null
+        },
+        {
+          "team": "Marshall",
+          "fixture": "men's soccer vs. George Mason",
+          "when": "Tuesday, Sept. 1",
+          "source": "The Herald-Dispatch",
+          "url": "https://www.herald-dispatch.com/sports/marshall_sports/marshall-notebook-herd-soccer-teams-each-draw-on-the-road/article_179b209f-adc6-45dd-8dbf-c1537284600d.html"
+        },
+        {
+          "team": "Hannan",
+          "fixture": "vs. Logan, at Ashton",
+          "when": "Thursday, Sept. 3, 6 p.m. ET",
+          "source": "Hannan schedule",
+          "url": null
+        },
+        {
+          "team": "West Virginia",
+          "fixture": "vs. Coastal Carolina, football opener",
+          "when": "Saturday, Sept. 5, noon ET",
+          "source": "FBSchedules",
+          "url": "https://fbschedules.com/2026-west-virginia-football-schedule/"
+        },
+        {
+          "team": "Marshall",
+          "fixture": "at Penn State, football opener",
+          "when": "Saturday, Sept. 5, 3:30 p.m. ET",
+          "source": "Marshall Athletics",
+          "url": "https://herdzone.com/news/2026/3/13/marshall-athletics-announces-2026-football-schedule"
+        },
+        {
+          "team": "Ohio University",
+          "fixture": "at Nebraska, football opener",
+          "when": "Saturday, Sept. 5, noon ET, FS1",
+          "source": "Nebraska Athletics",
+          "url": "https://huskers.com/news/2026/05/27/kickoff-times-set-for-four-husker-football-games"
+        }
+      ],
+      "note": "Hannan owes nothing this morning: the next match is Tuesday at Roane, the first with a record - 1-1 - to defend."
+    },
+    {
+      "id": "leagues",
+      "label": "Around the Leagues",
+      "capped_at": 3,
+      "briefs": [
+        {
+          "headline": "NFL teams cut to 53 by 6 tonight, on a Sunday for the first time",
+          "summary": "All 32 rosters, the Browns' and Bengals' included, are due down from 90 by 6 p.m. ET; waiver claims process Monday at 1 p.m., and practice squads of up to 17 build after that.",
+          "league": "NFL",
+          "source": "NFL.com",
+          "url": "https://www.nfl.com/news/nfl-roster-cuts-tracker-team-by-team-player-moves-ahead-of-2026-season"
+        },
+        {
+          "headline": "Banzuke day is tomorrow; September's dates are still the JSA's to name",
+          "summary": "Monday's autumn rankings release is when the association must finally put citable dates on the Aki basho - its English site still shows September sold out with no schedule posted, and the derived Sept. 13 opening, two weeks out, remains unconfirmed.",
+          "league": "Sumo",
+          "source": "Japan Sumo Association",
+          "url": "https://sumo.or.jp/En/"
+        }
+      ],
+      "note": "The fan wire at r/Sumo was unreachable from this environment an eighth straight morning, so the sumo sweep again ran on the JSA's pages and news searches alone."
+    },
+    {
+      "id": "seasons",
+      "label": "In Season",
+      "coming_in": [
+        {
+          "state": "NC",
+          "species": "Southern flounder",
+          "method": "Hook-and-line and gig",
+          "dates": "Sept. 1 - 14",
+          "item": "Opens TUESDAY in joint and coastal waters: one fish per day, 15-inch minimum, with mandatory harvest reporting. NCDMF is also collecting donated carcasses for age-and-growth science, with prizes drawn from donors.",
+          "source": "NCDMF",
+          "url": "https://www.deq.nc.gov/news/press-releases/2026/08/24/recreational-anglers-can-donate-flounder-carcasses-science-and-chance-win-prizes"
+        },
+        {
+          "state": "WV",
+          "species": "Squirrel",
+          "method": "Youth / Class Q / Class XS",
+          "dates": "Sept. 5 - 6",
+          "item": "The youth weekend runs Saturday and Sunday, daily bag 6; the general season follows Sept. 12 and runs to Feb. 28.",
+          "source": "WVDNR",
+          "reference": "reference/wv-hunting-2026-27.json",
+          "publication": "West Virginia Hunting and Trapping Regulations Summary, July 2026 - June 2027"
+        }
+      ],
+      "prime": [
+        {
+          "state": "NC",
+          "species": "Red drum",
+          "item": "Coastal waters: an 18-inch minimum and 27-inch maximum total length, one per day; unlawful to possess a fish over 27 inches.",
+          "source": "NCDMF",
+          "url": "https://www.deq.nc.gov/about/divisions/marine-fisheries/rules-proclamations-and-size-and-bag-limits/recreational-size-and-bag-limits"
+        },
+        {
+          "state": "NC",
+          "species": "Spotted seatrout",
+          "item": "Coastal waters: a 14-to-20-inch slot, three per day, of which one may exceed 26 inches.",
+          "source": "NCDMF",
+          "url": "https://www.deq.nc.gov/about/divisions/marine-fisheries/rules-proclamations-and-size-and-bag-limits/recreational-size-and-bag-limits"
+        }
+      ],
+      "going_out": [
+        {
+          "state": "WV",
+          "species": "Black bear",
+          "method": "Gun",
+          "dates": "Aug. 29 - Sept. 7",
+          "item": "The first gun window, open since Saturday in SELECTED COUNTIES only, closes a week from Monday - the county list is not in the pamphlet's summary table, so none is named here. Daily 1, season limit 2; electronic registration required.",
+          "source": "WVDNR",
+          "reference": "reference/wv-hunting-2026-27.json",
+          "publication": "West Virginia Hunting and Trapping Regulations Summary, July 2026 - June 2027"
+        }
+      ],
+      "note": "The DNR's separate migratory bird summary is still untranscribed in this repo, so no dove or goose date prints. WV trout stocking is a January-May program; the summer search came back empty, as expected."
+    },
+    {
+      "id": "water",
+      "label": "On the Water",
+      "waters": [
+        {
+          "water": "Williams River",
+          "near": "Cowen",
+          "reading": "176 cfs and falling, 1.99 feet.",
+          "read": "176 cfs - prime wading water.",
+          "working": "Half of yesterday's 350 and dropping - the river is fishable again and clearing. Pocket water and plunge-pool seams on a dry-dropper, a caddis up top with a small stonefly nymph trailing; the sculpin bite fades as the color leaves.",
+          "source": "USGS 03186500"
+        },
+        {
+          "water": "Ohio River at Point Pleasant",
+          "near": "14 miles above R.C. Byrd Locks and Dam",
+          "reading": "24.98 feet and steady.",
+          "read": "25.0 ft - normal pool. Ordinary bank access.",
+          "working": "Settled at pool - shad are the forage, so a white swimbait worked across the wing-dam seams early, then a jig dragged slower as the sun climbs.",
+          "source": "USGS 03201500"
+        },
+        {
+          "water": "Ohio River at Huntington",
+          "near": "below R.C. Byrd Locks and Dam",
+          "reading": "25.76 feet and steady.",
+          "read": "25.8 ft - normal pool. Ordinary bank access.",
+          "working": "Steady and clearing below the dam - a crawfish crankbait ticked along the riprap and lock wall, and a jig to the barge cuts for fish holding off the current.",
+          "source": "USGS 03206000"
+        },
+        {
+          "water": "Topsail Sound",
+          "near": "New Topsail Inlet",
+          "reading": "Sound highs 10:27 AM at 3.8 ft and 10:43 PM at 3.8 ft at Hampstead; lows 4:35 AM at 0.4 ft and 4:58 PM at 0.7 ft.",
+          "read": "Fish the moving water either side of high at 10:27 AM and 10:43 PM in the sound.",
+          "working": "Waning gibbous at 94%, springs easing toward neap, but the ebb off the 10:27 high into the 4:58 PM low is still the red drum window on the oyster bars and grass edges, cut menhaden off the channel lips. Water 81.9F at Beaufort, 60 miles up the coast. The Fisherman's Post monthly, published Aug. 2 and four weeks old, has the surf giving up whiting and black drum on shrimp, the piers throwing tarpon and 3-pound Spanish - and flounder opens here Tuesday, one a day at 15 inches.",
+          "source": "NOAA CO-OPS 8657813",
+          "note": "Hampstead is the sound station and the read that matters; the oceanfront pier runs well ahead and is quoted only for a surf read. No watches, warnings or advisories posted for the Topsail area this morning per the National Weather Service."
+        }
+      ]
+    }
+  ],
+  "kicker": "Flounder opens Tuesday on the coast; the banzuke lands tomorrow, and the NFL cuts to 53 by tonight.",
+  "sources_note": "Compiled from wire reports, agency publications and gauge data"
+}

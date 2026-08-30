@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 420" role="img"
+     aria-label="Line drawing of the Rend Trail near Minden: a plank trestle deck strewn with leaves runs between two converging wooden rail fences toward a wall of trees, with a rock face rising on the left and tall trunks on the right."
+     fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+
+  <!-- deck: plank edges converging to a vanishing point near (395,150) -->
+  <path d="M60 420 L370 165" stroke-width="2.5"/>
+  <path d="M700 420 L420 165" stroke-width="2.5"/>
+  <path d="M370 165 Q395 158 420 165" stroke-width="1.5"/>
+
+  <!-- deck planks, spacing tightening with distance -->
+  <path d="M95 405 L672 405" stroke-width="1.4"/>
+  <path d="M135 372 L640 372" stroke-width="1.3"/>
+  <path d="M170 343 L610 343" stroke-width="1.2"/>
+  <path d="M201 318 L584 318" stroke-width="1.1"/>
+  <path d="M228 295 L560 295" stroke-width="1"/>
+  <path d="M252 275 L539 275" stroke-width="1"/>
+  <path d="M273 258 L520 258" stroke-width="0.9"/>
+  <path d="M292 242 L503 242" stroke-width="0.9"/>
+  <path d="M308 229 L488 229" stroke-width="0.8"/>
+  <path d="M323 217 L474 217" stroke-width="0.8"/>
+  <path d="M336 206 L462 206" stroke-width="0.7"/>
+  <path d="M348 196 L451 196" stroke-width="0.7"/>
+  <path d="M358 188 L441 188" stroke-width="0.6"/>
+  <path d="M366 180 L432 180" stroke-width="0.6"/>
+  <!-- center seam of the walkway -->
+  <path d="M385 420 L394 170" stroke-width="0.6" stroke-dasharray="7 9"/>
+
+  <!-- left fence: top rail and lower rails converging -->
+  <path d="M55 250 L365 152" stroke-width="2.5"/>
+  <path d="M52 278 L366 158" stroke-width="1.6"/>
+  <path d="M50 306 L367 163" stroke-width="1.4"/>
+  <path d="M52 336 L368 168" stroke-width="1.2"/>
+  <path d="M56 368 L369 173" stroke-width="1.2"/>
+  <!-- left fence posts -->
+  <path d="M58 244 L58 372" stroke-width="2.4"/>
+  <path d="M120 264 L120 358" stroke-width="2"/>
+  <path d="M178 283 L178 340" stroke-width="1.8"/>
+  <path d="M230 299 L230 327" stroke-width="1.5"/>
+  <path d="M275 313 L275 316" stroke-width="1.2"/>
+  <path d="M300 205 L300 260" stroke-width="1.2"/>
+  <path d="M330 195 L330 235" stroke-width="1"/>
+  <!-- left top-rail cap board, angled like the photo -->
+  <path d="M42 252 L74 238" stroke-width="3"/>
+
+  <!-- right fence: mirrored -->
+  <path d="M705 250 L425 152" stroke-width="2.5"/>
+  <path d="M708 278 L424 158" stroke-width="1.6"/>
+  <path d="M710 306 L423 163" stroke-width="1.4"/>
+  <path d="M708 336 L422 168" stroke-width="1.2"/>
+  <path d="M704 368 L421 173" stroke-width="1.2"/>
+  <!-- right fence posts -->
+  <path d="M702 244 L702 372" stroke-width="2.4"/>
+  <path d="M640 264 L640 358" stroke-width="2"/>
+  <path d="M582 283 L582 340" stroke-width="1.8"/>
+  <path d="M530 299 L530 327" stroke-width="1.5"/>
+  <path d="M488 205 L488 262" stroke-width="1.2"/>
+  <path d="M458 195 L458 237" stroke-width="1"/>
+  <path d="M686 252 L718 238" stroke-width="3"/>
+
+  <!-- rock face, upper left -->
+  <path d="M0 40 L38 62 L24 108 L62 132 L44 178 L86 200 L70 246" stroke-width="2"/>
+  <path d="M28 20 L70 48 L58 92 L96 120 L82 166 L114 190" stroke-width="1.4"/>
+  <path d="M12 150 L44 168 M36 92 L58 104 M66 210 L92 224" stroke-width="1"/>
+  <path d="M96 60 L118 84 L108 128 L134 152 L124 190" stroke-width="1.1"/>
+
+  <!-- tree trunks, right side -->
+  <path d="M676 0 L668 96 L674 200 L666 252" stroke-width="3"/>
+  <path d="M700 0 L694 120 L700 220" stroke-width="2"/>
+  <path d="M596 60 L590 160 L596 250" stroke-width="2.2"/>
+  <path d="M626 30 L620 140 L626 240" stroke-width="1.6"/>
+  <path d="M548 100 L544 190 L548 262" stroke-width="1.4"/>
+
+  <!-- slimmer trunks flanking the far trail mouth -->
+  <path d="M446 96 L442 170" stroke-width="1.2"/>
+  <path d="M470 70 L466 178" stroke-width="1.4"/>
+  <path d="M338 96 L342 168" stroke-width="1.2"/>
+  <path d="M312 70 L318 178" stroke-width="1.4"/>
+  <path d="M255 120 L262 200" stroke-width="1.6"/>
+  <path d="M508 120 L502 200" stroke-width="1.6"/>
+
+  <!-- canopy masses: loose scribbled crowns -->
+  <path d="M120 70 Q150 30 195 52 Q215 18 260 34 Q290 6 330 26 Q360 2 400 22 Q440 0 476 24 Q510 6 552 30 Q590 14 626 44 Q660 30 700 58" stroke-width="1.3"/>
+  <path d="M160 96 Q190 66 228 82 Q258 54 300 70 Q336 44 376 62 Q414 42 452 64 Q490 48 528 72 Q562 58 600 84" stroke-width="1"/>
+  <path d="M208 122 Q240 98 274 110 Q306 86 344 100 Q380 82 418 98 Q452 84 486 104 Q518 92 552 114" stroke-width="0.9"/>
+  <path d="M258 148 Q290 128 322 138 Q352 120 388 132 Q420 118 452 134 Q482 124 512 142" stroke-width="0.8"/>
+  <!-- the bright gap where the trail disappears -->
+  <path d="M362 156 Q380 132 396 156 M380 148 Q392 128 408 150" stroke-width="0.7"/>
+
+  <!-- foliage tufts spilling over the left rail -->
+  <path d="M40 240 Q60 218 84 234 Q104 214 128 232" stroke-width="0.9"/>
+  <path d="M92 254 Q112 236 136 250 Q156 234 178 250" stroke-width="0.8"/>
+  <path d="M20 380 Q42 360 66 378 Q88 360 108 380" stroke-width="0.9"/>
+  <!-- and the right verge -->
+  <path d="M632 380 Q656 360 680 378 Q702 362 726 380" stroke-width="0.9"/>
+  <path d="M598 256 Q620 238 644 252 Q666 236 690 252" stroke-width="0.8"/>
+
+  <!-- scattered leaves on the deck, denser up close -->
+  <path d="M180 398 l6 -3 M240 388 l6 -3 M320 402 l7 -3 M410 392 l6 -3 M488 400 l6 -3 M560 390 l6 -3 M140 412 l7 -3 M620 408 l6 -3" stroke-width="1.4"/>
+  <path d="M230 352 l5 -2 M300 360 l5 -2 M380 350 l5 -2 M470 358 l5 -2 M540 348 l5 -2" stroke-width="1.2"/>
+  <path d="M270 320 l4 -2 M350 312 l4 -2 M430 322 l4 -2 M500 310 l4 -2" stroke-width="1"/>
+  <path d="M310 284 l4 -2 M390 278 l4 -2 M460 286 l4 -2" stroke-width="0.9"/>
+  <path d="M340 250 l3 -1 M400 244 l3 -1 M450 252 l3 -1" stroke-width="0.8"/>
+  <path d="M365 215 l3 -1 M415 210 l3 -1" stroke-width="0.7"/>
+</svg>
