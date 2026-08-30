@@ -37,7 +37,7 @@ drives everything. The one carve-out is in section 5.
 | 5:30 | Wake, research and PUBLISH both papers | Times |
 | 7:00 | **The digest posts** — one message, what is in today's edition and a link to Home | Times |
 | 7:15 | **Jim Claudtore's briefing** posts | weatherman |
-| 8:00 | Watchdog — silent unless something failed | watchdog |
+| 9:00 | Watchdog — silent unless something failed | watchdog |
 | 8:10 | Weather page typeset onto the site | weather-page |
 | every :30 | Alert watcher — silent unless something NEW | weatherman |
 | Sun 18:00 | Weekly report card | weatherman |
@@ -60,6 +60,19 @@ prompts and in gitignored `.env` files — never in a repo.
 | Weatherman Weekly Report Card | `trig_01GTwkNWUrDkwMPi1XNx8MxZ` | `0 22 * * 0` |
 | Weatherman Watchdog | `trig_01THzxTGHkdRgJWJwBZwjKQX` | `0 13 * * *` |
 | Ashgrove Weather Page | `trig_01MEbyaBjFYcU4v9pERM4Paa` | `10 12 * * *` |
+
+The watchdog row said 8:00 until 2026-08-30; its cron is `0 13 * * *` UTC,
+which is 9:00 ET on daylight time — the table had been quietly an hour out.
+Observed posting at 9:11.
+
+**The alert watcher has a HEARTBEAT** (2026-08-30). It stamps `last_run_utc`
+in `weatherman/alerts_state.json` on every run and commits it when the
+committed stamp is over 3 hours old; the watchdog reads that field with a
+6-hour window. **Never judge that routine by the file's date or by
+`updated_at_utc`** — the state file is only written when the set of active
+alerts CHANGES, so a quiet spell looks exactly like a dead routine. That is
+precisely what happened on 2026-08-30: the watchdog reported the watcher
+dead for three days while it was firing every half hour and succeeding.
 
 **DST is handled for the briefing only.** `post_discord.py --at` holds
 Jim to 7:15 ET, so his slot survives the time change. The other crons are
