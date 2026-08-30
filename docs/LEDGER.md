@@ -2656,3 +2656,47 @@ Both papers landed **exactly on their holds**: the Times at **7:00** (No. 16, me
 `roman-go-for-launch`, `anthropic-pentagon-ruling`, `ai-cyber-letter-100`, `hannan-st-marys-7-0`,
 `hannan-calvary-1-2`, `reds-cubs-10-8`, `pirates-cardinals-1-4`, `bengals-eagles-30-13`,
 `brewers-rangers-6-1`, `aki-banzuke-two-days`
+
+## 2026-08-30 — No. 26 (Times) and No. 16 (Sports & Sportsman)
+
+| Open-ended | **Fifth morning under the digest contract.** Both papers researched, written, validated, rendered and pushed by **5:59 a.m. ET**, 29 minutes after the 5:30 wake; Pages built both dated pages inside 20 seconds, so the digest launched in background at 6:01 with a verified `--page-url` and `--not-before 07:00`. The sandbox checked out a **detached HEAD again — third occurrence** (Aug 27, 28, 30); caught at session start per the standing note and fixed with `git checkout -B main HEAD` while HEAD matched origin/main. Check `git status` first, every morning | **OPEN — recurring** |
+| Open-ended | **The stored schedule prompt is still the two-post version — fifth morning.** It again instructed a 7:00 Times post and a 7:05 sportsman post with `DISCORD_SPORTSMAN_WEBHOOK_URL`; it also says to follow routine.md end to end, so the repo governed: one digest, sport to the web only, the sportsman webhook untouched | **OPEN — for Nate** |
+| Open-ended | **Webster County FILED for Vacation Hotspots** after two empty mornings — Gauley Fest (Sept. 17-20, Summersville, river releases planned) via WV Explorer's Aug. 26 piece, a distinct fact from the spent season-opener item. Topsail filed on the town's 9/11 25th-anniversary walk (posted Aug. 21). The Webster sourcing gap flagged Aug. 29 still stands — the Echo is blocked, the county sites are static — but the ladder produced today |  |
+| Open-ended | **Three stale-content traps dodged.** (1) A ScienceDaily item dated Aug. 29 on melatonin and heart failure traces to AHA **Scientific Sessions 2025** — nine months old, re-dated; not run. (2) A search summary offered "Cardinals 4-1" for Saturday's Pirates game — that was FRIDAY's score; the CBS box says the **Pirates won 6-2** Saturday. (3) A "WVU 2-2 UNCG" result surfaced from **2024**. All caught by opening pages and reading dates; the CBS box's post-game records (67-71) also disagreed with MLB.com's own standings (66-71) — the standings block printed the league's table and the brief printed no record | |
+
+### Forward-dated events added or moved
+
+| Date | Event | Note |
+|---|---|---|
+| **open** | **Nepal: new-flood warnings are now the live story** | No. 26 led with NDRRMA's Sunday warning after China reported increased upstream flow; combined toll 750+ (Euronews: Nepal 734 dead/2,498 missing, China 16/546). The barrier lake largely drained. Re-check every number before reprinting |
+| **2026-08-31** | **Roman Space Telescope launch RESULT — Monday's brief** | Window opened 7:26 this morning, 26 minutes after the paper; ran as today's kicker, not a brief. Backup window was Monday 7:22 |
+| **2026-08-31** | **Aki banzuke lands MONDAY — SEVENTEENTH morning the Sept. 13-27 dates are uncited; r/Sumo unreachable an EIGHTH** | JSA English page: sold out, no dates, museum item Aug. 28. Monday's sweep is the big one: the new rankings, the confirmed dates, and the Hoshoryu knee story should all reach citable print. Japan Times served 402 on Aug. 25; try JSA, NHK, Kyodo, Nippon.com |
+| **2026-08-31** | **NFL cutdown results — Browns and Bengals cuts are Monday's teams material** | Deadline 6 p.m. ET tonight, waivers 1 p.m. Monday; both teams ran as sat_out with the deadline named |
+| **2026-08-31** | **Three results land Monday:** Chelsea-Brighton (today 9 a.m.), Crew-New England (moved to today 4:30 — the Saturday slot was vacated), WVU women at Army (today 1 p.m.), Marshall women at UT Martin (tonight 8) | The Crew move is why no Crew result ran today |
+| **2026-09-01** | **NC flounder opens Tuesday, Sept. 1-14** | Reconfirmed TODAY on deq.nc.gov via the Aug. 24 carcass-donation release, which also gave the season's END date (Sept. 14) and the science-donation program — Tuesday's On the Water lead |
+| **2026-09-02** | **Hannan at Roane result — Wednesday, outside outlet only** | Tuesday 6:30 at Spencer, first match with a record (1-1) to defend. MaxPreps demonstrably updates for Hannan; check it first |
+| **open** | **WVU men's 1-1 at UNC Greensboro uncited a SECOND morning** | ESPN's listing shows the final; the page renders empty to this pipeline and WBOY 403s. It waits for an openable dated source, or dies quietly |
+| **open** | **Milton-Culloden annexation** | The commission says no petition has been filed; a formal application triggers published notice and a hearing. Ran as today's Cabell line |
+| **open** | **Fundamental Data appeal to the WV Supreme Court** | The Intermediate Court dismissal ran statewide today; the groups' next filing is the follow-up |
+
+### Open threads
+
+- **nepal-flood** — led again; see forward-dated row.
+- **kenscoff-hostages** — moved: 13 released (UNICEF), ~37 still held. The remaining hostages are the thread.
+- **marshall-wright-state** — DROPPED as dead per the Aug. 29 note; Marshall soccer coverage has moved on to fresher results (both road draws ran today via the Herald-Dispatch).
+- **iceland-eu** — the No vote ran; the two-year shelf makes this a closed thread unless the government wobbles.
+- **us-canada-trade-war** — not run today; Sept. 8 counter-tariffs stand.
+- **marl-psc** / **meta-settlement-approval** — still pending, not run.
+- **hoshoryu-aki-doubt** — Monday's banzuke should force it.
+
+### Covered slugs, 2026-08-30
+
+`nepal-new-flood-warnings-750`, `wise-deportation-speech-ruling`, `afghan-car-deportation-flight`,
+`medicare-glp1-bridge-catch`, `measles-rfk-shapiro-clash`, `kyiv-bucha-care-home-37`, `iceland-eu-no-52`,
+`kenscoff-13-released`, `mv-latuf-freed-14-pirates`, `morgantown-flock-abduction`, `fundamental-data-appeals-tossed`,
+`oceana-belchers-cleanup`, `milton-culloden-annexation`, `nitro-elementary-vandalism`, `rend-trail-20m-restoration`,
+`north-bennington-mechanic-culvert`, `gauley-fest-sept17`, `topsail-911-walk`, `endako-alert-lifted`,
+`fraser-sockeye-collapse`, `canada-5m-nepal-aid`, `cosmic-acceleration-stands`, `pilbara-natural-hydrogen`,
+`science-advisory-panels-cut`, `goodfire-silico`, `cerebras-hot-chips-cs6`, `tottenham-newcastle-0-2`,
+`liverpool-forest-2-2`, `reds-cubs-5-17-pca`, `pirates-cardinals-6-2`, `fcc-nashville-0-4`,
+`marshall-soccer-road-draws`, `nfl-cutdown-sunday`, `aki-banzuke-one-day`
