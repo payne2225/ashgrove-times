@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img"
+     aria-label="A Falcon Heavy rocket, drawn as a slim dark silhouette, crosses the upper edge of the huge risen sun, its billowing exhaust column trailing down past the solar disk to a banded cloud deck below.">
+  <!-- The sun, low and enormous, the composition's anchor -->
+  <circle cx="470" cy="400" r="215" fill="none" stroke="currentColor" stroke-width="2.5"/>
+  <!-- faint inner rim to give the disk weight -->
+  <path d="M 300 490 A 215 215 0 0 1 262 372" fill="none" stroke="currentColor" stroke-width="1" opacity="0.5"/>
+  <path d="M 655 300 A 215 215 0 0 1 683 430" fill="none" stroke="currentColor" stroke-width="1" opacity="0.5"/>
+
+  <!-- The rocket: slim silhouette crossing the sun's upper-left limb, nose up -->
+  <path d="M 373 52 L 377 40 L 381 34 L 385 40 L 389 52 L 389 74 L 387 78 L 389 84 L 388 250 L 386 262 L 380 268 L 375 262 L 372 250 L 372 84 L 374 78 L 373 74 Z"
+        fill="currentColor" stroke="none"/>
+  <!-- interstage line and booster shoulders, small honest details -->
+  <line x1="373" y1="120" x2="389" y2="120" stroke="currentColor" stroke-width="1.5" opacity="0.6"/>
+  <line x1="373" y1="196" x2="388" y2="196" stroke="currentColor" stroke-width="1.5" opacity="0.6"/>
+
+  <!-- Engine flame: short bright jag under the vehicle -->
+  <path d="M 376 270 L 380 282 L 384 272 L 387 288 L 381 300 L 377 292 L 373 284 Z"
+        fill="none" stroke="currentColor" stroke-width="2"/>
+
+  <!-- Exhaust column: scalloped billows widening as they fall, kinked once by shear -->
+  <path d="M 375 300
+           C 366 316 378 322 370 336
+           C 360 352 374 358 366 372
+           C 354 390 368 396 358 412
+           C 346 430 360 438 350 454
+           C 336 474 350 482 338 500
+           C 326 518 340 526 328 544
+           C 318 560 330 570 322 588 L 322 600"
+        fill="none" stroke="currentColor" stroke-width="2.5"/>
+  <path d="M 388 300
+           C 398 318 388 326 398 340
+           C 410 356 398 364 410 378
+           C 424 394 412 402 424 418
+           C 438 436 426 444 440 460
+           C 456 478 444 486 458 504
+           C 472 522 460 530 474 548
+           C 486 564 476 574 486 592 L 488 600"
+        fill="none" stroke="currentColor" stroke-width="2.5"/>
+  <!-- interior curls of the plume -->
+  <path d="M 380 330 C 374 342 386 346 380 358" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.7"/>
+  <path d="M 392 366 C 400 378 388 384 396 396" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.7"/>
+  <path d="M 376 404 C 368 418 382 424 374 438" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.7"/>
+  <path d="M 404 430 C 414 444 400 450 410 464" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.7"/>
+  <path d="M 372 470 C 362 486 378 492 368 508" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.7"/>
+  <path d="M 420 490 C 432 504 418 512 430 526" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.7"/>
+  <path d="M 380 528 C 370 544 386 550 376 566" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.7"/>
+  <path d="M 436 540 C 448 554 434 562 446 576" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.7"/>
+  <!-- a billow bulging out of the column low, where it fattens -->
+  <path d="M 322 544 C 306 542 300 556 312 564 C 300 570 308 584 322 580" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.7"/>
+  <path d="M 474 548 C 492 546 498 560 486 568 C 500 574 492 588 478 584" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.7"/>
+
+  <!-- Thin morning cloud bands, horizontal, broken where the sun stands -->
+  <path d="M 30 120 C 90 114 150 122 210 118 C 260 115 310 120 352 117" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.5"/>
+  <path d="M 420 112 C 500 108 590 116 680 111 C 720 109 750 112 780 110" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.5"/>
+  <path d="M 20 210 C 80 204 140 212 200 208 C 230 206 250 210 262 208" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.5"/>
+  <path d="M 686 214 C 720 210 750 216 782 212" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.5"/>
+  <path d="M 16 320 C 70 314 120 322 180 318 C 210 316 234 320 250 318" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.5"/>
+  <path d="M 690 330 C 724 326 754 332 786 328" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.5"/>
+  <path d="M 20 452 C 76 446 130 454 188 450 C 216 448 240 452 258 450" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.5"/>
+  <path d="M 688 462 C 722 458 752 464 784 460" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.5"/>
+  <!-- the low deck the plume falls into -->
+  <path d="M 10 560 C 60 552 120 562 180 556 C 240 550 290 560 320 556" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.6"/>
+  <path d="M 490 560 C 550 554 610 564 670 558 C 720 553 760 560 792 556" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.6"/>
+  <path d="M 40 584 C 110 578 180 586 250 582" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.5"/>
+  <path d="M 540 586 C 610 580 680 588 760 584" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.5"/>
+</svg>
