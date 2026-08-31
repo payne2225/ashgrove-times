@@ -2700,3 +2700,51 @@ Both papers landed **exactly on their holds**: the Times at **7:00** (No. 16, me
 `science-advisory-panels-cut`, `goodfire-silico`, `cerebras-hot-chips-cs6`, `tottenham-newcastle-0-2`,
 `liverpool-forest-2-2`, `reds-cubs-5-17-pca`, `pirates-cardinals-6-2`, `fcc-nashville-0-4`,
 `marshall-soccer-road-draws`, `nfl-cutdown-sunday`, `aki-banzuke-one-day`
+
+## 2026-08-31 — No. 27 (Times) and No. 17 (Sports & Sportsman)
+
+| Open-ended | **Sixth morning under the digest contract, and the near-deadline-wake fix WORKED.** Both papers researched, written, validated, rendered and pushed by **5:59:57 a.m. ET**, 30 minutes after the 5:30 wake; Pages built both dated pages inside ~30 seconds. Instead of a backgrounded hold (which died mid-sleep Aug 29 AND Aug 30), a `send_later` wake was armed for 6:56 and the digest ran in the FOREGROUND from it with `--not-before 07:00` — held 3 minutes and **landed at 7:00:03 ET** (message 1543938405413691422, 999 embed chars, hero attached, verified page-url, zero degraded). **Keep this pattern: build early, push, arm a ~6:56 wake, post foreground** | **standing practice** |
+| Open-ended | **The stored schedule prompt is still the two-post version — sixth morning.** It again instructed a 7:00 Times post and a 7:05 sportsman post with `DISCORD_SPORTSMAN_WEBHOOK_URL`; it also says to follow routine.md end to end, so the repo governed: one digest, sport to the web only, the sportsman webhook untouched | **OPEN — for Nate** |
+| Open-ended | **Detached HEAD at session start again — fourth occurrence** (Aug 27, 28, 30, 31). Caught first thing per the standing note; `git checkout main` + `git pull origin main` while HEAD matched origin/main fixed it before any work | **OPEN — recurring** |
+| Open-ended | **Fisherman's Post feed 403'd for the first time** (`/category/fishing-reports/topsail-sneads-ferry/feed/`); the Coastal Angler fallback answered and its Topsail monthly (published Aug. 1, labeled a month old) carried the What's-running block. Also newly blocked this morning: Prince George Citizen local-news page (403 — was readable), westvirginiawatch.com front (403), CBC article pages (403), FRED series pages (403), and Bennington Banner articles 404 unless fetched with the full `article_<uuid>.html` slug (search surfaces it) | **watch** |
+
+### Forward-dated events added or moved
+
+| Date | Event | Note |
+|---|---|---|
+| **open** | **U.S.-Iran exchange of fire is the live lead** | No. 27 led with CENTCOM's Sunday strike on two Larak Island launchers (mine-laying, per Capt. Tim Hawkins) and Iran's dawn-Monday ballistic answer at King Hussein and Al-Azraq in Jordan — 8 intercepted, no injuries, MQ-9 claimed downed, UAE denied an Al Minhad hit. Follow-ups: battle-damage assessments, further retaliation, oil/shipping reaction, the House reconciliation package funding the war |
+| **2026-09-01** | **Canada by-election RESULTS — tomorrow's Canada-tier brief** | North Vancouver-Capilano (Caley v. Curran, closest), Beaches-East York, Chicoutimi-Le Fjord ran today; Liberals at 170, majority at 172 |
+| **open** | **Nepal: 903 recovered/4,247 missing Nepal side, 16/546 Tibet, 85 Americans unaccounted** (ABC, Monday) | Numbers still moving; re-check everything before reprinting |
+| **2026-09-09** | **King Harald's funeral, Oslo Cathedral 1 p.m.** | Ran as a World brief (AFP via Express Tribune). CAUTION: the brief pairs Haakon's parliamentary oath and the start of public viewing on "Tuesday" as the wire copy did, but the wire did not name the date — establish whether that Tuesday is Sept. 1 or Sept. 8 before referencing either again |
+| **2026-09-01** | **NC flounder OPENS TODAY (Sept. 1-14)** | Tuesday's On the Water lead writes itself; note the NCDMF bag-limit TABLE still shows last year's closure — cite the season notice, not the table |
+| **2026-09-02** | **Hannan at Roane result — outside outlet only** | Tonight 6:30 at Spencer, record 1-1. MaxPreps updates for Hannan; check it first. Thursday: home v. Logan, 6 p.m. |
+| **open** | **Marshall women at UT Martin (Sunday 8 p.m.) ended uncited** — chase Tuesday at herdzone recap/Herald-Dispatch; **WVU men's 1-1 at UNCG uncited a THIRD morning** — likely dies quietly |
+| **2026-08-31** | **Aki banzuke IS OUT and CITED (JSA English site opened): Onosato E yokozuna, Hoshoryu W, ozeki Kirishima/Kotozakura/Aonishiki, all Tokyo sessions sold out.** But the **tournament dates are STILL uncited — eighteenth morning** — the JSA English pages post no schedule; the paper printed "derived Sept. 13, formally unconfirmed" again. r/Sumo unreachable a NINTH. Hoshoryu's entry/readiness is the open question — his knee surgery remains unprinted for want of a citable outlet |
+| **2026-09-07** | **WV gun bear first window closes** (selected counties, list not in the summary table) |
+| **2026-09-05** | **College football: WVU v. Coastal Carolina (noon), Marshall at Penn State (3:30, first-ever trip), Ohio at Nebraska (noon, FS1); squirrel youth weekend Sept. 5-6** |
+| **2026-09-08** | **Canada counter-tariffs effective; MARL testimony** — both stand. **Sept. 9**: DoubleTree housing for displaced Marshall students runs out |
+
+### Open threads
+
+- **us-iran-larak-jordan** — new, the lead; see forward-dated row.
+- **nepal-flood** — moved to a World brief (toll past 900); the lead spot went to Iran.
+- **kenscoff-hostages** — moved: Luckson Jean/UNICEF release mechanics + Paraison's negligence-or-complicity probe ran (Haitian Times). 50+ still held.
+- **norway-succession** — funeral Sept. 9 ran; the oath/viewing date question above.
+- **venezuela-oil-deal** — moved: NPR's experts-skeptical piece ran as a U.S. brief; congressional fight continues.
+- **us-canada-trade-war / lake-america** — moved: Google's U.S.-users rename ran (PBS). Sept. 8 tariffs stand.
+- **colorado-river-cuts** — NEW: 27% AZ cut through 2028, up to 40% later (NPR). Two-year reviews through 2036 are the follow-ups.
+- **usps-mail-ballot-rule** — hearing Sept. 3, not run today.
+- **nitro-elementary** — moved: possible playground closure ran as the Kanawha line; whether it closed is a natural follow.
+- **marl-psc / meta-settlement-approval / putnam-google-datacenter / anthropic-nscale-45b-monarch** — pending, not run.
+- **hoshoryu-aki-doubt** — banzuke did NOT force it into citable print; still open.
+
+### Covered slugs, 2026-08-31
+
+`us-iran-larak-jordan-exchange`, `venezuela-oil-experts-skeptical`, `house-cr-sept30`, `colorado-river-az-27pct`,
+`google-lake-america-rename`, `nepal-toll-919`, `russia-energy-strike-threat-myla-38`, `harald-funeral-sept9`,
+`kenscoff-luckson-jean-probe`, `wvff-50m-overdose-day`, `chamber-child-care-summit`, `wvsl-kickoff-recovery`,
+`mason-youth-league-lights`, `nitro-playground-closure-warning`, `vt-defend-the-guard-letter`, `surf-city-backflow-rfp`,
+`cnc-entrepreneur-mentorship`, `highway1-fraser-canyon-reopens`, `canada-byelections-aug31`, `roman-launch-success`,
+`car-t-rheumatoid-remission`, `uti-misdiagnosis-study`, `anthropic-automated-alignment`, `latenight-deepfakes`,
+`chelsea-brighton-4-3`, `reds-cubs-7-5`, `pirates-cardinals-5-4`, `crew-revolution-1-3`,
+`wvu-women-army-2-1`, `browns-initial-53`, `bengals-initial-53`, `aki-banzuke-published`
