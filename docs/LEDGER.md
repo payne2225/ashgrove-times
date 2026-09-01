@@ -2748,3 +2748,55 @@ Both papers landed **exactly on their holds**: the Times at **7:00** (No. 16, me
 `car-t-rheumatoid-remission`, `uti-misdiagnosis-study`, `anthropic-automated-alignment`, `latenight-deepfakes`,
 `chelsea-brighton-4-3`, `reds-cubs-7-5`, `pirates-cardinals-5-4`, `crew-revolution-1-3`,
 `wvu-women-army-2-1`, `browns-initial-53`, `bengals-initial-53`, `aki-banzuke-published`
+
+## 2026-09-01 — No. 28 (Times) and No. 18 (Sports & Sportsman)
+
+| Open-ended | **Seventh morning under the digest contract, and the fastest build yet.** Both papers researched (four parallel research agents plus the sports desk in-session), written, validated, rendered and pushed by **5:53 a.m. ET**, 21 minutes after the 5:30 wake; Pages built both dated pages inside ~20 seconds. The near-deadline-wake pattern worked a second straight day: `send_later` armed for 6:56, digest posted in the FOREGROUND with `--not-before 07:00` and a verified `--page-url`, **landed 7:00:03 ET** (message 1544300793149005894, 1,043 embed chars, hero attached, zero degraded). Keep the pattern | **standing practice** |
+| Open-ended | **The stored schedule prompt is still the two-post version — seventh morning.** It again instructed a 7:00 Times post and a 7:05 sportsman post with `DISCORD_SPORTSMAN_WEBHOOK_URL`; it also says to follow routine.md end to end, so the repo governed: one digest, sport to the web only, the sportsman webhook untouched | **OPEN — for Nate** |
+| Open-ended | **Detached HEAD at session start again — fifth occurrence** (Aug 27, 28, 30, 31, Sept 1). Caught first thing; `git checkout -B main HEAD` + upstream re-set while HEAD matched origin/main fixed it before any work | **OPEN — recurring** |
+| Open-ended | **Fisherman's Post feed ANSWERS again** via the `http://www.` variant after Monday's 403 — the August Topsail monthly (published Aug. 3, labeled a month old) carried What's-running. Newly blocked or still blocked this morning: Japan Times (402), NBC News article pages (403), The Hill (403), Herald-Dispatch article fetch (429 rate-limit), nsnews/energeticcity/CBC/My PG Now article pages (403), wvusports and herdzone render title-only, JSA `EnTicket/year_schedule` URL errors out | **watch** |
+| Open-ended | **Date traps dodged: five in one morning.** (1) A Newsweek "Trump posts Kharg AI images" story surfacing as fresh is from JULY 26 — he has posted Kharg imagery before; the Aug. 31 Forbes piece is the one that ran. (2) The year-old Summersville geese story circulated again. (3) A Bennington "listening session" item is from Oct. 2025. (4) "US Navy bans DeepSeek" in Sept. 1 roundups is recycled January 2025. (5) A "cancer glycocalyx" item in Aug. 31 roundups is an Aug. 7 paper. All caught by opening pages and reading dates | |
+| Open-ended | **Validator caught a direction bug before it shipped.** The Reds brief headline "Reds shut out 5-0 as the Padres pull even" tripped the result-verb check; rewritten winner-first ("Padres blank the Reds 5-0"). The `result` gate is earning its keep | |
+
+### Forward-dated events added or moved
+
+| Date | Event | Note |
+|---|---|---|
+| **2026-09-02** | **Hannan at Roane result — tonight 6:30 at Spencer, record 1-1** | Outside outlet only, MaxPreps first. Thursday: home v. Logan, 6 p.m. Monday's Ashton fixture was a GIRLS match, outside the beat — noted in print |
+| **2026-09-02** | **Marshall men host George Mason tonight; the women's UT Martin result is uncited a THIRD morning** | herdzone/ESPN/goracers all render empty or silent — the UT Martin thread likely dies quietly |
+| **2026-09-06** | **WVU women host Marshall Sunday, 7 p.m., Morgantown (Gold Rush/alumni night)** | Confirmed via wvusports promotional-slate search result; the page itself renders title-only and the H-D schedules article 429'd — find an openable source before it runs in The week ahead |
+| **2026-09-01** | **Norway: Haakon VIII's parliamentary oath WAS today at 11:00 GMT; lying in state runs through Sept. 8, funeral Sept. 9** (Reuters via Internazionale, opened) | The Aug. 31 "Tuesday" ambiguity resolves to Sept. 1. Not run today — World was full; tomorrow can carry the oath as done |
+| **October** | **Davis sentencing in the Tupac case** (NPR) | Today's lead; faces up to life |
+| **open** | **Driscoll successor watch; Grand Canyon follow-ups** (1 still missing, Phantom Ranch closed indefinitely, waterline ~40% destroyed, ~2 weeks of water reserves) | |
+| **2026-09-03** | **Talwani preliminary-injunction hearing, USPS mail-ballot rule** | Thursday's U.S. brief |
+| **2026-09-07** | **WV gun bear first window closes (selected counties); NC flounder closes Sept. 14** | Squirrel youth Sept. 5-6; bear youth Sept. 12-13; squirrel general opens Sept. 12 |
+| **2026-09-08** | **Canada counter-tariffs effective; MARL testimony — and MARL's PSC ruling now sought pushed to May 22, 2027** | The delay request itself ran statewide today |
+| **2026-09-09** | **Croft Road variance back before PG council; King Harald's funeral; DoubleTree housing deadline** | Three separate threads, same date |
+| **2026-09-13** | **Aki basho derived opening — dates STILL uncited a NINETEENTH morning; r/Sumo unreachable a TENTH** | JSA posts banzuke and sold-out notices, no schedule. Hoshoryu's entry is still the open question |
+| **open** | **Liberals now govern with 173 seats; Cubs within 7 of Milwaukee; Sony/Warner v. Anthropic and Apple v. OpenAI filings; EU ChatGPT VLOSE compliance due January 2027** | All ran today; all have natural follow-ups |
+| **2026-09-09** | **Webster County Fair, Sept. 9-12 at Camp Caesar** — tomorrow's natural cabin line if the ladder is thin; Bergoo Bash ran today | Also: no agenda posted for tomorrow's Sept. 2 county commission meeting as of this morning |
+
+### Open threads
+
+- **tupac-davis-verdict** — new, led No. 28; sentencing October.
+- **us-iran-larak-jordan** — moved: the Kharg AI-video post ran as the World brief; sanctions-pivot signals and Brent above $90 are the next beats.
+- **nepal-flood** — 987 dead/3,916 missing Nepal side after reconciliation, 16/546 Tibet, ~500 tunnel workers; re-check every number daily.
+- **kenscoff-hostages** — funerals ran; dozens still held.
+- **kyiv-barrage** — sixth night ran; Ust-Luga port drone damage unprinted, watch for corroboration.
+- **nitro-elementary** — suspect identified ran as the Kanawha line; whether the playground closed Monday is still unconfirmed.
+- **marl-psc** — moved (delay request); ruling date now itself in play.
+- **bc-conservative-exodus** — seventh MLA (Warbus) ran as the bc tier; caucus survival still the thread.
+- **putnam-google-datacenter / meta-settlement-approval / anthropic-nscale-45b-monarch** — pending, not run.
+- **wvu-mens-soccer / marshall-wright-state** — both dead as news unless fresh citable coverage appears.
+
+### Covered slugs, 2026-09-01
+
+`tupac-davis-guilty`, `driscoll-steps-down`, `grand-canyon-flood-2-dead`, `scotus-ballroom-continue`,
+`kharg-ai-videos`, `nepal-toll-1000-reconciled`, `kyiv-sixth-night-12`, `kenscoff-funerals-4`,
+`marl-delay-may2027`, `kirkpatrick-sworn-in`, `america250-2-2m`, `mason-standoff-arrest`,
+`nitro-vandalism-suspect`, `wood-poll-workers-275`, `bennington-power-outage`, `bergoo-bash-sept5`,
+`pender-1354-homes`, `croft-road-deadlock`, `bc-seventh-mla-warbus`, `liberals-sweep-173`,
+`roman-first-burn`, `thylacine-skull-bite`, `freshwater-swimming-trial`, `eu-chatgpt-vlose`,
+`sony-warner-anthropic-suit`, `apple-openai-evidence`, `padres-reds-5-0`, `cubs-brewers-17-3`,
+`browns-claim-pride`, `bengals-claim-hinton`, `messi-international-retirement`, `aki-countdown-12-days`,
+`flounder-opens-sept1`
