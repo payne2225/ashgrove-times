@@ -52,6 +52,31 @@ why the Aug. 18 "17:30 BST" miss looked like the check working. Repaired,
 both forms tested, and the whole repo scanned for the same corruption.
 
 
+## 2026-09-01 — the tide table sits with the water it is about
+
+Nate, pointing an arrow from one to the other: *"Can you make it so these
+are together please?"*
+
+"Topsail tides — the full day" headed the whole On the Water section, which
+put it above three West Virginia river gauges and left the Topsail Sound
+line it actually supports several inches below it. The table now follows the
+North Carolina block, so the prose that quotes a couple of the times sits
+directly above the table that carries all of them.
+
+After the block rather than inside it: the block's items are `<li>` in a
+`<ul>`, and a `<table>` is not a list item. A table with no North Carolina
+block to attach to still runs, at the foot of the section — it is measured
+data, and dropping it silently would be worse than setting it loose.
+
+**The date guard added on 2026-08-26 caught its author.** Working from a
+screenshot, the first render targeted 2026-08-30 while `out/fishing.json`
+had moved on to 09-01, and `_tide_table_html()` refused to typeset the wrong
+day's water — exactly the mistake it was written for, one week later, by the
+same hand. The Aug 30 archive page was restored and today's rendered
+instead, with the tide times diffed against the routine's own commit
+(11:30 PM / 5:57 AM / 12:07 PM, identical).
+
+
 ## 2026-08-26 — source links open in a new tab
 
 Nate: clicking a source navigated away from the edition. A citation is a

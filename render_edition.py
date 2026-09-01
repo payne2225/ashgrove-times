@@ -1539,21 +1539,38 @@ def render_sportsman_html(edition: dict) -> str:
                 continue
             grouped.setdefault(_pd._water_state(name), []).append(
                 _sm_roundup_item(blocks, name, " ".join(body), entry))
+        # The tide table belongs WITH the water it is about (Nate,
+        # 2026-08-30). It used to head the whole section, which put "Topsail
+        # tides — the full day" above three West Virginia river gauges and
+        # left the Topsail Sound line it actually supports at the bottom of
+        # the section, several inches away. It now follows the North
+        # Carolina block, so the prose that quotes a couple of the times is
+        # immediately above the table that carries all of them.
+        #
+        # After the block rather than inside it: the block's items are <li>
+        # in a <ul>, and a <table> is not a list item.
+        tide_table = _tide_table_html(edition.get("edition_date"))
         water_groups = []
         for state, state_label in (("WV", "West Virginia"),
                                    ("NC", "North Carolina"),
                                    ("", "Elsewhere")):
-            if grouped.get(state):
-                water_groups.append(fill(blocks["WV_BLOCK"], {
-                    "BLOCK_CLASS": "sm-water",
-                    "BLOCK_LABEL": esc(state_label),
-                    "ITEMS": "".join(grouped[state]),
-                }))
+            if not grouped.get(state):
+                continue
+            water_groups.append(fill(blocks["WV_BLOCK"], {
+                "BLOCK_CLASS": "sm-water",
+                "BLOCK_LABEL": esc(state_label),
+                "ITEMS": "".join(grouped[state]),
+            }))
+            if state == "NC" and tide_table:
+                water_groups.append(tide_table)
+                tide_table = ""
         if water_groups:
+            # A table with no North Carolina block to attach to still runs —
+            # it is measured data and dropping it silently would be worse
+            # than setting it loose at the foot of the section.
             parts.append(fill(blocks["SECTION"], {
                 "SECTION_LABEL": esc(_norm(water.get("label")) or "On the Water"),
-                "BRIEFS": (_tide_table_html(edition.get("edition_date"))
-                           + "".join(water_groups)),
+                "BRIEFS": "".join(water_groups) + tide_table,
             }))
 
     folio = (f"Vol. {edition.get('volume', 'I')} — "
