@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" role="img"
+     aria-label="Stone piers of a destroyed Bright Angel Creek footbridge stand in flood mud in the Grand Canyon, decking gone, with a stepped approach ramp at left and debris and boulders banked in the mud around them.">
+  <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <!-- canyon rim and brush -->
+    <path d="M0 66 Q150 42 320 56 Q500 70 660 48 Q790 32 900 50"/>
+    <path d="M0 100 Q130 82 260 92 Q340 98 410 90" stroke-width="1.5"/>
+    <path d="M580 82 Q670 68 770 76 Q840 82 900 72" stroke-width="1.5"/>
+    <path d="M130 56 l6 -14 M142 54 l2 -12 M153 56 l7 -10" stroke-width="1.5"/>
+    <path d="M700 44 l5 -13 M712 42 l0 -11 M723 46 l6 -9" stroke-width="1.5"/>
+    <path d="M840 46 l5 -11 M852 48 l2 -13" stroke-width="1.5"/>
+
+    <!-- mud flat: streaks laid down first so structures sit on them -->
+    <path d="M0 322 q130 10 260 4 q150 -8 300 2 q120 6 340 0" stroke-width="1.5"/>
+    <path d="M0 378 q160 12 320 6 q150 -6 290 4 q120 8 290 2" stroke-width="1.5"/>
+    <path d="M0 440 q180 14 360 8 q170 -6 330 6 q90 6 210 2" stroke-width="1.5"/>
+    <path d="M40 496 q200 14 400 6 q220 -8 420 8" stroke-width="1.5"/>
+    <path d="M0 540 q240 14 470 6 q230 -8 430 8" stroke-width="1.5"/>
+    <path d="M180 348 q44 6 90 2 M440 362 q52 6 100 0 M660 430 q48 6 96 2" stroke-width="1"/>
+
+    <!-- LEFT: stepped approach ramp up to a landing, mud-swamped at its foot -->
+    <path d="M150 336 L154 306 L212 300 L216 276 L276 270 L280 248 L344 242"/>
+    <path d="M150 336 L286 328 L344 318 L344 242"/>
+    <path d="M212 300 L286 294 M276 270 L344 262"/>
+    <path d="M286 328 L286 294 M344 318 L344 262" stroke-width="1.5"/>
+    <path d="M150 336 q60 14 136 -2" stroke-width="1.5"/>
+    <path d="M344 242 L470 234 L470 310 L344 318"/>
+    <path d="M470 234 L492 226 L492 300 L470 310" stroke-width="1.5"/>
+    <!-- bent railing post on the landing -->
+    <path d="M420 234 L416 150 q0 -8 10 -10 l14 -2" stroke-width="2.5"/>
+    <path d="M412 236 l16 -3" stroke-width="1.5"/>
+
+    <!-- left pier behind the landing: stacked cobbles -->
+    <path d="M508 306 L512 216 Q512 204 526 200 L560 196 Q572 196 574 208 L580 296"/>
+    <path d="M520 218 q4 -10 16 -9 q12 1 12 11 q0 9 -13 9 q-13 0 -15 -11 z" stroke-width="1.5"/>
+    <path d="M550 214 q6 -8 15 -6 q9 3 8 12 q-2 9 -12 8 q-11 -1 -11 -14 z" stroke-width="1.5"/>
+    <path d="M514 244 q3 -11 15 -10 q12 1 13 12 q0 10 -13 10 q-13 0 -15 -12 z" stroke-width="1.5"/>
+    <path d="M546 242 q5 -9 16 -8 q11 2 10 13 q-1 10 -13 9 q-12 -1 -13 -14 z" stroke-width="1.5"/>
+    <path d="M516 274 q4 -10 16 -9 q12 1 12 12 q-1 10 -14 10 q-12 -1 -14 -13 z" stroke-width="1.5"/>
+    <path d="M548 272 q5 -9 15 -8 q11 2 10 12 q-1 10 -13 10 q-11 -1 -12 -14 z" stroke-width="1.5"/>
+
+    <!-- CENTER: tall pier of stacked cobbles, mud banked at base -->
+    <path d="M596 394 L602 228 Q602 212 620 208 L662 204 Q678 204 680 220 L688 390"/>
+    <path d="M612 232 q5 -12 19 -11 q14 2 14 14 q0 11 -15 11 q-15 0 -18 -14 z" stroke-width="1.5"/>
+    <path d="M648 228 q7 -10 18 -8 q11 3 10 15 q-2 11 -15 10 q-13 -2 -13 -17 z" stroke-width="1.5"/>
+    <path d="M604 268 q4 -13 19 -12 q15 2 15 15 q0 12 -16 12 q-16 0 -18 -15 z" stroke-width="1.5"/>
+    <path d="M644 264 q6 -11 19 -10 q13 3 12 16 q-2 12 -16 11 q-14 -2 -15 -17 z" stroke-width="1.5"/>
+    <path d="M600 306 q5 -12 20 -11 q15 2 15 14 q0 12 -16 12 q-16 0 -19 -15 z" stroke-width="1.5"/>
+    <path d="M642 302 q6 -10 18 -9 q13 2 12 15 q-1 12 -15 11 q-14 -1 -15 -17 z" stroke-width="1.5"/>
+    <path d="M600 344 q5 -12 20 -11 q15 2 15 14 q0 12 -16 12 q-16 0 -19 -15 z" stroke-width="1.5"/>
+    <path d="M640 340 q6 -11 19 -10 q13 3 12 16 q-1 12 -16 11 q-14 -2 -15 -17 z" stroke-width="1.5"/>
+    <path d="M602 378 q5 -10 18 -9 q13 2 13 13 M646 376 q6 -9 17 -8 q11 2 11 12" stroke-width="1.5"/>
+    <!-- mud mounded against its base, debris caught -->
+    <path d="M574 400 q22 -14 46 -8 M666 396 q22 -8 44 4" stroke-width="1.5"/>
+    <path d="M580 388 q-14 -8 -28 -2 m32 -10 q-12 -8 -24 -4" stroke-width="1"/>
+    <path d="M692 380 q12 -6 24 0 m-22 -12 q10 -6 20 -2" stroke-width="1"/>
+
+    <!-- RIGHT: pier cropped by the frame -->
+    <path d="M806 412 L812 262 Q812 248 828 244 L868 240 Q884 240 886 254 L892 320 L892 410"/>
+    <path d="M820 268 q5 -11 18 -10 q13 2 13 14 q0 11 -15 11 q-14 0 -16 -15 z" stroke-width="1.5"/>
+    <path d="M854 264 q6 -9 17 -8 q11 3 10 14 q-1 11 -14 10 q-13 -1 -13 -16 z" stroke-width="1.5"/>
+    <path d="M812 302 q5 -12 19 -11 q14 2 14 14 q0 12 -15 12 q-15 0 -18 -15 z" stroke-width="1.5"/>
+    <path d="M850 298 q6 -10 18 -9 q12 3 11 15 q-1 11 -15 10 q-13 -1 -14 -16 z" stroke-width="1.5"/>
+    <path d="M810 340 q5 -11 19 -10 q14 2 14 14 q0 11 -15 11 q-15 0 -18 -15 z" stroke-width="1.5"/>
+    <path d="M848 336 q6 -10 18 -9 q12 3 11 15 q-1 11 -15 10 q-13 -1 -14 -16 z" stroke-width="1.5"/>
+    <path d="M808 376 q5 -10 18 -9 q13 2 13 13 M846 374 q6 -9 17 -8 q11 2 11 12" stroke-width="1.5"/>
+    <path d="M786 418 q20 -12 42 -6 M886 414 q6 -2 14 0" stroke-width="1.5"/>
+    <path d="M792 404 q-12 -8 -24 -2 m26 -10 q-10 -6 -20 -2" stroke-width="1"/>
+
+    <!-- standing water pools -->
+    <path d="M330 408 q34 -10 74 -4 q36 6 30 16 q-30 12 -76 6 q-38 -6 -28 -18 z" stroke-width="1.5"/>
+    <path d="M352 414 q26 -4 52 2 M346 422 q22 4 46 2" stroke-width="1"/>
+    <path d="M700 476 q40 -12 90 -4 q44 8 34 18 q-36 12 -90 4 q-44 -8 -34 -18 z" stroke-width="1.5"/>
+    <path d="M724 482 q30 -6 62 2" stroke-width="1"/>
+    <path d="M96 352 q22 -8 48 -2 q20 6 14 12 q-22 8 -48 2 q-20 -6 -14 -12 z" stroke-width="1.5"/>
+
+    <!-- foreground boulders, larger low in the frame -->
+    <path d="M64 470 q4 -36 46 -38 q44 -2 52 30 q6 27 -23 35 q-42 10 -67 -6 q-10 -9 -8 -21 z"/>
+    <path d="M86 444 q17 9 36 4 M78 478 q20 8 42 2" stroke-width="1"/>
+    <path d="M214 508 q2 -27 36 -29 q35 -2 41 23 q4 23 -21 29 q-35 8 -52 -7 q-6 -6 -4 -16 z"/>
+    <path d="M232 494 q14 6 30 3" stroke-width="1"/>
+    <path d="M566 512 q6 -31 47 -31 q45 0 49 29 q2 24 -27 30 q-43 8 -63 -8 q-8 -8 -6 -20 z"/>
+    <path d="M588 498 q20 8 41 2" stroke-width="1"/>
+    <path d="M420 478 q4 -18 26 -18 q24 0 26 16 q2 16 -16 20 q-26 4 -34 -8 q-3 -5 -2 -10 z"/>
+    <path d="M508 330 q4 -14 22 -14 q20 0 20 12 q0 12 -14 16 q-20 4 -26 -6 q-2 -4 -2 -8 z" stroke-width="1.5"/>
+    <path d="M736 342 q3 -11 17 -11 q15 0 16 10 q1 10 -11 13 q-16 3 -20 -5 q-2 -3 -2 -7 z" stroke-width="1.5"/>
+
+    <!-- driftwood: logs half-buried in mud -->
+    <path d="M20 160 l86 18 M28 170 l58 12" stroke-width="2.5"/>
+    <path d="M16 222 q30 -2 56 8 l30 12" stroke-width="2.5"/>
+    <path d="M540 148 l90 10 M552 158 l64 6" stroke-width="2"/>
+    <path d="M700 130 q44 -8 84 4 M712 140 q30 -4 58 2" stroke-width="2"/>
+    <path d="M120 392 l64 10 M304 462 l58 -8 M474 440 l50 8" stroke-width="2"/>
+    <path d="M188 330 l40 -6 l14 6" stroke-width="2"/>
+    <path d="M816 516 l70 -12 M834 526 l52 -8" stroke-width="2"/>
+    <path d="M360 532 l84 6 M376 542 l52 4" stroke-width="2"/>
+    <path d="M494 262 l64 -8 M504 270 l42 -5" stroke-width="2"/>
+
+    <!-- fine mud texture -->
+    <path d="M144 534 l16 2 M254 524 l14 2 M334 508 l12 2 M512 540 l16 2 M628 546 l14 0 M764 546 l16 -2" stroke-width="1"/>
+    <path d="M208 428 l12 2 M286 438 l10 0 M386 450 l12 2 M544 460 l12 0 M680 508 l12 2 M64 512 l14 2" stroke-width="1"/>
+  </g>
+</svg>
