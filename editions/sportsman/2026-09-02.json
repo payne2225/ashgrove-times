@@ -1,0 +1,333 @@
+{
+  "edition_date": "2026-09-02",
+  "edition_number": 19,
+  "volume": "I",
+  "sections": [
+    {
+      "id": "teams",
+      "label": "Our Teams",
+      "briefs": [
+        {
+          "headline": "Chelsea sell Enzo Fernandez to Man City for £125M on deadline day",
+          "summary": "The midfielder's move headlined the window's close Tuesday; Chelsea also let Marc Guiu go to RB Leipzig for £14.6M and loaned keeper Robert Sanchez to Como.",
+          "team": "Chelsea",
+          "league": "Premier League",
+          "source": "Sky Sports",
+          "url": "https://www.skysports.com/transfer/news/12691/13579708/transfer-deadline-day-deals-summer-2026-confirmed-moves-across-premier-league-championship-efl-europe-and-more"
+        },
+        {
+          "headline": "Spurs raid Chelsea for Adarabioyo and Mudryk before the deadline",
+          "summary": "Tottenham, bottom of the table with no points from two matches, paid £10M for the defender and took the winger on loan; Kevin Danso and Pape Matar Sarr left on loans of their own.",
+          "team": "Tottenham",
+          "league": "Premier League",
+          "source": "Sky Sports",
+          "url": "https://www.skysports.com/transfer/news/12691/13579708/transfer-deadline-day-deals-summer-2026-confirmed-moves-across-premier-league-championship-efl-europe-and-more"
+        },
+        {
+          "headline": "Reds edge the Padres 4-3 on Trevino's bases-loaded single",
+          "summary": "Jose Trevino's eighth-inning hit scored Elly De La Cruz with the go-ahead run Tuesday; Nick Lodolo gave two earned over six, and Fernando Tatis Jr. homered twice for San Diego.",
+          "team": "Cincinnati Reds",
+          "league": "MLB",
+          "source": "CBS Sports",
+          "url": "https://www.cbssports.com/mlb/gametracker/boxscore/MLB_20260901_SD@CIN/",
+          "result": {"winner": "Cincinnati Reds", "loser": "San Diego Padres", "score": "4-3"}
+        },
+        {
+          "headline": "Pirates outlast the Giants 13-12 on a walk-off error",
+          "summary": "Pittsburgh scored nine in the third, watched San Francisco tie it with a five-run eighth, and won Tuesday when a short-hopped throw let Brandon Lowe score; Lowe went 4-for-6 with his 29th homer.",
+          "team": "Pittsburgh Pirates",
+          "league": "MLB",
+          "source": "CBS Sports",
+          "url": "https://www.cbssports.com/mlb/gametracker/boxscore/MLB_20260901_SF@PIT/",
+          "result": {"winner": "Pittsburgh Pirates", "loser": "San Francisco Giants", "score": "13-12"}
+        },
+        {
+          "headline": "Marshall men draw 3-3 at George Mason to close the road swing",
+          "summary": "The Herd finished the trip Tuesday night in Fairfax unbeaten at 1-0-2; George Mason's own game log carries the final, with the Patriots now 1-1-1.",
+          "team": "Marshall",
+          "league": "NCAA",
+          "source": "George Mason Athletics",
+          "url": "https://gomason.com/sports/mens-soccer/stats",
+          "result": {"winner": "Marshall", "loser": "George Mason", "score": "3-3", "note": "draw"}
+        }
+      ],
+      "sat_out": [
+        {
+          "team": "West Virginia",
+          "league": "NCAA",
+          "reason": "football opens Saturday against Coastal Carolina; the women's soccer win at Army ran Monday"
+        },
+        {
+          "team": "Ohio University",
+          "league": "NCAA",
+          "reason": "opens Saturday at Nebraska, kickoff now confirmed at noon ET"
+        },
+        {
+          "team": "Liverpool",
+          "league": "Premier League",
+          "reason": "deadline day passed quietly: £30M for Genk's Lucca Brughmans, loaned straight back, and Elliott out on loan to Valencia"
+        },
+        {
+          "team": "Cleveland Browns",
+          "league": "NFL",
+          "reason": "quiet Tuesday; the opener is Sept. 13 at Jacksonville"
+        },
+        {
+          "team": "Cincinnati Bengals",
+          "league": "NFL",
+          "reason": "finished a 16-man practice squad Monday, veteran QB Josh Johnson among them"
+        },
+        {
+          "team": "Columbus Crew",
+          "league": "MLS",
+          "reason": "Sunday's home loss to New England ran Monday; Colorado visits Saturday"
+        },
+        {
+          "team": "FC Cincinnati",
+          "league": "MLS",
+          "reason": "no midweek match after Saturday's shutout loss in Nashville ran Sunday"
+        },
+        {
+          "team": "San Antonio Spurs",
+          "league": "NBA",
+          "reason": "offseason"
+        },
+        {
+          "team": "USMNT",
+          "league": "Soccer",
+          "reason": "no window until the Sept. 26 Peru friendly in Orlando"
+        }
+      ],
+      "standings": [
+        {
+          "team": "Pittsburgh Pirates",
+          "line": "68-71, fourth in the NL Central, 18 back",
+          "source": "MLB.com",
+          "url": "https://www.mlb.com/standings/"
+        },
+        {
+          "team": "Cincinnati Reds",
+          "line": "66-73, fifth in the NL Central, 20 back",
+          "source": "MLB.com",
+          "url": "https://www.mlb.com/standings/"
+        },
+        {
+          "team": "Chelsea",
+          "line": "6 points from two wins, fourth in the Premier League",
+          "source": "Sky Sports",
+          "url": "https://www.skysports.com/premier-league-table"
+        },
+        {
+          "team": "Liverpool",
+          "line": "2 points from two draws, 13th in the Premier League",
+          "source": "Sky Sports",
+          "url": "https://www.skysports.com/premier-league-table"
+        },
+        {
+          "team": "Tottenham",
+          "line": "0 points from two matches, 20th and last in the Premier League",
+          "source": "Sky Sports",
+          "url": "https://www.skysports.com/premier-league-table"
+        },
+        {
+          "team": "FC Cincinnati",
+          "line": "31 points, sixth in the Eastern Conference",
+          "source": "FOX Sports",
+          "url": "https://www.foxsports.com/soccer/mls/standings"
+        },
+        {
+          "team": "Columbus Crew",
+          "line": "20 points, 15th in the Eastern Conference",
+          "source": "FOX Sports",
+          "url": "https://www.foxsports.com/soccer/mls/standings"
+        },
+        {
+          "team": "Hannan",
+          "line": "1-1, the Calvary loss and the 7-0 win at St. Marys the only results posted",
+          "source": "MaxPreps",
+          "url": "https://www.maxpreps.com/wv/ashton/hannan-wildcats/soccer/schedule/"
+        }
+      ],
+      "upcoming": [
+        {
+          "team": "Hannan",
+          "fixture": "vs. Logan, at Ashton",
+          "when": "Thursday, Sept. 3, 6 p.m. ET",
+          "source": "Hannan schedule",
+          "url": null
+        },
+        {
+          "team": "Liverpool",
+          "fixture": "at Ipswich",
+          "when": "Friday, Sept. 4, 3 p.m. ET",
+          "source": "Sky Sports",
+          "url": "https://www.skysports.com/football/news/12040/13561249/premier-league-2026-27-fixtures-live-on-sky-sports-arsenal-vs-chelsea-and-man-utd-vs-man-city-live-on-sky-in-september"
+        },
+        {
+          "team": "West Virginia",
+          "fixture": "vs. Coastal Carolina, football opener, on TNT",
+          "when": "Saturday, Sept. 5, noon ET",
+          "source": "Sports Illustrated",
+          "url": "https://www.si.com/college/westvirginia/football/how-to-watch-wvu-vs-coastal-carolina-kickoff-time-tv-channel-and-odds"
+        },
+        {
+          "team": "Marshall",
+          "fixture": "at No. 18 Penn State, football opener, on FS1",
+          "when": "Saturday, Sept. 5, 3:30 p.m. ET",
+          "source": "Penn State Athletics",
+          "url": "https://gopsusports.com/news/2026/08/31/game-notes-penn-state-vs-marshall"
+        },
+        {
+          "team": "Ohio University",
+          "fixture": "at Nebraska, football opener, on FS1",
+          "when": "Saturday, Sept. 5, noon ET",
+          "source": "Nebraska Athletics",
+          "url": "https://huskers.com/news/2026/05/27/kickoff-times-set-for-four-husker-football-games"
+        },
+        {
+          "team": "West Virginia",
+          "fixture": "women's soccer vs. Marshall, Morgantown",
+          "when": "Sunday, Sept. 6, 7 p.m. ET",
+          "source": "The Dominion Post",
+          "url": "https://www.dominionpost.com/2026/08/30/saige-wimes-sends-no-7-wvu-past-army"
+        },
+        {
+          "team": "Hannan",
+          "fixture": "vs. Point Pleasant JV, at Ashton",
+          "when": "Wednesday, Sept. 9, 6 p.m. ET",
+          "source": "Hannan schedule",
+          "url": null
+        }
+      ],
+      "note": "Hannan's Tuesday match at Roane went unreported: no outlet printed a score, and MaxPreps shows no Sept. 1 game for either side while listing the teams' meeting Sept. 24. The result runs when an outside source has it."
+    },
+    {
+      "id": "leagues",
+      "label": "Around the Leagues",
+      "capped_at": 3,
+      "briefs": [
+        {
+          "headline": "Aki basho dates are official at last: Sept. 13 to 27 in Tokyo",
+          "summary": "The Kokugikan's own schedule page carries the dates the JSA's English site never posted, ending 19 mornings of second-Sunday arithmetic; the basho opens 11 days from today, every Tokyo session sold out.",
+          "league": "Sumo",
+          "source": "Ryogoku Kokugikan",
+          "url": "https://ryogokukokugikan.com/ryogoku-kokugikan-schedule-2026"
+        },
+        {
+          "headline": "Hoshoryu back in training a month after knee surgery",
+          "summary": "The French sumo site Furansumo reported Tuesday, from Tatsunami stable's own posts, that the new west yokozuna has resumed shiko in a knee brace, down 15 kg to 148; its read is he likely sits out Aki, and no entry decision is announced.",
+          "league": "Sumo",
+          "source": "Furansumo",
+          "url": "https://www.furansumo.com/post/hoshoryu-update-2026-9-1"
+        }
+      ],
+      "note": "r/Sumo is now refused outright, an eleventh straight morning without it, and the JSA's English schedule pages still error out - the Kokugikan's calendar is the citable source going forward."
+    },
+    {
+      "id": "seasons",
+      "label": "In Season",
+      "coming_in": [
+        {
+          "state": "WV",
+          "species": "Squirrel",
+          "method": "Youth / Class Q / Class XS",
+          "dates": "Sept. 5 - 6",
+          "item": "The youth weekend is Saturday and Sunday - season and possession limit 12, details on pamphlet page 40; the general season follows Sept. 12.",
+          "source": "WVDNR",
+          "reference": "reference/wv-hunting-2026-27.json",
+          "publication": "West Virginia Hunting and Trapping Regulations Summary, July 2026 - June 2027"
+        },
+        {
+          "state": "WV",
+          "species": "Black bear",
+          "method": "Youth / Class Q / Class XS",
+          "dates": "Sept. 12 - 13",
+          "item": "The youth bear weekend runs Sept. 12-13, with limits on pamphlet page 34 and electronic registration required.",
+          "source": "WVDNR",
+          "reference": "reference/wv-hunting-2026-27.json",
+          "publication": "West Virginia Hunting and Trapping Regulations Summary, July 2026 - June 2027"
+        },
+        {
+          "state": "NC",
+          "species": "Shellfish",
+          "dates": "Reopened Sept. 2",
+          "item": "Proclamation PA-42-2026 reopened rainfall-closed portions of Topsail Sound, Chadwick Bay and nearby waters to shellfish harvest at sunrise this morning.",
+          "source": "NCDMF",
+          "url": "https://www.deq.nc.gov/about/divisions/marine-fisheries/rules-proclamations-and-size-and-bag-limits/polluted-area-proclamations"
+        }
+      ],
+      "prime": [
+        {
+          "state": "NC",
+          "species": "Southern flounder",
+          "method": "Hook-and-line and gig",
+          "dates": "Sept. 1 - 14",
+          "item": "Day two of the two-week window: one fish per day, 15-inch minimum, and harvest reporting is mandatory under proclamation FF-27-2026.",
+          "source": "NCDMF",
+          "url": "https://www.deq.nc.gov/marine-fisheries/fisheries-management-proclamations/2026/flounder-recreational-internal-coastal-and-joint-fishing-waters-and-atlantic-ocean-waters/open"
+        },
+        {
+          "state": "NC",
+          "species": "Red drum",
+          "item": "September is bull-drum time on the coast; coastal-water limits hold at an 18-to-27-inch slot, one per day, with harvest reporting required.",
+          "source": "NCDMF",
+          "url": "https://www.deq.nc.gov/news/press-releases/2026/08/31/state-reminds-recreational-fishermen-report-flounder-harvest"
+        }
+      ],
+      "going_out": [
+        {
+          "state": "WV",
+          "species": "Black bear",
+          "method": "Gun",
+          "dates": "Aug. 29 - Sept. 7",
+          "item": "The first gun window, in SELECTED COUNTIES only, closes Monday; the county list is not in the pamphlet's summary table, so none is named here.",
+          "source": "WVDNR",
+          "reference": "reference/wv-hunting-2026-27.json",
+          "publication": "West Virginia Hunting and Trapping Regulations Summary, July 2026 - June 2027"
+        }
+      ],
+      "note": "The DNR's separate migratory-bird summary is still untranscribed here; WV Explorer reports the first dove segment opened Sept. 1, HIP registration required. NCDMF opened a kingfishes (sea mullet) scoping period through Sept. 30, with a Wilmington meeting Sept. 17."
+    },
+    {
+      "id": "water",
+      "label": "On the Water",
+      "waters": [
+        {
+          "water": "Williams River",
+          "near": "Cowen",
+          "reading": "82.1 cfs and falling, 1.53 feet.",
+          "read": "82 cfs - prime wading water.",
+          "working": "Down from 128 a day ago and the thinnest of the week - pool-and-drop pocket water now, so fish it like September: a long leader off the rod tip, one beetle or ant tight under the overhangs, and a small sculpin swung through the two or three bends still holding depth.",
+          "source": "USGS 03186500"
+        },
+        {
+          "water": "Ohio River at Point Pleasant",
+          "near": "14 miles above R.C. Byrd Locks and Dam",
+          "reading": "25.09 feet and steady.",
+          "read": "25.1 ft - normal pool. Ordinary bank access.",
+          "working": "Pool has not moved in a day - the wing-dam tips are still the morning spot, a white swimbait over shad early, then a dragged jig on the seams when the sun gets on the water.",
+          "source": "USGS 03201500"
+        },
+        {
+          "water": "Ohio River at Huntington",
+          "near": "below R.C. Byrd Locks and Dam",
+          "reading": "25.64 feet and steady.",
+          "read": "25.6 ft - normal pool. Ordinary bank access.",
+          "working": "Steady below the dam - crawfish colors tight to the riprap and the lock wall, and a jig pitched into the barge cuts where fish hold off the current.",
+          "source": "USGS 03206000"
+        },
+        {
+          "water": "Topsail Sound",
+          "near": "New Topsail Inlet",
+          "reading": "Sound highs 12:22 AM at 3.5 ft and 1:01 PM at 4.1 ft at Hampstead; lows 6:43 AM at 0.4 ft and 7:42 PM at 0.9 ft.",
+          "read": "Fish the moving water either side of high at 12:22 AM and 1:01 PM in the sound.",
+          "working": "The September report is finally fresh - Fisherman's Post published its Topsail monthly yesterday: Spanish and blues on Gotchas off the piers, reds on topwater early inshore, and flounder now legal against pilings and creek mouths. Flounder want moving water on structure, so work the flood into the 1:01 PM high; reds want the last of the fall, into tonight's 7:42 low. Waning gibbous at 71%, springs easing toward neap. Water 85.3F at Beaufort, 60 miles up the coast.",
+          "source": "NOAA CO-OPS 8657813",
+          "note": "Hampstead is the sound station and the read that matters; the oceanfront pier runs well ahead and is quoted only for a surf read. No beach hazards or rip current statements posted for Topsail this morning - the day's Heat Advisory covers inland Pender and Onslow, not the island."
+        }
+      ]
+    }
+  ],
+  "kicker": "The Aki basho's dates reached citable print at last; whether its newest yokozuna can enter is the question that remains.",
+  "sources_note": "Compiled from wire reports"
+}
