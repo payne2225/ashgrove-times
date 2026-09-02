@@ -1366,6 +1366,53 @@ def _check_fishing_entry(entry: object, path: str, fishing: dict | None,
     return errors
 
 
+# A day reference, in any of the forms the desk actually writes. Weekday
+# abbreviations are matched case-sensitively — "sat" is a verb and "sun" is
+# weather — while full names and phrases are not. A month abbreviation
+# counts only with a day number after it, so "Mar" alone is not a date.
+_DATE_WORD_RE = re.compile(
+    r"\b(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)\b"
+    r"|\b(?:yesterday|today|tonight|overnight)\b"
+    r"|\b(?:this|last|earlier this|late last)\s+(?:morning|afternoon|evening|week|weekend|month)\b"
+    r"|\bover the weekend\b"
+    r"|\b(?:on|since|from|through|until|by|before|after)\s+the\s+\d{1,2}(?:st|nd|rd|th)\b"
+    r"|\b(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec)[a-z]*\.?\s+\d{1,2}\b",
+    re.I,
+)
+_DATE_WORD_ABBREV_RE = re.compile(r"\b(?:Mon|Tue|Tues|Wed|Thu|Thurs|Fri|Sat|Sun)\.?(?=\s|$|[,;:])")
+DATE_WORD_FORMS = (
+    'a weekday ("Monday", "Tue."), a month and day ("Aug. 28", "September 1"), '
+    '"yesterday", "today", "tonight", "this morning", "this week", "last week", '
+    '"over the weekend", "earlier this month", or "on the 9th"'
+)
+
+
+def _has_date_word(text: str) -> bool:
+    return bool(_DATE_WORD_RE.search(text or "") or _DATE_WORD_ABBREV_RE.search(text or ""))
+
+
+def _check_date_word(entry: object, path: str, edition_date: object) -> list[str]:
+    """An away or hotspots line says WHEN, from NOTEBOOK_DATE_WORD_REQUIRED_FROM.
+
+    These blocks run a fourteen-day window, and the widened window is honest
+    only because every line dates itself. Statewide and regional lines are
+    not held to this: they are same-day news by construction.
+    """
+    if not isinstance(entry, dict) or not _is_str(edition_date):
+        return []
+    if edition_date < config.NOTEBOOK_DATE_WORD_REQUIRED_FROM:
+        return []
+    item = entry.get("item")
+    if not _is_str(item) or _has_date_word(item):
+        return []
+    return [
+        f"{path}.item has no day reference — these blocks run a "
+        f"{config.NOTEBOOK_LOOKBACK_DAYS}-day window, so every line says WHEN: "
+        f"{DATE_WORD_FORMS}. A reader must never mistake last week's item for "
+        "this morning's"
+    ]
+
+
 def _check_notebook(
     section: dict, index: int, fishing: dict | None, edition_date: object = None
 ) -> list[str]:
@@ -1411,6 +1458,8 @@ def _check_notebook(
         for j, entry in enumerate(entries):
             item_path = f"{path}.{key}[{j}]"
             errors += _check_region_item(entry, item_path, want_away)
+            if want_away:
+                errors += _check_date_word(entry, item_path, edition_date)
             rid = entry.get("region_id") if isinstance(entry, dict) else None
             # Date-scoped: an edition published before the promotion is a
             # correct record of a paper that ran, not a mistake to flag.
@@ -1447,6 +1496,7 @@ def _check_notebook(
             for j, entry in enumerate(hotspot_entries):
                 item_path = f"{path}.hotspots[{j}]"
                 errors += _check_hotspot_item(entry, item_path)
+                errors += _check_date_word(entry, item_path, edition_date)
                 hid = entry.get("hotspot_id") if isinstance(entry, dict) else None
                 if _is_str(hid):
                     if hid in seen_hot:

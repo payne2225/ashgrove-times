@@ -4,6 +4,27 @@ Running changelog. Dated entries, newest first. Touched only when
 behavior changes, not every edition — the per-day record lives in
 `editions/index.json`, and degraded runs go in `docs/FAILURES.md`.
 
+## 2026-09-02 — every away and hotspots line says when
+
+Full-pass item 9. The Away Desk and Vacation Hotspots run a fourteen-day
+window (Nate, 08-26: "if it's a few days old that's fine"), and the
+instructions have said since then that anything not from the last day or
+two says when. Nothing enforced it. From **2026-09-03** the validator
+refuses an `away` or `hotspots` item with no day reference, and the error
+lists the accepted forms: a weekday ("Monday", "Tue."), a month and day
+("Aug. 28", "September 1"), "yesterday", "today", "tonight", "this
+morning", "this week", "last week", "over the weekend", "earlier this
+month", "on the 9th". Weekday abbreviations match case-sensitively ("sat"
+is a verb, "sun" is weather) and a month abbreviation counts only with a day
+number after it. Statewide and regional lines are not held to it — they are
+same-day by construction. `edition.md` "A block that never runs empty" step
+1 now says every line, not only the old ones, and why: a habit with
+exceptions is not a habit. `tests/test_dateword.py`: 21 accepted and
+refused forms plus the wiring. Calibrated against the desk's own copy: of
+the 18 away and hotspots lines printed since the blocks began running
+daily (08-26 to 09-02), 17 already carry a day reference; the one that does
+not — the 08-31 Vermont Guard line — is exactly the kind the rule is for.
+
 ## 2026-09-02 — small marks: the Sports card, the print stylesheet
 
 Full-pass item 10.

@@ -261,7 +261,9 @@ times, a persona or name, the format, who gets pinged.
   then the bodies that meet on a schedule (council, commission, school,
   DOT), then social media as a LEAD. An official account posting about
   itself IS citable; anybody else is a lead to confirm elsewhere. The
-  validator refuses an empty block without a note naming what was searched.
+  validator refuses an empty block without a note naming what was searched,
+  and (from 2026-09-03) an away or hotspots line with no day reference —
+  the fourteen-day window is honest only because every line says when.
   Verified-fetchable sources are listed in `instructions/edition.md` §3a —
   Webster County's own outlets are 403 from the routine's environment.
 - **Never invent a fact.** Thin is allowed; fabricated ends the project.

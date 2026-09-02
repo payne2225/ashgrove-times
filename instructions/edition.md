@@ -429,10 +429,17 @@ These blocks are **not a daily news wire**. They are "what is going on in
 the place." A **fourteen-day** window is fair game, and a week-old story
 that nobody in the group has heard is news to them.
 
-**Anything not from the last day or two SAYS WHEN**: "last Tuesday," "on the
-9th," "since the start of the month." A reader must never be able to mistake
-an older item for this morning's. That single habit is what makes a widened
-window honest instead of sloppy.
+**EVERY away and hotspots line SAYS WHEN** — and from 2026-09-03 the
+validator refuses one that does not. "Last Tuesday," "on the 9th," "Aug.
+28," "yesterday," "this morning," "over the weekend," "since the start of
+the month." A reader must never be able to mistake an older item for this
+morning's, and a line that is genuinely this morning's says so too: the
+habit is what makes a widened window honest instead of sloppy, and a habit
+with exceptions is not a habit. The accepted forms are a weekday name
+("Monday", "Tue."), a month and day ("Aug. 28", "September 1"),
+"yesterday", "today", "tonight", "this morning/afternoon/evening", "this
+week", "last week", "over the weekend", "earlier this month", or "on the
+9th"; the validator prints that list when it refuses a line.
 
 #### 2. Then widen the sources — the search ladder
 

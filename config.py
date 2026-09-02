@@ -914,6 +914,14 @@ NOTEBOOK_ALWAYS_FILLS = ("away", "hotspots")
 NOTEBOOK_EMPTY_NOTE_KEYS = {"away": "away_note", "hotspots": "hotspots_note"}
 NOTEBOOK_LOOKBACK_DAYS = 14
 
+# The fourteen-day window is honest only if every line SAYS WHEN. From this
+# date an away or hotspots item must carry a day reference — a weekday, a
+# month and day, "yesterday", "last week", "on the 9th" — so a reader can
+# never mistake a week-old item for this morning's. The rule was already in
+# instructions/edition.md ("anything not from the last day or two says
+# when"); this is the validator holding the desk to it.
+NOTEBOOK_DATE_WORD_REQUIRED_FROM = "2026-09-03"
+
 HOTSPOT_MAX = len(HOTSPOTS)
 HOTSPOT_ITEM_TARGET_CHARS = 130
 HOTSPOT_ITEM_MAX_CHARS = 170
