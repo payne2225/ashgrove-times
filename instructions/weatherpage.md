@@ -25,15 +25,28 @@ halves:
 
 1. Both repos are checked out: `ashgrove-times` and `weatherman`. Find
    them; `git pull --rebase` in each.
-2. Today's **Eastern** date is the edition date. The briefing is
-   `weatherman/briefings/<date>.md`. Jim archives and pushes it shortly
-   after his 7:15 post, usually by about 7:45.
-3. **If today's file is not there yet:** wait two minutes, pull again, up
-   to about twenty minutes. If it never appears, STOP and say so —
-   **never publish an older briefing under today's date**, and never
-   improvise a forecast. A missing weather page costs nothing; Jim's post
-   is already in the channel.
-4. Render, from the ashgrove-times checkout:
+2. **Hold to 7:45 ET before you look**, from the ashgrove-times checkout:
+
+   ```
+   python hold_until.py 07:45
+   ```
+
+   It sleeps until 7:45 Eastern and returns; if that is already past it
+   returns at once and says so. Your cron is raw UTC (`10 12 * * *`): 8:10
+   ET in summer, but **7:10 ET from 2026-11-01** — five minutes before Jim
+   posts. Without the hold, the twenty-minute search below would give up
+   all winter before he had archived anything. The script does the
+   daylight-time arithmetic; do not try to time this yourself, and never
+   skip it because the file "is probably there".
+3. Today's **Eastern** date is the edition date (the script printed it).
+   The briefing is `weatherman/briefings/<date>.md`. Jim archives and
+   pushes it shortly after his 7:15 post, usually by about 7:45.
+4. **If today's file is not there yet:** `git pull --rebase` in weatherman
+   every two minutes, up to about twenty minutes. If it never appears,
+   STOP and say so — **never publish an older briefing under today's
+   date**, and never improvise a forecast. A missing weather page costs
+   nothing; Jim's post is already in the channel.
+5. Render, from the ashgrove-times checkout:
 
    ```
    python render_edition.py --weather ../weatherman/briefings/<date>.md \
@@ -45,6 +58,6 @@ halves:
    The renderer strips the frontmatter and **scrubs every Discord ping**;
    it refuses to render if any user id survives, because this site is
    public. If it refuses, report it — do not work around the guard.
-5. Commit and push **ashgrove-times only**. The push publishes the page
+6. Commit and push **ashgrove-times only**. The push publishes the page
    via Pages.
-6. Report: which date published, and nothing else needed.
+7. Report: which date published, and nothing else needed.

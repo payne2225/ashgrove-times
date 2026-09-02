@@ -4,6 +4,36 @@ Running changelog. Dated entries, newest first. Touched only when
 behavior changes, not every edition — the per-day record lives in
 `editions/index.json`, and degraded runs go in `docs/FAILURES.md`.
 
+## 2026-09-02 — the weather page holds to 7:45 ET; DST is settled
+
+Full-pass item 4. Five of six crons are raw UTC and slide an hour earlier
+in Eastern terms on 2026-11-01. For most that is harmless — the watchdog at
+8:00 instead of 9:00, the report card at 17:00, the papers waking at 4:30
+with their digest still held to 7:00 — but the weather-page cron
+(`10 12 * * *`) would land at **7:10 ET, five minutes before Jim posts**, and
+its twenty-minute search for his archived briefing would give up all winter
+before he had archived anything.
+
+- **`hold_until.py HH:MM`** sleeps until an Eastern wall-clock time using
+  the same DST rule as `config.now_et()`, with the same two guards as the
+  digest's `--not-before`: a target already past returns at once, a target
+  more than three hours off is called a misconfigured cron and not waited
+  for. `--fake-now <ISO UTC> --dry-run` prints what it would do from any
+  instant. The Eastern date is looked up from the EASTERN calendar, not the
+  UTC one, so the hour after UTC midnight on the changeover resolves right.
+- **`instructions/weatherpage.md`** step 2 is now the hold: `python
+  hold_until.py 07:45` before looking for the briefing, with the reason
+  written where the routine will read it at 7:10 in January.
+- **`tests/test_hold.py`** runs the arithmetic on both sides of 2026-11-01:
+  no hold on Oct. 31 (8:10 is past 7:45), a 35-minute hold on Nov. 1
+  (7:10 to 7:45), release at 7:45 ET whatever the UTC instant, and the
+  digest's own hold growing from 90 to 150 minutes as the wake slides.
+- **HANDOFF §2** now shows both sides of the clock for every routine and
+  marks which times are HELD; §3's "DST is handled for the briefing only"
+  paragraph and §9's open item are gone. The crons stay raw UTC on purpose:
+  moving six crons twice a year is a chore that gets forgotten, and a hold
+  that computes Eastern time from the date is not.
+
 ## 2026-09-02 — the full-embed Discord path is deleted
 
 Full-pass item 3. The paper stopped going to Discord as embeds on

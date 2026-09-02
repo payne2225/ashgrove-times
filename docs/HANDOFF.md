@@ -32,15 +32,23 @@ drives everything. The one carve-out is in section 5.
 
 ## 2. The morning
 
-| ET | What | Routine |
+| ET (EDT / from 2026-11-01 EST) | What | Routine |
 |---|---|---|
-| 5:30 | Wake, research and PUBLISH both papers | Times |
-| 7:00 | **The digest posts** — one message, what is in today's edition and a link to Home | Times |
-| 7:15 | **Jim Claudtore's briefing** posts | weatherman |
-| 9:00 | Watchdog — silent unless something failed | watchdog |
-| 8:10 | Weather page typeset onto the site | weather-page |
+| wakes 5:30 / 4:30 | Research and PUBLISH both papers | Times |
+| **7:00, held** | **The digest posts** — one message, what is in today's edition and a link to Home | Times |
+| **7:15, held** | **Jim Claudtore's briefing** posts | weatherman |
 | every :30 | Alert watcher — silent unless something NEW | weatherman |
-| Sun 18:00 | Weekly report card | weatherman |
+| wakes 8:10 / 7:10, **looks at 7:45, held** | Weather page typeset onto the site | weather-page |
+| 9:00 / 8:00 | Watchdog — silent unless something failed | watchdog |
+| Sun 18:00 / 17:00 | Weekly report card | weatherman |
+
+**"Held" means the Eastern time is fixed and survives the clock change**
+(2026-09-02): the digest by `post_discord.py --not-before 07:00`, Jim by his
+own `post_discord.py --at`, and the weather page by `hold_until.py 07:45`
+before it looks for the briefing. Everything else fires on a raw UTC cron
+and simply runs an hour earlier in Eastern terms all winter, which is fine
+for a watchdog and a Sunday report card and is only more head start for the
+papers. `tests/test_hold.py` checks the hold on both sides of 2026-11-01.
 
 Jim is deliberately **independent**: if the papers run late he still
 files at 7:15. He is the post people actually dress by. Do not couple
@@ -86,11 +94,13 @@ alerts CHANGES, so a quiet spell looks exactly like a dead routine. That is
 precisely what happened on 2026-08-30: the watchdog reported the watcher
 dead for three days while it was firing every half hour and succeeding.
 
-**DST is handled for the briefing only.** `post_discord.py --at` holds
-Jim to 7:15 ET, so his slot survives the time change. The other crons are
-still raw UTC and will each shift an hour on **2026-11-01** — the papers
-to 4:30 ET, the weather page to 7:10, the report card to 17:00. Either
-move them that week or give them the same hold.
+**DST is handled everywhere it matters** (2026-09-02). Every post the
+channel sees is held to an Eastern time — see the table in §2 — and the
+one routine whose UTC drift would have broken something, the weather page
+landing at 7:10 ET before Jim's 7:15 post, now holds to 7:45 ET before it
+looks. The crons themselves stay raw UTC on purpose: moving six crons twice
+a year is a chore that gets forgotten, and a hold that computes Eastern
+time from the date is not.
 
 ## 3.5 The channel gets a doorbell, not the paper (2026-08-25)
 
@@ -313,7 +323,6 @@ an outside source has it and can be cited. Ian reads the paper.
   now lives in `config.TOPSAIL_TEMP_*` and NOWHERE else** — the fetcher
   imports it and the validator gates on it, so the next retirement is five
   lines. **Confirm the line actually prints tomorrow morning.**
-- **DST on the four un-held crons** — due before 2026-11-01 (section 3).
 - **Report card commitments** from the backfilled Aug 09–15 card: model
   QPF over about two inches is a ceiling stated as a range, and the
   Huntington warm bias gets checked every morning rather than
