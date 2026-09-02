@@ -49,8 +49,10 @@ his schedule to theirs.
 ## 3. Live routines
 
 All in environment `env_01HRBGRSDmfX7Vur76oE8Lkh`, all on
-**`claude-fable-5`** (aligned 2026-08-23). Webhooks live only in task
-prompts and in gitignored `.env` files — never in a repo.
+**`claude-fable-5-1`** (moved from `claude-fable-5` on 2026-09-02, verified
+against the live configs; the model is the only field that changed).
+Webhooks live only in task prompts and in gitignored `.env` files — never
+in a repo.
 
 | Routine | ID | Cron (UTC) |
 |---|---|---|
