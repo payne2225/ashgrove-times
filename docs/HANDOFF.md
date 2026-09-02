@@ -94,6 +94,12 @@ alerts CHANGES, so a quiet spell looks exactly like a dead routine. That is
 precisely what happened on 2026-08-30: the watchdog reported the watcher
 dead for three days while it was firing every half hour and succeeding.
 
+**The watchdog checks six things** (2026-09-02): yesterday's briefing, the
+watcher heartbeat, Monday's scorecard, yesterday's two edition files,
+yesterday's `posted: true` in `editions/index.json` (an edition can be
+published in full and still never reach the channel), and yesterday's
+`site/weather/<date>.html`. All in `weatherman/instructions/watchdog.md`.
+
 **DST is handled everywhere it matters** (2026-09-02). Every post the
 channel sees is held to an Eastern time — see the table in §2 — and the
 one routine whose UTC drift would have broken something, the weather page

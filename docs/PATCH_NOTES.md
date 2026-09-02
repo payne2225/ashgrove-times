@@ -4,6 +4,25 @@ Running changelog. Dated entries, newest first. Touched only when
 behavior changes, not every edition — the per-day record lives in
 `editions/index.json`, and degraded runs go in `docs/FAILURES.md`.
 
+## 2026-09-02 — the watchdog watches the two things it was blind to
+
+Full-pass item 5, in `weatherman/instructions/watchdog.md` (the routine's
+prompt defers entirely to that file and was not touched). Two new checks:
+
+- **Yesterday's digest actually posted** — `editions/index.json`'s record
+  for yesterday has `posted: true`. The old check 4 saw the edition files
+  and called the papers fine; an edition can be written, validated,
+  rendered and pushed and still never reach the channel, because the digest
+  is the last step and a webhook failure leaves every file in place.
+- **Yesterday's weather page was typeset** — `site/weather/<yesterday>.html`
+  exists and is not empty. If the briefing check passes and this fails, it
+  is the weather-page routine that died, not Jim.
+
+Both are read-only, both name what is missing rather than a cause, and the
+weather-page check is dated from 2026-08-19 so the watchdog does not
+report an absence from before the routine existed. A second example
+failure line covers the new case.
+
 ## 2026-09-02 — the weather page holds to 7:45 ET; DST is settled
 
 Full-pass item 4. Five of six crons are raw UTC and slide an hour earlier
