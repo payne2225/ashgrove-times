@@ -1204,33 +1204,15 @@ You fix the **edition**, never the validator. Do not add `--no-urls` to
 make a liveness complaint go away; that flag exists for offline testing,
 not for silencing the gate.
 
-The validator also precomputes the Discord character budget. **If it
-reports the total over `EMBED_TARGET` (5600), tighten summaries now** —
-trim adjectives, cut a redundant clause, shorten a headline. It is far
-better for you to tighten prose than for the trimmer to silently drop the
-last brief of Science & Technology at post time.
-
-That total now includes the **permalink** — the "Read the full edition on
-the web" line `--page-url` appends to the last embed, 107 chars Discord
-counts exactly like copy. It appears in `section_chars` under its own
-`permalink` key with no allocation, because no amount of editing reaches
-it. Before 2026-08-24 the projection left it out and ran ~107 low against
-an `EMBED_HARD` of 5800, which is how the desk cut a written, sourced wire
-brief on 2026-08-22 to reach a projected 5783 and split anyway at a real
-5890. **The number the validator prints is now the number the poster will
-measure.** If it says you are under, you are under.
-
-The expanded WV notebook is now the usual source of budget pressure. **Cut
-in this order**, and stop as soon as you are under:
-
-1. the weakest `away` line
-2. the weakest `regional` line
-3. the third statewide WV brief, down to two
-4. long summaries anywhere, tightened toward the low end of the target
-
-Wire briefs are the last thing to go, and the lead is never cut. A notebook
-line you drop is a line that was marginal anyway; a brief you drop is news
-the paper decided to print.
+The validator also weighs each section and prints a **proportion
+advisory** when one runs far past its guide in `config.EMBED_BUDGET`, or
+when the whole edition runs past `EDITION_LONG_CHARS`. Since 2026-08-25
+these are not a ceiling — the paper goes to the website and Discord gets a
+one-message digest, so nothing truncates a long section and nothing is
+dropped at post time. Read the advisory as an editor would: a section twice
+the length of its neighbours is out of proportion with the page, and a
+genuinely big news day is allowed to run long. Tighten prose when it is
+padded, never to hit a number.
 
 A dead link is stripped automatically: the brief keeps its `source` name
 and loses its `url`. That is normal and never fails the edition. Note in
@@ -1355,24 +1337,17 @@ a memory.
 Never pass `--force` unless your task prompt explicitly says to. That flag
 is the only thing standing between a retry and a double paper.
 
-### The old full-embed path
+### There is no other path
 
-`post_discord.py` still knows how to post the whole paper as embeds, with
-the trim ladder and the FRONT PAGE / INSIDE split. **The routine does not
-use it and neither should you** — it is kept for a deliberate one-off, and
-running it by accident would put a 3,000-word paper in the channel that
-nobody asked for. If you find yourself reaching for it, that is a question
-for Nate, not a judgement call.
-
----
-
-## 9.5. Backfill the link — RETIRED 2026-08-26
-
-There is nothing to backfill any more. The digest links **Home**, which has
-existed since 2026-08-05 and is never rebuilt from an edition, so the post
-is never waiting on a Pages build and never publishes a 404. `--backfill-link`
-still works and still edits a permalink into an old-style post; the routine
-has no use for it.
+The digest is the only thing `post_discord.py` can send. The full-embed
+paper, its trim ladder, the FRONT PAGE / INSIDE split, text mode, the
+sportsman post and the link backfill were all deleted on 2026-09-02, a
+fortnight after the last of them ran — so there is nothing to reach for by
+accident, and `--digest` is accepted for the sake of the command above but
+is also what happens without it. There is nothing to backfill either: the
+digest links **Home**, which has existed since 2026-08-05 and is never
+rebuilt from an edition, so the post is never waiting on a Pages build and
+never publishes a 404.
 
 Step 8's short Pages wait stays, for a different reason: it is how you learn
 the build is green before you walk away, and the dated page is what
@@ -1486,9 +1461,11 @@ assets/masthead-fallback.png`. Log it.
 **Pages is down, slow, or disabled.** Post without the link. Log it.
 
 **The post fails.**
-- Non-zero exit with Discord `400` on the embeds: retry once as
-  `python post_discord.py --date YYYY-MM-DD --text`. Plain markdown, split
-  into chunks. Ugly, unmistakably still the paper, delivered.
+- Non-zero exit with Discord `400`: the script has already refused
+  anything over a Discord limit before sending, so a 400 means Discord
+  disagrees about the shape. Read the error it prints, fix what it names
+  (`--no-image` if it is the attachment), and retry ONCE. There is no text
+  mode any more; a digest is one embed and either sends or does not.
 - Rate limits and 5xx are handled inside the script (retry_after, backoff,
   a final attempt after ten minutes). Let it work. Do not launch a parallel
   post.

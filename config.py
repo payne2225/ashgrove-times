@@ -562,13 +562,6 @@ def section_by_id(sid: str) -> dict:
     )
 
 
-def trim_order() -> list[str]:
-    """Section ids in the order the trim path drops briefs (never-trim omitted)."""
-    trimmable = [s for s in SECTIONS if s["trim_priority"] > 0]
-    trimmable.sort(key=lambda s: -s["trim_priority"])
-    return [s["id"] for s in trimmable]
-
-
 # --------------------------------------------------------------- the regions
 
 # The West Virginia notebook is the local anchor of the paper, so it runs a
@@ -700,22 +693,18 @@ def away_regions() -> list[dict]:
 
 # ------------------------------------------------------------ discord budgets
 
-# Discord's real ceilings. EMBED_TOTAL_LIMIT is the SUM of title +
-# description + field.name + field.value + footer.text + author.name across
-# EVERY embed in one message; embed.url and image.url are not counted.
+# Discord's real ceilings — the ones post_discord.validate_payload refuses
+# to cross. EMBED_TOTAL_LIMIT is the SUM of title + description + field.name
+# + field.value + footer.text + author.name across EVERY embed in one
+# message; embed.url and image.url are not counted.
+#
+# The only message this paper sends any more is the one-embed digest, which
+# runs about a thousand characters. EMBED_TARGET (5600), EMBED_HARD (5800),
+# PREFER_SPLIT_OVER_TRIM and CHUNK_LIMIT were the full-embed delivery
+# model's knobs — the trim ladder, the FRONT PAGE / INSIDE split, text mode
+# — and went with it on 2026-09-02. Section PROPORTION is EDITION_* below.
 EMBED_TOTAL_LIMIT = 6000
-EMBED_TARGET = 5600   # aim here
-EMBED_HARD = 5800     # trim above here, leaving headroom for Discord's count
-
-# What to do when a full day will not fit ONE message. Trimming costs news;
-# splitting costs a second post. Measured on the 2026-08-05 edition: trimming
-# to fit dropped 7 of 9 notebook lines and 3 briefs, while splitting kept
-# everything (front page ~3,400 chars, inside ~5,300, both under the ceiling).
-# The West Virginia notebook is what these readers showed up for, so the
-# scissors are the wrong default. Set False to prefer one trimmed message.
-PREFER_SPLIT_OVER_TRIM = True
 CONTENT_LIMIT = 2000  # top-level content, hard-capped regardless of Nitro
-CHUNK_LIMIT = 1900    # text-mode split size, leaves room for a chunk marker
 EMBED_TITLE_LIMIT = 256
 EMBED_DESC_LIMIT = 4096
 EMBED_FIELD_VALUE_LIMIT = 1024
@@ -772,7 +761,8 @@ SUMMARY_WARN_CHARS = 210
 # validate_edition.irreducible_chars(): even trimmed to one brief a section,
 # with the fattest legal notebook still intact, the message must fit.
 #
-# validate_edition.py reports any section over its line. Sum == EMBED_TARGET.
+# validate_edition.py reports any section over its line. The sum is
+# EDITION_TARGET_CHARS below.
 # Re-derived 2026-08-15 when Sports moved to its own paper: the freed 750
 # went to the three wire sections, which now target FOUR briefs each
 # (4 x ~245 = ~980). Same 5,600 total against the 5,800 the trimmer watches.
@@ -1502,12 +1492,6 @@ PAGES_BASE_URL = "https://payne2225.github.io/ashgrove-times"
 # paper costs more than a late link.
 PAGES_WAIT_SECONDS = 120
 
-# How long to keep waiting AFTER posting, to patch the permalink in.
-# Measured builds: 23s one evening, 8m38s the next morning — the Actions
-# queue does not care about our deadline, so this window is generous. The
-# paper is already out; nobody is waiting on this.
-PAGES_BACKFILL_WAIT_SECONDS = 900
-
 
 def home_url() -> str:
     """The page the daily Discord post links, and the nav's Home button.
@@ -1603,11 +1587,11 @@ def use_utf8_stdio() -> None:
 # report was making Jim Claudtore's briefing too long. Both problems have
 # the same answer — give sport and the outdoors their own paper.
 #
-# It reuses this module, the renderer, the poster and the ledger discipline
-# wholesale. What it does NOT share is the channel or the webhook.
+# It reuses this module, the renderer and the validator wholesale. It has
+# not posted to Discord since 2026-08-26 — Home and the nav buttons reach
+# it, and the Times digest carries its tease — so it has no webhook.
 SPORTSMAN_MASTHEAD = "SPORTS & SPORTSMAN"
 SPORTSMAN_TAGLINE = "The Ashgrove Times"
-SPORTSMAN_WEBHOOK_ENV = "DISCORD_SPORTSMAN_WEBHOOK_URL"
 
 SPORTSMAN_SECTIONS = [
     {"id": "teams", "label": "Our Teams", "emoji": "\U0001F3DF",

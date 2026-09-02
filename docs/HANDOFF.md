@@ -110,7 +110,12 @@ just have one post that links to the index page."*
 two; a sourced wire brief was cut for budget on 2026-08-22; the West
 Virginia notebook was capped at six lines because that is what the embed
 paid for. `EMBED_BUDGET` still exists but it is now an editorial guide to
-PROPORTION, and nothing truncates a long section any more.
+PROPORTION, and nothing truncates a long section any more. **The code that
+posted the whole paper is gone** (2026-09-02): the trim ladder, the split,
+text mode, the sportsman post and the link backfill were deleted from
+`post_discord.py`, which now sends the digest and nothing else.
+`build_payload()` survives only because the validator weighs sections off
+it for that proportion advisory; its docstring says so.
 
 **The digest links Home, not the dated edition** — Home reaches all three
 papers, a permalink reaches a third of one. There is nothing to backfill.

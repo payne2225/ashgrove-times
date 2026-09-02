@@ -60,18 +60,14 @@ back page.
 | `kicker` | one sentence, ≤ 160 chars, or `null` | 200 |
 | `stat_strip[].label` | "S&P 500", "Nasdaq", "Bitcoin" | 16 |
 
-These numbers are measured off a real payload, not estimated. A brief costs
-its headline **plus its summary plus its whole URL**: `[Reuters](https://
-www.reuters.com/world/)` is 40 characters that never appear on screen. At
-the targets above a brief lands near 245, so since Sports moved to its own
-paper (2026-08-16) the shape is: lead (~900) + **three wire sections at
-FOUR briefs each** (~980 apiece) + the notebook (~1,500) + the closing
-footer (~200) — roughly 5,540 against the 5,800 the trimmer watches, with
-the 6,000 hard ceiling still clear.
-
-Run long and the trimmer starts dropping the last brief of Science &
-Technology, or the away desk, at post time, and nobody ever knows it
-happened but the failure log. **Write to the target, not to the cap.**
+These numbers were measured off a real payload when the paper still went
+to Discord as embeds, and they survive as a guide to PROPORTION: a brief
+lands near 245 characters, a wire section near 980, the notebook near
+1,500. Since 2026-08-25 nothing trims, splits or truncates a section —
+the paper is read on the website and the channel gets a one-message digest
+— so these are targets for a page that reads evenly, not a cap. **Write to
+the target because a paper looks better that way**, and let a big news day
+run long.
 
 ### The notebook's share
 

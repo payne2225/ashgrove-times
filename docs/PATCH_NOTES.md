@@ -4,6 +4,57 @@ Running changelog. Dated entries, newest first. Touched only when
 behavior changes, not every edition — the per-day record lives in
 `editions/index.json`, and degraded runs go in `docs/FAILURES.md`.
 
+## 2026-09-02 — the full-embed Discord path is deleted
+
+Full-pass item 3. The paper stopped going to Discord as embeds on
+2026-08-25 and Sports & Sportsman stopped posting at all on 08-26, but
+`post_discord.py` still carried the whole delivery model — 2,336 lines,
+thirteen functions and five flags for a message nobody sends — and the
+instructions still pointed at it "for a one-off". Dead code with a signpost
+is a trap for a 5:30 reader. It is gone.
+
+- **Deleted from `post_discord.py`:** `build_within_budget`,
+  `split_payloads`, `render_text_edition`, `_text_notebook_blocks`,
+  `split_message`, `_post_text_edition`, `backfill_page_url`,
+  `_run_backfill`, `page_is_live`, `build_sportsman_payload`,
+  `_sm_masthead_line`, `_tide_block`, `_inside_line`, `tail_link_text`,
+  `_tail_link`, `trim_order`, `_strip_people`; the `--split`, `--text`,
+  `--backfill-link`, `--backfill-wait`, `--sportsman` and `--page-url`
+  flags; `NEVER_TRIM`, `FALLBACK_TRIM_ORDER`, `FRONT_PAGE_SECTIONS`,
+  `WV_EXTRA_TRIM_ORDER`, `WV_EXTRA_FLOOR`, `WV_FIELD_KEEP_ORDER`,
+  `SPORTSMAN_COLOR`. `main()` is rewritten as digest-only (1,411 lines now,
+  from 2,336). `--digest` is still accepted so the routine's command line is
+  unchanged, and is also what happens without it.
+- **Kept, and said so:** `build_payload()` — the six-embed builder — because
+  `validate_edition._exact_measure()` weighs sections off it, masked source
+  links included, for the proportion advisory. Its docstring names its one
+  caller. `build_digest_payload`, `send_message`, `write_payload_file`,
+  `clamp_payload`, `validate_payload` and the ledger code stay.
+- **Config:** `EMBED_TARGET`, `EMBED_HARD`, `PREFER_SPLIT_OVER_TRIM`,
+  `CHUNK_LIMIT`, `config.trim_order()`, `PAGES_BACKFILL_WAIT_SECONDS` and
+  `SPORTSMAN_WEBHOOK_ENV` removed. `EMBED_TOTAL_LIMIT` (Discord's real 6,000)
+  and the `EDITION_*` proportion guides remain. `DISCORD_SPORTSMAN_WEBHOOK_URL`
+  is out of `.env.example`.
+- **Validator:** `_exact_measure` no longer adds the permalink tail (a
+  delivery artifact, never copy). Today's edition therefore measures 107
+  chars lighter — 10,956 against 11,063 — which happens to bring it under
+  the 11,050 long-paper line; the section advisories are unchanged. The
+  sportsman gate's "embeds measure N chars" note is gone with the embed it
+  measured. `_water_state` moved into `render_edition.py`, its only caller.
+- **Docs:** `edition.md` §5 budget paragraphs and §9/§9.5, `sportsman.md`
+  §5, `routine.md`'s second-paper webhook paragraph, `style.md`'s budget
+  paragraph, the README's channel description, pieces table, dry-run flags,
+  delivery ladder (now ten rungs) and routine paragraph.
+- **Tests:** `tests/test_post_cli.py` runs the rewritten `main()` on a
+  fixture with `--dry-run --no-image`, checks it is one digest linking Home,
+  that `--digest` is optional, that the dry run leaves the ledger alone,
+  and that all five retired flags are refused.
+- **Verified:** `post_discord.py --date 2026-09-02 --digest --dry-run`
+  prints a byte-identical payload before and after. Its stderr loses one
+  line — "no verified page url; posting without links" — which was the
+  retired `--page-url` machinery talking about a link the digest never
+  used. 96 tests green; the whole archive still validates offline.
+
 ## 2026-09-02 — the archive is safe to re-render
 
 Full-pass item 2. The sports page's tide table was the one live read on any

@@ -97,7 +97,8 @@ a paper an hour late.
 Home, which serves whatever GitHub Pages has built — so posting before sport
 is rendered and pushed advertises a paper that is not there yet.
 
-`DISCORD_SPORTSMAN_WEBHOOK_URL` is no longer used by this routine.
+There is no sportsman webhook and `post_discord.py` has no `--sportsman`
+flag; the digest is the only thing it can send.
 
 **Never stall the paper waiting on a webpage.** The Pages build took 23
 seconds one evening and **8m38s** the next morning — the Actions queue does
@@ -132,11 +133,11 @@ a reader arriving early and seeing yesterday's.
 Leagues, In Season, On the Water. Read it the same way you read
 `edition.md`, and build that edition during the same head start.
 
-**Its webhook is a DIFFERENT variable and a different channel:**
-`DISCORD_SPORTSMAN_WEBHOOK_URL`. Never post one paper with the other's
-webhook. If that variable is not in your prompt, the section is not live
-yet — build the edition, commit it, and say so in your report rather than
-guessing at a destination.
+**It has no webhook and does not post.** It is written, validated, rendered,
+committed and pushed; the website is where it is read, and the digest's one
+tease line is how it is announced. If a task prompt ever hands you a
+sportsman webhook, that prompt is stale — do not use it, and say so in your
+report.
 
 ## Finish
 

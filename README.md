@@ -39,25 +39,25 @@ edition — see [Still open](#still-open).
 
 ## What actually lands in the channel
 
-One message. Three surfaces at once:
+One message — the **digest** — since 2026-08-25. The paper itself is read
+on the website; Discord is the doorbell.
 
-1. a top-level `content` masthead line (and the permalink, when the web
-   tier is on), closing with the **weather ear** — one short line telling
-   the channel the forecast lands at 7:15,
-2. **five embeds** — LEAD, U.S., World, West Virginia, Science &
-   Technology — which are the readable paper and are always complete. The
-   West Virginia embed carries the notebook: statewide briefs, then the
-   regional roundup, the away desk, and the fishing lines as fields,
+1. a top-level `content` masthead line with the folio and a plain link to
+   Home,
+2. **one embed** — the lead headline and dek, an "Inside today" contents
+   list with each section's top headline in page reading order, a Sports &
+   Sportsman tease, and the link again, with the kicker, colophon and
+   **weather ear** (the pointer to the 7:15 forecast) in its footer,
 3. one attached **1200x630 hero card PNG** (parchment, masthead, rules,
    lead headline, drop cap, byline, stat strip) rendered in-sandbox by
    Pillow from vendored fonts.
 
-The embeds are primary; the PNG is identity. The hero is *strictly
-additive* — drop the `attachments` array and the lead embed's `image`
-block and you get a byte-identical JSON POST that is still a complete
-newspaper. That property is the backbone of the whole fallback ladder.
-
-Nothing arrives as a second message. Nothing arrives late.
+The hero is *strictly additive* — drop the `attachments` array and the
+embed's `image` block and you get the same message without the picture.
+Nothing in a digest can approach Discord's 6,000-character ceiling, so the
+old trim ladder, FRONT PAGE / INSIDE split and text mode were deleted on
+2026-09-02. Sports & Sportsman does not post at all; Home and the nav
+buttons reach it.
 
 ## Pieces
 
@@ -69,7 +69,7 @@ Nothing arrives as a second message. Nothing arrives late.
 | `validate_edition.py` | The hard gate — schema, section order, standing sections, stat-strip truth check, WV notebook shape, placeholder detection, Discord budgets, URL liveness |
 | `tests/` | Offline pytest suite over the validator and the digest: result direction, Topsail attribution, standings agreement, the notebook's date-scoped rules, and one committed edition per contract date in `tests/fixtures/` with its own stats/fishing file. CI runs it before every deploy |
 | `render_edition.py` | `render_html()` -> `site/editions/YYYY-MM-DD.html`; `render_hero_png()` -> `out/ashgrove-YYYY-MM-DD.png` (Pillow, fully offline) |
-| `post_discord.py` | Payload build, pre-send refusal gate, deterministic trim, split, text mode, multipart POST, ledger append |
+| `post_discord.py` | The one-message digest: payload build, pre-send refusal gate, `--not-before` ET hold, multipart POST with retries, idempotent ledger append. `build_payload()` survives only so the validator can weigh sections |
 | `templates/broadsheet.html` | The one place visual language lives. Token substitution, no template engine. Matches `docs/IAN-TEMPLATE.html`, including the `.wv-box` treatment |
 | `assets/fonts/` | Vendored OFL TTFs (static instances) — what makes the hero render work with no network |
 | `assets/masthead-fallback.png` | Static banner attached when the hero render fails |
@@ -275,8 +275,8 @@ pytest -q
 ```
 
 Useful flags: `--no-urls` (skip liveness checks when offline),
-`--no-image` (prove the JSON-only path), `--text` (prove the markdown
-fallback), `--force` (override the already-posted gate).
+`--no-image` (prove the JSON-only path), `--force` (override the
+already-posted gate).
 
 ### Exit codes
 
@@ -384,22 +384,22 @@ and keeps the paper:
 
 | # | When | What still ships |
 |---|---|---|
-| 1 | Everything green | Masthead line + 6 embeds + hero PNG + permalink |
+| 1 | Everything green | Masthead line + the digest embed + hero PNG + Home link |
 | 2 | Hero render failed | Same message, `assets/masthead-fallback.png` instead |
 | 3 | No image at all | Byte-identical JSON POST, no picture. Invisible to everyone but the log |
-| 4 | Pages down or disabled | All content, no links |
-| 5 | Over 5800 chars | Trim last brief: scitech, world, us, sports, round-robin. Lead never trimmed |
-| 6 | Still over | Split: FRONT PAGE (lead + US + World), INSIDE (WV + Sports + SciTech), 1s apart |
-| 7 | Discord 400s the embeds | `--text` mode: plain markdown, chunked at 1900 |
-| 8 | 429 / 5xx | Honor `retry_after`; 3 backoff attempts, then one more after 10 min |
-| 9 | `requests` unimportable | Hand-built multipart over stdlib `urllib.request` |
-| 10 | Webhook dead / routine never fired | JSON + HTML are already committed; Nate posts from his PC |
-| 11 | A section has no news | 2 briefs, or one honest roundup. WV and Sports always appear |
-| 12 | All stat sources down | `stat_strip: []` and both renderers omit the band. Never a placeholder number |
-| 13 | Lead cannot be sourced at all | **Nothing ships.** Write `docs/FAILURES.md` and abort |
+| 4 | Pages disabled | The digest without its link (Home itself is static and never waits on a build) |
+| 5 | 429 / 5xx | Honor `retry_after`; 3 backoff attempts, then one more after 10 min |
+| 6 | `requests` unimportable | Hand-built multipart over stdlib `urllib.request` |
+| 7 | Webhook dead / routine never fired | JSON + HTML are already committed and published; Nate posts the digest from his PC |
+| 8 | A section has no news | 2 briefs, or one honest roundup. Standing sections always appear |
+| 9 | All stat sources down | `stat_strip: []` and both renderers omit the band. Never a placeholder number |
+| 10 | Lead cannot be sourced at all | **Nothing ships.** Write `docs/FAILURES.md` and abort |
 
-Rung 13 is the only place the pipeline is allowed to publish nothing. A
-missing paper is recoverable; a fabricated front page is not.
+Rung 10 is the only place the pipeline is allowed to publish nothing. A
+missing paper is recoverable; a fabricated front page is not. The rungs
+that used to sit between 4 and 5 — trim, split, text mode — were the
+full-embed paper's, and went with it on 2026-09-02: a digest cannot be
+over-long.
 
 The same rule runs one level down inside the WV notebook: `regional`,
 `away`, and `fishing` are optional arrays, and a region with no news gets
@@ -409,11 +409,11 @@ is in `out/fishing.json` under `errors`.
 
 ## The routine
 
-Cloud Claude Code, **Opus**, daily at **7:00 AM ET** — 15 minutes ahead of
-Jim Claudtore's 7:15 slot, which the paper points at with the
-weather ear instead of pretending it does not exist. Cron is UTC-fixed
-(`0 11 * * *`), so it drifts to 6:00 AM ET when standard time returns in
-November.
+Cloud Claude Code, **Fable 5.1**, wakes at **5:30 AM ET** (cron `30 9 * * *`
+UTC), researches and publishes both papers, and holds the digest to
+**7:00 AM ET** with `--not-before` — 15 minutes ahead of Jim Claudtore's
+7:15 slot, which the paper points at with the weather ear instead of
+pretending it does not exist. `docs/HANDOFF.md` §2–3 is the live schedule.
 
 The routine follows `instructions/edition.md` verbatim: pull, read the
 ledger, hit the idempotency gate, research section by section, fetch stats
@@ -430,9 +430,9 @@ Two research rules it does not get to reinterpret:
   are happening. Off-months, a one-line note is the honest version of "no
   sumo news," and manufacturing a headline to fill the slot is the failure
   mode, not the fix.
-- **Three briefs per section.** Ian confirmed it. That is the number that
-  takes the clean single-message win instead of forcing a two-message
-  split.
+- **Three to four briefs per section.** Ian confirmed three; the fourth
+  arrived when Sports moved to its own paper and the channel stopped being
+  the ceiling.
 
 Its only creative output is the edition JSON. Everything else is code.
 

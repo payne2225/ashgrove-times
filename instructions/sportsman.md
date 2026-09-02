@@ -453,48 +453,25 @@ python validate_edition.py editions/sportsman/YYYY-MM-DD.json --sportsman \
     --fishing out/fishing.json
 python render_edition.py --sportsman --date YYYY-MM-DD   # also freezes editions/data/YYYY-MM-DD.fishing.json
 git add -A && git commit && git push          # publishes site/sportsman/, commits the snapshot
-DISCORD_SPORTSMAN_WEBHOOK_URL="<from your prompt>" python post_discord.py \
-    --sportsman --date YYYY-MM-DD --not-before 07:05 \
-    --page-url https://payne2225.github.io/ashgrove-times/sportsman/YYYY-MM-DD.html
-DISCORD_SPORTSMAN_WEBHOOK_URL="<from your prompt>" python post_discord.py \
-    --sportsman --date YYYY-MM-DD --backfill-link   # only if the link was omitted
 ```
 
 Validate against the SAME `out/fishing.json` the edition was written from —
 the water check byte-matches gauge numbers, and the gauges drift, so a
 re-fetch between writing and validating fails honest lines.
 
-Same link rule as the Times: check the page URL returns 200 before passing
-`--page-url`; if Pages has not built yet, post without it and run
-`--backfill-link`, which waits out the build and edits the link in. Never
-stall the post waiting on a webpage.
+**This paper does not post to Discord** (Nate, 2026-08-26). Write it,
+validate it, render it, commit it, push it — and stop there. It is reached
+from Home and from the nav buttons on every page of the site, and it gets a
+tease line inside the Times' one daily digest post, which reads its top
+headline straight out of `editions/sportsman/YYYY-MM-DD.json`. There is no
+sportsman webhook, no `--sportsman` flag on `post_discord.py`, and no hold
+time: the code that posted this paper was deleted on 2026-09-02. Push
+before the digest goes out at 7:00 so the link it advertises is real.
 
-> ### This paper no longer posts to Discord (2026-08-26)
->
-> Nate retired the #sports-and-sportsman post. **Write it, validate it,
-> render it, commit it, push it — and stop there.** It is reached from Home
-> and from the nav buttons on every page of the site, and it gets a tease
-> line inside the Times' one daily digest post, which reads its top headline
-> straight out of `editions/sportsman/YYYY-MM-DD.json`.
->
-> So the two posting commands above are **retired**, and
-> `DISCORD_SPORTSMAN_WEBHOOK_URL` is no longer used by the routine. Nothing
-> else about this paper changes: same contract, same validator, same hard
-> gate, same standards. A paper nobody is pinged about is still a paper, and
-> the one thing that would make this change a mistake is if the sports desk
-> quietly got lazier because the notification went away.
->
-> **`--not-before 07:05` is gone with it.** There is no delivery to
-> sequence; render it whenever it is ready, and push before the digest goes
-> out at 7:00 so the link it advertises is real.
-
-This paper's record of what shipped is **`out/YYYY-MM-DD.sportsman.payload.json`**
-— its own file since 2026-08-24. The Times keeps `out/YYYY-MM-DD.payload.json`,
-and before the split the sportsman run overwrote it every morning both papers
-ran.
-
-`--not-before 07:30` puts it half an hour behind the paper and fifteen
-minutes behind Jim Claudtore, so the morning reads paper, weather, sport.
+Nothing else about this paper changed with the post: same contract, same
+validator, same hard gate, same standards. A paper nobody is pinged about
+is still a paper, and the one thing that would make the change a mistake is
+if the sports desk quietly got lazier because the notification went away.
 
 ---
 

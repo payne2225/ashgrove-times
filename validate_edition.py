@@ -377,33 +377,18 @@ def _iter_strings(node: object, path: str = ""):
 # difference between "tighten a summary now" and "the trimmer quietly deletes
 # the West Virginia notebook at post time".
 #
-# The measurement also passes the PERMALINK, for the same reason it passes
-# masked source links: `post_discord --page-url` appends "Read the full
-# edition on the web" to the last embed's description, and those 107 chars
-# are counted by Discord exactly like copy. Measuring without it made every
-# projection ~107 low against an EMBED_HARD of 5,800 — on 2026-08-22 the desk
-# cut a written, sourced wire brief to reach a projected 5,783, and the paper
-# split anyway at a real 5,890. The cut bought nothing. Four splits in eleven
-# editions were read the same way.
+# Since 2026-08-26 nothing here is a delivery ceiling: the paper reaches
+# Discord as a one-embed digest and a link, so these sizes are the
+# PROPORTION guide _budget_advisory() reads, nothing more. The measurement
+# still goes through post_discord.build_payload — kept for exactly this
+# purpose after the full-embed path was retired on 2026-09-02 — because the
+# masked source links are the difference between the approximation and the
+# real weight of a section, and the proportion advice is only worth giving
+# if it is measured the same way every day. The permalink tail that used to
+# ride the last embed went with the old path and is no longer counted.
 #
 # The approximation survives as a fallback for the shape-only case (a bare
 # checkout without post_discord, or an edition too malformed to build).
-
-
-def _measured_page_url(edition: dict, sportsman: bool = False) -> str | None:
-    """The permalink the routine will actually pass, or None if Pages is off.
-
-    Not a guess: `instructions/routine.md` posts both papers with the dated
-    url config builds here, so measuring with it measures what ships. When
-    PAGES_ENABLED is False nothing links and there is no cost to count.
-    """
-    if not getattr(config, "PAGES_ENABLED", False):
-        return None
-    date = edition.get("edition_date") if isinstance(edition, dict) else None
-    if not _is_str(date):
-        return None
-    return (config.sportsman_page_url(date) if sportsman
-            else config.page_url(date))
 
 
 def _exact_measure(edition: dict) -> dict | None:
@@ -419,24 +404,12 @@ def _exact_measure(edition: dict) -> dict | None:
         return None
     try:
         working = copy.deepcopy(edition)
-        page_url = _measured_page_url(working)
-        embeds = post_discord.build_payload(working, None, page_url).get("embeds") or []
+        embeds = post_discord.build_payload(working).get("embeds") or []
         present = post_discord._present_sections(working)
     except Exception:  # a malformed edition is the shape checks' problem
         return None
     if not embeds:
         return None
-
-    # The permalink line rides the LAST embed's description, so a naive
-    # per-embed tally bills it to whichever section happens to run last and
-    # reports that section over its allocation for a cost it did not incur.
-    # It gets its own key instead. Not 'chrome' either: chrome's 200 is the
-    # closing footer, which the desk can shorten, and this line is a fixed
-    # cost no editing can reach. It has no allocation in config.EMBED_BUDGET
-    # deliberately — it is paid out of the 200 of headroom EMBED_HARD already
-    # leaves above EMBED_TARGET, so it counts in the TOTAL and is never a
-    # section anyone can be told to tighten.
-    tail = len(post_discord.tail_link_text(page_url))
 
     sizes: dict[str, int] = {}
     chrome = 0
@@ -447,12 +420,8 @@ def _exact_measure(edition: dict) -> dict | None:
             present[i - 1] if i - 1 < len(present) else f"embed{i}"
         )
         body = post_discord.embed_text_length([embed]) - footer
-        if tail and i == len(embeds) - 1:
-            body -= tail
         sizes[key] = sizes.get(key, 0) + body
     sizes["chrome"] = chrome
-    if tail:
-        sizes["permalink"] = tail
     return {"sizes": sizes, "total": post_discord.embed_text_length(embeds)}
 
 
@@ -3266,23 +3235,10 @@ def validate_sportsman(edition: dict, fishing: dict | None) -> tuple[list[str], 
                     "countdown to the next basho is the floor when the search "
                     "comes back empty")
 
-    # Exact size, measured off the real payload builder — never estimated,
-    # and measured WITH the permalink the routine passes: those ~108 chars
-    # ride the last embed's description and Discord counts them like copy.
-    try:
-        import post_discord
-        sm_url = _measured_page_url(edition, sportsman=True)
-        payload = post_discord.build_sportsman_payload(
-            copy.deepcopy(edition), sm_url)
-        chars = post_discord.embed_text_length(payload["embeds"])
-        if chars > 6000:
-            errors.append(f"embeds measure {chars} chars — over Discord's "
-                          "6000 ceiling")
-        elif chars > 5600:
-            notes.append(f"embeds measure {chars} chars — close to the 6000 "
-                         "ceiling")
-    except Exception as exc:  # noqa: BLE001 — measurement, not delivery
-        notes.append(f"could not measure the payload ({exc}); size unchecked")
+    # There is no Discord size check for this paper any more: it has not
+    # posted to the channel since 2026-08-26, and its embed builder was
+    # retired on 2026-09-02. The page has no ceiling and the paper is as long
+    # as the water and the standings make it.
 
     return errors, notes
 

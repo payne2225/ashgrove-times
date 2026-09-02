@@ -1539,6 +1539,23 @@ def _sm_seasons_html(blocks: dict[str, str], section: dict) -> str:
     return "".join(groups)
 
 
+def _water_state(name: str) -> str:
+    """Which state a water line belongs to, via config.SPORTSMAN_WATERS.
+
+    Word overlap rather than exact match: the edition says "Ohio River at
+    Point Pleasant" while config lists "Ohio River". Unknown waters return
+    "" and are shown ungrouped rather than guessed into a state. Lived in
+    post_discord.py until the sports embed builder was retired (2026-09-02);
+    the page was its only remaining caller.
+    """
+    words = set(re.findall(r"[a-z]+", (name or "").lower()))
+    for water in config.SPORTSMAN_WATERS:
+        config_words = set(re.findall(r"[a-z]+", water["name"].lower()))
+        if config_words & words - {"river", "at", "the", "sound", "beach"}:
+            return water.get("state", "")
+    return ""
+
+
 def render_sportsman_html(edition: dict) -> str:
     """The Sports & Sportsman page, from the same template and tokens.
 
@@ -1602,7 +1619,6 @@ def render_sportsman_html(edition: dict) -> str:
 
     water = by_id.get("water")
     if water:
-        import post_discord as _pd
         grouped: dict[str, list[str]] = {}
         for entry in (water.get("waters") or []):
             if not isinstance(entry, dict):
@@ -1618,7 +1634,7 @@ def render_sportsman_html(edition: dict) -> str:
                     seen.add(bit)
             if not (name and body):
                 continue
-            grouped.setdefault(_pd._water_state(name), []).append(
+            grouped.setdefault(_water_state(name), []).append(
                 _sm_roundup_item(blocks, name, " ".join(body), entry))
         # The tide table belongs WITH the water it is about (Nate,
         # 2026-08-30). It used to head the whole section, which put "Topsail

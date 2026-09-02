@@ -1,57 +1,49 @@
-"""Deliver one Ashgrove Times edition to Discord as a single webhook message.
+"""Post the one morning message — the digest — for an Ashgrove Times edition.
 
 `editions/YYYY-MM-DD.json` is the ONLY input. The payload is built here and
 never hand-authored, so the daily routine's one creative act is writing the
 edition file — everything in this module is deterministic and re-runnable with
 no model in the loop.
 
-The morning post carries three surfaces at once, sent as multipart/form-data
-to `{webhook}?wait=true` (form shape per Discord's "Uploading Files" reference:
-a `payload_json` part plus `files[n]` parts, wired to the payload's
-`attachments` array by matching `id` to `n`):
+Since 2026-08-25 the channel gets a doorbell, not the paper (Nate: "let's
+just have one post that links to the index page"). The message is ONE embed
+— the lead headline and dek, a contents list of the sections with their top
+headlines, a Sports & Sportsman tease, and a link to Home — sent as
+multipart/form-data to `{webhook}?wait=true` with the hero card as files[0].
+Nothing in it can approach Discord's 6,000-character ceiling, so there is no
+trim ladder, no split and no text mode: the thirteen functions that served
+the full-embed paper were deleted on 2026-09-02, a fortnight after the last
+one ran, because dead code with a signpost is a trap for a 5:30 reader.
 
-    content  — the masthead line, plus the Pages permalink when it is live
-    embeds   — LEAD + the five standing sections; the actual readable paper
-    files[0] — the 1200x630 hero card, referenced by the lead embed as
-               attachment://ashgrove-YYYY-MM-DD.png
+    python post_discord.py --date 2026-09-02 --digest --dry-run
+    python post_discord.py --date 2026-09-02 --digest \
+        --attach out/ashgrove-2026-09-02.png --not-before 07:00
 
-West Virginia is not a wire section. Its embed is the Mountaineer State
-Notebook and carries four parts: statewide briefs in the description, then
-Regional Roundup / Away Desk / Fishing Report as embed fields, in that order.
-The weather ear — the pointer to Claude the Weatherman's 7:15 forecast — is the
-last thing in the message, in the final embed's footer.
-
-The image tier is strictly ADDITIVE: drop `attachments` and the lead embed's
-`image` block and the remaining JSON is a complete, readable paper. That
-property is what makes every rung below still ship an edition.
-
-    python post_discord.py --date 2026-08-04 --dry-run
-    python post_discord.py --date 2026-08-04 --attach out/ashgrove-2026-08-04.png
+What survives of the old path is build_payload(), the six-embed builder,
+because validate_edition._exact_measure() weighs each section off it — with
+the masked source links — to give the desk its proportion advisory. It is
+never sent. Its docstring says so.
 
 FALLBACKS, in the order they fire: hero missing -> assets/masthead-fallback.png
--> no image at all (plain application/json POST of the same JSON) -> no Pages
-link -> drop the notebook's roster names -> drop notebook lines to the floor
-(away, then regional, then fishing) -> trim trailing briefs -> surrender the
-notebook floor -> split into FRONT PAGE / INSIDE -> plain-text edition ->
-429/5xx retries. Only a dead webhook (401/403/404) or an unreadable edition
-file stops delivery outright.
+-> no image at all (plain application/json POST of the same JSON) -> no Home
+link -> 429/5xx retries. Only a dead webhook (401/403/404) or an unreadable
+edition file stops delivery outright.
 
 An edition already recorded `posted` in `editions/index.json` is skipped, so a
 routine retry can never double-post; `--force` overrides. The ledger row is
-rewritten after EVERY successful send, not once at the end, so a run that dies
-on message 2 of 3 leaves `messages_sent` behind and the next run resumes at
-message 3 instead of putting the front page in the channel twice.
+written after the send, and `--not-before HH:MM` holds delivery to an
+Eastern wall-clock time so the routine can wake early and still post at
+seven.
 
 Nothing this module prints, appends to docs/FAILURES.md or writes to the ledger
 can carry the webhook token: the webhook URL *is* the credential and `requests`
 puts it inside its transport exceptions, so every such string goes through
-_scrub() first. The repo may be public.
+_scrub() first. The repo IS public.
 """
 
 from __future__ import annotations
 
 import argparse
-import copy
 import datetime as dt
 import json
 import os
@@ -82,35 +74,13 @@ EMBED_COUNT_LIMIT = 10
 ATTACHMENT_COUNT_LIMIT = 10
 ATTACHMENT_DESC_LIMIT = 1024
 
-MIN_BRIEFS_PER_SECTION = 1
-# Sports & Sportsman gets its own ink so the two papers are
-# distinguishable at a glance in a busy server.
-SPORTSMAN_COLOR = int("3E3221", 16)
-NEVER_TRIM = ("wv",)
-FALLBACK_TRIM_ORDER = ("scitech", "world", "us")
-FRONT_PAGE_SECTIONS = ("us", "world")
-
-# The West Virginia notebook. `briefs` is statewide and behaves like every
-# other section; these three are the local anchor Ian asked for and are the
-# only arrays in the whole edition that may legally be empty. The order is
-# fixed here; the visible subheads come from config so the broadsheet, the
-# hero card and this embed all print the same words.
+# The West Virginia notebook, as build_payload() measures it. `briefs` is
+# statewide and behaves like every other section; the sub-blocks are the
+# local anchor Ian asked for and are the only arrays in the whole edition
+# that may legally be empty. The order is fixed here; the visible subheads
+# come from config so the broadsheet and this measurement use the same words.
 WV_SECTION_ID = "wv"
 WV_FIELD_KEYS = config.WV_ALL_SUBHEAD_KEYS
-# Optional content yields to confirmed content: three briefs a section is a
-# settled editorial requirement, these arrays are explicitly optional. Away
-# goes first because it is the least West Virginian; fishing goes last because
-# it is two lines and the most distinctive thing in the paper.
-WV_EXTRA_TRIM_ORDER = ("away", "regional", "hotspots", "fishing")
-
-# ...but not to nothing on the first squeeze. config.EMBED_BUDGET closes only
-# if a brief costs headline + summary + source NAME; the masked link this
-# module actually sends spends its whole url too, measured at 62 chars a brief
-# and 924 across fifteen. That overage has to land somewhere, and unfloored it
-# lands entirely on the notebook — which would delete Ian's local anchor every
-# single morning. This floor costs ~325 chars and is surrendered only after
-# every trimmable section is already down to a single brief.
-WV_EXTRA_FLOOR = {"away": 0, "regional": 1, "hotspots": 1, "fishing": 1}
 
 IMAGE_EXTENSIONS = (".png", ".webp", ".jpg", ".jpeg", ".gif")
 MIME_TYPES = {
@@ -380,9 +350,9 @@ def _notebook_field(
 
     Continuation fields are cheap: an embed may carry 25 of them and each costs
     only its own name against the 6000 budget. So the notebook SPLITS rather
-    than drops, which hands the overflow to the one place that already knows
-    how to shed notebook lines out loud — build_within_budget()'s documented
-    WV_EXTRA_TRIM_ORDER ladder, which reports every line it takes.
+    than drops. (The trim ladder that used to take the overflow from here was
+    retired with the full-embed post on 2026-09-02; this builder now only
+    measures, and a measurement that dropped lines would under-read.)
 
     Dropping here is the last resort and only happens if max_fields runs out.
     Whatever it drops it returns, and no caller is allowed to discard that.
@@ -418,15 +388,6 @@ def _notebook_field(
     return fields, dropped
 
 
-# Which notebook part keeps its fields when the 25-field budget cannot seat
-# them all: the exact reverse of WV_EXTRA_TRIM_ORDER, so a squeeze here sheds
-# the same part a squeeze in build_within_budget() would — away first, then
-# regional, and the fishing report last.
-WV_FIELD_KEEP_ORDER = tuple(reversed(WV_EXTRA_TRIM_ORDER)) + tuple(
-    k for k in WV_FIELD_KEYS if k not in WV_EXTRA_TRIM_ORDER
-)
-
-
 def _wv_fields(edition: dict) -> tuple[list[dict], list[str]]:
     """The notebook's parts, in display order, empties skipped.
 
@@ -445,11 +406,13 @@ def _wv_fields(edition: dict) -> tuple[list[dict], list[str]]:
         if lines:
             rendered[key] = lines
 
-    # Allocate fields by keep-priority, then emit in display order.
+    # Seat the parts in display order. The 25-field cap is Discord's and the
+    # measurement keeps honouring it so the sizes stay those of a message
+    # that could actually be sent.
     packed: dict[str, list[dict]] = {}
     notes: dict[str, str] = {}
     used = 0
-    for key in WV_FIELD_KEEP_ORDER:
+    for key in WV_FIELD_KEYS:
         lines = rendered.get(key)
         if not lines:
             continue
@@ -567,50 +530,6 @@ def _masthead_line(edition: dict, page_url: str | None) -> str:
         )
         lines.append(f"<{page_url}>")
     return _clip("\n".join(lines), config.CONTENT_LIMIT)
-
-
-def _inside_line(page_url: str | None) -> str:
-    """Content line for the second message of a split.
-
-    Anyone scrolling in mid-morning may see only this one, so it repeats the
-    permalink rather than assuming they read the front page. Shared with the
-    link backfill so an edited message matches a freshly posted one.
-    """
-    line = f"-# **{config.MASTHEAD}** · Inside"
-    if page_url:
-        line += f"\n\U0001f4d6  **Full edition on the web:** <{page_url}>"
-    return line
-
-
-def tail_link_text(page_url: str | None) -> str:
-    """The permalink line appended to the last embed, or "" when unlinked.
-
-    Public because validate_edition.py measures with it: the line is ~107
-    chars Discord counts as copy, and the validator has to attribute them
-    to chrome rather than to whichever section happens to run last.
-    """
-    if not page_url:
-        return ""
-    return f"\n\n\U0001f4d6 [Read the full edition on the web]({page_url})"
-
-
-def _tail_link(embed: dict, page_url: str | None) -> None:
-    """Repeat the permalink at the very bottom of the post.
-
-    Nate, 2026-08-07: the link goes at the top AND the tail. The top line is
-    what a reader sees before deciding to read; the tail is what they hit
-    after finishing, which is exactly when "there is more of this on the web"
-    lands.
-
-    It rides the last embed's DESCRIPTION, not its footer: Discord renders
-    no markdown at all in footer text, so a link there is dead characters.
-    """
-    if not page_url:
-        return
-    line = tail_link_text(page_url)
-    body = embed.get("description") or ""
-    if len(body) + len(line) <= DESCRIPTION_LIMIT:
-        embed["description"] = body + line
 
 
 def _closing_footer(edition: dict) -> dict | None:
@@ -784,15 +703,21 @@ def build_payload(
     page_url: str | None = None,
     notes: list[str] | None = None,
 ) -> dict:
-    """Build the full six-embed message from an edition dict.
+    """Build the full six-embed paper from an edition dict. NEVER SENT.
+
+    This is the one survivor of the full-embed delivery path retired on
+    2026-09-02, and it is kept for exactly one caller:
+    validate_edition._exact_measure(), which weighs every section off the
+    real embed it would have been — masked source links included — to give
+    the desk its proportion advisory. Approximating those sizes under-read a
+    full edition by ~700 chars, which is the difference between "tighten a
+    summary" and silently losing the notebook, so the measurement stays on
+    the real builder. If a second caller ever appears, it is a question for
+    Nate: nothing posts the whole paper to Discord any more.
 
     Passing image_filename=None or page_url=None yields the same payload minus
-    the attachment wiring / the links — no other code path changes.
-
-    Pass `notes` to receive any degradation the build itself performed — today
-    that is only a notebook line the field budget could not seat. Callers that
-    deliver (rather than measure) MUST pass it: a dropped notebook line has to
-    reach main()'s `degraded` list, the ledger, and docs/FAILURES.md.
+    the attachment wiring / the links — no other code path changes. Pass
+    `notes` to receive a notebook line the 25-field cap could not seat.
     """
     present = _present_sections(edition)
     embeds = [_lead_embed(edition, image_filename, page_url)]
@@ -804,8 +729,6 @@ def build_payload(
     footer = _closing_footer(edition)
     if footer and embeds:
         embeds[-1]["footer"] = footer
-    if embeds:
-        _tail_link(embeds[-1], page_url)
 
     payload: dict = {"content": _masthead_line(edition, page_url), "embeds": embeds}
     if image_filename:
@@ -847,170 +770,14 @@ def embed_text_length(embeds: list[dict]) -> int:
     return total
 
 
-def trim_order() -> list[str]:
-    """Section ids in the order trailing briefs get dropped, highest priority first.
-
-    config.SECTIONS carries the declarative trim_priority; West Virginia is
-    excluded outright and every section floors at one brief, so no section can
-    be emptied by trimming.
-    """
-    ranked = [
-        s
-        for s in config.SECTIONS
-        if s["id"] not in NEVER_TRIM and int(s.get("trim_priority", 0) or 0) > 0
-    ]
-    if not ranked:
-        return list(FALLBACK_TRIM_ORDER)
-    ranked.sort(key=lambda s: (-int(s["trim_priority"]), s["order"]))
-    return [s["id"] for s in ranked]
-
-
-def _strip_people(edition: dict) -> int:
-    """Drop the roster parentheticals from the notebook. Returns entries changed.
-
-    First rung of the ladder because it is the only one that costs no news:
-    the place names stay, the sentences stay, only "(Trav, Justin)" goes.
-    """
-    changed = 0
-    for key in ("regional", "away"):
-        for entry in _wv_entries(edition, key):
-            if isinstance(entry, dict) and entry.pop("people", None):
-                changed += 1
-    return changed
-
-
-def build_within_budget(
-    edition: dict,
-    image_filename: str | None,
-    page_url: str | None,
-) -> tuple[dict, dict, list[str]]:
-    """Shrink the message until the embeds fit EMBED_HARD, in five rungs.
-
-    1. drop the notebook's roster names — costs no news at all
-    2. drop notebook lines down to WV_EXTRA_FLOOR: away, then regional, then
-       fishing, tail-first within each
-    3. drop trailing briefs round-robin over config's trim_priority
-    4. surrender the notebook floor
-    5. give up and let the caller split
-
-    Rungs 1-2 precede rung 3 because `regional`, `away` and `fishing` are the
-    only optional arrays in the contract while three briefs a section is
-    settled editorial policy. West Virginia's STATEWIDE briefs are in
-    NEVER_TRIM and are unreachable by rung 3, so the notebook can lose every
-    extra line and the section still runs its full statewide report.
-
-    Returns (possibly trimmed edition copy, payload, notes). The lead is never
-    touched and no section is ever emptied.
-    """
-    working = copy.deepcopy(edition)
-    # field_notes is rebuilt from scratch on every build so it always describes
-    # the payload actually being returned, never a superseded attempt.
-    field_notes: list[str] = []
-    payload = build_payload(working, image_filename, page_url, field_notes)
-    if embed_text_length(payload["embeds"]) <= config.EMBED_HARD:
-        return working, payload, list(field_notes)
-
-    notes: list[str] = []
-    dropped: dict[str, int] = {}
-    cut: dict[str, int] = {}
-
-    def rebuild() -> bool:
-        nonlocal payload
-        field_notes.clear()
-        payload = build_payload(working, image_filename, page_url, field_notes)
-        return embed_text_length(payload["embeds"]) <= config.EMBED_HARD
-
-    def summary() -> list[str]:
-        out = list(notes) + list(field_notes)
-        if cut:
-            detail = ", ".join(f"{count} {key}" for key, count in cut.items())
-            out.append(f"trimmed {sum(cut.values())} West Virginia notebook line(s): {detail}")
-        if dropped:
-            detail = ", ".join(f"{count} from {sid}" for sid, count in dropped.items())
-            out.append(f"trimmed {sum(dropped.values())} brief(s) to fit the embed budget: {detail}")
-        return out
-
-    def trim_notebook(floors: dict[str, int]) -> bool:
-        for key in WV_EXTRA_TRIM_ORDER:
-            entries = _wv_entries(working, key)
-            while len(entries) > floors.get(key, 0):
-                entries.pop()
-                cut[key] = cut.get(key, 0) + 1
-                if rebuild():
-                    return True
-        return False
-
-    if _strip_people(working):
-        notes.append("dropped the West Virginia notebook's roster names to fit the budget")
-        if rebuild():
-            return working, payload, summary()
-
-    if trim_notebook(WV_EXTRA_FLOOR):
-        return working, payload, summary()
-
-    order = trim_order()
-    while True:
-        dropped_any = False
-        for section_id in order:
-            briefs = _briefs_for(working, section_id)
-            if len(briefs) <= MIN_BRIEFS_PER_SECTION:
-                continue
-            briefs.pop()
-            dropped[section_id] = dropped.get(section_id, 0) + 1
-            dropped_any = True
-            if rebuild():
-                return working, payload, summary()
-        if not dropped_any:
-            break
-
-    trim_notebook({})
-    return working, payload, summary()
-
-
-def split_payloads(
-    edition: dict,
-    image_filename: str | None,
-    page_url: str | None,
-    notes: list[str] | None = None,
-) -> list[dict]:
-    """FRONT PAGE (lead + hero + U.S. + World) and INSIDE (WV + Sports + SciTech).
-
-    Two messages a second apart, each with its own fresh 6000-char budget.
-    """
-    payload = build_payload(edition, image_filename, page_url, notes)
-    embeds = payload["embeds"]
-    # Partition by section id, not by index — a skipped section would shift a
-    # slice. _present_sections is the same predicate build_payload used, so a
-    # WV embed carrying only notebook fields still pairs with its id.
-    paired = list(zip(_present_sections(edition), embeds[1:]))
-    front_embeds = [embeds[0]] + [e for sid, e in paired if sid in FRONT_PAGE_SECTIONS]
-    inside_embeds = [e for sid, e in paired if sid not in FRONT_PAGE_SECTIONS]
-    if not inside_embeds:
-        return [payload]
-
-    footer = _closing_footer(edition)
-    for embed in embeds:
-        embed.pop("footer", None)
-    if footer:
-        inside_embeds[-1]["footer"] = footer
-    if inside_embeds:
-        _tail_link(inside_embeds[-1], page_url)
-
-    front: dict = {"content": payload["content"], "embeds": front_embeds}
-    if "attachments" in payload:
-        front["attachments"] = payload["attachments"]
-
-    inside: dict = {"content": _inside_line(page_url), "embeds": inside_embeds}
-    return [front, inside]
-
-
 def clamp_payload(payload: dict, limit: int | None = None) -> list[str]:
     """Last-resort size clamp: shorten descriptions from the back until it fits.
 
-    Only reached when trimming and splitting both fall short. The lead embed is
-    clipped only if it alone is still over.
+    A digest runs about a thousand characters, so this has never fired on
+    one; it stays because validate_payload() refuses anything over the limit
+    and a clamp that says what it did beats a refusal with nothing sent.
     """
-    limit = config.EMBED_HARD if limit is None else limit
+    limit = config.EMBED_TOTAL_LIMIT if limit is None else limit
     notes: list[str] = []
     embeds = payload.get("embeds") or []
     for index in range(len(embeds) - 1, -1, -1):
@@ -1104,109 +871,6 @@ def validate_payload(payload: dict) -> list[str]:
 # --------------------------------------------------------------------------
 # plain-text edition (the shape-independent last rung)
 # --------------------------------------------------------------------------
-
-
-def render_text_edition(edition: dict) -> str:
-    """The paper as plain Discord markdown — no embeds, no masked links, no tables."""
-    lead = edition.get("lead") or {}
-    folio = (
-        f"For the Fellers · No. {edition.get('edition_number', '?')} · "
-        f"Vol. {edition.get('volume', 'I')} · {_long_date(edition['edition_date'])}"
-    )
-    blocks = [f"# \U0001f4f0 {config.MASTHEAD}\n-# {folio}"]
-
-    headline = (lead.get("headline") or "").strip()
-    if headline:
-        opener = f"## {headline}"
-        if lead.get("dek"):
-            opener += f"\n*{lead['dek'].strip()}*"
-        blocks.append(opener)
-    blocks.extend(p.strip() for p in (lead.get("body") or []) if (p or "").strip())
-    strip = _stat_strip_line(lead.get("stat_strip") or [])
-    if strip:
-        blocks.append(f"-# {strip}")
-
-    present = _present_sections(edition)
-    for section in sorted(config.SECTIONS, key=lambda s: s["order"]):
-        if section["id"] not in present:
-            continue
-        blocks.append(f"## {_section_title(edition, section)}".strip())
-        for brief in _briefs_for(edition, section["id"]):
-            lines = [f"**{(brief.get('headline') or '').strip()}**"]
-            summary = (brief.get("summary") or "").strip()
-            if summary:
-                lines.append(summary)
-            source, url = (brief.get("source") or "").strip(), (brief.get("url") or "").strip()
-            if source and url:
-                lines.append(f"-# {source} <{url}>")
-            elif source:
-                lines.append(f"-# {source}")
-            blocks.append("\n".join(lines))
-        if section["id"] == WV_SECTION_ID:
-            blocks.extend(_text_notebook_blocks(edition))
-
-    for closer in (edition.get("kicker"), edition.get("sources_note"), weather_ear(edition)):
-        if closer:
-            blocks.append(f"-# {str(closer).strip()}")
-    return "\n\n".join(blocks)
-
-
-def _text_notebook_blocks(edition: dict) -> list[str]:
-    """The notebook's three optional parts in plain markdown, one block each.
-
-    Same content as the embed fields, with the masked links unwound into bare
-    angle-bracketed urls — `[AP](url)` is inert outside an embed.
-    """
-    blocks: list[str] = []
-    for key in WV_FIELD_KEYS:
-        entries = [e for e in _wv_entries(edition, key) if isinstance(e, dict)]
-        if not entries:
-            continue
-        lines = [f"### {config.wv_subhead(key)}"]
-        for entry in entries:
-            if key == "fishing":
-                water = str(entry.get("water") or "").strip()
-                line = str(entry.get("line") or "").strip()
-                source = str(entry.get("source") or "").strip()
-                text = f"**{water}** — {line}" if water and line else (water or line)
-                lines.append(f"{text} · {source}" if source else text)
-                continue
-            place = str(entry.get("place") or entry.get("region_id") or "").strip()
-            item = str(entry.get("item") or "").strip()
-            text = f"**{place}{_people_tag(entry)}** — {item}" if place and item else (place or item)
-            source, url = (entry.get("source") or "").strip(), (entry.get("url") or "").strip()
-            if source and url:
-                text = f"{text} · {source} <{url}>"
-            elif source:
-                text = f"{text} · {source}"
-            lines.append(text)
-        blocks.append("\n".join(lines))
-    return blocks
-
-
-def split_message(text: str, limit: int = config.CHUNK_LIMIT) -> list[str]:
-    """Split on paragraph boundaries so no chunk exceeds Discord's content limit."""
-    paragraphs = text.split("\n\n")
-    chunks: list[str] = []
-    current = ""
-    for para in paragraphs:
-        while len(para) > limit:
-            cut = para.rfind("\n", 0, limit)
-            cut = cut if cut > 0 else limit
-            piece, para = para[:cut], para[cut:].lstrip("\n")
-            if current:
-                chunks.append(current)
-                current = ""
-            chunks.append(piece)
-        candidate = f"{current}\n\n{para}" if current else para
-        if len(candidate) > limit:
-            chunks.append(current)
-            current = para
-        else:
-            current = candidate
-    if current.strip():
-        chunks.append(current)
-    return chunks
 
 
 # --------------------------------------------------------------------------
@@ -1319,93 +983,6 @@ def _http_json(method: str, url: str, payload: dict | None = None) -> tuple[int,
         return 0, {"_error": _scrub(exc, url)}
 
 
-def page_is_live(page_url: str) -> bool:
-    """True when the permalink actually serves. A 404 means Pages has not
-    finished publishing this edition yet; anything else (403, timeout) is
-    treated as not-yet rather than as proof of life."""
-    status, _ = _http_json("GET", page_url)
-    return status == 200
-
-
-def backfill_page_url(
-    webhook_url: str,
-    edition: dict,
-    page_url: str,
-    message_ids: list[str],
-    image_filename: str | None,
-) -> tuple[bool, list[str]]:
-    """Add the permalink to messages that were already posted without it.
-
-    GitHub Pages build lag is unbounded in practice — measured at 23s one
-    evening and 8m38s the next morning, because the Actions queue does not
-    care about our 7:00 deadline. Waiting for it before posting would push
-    the paper past the Weatherman it is supposed to precede. So the paper
-    goes out on time linkless and the link is patched in when the page is
-    genuinely live, which readers see as a normal Discord edit.
-
-    Rebuilds the payload exactly as a linked post would have been, then
-    carries over each live embed's resolved image url: after posting, Discord
-    has rewritten `attachment://x.png` to a CDN link, and sending the
-    original attachment:// form back on an edit drops the hero card.
-    `attachments` is deliberately never sent — omitting it retains what is
-    already on the message.
-    """
-    notes: list[str] = []
-
-    # CONTENT ONLY, deliberately. Rebuilding the embeds to carry section
-    # anchors would grow the payload by the length of every url, which can
-    # tip a one-message edition over the ceiling and make the trim ladder cut
-    # briefs that are ALREADY PUBLISHED. A backfill must only ever add. The
-    # content line is also where the link is actually legible.
-    if _SPORTSMAN:
-        # The sports post is always one message with its own masthead line.
-        if len(message_ids) != 1:
-            notes.append("backfill skipped: sportsman ledger shows "
-                         f"{len(message_ids)} messages, expected 1")
-            return False, notes
-        contents = [_sm_masthead_line(edition, page_url)]
-    elif len(message_ids) == 1:
-        contents = [_masthead_line(edition, page_url)]
-    elif len(message_ids) == 2:
-        contents = [_masthead_line(edition, page_url), _inside_line(page_url)]
-    else:
-        notes.append(
-            f"backfill skipped: {len(message_ids)} messages recorded, which is "
-            "neither the one-message nor the split shape"
-        )
-        return False, notes
-
-    for message_id, content in zip(message_ids, contents):
-        body: dict = {"content": content}
-        if _SPORTSMAN:
-            # Nate wants the link at the BOTTOM too, the way the Times runs
-            # it — and most mornings this paper's link arrives via backfill,
-            # because Pages rarely builds inside the 7:05 window. The Times
-            # backfill stays content-only (its trimmer makes embed growth
-            # dangerous); this paper has no trimmer, so the tail is safe as
-            # long as the total stays under the ceiling. Embeds are read
-            # back from the live message and re-sent amended, never rebuilt.
-            status, live = _http_json(
-                "GET", f"{webhook_url}/messages/{message_id}")
-            if status == 200 and isinstance(live, dict) and live.get("embeds"):
-                embeds = live["embeds"]
-                tail = f"\n\n\U0001F4D6 [Read the full edition on the web]({page_url})"
-                last = embeds[-1]
-                already = page_url in (last.get("description") or "")
-                room = embed_text_length(embeds) + len(tail) <= 5900
-                if not already and room:
-                    last["description"] = (last.get("description") or "") + tail
-                body["embeds"] = embeds
-        status, _ = _http_json(
-            "PATCH", f"{webhook_url}/messages/{message_id}", body)
-        if status not in (200, 204):
-            notes.append(f"backfill: edit failed on {message_id} (HTTP {status})")
-            return False, notes
-
-    notes.append(f"permalink added to {len(message_ids)} message(s) after the Pages build finished")
-    return True, notes
-
-
 def _retry_after_seconds(data: dict | None, headers: dict, default: float = 5.0) -> float:
     if isinstance(data, dict) and data.get("retry_after") is not None:
         try:
@@ -1485,221 +1062,18 @@ def send_message(
 # --------------------------------------------------------------------------
 
 
-def _sm_masthead_line(edition: dict, page_url: str | None) -> str:
-    """Content line for the sports post — also what a backfill rewrites."""
-    folio = (f"No. {edition.get('edition_number', '?')} · "
-             f"Vol. {edition.get('volume', 'I')} · "
-             f"{_long_date(edition['edition_date'])}")
-    line = (f"\U0001F3DE️  **{config.SPORTSMAN_MASTHEAD}** — "
-            f"*{config.SPORTSMAN_TAGLINE}*\n-# {folio}")
-    if page_url:
-        line += f"\n\U0001F4D6  **Full edition on the web:** <{page_url}>"
-    return _clip(line, config.CONTENT_LIMIT)
-
-
-def _water_state(name: str) -> str:
-    """Which state a water line belongs to, via config.SPORTSMAN_WATERS.
-
-    Word overlap rather than exact match: the edition says "Ohio River at
-    Point Pleasant" while config lists "Ohio River". Unknown waters return
-    "" and are shown ungrouped rather than guessed into a state.
-    """
-    words = set(re.findall(r"[a-z]+", (name or "").lower()))
-    for water in config.SPORTSMAN_WATERS:
-        config_words = set(re.findall(r"[a-z]+", water["name"].lower()))
-        if config_words & words - {"river", "at", "the", "sound", "beach"}:
-            return water.get("state", "")
-    return ""
-
-
-def _tide_block() -> str:
-    """The full Topsail tide cycle as an aligned code block.
-
-    Discord embeds have no tables; a code block is the honest substitute.
-    Reads the fetcher's own file so no hand can mistype a tide, and
-    returns nothing when the data is absent — same rule as everywhere.
-    """
-    try:
-        with open(_repo("out", "fishing.json"), encoding="utf-8") as f:
-            tides = (json.load(f).get("topsail") or {}).get("tides") or []
-    except (OSError, ValueError):
-        return ""
-    lines = []
-    for station in tides:
-        events = (station.get("events") or [])[:4]
-        if len(events) < 4:
-            continue
-        label = "Sound" if station.get("side") == "sound" else "Ocean"
-        cells = " | ".join(
-            f"{e.get('type', '')[0].upper()} {e.get('time_local', ''):>14}"
-            for e in events)
-        lines.append(f"{label:>5}  {cells}")
-    if not lines:
-        return ""
-    body = "\n".join(lines)
-    return f"\n**Topsail tides — the full day**\n```\n{body}\n```"
-
-
-def build_sportsman_payload(edition: dict, page_url: str | None = None) -> dict:
-    """The Sports & Sportsman message. Four embeds, its own masthead.
-
-    A separate builder rather than a flag threaded through build_payload():
-    the two papers share a voice and a delivery mechanism but not a shape.
-    The Times has a lead, a stat strip and the WV notebook; this has teams,
-    leagues, a season calendar and gauges. Forcing one function to serve
-    both would make every future change to either one riskier.
-    """
-    by_id = {s.get("id"): s for s in (edition.get("sections") or [])}
-    embeds: list[dict] = []
-
-    def add(section_id: str, description: str, fields: list | None = None) -> None:
-        section = by_id.get(section_id)
-        if not section or not (description or fields):
-            return
-        meta = config.sportsman_section_by_id(section_id)
-        embed: dict = {
-            "title": f"{meta['emoji']} {section.get('label') or meta['label']}",
-            "color": SPORTSMAN_COLOR,
-        }
-        if description:
-            embed["description"] = _clip(description, DESCRIPTION_LIMIT)
-        if fields:
-            embed["fields"] = fields[:FIELD_COUNT_LIMIT]
-        embeds.append(embed)
-
-    # Our Teams, then the wider leagues. Both are plain brief blocks, so they
-    # reuse the newspaper's formatter and inherit its limits for free.
-    #
-    # Our Teams also carries two standing blocks as fields — standings and
-    # the week's fixtures. They are instrument readings, like the gauges:
-    # always true, always current, and the reason a two-game Monday no
-    # longer reads skimpy (Nate, 2026-08-17).
-    for section_id in ("teams", "leagues"):
-        section = by_id.get(section_id)
-        if not section:
-            continue
-        blocks = [_brief_block(b) for b in (section.get("briefs") or [])
-                  if isinstance(b, dict)]
-        fields: list[dict] = []
-        if section_id == "teams":
-            standing_lines = [
-                f"**{e['team']}** — {e['line']}"
-                for e in (section.get("standings") or [])
-                if isinstance(e, dict) and e.get("team") and e.get("line")]
-            if standing_lines:
-                fields.append({"name": config.SPORTSMAN_STANDINGS_LABEL,
-                               "value": _clip("\n".join(standing_lines),
-                                              FIELD_VALUE_LIMIT),
-                               "inline": False})
-            upcoming_lines = [
-                f"**{e['team']}** — {e['fixture']}"
-                + (f", {e['when']}" if e.get("when") else "")
-                for e in (section.get("upcoming") or [])
-                if isinstance(e, dict) and e.get("team") and e.get("fixture")]
-            if upcoming_lines:
-                fields.append({"name": config.SPORTSMAN_UPCOMING_LABEL,
-                               "value": _clip("\n".join(upcoming_lines),
-                                              FIELD_VALUE_LIMIT),
-                               "inline": False})
-        add(section_id, "\n\n".join(b for b in blocks if b), fields or None)
-
-    # In Season and On the Water are grouped BY STATE, never intermingled.
-    # Nate, 2026-08-15: West Virginia and North Carolina rules live under
-    # different agencies with different licences, and a reader skimming a
-    # mixed list can carry an NC limit to a WV creek. One state, one block.
-    seasons = by_id.get("seasons")
-    if seasons:
-        fields: list[dict] = []
-        for state, state_label in (("WV", "West Virginia"),
-                                   ("NC", "North Carolina")):
-            lines = []
-            for key, label in (("coming_in", "Coming in"),
-                               ("prime", "Prime"),
-                               ("going_out", "Going out")):
-                for entry in (seasons.get(key) or []):
-                    if not isinstance(entry, dict):
-                        continue
-                    if entry.get("state") != state:
-                        continue
-                    text = (entry.get("item") or entry.get("text") or "").strip()
-                    if not text:
-                        continue
-                    head = str(entry.get("species") or "").strip()
-                    if head and entry.get("method"):
-                        head += f" ({entry['method']})"
-                    if head and entry.get("dates"):
-                        head += f", {entry['dates']}"
-                    source = entry.get("source")
-                    line = (f"__{label}__ · **{head}** — {text}" if head
-                            else f"__{label}__ · {text}")
-                    lines.append(line + (f" · {source}" if source else ""))
-            for note in (seasons.get("notes") or []):
-                if isinstance(note, dict) and note.get("state") == state \
-                        and note.get("item"):
-                    lines.append(str(note["item"]).strip())
-            if lines:
-                fields.append({"name": state_label,
-                               "value": _clip("\n".join(lines), FIELD_VALUE_LIMIT),
-                               "inline": False})
-        stray = [n for n in (seasons.get("notes") or [])
-                 if isinstance(n, dict) and n.get("item")
-                 and n.get("state") not in ("WV", "NC")]
-        if stray:
-            fields.append({"name": "Also",
-                           "value": _clip("\n".join(str(n["item"]) for n in stray),
-                                          FIELD_VALUE_LIMIT),
-                           "inline": False})
-        add("seasons", "", fields)
-
-    # On the Water: same state grouping, waters mapped through config.
-    water = by_id.get("water")
-    if water:
-        grouped: dict[str, list[str]] = {}
-        for entry in (water.get("waters") or []):
-            if not isinstance(entry, dict):
-                continue
-            name = entry.get("water") or entry.get("name") or ""
-            body = (entry.get("line") or entry.get("read") or "").strip()
-            if not (name and body):
-                continue
-            grouped.setdefault(_water_state(name), []).append(
-                f"**{name}** — {body}")
-        blocks = []
-        for state, state_label in (("WV", "West Virginia"),
-                                   ("NC", "North Carolina"), ("", "")):
-            if grouped.get(state):
-                header = f"__{state_label}__\n" if state_label else ""
-                blocks.append(header + "\n".join(grouped[state]))
-        add("water", "\n\n".join(blocks) + _tide_block())
-
-    if embeds:
-        bits = [str(b).strip() for b in
-                (edition.get("kicker"), edition.get("sources_note")) if b]
-        if bits:
-            embeds[-1]["footer"] = {"text": _clip(" · ".join(bits), FOOTER_LIMIT)}
-
-    if embeds and page_url:
-        _tail_link(embeds[-1], page_url)
-    return {"content": _sm_masthead_line(edition, page_url), "embeds": embeds}
-
-
 def load_edition(path: str) -> dict:
     with open(path, encoding="utf-8") as f:
         return json.load(f)
 
 
-_SPORTSMAN = False
-
-
 def _index_path() -> str:
-    """Each paper has its OWN delivery ledger.
+    """The Times' delivery ledger — the idempotency gate reads this row.
 
-    They number independently — the Times is on No. 11 while Sports is on
-    No. 1 — so a shared index would collide and the idempotency gate would
-    read the wrong row.
+    editions/sportsman/index.json still exists as the record of the eleven
+    mornings Sports & Sportsman posted (2026-08-15 to 08-25); nothing
+    writes it any more, because that paper no longer posts.
     """
-    if _SPORTSMAN:
-        return _repo("editions", "sportsman", "index.json")
     return _repo("editions", "index.json")
 
 
@@ -1755,79 +1129,6 @@ def _hold_until(target: str | None) -> tuple[bool, str | None]:
     return True, f"waited {wait / 60:.0f} min to post at {target} ET"
 
 
-def _run_backfill(args, edition: dict) -> int:
-    """`--backfill-link`: wait out the Pages build, then add the permalink.
-
-    Idempotent and safe to run twice — a row that already carries a page_url
-    is left alone, and nothing here can post a new message.
-    """
-    if not config.PAGES_ENABLED:
-        print("SKIP: PAGES_ENABLED is False, nothing to link", file=sys.stderr)
-        return 0
-
-    row = find_record(load_index(), args.date)
-    if not row or not row.get("posted"):
-        print(f"ERROR: no posted edition recorded for {args.date}", file=sys.stderr)
-        return 1
-    if row.get("page_url"):
-        print(f"OK: {args.date} already carries its permalink; nothing to do")
-        return 0
-
-    message_ids = list(row.get("message_ids") or [])
-    if not message_ids:
-        print(f"ERROR: no message ids recorded for {args.date}", file=sys.stderr)
-        return 1
-
-    page_url = args.page_url or (
-        config.sportsman_page_url(args.date) if args.sportsman
-        else config.page_url(args.date))
-    deadline = time.monotonic() + max(0, args.backfill_wait)
-    attempt = 0
-    while True:
-        if page_is_live(page_url):
-            break
-        if time.monotonic() >= deadline:
-            print(
-                f"GAVE UP: {page_url} still not serving after "
-                f"{args.backfill_wait}s - the edition stays linkless",
-                file=sys.stderr,
-            )
-            log_failures(args.date, [f"backfill gave up after {args.backfill_wait}s"])
-            return 1
-        attempt += 1
-        # Long-ish, evenly spaced: this is a build queue, not a flaky request,
-        # and nobody is waiting on the answer.
-        time.sleep(min(30, 10 * attempt))
-
-    if args.dry_run:
-        print(f"DRY RUN: {page_url} is live; would edit {len(message_ids)} message(s)")
-        return 0
-
-    if args.sportsman:
-        var = config.SPORTSMAN_WEBHOOK_ENV
-    else:
-        var = "DISCORD_TEST_WEBHOOK_URL" if args.test else "DISCORD_WEBHOOK_URL"
-    webhook_url = load_env_webhook(var)
-    if not webhook_url:
-        print(f"ERROR: {var} not set (env or .env)", file=sys.stderr)
-        return 1
-    remember_webhook(webhook_url)  # nothing printed past here carries the token
-
-    image_filename = row.get("hero") and f"ashgrove-{args.date}.png" or None
-    ok, notes = backfill_page_url(
-        webhook_url, edition, page_url, message_ids, image_filename)
-    for note in notes:
-        print(("OK: " if ok else "WARN: ") + _scrub(note), file=sys.stderr if not ok else sys.stdout)
-    if not ok:
-        log_failures(args.date, notes)
-        return 1
-
-    record_edition(args.date, {"date": args.date, "page_url": page_url,
-                               "link_backfilled": True})
-    print(f"OK: permalink added to {args.date} ({len(message_ids)} message(s))")
-    return 0
-
-
 def record_edition(date: str, record: dict) -> None:
     """Append or update this date's ledger row. This module is its only writer.
 
@@ -1866,19 +1167,10 @@ def log_failures(date: str, notes: list[str]) -> None:
             f.write(f"- {_utc_stamp()} · {date} · post_discord: {_scrub(note)}\n")
 
 
-def write_payload_file(date: str, messages: list[dict],
-                       sportsman: bool = False) -> str:
-    """Persist the exact JSON body sent, so a failed run is still recoverable.
-
-    The two papers get two filenames. They post minutes apart on the same
-    date, and while both wrote `<date>.payload.json` the sportsman run
-    silently overwrote the Times': on any morning both papers ran, the record
-    of what the Times actually shipped was gone by 7:05. Harmless to
-    delivery, fatal to the guarantee that a run is settled by a file rather
-    than by somebody's memory of it.
-    """
-    stem = f"{date}.sportsman" if sportsman else date
-    path = _repo("out", f"{stem}.payload.json")
+def write_payload_file(date: str, messages: list[dict]) -> str:
+    """Persist the exact JSON body sent, so any argument about what shipped
+    is settled by a file rather than by somebody's memory of it."""
+    path = _repo("out", f"{date}.payload.json")
     os.makedirs(os.path.dirname(path), exist_ok=True)
     finalized = [_finalize(m) for m in messages]
     with open(path, "w", encoding="utf-8") as f:
@@ -1926,32 +1218,6 @@ def resolve_attachment(date: str, requested: str | None) -> tuple[tuple[str, byt
 # --------------------------------------------------------------------------
 
 
-def _post_text_edition(
-    webhook_url: str,
-    chunks: list[str],
-    long_retry: bool,
-    on_sent=None,
-) -> tuple[list[str], str | None]:
-    """Rung 7: ugly, unmistakably still the paper, delivered.
-
-    `on_sent(count, message_id)` fires after EACH chunk lands so the caller can
-    write the ledger row before the next one is attempted. Chunk 4 of 5 failing
-    must not leave chunks 1-3 unrecorded and therefore re-postable.
-    """
-    ids: list[str] = []
-    for i, chunk in enumerate(chunks):
-        result = send_message(webhook_url, {"content": chunk}, long_retry=long_retry)
-        if not result.ok:
-            return ids, f"text mode failed with HTTP {result.status}: {_scrub(result.detail)}"
-        if result.message_id:
-            ids.append(result.message_id)
-        if on_sent:
-            on_sent(i + 1, result.message_id)
-        if i < len(chunks) - 1:
-            time.sleep(1)
-    return ids, None
-
-
 def _force_utf8_console() -> None:
     """Windows consoles default to cp1252 and would crash --dry-run on the emoji."""
     for stream in (sys.stdout, sys.stderr):
@@ -1961,56 +1227,36 @@ def _force_utf8_console() -> None:
             pass
 
 
+
 def main() -> int:
     _force_utf8_console()
-    parser = argparse.ArgumentParser(description="Post one Ashgrove Times edition to Discord.")
+    parser = argparse.ArgumentParser(
+        description="Post the one-message digest for an Ashgrove Times edition.")
     parser.add_argument("--date", required=True, help="edition date, YYYY-MM-DD")
     parser.add_argument("--edition", help="edition JSON (default editions/<date>.json)")
     parser.add_argument("--attach", help="hero PNG (default out/ashgrove-<date>.png)")
-    parser.add_argument("--page-url", help="verified GitHub Pages permalink for this edition")
     parser.add_argument("--test", action="store_true", help="post to DISCORD_TEST_WEBHOOK_URL")
     parser.add_argument("--dry-run", action="store_true",
                         help="print the exact payload and post nothing")
-    parser.add_argument("--no-image", action="store_true", help="send the embeds with no attachment")
-    parser.add_argument("--text", action="store_true",
-                        help="post the plain-text edition instead of embeds")
-    parser.add_argument("--split", action="store_true",
-                        help="on an oversized edition, split into FRONT PAGE "
-                             "and INSIDE rather than trimming news to fit one "
-                             "message (see config.PREFER_SPLIT_OVER_TRIM)")
+    parser.add_argument("--no-image", action="store_true",
+                        help="send the digest with no attachment")
     parser.add_argument("--not-before", metavar="HH:MM", default=None,
                         help="hold the post until this ET wall-clock time "
                              "(e.g. 07:00). The routine wakes early to do the "
                              "research; this is what keeps delivery at a "
                              "consistent hour. Ignored if the time has passed.")
-    parser.add_argument("--sportsman", action="store_true",
-                        help="post the Sports & Sportsman edition instead of "
-                             "the newspaper: its own contract, its own "
-                             "ledger, and its own channel via "
-                             "DISCORD_SPORTSMAN_WEBHOOK_URL")
-    parser.add_argument("--backfill-link", action="store_true",
-                        help="post nothing; wait for the Pages build and add "
-                             "the permalink to the edition already posted for "
-                             "--date. Run this after posting when the page was "
-                             "not live in time.")
-    parser.add_argument("--backfill-wait", type=int, default=config.PAGES_BACKFILL_WAIT_SECONDS,
-                        help="seconds to wait for the Pages build during "
-                             "--backfill-link (default %(default)s)")
     parser.add_argument("--digest", action="store_true",
-                        help="post the ONE-message daily digest — what is in "
-                             "today's edition, and a link to Home — "
-                             "instead of the whole paper as embeds. This is "
-                             "what the routine does as of 2026-08-25; the "
-                             "full-embed path below is kept for a one-off.")
+                        help="accepted for the routine's command line; the "
+                             "digest is the only message this script sends, "
+                             "with or without the flag (since 2026-09-02)")
     parser.add_argument("--digest-sportsman", metavar="PATH", default=None,
                         help="Sports & Sportsman edition JSON to tease inside "
                              "the digest (default editions/sportsman/<date>."
-                             "json when it exists). That paper no longer posts "
-                             "to Discord at all; this line is how it is "
-                             "announced.")
+                             "json when it exists). That paper does not post "
+                             "to Discord; this line is how it is announced.")
     parser.add_argument("--index-url", default=None,
                         help="Home url the digest links (default "
-                             "config.PAGES_BASE_URL). The INDEX, not the dated "
+                             "config.home_url()). HOME, not the dated "
                              "edition: it reaches all three sections.")
     parser.add_argument("--force", action="store_true",
                         help="post even if this date is already recorded as posted")
@@ -2022,14 +1268,7 @@ def main() -> int:
         print(f"ERROR: --date {args.date!r} is not YYYY-MM-DD", file=sys.stderr)
         return 1
 
-    global _SPORTSMAN
-    _SPORTSMAN = bool(args.sportsman)
-
-    if args.sportsman:
-        edition_path = args.edition or _repo(
-            "editions", "sportsman", f"{args.date}.json")
-    else:
-        edition_path = args.edition or _repo("editions", f"{args.date}.json")
+    edition_path = args.edition or _repo("editions", f"{args.date}.json")
     try:
         edition = load_edition(edition_path)
     except (OSError, ValueError) as exc:
@@ -2042,9 +1281,6 @@ def main() -> int:
         )
         return 1
 
-    if args.backfill_link:
-        return _run_backfill(args, edition)
-
     if not args.dry_run and not args.force:
         prior = find_record(load_index(), args.date)
         if prior and prior.get("posted"):
@@ -2056,129 +1292,60 @@ def main() -> int:
 
     degraded: list[str] = []
     attachment: tuple[str, bytes] | None = None
-    if args.sportsman:
-        # Sports & Sportsman has no hero card. Without this it would attach
-        # the NEWSPAPER's, putting the Times' masthead on the sports post.
-        pass
-    elif args.no_image or args.text:
+    if args.no_image:
         degraded.append("image suppressed by flag")
     else:
         attachment, notes = resolve_attachment(args.date, args.attach)
         degraded.extend(notes)
-
-    page_url = args.page_url if (config.PAGES_ENABLED and args.page_url) else None
-    if args.page_url and not config.PAGES_ENABLED:
-        degraded.append("PAGES_ENABLED is False; permalink omitted")
-    elif config.PAGES_ENABLED and not args.page_url:
-        degraded.append("no verified page url; posting without links")
-
     image_filename = attachment[0] if attachment else None
-    text_mode = args.text
-    messages: list[dict] = []
 
-    if args.digest:
-        # One message, always. Nothing in a digest can reach 6,000 chars, so
-        # there is no trim ladder, no split, and no budget to write against.
-        sm_path = args.digest_sportsman or _repo(
-            "editions", "sportsman", f"{args.date}.json")
-        sportsman_edition = None
-        if os.path.exists(sm_path):
-            try:
-                sportsman_edition = load_edition(sm_path)
-            except (OSError, ValueError) as exc:
-                degraded.append(
-                    f"could not read {os.path.basename(sm_path)} for the "
-                    f"digest tease ({exc}); posting without it")
-        else:
+    # One message, always. Nothing in a digest can reach 6,000 chars, so
+    # there is no trim ladder, no split, and no budget to write against.
+    sm_path = args.digest_sportsman or _repo(
+        "editions", "sportsman", f"{args.date}.json")
+    sportsman_edition = None
+    if os.path.exists(sm_path):
+        try:
+            sportsman_edition = load_edition(sm_path)
+        except (OSError, ValueError) as exc:
             degraded.append(
-                "no Sports & Sportsman edition found for the digest tease")
-        index_url = args.index_url or (
-            config.home_url() if config.PAGES_ENABLED else None)
-        payload = build_digest_payload(
-            edition, index_url, sportsman_edition, image_filename)
-        degraded.extend(clamp_payload(payload))
-        messages = [payload]
-        text_mode = False
-    elif args.sportsman:
-        payload = build_sportsman_payload(edition, page_url)
-        degraded.extend(clamp_payload(payload))
-        messages = [payload]
-        text_mode = False
-    elif not text_mode:
-        # Trimming to fit ONE message costs news; splitting into two costs
-        # only a second post. On a full day the trimmer eats the West
-        # Virginia notebook first, which is the section the readers actually
-        # showed up for — so when the untrimmed edition will not fit, try the
-        # split BEFORE reaching for the scissors. Each half then gets its own
-        # fresh budget and usually needs no trimming at all.
-        prefer_split = args.split or getattr(config, "PREFER_SPLIT_OVER_TRIM", False)
-        untrimmed = build_payload(edition, image_filename, page_url)
-        oversized = embed_text_length(untrimmed["embeds"]) > config.EMBED_HARD
+                f"could not read {os.path.basename(sm_path)} for the "
+                f"digest tease ({exc}); posting without it")
+    else:
+        degraded.append(
+            "no Sports & Sportsman edition found for the digest tease")
+    index_url = args.index_url or (
+        config.home_url() if config.PAGES_ENABLED else None)
+    if not index_url:
+        degraded.append("PAGES_ENABLED is False; digest posted without its link")
+    payload = build_digest_payload(
+        edition, index_url, sportsman_edition, image_filename)
+    degraded.extend(clamp_payload(payload))
 
-        if prefer_split and oversized:
-            split_notes: list[str] = []
-            messages = split_payloads(edition, image_filename, page_url, split_notes)
-            degraded.append("split into FRONT PAGE and INSIDE messages to keep the notebook whole")
-            degraded.extend(n for n in split_notes if n not in degraded)
-        else:
-            working, payload, trim_notes = build_within_budget(
-                edition, image_filename, page_url)
-            degraded.extend(trim_notes)
-            if embed_text_length(payload["embeds"]) > config.EMBED_HARD:
-                split_notes = []
-                messages = split_payloads(working, image_filename, page_url, split_notes)
-                degraded.append("split into FRONT PAGE and INSIDE messages")
-                # The split rebuilds the same edition, so its notebook notes
-                # repeat what build_within_budget already reported. Keep once.
-                degraded.extend(n for n in split_notes if n not in degraded)
-            else:
-                messages = [payload]
-        for message in messages:
-            degraded.extend(clamp_payload(message))
+    problems = validate_payload(payload)
+    if problems:
+        for problem in problems:
+            print(f"ERROR: {problem}", file=sys.stderr)
+        print("ERROR: digest payload refused; nothing sent", file=sys.stderr)
+        log_failures(args.date, degraded + ["digest payload failed validation; nothing sent"])
+        return 1
 
-        problems: list[str] = []
-        for i, message in enumerate(messages):
-            problems.extend(f"message[{i}]: {p}" for p in validate_payload(message))
-        if problems:
-            for problem in problems:
-                print(f"ERROR: {problem}", file=sys.stderr)
-            print("ERROR: embed payload refused; falling back to text mode", file=sys.stderr)
-            degraded.append("embed payload failed validation; posted as text")
-            text_mode = True
-            attachment, image_filename = None, None
-
-    if text_mode:
-        chunks = split_message(render_text_edition(edition))
-        messages = [{"content": chunk} for chunk in chunks]
-        problems = []
-        for i, message in enumerate(messages):
-            problems.extend(f"message[{i}]: {p}" for p in validate_payload(message))
-        if problems:
-            for problem in problems:
-                print(f"ERROR: {problem}", file=sys.stderr)
-            return 1
-
-    payload_file = write_payload_file(args.date, messages, args.sportsman)
+    payload_file = write_payload_file(args.date, [payload])
 
     if args.dry_run:
-        for i, message in enumerate(messages, 1):
-            print(f"--- message {i} of {len(messages)} ---")
-            print(json.dumps(_finalize(message), indent=2, ensure_ascii=False))
+        print("--- message 1 of 1 ---")
+        print(json.dumps(_finalize(payload), indent=2, ensure_ascii=False))
         if attachment:
             print(f"--- attachment: {attachment[0]} ({len(attachment[1])} bytes) ---")
         else:
             print("--- attachment: none ---")
-        for message in messages:
-            print(f"embed chars: {embed_text_length(message.get('embeds') or [])}", file=sys.stderr)
+        print(f"embed chars: {embed_text_length(payload.get('embeds') or [])}", file=sys.stderr)
         print(f"payload written to {payload_file}", file=sys.stderr)
         for note in degraded:
             print(f"DEGRADED: {note}", file=sys.stderr)
         return 0
 
-    if args.sportsman:
-        var = config.SPORTSMAN_WEBHOOK_ENV
-    else:
-        var = "DISCORD_TEST_WEBHOOK_URL" if args.test else "DISCORD_WEBHOOK_URL"
+    var = "DISCORD_TEST_WEBHOOK_URL" if args.test else "DISCORD_WEBHOOK_URL"
     webhook_url = load_env_webhook(var)
     if not webhook_url:
         print(f"ERROR: {var} not set (env or .env)", file=sys.stderr)
@@ -2191,20 +1358,14 @@ def main() -> int:
         if not held:
             degraded.append(hold_note)
 
-    long_retry = not args.test
-    embed_chars = sum(embed_text_length(m.get("embeds") or []) for m in messages)
-    delivery_mode = "text" if text_mode else "embeds"
+    embed_chars = embed_text_length(payload.get("embeds") or [])
     message_ids: list[str] = []
-    sent = 0
 
     def save(posted: bool) -> None:
-        """Write the ledger row for exactly what is in the channel right now.
+        """The ledger row for exactly what is in the channel right now.
 
-        Called after EVERY successful send, not once at the end. A run that
-        dies on message 2 of 3 used to return 1 with no row at all, so the next
-        run saw `posted: False`, re-sent message 1, and the group read the front
-        page twice. `messages_sent` + `mode` + `message_count` is what a re-run
-        needs to resume instead of repeat.
+        Same keys the full-embed path wrote, so the watchdog and anything
+        else reading editions/index.json sees one shape across the archive.
         """
         record_edition(
             args.date,
@@ -2214,120 +1375,34 @@ def main() -> int:
                 "posted": posted,
                 "message_id": message_ids[0] if message_ids else None,
                 "message_ids": list(message_ids),
-                "messages_sent": sent,
-                "message_count": len(messages),
-                "mode": delivery_mode,
-                "page_url": page_url,
-                "hero": bool(attachment) and not text_mode,
-                "embed_chars": 0 if text_mode else embed_chars,
+                "messages_sent": len(message_ids),
+                "message_count": 1,
+                "mode": "embeds",
+                "page_url": index_url,
+                "hero": bool(attachment),
+                "embed_chars": embed_chars,
                 "degraded": degraded,
             },
         )
 
-    # Resume or refuse, using the incremental row a previous run left behind.
-    prior = find_record(load_index(), args.date)
-    prior_sent = int((prior or {}).get("messages_sent") or 0)
-    if prior and prior_sent and not args.force:
-        prior_ids = [str(m) for m in (prior.get("message_ids") or []) if m]
-        same_run = (
-            prior.get("mode") == delivery_mode
-            and int(prior.get("message_count") or 0) == len(messages)
-        )
-        if same_run and prior_sent >= len(messages):
-            print(
-                f"SKIP: edition {args.date} is already fully delivered "
-                f"({prior_sent} {delivery_mode} message(s): "
-                f"{', '.join(prior_ids) or 'ids unrecorded'}) - use --force to repost"
-            )
-            message_ids, sent = prior_ids, prior_sent
-            save(posted=True)  # heal a row whose final write never landed
-            return 0
-        if same_run:
-            sent, message_ids = prior_sent, prior_ids
-            note = (
-                f"resumed a partial delivery: {sent} of {len(messages)} {delivery_mode} "
-                f"message(s) were already in the channel"
-            )
-            degraded.append(note)
-            print(f"WARN: {note}", file=sys.stderr)
-        else:
-            print(
-                f"ERROR: {args.date} has a partial delivery in the ledger - {prior_sent} of "
-                f"{prior.get('message_count')} {prior.get('mode')} message(s) already sent "
-                f"({', '.join(prior_ids) or 'ids unrecorded'}) - but this run would send "
-                f"{len(messages)} {delivery_mode} message(s), so they cannot be matched up. "
-                f"Delete the messages in Discord and re-run with --force, or fix the row in "
-                f"editions/index.json.",
-                file=sys.stderr,
-            )
-            log_failures(
-                args.date,
-                degraded
-                + [
-                    f"refused: {prior_sent} {prior.get('mode')} message(s) already sent for "
-                    f"this date do not match this run's {len(messages)} {delivery_mode} message(s)"
-                ],
-            )
-            return 1
-
-    for i, message in enumerate(messages):
-        if i < sent:
-            continue  # already in the channel; never post it twice
-        file_part = attachment if (i == 0 and message.get("attachments")) else None
-        result = send_message(webhook_url, message, file_part, long_retry=long_retry)
-        if not result.ok:
-            detail = _scrub(result.detail)
-            print(f"ERROR: HTTP {result.status} from webhook: {detail}", file=sys.stderr)
-            if result.status == 400 and not text_mode:
-                degraded.append(f"Discord rejected the embeds (400); posted as text: {detail[:120]}")
-                if sent:
-                    degraded.append(
-                        f"{sent} embed message(s) were already in the channel when Discord "
-                        f"400'd; the text edition follows them"
-                    )
-                chunks = split_message(render_text_edition(edition))
-                text_mode = True
-                delivery_mode = "text"
-                messages = [{"content": chunk} for chunk in chunks]
-                sent = 0
-
-                def text_progress(count: int, message_id: str | None) -> None:
-                    nonlocal sent
-                    sent = count
-                    if message_id:
-                        message_ids.append(message_id)
-                    save(posted=False)
-
-                ids, failure = _post_text_edition(
-                    webhook_url, chunks, long_retry, on_sent=text_progress
-                )
-                if failure:
-                    print(f"ERROR: {failure}", file=sys.stderr)
-                    save(posted=False)
-                    log_failures(args.date, degraded + [failure])
-                    return 1
-                if not message_ids:
-                    message_ids = ids
-                break
-            save(posted=False)
-            log_failures(args.date, degraded + [f"delivery failed with HTTP {result.status}"])
-            return 1
-        if result.message_id:
-            message_ids.append(result.message_id)
-        sent = i + 1
+    result = send_message(webhook_url, payload, attachment, long_retry=not args.test)
+    if not result.ok:
+        detail = _scrub(result.detail)
+        print(f"ERROR: HTTP {result.status} from webhook: {detail}", file=sys.stderr)
         save(posted=False)
-        if i < len(messages) - 1:
-            time.sleep(1)
-
+        log_failures(args.date, degraded + [f"delivery failed with HTTP {result.status}: {detail[:120]}"])
+        return 1
+    if result.message_id:
+        message_ids.append(result.message_id)
     save(posted=True)
     log_failures(args.date, degraded)
 
     where = "TEST channel" if args.test else "live channel"
-    mode = "text mode" if text_mode else f"{len(messages)} message(s), {embed_chars} embed chars"
-    hero = attachment[0] if (attachment and not text_mode) else "none"
+    hero = attachment[0] if attachment else "none"
     print(
-        f"OK: Edition No. {edition.get('edition_number')} - {args.date} posted to {where} "
-        f"({mode}, hero {hero}, link {'yes' if page_url else 'no'}); payload at {payload_file}"
+        f"OK: Edition No. {edition.get('edition_number')} - {args.date} digest posted to "
+        f"{where} ({embed_chars} embed chars, hero {hero}, "
+        f"link {'yes' if index_url else 'no'}); payload at {payload_file}"
     )
     return 0
 
