@@ -105,6 +105,20 @@ keeps a quiet morning from feeling thin:
 - **Standings for every IN-SEASON team, every day** — record, position,
   games back or points, looked up fresh and cited. Out-of-season teams are
   simply absent.
+- **MLB standings come from `out/standings.json`, byte for byte** (from
+  2026-09-03). Run `python fetch_standings.py` in setup, right after
+  `fetch_fishing.py`; it writes every club in the Reds' and Pirates'
+  divisions with `record`, `division_rank_word`, `games_back` and
+  `wild_card_games_back` as the exact strings you may print. The validator
+  refuses an MLB standings line whose record, games-back figure or ordinal
+  is not in that file — the same rule as the river gauges — and reads every
+  brief too: "second-place Pittsburgh" is checked against the table, not
+  only against your own block, and a record like "68-71" in a brief must be
+  the file's. Print `fetch_standings.py --pretty` and copy from the row
+  you mean. **MLS and the Premier League are NOT in the file.** No keyless
+  source with a stable shape was found, so those lines stay hand-looked-up
+  and cited as before; the validator leaves them alone. Say which in your
+  report if that ever changes.
 - **The week ahead for any followed team playing in the next seven days.**
   Day and time, and **the time is ET, always** — ET alone or ET alongside
   the local zone, never missing. "Saturday, 17:30 BST" shipped once and
@@ -450,13 +464,13 @@ skimming. The line score has the runs in it and it is never ambiguous.
 
 ```
 python validate_edition.py editions/sportsman/YYYY-MM-DD.json --sportsman \
-    --fishing out/fishing.json
-python render_edition.py --sportsman --date YYYY-MM-DD   # also freezes editions/data/YYYY-MM-DD.fishing.json
-git add -A && git commit && git push          # publishes site/sportsman/, commits the snapshot
+    --fishing out/fishing.json --standings out/standings.json
+python render_edition.py --sportsman --date YYYY-MM-DD   # also freezes editions/data/YYYY-MM-DD.{fishing,standings}.json
+git add -A && git commit && git push          # publishes site/sportsman/, commits the snapshots
 ```
 
-Validate against the SAME `out/fishing.json` the edition was written from —
-the water check byte-matches gauge numbers, and the gauges drift, so a
+Validate against the SAME `out/fishing.json` and `out/standings.json` the
+edition was written from — both checks byte-match, the gauges drift, and a
 re-fetch between writing and validating fails honest lines.
 
 **This paper does not post to Discord** (Nate, 2026-08-26). Write it,

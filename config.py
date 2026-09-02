@@ -1033,6 +1033,16 @@ SUMO_REQUIRED_DAILY = False
 # Dated forward one day so the desk reads the instructions before the gate
 # closes, and so the archive stays valid as the paper it actually was.
 SM_RESULT_REQUIRED_FROM = "2026-08-27"
+
+# MLB standings are byte-matched against out/standings.json (written by
+# fetch_standings.py) from this date: every record, games-back figure and
+# ordinal the desk prints for an MLB club must be a value the fetcher wrote.
+# Both sports errors Pat caught were real numbers in the wrong relationship,
+# typed by hand from a table. Dated forward one day so today's edition,
+# written before the fetcher existed, stays valid as what it was. MLS and
+# the Premier League are NOT covered — no keyless source with a stable
+# shape was found — and instructions/sportsman.md says so.
+SM_STANDINGS_REQUIRED_FROM = "2026-09-03"
 SUMO_LEADS_SPORTS_IN_BASHO = True
 SUMO_BASHO_DAYS = 15
 SUMO_BASHO_MONTHS = [1, 3, 5, 7, 9, 11]
@@ -1410,6 +1420,7 @@ INDEX_PATH = os.path.join(EDITIONS_DIR, "index.json")
 FIXTURE_PATH = os.path.join(EDITIONS_DIR, "_fixture.json")
 STATS_PATH = os.path.join(OUT_DIR, "stats.json")
 FISHING_PATH = os.path.join(OUT_DIR, "fishing.json")
+STANDINGS_PATH = os.path.join(OUT_DIR, "standings.json")
 TEMPLATE_PATH = os.path.join(TEMPLATES_DIR, "broadsheet.html")
 MASTHEAD_FALLBACK_PNG = os.path.join(ASSETS_DIR, "masthead-fallback.png")
 SITE_INDEX_PATH = os.path.join(SITE_DIR, "index.html")

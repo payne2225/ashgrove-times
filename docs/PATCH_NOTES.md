@@ -4,6 +4,54 @@ Running changelog. Dated entries, newest first. Touched only when
 behavior changes, not every edition — the per-day record lives in
 `editions/index.json`, and degraded runs go in `docs/FAILURES.md`.
 
+## 2026-09-02 — MLB standings are byte-matched against the table
+
+Full-pass item 7. Both sports errors Pat caught were "half right" — real
+numbers in the wrong relationship, typed by hand from a table read with the
+eye on the wrong row. `result` fixed the direction of a game report;
+standings were still prose. From **2026-09-03** they get the stat-strip rule.
+
+- **`fetch_standings.py`** → `out/standings.json`, from MLB's keyless Stats
+  API (`statsapi.mlb.com/api/v1/standings`, the endpoint both August fixes
+  were verified against). Every club in the Reds' and Pirates' divisions is
+  written — a brief that says the Brewers lead by six names a club the desk
+  does not follow, and that number needs a source too — with `record`,
+  `division_rank_word`, `games_back`, `wild_card_games_back` and more as
+  the exact strings the desk may print. Always exits 0; an empty table makes
+  every MLB line unsourced, which is the right outcome. `hydrate=team` is
+  load-bearing: without it the rows carry no names (found on the first run).
+- **The validator** (`_sm_check_standings_numbers`, date-scoped to
+  `SM_STANDINGS_REQUIRED_FROM`): every number in an MLB `teams.standings`
+  line must be a value the fetcher wrote; the record must be wins-first and
+  current; the ordinal must be the club's division rank ("last" checked
+  against division size). Every brief, per field: a `<ordinal>-place <club>`
+  claim is checked against the table, a season record is checked when the
+  field names exactly one club in the file, and a games-back decimal on the
+  wrong club is an advisory. Lines for MLS, the Premier League, Hannan and
+  the colleges are left alone. **No data from 09-03 is an error** when MLB
+  lines are present. `--standings PATH` / `--no-standings`; the default
+  resolution prefers the edition's own snapshot, then `out/standings.json`
+  only when it is dated the edition's day — so validating an archived
+  edition on a dev machine never byte-matches it against today's table.
+- **Two false positives found by dry-running tomorrow's gate on real
+  editions, fixed before they shipped:** "Pirates outslug the Rockies 13-12"
+  read as a wrong record (a brief's record now needs seventy games, which
+  no score reaches), and "Cincinnati" resolving to the Reds inside a Bengals
+  or FC Cincinnati sentence (a word shared with a followed club in another
+  league is never evidence on its own; "second-place Cincinnati" resolves to
+  nobody, "second-place Reds" to the Reds).
+- **The snapshot.** `render_edition.py --sportsman` freezes
+  `editions/data/<date>.standings.json` beside the fishing snapshot
+  (`ensure_snapshot` is now generic), so a later re-validation reads the
+  table the desk was checked against.
+- **Dry run:** today's two MLB lines (Pirates 68-71, fourth, 18 back; Reds
+  66-73, fifth, 20 back) pass tomorrow's gate against the live table. The
+  08-24 edition as shipped fails it on two figures — the 8.5 and 9 wild-card
+  numbers that were never in that day's table — which is the gate paying
+  for itself retroactively.
+- `sportsman.md` "Where they stand" and §5, `routine.md`'s pipeline,
+  HANDOFF §6. `tests/test_standings_table.py`: 20 cases.
+
 ## 2026-09-02 — the watchdog watches the two things it was blind to
 
 Full-pass item 5, in `weatherman/instructions/watchdog.md` (the routine's

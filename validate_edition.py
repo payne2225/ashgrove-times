@@ -2423,6 +2423,52 @@ def _resolve_fishing(explicit: str | None, skip: bool = False) -> tuple[dict | N
     ]
 
 
+def _resolve_standings(
+    explicit: str | None, skip: bool = False, edition_date: str | None = None,
+) -> tuple[dict | None, list[str]]:
+    """The MLB standings a sports edition may be checked against.
+
+    Explicit --standings is taken as given. Otherwise the edition's OWN
+    snapshot (editions/data/<date>.standings.json, frozen by the render) is
+    preferred, and the live out/standings.json is used only when its `date`
+    is the edition's date — a dev machine's out/ is whatever was fetched
+    last, and byte-matching an archived edition against it would be noise,
+    not signal. None means "no data": the gate then decides by date whether
+    that is allowed.
+    """
+    if skip:
+        return None, ["--no-standings: MLB standings are NOT verified"]
+    if explicit:
+        standings, problem = _load_json(explicit)
+        if problem:
+            return {"teams": {}}, [f"{problem} — treating standings as empty, "
+                                   "so any MLB standings line is unsourced"]
+        return standings, []
+    if _is_str(edition_date):
+        snapshot = os.path.join(config.EDITIONS_DIR, "data",
+                                f"{edition_date}.standings.json")
+        if os.path.exists(snapshot):
+            standings, problem = _load_json(snapshot)
+            if problem:
+                return None, [f"{problem} — MLB standings not cross-checked"]
+            return standings, []
+    if os.path.exists(config.STANDINGS_PATH):
+        standings, problem = _load_json(config.STANDINGS_PATH)
+        if problem:
+            return None, [f"{problem} — MLB standings not cross-checked"]
+        fetched = _data_date(standings, "date", "fetched_at")
+        if _is_str(edition_date) and fetched and fetched != edition_date:
+            return None, [
+                f"{config.STANDINGS_PATH} is dated {fetched}, not {edition_date} — "
+                "MLB standings not cross-checked against another day's table"
+            ]
+        return standings, []
+    return None, [
+        f"{config.STANDINGS_PATH} missing — MLB standings NOT cross-checked "
+        "(run fetch_standings.py before the real gate)"
+    ]
+
+
 def _check_ledger(edition: dict, date: str) -> tuple[list[str], list[str]]:
     """Cross-check edition_number against editions/index.json."""
     errors: list[str] = []
@@ -2866,6 +2912,221 @@ def _sm_check_standings_agreement(edition: dict,
     return errors, notes
 
 
+# ------------------------------------- the standings, traced to the table
+
+# The stat-strip rule, applied to the standings block. Both misses Pat
+# caught were "half right": real numbers, wrong relationship, typed by hand
+# from a table read with the eye on the wrong row. fetch_standings.py writes
+# the table; from SM_STANDINGS_REQUIRED_FROM every record, games-back
+# figure and ordinal the desk prints for an MLB club has to be in it.
+
+_RECORD_RE = re.compile(r"\b(\d{1,3})-(\d{1,3})\b")
+_SM_STANDINGS_NUMBER_RE = re.compile(r"\d+(?:\.\d+)?")
+# In a BRIEF, "68-71" is a record and "13-12" is a slugfest. The two are told
+# apart by the total: no baseball or football score reaches seventy, and a
+# season record passes it by early June. Before that, records in briefs go
+# unchecked (the standings block itself is always checked, every number);
+# after it, a 31-28 Bengals score can never be read as the Reds' record.
+# Found on the first dry run against a real edition: "Pirates outslug ...
+# 13-12" was flagged as a wrong record at a threshold of twenty.
+_BRIEF_RECORD_MIN_GAMES = 70
+
+
+def _standings_team(text: str, standings: dict) -> str | None:
+    """The ONE club in the standings file that `text` names, or None.
+
+    Followed clubs resolve through the alias table; their division mates
+    ("Milwaukee", "Brewers") through word overlap with the file's names,
+    the same way _standings_subject works. Two clubs named, or none, is
+    None — the gate speaks only when it knows who is meant.
+    """
+    teams = standings.get("teams") if isinstance(standings, dict) else None
+    if not isinstance(teams, dict) or not _is_str(text):
+        return None
+    # "Cincinnati" is the Reds, the Bengals and FC Cincinnati. A word that
+    # belongs to a followed club in ANOTHER league is never evidence on its
+    # own: "second-place Cincinnati" resolves to nobody, "second-place Reds"
+    # to the Reds. A Bengals score must never be read as the Reds' record.
+    shared: set[str] = set()
+    for other in config.FOLLOWED_TEAMS:
+        if other["league"] != "MLB":
+            for alias in config.team_names(other):
+                shared |= _subject_words(alias)
+    hits: set[str] = set()
+    words = _subject_words(text)
+    for name in teams:
+        if (_subject_words(name) & words) - shared:
+            hits.add(name)
+    for team in config.find_team(text, league="MLB"):
+        if team["name"] in teams:
+            hits.add(team["name"])
+    return next(iter(hits)) if len(hits) == 1 else None
+
+
+def _standings_values(rec: dict) -> set[str]:
+    """Every numeric string the desk may print for a club, as text."""
+    out: set[str] = set()
+    for key in ("wins", "losses", "division_rank", "wild_card_rank",
+                "league_rank", "division_size"):
+        value = rec.get(key)
+        if isinstance(value, int):
+            out.add(str(value))
+    for key in ("games_back", "wild_card_games_back"):
+        value = rec.get(key)
+        if _is_str(value):
+            out.add(value)
+            try:
+                number = float(value)
+            except ValueError:
+                continue
+            if number == int(number):
+                out.add(str(int(number)))          # "18.0" may print as 18
+            out.add(f"{number:g}")
+    return out
+
+
+def _sm_check_standings_numbers(
+    edition: dict, teams: dict, standings: dict | None,
+    edition_date: object = None,
+) -> tuple[list[str], list[str]]:
+    """MLB standings lines and briefs print only numbers the fetcher wrote."""
+    errors: list[str] = []
+    notes: list[str] = []
+    entries = teams.get("standings") if isinstance(teams, dict) else None
+    entries = entries if isinstance(entries, list) else []
+    required = (_is_str(edition_date)
+                and edition_date >= config.SM_STANDINGS_REQUIRED_FROM)
+    if not required:
+        # Date-scoped to the day the fetcher joined the pipeline. An edition
+        # written before it is a correct record of the paper that ran, and
+        # a table fetched later is another day's table.
+        return errors, notes
+
+    mlb_lines = [(i, e) for i, e in enumerate(entries)
+                 if isinstance(e, dict) and _is_str(e.get("team"))
+                 and config.find_team(str(e["team"]), league="MLB")]
+
+    if standings is None:
+        if mlb_lines:
+            errors.append(
+                "teams.standings carries MLB lines but there is no standings "
+                "data to check them against — run fetch_standings.py and "
+                "validate with the file it writes; from "
+                f"{config.SM_STANDINGS_REQUIRED_FROM} an MLB record, games-back "
+                "figure or ordinal ships only if the fetcher wrote it"
+            )
+        return errors, notes
+
+    table = standings.get("teams") if isinstance(standings, dict) else None
+    table = table if isinstance(table, dict) else {}
+    if mlb_lines and not table:
+        errors.append(
+            "out/standings.json has no clubs — the fetcher failed and every "
+            "MLB standings line is unsourced; fix the fetch or cut the lines"
+        )
+        return errors, notes
+
+    # ---- the standings block itself
+    for i, entry in mlb_lines:
+        where = f"teams.standings[{i}]"
+        name = _standings_team(str(entry["team"]), standings)
+        if name is None:
+            matches = config.find_team(str(entry["team"]), league="MLB")
+            wanted = matches[0]["name"] if matches else entry["team"]
+            errors.append(
+                f"{where}.team {entry['team']!r} ({wanted}) is not in the "
+                "standings file — the fetcher wrote no row for it, so the "
+                "line cannot be checked and cannot print"
+            )
+            continue
+        rec = table[name]
+        line = str(entry.get("line") or "")
+        allowed = _standings_values(rec)
+        for token in _SM_STANDINGS_NUMBER_RE.findall(line):
+            if token not in allowed:
+                errors.append(
+                    f"{where}.line prints {token} but the standings file has "
+                    f"no such figure for {name} (it carries "
+                    f"{', '.join(sorted(allowed, key=lambda s: (len(s), s)))}) "
+                    "— same rule as the stat strip"
+                )
+        for wins, losses in _RECORD_RE.findall(line):
+            if (rec.get("wins"), rec.get("losses")) != (int(wins), int(losses)):
+                if (rec.get("wins"), rec.get("losses")) == (int(losses), int(wins)):
+                    errors.append(
+                        f"{where}.line prints {wins}-{losses} but {name} are "
+                        f"{rec.get('record')} — the record is wins first"
+                    )
+                else:
+                    errors.append(
+                        f"{where}.line prints the record {wins}-{losses} but the "
+                        f"standings file has {name} at {rec.get('record')}"
+                    )
+        place = _place_of(line, _STANDINGS_PLACE_RE)
+        if place:
+            if place == _ORDINAL_LAST:
+                if not rec.get("is_last"):
+                    errors.append(
+                        f"{where}.line calls {name} last but the standings file "
+                        f"has them {rec.get('division_rank_word')} of "
+                        f"{rec.get('division_size')} in the {rec.get('division')}"
+                    )
+            elif place != rec.get("division_rank_word"):
+                errors.append(
+                    f"{where}.line calls {name} {place} but the standings file "
+                    f"has them {rec.get('division_rank_word')} in the "
+                    f"{rec.get('division')} — read the row you are naming"
+                )
+
+    # ---- every brief, per field: a record or a place claimed for ONE club
+    for path, brief in _all_briefs(edition):
+        for field in ("headline", "summary"):
+            part = str(brief.get(field) or "")
+            if not part.strip():
+                continue
+            for stated, subject in _BRIEF_PLACE_RE.findall(part):
+                name = _standings_team(subject, standings)
+                if name is None:
+                    continue
+                rec = table[name]
+                stated = stated.lower()
+                if stated == _ORDINAL_LAST:
+                    ok = bool(rec.get("is_last"))
+                else:
+                    ok = stated == rec.get("division_rank_word")
+                if not ok:
+                    errors.append(
+                        f"{path}.{field} calls {name} {stated}-place, but the "
+                        f"standings file has them {rec.get('division_rank_word')} "
+                        f"in the {rec.get('division')} — the 2026-08-24 miss, "
+                        "caught at the source this time"
+                    )
+            name = _standings_team(part, standings)
+            if name is None:
+                continue
+            rec = table[name]
+            for wins, losses in _RECORD_RE.findall(part):
+                w, l_ = int(wins), int(losses)
+                if w + l_ < _BRIEF_RECORD_MIN_GAMES:
+                    continue  # a score, not a record
+                if (rec.get("wins"), rec.get("losses")) != (w, l_):
+                    errors.append(
+                        f"{path}.{field} prints {name} at {wins}-{losses} but "
+                        f"the standings file has {rec.get('record')}"
+                    )
+            gb_values = {rec.get("games_back"), rec.get("wild_card_games_back")}
+            for figure in sorted(set(_GAMES_BACK_RE.findall(part))):
+                if figure in gb_values:
+                    continue
+                notes.append(
+                    f"{path}.{field} prints {figure} in a sentence about {name}, "
+                    f"whose games-back figures are {rec.get('games_back') or '—'} "
+                    f"(division) and {rec.get('wild_card_games_back') or '—'} "
+                    "(wild card) — confirm whose number this is"
+                )
+    return errors, notes
+
+
 def _sm_check_teams(section: dict,
                     edition_date: object = None) -> tuple[list[str], list[str]]:
     """Every followed team is covered or accounted for — the section's job."""
@@ -3159,8 +3420,14 @@ def _sm_check_water(section: dict, fishing: dict | None) -> tuple[list[str], lis
     return errors, notes
 
 
-def validate_sportsman(edition: dict, fishing: dict | None) -> tuple[list[str], list[str]]:
-    """The whole Sports & Sportsman gate: (errors, advisories)."""
+def validate_sportsman(edition: dict, fishing: dict | None,
+                       standings: dict | None = None) -> tuple[list[str], list[str]]:
+    """The whole Sports & Sportsman gate: (errors, advisories).
+
+    `standings` is the parsed MLB standings file (see _resolve_standings);
+    None means no data, and the gate decides by edition date whether that
+    is allowed.
+    """
     errors: list[str] = []
     notes: list[str] = []
 
@@ -3203,6 +3470,13 @@ def validate_sportsman(edition: dict, fishing: dict | None) -> tuple[list[str], 
         edition, by_id["teams"])
     errors += agree_errors
     notes += agree_notes
+
+    # ...and against the TABLE, not only against itself. The block can be
+    # self-consistent and still wrong; the fetcher's file is the source.
+    table_errors, table_notes = _sm_check_standings_numbers(
+        edition, by_id["teams"], standings, edition.get("edition_date"))
+    errors += table_errors
+    notes += table_notes
 
     season_errors, season_notes = _sm_check_seasons(
         by_id["seasons"], edition.get("edition_date"))
@@ -3257,6 +3531,14 @@ def main() -> int:
                                help="out/fishing.json for the fishing-line check")
     fishing_group.add_argument("--no-fishing", action="store_true",
                                help="skip the fishing-line check (fixtures only)")
+    standings_group = parser.add_mutually_exclusive_group()
+    standings_group.add_argument("--standings",
+                                 help="out/standings.json for the MLB standings "
+                                      "check (--sportsman only; default: the "
+                                      "edition's snapshot, else out/standings.json "
+                                      "when dated today)")
+    standings_group.add_argument("--no-standings", action="store_true",
+                                 help="skip the MLB standings check (fixtures only)")
     parser.add_argument("--sportsman", action="store_true",
                         help="validate a Sports & Sportsman edition against "
                              "its own contract instead of the newspaper's")
@@ -3285,7 +3567,11 @@ def main() -> int:
         fishing, fishing_notes = _resolve_fishing(
             args.fishing, skip=args.no_fishing)
         notes += fishing_notes
-        sm_errors, sm_notes = validate_sportsman(edition, fishing)
+        standings, standings_notes = _resolve_standings(
+            args.standings, skip=args.no_standings,
+            edition_date=edition.get("edition_date"))
+        notes += standings_notes
+        sm_errors, sm_notes = validate_sportsman(edition, fishing, standings)
         errors += sm_errors
         notes += sm_notes
         basename = os.path.basename(args.path)

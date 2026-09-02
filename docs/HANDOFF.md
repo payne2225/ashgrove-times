@@ -246,6 +246,13 @@ times, a persona or name, the format, who gets pinged.
   `result: {winner, loser, score}` and the validator checks the prose's verb
   against it. **Half right is the signature of this bug** — when a brief
   states a relationship, check the relationship, not just the numbers.
+  **MLB standings are byte-matched too** (from 2026-09-03):
+  `fetch_standings.py` writes `out/standings.json` from MLB's keyless Stats
+  API, `render_edition.py --sportsman` freezes it to
+  `editions/data/<date>.standings.json`, and the validator refuses a record,
+  games-back figure or ordinal — in the block or in any brief naming one MLB
+  club — that is not in the file. MLS and the Premier League are not covered
+  (no keyless source) and the instructions say so.
 - **The away desk and Vacation Hotspots run EVERY morning** (Nate,
   2026-08-26: *"ALWAYS give us content... there is always stuff to
   report"*). Fourteen-day window; work the search ladder — local outlets,

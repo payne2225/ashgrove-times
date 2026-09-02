@@ -69,6 +69,7 @@ gets you there and back.
 ```
 python fetch_stats.py                     # market strip -> out/stats.json
 python fetch_fishing.py                   # gauges + tides -> out/fishing.json (SPORTS only)
+python fetch_standings.py                 # MLB standings -> out/standings.json (SPORTS only)
 # research with WebSearch/WebFetch, then write editions/YYYY-MM-DD.json
 python validate_edition.py editions/YYYY-MM-DD.json \
     --stats out/stats.json
@@ -76,9 +77,9 @@ python render_edition.py --date YYYY-MM-DD
 
 # ---- the second paper: written and PUBLISHED, never posted ----
 python validate_edition.py editions/sportsman/YYYY-MM-DD.json --sportsman \
-    --fishing out/fishing.json
-python render_edition.py --sportsman --date YYYY-MM-DD   # also writes editions/data/YYYY-MM-DD.fishing.json
-git add -A && git commit && git push       # BOTH papers + the fishing snapshot, BEFORE the post
+    --fishing out/fishing.json --standings out/standings.json
+python render_edition.py --sportsman --date YYYY-MM-DD   # also writes editions/data/YYYY-MM-DD.{fishing,standings}.json
+git add -A && git commit && git push       # BOTH papers + the snapshots, BEFORE the post
 
 # ---- one message, after both papers are pushed ----
 python post_discord.py --date YYYY-MM-DD --digest --dry-run

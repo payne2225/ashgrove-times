@@ -239,8 +239,13 @@ DATA_DIR = os.path.join(EDITIONS_DIR, "data")
 LIVE_FISHING_PATH = os.path.join(OUT_DIR, "fishing.json")
 
 
+def snapshot_path(date_iso: str, kind: str) -> str:
+    """editions/data/<date>.<kind>.json — `fishing` since 09-02, `standings` since 09-03."""
+    return os.path.join(DATA_DIR, f"{date_iso}.{kind}.json")
+
+
 def fishing_snapshot_path(date_iso: str) -> str:
-    return os.path.join(DATA_DIR, f"{date_iso}.fishing.json")
+    return snapshot_path(date_iso, "fishing")
 
 
 def _fishing_date(data: dict) -> str:
@@ -283,37 +288,43 @@ def _load_fishing_for(date_iso: str | None) -> tuple[dict | None, str]:
     return data, LIVE_FISHING_PATH
 
 
-def ensure_fishing_snapshot(date_iso: str) -> str | None:
-    """Freeze today's out/fishing.json beside the edition, once.
+def ensure_snapshot(date_iso: str, kind: str, live_path: str) -> str | None:
+    """Freeze a fetcher's live file beside the edition, once.
 
     Returns the snapshot path, or None when nothing could honestly be
     frozen: no live file, or a live file from another day. Never
-    overwrites an existing snapshot — the water an edition was written from
+    overwrites an existing snapshot — the data an edition was written from
     is a fact about that morning, and a later fetch is a different fact.
     Bytes are copied, not re-serialised, so the snapshot IS the file the
     validator byte-matched against.
     """
-    target = fishing_snapshot_path(date_iso)
+    target = snapshot_path(date_iso, kind)
     if os.path.exists(target):
         return target
+    live_name = os.path.relpath(live_path, HERE).replace(os.sep, "/")
     try:
-        with open(LIVE_FISHING_PATH, "rb") as f:
+        with open(live_path, "rb") as f:
             raw = f.read()
         data = json.loads(raw.decode("utf-8"))
     except (OSError, ValueError):
-        print(f"WARN: no readable out/fishing.json — no snapshot written for "
+        print(f"WARN: no readable {live_name} — no {kind} snapshot written for "
               f"{date_iso}", file=sys.stderr)
         return None
     fetched = _fishing_date(data)
     if fetched and fetched != date_iso:
-        print(f"WARN: out/fishing.json is dated {fetched}, not {date_iso} — "
-              "no snapshot written; a snapshot is only ever the day's own "
-              "water", file=sys.stderr)
+        print(f"WARN: {live_name} is dated {fetched}, not {date_iso} — no "
+              f"snapshot written for {kind}; a snapshot is only ever the "
+              "day's own data", file=sys.stderr)
         return None
     os.makedirs(DATA_DIR, exist_ok=True)
     with open(target, "wb") as f:
         f.write(raw)
     return target
+
+
+def ensure_fishing_snapshot(date_iso: str) -> str | None:
+    """Freeze today's out/fishing.json beside the edition (see ensure_snapshot)."""
+    return ensure_snapshot(date_iso, "fishing", LIVE_FISHING_PATH)
 
 
 def _tide_table_html(date_iso: str | None = None) -> str:
@@ -2192,6 +2203,11 @@ def main() -> int:
         else:
             print(f"WARN: no fishing snapshot for {date_iso} — this page "
                   "cannot be re-rendered later", file=sys.stderr)
+        # The standings the desk was checked against, frozen the same way,
+        # so a later re-validation of this edition reads its own table.
+        standings = ensure_snapshot(date_iso, "standings", config.STANDINGS_PATH)
+        if standings:
+            print(f"OK: standings snapshot {standings}")
         # No hero card and no newspaper site index — this paper's whole
         # visual output is its page under site/sportsman/.
         written = write_sportsman_site(edition)
