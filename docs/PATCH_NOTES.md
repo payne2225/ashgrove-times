@@ -4,6 +4,16 @@ Running changelog. Dated entries, newest first. Touched only when
 behavior changes, not every edition — the per-day record lives in
 `editions/index.json`, and degraded runs go in `docs/FAILURES.md`.
 
+## 2026-09-02 — the alert watcher's quiet run costs a script
+
+Full-pass item 11, Nate's yes the same day. The change is in the weatherman
+repo (`instructions/alerts.md` §0 and the routine's prompt): the run opens
+with `check_alerts.py --heartbeat` and a `0 new` result ends it without
+reading the playbook. No second routine — the same session writes and
+posts when there is something to write. HANDOFF §3 records the one
+deliberate prompt/playbook duplication this introduces. Nate also confirmed
+the sports webhook is deleted in Discord, closing item 6's remaining half.
+
 ## 2026-09-02 — webhooks out of prompt text: tried, blocked by the API
 
 Full-pass item 6, not landed. The plan was to move `DISCORD_WEBHOOK_URL`

@@ -80,7 +80,11 @@ week after the digest replaced both, and the watchdog prompt inlined the old
 `alerts_state.json` mtime check right after telling itself to follow
 `watchdog.md` — the direct cause of the 2026-08-30 false alarm. A rule
 written in two places drifts; tune behaviour in `instructions/`, never in
-the prompt.
+the prompt. **The one deliberate exception** (2026-09-02): the alert
+watcher's prompt carries its gate command — `check_alerts.py --heartbeat`,
+stop on `0 new` — verbatim, because the saving is precisely not opening
+the playbook on a quiet run. `weatherman/instructions/alerts.md` §0 has the
+same command and says the two must change together.
 
 | Routine | ID | Cron (UTC) |
 |---|---|---|
@@ -337,12 +341,14 @@ an outside source has it and can be cited. Ian reads the paper.
   `docs/HANDOFF-FULL-PASS-2026-09-02.md`, is now a summary; the detail is
   in `docs/PATCH_NOTES.md` under 2026-09-02. **Three threads it left open:**
   - **Item 6, webhooks out of prompt text — blocked by the API** (§3).
-    Nate's half stands: **delete the sports webhook in Discord.**
-  - **Item 11, the alert watcher's cost — awaiting Nate's answer.**
-    Forty-eight Fable fires a day for a deterministic diff. The option is a
-    script-only half-hourly check that `RemoteTrigger run`s a second Fable
-    routine only when there is something new to write; the cost is a second
-    routine to keep in step. Nothing changes until he says.
+    Nate deleted the sports webhook in Discord on 2026-09-02; nothing is
+    left of it anywhere.
+  - **Item 11, the alert watcher's cost — DONE 2026-09-02** (Nate: "do it").
+    The routine's prompt now opens with the gate command
+    (`check_alerts.py --heartbeat`) and a quiet run ends on its OK line
+    without opening the playbook; only a run with something new reads
+    `weatherman/instructions/alerts.md`. No second routine. The gate is the
+    one rule stated in both the prompt and the playbook, by design.
   - **Item 12, the weatherman grader has no tests.** `weatherman/verify.py`,
     `instructions/report-card.md` and `briefing.md` were not reviewed;
     "grade inflation is the one unforgivable failure" has nothing behind it
