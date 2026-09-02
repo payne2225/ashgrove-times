@@ -771,6 +771,10 @@
     .page { border: 0; box-shadow: none; max-width: none; }
     .wire-flow { column-count: var(--wire-cols, 3); column-gap: 24px; }
     .sec-wv { grid-column: 1 / -1; order: 9; }
+    /* Buttons and the anchor rule are screen furniture: a printed page
+       has no other sections to go to, and the rule was drawn to separate
+       columns that print does not stack the same way. */
+    .paper-nav, .rule-anchor { display: none; }
   }
 </style>
 </head>
@@ -787,6 +791,8 @@
   <div class="tagline">&ldquo;For the Fellers&rdquo;</div>
   <hr class="rule-thick">
   <hr class="rule-thin">
+
+  <nav class="paper-nav" aria-label="Sections"><a href="home.html">Home</a><a href="today.html">The News Desk</a><a href="sportsman/">Sports &amp; Sportsman</a><a href="weather/">The Weather Claude</a></nav>
 
   <ul class="issues"><li class="issue">
       <span class="no">No. 29 · Wednesday, September 2, 2026</span>
@@ -905,7 +911,9 @@
       <span class="hed"><a href="editions/2026-08-05.html">Iran, Oman agree on Hormuz route as US presses for deal</a></span>
     </li></ul>
 
-  <div class="footer-note">Compiled from wire reports<span class="sep">&middot;</span><a href="today.html">Today&rsquo;s edition</a></div>
+  <div class="footer-note">Compiled from wire reports<span class="sep">&middot;</span><a href="today.html">Today&rsquo;s edition</a><span class="sep">&middot;</span><a href="feed.xml">RSS</a></div>
+
+  <nav class="paper-nav paper-nav-foot" aria-label="Sections, repeated"><a href="home.html">Home</a><a href="today.html">The News Desk</a><a href="sportsman/">Sports &amp; Sportsman</a><a href="weather/">The Weather Claude</a></nav>
 
 </div>
 </body>

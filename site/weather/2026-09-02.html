@@ -771,6 +771,10 @@
     .page { border: 0; box-shadow: none; max-width: none; }
     .wire-flow { column-count: var(--wire-cols, 3); column-gap: 24px; }
     .sec-wv { grid-column: 1 / -1; order: 9; }
+    /* Buttons and the anchor rule are screen furniture: a printed page
+       has no other sections to go to, and the rule was drawn to separate
+       columns that print does not stack the same way. */
+    .paper-nav, .rule-anchor { display: none; }
   }
 </style>
 </head>

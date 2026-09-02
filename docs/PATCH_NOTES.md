@@ -4,6 +4,43 @@ Running changelog. Dated entries, newest first. Touched only when
 behavior changes, not every edition — the per-day record lives in
 `editions/index.json`, and degraded runs go in `docs/FAILURES.md`.
 
+## 2026-09-02 — small marks: the Sports card, the print stylesheet
+
+Full-pass item 10.
+
+- `site/home.html`'s Sports & Sportsman card said "Every morning at 7:05
+  ET" — a post time for a paper that has not posted since 08-26. It now
+  says "Web only — published every morning before 7:00 ET", which is what
+  happens.
+- `templates/broadsheet.html` `@media print` hides `.paper-nav` and
+  `.rule-anchor`: a printed page has no other sections to go to, and the
+  anchor rule separates columns that print does not stack the same way.
+- The third mark is a question, not a change: **Ian has never said which
+  West Virginia outlets he trusts**, and the notebook's source list in
+  `edition.md` has been "provisional" since August. Put to Nate in the pass
+  report; it stays in HANDOFF §9 until it is answered.
+
+## 2026-09-02 — an RSS feed, and the archive gets its nav
+
+Full-pass item 8.
+
+- **`site/feed.xml`** — written by `write_site` every morning (and by
+  `--all`) from the same committed archive the back-issues page reads, so
+  the two cannot disagree. One item per Times edition, newest first, capped
+  at 30: the dated permalink as link and guid, the dek as description (the
+  headline when there is none), and a `pubDate` of 7:00 ET on the edition's
+  date with the offset from config's own DST rule. The channel link is Home.
+  `site/home.html` advertises it with `<link rel="alternate">`, and the
+  archive page's colophon links it.
+- **`archive.html` has both nav rows** — the `ARCHIVE_PAGE` block now takes
+  `{{NAV}}` and `{{NAV_FOOT}}`, with every button showing because the
+  archive belongs to no one section. Until now it was the one page a reader
+  could reach and not leave by button.
+- `tests/test_feed.py`: well-formed RSS with one item per edition, Home as
+  the channel link and dated pages as items, escaping, the 7:00 ET pubDate
+  on both sides of the clock change, an empty archive, both nav rows on the
+  archive page, and the print rule from item 10.
+
 ## 2026-09-02 — MLB standings are byte-matched against the table
 
 Full-pass item 7. Both sports errors Pat caught were "half right" — real

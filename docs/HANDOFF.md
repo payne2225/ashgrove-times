@@ -180,6 +180,8 @@ morning** — they are the shop window, not housekeeping. It links:
 | The News Desk | `/today.html` and `/editions/<date>.html` | `render_edition.py` |
 | Sports & Sportsman | `/sportsman/` | `render_edition.py --sportsman` |
 | The Weather Claude | `/weather/` | `render_edition.py --weather` |
+| Back issues | `/archive.html` | `write_site` (both nav rows, like every page, since 2026-09-02) |
+| RSS | `/feed.xml` | `write_site` — one item per Times edition, dated permalink, dek, 7:00 ET pubDate; Home's `<head>` advertises it (2026-09-02) |
 
 **Page layout (2026-08-26).** The wire sections FLOW through balanced
 columns — a grid stranded 28% of the section area as white. Two sections do

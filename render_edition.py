@@ -891,8 +891,76 @@ def archive_entries(editions_dir: str | None = None,
             "number": data.get("edition_number"),
             "volume": data.get("volume") or "I",
             "headline": _norm((data.get("lead") or {}).get("headline")),
+            "dek": _norm((data.get("lead") or {}).get("dek")),
         })
     return entries
+
+
+# ------------------------------------------------------------------ RSS
+
+FEED_TITLE = f"{config.MASTHEAD.title()} — The News Desk"
+FEED_MAX_ITEMS = 30
+
+
+def _rfc822(date_iso: str) -> str:
+    """The edition's publication instant — 7:00 ET on its date — as RFC 822.
+
+    The digest is held to 7:00 ET, so that is when readers get the paper,
+    and config's own DST rule decides whether that is -0400 or -0500.
+    """
+    year, month, day = (int(p) for p in date_iso.split("-"))
+    offset = config.et_utc_offset_hours(date_iso)
+    when = dt.datetime(year, month, day, 7, 0)
+    return when.strftime("%a, %d %b %Y %H:%M:%S") + f" -0{offset}00"
+
+
+def _xml(text: object) -> str:
+    return html.escape(str(text or ""), quote=True)
+
+
+def render_feed_xml(entries: list[dict]) -> str:
+    """site/feed.xml — one item per edition, newest first, dated permalinks.
+
+    Built from the same committed archive the back-issues page reads, so the
+    two can never disagree about what exists. Home is the channel link
+    because Home is the paper; each item links its dated page because that
+    is the one url that will still mean the same thing next month.
+    """
+    base = config.PAGES_BASE_URL.rstrip("/")
+    items = []
+    for entry in entries[:FEED_MAX_ITEMS]:
+        link = f"{base}/editions/{entry['date']}.html"
+        number = entry.get("number")
+        title = entry.get("headline") or "Edition"
+        if number:
+            title = f"No. {number} — {title}"
+        description = entry.get("dek") or entry.get("headline") or ""
+        items.append(
+            "    <item>\n"
+            f"      <title>{_xml(title)}</title>\n"
+            f"      <link>{_xml(link)}</link>\n"
+            f"      <guid isPermaLink=\"true\">{_xml(link)}</guid>\n"
+            f"      <pubDate>{_rfc822(entry['date'])}</pubDate>\n"
+            f"      <description>{_xml(description)}</description>\n"
+            "    </item>"
+        )
+    newest = entries[0]["date"] if entries else None
+    last_build = _rfc822(newest) if newest else ""
+    return (
+        '<?xml version="1.0" encoding="UTF-8"?>\n'
+        '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">\n'
+        "  <channel>\n"
+        f"    <title>{_xml(FEED_TITLE)}</title>\n"
+        f"    <link>{_xml(config.home_url())}</link>\n"
+        f"    <atom:link href=\"{_xml(base + '/feed.xml')}\" rel=\"self\" "
+        'type="application/rss+xml"/>\n'
+        f"    <description>{_xml(config.TAGLINE)} — the morning paper, filed daily "
+        f"at {config.POST_TIME_ET}.</description>\n"
+        "    <language>en-us</language>\n"
+        + (f"    <lastBuildDate>{last_build}</lastBuildDate>\n" if last_build else "")
+        + "\n".join(items) + ("\n" if items else "")
+        + "  </channel>\n</rss>\n"
+    )
 
 
 def render_archive_html(entries: list[dict]) -> str:
@@ -913,6 +981,8 @@ def render_archive_html(entries: list[dict]) -> str:
     issues = "\n    ".join(rows) if rows else blocks["ARCHIVE_EMPTY"]
 
     newest = entries[0]["date"] if entries else None
+    # The archive lives at the site root and belongs to no one section, so
+    # every button shows — Home included — and both rows, like every page.
     return fill(blocks["ARCHIVE_PAGE"], {
         "PAGE_TITLE": esc(f"{config.MASTHEAD} — Back issues"),
         "META_DESCRIPTION": esc(f"Back issues of {config.MASTHEAD}."),
@@ -922,9 +992,12 @@ def render_archive_html(entries: list[dict]) -> str:
         "TOP_LEFT": esc(ARCHIVE_TEXT),
         "TOP_MID": esc(long_date(newest) if newest else ""),
         "TOP_RIGHT": esc(TOP_RIGHT),
+        "NAV": _nav_html("archive", ""),
+        "NAV_FOOT": _nav_html("archive", "", foot=True),
         "ISSUES": issues,
         "SOURCES_NOTE": esc("Compiled from wire reports"),
         "HOME_HREF": esc("today.html"),
+        "FEED_HREF": esc("feed.xml"),
     }) + "\n"
 
 
@@ -952,9 +1025,13 @@ def write_site(edition: dict, out_path: str) -> None:
     with open(index_path, "w", encoding="utf-8", newline="\n") as f:
         f.write(render_html(edition, root=""))
 
+    entries = archive_entries()
     archive_path = os.path.join(SITE_DIR, "archive.html")
     with open(archive_path, "w", encoding="utf-8", newline="\n") as f:
-        f.write(render_archive_html(archive_entries()))
+        f.write(render_archive_html(entries))
+    with open(os.path.join(SITE_DIR, "feed.xml"), "w", encoding="utf-8",
+              newline="\n") as f:
+        f.write(render_feed_xml(entries))
 
 
 def _ensure_dir(path: str) -> None:
@@ -2098,9 +2175,10 @@ def render_all(weatherman_dir: str | None = None) -> int:
             _write(os.path.join(weather_dir, "index.html"), html)
     print(f"OK: re-rendered {len(rendered_wx)} of {len(weather_dates)} weather page(s)")
 
-    _write(os.path.join(SITE_DIR, "archive.html"),
-           render_archive_html(archive_entries()))
-    print("OK: rebuilt site/archive.html")
+    entries = archive_entries()
+    _write(os.path.join(SITE_DIR, "archive.html"), render_archive_html(entries))
+    _write(os.path.join(SITE_DIR, "feed.xml"), render_feed_xml(entries))
+    print("OK: rebuilt site/archive.html and site/feed.xml")
     return 1 if failures else 0
 
 
