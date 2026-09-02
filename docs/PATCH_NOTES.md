@@ -4,6 +4,25 @@ Running changelog. Dated entries, newest first. Touched only when
 behavior changes, not every edition — the per-day record lives in
 `editions/index.json`, and degraded runs go in `docs/FAILURES.md`.
 
+## 2026-09-02 — webhooks out of prompt text: tried, blocked by the API
+
+Full-pass item 6, not landed. The plan was to move `DISCORD_WEBHOOK_URL`
+from each routine's prompt into its `environment_variables` so the
+credential stops being copied into prose. Three `RemoteTrigger update`
+shapes were sent with the full `job_config` — `environment_variables` under
+`job_config.ccr`, at the top level of the body, and under `job_config` —
+and each returned 200 and stored nothing (`session_request.environment_variables`
+stays `{}`). The one shape that targets the field, a top-level
+`session_request`, is refused with `session_request.worker: Field required`,
+a field the API does not document. A one-run diagnostic on the alert
+watcher (14:33 UTC, prompt restored afterwards) printed
+`DISCORD_WEBHOOK_URL present: False`: the sandbox sees no such variable.
+
+So the webhooks stay where they were. The prompts are thin pointers, never
+committed, and the two webhooks are the only secrets they carry. What did
+change: the sports webhook now has no consumer in code (item 3), and its
+deletion in Discord is Nate's. Recorded in HANDOFF §3 and §9.
+
 ## 2026-09-02 — every away and hotspots line says when
 
 Full-pass item 9. The Away Desk and Vacation Hotspots run a fourteen-day

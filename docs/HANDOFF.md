@@ -60,7 +60,17 @@ All in environment `env_01HRBGRSDmfX7Vur76oE8Lkh`, all on
 **`claude-fable-5-1`** (moved from `claude-fable-5` on 2026-09-02, verified
 against the live configs; the model is the only field that changed).
 Webhooks live only in task prompts and in gitignored `.env` files — never
-in a repo.
+in a repo. **Moving them into the routines' `environment_variables` was
+tried on 2026-09-02 and is blocked by the API:** `RemoteTrigger update`
+accepts `environment_variables` under `job_config.ccr`, at the top level
+and under `job_config` without error and stores none of them (the stored
+`session_request.environment_variables` stays `{}`); the one shape that
+targets that field, `session_request`, is rejected for lacking a `worker`
+object the API does not document. A diagnostic run of the alert watcher
+(14:33 UTC) confirmed the sandbox sees no such variable. So the prompt text
+IS the credential store until the API grows the field — one more reason
+the prompts are thin and never committed. The sports webhook has no
+consumer left in code and should be deleted in Discord.
 
 **Routine prompts are thin pointers, not rulebooks** (2026-09-02). Each
 prompt names the instruction file, says that file is AUTHORITATIVE, and
@@ -321,11 +331,28 @@ an outside source has it and can be cited. Ian reads the paper.
 
 ## 9. Open items
 
-- **A FULL PASS IS IN PROGRESS.** The work order is
-  `docs/HANDOFF-FULL-PASS-2026-09-02.md` — twelve items in dependency
-  order, with the traps. A fresh session reads THIS file first, then that
-  one, then starts at item 1. Every item below that the pass covers is
-  listed there with more detail; this list is not duplicated on purpose.
+- **The 2026-09-02 full pass landed items 1–10** (tests, snapshots and
+  `--all`, the retired embed path, DST holds, watchdog checks, standings
+  byte-match, RSS, the date-word gate, the small marks). Its work order,
+  `docs/HANDOFF-FULL-PASS-2026-09-02.md`, is now a summary; the detail is
+  in `docs/PATCH_NOTES.md` under 2026-09-02. **Three threads it left open:**
+  - **Item 6, webhooks out of prompt text — blocked by the API** (§3).
+    Nate's half stands: **delete the sports webhook in Discord.**
+  - **Item 11, the alert watcher's cost — awaiting Nate's answer.**
+    Forty-eight Fable fires a day for a deterministic diff. The option is a
+    script-only half-hourly check that `RemoteTrigger run`s a second Fable
+    routine only when there is something new to write; the cost is a second
+    routine to keep in step. Nothing changes until he says.
+  - **Item 12, the weatherman grader has no tests.** `weatherman/verify.py`,
+    `instructions/report-card.md` and `briefing.md` were not reviewed;
+    "grade inflation is the one unforgivable failure" has nothing behind it
+    but the prompt. Same treatment as item 1 when there is a session for it:
+    pytest over `verify.py`'s scoring with a fixture week, and a test that a
+    card whose grades exceed its own bust list is refused.
+- **Tomorrow (2026-09-03) is the first morning under three new gates** —
+  MLB standings byte-match, the date-word rule, the standings snapshot.
+  Read the routine's report: if the desk had to cut an MLB line or an away
+  line, that is the gate working, not failing, but confirm it read as such.
 
 - **The Topsail water temperature moved stations — watch it this week.**
   NOAA dropped the `water_temperature` product from **8658163 Wrightsville
