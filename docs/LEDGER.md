@@ -2800,3 +2800,58 @@ Both papers landed **exactly on their holds**: the Times at **7:00** (No. 16, me
 `sony-warner-anthropic-suit`, `apple-openai-evidence`, `padres-reds-5-0`, `cubs-brewers-17-3`,
 `browns-claim-pride`, `bengals-claim-hinton`, `messi-international-retirement`, `aki-countdown-12-days`,
 `flounder-opens-sept1`
+
+## 2026-09-02 — No. 29 (Times) and No. 19 (Sports & Sportsman)
+
+| Open-ended | **Eighth morning under the digest contract, on the standing pattern, and the cleanest clock yet.** Both papers researched (five parallel research agents), written, validated, rendered and pushed by **5:55 a.m. ET**, 25 minutes after the 5:30 wake; Pages served both dated pages 200 inside ~15 seconds. `send_later` armed for 6:56, digest posted in the FOREGROUND with `--not-before 07:00` and a verified `--page-url`, held 3 minutes and **landed at 7:00:04 ET** (message 1544663181576769537, 1,045 embed chars, hero attached, zero degraded). Keep the pattern | **standing practice** |
+| Open-ended | **The stored schedule prompt is still the two-post version — eighth morning.** It again instructed a 7:00 Times post and a 7:05 sportsman post with `DISCORD_SPORTSMAN_WEBHOOK_URL`; it also says to follow routine.md end to end, so the repo governed: one digest, sport to the web only, the sportsman webhook untouched | **OPEN — for Nate** |
+| Open-ended | **Detached HEAD at session start again — sixth occurrence** (Aug 27, 28, 30, 31, Sept 1, 2). The opening `git pull` failed with the "not currently on a branch" symptom; caught, `git checkout -B main HEAD` + upstream re-set while HEAD matched origin/main. Check `git status` first, every morning | **OPEN — recurring** |
+| Open-ended | **The 19-morning Aki-basho date drought is OVER — via the venue, not the JSA.** `ryogokukokugikan.com`'s own schedule page carries **Sept. 13-27, Ryogoku Kokugikan** and is openable; the JSA English schedule pages still error out and r/Sumo is now refused outright (11th morning). **Hoshoryu's knee surgery finally reached citable print** (Furansumo, Sept. 1, from Tatsunami stable's own posts: resumed shiko, down 15 kg, entry undecided) and ran as a leagues brief. A Wakatakakage full-Aki kyujo circulates only in sumostats.com's aggregation of Japanese dailies — left UNPRINTED for want of an openable origin; confirm at NHK/Kyodo/Nippon.com before the basho | **watch** |
+| Open-ended | **Hannan's Tuesday match at Roane went unreported AND is missing from both teams' MaxPreps schedules**, which now list the meeting Sept. 24 at Ashton — rescheduling is plausible but unconfirmed, so the paper said only that no score was published. Thursday: home v. Logan, 6 p.m. Chase both threads | **OPEN** |
+| Open-ended | **Five traps dodged, one dispute ducked, one date conflict adjudicated.** (1) A "Fort Randolph fire" in Mason County search results is from DECEMBER 2025. (2) A Summersville murder-suicide is from FEBRUARY. (3) The Dominion Post's NextEra-asks-77-day-delay piece is YESTERDAY'S MARL brief in new clothes — not rerun. (4) WTAP and WCHS name DIFFERENT BRIDGES (Pond Creek/Rt. 68 vs. Ritchie/Ravenswood) for what looks like the same $1,600-a-day delay story — mid-Ohio Valley line skipped rather than guess. (5) The Webster County Fair: aggregator statefairtimes.com says Sept. 2-5, the county tourism site says **Sept. 9-12 at Camp Caesar** with session times — the local source printed, but a same-week check would not hurt | |
+| Open-ended | **Source status shifted hard this morning.** NEWLY BLOCKED: **wvmetronews.com** (Cloudflare loader on every article — cost the Bluefield sewer hearing and Business Summit preview), WV Watch article pages (403, not just the front), **northtopsailbeachnc.gov** (403 — was a verified fetcher), Ars Technica (refused), CNBC (403), kyivpost (403), old.reddit r/Sumo (refused). Rate-limited: register-herald and herald-dispatch (CNHI 429s). Reliable this cycle: WSAZ, WTAP, WCHS, Dominion Post, Parkersburg News & Sentinel, Lootpress, Bennington Banner (full `article_<uuid>` slugs), Port City Daily, surfcitync.gov, webstercountytourism.com, deq.nc.gov, Fisherman's Post (September Topsail monthly PUBLISHED Sept. 1 — one day old, freshest ever) | **watch** |
+
+### Forward-dated events added or moved
+
+| Date | Event | Note |
+|---|---|---|
+| **open** | **U.S.-Iran is the lead again and widening** | No. 29 led with Tuesday's multi-site U.S. strikes and Iran's missile/drone answer at bases in Jordan, Bahrain and Kuwait; Iranian officials claim a wedding strike in Kuhestak (5+ dead, AJ verified the location). Battle-damage, further retaliation, Brent (settled $92.31) and Hormuz transits (107/week) are tomorrow's numbers |
+| **2026-09-03** | **Talwani preliminary-injunction hearing on the USPS mail-ballot rule — TOMORROW** | Ran as a U.S. brief with the whistleblower disclosure; the ruling is Thursday/Friday's brief |
+| **2026-09-03** | **Hannan home v. Logan, 6 p.m. at Ashton** | Result Friday, outside outlet only; MaxPreps first |
+| **2026-09-05** | **College football opens: WVU v. Coastal Carolina (noon, TNT), Marshall at No. 18 Penn State (3:30, FS1), Ohio at Nebraska (noon ET, FS1 — kickoff finally confirmed via huskers.com)** | All three ran in the week ahead. Squirrel youth weekend Sept. 5-6 |
+| **2026-09-06** | **WVU women host Marshall, 7 p.m., Dick Dlesk (Dominion Post — openable at last)** | Both followed teams; Sunday's result is Monday's line |
+| **2026-09-07** | **WV gun bear first window closes (selected counties)** | Ran in going-out with the no-county-list caveat again |
+| **2026-09-08** | **Canada counter-tariffs effective (ran inside the Carney brief); MARL testimony date now moot — schedule moved (see 09-01)** | |
+| **2026-09-09** | **King Harald's funeral; DoubleTree deadline; Croft Road at PG council; Webster County Fair opens (through Sept. 12, Camp Caesar)** | Fair ran as today's cabin line |
+| **2026-09-13** | **Aki basho OPENS — dates now CITED (Sept. 13-27, ryogokukokugikan.com)** | Countdown is over; the open questions are Hoshoryu's entry and the unprinted Wakatakakage kyujo |
+| **2026-09-14** | **NC flounder window closes** | Day two ran in prime today |
+| **2026-09-17** | **NCDMF kingfishes scoping meeting, Wilmington (period through Sept. 30); Gauley Fest opens (through Sept. 20)** | |
+| **2026-09-26** | **Abbotsford-Mission byelection — Findlay's survival test (ran as bc tier); USMNT-Peru friendly, Orlando** | |
+
+### Open threads
+
+- **us-iran-hormuz** — the lead; wedding-strike verification, Aqaba claim (U.S. denies) and oil are live.
+- **nepal-flood** — 1,114 dead / 3,916 missing Nepal side (NDRRMA, Wednesday); ran as a World brief. Tibet count still Sept. 1 vintage.
+- **germany-russia-leipzig** — NEW: consulate closure by Sept. 18, EU listings push; Moscow threatens consequences.
+- **zambia-mundubile** — moved: Hichilema sworn in with Mundubile jailed; formal case detail (18 accused) is the follow-up.
+- **putnam-google-datacenter** — MOVED at last: treasurer's $100M/yr tax analysis ran as the WV lead brief.
+- **fundamental-data-appeal** — moved: opponents refiling at the state Supreme Court; the filing itself is next.
+- **bc-conservative-exodus** — moved: Findlay stakes leadership on Sept. 26.
+- **usps-mail-ballot** — hearing tomorrow.
+- **kenscoff-hostages / nigeria-borgu** — no movement found today.
+- **hoshoryu-aki-entry / wakatakakage-kyujo** — see watch row.
+- **edouard** — landfall ran; dissipation expected tonight, flooding follow-ups only if notable.
+- **marl-psc / meta-settlement-approval / anthropic-nscale-45b-monarch / milton-culloden / nitro-elementary / bluefield-state** — pending, not run (the Dominion Post MARL piece was yesterday's news).
+
+### Covered slugs, 2026-09-02
+
+`us-iran-strikes-wedding-kuhestak`, `house-cr-dec11-passes`, `usps-whistleblower-portal`, `oil-brent-9231-hormuz-107`,
+`edouard-johnson-bayou`, `nepal-toll-1114`, `germany-russia-leipzig-consulate`, `zambia-hichilema-sworn`,
+`gaza-strikes-5-ceasefire`, `treasurer-datacenter-100m`, `ridgeline-supreme-court-refile`, `chamber-90th-summit`,
+`huntington-floodwall-exercises`, `kanawha-grand-jury`, `rend-trail-groundbreaking`, `vt-veterans-home-911-25th`,
+`webster-fair-sept9-12`, `surf-city-appraiser-rfp`, `williston-floating-island`, `findlay-abbotsford-mission`,
+`carney-wiped-out-subsidiaries`, `roman-antenna-coronagraph`, `snake-embryo-rightward`, `gluex-two-structures`,
+`crew13-oxidizer-leak`, `eu-ai-office-rfis-carolina`, `fsb-bailey-frontier-cyber`, `chelsea-enzo-city-125m`,
+`spurs-adarabioyo-mudryk`, `liverpool-brughmans-loanback`, `reds-padres-4-3`, `pirates-giants-13-12`,
+`marshall-gmu-3-3`, `aki-dates-cited-sept13-27`, `hoshoryu-surgery-in-print`, `flounder-day-two`,
+`topsail-shellfish-reopen-pa42`
