@@ -54,6 +54,16 @@ against the live configs; the model is the only field that changed).
 Webhooks live only in task prompts and in gitignored `.env` files — never
 in a repo.
 
+**Routine prompts are thin pointers, not rulebooks** (2026-09-02). Each
+prompt names the instruction file, says that file is AUTHORITATIVE, and
+restates no rules. Two stale copies had already bitten: the Times prompt
+still said "post TWO papers" and handed over the retired sportsman webhook a
+week after the digest replaced both, and the watchdog prompt inlined the old
+`alerts_state.json` mtime check right after telling itself to follow
+`watchdog.md` — the direct cause of the 2026-08-30 false alarm. A rule
+written in two places drifts; tune behaviour in `instructions/`, never in
+the prompt.
+
 | Routine | ID | Cron (UTC) |
 |---|---|---|
 | Ashgrove Times + Sports & Sportsman | `trig_01EMUikWUwB5GLE9GzGAPefb` | `30 9 * * *` |
