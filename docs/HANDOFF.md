@@ -11,7 +11,7 @@ have to ask anyone to write a handoff again.
 > exists now, what is decided, what is open. Delete what stopped being
 > true rather than appending to it.
 
-Last updated: **2026-08-26**
+Last updated: **2026-09-02**
 
 ---
 
@@ -317,6 +317,15 @@ an outside source has it and can be cited. Ian reads the paper.
    next run picks it up; there is no deploy step.
 3. Validate before shipping: `python validate_edition.py <file>
    [--sportsman]`. It is a hard gate and it is usually right.
-4. Log notable changes in `docs/PATCH_NOTES.md` (weatherman keeps its
+4. **Run `pytest -q` before pushing anything that touches a `.py`** (since
+   2026-09-02). The suite is offline and takes seconds; CI runs it as a
+   gate in front of every deploy, so a red test blocks the morning's pages.
+   `tests/test_contracts.py` holds one committed edition per contract date
+   (08-05, 08-15, 08-25, 08-26, 08-27) with its own stats and fishing file
+   under `tests/fixtures/` — **any change to the validator must leave those
+   green**, and that is how a rule that is not date-scoped gets caught. If
+   an archived edition in `editions/` is legitimately corrected, copy it
+   over its fixture again; the test compares them byte for byte.
+5. Log notable changes in `docs/PATCH_NOTES.md` (weatherman keeps its
    own) and dated operational facts in `docs/LEDGER.md`.
-5. **Update this file in the same commit.**
+6. **Update this file in the same commit.**

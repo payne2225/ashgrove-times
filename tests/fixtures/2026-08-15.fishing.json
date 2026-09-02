@@ -1,0 +1,59 @@
+{
+  "_fixture_note": "Reconstructed in fetch_fishing.py's shape from the readings the 2026-08-15 Times and Sports & Sportsman editions printed, so the byte-match gate has a file to trace them to. A test fixture, not a hydrological record: only the values the papers quoted are carried.",
+  "generated_at": "2026-08-15T05:40:00-04:00",
+  "date": "2026-08-15",
+  "williams": {
+    "water": "Williams River (Cowen)",
+    "gauge": "Williams River at Dyer",
+    "site": "03186500",
+    "discharge_cfs": 179.0,
+    "discharge_cfs_at": "2026-08-15T05:15:00.000-04:00",
+    "discharge_cfs_trend": "falling",
+    "stage_ft": 2.0,
+    "stage_ft_at": "2026-08-15T05:15:00.000-04:00",
+    "stage_ft_trend": "falling",
+    "read": "179 cfs - prime wading water."
+  },
+  "ohio": [
+    {
+      "water": "Ohio River at Point Pleasant",
+      "site": "03201500",
+      "note": "14 miles above R.C. Byrd Locks and Dam — the pool side",
+      "stage_ft": 25.5,
+      "stage_ft_at": "2026-08-15T05:00:00.000-04:00",
+      "stage_ft_trend": "falling",
+      "read": "25.5 ft and falling - normal pool. Ordinary bank access."
+    },
+    {
+      "water": "Ohio River at Huntington",
+      "site": "03206000",
+      "note": "below R.C. Byrd Locks and Dam",
+      "stage_ft": 27.9,
+      "stage_ft_at": "2026-08-15T05:00:00.000-04:00",
+      "stage_ft_trend": "falling",
+      "read": "27.9 ft and falling - up and pushing. Expect colour and current; fish the slack behind anything solid."
+    }
+  ],
+  "topsail": {
+    "water": "Topsail Beach (surf and sound)",
+    "tides": [
+      {
+        "station": "Hampstead",
+        "station_id": "8657813",
+        "side": "sound",
+        "note": "inside the ICWW/Topsail Sound, about on par with where the crew fishes two nautical miles north of New Topsail Inlet",
+        "events": [
+          {"type": "low", "time_local": "5:09 AM", "height_ft": 0.6},
+          {"type": "high", "time_local": "10:57 AM", "height_ft": 3.6},
+          {"type": "low", "time_local": "5:24 PM", "height_ft": 0.7},
+          {"type": "high", "time_local": "11:19 PM", "height_ft": 4.2}
+        ]
+      }
+    ],
+    "moon": {"phase": "waxing crescent", "illumination_pct": 8, "age_days": 2.7},
+    "read": "Fish the moving water either side of high at 10:57 AM and 11:19 PM in the sound."
+  },
+  "errors": [
+    "water_temperature: Wrightsville Beach 8658163 returned no data"
+  ]
+}

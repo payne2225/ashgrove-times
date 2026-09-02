@@ -1,0 +1,43 @@
+{
+  "fetched_at": "2026-08-25T09:30:00+00:00",
+  "entries": [
+    {
+      "label": "S&P 500",
+      "value": "7,652.86",
+      "change": "-0.28%",
+      "direction": "down",
+      "source": "fixture (as printed)",
+      "as_of": "2026-08-25",
+      "as_of_label": "fixture"
+    },
+    {
+      "label": "Dow",
+      "value": "53,417.16",
+      "change": "+0.26%",
+      "direction": "up",
+      "source": "fixture (as printed)",
+      "as_of": "2026-08-25",
+      "as_of_label": "fixture"
+    },
+    {
+      "label": "Nasdaq",
+      "value": "25,980.19",
+      "change": "-0.76%",
+      "direction": "down",
+      "source": "fixture (as printed)",
+      "as_of": "2026-08-25",
+      "as_of_label": "fixture"
+    },
+    {
+      "label": "Bitcoin",
+      "value": "$79,821",
+      "change": "+3.10%",
+      "direction": "up",
+      "source": "fixture (as printed)",
+      "as_of": "2026-08-25",
+      "as_of_label": "fixture"
+    }
+  ],
+  "errors": [],
+  "_fixture_note": "Reconstructed from the edition's own stat_strip so the byte-match gate has something to match. Not a market record."
+}

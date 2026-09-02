@@ -1,0 +1,43 @@
+{
+  "_fixture_note": "Reconstructed in fetch_fishing.py's shape from the readings the 2026-08-05 edition printed, so the byte-match gate has a file to trace them to. A test fixture, not a hydrological record: only the values the paper quoted are carried.",
+  "generated_at": "2026-08-05T05:40:00-04:00",
+  "date": "2026-08-05",
+  "williams": {
+    "water": "Williams River (Cowen)",
+    "gauge": "Williams River at Dyer",
+    "site": "03186500",
+    "discharge_cfs": 108.0,
+    "discharge_cfs_at": "2026-08-05T05:15:00.000-04:00",
+    "discharge_cfs_24h_ago": 251.0,
+    "discharge_cfs_trend": "falling",
+    "stage_ft": 1.68,
+    "stage_ft_at": "2026-08-05T05:15:00.000-04:00",
+    "stage_ft_trend": "falling",
+    "read": "108 cfs - prime wading water."
+  },
+  "ohio": [],
+  "topsail": {
+    "water": "Topsail Beach (surf and sound)",
+    "tides": [
+      {
+        "station": "Ocean City Beach pier",
+        "station_id": "8657419",
+        "side": "ocean",
+        "note": "oceanfront, 11 mi along the open coast - the surf read, and it runs well ahead of the sound",
+        "events": [
+          {"type": "high", "time_local": "12:14 AM", "height_ft": 4.3},
+          {"type": "high", "time_local": "1:02 PM", "height_ft": 4.6}
+        ]
+      }
+    ],
+    "water_temp": {
+      "water_temp_f": 83.3,
+      "observed_at": "2026-08-05 05:24",
+      "station": "Wrightsville Beach",
+      "miles_away": 25,
+      "bearing": "up the coast"
+    },
+    "read": "Fish the moving water either side of high at 12:14 AM and 1:02 PM."
+  },
+  "errors": []
+}

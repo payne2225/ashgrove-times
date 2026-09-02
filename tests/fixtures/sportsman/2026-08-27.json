@@ -1,0 +1,261 @@
+{
+  "edition_date": "2026-08-27",
+  "edition_number": 13,
+  "volume": "I",
+  "sections": [
+    {
+      "id": "teams",
+      "label": "Our Teams",
+      "briefs": [
+        {
+          "headline": "Tottenham cruise past Charlton 5-1 into the Cup third round",
+          "summary": "New signing Savio scored and assisted within 11 minutes of his debut off the bench Wednesday as Spurs eased through the League Cup second round.",
+          "team": "Tottenham",
+          "league": "Premier League",
+          "source": "Sky Sports",
+          "url": "https://www.skysports.com/football/tottenham-hotspur-vs-charlton-athletic/577440",
+          "result": {"winner": "Tottenham", "loser": "Charlton Athletic", "score": "5-1"}
+        },
+        {
+          "headline": "Reds outlast the Giants 10-9 to avoid the sweep",
+          "summary": "Cincinnati scored in four different innings Wednesday and held on in a slugfest, snapping a two-game skid; the Reds remain last in the NL Central with 28 games left.",
+          "team": "Cincinnati Reds",
+          "league": "MLB",
+          "source": "MLB.com",
+          "url": "https://www.mlb.com/scores/2026-08-26",
+          "result": {"winner": "Cincinnati Reds", "loser": "San Francisco Giants", "score": "10-9"}
+        },
+        {
+          "headline": "Padres blank the Pirates 3-0 to even the series",
+          "summary": "A night after Pittsburgh's 1-0 shutout win, San Diego returned it Wednesday — the Pirates' bats going quiet in a series where every game has been decided by three runs or fewer.",
+          "team": "Pittsburgh Pirates",
+          "league": "MLB",
+          "source": "MLB.com",
+          "url": "https://www.mlb.com/scores/2026-08-26",
+          "result": {"winner": "San Diego Padres", "loser": "Pittsburgh Pirates", "score": "3-0"}
+        }
+      ],
+      "sat_out": [
+        {
+          "team": "West Virginia",
+          "league": "NCAA",
+          "reason": "no midweek fixture; the men are next out Friday and the women played at Princeton after press time"
+        },
+        {
+          "team": "Marshall",
+          "league": "NCAA",
+          "reason": "the Aug. 23 women's soccer result against Wright State is still uncited a fifth morning; the team sites render title-only to this desk"
+        },
+        {
+          "team": "Ohio University",
+          "league": "NCAA",
+          "reason": "no news this desk could open; the football opener at Nebraska is Sept. 5"
+        },
+        {
+          "team": "San Antonio Spurs",
+          "league": "NBA",
+          "reason": "out of season; the league opens Oct. 20"
+        },
+        {
+          "team": "USMNT",
+          "league": "Soccer",
+          "reason": "no fixture inside the week; home friendlies follow in late September"
+        }
+      ],
+      "standings": [
+        {
+          "team": "Pittsburgh Pirates",
+          "line": "65-70, fourth in the NL Central, 18 back and 7.5 out of a wild card",
+          "source": "MLB.com",
+          "url": "https://www.mlb.com/standings"
+        },
+        {
+          "team": "Cincinnati Reds",
+          "line": "63-71, last in the NL Central, 19.5 back and 9 out of a wild card",
+          "source": "MLB.com",
+          "url": "https://www.mlb.com/standings"
+        },
+        {
+          "team": "FC Cincinnati",
+          "line": "31 points from 21 matches, sixth in the Eastern Conference",
+          "source": "Fox Sports",
+          "url": "https://www.foxsports.com/soccer/mls/standings"
+        },
+        {
+          "team": "Columbus Crew",
+          "line": "20 points from 21 matches, 15th in the Eastern Conference",
+          "source": "Fox Sports",
+          "url": "https://www.foxsports.com/soccer/mls/standings"
+        }
+      ],
+      "upcoming": [
+        {
+          "team": "Hannan",
+          "fixture": "at St. Mary's",
+          "when": "Tonight, 6:30 p.m. ET",
+          "source": "Hannan schedule",
+          "url": null
+        },
+        {
+          "team": "Hannan",
+          "fixture": "at Roane",
+          "when": "Tuesday, Sept. 1, 6:30 p.m. ET",
+          "source": "Hannan schedule",
+          "url": null
+        },
+        {
+          "team": "Cleveland Browns",
+          "fixture": "vs. New England, preseason finale",
+          "when": "Tonight, 8 p.m. ET",
+          "source": "NFL",
+          "url": "https://www.nfl.com/schedules/2026/by-week/preseason-week-3"
+        },
+        {
+          "team": "Cincinnati Bengals",
+          "fixture": "at Philadelphia, preseason finale",
+          "when": "Friday, 8 p.m. ET",
+          "source": "NFL",
+          "url": "https://www.nfl.com/schedules/2026/by-week/preseason-week-3"
+        },
+        {
+          "team": "Liverpool",
+          "fixture": "vs. Nottingham Forest, matchweek two",
+          "when": "Saturday, 7:30 a.m. ET",
+          "source": "Sky Sports",
+          "url": "https://www.skysports.com/premier-league-fixtures"
+        },
+        {
+          "team": "Tottenham",
+          "fixture": "vs. Newcastle, matchweek two",
+          "when": "Saturday, 12:30 p.m. ET",
+          "source": "Sky Sports",
+          "url": "https://www.skysports.com/premier-league-fixtures"
+        },
+        {
+          "team": "Chelsea",
+          "fixture": "vs. Brighton, matchweek two",
+          "when": "Sunday, 9 a.m. ET",
+          "source": "Sky Sports",
+          "url": "https://www.skysports.com/premier-league-fixtures"
+        }
+      ],
+      "note": "Hannan's opener against Calvary, played Tuesday evening per the coach's schedule, has still not been scored by any outlet this desk can cite — a third morning. Tonight's match at St. Mary's is next; the desk prints no score it cannot cite."
+    },
+    {
+      "id": "leagues",
+      "label": "Around the Leagues",
+      "capped_at": 3,
+      "briefs": [
+        {
+          "headline": "Brewers pull 6.5 clear as the Cubs get blanked",
+          "summary": "Milwaukee routed the Mets 8-1 on Wednesday while Arizona blanked Chicago 2-0, stretching the Brewers' NL Central lead over the second-place Cubs to 6.5 games.",
+          "league": "MLB",
+          "source": "MLB.com",
+          "url": "https://www.mlb.com/scores/2026-08-26",
+          "result": {"winner": "Milwaukee Brewers", "loser": "New York Mets", "score": "8-1"}
+        },
+        {
+          "headline": "Four days to the banzuke, and to September's schedule",
+          "summary": "Monday's autumn rankings release is when the JSA must finally put citable dates on the Aki basho; the derived Sept. 13 opening, 17 days out, remains unconfirmed by any outlet this paper cites.",
+          "league": "Sumo",
+          "source": "Japan Sumo Association",
+          "url": "https://sumo.or.jp/En/"
+        }
+      ],
+      "note": "The fan wire at r/Sumo was unreachable from this environment a fifth straight morning, so the sumo sweep again ran on the JSA's pages and searches alone."
+    },
+    {
+      "id": "seasons",
+      "label": "In Season",
+      "coming_in": [
+        {
+          "state": "WV",
+          "species": "Black bear",
+          "method": "Gun",
+          "dates": "Aug. 29 - Sept. 7",
+          "item": "Opens Saturday, in SELECTED COUNTIES only - the county list is not in the pamphlet's summary table, so none is named here. Daily 1, season limit 2; electronic registration required.",
+          "source": "WVDNR",
+          "reference": "reference/wv-hunting-2026-27.json",
+          "publication": "West Virginia Hunting and Trapping Regulations Summary, July 2026 - June 2027"
+        },
+        {
+          "state": "WV",
+          "species": "Squirrel",
+          "method": "Youth",
+          "dates": "Sept. 5 - 6",
+          "item": "Nine days out, daily bag 6, possession 12. The general season follows Sept. 12 and runs to Feb. 28 at a daily 6.",
+          "source": "WVDNR",
+          "reference": "reference/wv-hunting-2026-27.json",
+          "publication": "West Virginia Hunting and Trapping Regulations Summary, July 2026 - June 2027"
+        },
+        {
+          "state": "NC",
+          "species": "Southern flounder",
+          "dates": "Sept. 1 - 14",
+          "item": "Five days out: opens 12:01 a.m. Tuesday under proclamation FF-27-2026 - one fish per day, 15-inch minimum, hook-and-line and gig only, every kept fish reported to the division.",
+          "source": "NCDMF",
+          "url": "https://www.deq.nc.gov/news/press-releases/2026/06/03/2026-recreational-flounder-season-will-open-sept-1-14"
+        }
+      ],
+      "prime": [
+        {
+          "state": "NC",
+          "species": "Red drum",
+          "item": "Coastal waters: an 18-inch minimum and 27-inch maximum total length, one per day; unlawful to possess a fish over 27 inches.",
+          "source": "NCDMF",
+          "url": "https://www.deq.nc.gov/about/divisions/marine-fisheries/rules-proclamations-and-size-and-bag-limits/recreational-size-and-bag-limits"
+        },
+        {
+          "state": "NC",
+          "species": "Spotted seatrout",
+          "item": "Coastal waters: a 14-to-20-inch slot, three per day, of which one may exceed 26 inches.",
+          "source": "NCDMF",
+          "url": "https://www.deq.nc.gov/about/divisions/marine-fisheries/rules-proclamations-and-size-and-bag-limits/recreational-size-and-bag-limits"
+        }
+      ],
+      "going_out": [],
+      "note": "Nothing closes in either state inside two weeks. Bear on Saturday is the first WV opener of the fall; the DNR's separate migratory bird summary is published but not yet transcribed into this paper's reference, so no dove or goose date prints."
+    },
+    {
+      "id": "water",
+      "label": "On the Water",
+      "waters": [
+        {
+          "water": "Williams River",
+          "near": "Cowen",
+          "reading": "88.7 cfs and falling, 1.57 feet.",
+          "read": "89 cfs - prime wading water.",
+          "working": "Settling toward summer low, off 132 a day ago - stay long and light: small caddis and stonefly nymphs through the pocket water, and watch the undercut banks late as the light goes off the water.",
+          "source": "USGS 03186500"
+        },
+        {
+          "water": "Ohio River at Point Pleasant",
+          "near": "14 miles above R.C. Byrd Locks and Dam",
+          "reading": "25.35 feet and rising.",
+          "read": "25.4 ft and rising - normal pool. Ordinary bank access.",
+          "working": "Half a foot of rise on a normal pool moves bait onto the wing dams - shad are the forage, so a white swimbait worked across the current seams early still reads right.",
+          "source": "USGS 03201500"
+        },
+        {
+          "water": "Ohio River at Huntington",
+          "near": "below R.C. Byrd Locks and Dam",
+          "reading": "26.31 feet and falling.",
+          "read": "26.3 ft and falling - normal pool. Ordinary bank access.",
+          "working": "Still easing off the mid-August rise; with the water greening, a crawfish-pattern crankbait ticked along the riprap and the lock wall is the steady play.",
+          "source": "USGS 03206000"
+        },
+        {
+          "water": "Topsail Sound",
+          "near": "New Topsail Inlet",
+          "reading": "Sound highs 8:13 AM at 3.4 ft and 8:40 PM at 4.1 ft at Hampstead; lows 2:26 AM at 0.7 ft and 2:31 PM at 0.5 ft.",
+          "read": "Fish the moving water either side of high at 8:13 AM and 8:40 PM in the sound.",
+          "working": "Tonight's moon is full at 99% - peak spring tides, so the ebb off the 8:13 high will pull hard to the half-foot low at 2:31 PM; that long fall is the red drum window, topwater plugs early and cut menhaden once the sun is up. Water 83.8F at Beaufort, 60 miles up the coast. The Fisherman's Post monthly, published Aug. 3 and 24 days old, has flounder thick in the sound - worth noting with the season opening Tuesday.",
+          "source": "NOAA CO-OPS 8657813",
+          "note": "Hampstead is the sound station and the read that matters; the oceanfront pier runs well ahead and is quoted only for a surf read. No hazards posted for Topsail this morning per NWS Wilmington."
+        }
+      ]
+    }
+  ],
+  "sources_note": "Compiled from league, agency and gauge sources",
+  "kicker": "Flounder opens Tuesday on the North Carolina coast; bear opens Saturday in selected West Virginia counties, and the banzuke lands Monday."
+}

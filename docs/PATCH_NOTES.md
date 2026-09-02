@@ -4,6 +4,66 @@ Running changelog. Dated entries, newest first. Touched only when
 behavior changes, not every edition — the per-day record lives in
 `editions/index.json`, and degraded runs go in `docs/FAILURES.md`.
 
+## 2026-09-02 — the validator gets tests, and the tests find the archive broken
+
+Full-pass item 1 (`docs/HANDOFF-FULL-PASS-2026-09-02.md`). `validate_edition.py`
+was 3,405 lines of every rule the paper has, verified by hand in a terminal
+after each change. Now `tests/` runs offline under pytest — 74 tests — and
+`.github/workflows/pages.yml` runs them as a `test` job the deploy depends
+on. **A red validator blocks a deploy.** The workflow now triggers on every
+push to main rather than only `site/**`, so a validator change is tested
+even when no page moved; the deploy after a docs-only push republishes the
+same site, which is idempotent.
+
+- `tests/test_direction.py` — the eight result-direction phrasings from the
+  08-26 fix, plus `_sm_check_result`'s score and date-scoping rules.
+- `tests/test_attribution.py` — Topsail water temperature: no temp,
+  uncredited, credited, credited to the wrong station, the bare-number
+  heuristic, the date scope; and Sports & Sportsman's `working`-field
+  exclusion ("an 85% waxing gibbous" is not a temperature).
+- `tests/test_standings.py` — the 08-24 ordinal contradiction and the
+  games-back advisory, per field, with "last" and the ambiguous-Cincinnati
+  silence.
+- `tests/test_contracts.py` — one committed edition per contract date
+  (08-05, 08-15, 08-25, 08-26, 08-27, plus the four sportsman editions and
+  both fixtures) run through the CLI exactly as the routine runs it, each
+  with its own `out/`-style stats and fishing file under `tests/fixtures/`,
+  reconstructed from what the edition printed. A fixture must be
+  byte-identical to its `editions/` original, so the two cannot drift.
+- `tests/test_notebook.py` — never-empty away/hotspots with and without the
+  note, promoted regions refused after 08-26 and accepted before, the away
+  cap, the retired fishing block.
+- `tests/test_digest.py` — one message, under 2,000 chars, links Home not
+  the dated page, sections in `config.sections_in_reading_order`.
+- `tests/test_hygiene.py` — the control-character scan from the 08-26
+  commit over every `.py`, and a live-webhook scan over the public repo.
+
+**The first run found the archive already broken.** Eight editions
+(2026-08-05 through 08-12) and `editions/_fixture.json` had been failing
+today's validator since 2026-08-26, unnoticed, on two rules that were never
+date-scoped:
+
+- The Away Desk cap was `len(AWAY_REGION_IDS)`, which fell from three to one
+  when Prince George and Topsail were promoted; the 08-05 edition carried
+  all three and was right to. `config.wv_away_max_for(date)` now returns
+  the roster of the day.
+- The Topsail credit demanded "Beaufort" of lines that printed Wrightsville
+  Beach when Wrightsville Beach was the station.
+  `config.TOPSAIL_TEMP_STATION_CHANGED_ON = "2026-08-25"` and
+  `TOPSAIL_TEMP_PRIOR_STATION_NAME` record the change;
+  `topsail_temp_station_name_for(date)` is what both gates ask.
+
+Neither change touches what today's edition must do. The whole archive —
+29 Times editions, 19 sportsman editions, both fixtures — validates offline.
+
+**Also found by the tests:** the bare present tense was missing from the
+direction reader's verb list, so "Padres blank the Pirates 3-0" (08-27)
+was never read at all. `blank`, `hold off`, `overcome` and `outlast` are
+added. `sweep`, `rout` and `defeat` were tried and **rejected** — "to avoid
+the sweep" in the archived 08-27 Reds brief is a noun, the reader takes the
+first listed verb it finds, and the contract test failed on it immediately.
+That is the test suite paying for itself on its first afternoon.
+
 ## 2026-08-24 — the paper is checked against its own standings block
 
 No. 10 printed "the Brewers hold the NL Central at 81-50, 18.5 clear of

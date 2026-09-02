@@ -67,6 +67,7 @@ Nothing arrives as a second message. Nothing arrives late.
 | `fetch_stats.py` | Stat-strip numbers: Yahoo v8 chart -> CoinGecko -> empty. Always exits 0, always writes `out/stats.json` |
 | `fetch_fishing.py` | The two fishing waters: USGS gauge for the Williams River at Cowen, NOAA CO-OPS tides + water temp for Topsail. Writes `out/fishing.json`. Every source individually guarded — one outage nulls one reading and records why |
 | `validate_edition.py` | The hard gate — schema, section order, standing sections, stat-strip truth check, WV notebook shape, placeholder detection, Discord budgets, URL liveness |
+| `tests/` | Offline pytest suite over the validator and the digest: result direction, Topsail attribution, standings agreement, the notebook's date-scoped rules, and one committed edition per contract date in `tests/fixtures/` with its own stats/fishing file. CI runs it before every deploy |
 | `render_edition.py` | `render_html()` -> `site/editions/YYYY-MM-DD.html`; `render_hero_png()` -> `out/ashgrove-YYYY-MM-DD.png` (Pillow, fully offline) |
 | `post_discord.py` | Payload build, pre-send refusal gate, deterministic trim, split, text mode, multipart POST, ledger append |
 | `templates/broadsheet.html` | The one place visual language lives. Token substitution, no template engine. Matches `docs/IAN-TEMPLATE.html`, including the `.wv-box` treatment |
@@ -263,6 +264,14 @@ briefs plus every region, the whole away desk, and both fishing lines):
 ```
 python render_edition.py --fixture
 python post_discord.py --date 2026-08-05 --edition editions/_fixture.json --dry-run
+```
+
+Run the tests before pushing a code change — they are offline and take a
+few seconds, and the Pages workflow refuses to deploy while they are red:
+
+```
+pip install pytest
+pytest -q
 ```
 
 Useful flags: `--no-urls` (skip liveness checks when offline),

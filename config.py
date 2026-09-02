@@ -948,6 +948,23 @@ WV_PLACE_MAX_CHARS = 48
 WV_REGIONAL_MAX = len(WV_REGION_IDS)
 WV_AWAY_MAX = len(AWAY_REGION_IDS)
 
+
+def wv_away_max_for(date: str | None) -> int:
+    """How many Away Desk lines an edition dated `date` may carry.
+
+    Date-scoped, because the cap is the size of the away roster and the
+    roster shrank: Prince George and Topsail were promoted out of the
+    notebook on WV_SUBHEADS_CHANGED_ON, and an edition published before
+    that legitimately carried all three. Found 2026-09-02 when the first
+    contract tests were written — the 2026-08-05 edition had been failing
+    today's validator on this rule since 2026-08-26, unnoticed, because
+    nothing re-validated the archive. WV_AWAY_MAX stays as the live value
+    for the code that tells the desk what to write today.
+    """
+    if date and date < WV_SUBHEADS_CHANGED_ON:
+        return len(AWAY_REGION_IDS) + len(PROMOTED_REGION_IDS)
+    return WV_AWAY_MAX
+
 # Every region CAN file; on a normal morning about six lines total is what
 # the WV allocation actually pays for. This is a target, never a gate — a
 # real eighth item beats an artificial cap, and nothing may drop genuine
@@ -985,6 +1002,23 @@ TOPSAIL_TEMP_STATION_NAME = "Beaufort"  # what a printed line must credit
 TOPSAIL_TEMP_STATION_LABEL = "Beaufort, Duke Marine Lab"  # NOAA's own name
 TOPSAIL_TEMP_MILES = 60
 TOPSAIL_TEMP_BEARING = "up the coast"
+
+# The archive credits the station that was current WHEN IT WAS PRINTED.
+# Editions through 2026-08-12 credit Wrightsville Beach, which was correct
+# then; the first Beaufort line printed 2026-08-25. A validator that demands
+# today's station of an August 5 line rewrites history, and it did — eight
+# archived editions and editions/_fixture.json failed on exactly this until
+# the contract tests caught it on 2026-09-02. The next station change adds a
+# row here, and the gate keeps every printed line honest to its own day.
+TOPSAIL_TEMP_STATION_CHANGED_ON = "2026-08-25"
+TOPSAIL_TEMP_PRIOR_STATION_NAME = "Wrightsville Beach"
+
+
+def topsail_temp_station_name_for(date: str | None) -> str:
+    """The station a Topsail temperature line dated `date` must credit."""
+    if date and date < TOPSAIL_TEMP_STATION_CHANGED_ON:
+        return TOPSAIL_TEMP_PRIOR_STATION_NAME
+    return TOPSAIL_TEMP_STATION_NAME
 
 # Not fetched, on purpose: wvdnr.gov serves an EXPIRED TLS certificate, so
 # trout stocking is a web-search item in the playbook with a silent no-op

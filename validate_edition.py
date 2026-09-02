@@ -1309,8 +1309,13 @@ def _check_trout_warning(line: str, record: object, path: str) -> list[str]:
     ]
 
 
-def _check_fishing_entry(entry: object, path: str, fishing: dict | None) -> list[str]:
-    """One fishing line. Measured, attributed, and never for a dead source."""
+def _check_fishing_entry(entry: object, path: str, fishing: dict | None,
+                         edition_date: object = None) -> list[str]:
+    """One fishing line. Measured, attributed, and never for a dead source.
+
+    `edition_date` scopes the Topsail credit to the station that was current
+    when the line was printed — see config.topsail_temp_station_name_for.
+    """
     if not isinstance(entry, dict):
         return [f"{path} must be an object"]
 
@@ -1369,12 +1374,13 @@ def _check_fishing_entry(entry: object, path: str, fishing: dict | None) -> list
                 for token in _number_tokens(line)
             )
         if prints_temp:
-            credited = config.TOPSAIL_TEMP_STATION_NAME.lower()
+            station = config.topsail_temp_station_name_for(
+                edition_date if _is_str(edition_date) else None)
             haystack = f"{line} {entry.get('source') or ''}".lower()
-            if credited not in haystack:
+            if station.lower() not in haystack:
                 errors.append(
                     f"{path} prints a water temperature but does not credit "
-                    f"{config.TOPSAIL_TEMP_STATION_NAME} — the reading comes from "
+                    f"{station} — the reading comes from "
                     f"{config.TOPSAIL_TEMP_MILES} miles away and has to say so"
                 )
 
@@ -1413,9 +1419,13 @@ def _check_notebook(
             f"{config.WV_NOTEBOOK_TITLE!r}"
         )
 
+    # The away cap is date-scoped: three regions filed before the 2026-08-26
+    # promotions, one after, and an archived edition is judged by its own
+    # roster (config.wv_away_max_for).
     for key, want_away, cap in (
         ("regional", False, config.WV_REGIONAL_MAX),
-        ("away", True, config.WV_AWAY_MAX),
+        ("away", True, config.wv_away_max_for(
+            edition_date if _is_str(edition_date) else None)),
     ):
         entries = section.get(key)
         if entries is None:
@@ -1552,7 +1562,8 @@ def _check_notebook(
             waters: dict[str, str] = {}
             for j, entry in enumerate(fishing_entries):
                 item_path = f"{path}.fishing[{j}]"
-                errors += _check_fishing_entry(entry, item_path, fishing)
+                errors += _check_fishing_entry(entry, item_path, fishing,
+                                               edition_date)
                 water = entry.get("water") if isinstance(entry, dict) else None
                 if _is_str(water):
                     if water in waters:
@@ -2660,6 +2671,16 @@ _WON_VERBS = (
     "edges", "topped", "tops", "routed", "routs", "shut out", "shuts out",
     "blanked", "blanks", "swept", "sweeps", "held off", "holds off",
     "overcame", "overcomes", "outlasted", "outlasts",
+    # The bare present — the plural a headline uses: "Padres blank the
+    # Pirates 3-0" shipped 2026-08-27 and was never read, because only
+    # "blanked"/"blanks" were listed (found by the first tests, 2026-09-02).
+    # "down", "top", "edge", "sweep", "rout" and "defeat" are deliberately
+    # NOT here: as bare words they are nouns as often as verbs ("top of the
+    # ninth", "down 3-0", "to avoid the sweep", "a third defeat"), and the
+    # reader takes the first listed verb it finds anywhere. "sweep" was tried
+    # and failed the archived 2026-08-27 edition on exactly that noun — the
+    # contract tests exist so that this is how such a mistake is found.
+    "blank", "hold off", "overcome", "outlast",
 )
 _LOST_VERBS = (
     "lost to", "loses to", "fell to", "falls to", "beaten by", "swept by",

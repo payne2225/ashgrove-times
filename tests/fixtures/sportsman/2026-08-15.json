@@ -1,0 +1,220 @@
+{
+  "edition_date": "2026-08-15",
+  "edition_number": 1,
+  "volume": "I",
+  "sections": [
+    {
+      "id": "teams",
+      "label": "Our Teams",
+      "briefs": [
+        {
+          "headline": "Chelsea close the friendlies against Real Sociedad",
+          "summary": "The last warm-up before the season opens Aug. 21. Chelsea beat AC Milan 3-0 on Aug. 8 and drew 3-3 with Johor Darul Ta'zim the following day.",
+          "team": "Chelsea",
+          "league": "Premier League",
+          "source": "Premier League",
+          "url": "https://www.premierleague.com/en/news/4606700/premier-league-clubs-2026-pre-season-fixtures-and-results"
+        },
+        {
+          "headline": "Liverpool meet Como before the opener",
+          "summary": "Liverpool lost 3-2 to Monaco on Aug. 9 and close the pre-season against Como on Sunday, one behind closed doors and one at Anfield.",
+          "team": "Liverpool",
+          "league": "Premier League",
+          "source": "Premier League",
+          "url": "https://www.premierleague.com/en/news/4606700/premier-league-clubs-2026-pre-season-fixtures-and-results"
+        },
+        {
+          "headline": "Tottenham host Hoffenheim twice in two days",
+          "summary": "Spurs drew 1-1 with Getafe on Aug. 8 and take Hoffenheim on Saturday and again Sunday behind closed doors before the Aug. 21 start.",
+          "team": "Tottenham",
+          "league": "Premier League",
+          "source": "Premier League",
+          "url": "https://www.premierleague.com/en/news/4606700/premier-league-clubs-2026-pre-season-fixtures-and-results"
+        },
+        {
+          "headline": "Greene has a second Tommy John as the Reds edge Miami",
+          "summary": "Cincinnati's ace is out for the rest of 2026 and all of 2027 after a second elbow reconstruction this week, ending a season of five starts, 27 2/3 innings and a 6.83 ERA. The Reds beat Miami 1-0 on Friday, Chase Burns going to 14-2 with a 2.47 ERA.",
+          "team": "Cincinnati Reds",
+          "league": "MLB",
+          "source": "MLB Trade Rumors",
+          "url": "https://www.mlbtraderumors.com/2026/08/hunter-greene-to-undergo-elbow-surgery.html",
+          "note": "Cross-checked against SI's Reds coverage, which agrees on the second Tommy John, the 2026-27 absence and the 27 2/3 innings / 6.83 ERA line. They disagree on his age (26 v 27) and on the year of his first Tommy John (2018 v 2019), so neither was printed. The 1-0 result and Burns' record come from mlb.com/scores."
+        },
+        {
+          "headline": "Browns open the preseason at Chicago",
+          "summary": "Kickoff is 1 p.m. Saturday at Soldier Field. Buffalo and New England follow at home on Aug. 22 and Aug. 27.",
+          "team": "Cleveland Browns",
+          "league": "NFL",
+          "source": "Cleveland Browns",
+          "url": "https://www.clevelandbrowns.com/schedule/"
+        },
+        {
+          "headline": "Marshall host Ohio on Sunday, and both are ours",
+          "summary": "The Herd opened with a 3-1 win over Morehead State on Thursday and take the Bobcats at 7 p.m. It is the one fixture this paper writes down the middle.",
+          "team": "Marshall",
+          "league": "NCAA",
+          "source": "Marshall Athletics",
+          "url": "https://herdzone.com/news/2026/8/14/womens-soccer-womens-soccer-returns-to-action-sunday-against-ohio"
+        },
+        {
+          "headline": "Pirates put up eight on Boston",
+          "summary": "Pittsburgh won 8-4, Bubba Chandler taking the decision to go to 6-8 and Jake Bennett falling to 7-6.",
+          "team": "Pittsburgh Pirates",
+          "league": "MLB",
+          "source": "MLB.com",
+          "url": "https://www.mlb.com/scores/2026-08-14"
+        },
+        {
+          "headline": "No. 20 West Virginia opens with a 2-0 win over Dayton",
+          "summary": "Sophia Nickel scored 54 seconds into the second half Thursday and an own goal off a Maya Leoni corner doubled it. The men open Aug. 20 at Charlotte.",
+          "team": "West Virginia",
+          "league": "NCAA",
+          "source": "WV MetroNews",
+          "url": "https://wvmetronews.com/2026/08/13/mountaineers-control-second-half-to-down-dayton-2-0-in-opener/"
+        }
+      ],
+      "sat_out": [
+        {
+          "team": "Columbus Crew",
+          "league": "MLS",
+          "reason": "no result and no schedule page this desk could open"
+        },
+        {
+          "team": "FC Cincinnati",
+          "league": "MLS",
+          "reason": "no result and no schedule page this desk could open"
+        },
+        {
+          "team": "San Antonio Spurs",
+          "league": "NBA",
+          "reason": "out of season"
+        }
+      ]
+    },
+    {
+      "id": "leagues",
+      "label": "Around the Leagues",
+      "capped_at": 2,
+      "briefs": [
+        {
+          "headline": "Cubs shut out the Cardinals 3-0",
+          "summary": "Chicago took the game at St. Louis without conceding, one of 15 played Friday.",
+          "league": "MLB",
+          "source": "MLB.com",
+          "url": "https://www.mlb.com/scores/2026-08-14"
+        },
+        {
+          "headline": "Houston beat Seattle 10-7 in 10 innings",
+          "summary": "The Astros needed an extra inning against the Mariners in the day's highest-scoring game.",
+          "league": "MLB",
+          "source": "MLB.com",
+          "url": "https://www.mlb.com/scores/2026-08-14"
+        }
+      ],
+      "note": "MLB is capped at two here by config.SPORTSMAN_MAX_PER_LEAGUE. Friday's NFL preseason results were available only from aggregators this desk does not cite, so they are not carried."
+    },
+    {
+      "id": "seasons",
+      "label": "In Season",
+      "coming_in": [
+        {
+          "state": "WV",
+          "species": "Black bear",
+          "method": "Gun",
+          "dates": "Aug. 29 - Sept. 7",
+          "item": "WVDNR lists a gun bear season opening Aug. 29 in SELECTED COUNTIES only. The county list is not in the pamphlet's summary table, so no county is named here. Season limit 2, daily limit 1; bag limits vary by county and permit class and are on pamphlet pages 33-39.",
+          "source": "WVDNR",
+          "reference": "reference/wv-hunting-2026-27.json",
+          "publication": "West Virginia Hunting and Trapping Regulations Summary, July 2026 - June 2027"
+        }
+      ],
+      "prime": [
+        {
+          "state": "NC",
+          "species": "Red drum",
+          "item": "Coastal waters: 18-inch minimum and 27-inch maximum total length, one per day. It is unlawful to gig, spear or gaff them.",
+          "source": "NCDMF",
+          "url": "https://www.deq.nc.gov/about/divisions/marine-fisheries/rules-proclamations-and-size-and-bag-limits/recreational-size-and-bag-limits"
+        },
+        {
+          "state": "NC",
+          "species": "Spotted seatrout",
+          "item": "Coastal waters: a 14- to 20-inch slot with one fish over 26 inches permitted, three per day.",
+          "source": "NCDMF",
+          "url": "https://www.deq.nc.gov/about/divisions/marine-fisheries/rules-proclamations-and-size-and-bag-limits/recreational-size-and-bag-limits"
+        },
+        {
+          "state": "NC",
+          "species": "Sheepshead",
+          "item": "Coastal waters: 14-inch minimum total length, five per day.",
+          "source": "NCDMF",
+          "url": "https://www.deq.nc.gov/about/divisions/marine-fisheries/rules-proclamations-and-size-and-bag-limits/recreational-size-and-bag-limits"
+        }
+      ],
+      "going_out": [],
+      "notes": [
+        {
+          "state": "NC",
+          "item": "Flounder is closed in North Carolina coastal waters and unlawful to possess. Topsail Sound is coastal water, so Marine Fisheries governs it, not the inland digest.",
+          "source": "NCDMF",
+          "url": "https://www.deq.nc.gov/about/divisions/marine-fisheries/rules-proclamations-and-size-and-bag-limits/recreational-size-and-bag-limits"
+        },
+        {
+          "state": "WV",
+          "item": "Nothing else opens within two weeks. The first general season is squirrel on Sept. 12, with a youth weekend Sept. 5-6.",
+          "source": "WVDNR",
+          "reference": "reference/wv-hunting-2026-27.json"
+        },
+        {
+          "state": "WV",
+          "item": "Goose, duck, dove, woodcock and snipe dates are not in the summary table. They come from a separate WVDNR migratory bird publication issued in August, and HIP registration is required.",
+          "source": "WVDNR",
+          "reference": "reference/wv-hunting-2026-27.json"
+        }
+      ],
+      "standing_note": "The pamphlet is a summary. The West Virginia Code and the Code of State Rules control and win any conflict. Dates here are for the 2026-27 season year and expire June 30, 2027."
+    },
+    {
+      "id": "water",
+      "label": "On the Water",
+      "waters": [
+        {
+          "water": "Williams River",
+          "near": "Cowen",
+          "reading": "179 cfs and falling, 2.00 feet.",
+          "read": "179 cfs - prime wading water.",
+          "working": "Low and clear, so the pocket water and plunge pools are the whole river. Long leader, small caddis dry, and a light stonefly nymph through the deeper pockets; a sculpin pattern on the undercut banks.",
+          "source": "USGS 03186500"
+        },
+        {
+          "water": "Ohio River at Point Pleasant",
+          "near": "14 miles above R.C. Byrd Locks and Dam",
+          "reading": "25.5 feet and falling.",
+          "read": "25.5 ft and falling - normal pool. Ordinary bank access.",
+          "working": "Normal pool fishes structure. Shad are the forage, so a white swimbait along the wing dams and the riprap, and a crawfish-coloured crankbait tight to the rock.",
+          "source": "USGS 03201500"
+        },
+        {
+          "water": "Ohio River at Huntington",
+          "near": "below R.C. Byrd Locks and Dam",
+          "reading": "27.9 feet and falling.",
+          "read": "27.9 ft and falling - up and pushing. Expect colour and current; fish the slack behind anything solid.",
+          "working": "Up and coloured, so the fish are out of the current. Work the slack behind the wing dams, the barge cuts and the lock wall rather than the open channel.",
+          "source": "USGS 03206000"
+        },
+        {
+          "water": "Topsail Sound",
+          "near": "New Topsail Inlet",
+          "reading": "Sound highs 10:57 a.m. and 11:19 p.m.; lows 5:09 a.m. and 5:24 p.m., at Hampstead.",
+          "read": "Fish the moving water either side of high at 10:57 AM and 11:19 PM in the sound.",
+          "working": "Tide first: the water moving off the 10:57 a.m. high is the window. Mud minnows, shrimp and finger mullet are the forage, so work the grass edges and oyster bars, and the dock lights on the late high.",
+          "source": "NOAA CO-OPS 8657813",
+          "note": "Hampstead is the sound station and is the read that matters; the oceanfront station at Ocean City Beach pier runs over an hour ahead and is quoted only for a surf read. No water temperature is carried today - the Wrightsville Beach gauge returned none."
+        }
+      ],
+      "note": "USGS does not gauge the Ohio at R.C. Byrd, and the Corps tailwater data is not reachable from this pipeline. The two gauges above are the ones that bracket the dam, and neither is the tailwater."
+    }
+  ],
+  "kicker": "First edition. Sport was thin on a Friday in August; the calendar and the gauges carry it.",
+  "sources_note": "Compiled from wire reports, agency publications and the morning's gauges"
+}

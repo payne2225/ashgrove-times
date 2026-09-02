@@ -1,0 +1,65 @@
+{
+  "_fixture_note": "Reconstructed in fetch_fishing.py's shape from the readings the 2026-08-25 Times and Sports & Sportsman editions printed, so the byte-match gate has a file to trace them to. A test fixture, not a hydrological record: only the values the papers quoted are carried.",
+  "generated_at": "2026-08-25T05:40:00-04:00",
+  "date": "2026-08-25",
+  "williams": {
+    "water": "Williams River (Cowen)",
+    "gauge": "Williams River at Dyer",
+    "site": "03186500",
+    "discharge_cfs": 134.0,
+    "discharge_cfs_at": "2026-08-25T05:15:00.000-04:00",
+    "discharge_cfs_24h_ago": 248.0,
+    "discharge_cfs_trend": "falling",
+    "stage_ft": 1.81,
+    "stage_ft_at": "2026-08-25T05:15:00.000-04:00",
+    "stage_ft_trend": "falling",
+    "read": "134 cfs - prime wading water."
+  },
+  "ohio": [
+    {
+      "water": "Ohio River at Point Pleasant",
+      "site": "03201500",
+      "note": "14 miles above R.C. Byrd Locks and Dam — the pool side",
+      "stage_ft": 24.87,
+      "stage_ft_at": "2026-08-25T05:00:00.000-04:00",
+      "stage_ft_trend": "steady",
+      "read": "24.9 ft - normal pool. Ordinary bank access."
+    },
+    {
+      "water": "Ohio River at Huntington",
+      "site": "03206000",
+      "note": "below R.C. Byrd Locks and Dam",
+      "stage_ft": 27.28,
+      "stage_ft_at": "2026-08-25T05:00:00.000-04:00",
+      "stage_ft_trend": "falling",
+      "read": "27.3 ft and falling - up and pushing. Expect colour and current; fish the slack behind anything solid."
+    }
+  ],
+  "topsail": {
+    "water": "Topsail Beach (surf and sound)",
+    "tides": [
+      {
+        "station": "Hampstead",
+        "station_id": "8657813",
+        "side": "sound",
+        "note": "inside the ICWW/Topsail Sound, about on par with where the crew fishes two nautical miles north of New Topsail Inlet",
+        "events": [
+          {"type": "low", "time_local": "12:53 AM", "height_ft": 1.0},
+          {"type": "high", "time_local": "6:39 AM", "height_ft": 3.2},
+          {"type": "low", "time_local": "12:50 PM", "height_ft": 0.5},
+          {"type": "high", "time_local": "7:16 PM", "height_ft": 4.0}
+        ]
+      }
+    ],
+    "moon": {"phase": "waxing gibbous", "illumination_pct": 92, "age_days": 12.8},
+    "water_temp": {
+      "water_temp_f": 83.3,
+      "observed_at": "2026-08-25 05:24",
+      "station": "Beaufort",
+      "miles_away": 60,
+      "bearing": "up the coast"
+    },
+    "read": "Fish the moving water either side of high at 6:39 AM and 7:16 PM in the sound."
+  },
+  "errors": []
+}
