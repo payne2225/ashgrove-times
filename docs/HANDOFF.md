@@ -280,6 +280,12 @@ an outside source has it and can be cited. Ian reads the paper.
 
 ## 9. Open items
 
+- **A FULL PASS IS IN PROGRESS.** The work order is
+  `docs/HANDOFF-FULL-PASS-2026-09-02.md` — twelve items in dependency
+  order, with the traps. A fresh session reads THIS file first, then that
+  one, then starts at item 1. Every item below that the pass covers is
+  listed there with more detail; this list is not duplicated on purpose.
+
 - **The Topsail water temperature moved stations — watch it this week.**
   NOAA dropped the `water_temperature` product from **8658163 Wrightsville
   Beach** outright (its own metadata no longer lists it; the datagetter
