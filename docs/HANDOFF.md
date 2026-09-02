@@ -188,11 +188,20 @@ drift apart.
 Pages build via GitHub Actions with **unbounded lag** — 23 seconds to 9
 minutes observed. Post on time, backfill the link when the build lands.
 
-**Never bulk re-render the archive.** `_tide_table_html()` reads the current
-`out/fishing.json`, so re-rendering an old dated page typesets TODAY's tides
-into it. A layout change reaches `today.html` and everything rendered after
-it; the back issues keep the layout they were published with, which is the
-correct trade.
+**The archive is safe to re-render — with `render_edition.py --all`, and
+only that way** (2026-09-02). The sports page's tide table is the one live
+read on any page; it now reads `editions/data/<date>.fishing.json` first,
+which `render_edition.py --sportsman` freezes from `out/fishing.json` the
+first time it renders a day's page and the routine commits with the
+edition. The live file is used only when no snapshot exists AND it carries
+the page's own date — the morning render itself. `--all` re-renders every
+Times page (nothing live there), every sports page that HAS a snapshot,
+every weather page whose briefing is in the `../weatherman` checkout, and
+**refuses the rest by name**. Sports pages from before 2026-09-03 have no
+snapshot and keep their committed HTML for good; do not hand-render one.
+`today.html` and the index bookmarks are written from the newest edition
+only. The Times archive was re-rendered once on 2026-09-02 and took the
+flowed layout and the foot nav.
 
 ## 5. The one boundary left
 

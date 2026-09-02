@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Jim Claudtore&#x27;s forecast for Wednesday, August 19, 2026.">
-<title>Jim Claudtore — Wednesday, August 19, 2026</title>
+<meta name="description" content="Day two of the dry spell — the river heats back up, but the air stays easy; last clean day before Thursday&#x27;s rain">
+<title>The Weather Claude — Wednesday, August 19, 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
@@ -87,6 +87,90 @@
     text-transform: uppercase;
     color: var(--ink-mute);
   }
+
+  /* The family banner: the WHOLE thing is The Ashgrove Times (Nate,
+     2026-08-21), so every section page carries it above its own name. */
+  .family-line {
+    text-align: center;
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin: 2px 0 0;
+  }
+
+  /* Section-to-section buttons, house-styled like the section labels. */
+  /* The rule that closes the wire columns off from the anchor sections
+     below them (Nate, 2026-08-26). A column bottom is a ragged edge, and
+     without this the notebook read as one more thing the last column ran
+     into. In the BASE stylesheet, not a breakpoint: the sections stack on a
+     phone and the break between the wire and the anchors still needs
+     saying — a browser-default <hr> in a letterpress page does not. */
+  .rule-anchor {
+    border: 0;
+    border-top: 1px solid var(--ink);
+    margin: 6px 0 16px;
+  }
+
+  /* A tier heading inside the Canada section. Smaller than a section label
+     and not reversed out — it is a sub-head, and three black chips stacked
+     under one black chip would read as four sections. Matches the
+     notebook's .wv-block-label, which is the same idea one box over. */
+  .tier-label {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 4px;
+    margin: 0 0 10px;
+  }
+  .sec-canada .tier { margin-bottom: 6px; }
+
+  .paper-nav { text-align: center; margin: 0 0 18px; }
+  .paper-nav a {
+    display: inline-block;
+    border: 1px solid var(--ink);
+    background: var(--wv-tint);
+    color: var(--ink);
+    text-decoration: none;
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 11.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    margin: 0 4px 6px;
+  }
+  .paper-nav a:hover { background: var(--ink); color: var(--parchment); }
+  /* The same row repeated at the foot of the page, where a reader who has
+     finished actually is. Ruled off above so it reads as the end of the
+     paper rather than as one more thing to read. */
+  .paper-nav-foot {
+    margin: 22px 0 2px;
+    padding-top: 16px;
+    border-top: 1px solid var(--rule);
+  }
+
+  /* The tide table: a real table, because Nate asked for one. */
+  .tide-table { border-collapse: collapse; margin: 10px auto 4px; font-size: 13.5px; }
+  .tide-table caption {
+    font-family: var(--display); font-weight: 700; font-size: 13px;
+    letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-mute);
+    padding-bottom: 6px;
+  }
+  .tide-table th, .tide-table td {
+    border: 1px solid var(--rule); padding: 4px 12px; text-align: center;
+  }
+  .tide-table th {
+    font-family: var(--display); font-size: 11.5px; letter-spacing: 0.08em;
+    text-transform: uppercase; background: var(--wv-tint);
+  }
+  .tide-table td:first-child { font-weight: 600; }
 
   /* ---------- masthead ---------- */
 
@@ -484,45 +568,123 @@
     .tagline { font-size: 15px; margin-bottom: 10px; }
     .headline { font-size: 40px; line-height: 1.08; }
     .subhead { font-size: 17px; }
-    .columns { column-count: 3; font-size: 15.5px; }
+    .columns { column-count: 2; font-size: 15.5px; }
     .drop { font-size: 58px; }
+
+    /* WITH a drawing: art at roughly a third of the measure, story beside
+       it. Scoped to .with-art deliberately — when this rule was on the bare
+       .lead-block and the day's drawing went to another section, the story
+       became the first grid child, inherited the 27% art column, and left
+       three quarters of the page white beside eight lines of type. */
+    .lead-block.with-art {
+      display: grid;
+      grid-template-columns: minmax(240px, 27%) 1fr;
+      gap: 0 30px;
+      align-items: start;
+    }
+    .lead-block.with-art .art { max-width: none; margin: 0; }
+    /* Cap the drawing so its bottom lands near the text's, instead of
+       running past it and opening a hole under the columns. */
+    .lead-block.with-art .art svg { max-height: 210px; width: 100%; }
+
+    /* WITHOUT one: nothing shares this line of the page, so the lead runs
+       the full measure. Column COUNT rather than width, because a lead is
+       short and a fixed column-width would leave a half-empty third column
+       on a thin news day. */
+    .lead-block.no-art .columns { column-count: 2; }
   }
 
   @media (min-width: 1320px) {
     .page { max-width: 1420px; padding: 40px 54px 56px; }
-    .art { max-width: 560px; }
     .masthead { font-size: 96px; letter-spacing: 3px; }
     .headline { font-size: 50px; }
-    .columns { column-count: 4; }
 
-    /* The wire sections sit side by side across the page, one to a column,
-       the way the four beats run across a front page below the fold.
+    /* Three columns across ~1,310px of measure is about 420px a column —
+       roughly 58 characters, which is a newspaper line. Two would set 85+
+       and read like a blog. Measured against a real lead: 766 characters on
+       2026-08-24, which fills three columns about five lines deep. */
+    .lead-block.no-art .columns { column-count: 3; }
 
-       GRID, not CSS multi-column. Multi-column was the first attempt and it
-       looked right until you counted: a `column-span: all` element splits
-       the flow, so the two sections above the notebook spread across four
-       columns and left two of them empty. Grid places each section in its
-       own column and lets the notebook span deliberately rather than as a
-       side effect. */
-    .sections {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
+    /* The wire sections FLOW through these columns; they are not placed in
+       them. (2026-08-26 — this was a grid until Pat said "lots and lots of
+       unused space.")
+
+       A grid gave each section its own cell and made every row as tall as
+       its tallest member. On an ordinary morning — U.S. 524px, World 637px,
+       Sci/Tech 901px — that stood 28% of the section area empty, and a last
+       row that did not divide evenly was worse. Copy that runs down one
+       column and continues into the next cannot leave a hole, whatever
+       shape the news turns out to be that day. Measured on the 2026-08-26
+       edition: the section block went 1917px to 999px and the page 3093px
+       to 2653px, with nothing added and nothing cut.
+
+       The original objection to multi-column here was real and is now
+       answered rather than ignored: a `column-span: all` child splits a
+       flow and strands columns, which is exactly what happened the first
+       time. So the notebook is not a child of the flow at all — it is a
+       sibling block below it, and nothing inside the flow spans.
+
+       Sports & Sportsman has set this way since it launched. */
+    .sections { display: block; }
+    .wire-flow {
+      column-count: var(--wire-cols, 3);
       column-gap: 30px;
-      align-items: start;
+      column-rule: 1px solid #c9c2ac;
     }
+    .wire-flow > .sec {
+      break-inside: auto;      /* a section MAY continue into the next column */
+      border-left: 0;
+      padding-left: 0;
+      margin: 0 0 18px;
+    }
+    /* ...but a brief, the drawing, and a label stranded from the brief
+       under it may not be split. Those are the atoms. */
+    .wire-flow .brief { break-inside: avoid; }
+    .wire-flow .art { break-inside: avoid; }
+    .wire-flow .section-label { break-after: avoid; margin-top: 0; }
+    .wire-flow .sec + .sec .section-label { margin-top: 12px; }
     .sec { margin-bottom: 20px; }
     .sec .two-col-briefs { column-count: 1; column-rule: none; }
     .sec .section-label { margin-top: 0; }
-    /* Rules between the wire columns, none before the first. */
-    .sec-wire + .sec-wire { border-left: 1px solid #c9c2ac; padding-left: 30px; }
+
+
+    /* Anchored sections — the notebook and British Columbia — take the full
+       measure below the flow. Their briefs run in their own columns, since
+       one column across 1,310px would set 85-character lines. */
+    .sec-anchor { margin: 0 0 18px; }
+    .sec-anchor .two-col-briefs {
+      column-count: 3;
+      column-gap: 30px;
+      column-rule: 1px solid var(--rule);
+    }
+    .sec-anchor .brief { break-inside: avoid; }
+
+    /* Canada does its own columns, so the anchor rule above must not also
+       fragment it — a grid inside a CSS multi-column container gets sliced
+       across the columns, which put a tier label above an empty column and
+       stranded its brief two columns away. */
+    .sec-canada .two-col-briefs { column-count: 1; column-rule: none; }
+
+    /* The Canada section's three tiers sit side by side across the measure,
+       local first. A tier with nothing in it does not render, so a thin
+       morning closes to two columns rather than standing one empty — the
+       whole page was rebuilt to stop doing exactly that. */
+    .sec-canada .tiers {
+      display: grid;
+      grid-template-columns: repeat(var(--tier-cols, 3), 1fr);
+      column-gap: 30px;
+      align-items: start;
+    }
+    .sec-canada .tier + .tier { border-left: 1px solid var(--rule); padding-left: 30px; }
 
     /* The notebook is the anchor and it is wide content — four sub-blocks
-       that would strangle in a 300px column. It spans the whole measure as
+       that would strangle in a 300px column. It takes the whole measure as
        a boxed feature, which is both where the space is and the treatment
-       Ian asked for. `order` moves it below the wire columns without
-       touching DOM order, so the phone layout and screen readers still get
-       Ian's sequence. */
-    .sec-wv { grid-column: 1 / -1; order: 9; margin: 10px 0 8px; }
+       Ian asked for. It sits BELOW the flow because the renderer emits it
+       as a sibling after .wire-flow, not because of a CSS `order` — that
+       was a grid trick and the grid is gone. Screen readers and the phone
+       layout get the same sequence the markup has. */
+    .sec-wv { margin: 10px 0 8px; }
     .sec-wv .wv-box { padding: 22px 28px; column-count: 2; column-gap: 36px; }
     .sec-wv .wv-title { column-span: all; font-size: 24px; }
     .sec-wv .wv-box > .brief,
@@ -532,8 +694,9 @@
   @media (min-width: 1700px) {
     .page { max-width: 1600px; }
     .masthead { font-size: 108px; }
-    .sections { grid-template-columns: repeat(4, 1fr); }
-    .columns { column-count: 5; }
+    /* Three, not four, even here. The lead runs about 700 characters — a
+       fourth column would set it three lines deep and read as a caption
+       rather than as the day's story. */
   }
 
   /* ---------- Sports & Sportsman page layout ----------
@@ -588,22 +751,31 @@
   }
   .wx-list { margin: 0 0 12px; padding-left: 20px; }
   .wx-list li { margin-bottom: 6px; }
-  /* The weather page borrows the sportsman column fill at desktop; a single
-     long column reads better for a briefing, so undo the multi-column. */
-  @media (min-width: 1024px) {
-    .page.weather .sections { column-count: 1; column-rule: none; }
-  }
+  /* The weather page stopped borrowing the sportsman column fill on
+     2026-08-25 — it sets as a newspaper page now, with the same section
+     grid the front page uses, so there is no multi-column flow left to
+     undo. What it does need is its own handling of Jim's confidence note,
+     which is a single paragraph inside a full-width box: the notebook's
+     two columns would split one short paragraph down the middle. */
+  .wx-confidence .wv-box { column-count: 1; }
+  .wx-confidence .wv-box p { margin: 0 0 10px; max-width: 92ch; }
+  .wx-confidence .wv-box p:last-child { margin-bottom: 0; }
+  .wx-roundup { margin: 0; }
+  /* Jim writes in half a dozen short reports rather than long copy, so the
+     label chip has to survive a stacked heading — three towns sharing one
+     forecast — without pushing the section out of its column. */
+  .page.weather .section-label { white-space: normal; line-height: 1.35; }
 
   @media print {
     body { background: #fff; padding: 0; }
     .page { border: 0; box-shadow: none; max-width: none; }
-    .sections { display: grid; grid-template-columns: repeat(4, 1fr); column-gap: 24px; }
+    .wire-flow { column-count: var(--wire-cols, 3); column-gap: 24px; }
     .sec-wv { grid-column: 1 / -1; order: 9; }
   }
 </style>
 </head>
 <body>
-<div class="page sportsman weather">
+<div class="page weather">
 
   <div class="top-bar">
     <span>The Forecast</span>
@@ -611,58 +783,76 @@
     <span>Price: Free</span>
   </div>
   
-  <div class="masthead">JIM CLAUDTORE</div>
-  <div class="tagline">&ldquo;The Ashgrove Times — weather desk&rdquo;</div>
+  <div class="family-line">The Ashgrove Times</div>
+  <div class="masthead">THE WEATHER CLAUDE</div>
+  <div class="tagline">&ldquo;with Jim Claudtore, filed at 7:15 ET&rdquo;</div>
   <hr class="rule-thick">
   <hr class="rule-thin">
 
-  <div class="headline"></div>
-  
-  <div class="byline"></div>
+  <nav class="paper-nav" aria-label="Sections"><a href="../home.html">Home</a><a href="../today.html">The News Desk</a><a href="../sportsman/">Sports &amp; Sportsman</a></nav>
 
-  
+  <div class="headline">Wednesday, August 19</div>
+  <div class="subhead">Day two of the dry spell — the river heats back up, but the air stays easy; last clean day before Thursday&#x27;s rain</div>
+  <div class="byline">By Jim Claudtore</div>
 
-  <div class="columns"></div>
-
-  
-
-  <div class="sections">
-  <div class="wx-briefing"><p class="wx-day">☀️ Wednesday, August 19</p>
-<p class="wx-dek">Day two of the dry spell — the river heats back up, but the air stays easy; last clean day before Thursday&#x27;s rain</p>
-<p class="wx-loc">📍 Parkersburg — Pat</p>
-<p>Northern-river end keeps the muggiest edge of the crew — afternoon humidity around 61% off a 66°F dew point, and the coolest river high at 81°F (27°C), easing to a comfortable 65°F (18°C) tonight. Rain&#x27;s a no-show (chance under 20%, nothing on the gauge) and skies stay mostly bright. A still, warm, faintly sticky one — but the porch is open all day.</p>
-<p class="wx-loc">📍 Apple Grove — Nate &amp; Ian</p>
-<p>Warm and bright, and drier than yesterday — high near 83°F (28°C), afternoon humidity down to 55% off a 64°F dew point, overnight 67°F (19°C). Barely a 6% sprinkle chance, so effectively rain-free. Hurricane runs the same warm, dry setup, so Nate&#x27;s commute is just a bright one. Good day to leave the windows open and let the dry air walk through the house.</p>
-<p class="wx-loc">📍 Huntington — Trav</p>
-<p>Driest, hottest seat in the house — high near 86°F (30°C), but afternoon humidity crashes to 41% off a 60°F dew point, so it&#x27;s clean dry heat, not swamp. Rain-free, sunny, down to 68°F (20°C) overnight. The kind of bone-dry afternoon that makes the porch-and-blanket doctrine look downright reasonable. UV&#x27;s up near 7 — SPF or regret.</p>
-<p class="wx-loc">📍 Summersville — Clayton</p>
-<p>The cool, muggy holdout again. High only 79°F (26°C) — coolest of the crew — but the high country hangs onto the moisture, so it&#x27;s the muggiest air going at 66% this afternoon, easing to a comfortable 63°F (17°C) tonight. Rain still off the table today (6%); just a gray-around-the-edges plateau day before tomorrow&#x27;s storms roll in.</p>
-<p class="wx-loc">🍁 The Hart, Prince George — Kirsten</p>
-<p>Heads up — Open-Meteo&#x27;s feed dropped for Prince George this morning, so the Hart&#x27;s built straight off Environment Canada, and it&#x27;s another clean one: <b>sunny, high 26°C (79°F)</b> on clear, dry air (humidity 74% at the cool 13°C dawn, falling through a bright afternoon), west wind to 20 km/h, UV 6. Then a <b>clear, cool 10°C (50°F)</b> overnight — windows-wide sleeping air. Eighth straight bluebird day and the air&#x27;s pristine (AQI 22). The kind of late-summer run that pays back the smoke weeks with interest.</p>
-<p class="wx-loc">🎖️ Honorable mentions</p>
-<ul class="wx-list">
-<li><b>Lesage — Justin:</b> rides the dry downriver air — <b>85°F (29°C) / 67°F (19°C)</b>, afternoon humidity the crew&#x27;s lowest at 39%; though the county extension office&#x27;s soil-moisture probes within about forty feet of his place read anomalously high again, and the intern sent to recalibrate them has asked that Justin &quot;stop doing whatever it is he does near the sensors, especially after dark.&quot;</li>
-<li><b>Hinton — Greg:</b> New River Gorge country stays cool and mild — <b>82°F (28°C) / 65°F (18°C)</b>, humidity 61%, barely a 2% sprinkle. Storms hold off until tomorrow.</li>
-<li><b>North Bennington — Wes:</b> dry and pleasant, and the coolest night of anybody — <b>80°F (27°C) / 57°F (14°C)</b> on 53% air, rain-free. Vermont doing Vermont.</li>
-</ul>
-<p class="wx-loc">🌀 Quick hits</p>
-<ul class="wx-list">
-<li><b>Cowen, WV:</b> empty cabin, and the Open-Meteo feed timed out this morning — no hard numbers off it, but read it with the Summersville plateau: cool and mountain-muggy. The Williams River&#x27;s dropped hard, though — the Dyer gauge is down to 750 cfs from 3,750 a day ago (stage 3.4 ft, off 6.8), the week&#x27;s rain draining out fast.</li>
-</ul>
-<p class="wx-loc">🏖️ Topsail Beach, NC — beach &amp; inlet report</p>
-<p>Still the hot corner: a <b>Heat Advisory runs 11 AM–8 PM</b>, heat index climbing toward <b>109°F</b> on high heat and thick humidity. High near <b>91°F (33°C)</b>, barely backing off to a muggy <b>80°F (27°C)</b> overnight, humidity in the low 70s. Rain&#x27;s a no-show, so there&#x27;s no relief in it — hydrate and find shade through the afternoon. Air&#x27;s nudged to moderate too (AQI mid-50s now, topping low-80s on afternoon haze).</p>
-<p>🌊 <b>Tides:</b> their water — the Hampstead sound gauge — runs a midday high at <b>2:21 PM (3.9 ft)</b>, then falls all afternoon and evening to an <b>8:53 PM low (1.1 ft)</b>; that long fall is the red-drum window, and today it runs well past dark. The ocean/inlet reference (Ocean City Beach pier) leads out front: high 1:23 PM, low 7:49 PM. The sound lags the inlet about an hour — a touch more on the ebb (~65 min) than the flood (~60), since it drains slower than it fills, so that evening window stretches even longer than the clock says.</p>
-<p>🌙 <b>Moon:</b> waxing crescent, 37% lit and climbing toward first quarter — so these are gentle neap tides (today&#x27;s ocean swing just 3.4 ft), the inlet current soft. Easy water, not the funnel it runs on a full moon.</p>
-<p>🎣 <b>What&#x27;s running:</b> (monthly report, published Aug 3 — 16 days old, not a live read.) August is red-drum prime: topwater plugs at first light, then cut menhaden or finger mullet as it heats up — and the reds want the last of the falling tide, so that long afternoon-into-evening ebb toward the 8:53 low is your window (bring a headlamp, it runs past dark). Speckled trout are a dawn game in the heat — topwater in the first hour after sunrise, paddle tails in the deeper holes later. Surf City Pier&#x27;s giving up specks, pompano, sea mullet, spots and the odd red drum, plus Spanish over 3 lbs on plugs; Jolly Roger&#x27;s the trophy end — tarpon to an estimated 110 lbs and a 63-lb cobia on live king rigs off the end. Flounder are thick but stay catch-and-release; the harvest window doesn&#x27;t open till September.</p>
-<p>&gt; 🎯 <b>Confidence:</b> high — dry, bright, and warm crew-wide today with rain off the table, models in strong agreement. Bust case is minor: a stray mountain sprinkle sneaks into Summersville or the New River gorge a day early. The real heads-up is tomorrow — the next rain round arrives Thursday, and it looks like a genuine one: the river and mountains jump to a 50–60% chance.</p>
-<p>&gt; ⚠️ <b>Tonight:</b> the day&#x27;s only real danger is the Carolina coast — that Heat Advisory is no joke, heat index to 109°F, so hydrate and stay out of the worst of the afternoon sun. Up here it&#x27;s all upside; Trav&#x27;s porch-and-blanket exemption stands, as ever.</p>
-<p>-# WV sun&#x27;s down 8:17 at Apple Grove — golden-hour porch window is wide open. Air&#x27;s moderate crew-wide (AQI low-50s, topping upper-70s downriver on stagnant late-summer haze) — no smoke, just a still, dry ridge parked on us.</p>
-<p>-# SPC (Storm Prediction Center) · NWS (National Weather Service) · Open-Meteo · ECCC (Environment and Climate Change Canada) — data fetched 7:17 AM ET</p></div>
+  <div class="lead-block no-art">
+    
+    <div class="columns"></div>
   </div>
 
   
 
-  <div class="footer-note">Filed to the channel at 7:15 ET by Jim Claudtore</div>
+  <div class="sections" style="--wire-cols: 3">
+  <div class="wire-flow">
+  <section class="sec sec-wire">
+  <div class="section-label">Parkersburg — Pat</div>
+  <div class="two-col-briefs"><p>Northern-river end keeps the muggiest edge of the crew — afternoon humidity around 61% off a 66°F dew point, and the coolest river high at 81°F (27°C), easing to a comfortable 65°F (18°C) tonight. Rain&#x27;s a no-show (chance under 20%, nothing on the gauge) and skies stay mostly bright. A still, warm, faintly sticky one — but the porch is open all day.</p></div>
+</section>
+
+  <section class="sec sec-wire">
+  <div class="section-label">Apple Grove — Nate &amp; Ian</div>
+  <div class="two-col-briefs"><p>Warm and bright, and drier than yesterday — high near 83°F (28°C), afternoon humidity down to 55% off a 64°F dew point, overnight 67°F (19°C). Barely a 6% sprinkle chance, so effectively rain-free. Hurricane runs the same warm, dry setup, so Nate&#x27;s commute is just a bright one. Good day to leave the windows open and let the dry air walk through the house.</p></div>
+</section>
+
+  <section class="sec sec-wire">
+  <div class="section-label">Huntington — Trav</div>
+  <div class="two-col-briefs"><p>Driest, hottest seat in the house — high near 86°F (30°C), but afternoon humidity crashes to 41% off a 60°F dew point, so it&#x27;s clean dry heat, not swamp. Rain-free, sunny, down to 68°F (20°C) overnight. The kind of bone-dry afternoon that makes the porch-and-blanket doctrine look downright reasonable. UV&#x27;s up near 7 — SPF or regret.</p></div>
+</section>
+
+  <section class="sec sec-wire">
+  <div class="section-label">Summersville — Clayton</div>
+  <div class="two-col-briefs"><p>The cool, muggy holdout again. High only 79°F (26°C) — coolest of the crew — but the high country hangs onto the moisture, so it&#x27;s the muggiest air going at 66% this afternoon, easing to a comfortable 63°F (17°C) tonight. Rain still off the table today (6%); just a gray-around-the-edges plateau day before tomorrow&#x27;s storms roll in.</p></div>
+</section>
+
+  <section class="sec sec-wire">
+  <div class="section-label">The Hart, Prince George — Kirsten</div>
+  <div class="two-col-briefs"><p>Heads up — Open-Meteo&#x27;s feed dropped for Prince George this morning, so the Hart&#x27;s built straight off Environment Canada, and it&#x27;s another clean one: <b>sunny, high 26°C (79°F)</b> on clear, dry air (humidity 74% at the cool 13°C dawn, falling through a bright afternoon), west wind to 20 km/h, UV 6. Then a <b>clear, cool 10°C (50°F)</b> overnight — windows-wide sleeping air. Eighth straight bluebird day and the air&#x27;s pristine (AQI 22). The kind of late-summer run that pays back the smoke weeks with interest.</p></div>
+</section>
+
+  <section class="sec sec-wire">
+  <div class="section-label">Honorable mentions</div>
+  <div class="two-col-briefs"><ul class="roundup wx-roundup"><li><b>Lesage — Justin:</b> rides the dry downriver air — <b>85°F (29°C) / 67°F (19°C)</b>, afternoon humidity the crew&#x27;s lowest at 39%; though the county extension office&#x27;s soil-moisture probes within about forty feet of his place read anomalously high again, and the intern sent to recalibrate them has asked that Justin &quot;stop doing whatever it is he does near the sensors, especially after dark.&quot;</li><li><b>Hinton — Greg:</b> New River Gorge country stays cool and mild — <b>82°F (28°C) / 65°F (18°C)</b>, humidity 61%, barely a 2% sprinkle. Storms hold off until tomorrow.</li><li><b>North Bennington — Wes:</b> dry and pleasant, and the coolest night of anybody — <b>80°F (27°C) / 57°F (14°C)</b> on 53% air, rain-free. Vermont doing Vermont.</li></ul></div>
+</section>
+
+  <section class="sec sec-wire">
+  <div class="section-label">Quick hits</div>
+  <div class="two-col-briefs"><ul class="roundup wx-roundup"><li><b>Cowen, WV:</b> empty cabin, and the Open-Meteo feed timed out this morning — no hard numbers off it, but read it with the Summersville plateau: cool and mountain-muggy. The Williams River&#x27;s dropped hard, though — the Dyer gauge is down to 750 cfs from 3,750 a day ago (stage 3.4 ft, off 6.8), the week&#x27;s rain draining out fast.</li></ul></div>
+</section>
+
+  <section class="sec sec-wire">
+  <div class="section-label">Topsail Beach, NC — beach &amp; inlet report</div>
+  <div class="two-col-briefs"><p>Still the hot corner: a <b>Heat Advisory runs 11 AM–8 PM</b>, heat index climbing toward <b>109°F</b> on high heat and thick humidity. High near <b>91°F (33°C)</b>, barely backing off to a muggy <b>80°F (27°C)</b> overnight, humidity in the low 70s. Rain&#x27;s a no-show, so there&#x27;s no relief in it — hydrate and find shade through the afternoon. Air&#x27;s nudged to moderate too (AQI mid-50s now, topping low-80s on afternoon haze).</p><p>🌊 <b>Tides:</b> their water — the Hampstead sound gauge — runs a midday high at <b>2:21 PM (3.9 ft)</b>, then falls all afternoon and evening to an <b>8:53 PM low (1.1 ft)</b>; that long fall is the red-drum window, and today it runs well past dark. The ocean/inlet reference (Ocean City Beach pier) leads out front: high 1:23 PM, low 7:49 PM. The sound lags the inlet about an hour — a touch more on the ebb (~65 min) than the flood (~60), since it drains slower than it fills, so that evening window stretches even longer than the clock says.</p><p>🌙 <b>Moon:</b> waxing crescent, 37% lit and climbing toward first quarter — so these are gentle neap tides (today&#x27;s ocean swing just 3.4 ft), the inlet current soft. Easy water, not the funnel it runs on a full moon.</p><p>🎣 <b>What&#x27;s running:</b> (monthly report, published Aug 3 — 16 days old, not a live read.) August is red-drum prime: topwater plugs at first light, then cut menhaden or finger mullet as it heats up — and the reds want the last of the falling tide, so that long afternoon-into-evening ebb toward the 8:53 low is your window (bring a headlamp, it runs past dark). Speckled trout are a dawn game in the heat — topwater in the first hour after sunrise, paddle tails in the deeper holes later. Surf City Pier&#x27;s giving up specks, pompano, sea mullet, spots and the odd red drum, plus Spanish over 3 lbs on plugs; Jolly Roger&#x27;s the trophy end — tarpon to an estimated 110 lbs and a 63-lb cobia on live king rigs off the end. Flounder are thick but stay catch-and-release; the harvest window doesn&#x27;t open till September.</p></div>
+</section>
+  </div>
+
+  <section class="sec sec-wv wx-confidence"><div class="wv-box"><p><b>Confidence:</b> high — dry, bright, and warm crew-wide today with rain off the table, models in strong agreement. Bust case is minor: a stray mountain sprinkle sneaks into Summersville or the New River gorge a day early. The real heads-up is tomorrow — the next rain round arrives Thursday, and it looks like a genuine one: the river and mountains jump to a 50–60% chance.</p><p><b>Tonight:</b> the day&#x27;s only real danger is the Carolina coast — that Heat Advisory is no joke, heat index to 109°F, so hydrate and stay out of the worst of the afternoon sun. Up here it&#x27;s all upside; Trav&#x27;s porch-and-blanket exemption stands, as ever.</p></div></section>
+  </div>
+
+  
+
+  <div class="footer-note">WV sun&#x27;s down 8:17 at Apple Grove — golden-hour porch window is wide open. Air&#x27;s moderate crew-wide (AQI low-50s, topping upper-70s downriver on stagnant late-summer haze) — no smoke, just a still, dry ridge parked on us.  SPC (Storm Prediction Center) · NWS (National Weather Service) · Open-Meteo · ECCC (Environment and Climate Change Canada) — data fetched 7:17 AM ET</div>
+
+  <nav class="paper-nav paper-nav-foot" aria-label="Sections, repeated"><a href="../home.html">Home</a><a href="../today.html">The News Desk</a><a href="../sportsman/">Sports &amp; Sportsman</a></nav>
 
 </div>
 </body>

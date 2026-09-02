@@ -4,6 +4,43 @@ Running changelog. Dated entries, newest first. Touched only when
 behavior changes, not every edition — the per-day record lives in
 `editions/index.json`, and degraded runs go in `docs/FAILURES.md`.
 
+## 2026-09-02 — the archive is safe to re-render
+
+Full-pass item 2. The sports page's tide table was the one live read on any
+page — `_tide_table_html()` read `out/fishing.json`, gitignored and
+overwritten by every fetch — and twice in a week that typeset another day's
+tides into a published page. The date guard that stopped it (08-26) also
+meant no layout change could ever reach a back issue: the whole archive
+still wore the grid the flowed layout replaced.
+
+- **`editions/data/<date>.fishing.json`** — `render_edition.py --sportsman`
+  now freezes `out/fishing.json` beside the edition the first time it
+  renders a day's page (`ensure_fishing_snapshot`; bytes copied, never
+  re-serialised, never overwritten, and only when the live file carries the
+  day's own date). The routine's `git add -A` commits it with the edition.
+  `sportsman.md` §4 and §5 and `routine.md` say so.
+- **The tide table reads the snapshot first.** The live file is used only
+  when there is no snapshot AND its date matches the page — the morning
+  render itself. Any other combination renders no table and says so.
+- **`render_edition.py --all`** re-renders every Times page (nothing live
+  there), every sports page that HAS a snapshot, and every weather page
+  whose briefing sits in the `../weatherman` checkout (`--weatherman DIR`),
+  and **refuses the rest by name**. `today.html` and the index bookmarks are
+  written from the newest edition only; the archive index is rebuilt once.
+- **Run once.** 29 Times pages and 15 weather pages re-rendered; all 19
+  sports pages skipped by name, as they must be — no snapshot exists before
+  2026-09-03, and those pages keep their committed HTML for good. The 21
+  Times back issues from 08-05 to 08-25 took the flowed columns, the anchor
+  rule and the foot nav; the pages from 08-26 on re-rendered byte-identical,
+  which is the determinism check. Weather pages 08-19 to 08-25 took the
+  08-25 newspaper layout.
+- **Verified** against today's paper: a fresh fetch (dated 2026-09-02)
+  re-rendered the 09-02 sports page with a tide table byte-identical to the
+  routine's committed page, on the fallback path and again through a
+  snapshot. That snapshot was then deleted — a 10 a.m. fetch is not the
+  5:30 water the validator checked, and a snapshot is only ever the day's
+  own file. `tests/test_render.py` covers all four branches.
+
 ## 2026-09-02 — the validator gets tests, and the tests find the archive broken
 
 Full-pass item 1 (`docs/HANDOFF-FULL-PASS-2026-09-02.md`). `validate_edition.py`

@@ -333,6 +333,16 @@ readings for every water in `config.SPORTSMAN_WATERS`:
 stat strip. A fabricated flow is exactly as bad as a fabricated market
 close, and the validator checks it.
 
+**That file is frozen beside the edition** (since 2026-09-02).
+`render_edition.py --sportsman` copies `out/fishing.json` to
+`editions/data/YYYY-MM-DD.fishing.json` the first time it renders the day's
+page, and your `git add -A` commits it with the edition. It is what lets a
+sports page be re-rendered on a later day without typesetting the wrong
+day's tides into it — `out/` is gitignored and overwritten every fetch, so
+without the snapshot the page could never be touched again. Do not edit
+the snapshot, and do not fetch again between validating and rendering: the
+page, the validator and the snapshot must all see the same water.
+
 **The whole Topsail beach-and-inlet report lives HERE now** — Nate moved
 it out of Jim Claudtore's briefing on 2026-08-21 because it ran his post
 long. Jim keeps only warning-level Topsail alerts. That makes this
@@ -441,8 +451,8 @@ skimming. The line score has the runs in it and it is never ambiguous.
 ```
 python validate_edition.py editions/sportsman/YYYY-MM-DD.json --sportsman \
     --fishing out/fishing.json
-python render_edition.py --sportsman --date YYYY-MM-DD
-git add -A && git commit && git push          # publishes site/sportsman/
+python render_edition.py --sportsman --date YYYY-MM-DD   # also freezes editions/data/YYYY-MM-DD.fishing.json
+git add -A && git commit && git push          # publishes site/sportsman/, commits the snapshot
 DISCORD_SPORTSMAN_WEBHOOK_URL="<from your prompt>" python post_discord.py \
     --sportsman --date YYYY-MM-DD --not-before 07:05 \
     --page-url https://payne2225.github.io/ashgrove-times/sportsman/YYYY-MM-DD.html

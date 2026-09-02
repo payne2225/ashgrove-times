@@ -77,8 +77,8 @@ python render_edition.py --date YYYY-MM-DD
 # ---- the second paper: written and PUBLISHED, never posted ----
 python validate_edition.py editions/sportsman/YYYY-MM-DD.json --sportsman \
     --fishing out/fishing.json
-python render_edition.py --sportsman --date YYYY-MM-DD
-git add -A && git commit && git push       # BOTH papers, BEFORE the post
+python render_edition.py --sportsman --date YYYY-MM-DD   # also writes editions/data/YYYY-MM-DD.fishing.json
+git add -A && git commit && git push       # BOTH papers + the fishing snapshot, BEFORE the post
 
 # ---- one message, after both papers are pushed ----
 python post_discord.py --date YYYY-MM-DD --digest --dry-run

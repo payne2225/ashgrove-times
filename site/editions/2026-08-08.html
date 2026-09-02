@@ -88,6 +88,90 @@
     color: var(--ink-mute);
   }
 
+  /* The family banner: the WHOLE thing is The Ashgrove Times (Nate,
+     2026-08-21), so every section page carries it above its own name. */
+  .family-line {
+    text-align: center;
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin: 2px 0 0;
+  }
+
+  /* Section-to-section buttons, house-styled like the section labels. */
+  /* The rule that closes the wire columns off from the anchor sections
+     below them (Nate, 2026-08-26). A column bottom is a ragged edge, and
+     without this the notebook read as one more thing the last column ran
+     into. In the BASE stylesheet, not a breakpoint: the sections stack on a
+     phone and the break between the wire and the anchors still needs
+     saying — a browser-default <hr> in a letterpress page does not. */
+  .rule-anchor {
+    border: 0;
+    border-top: 1px solid var(--ink);
+    margin: 6px 0 16px;
+  }
+
+  /* A tier heading inside the Canada section. Smaller than a section label
+     and not reversed out — it is a sub-head, and three black chips stacked
+     under one black chip would read as four sections. Matches the
+     notebook's .wv-block-label, which is the same idea one box over. */
+  .tier-label {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 4px;
+    margin: 0 0 10px;
+  }
+  .sec-canada .tier { margin-bottom: 6px; }
+
+  .paper-nav { text-align: center; margin: 0 0 18px; }
+  .paper-nav a {
+    display: inline-block;
+    border: 1px solid var(--ink);
+    background: var(--wv-tint);
+    color: var(--ink);
+    text-decoration: none;
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 11.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    margin: 0 4px 6px;
+  }
+  .paper-nav a:hover { background: var(--ink); color: var(--parchment); }
+  /* The same row repeated at the foot of the page, where a reader who has
+     finished actually is. Ruled off above so it reads as the end of the
+     paper rather than as one more thing to read. */
+  .paper-nav-foot {
+    margin: 22px 0 2px;
+    padding-top: 16px;
+    border-top: 1px solid var(--rule);
+  }
+
+  /* The tide table: a real table, because Nate asked for one. */
+  .tide-table { border-collapse: collapse; margin: 10px auto 4px; font-size: 13.5px; }
+  .tide-table caption {
+    font-family: var(--display); font-weight: 700; font-size: 13px;
+    letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-mute);
+    padding-bottom: 6px;
+  }
+  .tide-table th, .tide-table td {
+    border: 1px solid var(--rule); padding: 4px 12px; text-align: center;
+  }
+  .tide-table th {
+    font-family: var(--display); font-size: 11.5px; letter-spacing: 0.08em;
+    text-transform: uppercase; background: var(--wv-tint);
+  }
+  .tide-table td:first-child { font-weight: 600; }
+
   /* ---------- masthead ---------- */
 
   .masthead {
@@ -484,45 +568,123 @@
     .tagline { font-size: 15px; margin-bottom: 10px; }
     .headline { font-size: 40px; line-height: 1.08; }
     .subhead { font-size: 17px; }
-    .columns { column-count: 3; font-size: 15.5px; }
+    .columns { column-count: 2; font-size: 15.5px; }
     .drop { font-size: 58px; }
+
+    /* WITH a drawing: art at roughly a third of the measure, story beside
+       it. Scoped to .with-art deliberately — when this rule was on the bare
+       .lead-block and the day's drawing went to another section, the story
+       became the first grid child, inherited the 27% art column, and left
+       three quarters of the page white beside eight lines of type. */
+    .lead-block.with-art {
+      display: grid;
+      grid-template-columns: minmax(240px, 27%) 1fr;
+      gap: 0 30px;
+      align-items: start;
+    }
+    .lead-block.with-art .art { max-width: none; margin: 0; }
+    /* Cap the drawing so its bottom lands near the text's, instead of
+       running past it and opening a hole under the columns. */
+    .lead-block.with-art .art svg { max-height: 210px; width: 100%; }
+
+    /* WITHOUT one: nothing shares this line of the page, so the lead runs
+       the full measure. Column COUNT rather than width, because a lead is
+       short and a fixed column-width would leave a half-empty third column
+       on a thin news day. */
+    .lead-block.no-art .columns { column-count: 2; }
   }
 
   @media (min-width: 1320px) {
     .page { max-width: 1420px; padding: 40px 54px 56px; }
-    .art { max-width: 560px; }
     .masthead { font-size: 96px; letter-spacing: 3px; }
     .headline { font-size: 50px; }
-    .columns { column-count: 4; }
 
-    /* The wire sections sit side by side across the page, one to a column,
-       the way the four beats run across a front page below the fold.
+    /* Three columns across ~1,310px of measure is about 420px a column —
+       roughly 58 characters, which is a newspaper line. Two would set 85+
+       and read like a blog. Measured against a real lead: 766 characters on
+       2026-08-24, which fills three columns about five lines deep. */
+    .lead-block.no-art .columns { column-count: 3; }
 
-       GRID, not CSS multi-column. Multi-column was the first attempt and it
-       looked right until you counted: a `column-span: all` element splits
-       the flow, so the two sections above the notebook spread across four
-       columns and left two of them empty. Grid places each section in its
-       own column and lets the notebook span deliberately rather than as a
-       side effect. */
-    .sections {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
+    /* The wire sections FLOW through these columns; they are not placed in
+       them. (2026-08-26 — this was a grid until Pat said "lots and lots of
+       unused space.")
+
+       A grid gave each section its own cell and made every row as tall as
+       its tallest member. On an ordinary morning — U.S. 524px, World 637px,
+       Sci/Tech 901px — that stood 28% of the section area empty, and a last
+       row that did not divide evenly was worse. Copy that runs down one
+       column and continues into the next cannot leave a hole, whatever
+       shape the news turns out to be that day. Measured on the 2026-08-26
+       edition: the section block went 1917px to 999px and the page 3093px
+       to 2653px, with nothing added and nothing cut.
+
+       The original objection to multi-column here was real and is now
+       answered rather than ignored: a `column-span: all` child splits a
+       flow and strands columns, which is exactly what happened the first
+       time. So the notebook is not a child of the flow at all — it is a
+       sibling block below it, and nothing inside the flow spans.
+
+       Sports & Sportsman has set this way since it launched. */
+    .sections { display: block; }
+    .wire-flow {
+      column-count: var(--wire-cols, 3);
       column-gap: 30px;
-      align-items: start;
+      column-rule: 1px solid #c9c2ac;
     }
+    .wire-flow > .sec {
+      break-inside: auto;      /* a section MAY continue into the next column */
+      border-left: 0;
+      padding-left: 0;
+      margin: 0 0 18px;
+    }
+    /* ...but a brief, the drawing, and a label stranded from the brief
+       under it may not be split. Those are the atoms. */
+    .wire-flow .brief { break-inside: avoid; }
+    .wire-flow .art { break-inside: avoid; }
+    .wire-flow .section-label { break-after: avoid; margin-top: 0; }
+    .wire-flow .sec + .sec .section-label { margin-top: 12px; }
     .sec { margin-bottom: 20px; }
     .sec .two-col-briefs { column-count: 1; column-rule: none; }
     .sec .section-label { margin-top: 0; }
-    /* Rules between the wire columns, none before the first. */
-    .sec-wire + .sec-wire { border-left: 1px solid #c9c2ac; padding-left: 30px; }
+
+
+    /* Anchored sections — the notebook and British Columbia — take the full
+       measure below the flow. Their briefs run in their own columns, since
+       one column across 1,310px would set 85-character lines. */
+    .sec-anchor { margin: 0 0 18px; }
+    .sec-anchor .two-col-briefs {
+      column-count: 3;
+      column-gap: 30px;
+      column-rule: 1px solid var(--rule);
+    }
+    .sec-anchor .brief { break-inside: avoid; }
+
+    /* Canada does its own columns, so the anchor rule above must not also
+       fragment it — a grid inside a CSS multi-column container gets sliced
+       across the columns, which put a tier label above an empty column and
+       stranded its brief two columns away. */
+    .sec-canada .two-col-briefs { column-count: 1; column-rule: none; }
+
+    /* The Canada section's three tiers sit side by side across the measure,
+       local first. A tier with nothing in it does not render, so a thin
+       morning closes to two columns rather than standing one empty — the
+       whole page was rebuilt to stop doing exactly that. */
+    .sec-canada .tiers {
+      display: grid;
+      grid-template-columns: repeat(var(--tier-cols, 3), 1fr);
+      column-gap: 30px;
+      align-items: start;
+    }
+    .sec-canada .tier + .tier { border-left: 1px solid var(--rule); padding-left: 30px; }
 
     /* The notebook is the anchor and it is wide content — four sub-blocks
-       that would strangle in a 300px column. It spans the whole measure as
+       that would strangle in a 300px column. It takes the whole measure as
        a boxed feature, which is both where the space is and the treatment
-       Ian asked for. `order` moves it below the wire columns without
-       touching DOM order, so the phone layout and screen readers still get
-       Ian's sequence. */
-    .sec-wv { grid-column: 1 / -1; order: 9; margin: 10px 0 8px; }
+       Ian asked for. It sits BELOW the flow because the renderer emits it
+       as a sibling after .wire-flow, not because of a CSS `order` — that
+       was a grid trick and the grid is gone. Screen readers and the phone
+       layout get the same sequence the markup has. */
+    .sec-wv { margin: 10px 0 8px; }
     .sec-wv .wv-box { padding: 22px 28px; column-count: 2; column-gap: 36px; }
     .sec-wv .wv-title { column-span: all; font-size: 24px; }
     .sec-wv .wv-box > .brief,
@@ -532,20 +694,88 @@
   @media (min-width: 1700px) {
     .page { max-width: 1600px; }
     .masthead { font-size: 108px; }
-    .sections { grid-template-columns: repeat(4, 1fr); }
-    .columns { column-count: 5; }
+    /* Three, not four, even here. The lead runs about 700 characters — a
+       fourth column would set it three lines deep and read as a caption
+       rather than as the day's story. */
   }
+
+  /* ---------- Sports & Sportsman page layout ----------
+     A true newsprint fill. Fixed left/right blocks stranded whitespace the
+     moment one side outgrew the other, so instead the whole paper flows
+     through balanced CSS columns: Our Teams runs down column one and spills
+     into column two, Around the Leagues starts right where it ends, and the
+     browser balances the column bottoms. Briefs and roundup lines are
+     atomic; sections and state blocks are allowed to break between them. */
+
+  @media (min-width: 1024px) {
+    .page.sportsman .sections {
+      display: block;   /* undo the Times grid — columns need flow layout */
+      column-count: 2;
+      column-gap: 34px;
+      column-rule: 1px solid var(--rule);
+    }
+  }
+
+  @media (min-width: 1320px) {
+    .page.sportsman .sections { column-count: 3; }
+  }
+
+  @media (min-width: 1024px) {
+    .page.sportsman .sections > .sec {
+      break-inside: auto;
+      border-left: 0;
+      padding-left: 0;
+      margin: 0 0 20px;
+    }
+    .page.sportsman .sec .two-col-briefs { column-count: 1; column-rule: none; }
+    .page.sportsman .brief,
+    .page.sportsman .roundup li { break-inside: avoid; }
+    .page.sportsman .section-label { break-after: avoid; margin-top: 0; }
+    .page.sportsman .sec + .sec .section-label { margin-top: 10px; }
+    .page.sportsman .wv-block { break-inside: auto; }
+    .page.sportsman .wv-block-label { break-after: avoid; }
+  }
+
+  /* ---------- the weather page (Jim Claudtore's briefing, typeset) ---- */
+
+  .wx-briefing { max-width: 760px; margin: 0 auto; font-size: 15px; line-height: 1.55; }
+  .wx-briefing p { margin: 0 0 12px; }
+  .wx-day {
+    font-family: var(--display); font-weight: 900; font-size: 26px;
+    line-height: 1.15; margin: 4px 0 6px;
+  }
+  .wx-dek { font-style: italic; font-size: 15px; color: var(--ink-soft); margin: 0 0 16px; }
+  .wx-loc {
+    font-family: var(--display); font-weight: 700; font-size: 17px;
+    border-top: 1px solid var(--rule); padding-top: 12px; margin: 18px 0 6px;
+  }
+  .wx-list { margin: 0 0 12px; padding-left: 20px; }
+  .wx-list li { margin-bottom: 6px; }
+  /* The weather page stopped borrowing the sportsman column fill on
+     2026-08-25 — it sets as a newspaper page now, with the same section
+     grid the front page uses, so there is no multi-column flow left to
+     undo. What it does need is its own handling of Jim's confidence note,
+     which is a single paragraph inside a full-width box: the notebook's
+     two columns would split one short paragraph down the middle. */
+  .wx-confidence .wv-box { column-count: 1; }
+  .wx-confidence .wv-box p { margin: 0 0 10px; max-width: 92ch; }
+  .wx-confidence .wv-box p:last-child { margin-bottom: 0; }
+  .wx-roundup { margin: 0; }
+  /* Jim writes in half a dozen short reports rather than long copy, so the
+     label chip has to survive a stacked heading — three towns sharing one
+     forecast — without pushing the section out of its column. */
+  .page.weather .section-label { white-space: normal; line-height: 1.35; }
 
   @media print {
     body { background: #fff; padding: 0; }
     .page { border: 0; box-shadow: none; max-width: none; }
-    .sections { display: grid; grid-template-columns: repeat(4, 1fr); column-gap: 24px; }
+    .wire-flow { column-count: var(--wire-cols, 3); column-gap: 24px; }
     .sec-wv { grid-column: 1 / -1; order: 9; }
   }
 </style>
 </head>
 <body>
-<div class="page">
+<div class="page ">
 
   <div class="top-bar">
     <span>Vol. I — No. 4</span>
@@ -555,34 +785,39 @@
   <div class="ear">
     <span class="ear-label">Weather</span>Sky and temperature at 7:15, from Jim Claudtore.
   </div>
-  <div class="masthead">THE ASHGROVE TIMES</div>
+  <div class="family-line">The Ashgrove Times</div>
+  <div class="masthead">THE NEWS DESK</div>
   <div class="tagline">&ldquo;For the Fellers&rdquo;</div>
   <hr class="rule-thick">
   <hr class="rule-thin">
+
+  <nav class="paper-nav" aria-label="Sections"><a href="../home.html">Home</a><a href="../sportsman/">Sports &amp; Sportsman</a><a href="../weather/">The Weather Claude</a></nav>
 
   <div class="headline">Saudi Arabia, Turkey and Pakistan sign mutual defense pact in Mecca</div>
   <div class="subhead">The Makkah agreement treats an attack on one as an attack on all.</div>
   <div class="byline">By Wire Reports</div>
 
-  
-
-  <div class="columns"><p><span class="drop">S</span>audi Crown Prince Mohammed bin Salman, Turkish President Recep Tayyip Erdogan and Pakistani Prime Minister Shehbaz Sharif signed a trilateral defense treaty in Mecca on Friday, committing each state to treat an armed attack on any one of them as an attack on all three.</p><p>The joint statement says the accord is meant to strengthen collective deterrence and develop all aspects of defense cooperation. Saudi deputy minister Rayed Krimly said it is not an effort to build a military axis or a sectarian bloc, and is not tied to nuclear ambitions.</p><p>Saudi territory has been struck by Iran and Iran-backed forces in Yemen and Iraq since the United States and Israel attacked Iran on Feb. 28. Turkey fields NATO&#x27;s second-largest military; Pakistan is the only Muslim-majority state with nuclear arms.</p></div>
+  <div class="lead-block no-art">
+    
+    <div class="columns"><p><span class="drop">S</span>audi Crown Prince Mohammed bin Salman, Turkish President Recep Tayyip Erdogan and Pakistani Prime Minister Shehbaz Sharif signed a trilateral defense treaty in Mecca on Friday, committing each state to treat an armed attack on any one of them as an attack on all three.</p><p>The joint statement says the accord is meant to strengthen collective deterrence and develop all aspects of defense cooperation. Saudi deputy minister Rayed Krimly said it is not an effort to build a military axis or a sectarian bloc, and is not tied to nuclear ambitions.</p><p>Saudi territory has been struck by Iran and Iran-backed forces in Yemen and Iraq since the United States and Israel attacked Iran on Feb. 28. Turkey fields NATO&#x27;s second-largest military; Pakistan is the only Muslim-majority state with nuclear arms.</p></div>
+  </div>
 
   <div class="stat-strip"><div><b>7,757.64</b><span class="stat-label">S&amp;P 500</span><span class="stat-change"><span class="tri up" aria-hidden="true"></span>+0.62%</span></div><div><b>54,036.93</b><span class="stat-label">Dow</span><span class="stat-change"><span class="tri up" aria-hidden="true"></span>+0.28%</span></div><div><b>26,690.62</b><span class="stat-label">Nasdaq</span><span class="stat-change"><span class="tri up" aria-hidden="true"></span>+1.30%</span></div><div><b>$64,954</b><span class="stat-label">Bitcoin</span><span class="stat-change"><span class="tri up" aria-hidden="true"></span>+0.29%</span></div></div>
   <p class="stats-note">Market data compiled before the opening bell</p>
 
-  <div class="sections">
+  <div class="sections" style="--wire-cols: 3">
+  <div class="wire-flow">
   <section class="sec sec-wire">
   <div class="section-label">U.S.</div>
   <div class="two-col-briefs"><div class="brief">
       <div class="brief-head">Senate confirms Blanche as attorney general, 50-49</div>
-      <p>The Senate voted early Saturday to confirm Todd Blanche, Trump&#x27;s former personal lawyer, to lead the Justice Department. Two Republicans voted no.</p><span class="src"><a href="https://www.npr.org/2026/08/08/g-s1-137631/senate-confirms-todd-blanche-attorney-general" rel="noopener nofollow">NPR</a></span>
+      <p>The Senate voted early Saturday to confirm Todd Blanche, Trump&#x27;s former personal lawyer, to lead the Justice Department. Two Republicans voted no.</p><span class="src"><a href="https://www.npr.org/2026/08/08/g-s1-137631/senate-confirms-todd-blanche-attorney-general" target="_blank" rel="noopener nofollow">NPR</a></span>
     </div><div class="brief">
       <div class="brief-head">Employers cut 23,000 jobs in July as revisions deepen</div>
-      <p>Payrolls fell 23,000 and May and June were revised down a combined 103,000. Unemployment was 4.1%; participation fell to 61.4%.</p><span class="src"><a href="https://www.bls.gov/news.release/empsit.nr0.htm" rel="noopener nofollow">BLS</a></span>
+      <p>Payrolls fell 23,000 and May and June were revised down a combined 103,000. Unemployment was 4.1%; participation fell to 61.4%.</p><span class="src"><a href="https://www.bls.gov/news.release/empsit.nr0.htm" target="_blank" rel="noopener nofollow">BLS</a></span>
     </div><div class="brief">
       <div class="brief-head">ICE will release body camera video only in agency&#x27;s interest</div>
-      <p>A policy obtained by reporters lets the ICE director withhold shooting footage indefinitely. The agency bought $30.9M in cameras in July.</p><span class="src"><a href="https://www.pbs.org/newshour/nation/ice-will-only-release-body-camera-video-when-in-agencys-best-interests-policy-says" rel="noopener nofollow">PBS NewsHour</a></span>
+      <p>A policy obtained by reporters lets the ICE director withhold shooting footage indefinitely. The agency bought $30.9M in cameras in July.</p><span class="src"><a href="https://www.pbs.org/newshour/nation/ice-will-only-release-body-camera-video-when-in-agencys-best-interests-policy-says" target="_blank" rel="noopener nofollow">PBS NewsHour</a></span>
     </div></div>
 </section>
 
@@ -590,15 +825,43 @@
   <div class="section-label">World</div>
   <div class="two-col-briefs"><div class="brief">
       <div class="brief-head">Typhoon Dolphin batters Okinawa, closes eastern China ports</div>
-      <p>Five people were hurt and 14,000 buildings lost power in Okinawa. Zhejiang halted 162 ferry routes before a landfall expected late Sunday.</p><span class="src"><a href="https://www.thejakartapost.com/world/2026/08/08/typhoon-dolphin-hits-japans-okinawa-china-shuts-ports-ahead-of-landfall" rel="noopener nofollow">The Jakarta Post</a></span>
+      <p>Five people were hurt and 14,000 buildings lost power in Okinawa. Zhejiang halted 162 ferry routes before a landfall expected late Sunday.</p><span class="src"><a href="https://www.thejakartapost.com/world/2026/08/08/typhoon-dolphin-hits-japans-okinawa-china-shuts-ports-ahead-of-landfall" target="_blank" rel="noopener nofollow">The Jakarta Post</a></span>
     </div><div class="brief">
       <div class="brief-head">Colombia swears in de la Espriella on iron-fist platform</div>
-      <p>Abelardo de la Espriella took office Friday in Cali after a narrow runoff win, pledging a hard line on drug traffickers.</p><span class="src"><a href="https://www.pbs.org/newshour/show/colombias-new-president-reflects-latin-americas-right-wing-shift" rel="noopener nofollow">PBS NewsHour</a></span>
+      <p>Abelardo de la Espriella took office Friday in Cali after a narrow runoff win, pledging a hard line on drug traffickers.</p><span class="src"><a href="https://www.pbs.org/newshour/show/colombias-new-president-reflects-latin-americas-right-wing-shift" target="_blank" rel="noopener nofollow">PBS NewsHour</a></span>
     </div><div class="brief">
       <div class="brief-head">UN says Sudan&#x27;s war has left 8 million children out of school</div>
-      <p>Deputy Secretary-General Amina Mohammed told the Security Council on Friday that five of six children in Darfur are out of school.</p><span class="src"><a href="https://www.aljazeera.com/news/2026/8/8/sudans-war-threatens-an-entire-generations-future-un-warns" rel="noopener nofollow">Al Jazeera</a></span>
+      <p>Deputy Secretary-General Amina Mohammed told the Security Council on Friday that five of six children in Darfur are out of school.</p><span class="src"><a href="https://www.aljazeera.com/news/2026/8/8/sudans-war-threatens-an-entire-generations-future-un-warns" target="_blank" rel="noopener nofollow">Al Jazeera</a></span>
     </div></div>
 </section>
+
+  <section class="sec sec-wire">
+  <div class="section-label">Science &amp; Technology</div>
+  <div class="two-col-briefs"><div class="brief">
+      <div class="brief-head">UCLA steers heat through a crystal in focused rays</div>
+      <p>Phonons moved through boron arsenide in ray-like patterns at room temperature, an effect previously seen only near absolute zero.</p><span class="src"><a href="https://www.sciencedaily.com/releases/2026/08/260805082506.htm" target="_blank" rel="noopener nofollow">UCLA</a></span>
+    </div><div class="brief">
+      <div class="brief-head">Sunlight replaces the laser in entangled-photon experiment</div>
+      <p>Ottawa and Max Planck researchers funneled concentrated sunlight into a crystal, producing photon pairs 94% faithful to an ideal state.</p><span class="src"><a href="https://www.sciencedaily.com/releases/2026/08/260807035133.htm" target="_blank" rel="noopener nofollow">Optica</a></span>
+    </div><div class="brief">
+      <div class="brief-head">Teen cannabis use tracks with slower cognitive gains</div>
+      <p>A study following 11,036 children from ages 9 to 17 found users&#x27; memory and processing speed improved more slowly. THC drove it.</p><span class="src"><a href="https://www.sciencedaily.com/releases/2026/08/260806050726.htm" target="_blank" rel="noopener nofollow">UC San Diego</a></span>
+    </div></div>
+</section>
+
+  <section class="sec sec-wire">
+  <div class="section-label">Sports</div>
+  <div class="two-col-briefs"><div class="brief">
+      <div class="brief-head">Beilein headlines WVU Sports Hall of Fame class of seven</div>
+      <p>The former men&#x27;s basketball coach went 104-60 at WVU from 2003 to 2007. The class was named Friday and is inducted Oct. 10.</p><span class="src"><a href="https://wvmetronews.com/2026/08/07/beilein-highlights-seven-new-additions-to-wvu-sports-hall-of-fame/" target="_blank" rel="noopener nofollow">WV MetroNews</a></span>
+    </div><div class="brief">
+      <div class="brief-head">Chelsea face AC Milan in Jakarta preseason friendly</div>
+      <p>The club&#x27;s fourth preseason fixture kicks off at Gelora Bung Karno Stadium, ahead of the Premier League season opening Aug. 21.</p><span class="src"><a href="https://www.chelseafc.com/en/news/article/indonesia-added-to-chelsea-pre-season-fixture-schedule" target="_blank" rel="noopener nofollow">Chelsea FC</a></span>
+    </div></div>
+</section>
+  </div>
+
+  <hr class="rule-anchor">
 
   <section class="sec sec-wv">
   <div class="section-label">West Virginia</div>
@@ -705,49 +968,26 @@
 </figure>
     <div class="brief">
       <div class="brief-head">FEMA clears Ritchie and Pleasants, denies Boone and Logan</div>
-      <p>Gov. Patrick Morrisey said Friday the two counties won Individual Assistance for July&#x27;s storms. Boone and Logan were denied for June flooding; the state may appeal.</p><span class="src"><a href="https://wvmetronews.com/2026/08/07/ritchie-pleasants-counties-to-receive-federal-aid-after-july-devastating-storms/" rel="noopener nofollow">WV MetroNews</a></span>
+      <p>Gov. Patrick Morrisey said Friday the two counties won Individual Assistance for July&#x27;s storms. Boone and Logan were denied for June flooding; the state may appeal.</p><span class="src"><a href="https://wvmetronews.com/2026/08/07/ritchie-pleasants-counties-to-receive-federal-aid-after-july-devastating-storms/" target="_blank" rel="noopener nofollow">WV MetroNews</a></span>
     </div><div class="brief">
       <div class="brief-head">Nucor to close Apple Grove mill site Monday over threat</div>
-      <p>A written threat naming Aug. 10 has the FBI, State Police and the Mason County sheriff investigating. About 500 employees work the site.</p><span class="src"><a href="https://wvmetronews.com/2026/08/07/nucor-to-idle-work-monday-over-threat/" rel="noopener nofollow">WV MetroNews</a></span>
+      <p>A written threat naming Aug. 10 has the FBI, State Police and the Mason County sheriff investigating. About 500 employees work the site.</p><span class="src"><a href="https://wvmetronews.com/2026/08/07/nucor-to-idle-work-monday-over-threat/" target="_blank" rel="noopener nofollow">WV MetroNews</a></span>
     </div><div class="wv-block wv-regional">
       <p class="wv-block-label">Around the State</p>
-      <ul class="roundup"><li><span class="place">Putnam / Kanawha - Charleston</span> <span class="folk">(Nate)</span> &mdash; A former Kanawha County deputy will stay in federal custody on sex crime charges after a magistrate denied release.<span class="src"><a href="https://wvmetronews.com/2026/08/07/fired-kanawha-county-deputy-to-remain-in-federal-custody-while-he-faces-sex-crime-charges/" rel="noopener nofollow">WV MetroNews</a></span></li></ul>
+      <ul class="roundup"><li><span class="place">Putnam / Kanawha - Charleston</span> <span class="folk">(Nate)</span> &mdash; A former Kanawha County deputy will stay in federal custody on sex crime charges after a magistrate denied release.<span class="src"><a href="https://wvmetronews.com/2026/08/07/fired-kanawha-county-deputy-to-remain-in-federal-custody-while-he-faces-sex-crime-charges/" target="_blank" rel="noopener nofollow">WV MetroNews</a></span></li></ul>
     </div><div class="wv-block wv-fishing">
       <p class="wv-block-label">On the Water</p>
       <ul class="roundup"><li><span class="water">Williams River (Cowen)</span> &mdash; 96 cfs and falling - prime wading water.<span class="src">USGS 03186500</span></li><li><span class="water">Topsail Beach (surf and sound)</span> &mdash; Sound highs 4:22 a.m. and 5:07 p.m.; water 79.9F at Wrightsville Beach, 25 miles down the coast.<span class="src">NOAA CO-OPS 8657813</span></li></ul>
     </div>
   </div>
 </section>
-
-  <section class="sec sec-wire">
-  <div class="section-label">Sports</div>
-  <div class="two-col-briefs"><div class="brief">
-      <div class="brief-head">Beilein headlines WVU Sports Hall of Fame class of seven</div>
-      <p>The former men&#x27;s basketball coach went 104-60 at WVU from 2003 to 2007. The class was named Friday and is inducted Oct. 10.</p><span class="src"><a href="https://wvmetronews.com/2026/08/07/beilein-highlights-seven-new-additions-to-wvu-sports-hall-of-fame/" rel="noopener nofollow">WV MetroNews</a></span>
-    </div><div class="brief">
-      <div class="brief-head">Chelsea face AC Milan in Jakarta preseason friendly</div>
-      <p>The club&#x27;s fourth preseason fixture kicks off at Gelora Bung Karno Stadium, ahead of the Premier League season opening Aug. 21.</p><span class="src"><a href="https://www.chelseafc.com/en/news/article/indonesia-added-to-chelsea-pre-season-fixture-schedule" rel="noopener nofollow">Chelsea FC</a></span>
-    </div></div>
-</section>
-
-  <section class="sec sec-wire">
-  <div class="section-label">Science &amp; Technology</div>
-  <div class="two-col-briefs"><div class="brief">
-      <div class="brief-head">UCLA steers heat through a crystal in focused rays</div>
-      <p>Phonons moved through boron arsenide in ray-like patterns at room temperature, an effect previously seen only near absolute zero.</p><span class="src"><a href="https://www.sciencedaily.com/releases/2026/08/260805082506.htm" rel="noopener nofollow">UCLA</a></span>
-    </div><div class="brief">
-      <div class="brief-head">Sunlight replaces the laser in entangled-photon experiment</div>
-      <p>Ottawa and Max Planck researchers funneled concentrated sunlight into a crystal, producing photon pairs 94% faithful to an ideal state.</p><span class="src"><a href="https://www.sciencedaily.com/releases/2026/08/260807035133.htm" rel="noopener nofollow">Optica</a></span>
-    </div><div class="brief">
-      <div class="brief-head">Teen cannabis use tracks with slower cognitive gains</div>
-      <p>A study following 11,036 children from ages 9 to 17 found users&#x27; memory and processing speed improved more slowly. THC drove it.</p><span class="src"><a href="https://www.sciencedaily.com/releases/2026/08/260806050726.htm" rel="noopener nofollow">UC San Diego</a></span>
-    </div></div>
-</section>
   </div>
 
   <div class="kicker">Sports runs two briefs; a full sumo search turned up nothing between tournaments for a second day.</div>
 
   <div class="footer-note">Compiled from wire reports<span class="sep">&middot;</span><a href="../archive.html">Back issues</a></div>
+
+  <nav class="paper-nav paper-nav-foot" aria-label="Sections, repeated"><a href="../home.html">Home</a><a href="../sportsman/">Sports &amp; Sportsman</a><a href="../weather/">The Weather Claude</a></nav>
 
 </div>
 </body>

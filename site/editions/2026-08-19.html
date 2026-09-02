@@ -88,6 +88,90 @@
     color: var(--ink-mute);
   }
 
+  /* The family banner: the WHOLE thing is The Ashgrove Times (Nate,
+     2026-08-21), so every section page carries it above its own name. */
+  .family-line {
+    text-align: center;
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin: 2px 0 0;
+  }
+
+  /* Section-to-section buttons, house-styled like the section labels. */
+  /* The rule that closes the wire columns off from the anchor sections
+     below them (Nate, 2026-08-26). A column bottom is a ragged edge, and
+     without this the notebook read as one more thing the last column ran
+     into. In the BASE stylesheet, not a breakpoint: the sections stack on a
+     phone and the break between the wire and the anchors still needs
+     saying — a browser-default <hr> in a letterpress page does not. */
+  .rule-anchor {
+    border: 0;
+    border-top: 1px solid var(--ink);
+    margin: 6px 0 16px;
+  }
+
+  /* A tier heading inside the Canada section. Smaller than a section label
+     and not reversed out — it is a sub-head, and three black chips stacked
+     under one black chip would read as four sections. Matches the
+     notebook's .wv-block-label, which is the same idea one box over. */
+  .tier-label {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 4px;
+    margin: 0 0 10px;
+  }
+  .sec-canada .tier { margin-bottom: 6px; }
+
+  .paper-nav { text-align: center; margin: 0 0 18px; }
+  .paper-nav a {
+    display: inline-block;
+    border: 1px solid var(--ink);
+    background: var(--wv-tint);
+    color: var(--ink);
+    text-decoration: none;
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 11.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    margin: 0 4px 6px;
+  }
+  .paper-nav a:hover { background: var(--ink); color: var(--parchment); }
+  /* The same row repeated at the foot of the page, where a reader who has
+     finished actually is. Ruled off above so it reads as the end of the
+     paper rather than as one more thing to read. */
+  .paper-nav-foot {
+    margin: 22px 0 2px;
+    padding-top: 16px;
+    border-top: 1px solid var(--rule);
+  }
+
+  /* The tide table: a real table, because Nate asked for one. */
+  .tide-table { border-collapse: collapse; margin: 10px auto 4px; font-size: 13.5px; }
+  .tide-table caption {
+    font-family: var(--display); font-weight: 700; font-size: 13px;
+    letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-mute);
+    padding-bottom: 6px;
+  }
+  .tide-table th, .tide-table td {
+    border: 1px solid var(--rule); padding: 4px 12px; text-align: center;
+  }
+  .tide-table th {
+    font-family: var(--display); font-size: 11.5px; letter-spacing: 0.08em;
+    text-transform: uppercase; background: var(--wv-tint);
+  }
+  .tide-table td:first-child { font-weight: 600; }
+
   /* ---------- masthead ---------- */
 
   .masthead {
@@ -484,45 +568,123 @@
     .tagline { font-size: 15px; margin-bottom: 10px; }
     .headline { font-size: 40px; line-height: 1.08; }
     .subhead { font-size: 17px; }
-    .columns { column-count: 3; font-size: 15.5px; }
+    .columns { column-count: 2; font-size: 15.5px; }
     .drop { font-size: 58px; }
+
+    /* WITH a drawing: art at roughly a third of the measure, story beside
+       it. Scoped to .with-art deliberately — when this rule was on the bare
+       .lead-block and the day's drawing went to another section, the story
+       became the first grid child, inherited the 27% art column, and left
+       three quarters of the page white beside eight lines of type. */
+    .lead-block.with-art {
+      display: grid;
+      grid-template-columns: minmax(240px, 27%) 1fr;
+      gap: 0 30px;
+      align-items: start;
+    }
+    .lead-block.with-art .art { max-width: none; margin: 0; }
+    /* Cap the drawing so its bottom lands near the text's, instead of
+       running past it and opening a hole under the columns. */
+    .lead-block.with-art .art svg { max-height: 210px; width: 100%; }
+
+    /* WITHOUT one: nothing shares this line of the page, so the lead runs
+       the full measure. Column COUNT rather than width, because a lead is
+       short and a fixed column-width would leave a half-empty third column
+       on a thin news day. */
+    .lead-block.no-art .columns { column-count: 2; }
   }
 
   @media (min-width: 1320px) {
     .page { max-width: 1420px; padding: 40px 54px 56px; }
-    .art { max-width: 560px; }
     .masthead { font-size: 96px; letter-spacing: 3px; }
     .headline { font-size: 50px; }
-    .columns { column-count: 4; }
 
-    /* The wire sections sit side by side across the page, one to a column,
-       the way the four beats run across a front page below the fold.
+    /* Three columns across ~1,310px of measure is about 420px a column —
+       roughly 58 characters, which is a newspaper line. Two would set 85+
+       and read like a blog. Measured against a real lead: 766 characters on
+       2026-08-24, which fills three columns about five lines deep. */
+    .lead-block.no-art .columns { column-count: 3; }
 
-       GRID, not CSS multi-column. Multi-column was the first attempt and it
-       looked right until you counted: a `column-span: all` element splits
-       the flow, so the two sections above the notebook spread across four
-       columns and left two of them empty. Grid places each section in its
-       own column and lets the notebook span deliberately rather than as a
-       side effect. */
-    .sections {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
+    /* The wire sections FLOW through these columns; they are not placed in
+       them. (2026-08-26 — this was a grid until Pat said "lots and lots of
+       unused space.")
+
+       A grid gave each section its own cell and made every row as tall as
+       its tallest member. On an ordinary morning — U.S. 524px, World 637px,
+       Sci/Tech 901px — that stood 28% of the section area empty, and a last
+       row that did not divide evenly was worse. Copy that runs down one
+       column and continues into the next cannot leave a hole, whatever
+       shape the news turns out to be that day. Measured on the 2026-08-26
+       edition: the section block went 1917px to 999px and the page 3093px
+       to 2653px, with nothing added and nothing cut.
+
+       The original objection to multi-column here was real and is now
+       answered rather than ignored: a `column-span: all` child splits a
+       flow and strands columns, which is exactly what happened the first
+       time. So the notebook is not a child of the flow at all — it is a
+       sibling block below it, and nothing inside the flow spans.
+
+       Sports & Sportsman has set this way since it launched. */
+    .sections { display: block; }
+    .wire-flow {
+      column-count: var(--wire-cols, 3);
       column-gap: 30px;
-      align-items: start;
+      column-rule: 1px solid #c9c2ac;
     }
+    .wire-flow > .sec {
+      break-inside: auto;      /* a section MAY continue into the next column */
+      border-left: 0;
+      padding-left: 0;
+      margin: 0 0 18px;
+    }
+    /* ...but a brief, the drawing, and a label stranded from the brief
+       under it may not be split. Those are the atoms. */
+    .wire-flow .brief { break-inside: avoid; }
+    .wire-flow .art { break-inside: avoid; }
+    .wire-flow .section-label { break-after: avoid; margin-top: 0; }
+    .wire-flow .sec + .sec .section-label { margin-top: 12px; }
     .sec { margin-bottom: 20px; }
     .sec .two-col-briefs { column-count: 1; column-rule: none; }
     .sec .section-label { margin-top: 0; }
-    /* Rules between the wire columns, none before the first. */
-    .sec-wire + .sec-wire { border-left: 1px solid #c9c2ac; padding-left: 30px; }
+
+
+    /* Anchored sections — the notebook and British Columbia — take the full
+       measure below the flow. Their briefs run in their own columns, since
+       one column across 1,310px would set 85-character lines. */
+    .sec-anchor { margin: 0 0 18px; }
+    .sec-anchor .two-col-briefs {
+      column-count: 3;
+      column-gap: 30px;
+      column-rule: 1px solid var(--rule);
+    }
+    .sec-anchor .brief { break-inside: avoid; }
+
+    /* Canada does its own columns, so the anchor rule above must not also
+       fragment it — a grid inside a CSS multi-column container gets sliced
+       across the columns, which put a tier label above an empty column and
+       stranded its brief two columns away. */
+    .sec-canada .two-col-briefs { column-count: 1; column-rule: none; }
+
+    /* The Canada section's three tiers sit side by side across the measure,
+       local first. A tier with nothing in it does not render, so a thin
+       morning closes to two columns rather than standing one empty — the
+       whole page was rebuilt to stop doing exactly that. */
+    .sec-canada .tiers {
+      display: grid;
+      grid-template-columns: repeat(var(--tier-cols, 3), 1fr);
+      column-gap: 30px;
+      align-items: start;
+    }
+    .sec-canada .tier + .tier { border-left: 1px solid var(--rule); padding-left: 30px; }
 
     /* The notebook is the anchor and it is wide content — four sub-blocks
-       that would strangle in a 300px column. It spans the whole measure as
+       that would strangle in a 300px column. It takes the whole measure as
        a boxed feature, which is both where the space is and the treatment
-       Ian asked for. `order` moves it below the wire columns without
-       touching DOM order, so the phone layout and screen readers still get
-       Ian's sequence. */
-    .sec-wv { grid-column: 1 / -1; order: 9; margin: 10px 0 8px; }
+       Ian asked for. It sits BELOW the flow because the renderer emits it
+       as a sibling after .wire-flow, not because of a CSS `order` — that
+       was a grid trick and the grid is gone. Screen readers and the phone
+       layout get the same sequence the markup has. */
+    .sec-wv { margin: 10px 0 8px; }
     .sec-wv .wv-box { padding: 22px 28px; column-count: 2; column-gap: 36px; }
     .sec-wv .wv-title { column-span: all; font-size: 24px; }
     .sec-wv .wv-box > .brief,
@@ -532,8 +694,9 @@
   @media (min-width: 1700px) {
     .page { max-width: 1600px; }
     .masthead { font-size: 108px; }
-    .sections { grid-template-columns: repeat(4, 1fr); }
-    .columns { column-count: 5; }
+    /* Three, not four, even here. The lead runs about 700 characters — a
+       fourth column would set it three lines deep and read as a caption
+       rather than as the day's story. */
   }
 
   /* ---------- Sports & Sportsman page layout ----------
@@ -573,10 +736,40 @@
     .page.sportsman .wv-block-label { break-after: avoid; }
   }
 
+  /* ---------- the weather page (Jim Claudtore's briefing, typeset) ---- */
+
+  .wx-briefing { max-width: 760px; margin: 0 auto; font-size: 15px; line-height: 1.55; }
+  .wx-briefing p { margin: 0 0 12px; }
+  .wx-day {
+    font-family: var(--display); font-weight: 900; font-size: 26px;
+    line-height: 1.15; margin: 4px 0 6px;
+  }
+  .wx-dek { font-style: italic; font-size: 15px; color: var(--ink-soft); margin: 0 0 16px; }
+  .wx-loc {
+    font-family: var(--display); font-weight: 700; font-size: 17px;
+    border-top: 1px solid var(--rule); padding-top: 12px; margin: 18px 0 6px;
+  }
+  .wx-list { margin: 0 0 12px; padding-left: 20px; }
+  .wx-list li { margin-bottom: 6px; }
+  /* The weather page stopped borrowing the sportsman column fill on
+     2026-08-25 — it sets as a newspaper page now, with the same section
+     grid the front page uses, so there is no multi-column flow left to
+     undo. What it does need is its own handling of Jim's confidence note,
+     which is a single paragraph inside a full-width box: the notebook's
+     two columns would split one short paragraph down the middle. */
+  .wx-confidence .wv-box { column-count: 1; }
+  .wx-confidence .wv-box p { margin: 0 0 10px; max-width: 92ch; }
+  .wx-confidence .wv-box p:last-child { margin-bottom: 0; }
+  .wx-roundup { margin: 0; }
+  /* Jim writes in half a dozen short reports rather than long copy, so the
+     label chip has to survive a stacked heading — three towns sharing one
+     forecast — without pushing the section out of its column. */
+  .page.weather .section-label { white-space: normal; line-height: 1.35; }
+
   @media print {
     body { background: #fff; padding: 0; }
     .page { border: 0; box-shadow: none; max-width: none; }
-    .sections { display: grid; grid-template-columns: repeat(4, 1fr); column-gap: 24px; }
+    .wire-flow { column-count: var(--wire-cols, 3); column-gap: 24px; }
     .sec-wv { grid-column: 1 / -1; order: 9; }
   }
 </style>
@@ -592,34 +785,39 @@
   <div class="ear">
     <span class="ear-label">Weather</span>Jim Claudtore has the forecast at 7:15.
   </div>
-  <div class="masthead">THE ASHGROVE TIMES</div>
+  <div class="family-line">The Ashgrove Times</div>
+  <div class="masthead">THE NEWS DESK</div>
   <div class="tagline">&ldquo;For the Fellers&rdquo;</div>
   <hr class="rule-thick">
   <hr class="rule-thin">
+
+  <nav class="paper-nav" aria-label="Sections"><a href="../home.html">Home</a><a href="../sportsman/">Sports &amp; Sportsman</a><a href="../weather/">The Weather Claude</a></nav>
 
   <div class="headline">Donalds and Jolly win Florida primaries for governor</div>
   <div class="subhead">Moody and Nixon take the Senate nominations as DeSantis reaches his term limit</div>
   <div class="byline">By Wire Reports</div>
 
-  
-
-  <div class="columns"><p><span class="drop">R</span>ep. Byron Donalds won Florida&#x27;s Republican primary for governor Tuesday and former Rep. David Jolly won the Democratic nomination, setting the November race to succeed Gov. Ron DeSantis, who is term-limited.</p><p>Donalds, who had President Donald Trump&#x27;s endorsement, took 47.8% against 25.2% for Jay Collins and 10.5% for James Fishback, with 99% counted, NBC News reported. Jolly, a former Republican, won 61% to 15.1% for Dayna Foster.</p><p>Ashley Moody took the Republican Senate nomination and Angie Nixon the Democratic, beating Alex Vindman. The Cook Political Report rates the governor&#x27;s race Solid R.</p></div>
+  <div class="lead-block no-art">
+    
+    <div class="columns"><p><span class="drop">R</span>ep. Byron Donalds won Florida&#x27;s Republican primary for governor Tuesday and former Rep. David Jolly won the Democratic nomination, setting the November race to succeed Gov. Ron DeSantis, who is term-limited.</p><p>Donalds, who had President Donald Trump&#x27;s endorsement, took 47.8% against 25.2% for Jay Collins and 10.5% for James Fishback, with 99% counted, NBC News reported. Jolly, a former Republican, won 61% to 15.1% for Dayna Foster.</p><p>Ashley Moody took the Republican Senate nomination and Angie Nixon the Democratic, beating Alex Vindman. The Cook Political Report rates the governor&#x27;s race Solid R.</p></div>
+  </div>
 
   <div class="stat-strip"><div><b>7,691.76</b><span class="stat-label">S&amp;P 500</span><span class="stat-change"><span class="tri down" aria-hidden="true"></span>-0.69%</span></div><div><b>53,343.40</b><span class="stat-label">Dow</span><span class="stat-change"><span class="tri down" aria-hidden="true"></span>-0.22%</span></div><div><b>26,289.71</b><span class="stat-label">Nasdaq</span><span class="stat-change"><span class="tri down" aria-hidden="true"></span>-1.33%</span></div><div><b>$64,334</b><span class="stat-label">Bitcoin</span><span class="stat-change"><span class="tri up" aria-hidden="true"></span>+0.37%</span></div></div>
   <p class="stats-note">Market data compiled before the opening bell</p>
 
-  <div class="sections">
+  <div class="sections" style="--wire-cols: 3">
+  <div class="wire-flow">
   <section class="sec sec-wire">
   <div class="section-label">U.S.</div>
   <div class="two-col-briefs"><div class="brief">
       <div class="brief-head">ABC and Disney sue the FCC over station licenses</div>
-      <p>The suit filed Tuesday calls the early renewal review of eight ABC stations retaliation for Jimmy Kimmel&#x27;s monologues. Chairman Brendan Carr said no decision has been made.</p><span class="src"><a href="https://www.npr.org/2026/08/18/nx-s1-5936406/abc-and-disney-sue-fcc-alleging-first-amendment-violations" rel="noopener nofollow">NPR</a></span>
+      <p>The suit filed Tuesday calls the early renewal review of eight ABC stations retaliation for Jimmy Kimmel&#x27;s monologues. Chairman Brendan Carr said no decision has been made.</p><span class="src"><a href="https://www.npr.org/2026/08/18/nx-s1-5936406/abc-and-disney-sue-fcc-alleging-first-amendment-violations" target="_blank" rel="noopener nofollow">NPR</a></span>
     </div><div class="brief">
       <div class="brief-head">Trump pauses 50% Canada tariffs for three days</div>
-      <p>The levies on about $20B of Canadian goods were to start Wednesday. Ottawa agreed to drop measures Washington calls discriminatory against U.S. alcohol, dairy and vehicles.</p><span class="src"><a href="https://www.cbsnews.com/news/trump-pauses-tariffs-canada/" rel="noopener nofollow">CBS News</a></span>
+      <p>The levies on about $20B of Canadian goods were to start Wednesday. Ottawa agreed to drop measures Washington calls discriminatory against U.S. alcohol, dairy and vehicles.</p><span class="src"><a href="https://www.cbsnews.com/news/trump-pauses-tariffs-canada/" target="_blank" rel="noopener nofollow">CBS News</a></span>
     </div><div class="brief">
       <div class="brief-head">Agriculture Department moves to end the roadless rule</div>
-      <p>Rescinding the 2001 rule would open tens of millions of acres from Alaska to Florida to roads and logging. Public comment runs through Sept. 21.</p><span class="src"><a href="https://www.npr.org/2026/08/18/nx-s1-5936495/trump-administration-moves-to-open-untouched-national-forests-to-logging" rel="noopener nofollow">NPR</a></span>
+      <p>Rescinding the 2001 rule would open tens of millions of acres from Alaska to Florida to roads and logging. Public comment runs through Sept. 21.</p><span class="src"><a href="https://www.npr.org/2026/08/18/nx-s1-5936495/trump-administration-moves-to-open-untouched-national-forests-to-logging" target="_blank" rel="noopener nofollow">NPR</a></span>
     </div></div>
 </section>
 
@@ -627,15 +825,32 @@
   <div class="section-label">World</div>
   <div class="two-col-briefs"><div class="brief">
       <div class="brief-head">UAE halts all trade with Iran indefinitely</div>
-      <p>The foreign ministry said Wednesday trade and financial transactions are stopped after two ballistic missiles were detected. Tehran called the claim a false flag.</p><span class="src"><a href="https://www.aljazeera.com/news/2026/8/19/uae-imposes-indefinite-trade-embargo-on-iran-over-alleged-missile-attacks" rel="noopener nofollow">Al Jazeera</a></span>
+      <p>The foreign ministry said Wednesday trade and financial transactions are stopped after two ballistic missiles were detected. Tehran called the claim a false flag.</p><span class="src"><a href="https://www.aljazeera.com/news/2026/8/19/uae-imposes-indefinite-trade-embargo-on-iran-over-alleged-missile-attacks" target="_blank" rel="noopener nofollow">Al Jazeera</a></span>
     </div><div class="brief">
       <div class="brief-head">Liberia agrees to take 1,200 deportees from the U.S.</div>
-      <p>The first 20 arrive Thursday under a one-year deal for third-country nationals. Information Minister Jerolinmek Piah called the step humanitarian.</p><span class="src"><a href="https://www.npr.org/2026/08/19/nx-s1-5937389/liberia-to-take-deportees-from-us" rel="noopener nofollow">NPR</a></span>
+      <p>The first 20 arrive Thursday under a one-year deal for third-country nationals. Information Minister Jerolinmek Piah called the step humanitarian.</p><span class="src"><a href="https://www.npr.org/2026/08/19/nx-s1-5937389/liberia-to-take-deportees-from-us" target="_blank" rel="noopener nofollow">NPR</a></span>
     </div><div class="brief">
       <div class="brief-head">Nine die in a Kolkata hotel fire</div>
-      <p>The blaze broke out early Wednesday in a building housing several hotels; six were injured. Fire services director Anuj Sharma said victims were found in bathrooms.</p><span class="src"><a href="https://www.euronews.com/2026/08/19/fire-in-building-housing-several-hotels-in-eastern-india-kills-at-least-nine-injures-six" rel="noopener nofollow">Euronews</a></span>
+      <p>The blaze broke out early Wednesday in a building housing several hotels; six were injured. Fire services director Anuj Sharma said victims were found in bathrooms.</p><span class="src"><a href="https://www.euronews.com/2026/08/19/fire-in-building-housing-several-hotels-in-eastern-india-kills-at-least-nine-injures-six" target="_blank" rel="noopener nofollow">Euronews</a></span>
     </div></div>
 </section>
+
+  <section class="sec sec-wire">
+  <div class="section-label">Science &amp; Technology</div>
+  <div class="two-col-briefs"><div class="brief">
+      <div class="brief-head">Spacewalk pulls a failed antenna but leaves the spare</div>
+      <p>Anil Menon and Sophie Adenot worked 6 hours 23 minutes Tuesday, running long on cables and bolts. Installation moves to Aug. 25.</p><span class="src"><a href="https://www.nasa.gov/blogs/spacestation/2026/08/18/nasa-esa-astronauts-wrap-up-station-spacewalk/" target="_blank" rel="noopener nofollow">NASA</a></span>
+    </div><div class="brief">
+      <div class="brief-head">Light-driven robots thinner than a hair carry bacteria</div>
+      <p>Wuerzburg used plasmonic nanoantennas and photon recoil to steer devices under a micrometre across, which picked up bacteria and released them on command.</p><span class="src"><a href="https://www.sciencedaily.com/releases/2026/08/260816044850.htm" target="_blank" rel="noopener nofollow">Universitaet Wuerzburg</a></span>
+    </div><div class="brief">
+      <div class="brief-head">Common blood pressure drugs tied to higher kidney risk</div>
+      <p>Among 31,031 adults with type 2 diabetes, those on dihydropyridine calcium-channel blockers had a 33% greater risk of a major kidney event. The work is observational.</p><span class="src"><a href="https://www.sciencedaily.com/releases/2026/08/260816044844.htm" target="_blank" rel="noopener nofollow">European Renal Association</a></span>
+    </div></div>
+</section>
+  </div>
+
+  <hr class="rule-anchor">
 
   <section class="sec sec-wv">
   <div class="section-label">West Virginia</div>
@@ -762,38 +977,26 @@
 </figure>
     <div class="brief">
       <div class="brief-head">Morrisey declares an emergency in all 55 counties</div>
-      <p>The Tuesday declaration covers storms from Sunday through Tuesday and runs 30 days. A woman died in Fayette County floodwaters.</p><span class="src"><a href="https://wvmetronews.com/2026/08/18/morrisey-declares-state-of-emergency-in-all-55-counties-after-latest-batch-of-devastating-storms/" rel="noopener nofollow">WV MetroNews</a></span>
+      <p>The Tuesday declaration covers storms from Sunday through Tuesday and runs 30 days. A woman died in Fayette County floodwaters.</p><span class="src"><a href="https://wvmetronews.com/2026/08/18/morrisey-declares-state-of-emergency-in-all-55-counties-after-latest-batch-of-devastating-storms/" target="_blank" rel="noopener nofollow">WV MetroNews</a></span>
     </div><div class="brief">
       <div class="brief-head">ACLU files notice of intent to sue over school funding</div>
-      <p>The Aug. 17 notice, for Lincoln County students, names the attorney general, legislative leaders and the state board. Board President Paul Hardesty said he was not surprised.</p><span class="src"><a href="https://www.herald-dispatch.com/news/hardesty-not-surprised-by-pending-school-funding-suit/article_725fe90c-5a7e-4571-abf2-114e4b223339.html" rel="noopener nofollow">The Herald-Dispatch</a></span>
+      <p>The Aug. 17 notice, for Lincoln County students, names the attorney general, legislative leaders and the state board. Board President Paul Hardesty said he was not surprised.</p><span class="src"><a href="https://www.herald-dispatch.com/news/hardesty-not-surprised-by-pending-school-funding-suit/article_725fe90c-5a7e-4571-abf2-114e4b223339.html" target="_blank" rel="noopener nofollow">The Herald-Dispatch</a></span>
     </div><div class="wv-block wv-regional">
       <p class="wv-block-label">Around the State</p>
-      <ul class="roundup"><li><span class="place">Putnam / Kanawha - Charleston</span> <span class="folk">(Nate)</span> &mdash; Water rose twelve feet into Sugar Creek Road homes in Charleston in under ten minutes, washing out culverts.<span class="src"><a href="https://wvmetronews.com/2026/08/18/flood-victims-say-the-water-along-sugar-creek-in-charleston-came-up-fast/" rel="noopener nofollow">WV MetroNews</a></span></li><li><span class="place">Summers / Hinton &amp; the New River</span> <span class="folk">(Greg)</span> &mdash; Thurmond, population six, voted Aug. 11 to seek counsel against the Park Service demolishing 17 structures.<span class="src"><a href="https://www.herald-dispatch.com/news/town-of-thurmond-seeks-legal-help-to-block-demolition-of-historic-buildings/article_c4e62fa0-a490-4f91-affc-0f29999a29bf.html" rel="noopener nofollow">The Herald-Dispatch</a></span></li></ul>
+      <ul class="roundup"><li><span class="place">Putnam / Kanawha - Charleston</span> <span class="folk">(Nate)</span> &mdash; Water rose twelve feet into Sugar Creek Road homes in Charleston in under ten minutes, washing out culverts.<span class="src"><a href="https://wvmetronews.com/2026/08/18/flood-victims-say-the-water-along-sugar-creek-in-charleston-came-up-fast/" target="_blank" rel="noopener nofollow">WV MetroNews</a></span></li><li><span class="place">Summers / Hinton &amp; the New River</span> <span class="folk">(Greg)</span> &mdash; Thurmond, population six, voted Aug. 11 to seek counsel against the Park Service demolishing 17 structures.<span class="src"><a href="https://www.herald-dispatch.com/news/town-of-thurmond-seeks-legal-help-to-block-demolition-of-historic-buildings/article_c4e62fa0-a490-4f91-affc-0f29999a29bf.html" target="_blank" rel="noopener nofollow">The Herald-Dispatch</a></span></li></ul>
     </div><div class="wv-block wv-fishing">
       <p class="wv-block-label">On the Water</p>
       <ul class="roundup"><li><span class="water">Williams River (Cowen)</span> &mdash; 761 cfs and falling, 3.41 feet - blown out. Stay on the bank.<span class="src">USGS 03186500</span></li><li><span class="water">Topsail Beach (surf and sound)</span> &mdash; Sound highs 1:44 a.m. and 2:21 p.m.; lows 7:59 a.m. and 8:53 p.m.<span class="src">NOAA CO-OPS 8657813</span></li></ul>
     </div>
   </div>
 </section>
-
-  <section class="sec sec-wire">
-  <div class="section-label">Science &amp; Technology</div>
-  <div class="two-col-briefs"><div class="brief">
-      <div class="brief-head">Spacewalk pulls a failed antenna but leaves the spare</div>
-      <p>Anil Menon and Sophie Adenot worked 6 hours 23 minutes Tuesday, running long on cables and bolts. Installation moves to Aug. 25.</p><span class="src"><a href="https://www.nasa.gov/blogs/spacestation/2026/08/18/nasa-esa-astronauts-wrap-up-station-spacewalk/" rel="noopener nofollow">NASA</a></span>
-    </div><div class="brief">
-      <div class="brief-head">Light-driven robots thinner than a hair carry bacteria</div>
-      <p>Wuerzburg used plasmonic nanoantennas and photon recoil to steer devices under a micrometre across, which picked up bacteria and released them on command.</p><span class="src"><a href="https://www.sciencedaily.com/releases/2026/08/260816044850.htm" rel="noopener nofollow">Universitaet Wuerzburg</a></span>
-    </div><div class="brief">
-      <div class="brief-head">Common blood pressure drugs tied to higher kidney risk</div>
-      <p>Among 31,031 adults with type 2 diabetes, those on dihydropyridine calcium-channel blockers had a 33% greater risk of a major kidney event. The work is observational.</p><span class="src"><a href="https://www.sciencedaily.com/releases/2026/08/260816044844.htm" rel="noopener nofollow">European Renal Association</a></span>
-    </div></div>
-</section>
   </div>
 
   <div class="kicker">The away desk was quiet; Vermont and Prince George had nothing dated.</div>
 
   <div class="footer-note">Compiled from wire reports<span class="sep">&middot;</span><a href="../archive.html">Back issues</a></div>
+
+  <nav class="paper-nav paper-nav-foot" aria-label="Sections, repeated"><a href="../home.html">Home</a><a href="../sportsman/">Sports &amp; Sportsman</a><a href="../weather/">The Weather Claude</a></nav>
 
 </div>
 </body>

@@ -88,6 +88,90 @@
     color: var(--ink-mute);
   }
 
+  /* The family banner: the WHOLE thing is The Ashgrove Times (Nate,
+     2026-08-21), so every section page carries it above its own name. */
+  .family-line {
+    text-align: center;
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin: 2px 0 0;
+  }
+
+  /* Section-to-section buttons, house-styled like the section labels. */
+  /* The rule that closes the wire columns off from the anchor sections
+     below them (Nate, 2026-08-26). A column bottom is a ragged edge, and
+     without this the notebook read as one more thing the last column ran
+     into. In the BASE stylesheet, not a breakpoint: the sections stack on a
+     phone and the break between the wire and the anchors still needs
+     saying — a browser-default <hr> in a letterpress page does not. */
+  .rule-anchor {
+    border: 0;
+    border-top: 1px solid var(--ink);
+    margin: 6px 0 16px;
+  }
+
+  /* A tier heading inside the Canada section. Smaller than a section label
+     and not reversed out — it is a sub-head, and three black chips stacked
+     under one black chip would read as four sections. Matches the
+     notebook's .wv-block-label, which is the same idea one box over. */
+  .tier-label {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 4px;
+    margin: 0 0 10px;
+  }
+  .sec-canada .tier { margin-bottom: 6px; }
+
+  .paper-nav { text-align: center; margin: 0 0 18px; }
+  .paper-nav a {
+    display: inline-block;
+    border: 1px solid var(--ink);
+    background: var(--wv-tint);
+    color: var(--ink);
+    text-decoration: none;
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 11.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    margin: 0 4px 6px;
+  }
+  .paper-nav a:hover { background: var(--ink); color: var(--parchment); }
+  /* The same row repeated at the foot of the page, where a reader who has
+     finished actually is. Ruled off above so it reads as the end of the
+     paper rather than as one more thing to read. */
+  .paper-nav-foot {
+    margin: 22px 0 2px;
+    padding-top: 16px;
+    border-top: 1px solid var(--rule);
+  }
+
+  /* The tide table: a real table, because Nate asked for one. */
+  .tide-table { border-collapse: collapse; margin: 10px auto 4px; font-size: 13.5px; }
+  .tide-table caption {
+    font-family: var(--display); font-weight: 700; font-size: 13px;
+    letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-mute);
+    padding-bottom: 6px;
+  }
+  .tide-table th, .tide-table td {
+    border: 1px solid var(--rule); padding: 4px 12px; text-align: center;
+  }
+  .tide-table th {
+    font-family: var(--display); font-size: 11.5px; letter-spacing: 0.08em;
+    text-transform: uppercase; background: var(--wv-tint);
+  }
+  .tide-table td:first-child { font-weight: 600; }
+
   /* ---------- masthead ---------- */
 
   .masthead {
@@ -484,45 +568,123 @@
     .tagline { font-size: 15px; margin-bottom: 10px; }
     .headline { font-size: 40px; line-height: 1.08; }
     .subhead { font-size: 17px; }
-    .columns { column-count: 3; font-size: 15.5px; }
+    .columns { column-count: 2; font-size: 15.5px; }
     .drop { font-size: 58px; }
+
+    /* WITH a drawing: art at roughly a third of the measure, story beside
+       it. Scoped to .with-art deliberately — when this rule was on the bare
+       .lead-block and the day's drawing went to another section, the story
+       became the first grid child, inherited the 27% art column, and left
+       three quarters of the page white beside eight lines of type. */
+    .lead-block.with-art {
+      display: grid;
+      grid-template-columns: minmax(240px, 27%) 1fr;
+      gap: 0 30px;
+      align-items: start;
+    }
+    .lead-block.with-art .art { max-width: none; margin: 0; }
+    /* Cap the drawing so its bottom lands near the text's, instead of
+       running past it and opening a hole under the columns. */
+    .lead-block.with-art .art svg { max-height: 210px; width: 100%; }
+
+    /* WITHOUT one: nothing shares this line of the page, so the lead runs
+       the full measure. Column COUNT rather than width, because a lead is
+       short and a fixed column-width would leave a half-empty third column
+       on a thin news day. */
+    .lead-block.no-art .columns { column-count: 2; }
   }
 
   @media (min-width: 1320px) {
     .page { max-width: 1420px; padding: 40px 54px 56px; }
-    .art { max-width: 560px; }
     .masthead { font-size: 96px; letter-spacing: 3px; }
     .headline { font-size: 50px; }
-    .columns { column-count: 4; }
 
-    /* The wire sections sit side by side across the page, one to a column,
-       the way the four beats run across a front page below the fold.
+    /* Three columns across ~1,310px of measure is about 420px a column —
+       roughly 58 characters, which is a newspaper line. Two would set 85+
+       and read like a blog. Measured against a real lead: 766 characters on
+       2026-08-24, which fills three columns about five lines deep. */
+    .lead-block.no-art .columns { column-count: 3; }
 
-       GRID, not CSS multi-column. Multi-column was the first attempt and it
-       looked right until you counted: a `column-span: all` element splits
-       the flow, so the two sections above the notebook spread across four
-       columns and left two of them empty. Grid places each section in its
-       own column and lets the notebook span deliberately rather than as a
-       side effect. */
-    .sections {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
+    /* The wire sections FLOW through these columns; they are not placed in
+       them. (2026-08-26 — this was a grid until Pat said "lots and lots of
+       unused space.")
+
+       A grid gave each section its own cell and made every row as tall as
+       its tallest member. On an ordinary morning — U.S. 524px, World 637px,
+       Sci/Tech 901px — that stood 28% of the section area empty, and a last
+       row that did not divide evenly was worse. Copy that runs down one
+       column and continues into the next cannot leave a hole, whatever
+       shape the news turns out to be that day. Measured on the 2026-08-26
+       edition: the section block went 1917px to 999px and the page 3093px
+       to 2653px, with nothing added and nothing cut.
+
+       The original objection to multi-column here was real and is now
+       answered rather than ignored: a `column-span: all` child splits a
+       flow and strands columns, which is exactly what happened the first
+       time. So the notebook is not a child of the flow at all — it is a
+       sibling block below it, and nothing inside the flow spans.
+
+       Sports & Sportsman has set this way since it launched. */
+    .sections { display: block; }
+    .wire-flow {
+      column-count: var(--wire-cols, 3);
       column-gap: 30px;
-      align-items: start;
+      column-rule: 1px solid #c9c2ac;
     }
+    .wire-flow > .sec {
+      break-inside: auto;      /* a section MAY continue into the next column */
+      border-left: 0;
+      padding-left: 0;
+      margin: 0 0 18px;
+    }
+    /* ...but a brief, the drawing, and a label stranded from the brief
+       under it may not be split. Those are the atoms. */
+    .wire-flow .brief { break-inside: avoid; }
+    .wire-flow .art { break-inside: avoid; }
+    .wire-flow .section-label { break-after: avoid; margin-top: 0; }
+    .wire-flow .sec + .sec .section-label { margin-top: 12px; }
     .sec { margin-bottom: 20px; }
     .sec .two-col-briefs { column-count: 1; column-rule: none; }
     .sec .section-label { margin-top: 0; }
-    /* Rules between the wire columns, none before the first. */
-    .sec-wire + .sec-wire { border-left: 1px solid #c9c2ac; padding-left: 30px; }
+
+
+    /* Anchored sections — the notebook and British Columbia — take the full
+       measure below the flow. Their briefs run in their own columns, since
+       one column across 1,310px would set 85-character lines. */
+    .sec-anchor { margin: 0 0 18px; }
+    .sec-anchor .two-col-briefs {
+      column-count: 3;
+      column-gap: 30px;
+      column-rule: 1px solid var(--rule);
+    }
+    .sec-anchor .brief { break-inside: avoid; }
+
+    /* Canada does its own columns, so the anchor rule above must not also
+       fragment it — a grid inside a CSS multi-column container gets sliced
+       across the columns, which put a tier label above an empty column and
+       stranded its brief two columns away. */
+    .sec-canada .two-col-briefs { column-count: 1; column-rule: none; }
+
+    /* The Canada section's three tiers sit side by side across the measure,
+       local first. A tier with nothing in it does not render, so a thin
+       morning closes to two columns rather than standing one empty — the
+       whole page was rebuilt to stop doing exactly that. */
+    .sec-canada .tiers {
+      display: grid;
+      grid-template-columns: repeat(var(--tier-cols, 3), 1fr);
+      column-gap: 30px;
+      align-items: start;
+    }
+    .sec-canada .tier + .tier { border-left: 1px solid var(--rule); padding-left: 30px; }
 
     /* The notebook is the anchor and it is wide content — four sub-blocks
-       that would strangle in a 300px column. It spans the whole measure as
+       that would strangle in a 300px column. It takes the whole measure as
        a boxed feature, which is both where the space is and the treatment
-       Ian asked for. `order` moves it below the wire columns without
-       touching DOM order, so the phone layout and screen readers still get
-       Ian's sequence. */
-    .sec-wv { grid-column: 1 / -1; order: 9; margin: 10px 0 8px; }
+       Ian asked for. It sits BELOW the flow because the renderer emits it
+       as a sibling after .wire-flow, not because of a CSS `order` — that
+       was a grid trick and the grid is gone. Screen readers and the phone
+       layout get the same sequence the markup has. */
+    .sec-wv { margin: 10px 0 8px; }
     .sec-wv .wv-box { padding: 22px 28px; column-count: 2; column-gap: 36px; }
     .sec-wv .wv-title { column-span: all; font-size: 24px; }
     .sec-wv .wv-box > .brief,
@@ -532,20 +694,88 @@
   @media (min-width: 1700px) {
     .page { max-width: 1600px; }
     .masthead { font-size: 108px; }
-    .sections { grid-template-columns: repeat(4, 1fr); }
-    .columns { column-count: 5; }
+    /* Three, not four, even here. The lead runs about 700 characters — a
+       fourth column would set it three lines deep and read as a caption
+       rather than as the day's story. */
   }
+
+  /* ---------- Sports & Sportsman page layout ----------
+     A true newsprint fill. Fixed left/right blocks stranded whitespace the
+     moment one side outgrew the other, so instead the whole paper flows
+     through balanced CSS columns: Our Teams runs down column one and spills
+     into column two, Around the Leagues starts right where it ends, and the
+     browser balances the column bottoms. Briefs and roundup lines are
+     atomic; sections and state blocks are allowed to break between them. */
+
+  @media (min-width: 1024px) {
+    .page.sportsman .sections {
+      display: block;   /* undo the Times grid — columns need flow layout */
+      column-count: 2;
+      column-gap: 34px;
+      column-rule: 1px solid var(--rule);
+    }
+  }
+
+  @media (min-width: 1320px) {
+    .page.sportsman .sections { column-count: 3; }
+  }
+
+  @media (min-width: 1024px) {
+    .page.sportsman .sections > .sec {
+      break-inside: auto;
+      border-left: 0;
+      padding-left: 0;
+      margin: 0 0 20px;
+    }
+    .page.sportsman .sec .two-col-briefs { column-count: 1; column-rule: none; }
+    .page.sportsman .brief,
+    .page.sportsman .roundup li { break-inside: avoid; }
+    .page.sportsman .section-label { break-after: avoid; margin-top: 0; }
+    .page.sportsman .sec + .sec .section-label { margin-top: 10px; }
+    .page.sportsman .wv-block { break-inside: auto; }
+    .page.sportsman .wv-block-label { break-after: avoid; }
+  }
+
+  /* ---------- the weather page (Jim Claudtore's briefing, typeset) ---- */
+
+  .wx-briefing { max-width: 760px; margin: 0 auto; font-size: 15px; line-height: 1.55; }
+  .wx-briefing p { margin: 0 0 12px; }
+  .wx-day {
+    font-family: var(--display); font-weight: 900; font-size: 26px;
+    line-height: 1.15; margin: 4px 0 6px;
+  }
+  .wx-dek { font-style: italic; font-size: 15px; color: var(--ink-soft); margin: 0 0 16px; }
+  .wx-loc {
+    font-family: var(--display); font-weight: 700; font-size: 17px;
+    border-top: 1px solid var(--rule); padding-top: 12px; margin: 18px 0 6px;
+  }
+  .wx-list { margin: 0 0 12px; padding-left: 20px; }
+  .wx-list li { margin-bottom: 6px; }
+  /* The weather page stopped borrowing the sportsman column fill on
+     2026-08-25 — it sets as a newspaper page now, with the same section
+     grid the front page uses, so there is no multi-column flow left to
+     undo. What it does need is its own handling of Jim's confidence note,
+     which is a single paragraph inside a full-width box: the notebook's
+     two columns would split one short paragraph down the middle. */
+  .wx-confidence .wv-box { column-count: 1; }
+  .wx-confidence .wv-box p { margin: 0 0 10px; max-width: 92ch; }
+  .wx-confidence .wv-box p:last-child { margin-bottom: 0; }
+  .wx-roundup { margin: 0; }
+  /* Jim writes in half a dozen short reports rather than long copy, so the
+     label chip has to survive a stacked heading — three towns sharing one
+     forecast — without pushing the section out of its column. */
+  .page.weather .section-label { white-space: normal; line-height: 1.35; }
 
   @media print {
     body { background: #fff; padding: 0; }
     .page { border: 0; box-shadow: none; max-width: none; }
-    .sections { display: grid; grid-template-columns: repeat(4, 1fr); column-gap: 24px; }
+    .wire-flow { column-count: var(--wire-cols, 3); column-gap: 24px; }
     .sec-wv { grid-column: 1 / -1; order: 9; }
   }
 </style>
 </head>
 <body>
-<div class="page">
+<div class="page ">
 
   <div class="top-bar">
     <span>Vol. I — No. 10</span>
@@ -555,16 +785,20 @@
   <div class="ear">
     <span class="ear-label">Weather</span>Weather follows at 7:15, filed by Jim Claudtore.
   </div>
-  <div class="masthead">THE ASHGROVE TIMES</div>
+  <div class="family-line">The Ashgrove Times</div>
+  <div class="masthead">THE NEWS DESK</div>
   <div class="tagline">&ldquo;For the Fellers&rdquo;</div>
   <hr class="rule-thick">
   <hr class="rule-thin">
+
+  <nav class="paper-nav" aria-label="Sections"><a href="../home.html">Home</a><a href="../sportsman/">Sports &amp; Sportsman</a><a href="../weather/">The Weather Claude</a></nav>
 
   <div class="headline">Iran rejects Trump&#x27;s Hormuz claim as two more tankers are hit</div>
   <div class="subhead">The UAE called the attacks piracy; 15 of the company&#x27;s ships have been hit since February.</div>
   <div class="byline">By Wire Reports</div>
 
-  <figure class="art">
+  <div class="lead-block with-art">
+    <figure class="art">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 560" role="img" aria-label="Line drawing of a hazy anchorage: a laden cargo ship with two crane masts lies at anchor in flat water, a small tug standing off her stern, with three fainter ships receding toward the horizon and a single bird overhead.">
   <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
 
@@ -693,21 +927,22 @@
 </svg>
   <figcaption><span class="art-caption">Ships lie at anchor in haze off the strait, a tug standing by.</span> <span class="art-credit">Sketched from an Al Jazeera photograph</span></figcaption>
 </figure>
-
-  <div class="columns"><p><span class="drop">T</span>wo vessels tied to Abu Dhabi&#x27;s national oil company were attacked while crossing the Strait of Hormuz on Thursday evening, hours after Iran&#x27;s military dismissed President Donald Trump&#x27;s claim of American control of the waterway as lies.</p><p>ADNOC said nobody was hurt. It was the second attack on the company&#x27;s ships in days and the 15th since February. The UAE foreign ministry called Iran&#x27;s use of the strait as economic coercion piracy and a direct threat to the region. Iran did not comment.</p><p>Trump said Wednesday the United States has total control of the strait; Iran&#x27;s central military command said it is under the complete control of the Islamic Republic. Eight ships crossed Tuesday, the fewest since Aug. 5.</p></div>
+    <div class="columns"><p><span class="drop">T</span>wo vessels tied to Abu Dhabi&#x27;s national oil company were attacked while crossing the Strait of Hormuz on Thursday evening, hours after Iran&#x27;s military dismissed President Donald Trump&#x27;s claim of American control of the waterway as lies.</p><p>ADNOC said nobody was hurt. It was the second attack on the company&#x27;s ships in days and the 15th since February. The UAE foreign ministry called Iran&#x27;s use of the strait as economic coercion piracy and a direct threat to the region. Iran did not comment.</p><p>Trump said Wednesday the United States has total control of the strait; Iran&#x27;s central military command said it is under the complete control of the Islamic Republic. Eight ships crossed Tuesday, the fewest since Aug. 5.</p></div>
+  </div>
 
   <div class="stat-strip"><div><b>7,798.99</b><span class="stat-label">S&amp;P 500</span><span class="stat-change"><span class="tri up" aria-hidden="true"></span>+0.65%</span></div><div><b>53,839.99</b><span class="stat-label">Dow</span><span class="stat-change"><span class="tri up" aria-hidden="true"></span>+0.13%</span></div><div><b>26,803.03</b><span class="stat-label">Nasdaq</span><span class="stat-change"><span class="tri up" aria-hidden="true"></span>+0.81%</span></div><div><b>$62,765</b><span class="stat-label">Bitcoin</span><span class="stat-change"><span class="tri down" aria-hidden="true"></span>-1.42%</span></div></div>
   <p class="stats-note">Market data compiled before the opening bell</p>
 
-  <div class="sections">
+  <div class="sections" style="--wire-cols: 3">
+  <div class="wire-flow">
   <section class="sec sec-wire">
   <div class="section-label">U.S.</div>
   <div class="two-col-briefs"><div class="brief">
       <div class="brief-head">Judge dismisses U.S. antisemitism suit against Harvard</div>
-      <p>Judge Richard Stearns called the cited incidents too isolated and episodic to show a persistent violation. The government said it is weighing next steps.</p><span class="src"><a href="https://www.npr.org/2026/08/14/g-s1-138721/trump-antisemitism-harvard" rel="noopener nofollow">NPR</a></span>
+      <p>Judge Richard Stearns called the cited incidents too isolated and episodic to show a persistent violation. The government said it is weighing next steps.</p><span class="src"><a href="https://www.npr.org/2026/08/14/g-s1-138721/trump-antisemitism-harvard" target="_blank" rel="noopener nofollow">NPR</a></span>
     </div><div class="brief">
       <div class="brief-head">Three states execute prisoners on the same day</div>
-      <p>Oklahoma, Tennessee and Alabama carried out lethal injections Thursday, the first same-day trio since Jan. 7, 2010, and the 21st execution this year.</p><span class="src"><a href="https://www.cbsnews.com/news/oklahoma-tennessee-alabama-same-day-executions/" rel="noopener nofollow">CBS News</a></span>
+      <p>Oklahoma, Tennessee and Alabama carried out lethal injections Thursday, the first same-day trio since Jan. 7, 2010, and the 21st execution this year.</p><span class="src"><a href="https://www.cbsnews.com/news/oklahoma-tennessee-alabama-same-day-executions/" target="_blank" rel="noopener nofollow">CBS News</a></span>
     </div></div>
 </section>
 
@@ -715,15 +950,43 @@
   <div class="section-label">World</div>
   <div class="two-col-briefs"><div class="brief">
       <div class="brief-head">Wildfires force evacuations in Germany, France and Croatia</div>
-      <p>About 1,800 left the German village of Gey and 525 the Landes in France; 14 were hospitalized in Split. Some 500,000 hectares have burned in the EU.</p><span class="src"><a href="https://www.aljazeera.com/news/2026/8/14/wildfires-force-thousands-to-flee-as-blazes-spread-across-europe" rel="noopener nofollow">Al Jazeera</a></span>
+      <p>About 1,800 left the German village of Gey and 525 the Landes in France; 14 were hospitalized in Split. Some 500,000 hectares have burned in the EU.</p><span class="src"><a href="https://www.aljazeera.com/news/2026/8/14/wildfires-force-thousands-to-flee-as-blazes-spread-across-europe" target="_blank" rel="noopener nofollow">Al Jazeera</a></span>
     </div><div class="brief">
       <div class="brief-head">Farage retakes the Clacton seat he resigned in July</div>
-      <p>He took 22,239 votes to 9,455 for the satirist Count Binface on 44% turnout, with the main parties boycotting.</p><span class="src"><a href="https://www.aljazeera.com/news/2026/8/14/nigel-farage-defeats-count-binface-to-reclaim-uk-parliamentary-seat" rel="noopener nofollow">Al Jazeera</a></span>
+      <p>He took 22,239 votes to 9,455 for the satirist Count Binface on 44% turnout, with the main parties boycotting.</p><span class="src"><a href="https://www.aljazeera.com/news/2026/8/14/nigel-farage-defeats-count-binface-to-reclaim-uk-parliamentary-seat" target="_blank" rel="noopener nofollow">Al Jazeera</a></span>
     </div><div class="brief">
       <div class="brief-head">Taiwan slows mobile internet in an invasion drill</div>
-      <p>Carriers cut speeds to 256 Kbps for 30 minutes Thursday in Taipei and six other places during the Han Kuang exercises.</p><span class="src"><a href="https://www.npr.org/2026/08/13/g-s1-138581/taiwan-briefly-slows-its-mobile-internet-to-text-only-speed-as-part-of-defense-drill" rel="noopener nofollow">NPR</a></span>
+      <p>Carriers cut speeds to 256 Kbps for 30 minutes Thursday in Taipei and six other places during the Han Kuang exercises.</p><span class="src"><a href="https://www.npr.org/2026/08/13/g-s1-138581/taiwan-briefly-slows-its-mobile-internet-to-text-only-speed-as-part-of-defense-drill" target="_blank" rel="noopener nofollow">NPR</a></span>
     </div></div>
 </section>
+
+  <section class="sec sec-wire">
+  <div class="section-label">Science &amp; Technology</div>
+  <div class="two-col-briefs"><div class="brief">
+      <div class="brief-head">Hibernating mice keep memories after losing synapses</div>
+      <p>More than half of hippocampal synapses vanished during artificial hibernation, yet recall held or improved, the Okinawa team reported in Science.</p><span class="src"><a href="https://www.brightsurf.com/news/1GR62PE8/artificial-hibernation-reveals-secrets-of-long-term-memory.html" target="_blank" rel="noopener nofollow">OIST</a></span>
+    </div><div class="brief">
+      <div class="brief-head">Gut viruses carry mutation hotspots that beat bacteria</div>
+      <p>Repetitive stretches in a phage gene mutate thousands of times faster than the rest of the genome, letting the virus route around bacterial defenses.</p><span class="src"><a href="https://www.brightsurf.com/news/80ED6KY8/mutation-hotspots-help-friendly-viruses-outmaneuver-the-bacteria-in-your-gut.html" target="_blank" rel="noopener nofollow">Michigan State</a></span>
+    </div></div>
+</section>
+
+  <section class="sec sec-wire">
+  <div class="section-label">Sports</div>
+  <div class="two-col-briefs"><div class="brief">
+      <div class="brief-head">Nigeria miss the Women&#x27;s World Cup for the first time</div>
+      <p>South Africa won 2-1 through Thembi Kgatlana and Refiloe Jane to take one of Africa&#x27;s two playoff places. Ghana beat Ivory Coast 2-1.</p><span class="src"><a href="https://www.aljazeera.com/sports/2026/8/14/south-africa-end-nigerias-womens-world-cup-hope-ghana-beat-ivory-coast" target="_blank" rel="noopener nofollow">Al Jazeera</a></span>
+    </div><div class="brief">
+      <div class="brief-head">Swiatek beats Rybakina for her first title of the season</div>
+      <p>The Pole won 6-2, 6-3 in the Canadian Open final in Toronto and moves back into the top five from No. 8.</p><span class="src"><a href="https://www.aljazeera.com/sports/2026/8/14/swiatek-defeats-rybakina-to-claim-canadian-open" target="_blank" rel="noopener nofollow">Al Jazeera</a></span>
+    </div><div class="brief">
+      <div class="brief-head">Marshall women open with a 3-1 win over Morehead State</div>
+      <p>Luana Gusmao scored twice in seven minutes at Huntington on Thursday; Delfina Lombardo added the third.</p><span class="src"><a href="https://www.wsaz.com/2026/08/14/herd-women-get-opening-night-soccer-win/" target="_blank" rel="noopener nofollow">WSAZ</a></span>
+    </div></div>
+</section>
+  </div>
+
+  <hr class="rule-anchor">
 
   <section class="sec sec-wv">
   <div class="section-label">West Virginia</div>
@@ -732,49 +995,26 @@
     
     <div class="brief">
       <div class="brief-head">Safety board says Institute plant required no respirators</div>
-      <p>The Chemical Safety Board said workers at Ames Goldsmith Catalyst Refiners had no gas monitors when mixed chemicals released hydrogen sulfide April 22, killing two.</p><span class="src"><a href="https://wvmetronews.com/2026/08/13/u-s-chemical-safety-board-says-ames-goldsmith-workers-not-required-to-wear-respirators-or-gas-monitors-during-decommissioning/" rel="noopener nofollow">WV MetroNews</a></span>
+      <p>The Chemical Safety Board said workers at Ames Goldsmith Catalyst Refiners had no gas monitors when mixed chemicals released hydrogen sulfide April 22, killing two.</p><span class="src"><a href="https://wvmetronews.com/2026/08/13/u-s-chemical-safety-board-says-ames-goldsmith-workers-not-required-to-wear-respirators-or-gas-monitors-during-decommissioning/" target="_blank" rel="noopener nofollow">WV MetroNews</a></span>
     </div><div class="brief">
       <div class="brief-head">Justice family says it will close the Greenbrier casino</div>
-      <p>A federal court filing said about 90 workers would be laid off so a $500M refinancing can close, with delays costing about $145,000 a day.</p><span class="src"><a href="https://www.herald-dispatch.com/news/justices-say-theyll-shutter-greenbrier-casino-lay-off-90-people-for-refinancing-deal/article_a2488db8-592b-42a0-bc3b-69197abe711c.html" rel="noopener nofollow">The Herald-Dispatch</a></span>
+      <p>A federal court filing said about 90 workers would be laid off so a $500M refinancing can close, with delays costing about $145,000 a day.</p><span class="src"><a href="https://www.herald-dispatch.com/news/justices-say-theyll-shutter-greenbrier-casino-lay-off-90-people-for-refinancing-deal/article_a2488db8-592b-42a0-bc3b-69197abe711c.html" target="_blank" rel="noopener nofollow">The Herald-Dispatch</a></span>
     </div><div class="wv-block wv-regional">
       <p class="wv-block-label">Around the State</p>
-      <ul class="roundup"><li><span class="place">Mid-Ohio Valley / Parkersburg</span> <span class="folk">(Pat)</span> &mdash; An independent tester told a town hall the July warehouse fire&#x27;s plume reached 10,000 feet across 35 miles.<span class="src"><a href="https://www.wtap.com/2026/08/14/mid-ohio-valley-residents-attend-town-hall-peoples-cartage-fire-findings/" rel="noopener nofollow">WTAP</a></span></li></ul>
+      <ul class="roundup"><li><span class="place">Mid-Ohio Valley / Parkersburg</span> <span class="folk">(Pat)</span> &mdash; An independent tester told a town hall the July warehouse fire&#x27;s plume reached 10,000 feet across 35 miles.<span class="src"><a href="https://www.wtap.com/2026/08/14/mid-ohio-valley-residents-attend-town-hall-peoples-cartage-fire-findings/" target="_blank" rel="noopener nofollow">WTAP</a></span></li></ul>
     </div><div class="wv-block wv-fishing">
       <p class="wv-block-label">On the Water</p>
       <ul class="roundup"><li><span class="water">Williams River (Cowen)</span> &mdash; 208 cfs and falling - pushy. Wadeable at the edges, not across.<span class="src">USGS 03186500</span></li><li><span class="water">Topsail Beach (surf and sound)</span> &mdash; Sound highs 10:05 a.m. and 10:31 p.m. at Hampstead; lows 4:26 a.m. and 4:33 p.m.<span class="src">NOAA CO-OPS 8657813</span></li></ul>
     </div>
   </div>
 </section>
-
-  <section class="sec sec-wire">
-  <div class="section-label">Sports</div>
-  <div class="two-col-briefs"><div class="brief">
-      <div class="brief-head">Nigeria miss the Women&#x27;s World Cup for the first time</div>
-      <p>South Africa won 2-1 through Thembi Kgatlana and Refiloe Jane to take one of Africa&#x27;s two playoff places. Ghana beat Ivory Coast 2-1.</p><span class="src"><a href="https://www.aljazeera.com/sports/2026/8/14/south-africa-end-nigerias-womens-world-cup-hope-ghana-beat-ivory-coast" rel="noopener nofollow">Al Jazeera</a></span>
-    </div><div class="brief">
-      <div class="brief-head">Swiatek beats Rybakina for her first title of the season</div>
-      <p>The Pole won 6-2, 6-3 in the Canadian Open final in Toronto and moves back into the top five from No. 8.</p><span class="src"><a href="https://www.aljazeera.com/sports/2026/8/14/swiatek-defeats-rybakina-to-claim-canadian-open" rel="noopener nofollow">Al Jazeera</a></span>
-    </div><div class="brief">
-      <div class="brief-head">Marshall women open with a 3-1 win over Morehead State</div>
-      <p>Luana Gusmao scored twice in seven minutes at Huntington on Thursday; Delfina Lombardo added the third.</p><span class="src"><a href="https://www.wsaz.com/2026/08/14/herd-women-get-opening-night-soccer-win/" rel="noopener nofollow">WSAZ</a></span>
-    </div></div>
-</section>
-
-  <section class="sec sec-wire">
-  <div class="section-label">Science &amp; Technology</div>
-  <div class="two-col-briefs"><div class="brief">
-      <div class="brief-head">Hibernating mice keep memories after losing synapses</div>
-      <p>More than half of hippocampal synapses vanished during artificial hibernation, yet recall held or improved, the Okinawa team reported in Science.</p><span class="src"><a href="https://www.brightsurf.com/news/1GR62PE8/artificial-hibernation-reveals-secrets-of-long-term-memory.html" rel="noopener nofollow">OIST</a></span>
-    </div><div class="brief">
-      <div class="brief-head">Gut viruses carry mutation hotspots that beat bacteria</div>
-      <p>Repetitive stretches in a phage gene mutate thousands of times faster than the rest of the genome, letting the virus route around bacterial defenses.</p><span class="src"><a href="https://www.brightsurf.com/news/80ED6KY8/mutation-hotspots-help-friendly-viruses-outmaneuver-the-bacteria-in-your-gut.html" rel="noopener nofollow">Michigan State</a></span>
-    </div></div>
-</section>
   </div>
 
   <div class="kicker">The away desk ran empty; nothing dated in Vermont or Prince George.</div>
 
   <div class="footer-note">Compiled from wire reports<span class="sep">&middot;</span><a href="../archive.html">Back issues</a></div>
+
+  <nav class="paper-nav paper-nav-foot" aria-label="Sections, repeated"><a href="../home.html">Home</a><a href="../sportsman/">Sports &amp; Sportsman</a><a href="../weather/">The Weather Claude</a></nav>
 
 </div>
 </body>

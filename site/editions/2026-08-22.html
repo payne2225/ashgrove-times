@@ -102,6 +102,35 @@
   }
 
   /* Section-to-section buttons, house-styled like the section labels. */
+  /* The rule that closes the wire columns off from the anchor sections
+     below them (Nate, 2026-08-26). A column bottom is a ragged edge, and
+     without this the notebook read as one more thing the last column ran
+     into. In the BASE stylesheet, not a breakpoint: the sections stack on a
+     phone and the break between the wire and the anchors still needs
+     saying — a browser-default <hr> in a letterpress page does not. */
+  .rule-anchor {
+    border: 0;
+    border-top: 1px solid var(--ink);
+    margin: 6px 0 16px;
+  }
+
+  /* A tier heading inside the Canada section. Smaller than a section label
+     and not reversed out — it is a sub-head, and three black chips stacked
+     under one black chip would read as four sections. Matches the
+     notebook's .wv-block-label, which is the same idea one box over. */
+  .tier-label {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 4px;
+    margin: 0 0 10px;
+  }
+  .sec-canada .tier { margin-bottom: 6px; }
+
   .paper-nav { text-align: center; margin: 0 0 18px; }
   .paper-nav a {
     display: inline-block;
@@ -118,6 +147,14 @@
     margin: 0 4px 6px;
   }
   .paper-nav a:hover { background: var(--ink); color: var(--parchment); }
+  /* The same row repeated at the foot of the page, where a reader who has
+     finished actually is. Ruled off above so it reads as the end of the
+     paper rather than as one more thing to read. */
+  .paper-nav-foot {
+    margin: 22px 0 2px;
+    padding-top: 16px;
+    border-top: 1px solid var(--rule);
+  }
 
   /* The tide table: a real table, because Nate asked for one. */
   .tide-table { border-collapse: collapse; margin: 10px auto 4px; font-size: 13.5px; }
@@ -534,16 +571,27 @@
     .columns { column-count: 2; font-size: 15.5px; }
     .drop { font-size: 58px; }
 
-    .lead-block {
+    /* WITH a drawing: art at roughly a third of the measure, story beside
+       it. Scoped to .with-art deliberately — when this rule was on the bare
+       .lead-block and the day's drawing went to another section, the story
+       became the first grid child, inherited the 27% art column, and left
+       three quarters of the page white beside eight lines of type. */
+    .lead-block.with-art {
       display: grid;
       grid-template-columns: minmax(240px, 27%) 1fr;
       gap: 0 30px;
       align-items: start;
     }
-    .lead-block .art { max-width: none; margin: 0; }
+    .lead-block.with-art .art { max-width: none; margin: 0; }
     /* Cap the drawing so its bottom lands near the text's, instead of
        running past it and opening a hole under the columns. */
-    .lead-block .art svg { max-height: 210px; width: 100%; }
+    .lead-block.with-art .art svg { max-height: 210px; width: 100%; }
+
+    /* WITHOUT one: nothing shares this line of the page, so the lead runs
+       the full measure. Column COUNT rather than width, because a lead is
+       short and a fixed column-width would leave a half-empty third column
+       on a thin news day. */
+    .lead-block.no-art .columns { column-count: 2; }
   }
 
   @media (min-width: 1320px) {
@@ -551,34 +599,92 @@
     .masthead { font-size: 96px; letter-spacing: 3px; }
     .headline { font-size: 50px; }
 
-    /* The wire sections sit side by side across the page, one to a column,
-       the way the four beats run across a front page below the fold.
+    /* Three columns across ~1,310px of measure is about 420px a column —
+       roughly 58 characters, which is a newspaper line. Two would set 85+
+       and read like a blog. Measured against a real lead: 766 characters on
+       2026-08-24, which fills three columns about five lines deep. */
+    .lead-block.no-art .columns { column-count: 3; }
 
-       GRID, not CSS multi-column. Multi-column was the first attempt and it
-       looked right until you counted: a `column-span: all` element splits
-       the flow, so the two sections above the notebook spread across four
-       columns and left two of them empty. Grid places each section in its
-       own column and lets the notebook span deliberately rather than as a
-       side effect. */
-    .sections {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
+    /* The wire sections FLOW through these columns; they are not placed in
+       them. (2026-08-26 — this was a grid until Pat said "lots and lots of
+       unused space.")
+
+       A grid gave each section its own cell and made every row as tall as
+       its tallest member. On an ordinary morning — U.S. 524px, World 637px,
+       Sci/Tech 901px — that stood 28% of the section area empty, and a last
+       row that did not divide evenly was worse. Copy that runs down one
+       column and continues into the next cannot leave a hole, whatever
+       shape the news turns out to be that day. Measured on the 2026-08-26
+       edition: the section block went 1917px to 999px and the page 3093px
+       to 2653px, with nothing added and nothing cut.
+
+       The original objection to multi-column here was real and is now
+       answered rather than ignored: a `column-span: all` child splits a
+       flow and strands columns, which is exactly what happened the first
+       time. So the notebook is not a child of the flow at all — it is a
+       sibling block below it, and nothing inside the flow spans.
+
+       Sports & Sportsman has set this way since it launched. */
+    .sections { display: block; }
+    .wire-flow {
+      column-count: var(--wire-cols, 3);
       column-gap: 30px;
-      align-items: start;
+      column-rule: 1px solid #c9c2ac;
     }
+    .wire-flow > .sec {
+      break-inside: auto;      /* a section MAY continue into the next column */
+      border-left: 0;
+      padding-left: 0;
+      margin: 0 0 18px;
+    }
+    /* ...but a brief, the drawing, and a label stranded from the brief
+       under it may not be split. Those are the atoms. */
+    .wire-flow .brief { break-inside: avoid; }
+    .wire-flow .art { break-inside: avoid; }
+    .wire-flow .section-label { break-after: avoid; margin-top: 0; }
+    .wire-flow .sec + .sec .section-label { margin-top: 12px; }
     .sec { margin-bottom: 20px; }
     .sec .two-col-briefs { column-count: 1; column-rule: none; }
     .sec .section-label { margin-top: 0; }
-    /* Rules between the wire columns, none before the first. */
-    .sec-wire + .sec-wire { border-left: 1px solid #c9c2ac; padding-left: 30px; }
+
+
+    /* Anchored sections — the notebook and British Columbia — take the full
+       measure below the flow. Their briefs run in their own columns, since
+       one column across 1,310px would set 85-character lines. */
+    .sec-anchor { margin: 0 0 18px; }
+    .sec-anchor .two-col-briefs {
+      column-count: 3;
+      column-gap: 30px;
+      column-rule: 1px solid var(--rule);
+    }
+    .sec-anchor .brief { break-inside: avoid; }
+
+    /* Canada does its own columns, so the anchor rule above must not also
+       fragment it — a grid inside a CSS multi-column container gets sliced
+       across the columns, which put a tier label above an empty column and
+       stranded its brief two columns away. */
+    .sec-canada .two-col-briefs { column-count: 1; column-rule: none; }
+
+    /* The Canada section's three tiers sit side by side across the measure,
+       local first. A tier with nothing in it does not render, so a thin
+       morning closes to two columns rather than standing one empty — the
+       whole page was rebuilt to stop doing exactly that. */
+    .sec-canada .tiers {
+      display: grid;
+      grid-template-columns: repeat(var(--tier-cols, 3), 1fr);
+      column-gap: 30px;
+      align-items: start;
+    }
+    .sec-canada .tier + .tier { border-left: 1px solid var(--rule); padding-left: 30px; }
 
     /* The notebook is the anchor and it is wide content — four sub-blocks
-       that would strangle in a 300px column. It spans the whole measure as
+       that would strangle in a 300px column. It takes the whole measure as
        a boxed feature, which is both where the space is and the treatment
-       Ian asked for. `order` moves it below the wire columns without
-       touching DOM order, so the phone layout and screen readers still get
-       Ian's sequence. */
-    .sec-wv { grid-column: 1 / -1; order: 9; margin: 10px 0 8px; }
+       Ian asked for. It sits BELOW the flow because the renderer emits it
+       as a sibling after .wire-flow, not because of a CSS `order` — that
+       was a grid trick and the grid is gone. Screen readers and the phone
+       layout get the same sequence the markup has. */
+    .sec-wv { margin: 10px 0 8px; }
     .sec-wv .wv-box { padding: 22px 28px; column-count: 2; column-gap: 36px; }
     .sec-wv .wv-title { column-span: all; font-size: 24px; }
     .sec-wv .wv-box > .brief,
@@ -588,7 +694,9 @@
   @media (min-width: 1700px) {
     .page { max-width: 1600px; }
     .masthead { font-size: 108px; }
-    .sections { grid-template-columns: repeat(4, 1fr); }
+    /* Three, not four, even here. The lead runs about 700 characters — a
+       fourth column would set it three lines deep and read as a caption
+       rather than as the day's story. */
   }
 
   /* ---------- Sports & Sportsman page layout ----------
@@ -643,16 +751,25 @@
   }
   .wx-list { margin: 0 0 12px; padding-left: 20px; }
   .wx-list li { margin-bottom: 6px; }
-  /* The weather page borrows the sportsman column fill at desktop; a single
-     long column reads better for a briefing, so undo the multi-column. */
-  @media (min-width: 1024px) {
-    .page.weather .sections { column-count: 1; column-rule: none; }
-  }
+  /* The weather page stopped borrowing the sportsman column fill on
+     2026-08-25 — it sets as a newspaper page now, with the same section
+     grid the front page uses, so there is no multi-column flow left to
+     undo. What it does need is its own handling of Jim's confidence note,
+     which is a single paragraph inside a full-width box: the notebook's
+     two columns would split one short paragraph down the middle. */
+  .wx-confidence .wv-box { column-count: 1; }
+  .wx-confidence .wv-box p { margin: 0 0 10px; max-width: 92ch; }
+  .wx-confidence .wv-box p:last-child { margin-bottom: 0; }
+  .wx-roundup { margin: 0; }
+  /* Jim writes in half a dozen short reports rather than long copy, so the
+     label chip has to survive a stacked heading — three towns sharing one
+     forecast — without pushing the section out of its column. */
+  .page.weather .section-label { white-space: normal; line-height: 1.35; }
 
   @media print {
     body { background: #fff; padding: 0; }
     .page { border: 0; box-shadow: none; max-width: none; }
-    .sections { display: grid; grid-template-columns: repeat(4, 1fr); column-gap: 24px; }
+    .wire-flow { column-count: var(--wire-cols, 3); column-gap: 24px; }
     .sec-wv { grid-column: 1 / -1; order: 9; }
   }
 </style>
@@ -674,13 +791,13 @@
   <hr class="rule-thick">
   <hr class="rule-thin">
 
-  <nav class="paper-nav"><a href="../index.html">Home</a><a href="../sportsman/">Sports &amp; Sportsman</a><a href="../weather/">The Weather Claude</a></nav>
+  <nav class="paper-nav" aria-label="Sections"><a href="../home.html">Home</a><a href="../sportsman/">Sports &amp; Sportsman</a><a href="../weather/">The Weather Claude</a></nav>
 
   <div class="headline">U.S. imposes 50% tariffs on Canada as talks collapse at deadline</div>
   <div class="subhead">Carney suspended negotiations and said Canada will match the duties dollar for dollar.</div>
   <div class="byline">By Wire Reports</div>
 
-  <div class="lead-block">
+  <div class="lead-block no-art">
     
     <div class="columns"><p><span class="drop">T</span>rade talks between the United States and Canada collapsed Friday night, minutes before a midnight deadline, and 50% tariffs on about $20 billion in Canadian goods took effect at midnight. The duties fall on hockey sticks, building materials, liquors and some clothing.</p><p>Prime Minister Mark Carney sent his negotiators back to Ottawa, saying late changes to the U.S. terms were unfair and uneconomic. U.S. Trade Representative Jamieson Greer said Canada declined to finalize a deal reached earlier in the week, and that Washington had offered cuts on steel, aluminum, autos and lumber. Provincial bans on American alcohol were among the sticking points.</p></div>
   </div>
@@ -688,18 +805,19 @@
   <div class="stat-strip"><div><b>7,674.37</b><span class="stat-label">S&amp;P 500</span><span class="stat-change"><span class="tri up" aria-hidden="true"></span>+0.43%</span></div><div><b>53,277.01</b><span class="stat-label">Dow</span><span class="stat-change"><span class="tri up" aria-hidden="true"></span>+0.98%</span></div><div><b>26,180.46</b><span class="stat-label">Nasdaq</span><span class="stat-change"><span class="tri up" aria-hidden="true"></span>+0.43%</span></div><div><b>$77,211</b><span class="stat-label">Bitcoin</span><span class="stat-change"><span class="tri down" aria-hidden="true"></span>-0.59%</span></div></div>
   <p class="stats-note">Market data compiled before the opening bell</p>
 
-  <div class="sections">
+  <div class="sections" style="--wire-cols: 3">
+  <div class="wire-flow">
   <section class="sec sec-wire">
   <div class="section-label">U.S.</div>
   <div class="two-col-briefs"><div class="brief">
       <div class="brief-head">Supreme Court lets White House ballroom work continue</div>
-      <p>The justices stayed an injunction against the 90,000-square-foot addition. The National Trust for Historic Preservation sued.</p><span class="src"><a href="https://www.npr.org/2026/08/21/nx-s1-5935417/supreme-court-allows-trumps-ballroom-construction-to-continue-for-now" rel="noopener nofollow">NPR</a></span>
+      <p>The justices stayed an injunction against the 90,000-square-foot addition. The National Trust for Historic Preservation sued.</p><span class="src"><a href="https://www.npr.org/2026/08/21/nx-s1-5935417/supreme-court-allows-trumps-ballroom-construction-to-continue-for-now" target="_blank" rel="noopener nofollow">NPR</a></span>
     </div><div class="brief">
       <div class="brief-head">Charter plane crash kills 8 at an Alaska radar site</div>
-      <p>The plane left Anchorage and went down Thursday on approach to Cape Newenham, 450 miles west. Two pilots and six passengers died.</p><span class="src"><a href="https://www.npr.org/2026/08/21/nx-s1-5940552/charter-plane-crash-kills-8-alaska-military" rel="noopener nofollow">NPR</a></span>
+      <p>The plane left Anchorage and went down Thursday on approach to Cape Newenham, 450 miles west. Two pilots and six passengers died.</p><span class="src"><a href="https://www.npr.org/2026/08/21/nx-s1-5940552/charter-plane-crash-kills-8-alaska-military" target="_blank" rel="noopener nofollow">NPR</a></span>
     </div><div class="brief">
       <div class="brief-head">Pentagon fires Stars and Stripes editor and a reporter</div>
-      <p>Editor Erik Slavin, reporter Lara Korte and publisher Max Lederer were cited for insubordination after a CBS interview on editorial independence.</p><span class="src"><a href="https://www.pbs.org/newshour/politics/stars-and-stripes-editor-reporter-fired-for-insubordination-after-doing-cbs-interview" rel="noopener nofollow">PBS NewsHour</a></span>
+      <p>Editor Erik Slavin, reporter Lara Korte and publisher Max Lederer were cited for insubordination after a CBS interview on editorial independence.</p><span class="src"><a href="https://www.pbs.org/newshour/politics/stars-and-stripes-editor-reporter-fired-for-insubordination-after-doing-cbs-interview" target="_blank" rel="noopener nofollow">PBS NewsHour</a></span>
     </div></div>
 </section>
 
@@ -707,18 +825,38 @@
   <div class="section-label">World</div>
   <div class="two-col-briefs"><div class="brief">
       <div class="brief-head">Somalia child malnutrition jumps 32% as aid funding falls</div>
-      <p>UNICEF said nutrition funding fell more than 80% this year and 200 facilities closed. Nearly 1.9 million children are affected.</p><span class="src"><a href="https://www.aljazeera.com/news/2026/8/22/somalia-child-hunger-crisis-deepens-after-aid-cuts-unicef-says" rel="noopener nofollow">Al Jazeera</a></span>
+      <p>UNICEF said nutrition funding fell more than 80% this year and 200 facilities closed. Nearly 1.9 million children are affected.</p><span class="src"><a href="https://www.aljazeera.com/news/2026/8/22/somalia-child-hunger-crisis-deepens-after-aid-cuts-unicef-says" target="_blank" rel="noopener nofollow">Al Jazeera</a></span>
     </div><div class="brief">
       <div class="brief-head">Ceuta buries 18 unidentified migrants in numbered graves</div>
-      <p>More than 90 died in the late-July crossings from Morocco, the deadliest on Spain&#x27;s border. Thousands remain in the enclave.</p><span class="src"><a href="https://www.euronews.com/my-europe/2026/08/22/ceuta-buries-18-unidentified-migrants-after-border-crisis-with-morocco" rel="noopener nofollow">Euronews</a></span>
+      <p>More than 90 died in the late-July crossings from Morocco, the deadliest on Spain&#x27;s border. Thousands remain in the enclave.</p><span class="src"><a href="https://www.euronews.com/my-europe/2026/08/22/ceuta-buries-18-unidentified-migrants-after-border-crisis-with-morocco" target="_blank" rel="noopener nofollow">Euronews</a></span>
     </div><div class="brief">
       <div class="brief-head">World Bank projects Lebanon&#x27;s economy to shrink 6.4%</div>
-      <p>The contraction follows 4.2% growth last year and stems from fighting that began in March. Prices are expected to rise 17.5%.</p><span class="src"><a href="https://www.aljazeera.com/news/2026/8/22/world-bank-projects-war-hit-lebanons-economy-to-contract-by-6-4-percent" rel="noopener nofollow">Al Jazeera</a></span>
+      <p>The contraction follows 4.2% growth last year and stems from fighting that began in March. Prices are expected to rise 17.5%.</p><span class="src"><a href="https://www.aljazeera.com/news/2026/8/22/world-bank-projects-war-hit-lebanons-economy-to-contract-by-6-4-percent" target="_blank" rel="noopener nofollow">Al Jazeera</a></span>
     </div><div class="brief">
       <div class="brief-head">Borneo fires push haze into Malaysia and close schools</div>
-      <p>Indonesia logged 154,000 hotspots by Aug. 11. Sarawak&#x27;s pollution index passed 200 and six schools moved online.</p><span class="src"><a href="https://news.mongabay.com/2026/08/indonesias-wildfire-season-surges-as-haze-spreads-into-malaysia/" rel="noopener nofollow">Mongabay</a></span>
+      <p>Indonesia logged 154,000 hotspots by Aug. 11. Sarawak&#x27;s pollution index passed 200 and six schools moved online.</p><span class="src"><a href="https://news.mongabay.com/2026/08/indonesias-wildfire-season-surges-as-haze-spreads-into-malaysia/" target="_blank" rel="noopener nofollow">Mongabay</a></span>
     </div></div>
 </section>
+
+  <section class="sec sec-wire">
+  <div class="section-label">Science &amp; Technology</div>
+  <div class="two-col-briefs"><div class="brief">
+      <div class="brief-head">Three minutes of sprinting outdid 90 of steady cycling</div>
+      <p>Six 30-second sprints changed nearly a quarter of measured blood proteins; moderate cycling changed under 0.25%. Cell Reports Medicine.</p><span class="src"><a href="https://www.rockefeller.edu/news/40328-sprinting-intense-exercise/" target="_blank" rel="noopener nofollow">Rockefeller University</a></span>
+    </div><div class="brief">
+      <div class="brief-head">Queen bees offload pesticide into their eggs</div>
+      <p>Workers filtered out 95% of methyl parathion on day one but 86% by day 10; queens shed the rest into their eggs. Current Biology.</p><span class="src"><a href="https://www.sciencedaily.com/releases/2026/08/260821012224.htm" target="_blank" rel="noopener nofollow">University of California, Davis</a></span>
+    </div><div class="brief">
+      <div class="brief-head">Pancreatic cancer patients with more teeth lived longer</div>
+      <p>Among 339 people who had a pancreatectomy, those with 21 or more natural teeth had median survival of 60.7 months against 39.1.</p><span class="src"><a href="https://www.sciencedaily.com/releases/2026/08/260821012218.htm" target="_blank" rel="noopener nofollow">Hiroshima University</a></span>
+    </div><div class="brief">
+      <div class="brief-head">Collisions show neon and oxygen nuclei hold different shapes</div>
+      <p>Neon-20&#x27;s stronger elliptic flow fits a bowling-pin shape, oxygen-16&#x27;s a tetrahedron. Physical Review Letters.</p><span class="src"><a href="https://phys.org/news/2026-08-lhc-collisions-reveal-oxygen-neon.html" target="_blank" rel="noopener nofollow">CERN</a></span>
+    </div></div>
+</section>
+  </div>
+
+  <hr class="rule-anchor">
 
   <section class="sec sec-wv">
   <div class="section-label">West Virginia</div>
@@ -835,41 +973,26 @@
 </figure>
     <div class="brief">
       <div class="brief-head">Four die as a car goes off the interstate in Charleston</div>
-      <p>The driver lost control at the I-77/I-64 split about 10:52 p.m. Friday and tumbled into the yard below. Names have not been released.</p><span class="src"><a href="https://wvmetronews.com/2026/08/22/four-people-dead-in-charleston-crash/" rel="noopener nofollow">WV MetroNews</a></span>
+      <p>The driver lost control at the I-77/I-64 split about 10:52 p.m. Friday and tumbled into the yard below. Names have not been released.</p><span class="src"><a href="https://wvmetronews.com/2026/08/22/four-people-dead-in-charleston-crash/" target="_blank" rel="noopener nofollow">WV MetroNews</a></span>
     </div><div class="brief">
       <div class="brief-head">Federal directive raises the state&#x27;s canvass threshold</div>
-      <p>Homeland Security requires states to canvass 5% of ballots or lose 20% of grant funds. State law sets 3% of precincts, so clerks must add more.</p><span class="src"><a href="https://wvmetronews.com/2026/08/21/federal-government-directive-will-mean-change-in-post-election-canvassing-in-west-virginia/" rel="noopener nofollow">WV MetroNews</a></span>
+      <p>Homeland Security requires states to canvass 5% of ballots or lose 20% of grant funds. State law sets 3% of precincts, so clerks must add more.</p><span class="src"><a href="https://wvmetronews.com/2026/08/21/federal-government-directive-will-mean-change-in-post-election-canvassing-in-west-virginia/" target="_blank" rel="noopener nofollow">WV MetroNews</a></span>
     </div><div class="wv-block wv-regional">
       <p class="wv-block-label">Around the State</p>
-      <ul class="roundup"><li><span class="place">Huntington &amp; the Cabell-Mason corridor</span> <span class="folk">(Trav, Justin, Nate and Ian)</span> &mdash; Radiology software firm Synthesis Health will take the Med-Tech building in Marshall&#x27;s IDEA District.<span class="src">The Herald-Dispatch</span></li><li><span class="place">Mid-Ohio Valley / Parkersburg</span> <span class="folk">(Pat)</span> &mdash; Rep. Riley Moore gave Parkersburg $1M Friday toward replacing its 55-year-old services garage.<span class="src"><a href="https://www.wtap.com/2026/08/21/moore-presents-parkersburg-with-1-million-garage-replacement/" rel="noopener nofollow">WTAP</a></span></li></ul>
+      <ul class="roundup"><li><span class="place">Huntington &amp; the Cabell-Mason corridor</span> <span class="folk">(Trav, Justin, Nate and Ian)</span> &mdash; Radiology software firm Synthesis Health will take the Med-Tech building in Marshall&#x27;s IDEA District.<span class="src">The Herald-Dispatch</span></li><li><span class="place">Mid-Ohio Valley / Parkersburg</span> <span class="folk">(Pat)</span> &mdash; Rep. Riley Moore gave Parkersburg $1M Friday toward replacing its 55-year-old services garage.<span class="src"><a href="https://www.wtap.com/2026/08/21/moore-presents-parkersburg-with-1-million-garage-replacement/" target="_blank" rel="noopener nofollow">WTAP</a></span></li></ul>
     </div><div class="wv-block wv-fishing">
       <p class="wv-block-label">On the Water</p>
       <ul class="roundup"><li><span class="water">Williams River (Cowen)</span> &mdash; 258 cfs and falling - pushy. Wadeable at the edges, not across.<span class="src">USGS 03186500</span></li><li><span class="water">Topsail Beach (surf and sound)</span> &mdash; Sound highs 4:03 a.m. and 4:48 p.m.; lows 10:23 a.m. and 11:21 p.m.<span class="src">NOAA CO-OPS 8657813</span></li></ul>
     </div>
   </div>
 </section>
-
-  <section class="sec sec-wire">
-  <div class="section-label">Science &amp; Technology</div>
-  <div class="two-col-briefs"><div class="brief">
-      <div class="brief-head">Three minutes of sprinting outdid 90 of steady cycling</div>
-      <p>Six 30-second sprints changed nearly a quarter of measured blood proteins; moderate cycling changed under 0.25%. Cell Reports Medicine.</p><span class="src"><a href="https://www.rockefeller.edu/news/40328-sprinting-intense-exercise/" rel="noopener nofollow">Rockefeller University</a></span>
-    </div><div class="brief">
-      <div class="brief-head">Queen bees offload pesticide into their eggs</div>
-      <p>Workers filtered out 95% of methyl parathion on day one but 86% by day 10; queens shed the rest into their eggs. Current Biology.</p><span class="src"><a href="https://www.sciencedaily.com/releases/2026/08/260821012224.htm" rel="noopener nofollow">University of California, Davis</a></span>
-    </div><div class="brief">
-      <div class="brief-head">Pancreatic cancer patients with more teeth lived longer</div>
-      <p>Among 339 people who had a pancreatectomy, those with 21 or more natural teeth had median survival of 60.7 months against 39.1.</p><span class="src"><a href="https://www.sciencedaily.com/releases/2026/08/260821012218.htm" rel="noopener nofollow">Hiroshima University</a></span>
-    </div><div class="brief">
-      <div class="brief-head">Collisions show neon and oxygen nuclei hold different shapes</div>
-      <p>Neon-20&#x27;s stronger elliptic flow fits a bowling-pin shape, oxygen-16&#x27;s a tetrahedron. Physical Review Letters.</p><span class="src"><a href="https://phys.org/news/2026-08-lhc-collisions-reveal-oxygen-neon.html" rel="noopener nofollow">CERN</a></span>
-    </div></div>
-</section>
   </div>
 
   <div class="kicker">Nicholas, Webster and Summers had nothing dated; the notebook runs two regions.</div>
 
   <div class="footer-note">Compiled from wire reports<span class="sep">&middot;</span><a href="../archive.html">Back issues</a></div>
+
+  <nav class="paper-nav paper-nav-foot" aria-label="Sections, repeated"><a href="../home.html">Home</a><a href="../sportsman/">Sports &amp; Sportsman</a><a href="../weather/">The Weather Claude</a></nav>
 
 </div>
 </body>

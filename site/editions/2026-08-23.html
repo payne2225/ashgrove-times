@@ -102,6 +102,35 @@
   }
 
   /* Section-to-section buttons, house-styled like the section labels. */
+  /* The rule that closes the wire columns off from the anchor sections
+     below them (Nate, 2026-08-26). A column bottom is a ragged edge, and
+     without this the notebook read as one more thing the last column ran
+     into. In the BASE stylesheet, not a breakpoint: the sections stack on a
+     phone and the break between the wire and the anchors still needs
+     saying — a browser-default <hr> in a letterpress page does not. */
+  .rule-anchor {
+    border: 0;
+    border-top: 1px solid var(--ink);
+    margin: 6px 0 16px;
+  }
+
+  /* A tier heading inside the Canada section. Smaller than a section label
+     and not reversed out — it is a sub-head, and three black chips stacked
+     under one black chip would read as four sections. Matches the
+     notebook's .wv-block-label, which is the same idea one box over. */
+  .tier-label {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 4px;
+    margin: 0 0 10px;
+  }
+  .sec-canada .tier { margin-bottom: 6px; }
+
   .paper-nav { text-align: center; margin: 0 0 18px; }
   .paper-nav a {
     display: inline-block;
@@ -118,6 +147,14 @@
     margin: 0 4px 6px;
   }
   .paper-nav a:hover { background: var(--ink); color: var(--parchment); }
+  /* The same row repeated at the foot of the page, where a reader who has
+     finished actually is. Ruled off above so it reads as the end of the
+     paper rather than as one more thing to read. */
+  .paper-nav-foot {
+    margin: 22px 0 2px;
+    padding-top: 16px;
+    border-top: 1px solid var(--rule);
+  }
 
   /* The tide table: a real table, because Nate asked for one. */
   .tide-table { border-collapse: collapse; margin: 10px auto 4px; font-size: 13.5px; }
@@ -534,16 +571,27 @@
     .columns { column-count: 2; font-size: 15.5px; }
     .drop { font-size: 58px; }
 
-    .lead-block {
+    /* WITH a drawing: art at roughly a third of the measure, story beside
+       it. Scoped to .with-art deliberately — when this rule was on the bare
+       .lead-block and the day's drawing went to another section, the story
+       became the first grid child, inherited the 27% art column, and left
+       three quarters of the page white beside eight lines of type. */
+    .lead-block.with-art {
       display: grid;
       grid-template-columns: minmax(240px, 27%) 1fr;
       gap: 0 30px;
       align-items: start;
     }
-    .lead-block .art { max-width: none; margin: 0; }
+    .lead-block.with-art .art { max-width: none; margin: 0; }
     /* Cap the drawing so its bottom lands near the text's, instead of
        running past it and opening a hole under the columns. */
-    .lead-block .art svg { max-height: 210px; width: 100%; }
+    .lead-block.with-art .art svg { max-height: 210px; width: 100%; }
+
+    /* WITHOUT one: nothing shares this line of the page, so the lead runs
+       the full measure. Column COUNT rather than width, because a lead is
+       short and a fixed column-width would leave a half-empty third column
+       on a thin news day. */
+    .lead-block.no-art .columns { column-count: 2; }
   }
 
   @media (min-width: 1320px) {
@@ -551,34 +599,92 @@
     .masthead { font-size: 96px; letter-spacing: 3px; }
     .headline { font-size: 50px; }
 
-    /* The wire sections sit side by side across the page, one to a column,
-       the way the four beats run across a front page below the fold.
+    /* Three columns across ~1,310px of measure is about 420px a column —
+       roughly 58 characters, which is a newspaper line. Two would set 85+
+       and read like a blog. Measured against a real lead: 766 characters on
+       2026-08-24, which fills three columns about five lines deep. */
+    .lead-block.no-art .columns { column-count: 3; }
 
-       GRID, not CSS multi-column. Multi-column was the first attempt and it
-       looked right until you counted: a `column-span: all` element splits
-       the flow, so the two sections above the notebook spread across four
-       columns and left two of them empty. Grid places each section in its
-       own column and lets the notebook span deliberately rather than as a
-       side effect. */
-    .sections {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
+    /* The wire sections FLOW through these columns; they are not placed in
+       them. (2026-08-26 — this was a grid until Pat said "lots and lots of
+       unused space.")
+
+       A grid gave each section its own cell and made every row as tall as
+       its tallest member. On an ordinary morning — U.S. 524px, World 637px,
+       Sci/Tech 901px — that stood 28% of the section area empty, and a last
+       row that did not divide evenly was worse. Copy that runs down one
+       column and continues into the next cannot leave a hole, whatever
+       shape the news turns out to be that day. Measured on the 2026-08-26
+       edition: the section block went 1917px to 999px and the page 3093px
+       to 2653px, with nothing added and nothing cut.
+
+       The original objection to multi-column here was real and is now
+       answered rather than ignored: a `column-span: all` child splits a
+       flow and strands columns, which is exactly what happened the first
+       time. So the notebook is not a child of the flow at all — it is a
+       sibling block below it, and nothing inside the flow spans.
+
+       Sports & Sportsman has set this way since it launched. */
+    .sections { display: block; }
+    .wire-flow {
+      column-count: var(--wire-cols, 3);
       column-gap: 30px;
-      align-items: start;
+      column-rule: 1px solid #c9c2ac;
     }
+    .wire-flow > .sec {
+      break-inside: auto;      /* a section MAY continue into the next column */
+      border-left: 0;
+      padding-left: 0;
+      margin: 0 0 18px;
+    }
+    /* ...but a brief, the drawing, and a label stranded from the brief
+       under it may not be split. Those are the atoms. */
+    .wire-flow .brief { break-inside: avoid; }
+    .wire-flow .art { break-inside: avoid; }
+    .wire-flow .section-label { break-after: avoid; margin-top: 0; }
+    .wire-flow .sec + .sec .section-label { margin-top: 12px; }
     .sec { margin-bottom: 20px; }
     .sec .two-col-briefs { column-count: 1; column-rule: none; }
     .sec .section-label { margin-top: 0; }
-    /* Rules between the wire columns, none before the first. */
-    .sec-wire + .sec-wire { border-left: 1px solid #c9c2ac; padding-left: 30px; }
+
+
+    /* Anchored sections — the notebook and British Columbia — take the full
+       measure below the flow. Their briefs run in their own columns, since
+       one column across 1,310px would set 85-character lines. */
+    .sec-anchor { margin: 0 0 18px; }
+    .sec-anchor .two-col-briefs {
+      column-count: 3;
+      column-gap: 30px;
+      column-rule: 1px solid var(--rule);
+    }
+    .sec-anchor .brief { break-inside: avoid; }
+
+    /* Canada does its own columns, so the anchor rule above must not also
+       fragment it — a grid inside a CSS multi-column container gets sliced
+       across the columns, which put a tier label above an empty column and
+       stranded its brief two columns away. */
+    .sec-canada .two-col-briefs { column-count: 1; column-rule: none; }
+
+    /* The Canada section's three tiers sit side by side across the measure,
+       local first. A tier with nothing in it does not render, so a thin
+       morning closes to two columns rather than standing one empty — the
+       whole page was rebuilt to stop doing exactly that. */
+    .sec-canada .tiers {
+      display: grid;
+      grid-template-columns: repeat(var(--tier-cols, 3), 1fr);
+      column-gap: 30px;
+      align-items: start;
+    }
+    .sec-canada .tier + .tier { border-left: 1px solid var(--rule); padding-left: 30px; }
 
     /* The notebook is the anchor and it is wide content — four sub-blocks
-       that would strangle in a 300px column. It spans the whole measure as
+       that would strangle in a 300px column. It takes the whole measure as
        a boxed feature, which is both where the space is and the treatment
-       Ian asked for. `order` moves it below the wire columns without
-       touching DOM order, so the phone layout and screen readers still get
-       Ian's sequence. */
-    .sec-wv { grid-column: 1 / -1; order: 9; margin: 10px 0 8px; }
+       Ian asked for. It sits BELOW the flow because the renderer emits it
+       as a sibling after .wire-flow, not because of a CSS `order` — that
+       was a grid trick and the grid is gone. Screen readers and the phone
+       layout get the same sequence the markup has. */
+    .sec-wv { margin: 10px 0 8px; }
     .sec-wv .wv-box { padding: 22px 28px; column-count: 2; column-gap: 36px; }
     .sec-wv .wv-title { column-span: all; font-size: 24px; }
     .sec-wv .wv-box > .brief,
@@ -588,7 +694,9 @@
   @media (min-width: 1700px) {
     .page { max-width: 1600px; }
     .masthead { font-size: 108px; }
-    .sections { grid-template-columns: repeat(4, 1fr); }
+    /* Three, not four, even here. The lead runs about 700 characters — a
+       fourth column would set it three lines deep and read as a caption
+       rather than as the day's story. */
   }
 
   /* ---------- Sports & Sportsman page layout ----------
@@ -643,16 +751,25 @@
   }
   .wx-list { margin: 0 0 12px; padding-left: 20px; }
   .wx-list li { margin-bottom: 6px; }
-  /* The weather page borrows the sportsman column fill at desktop; a single
-     long column reads better for a briefing, so undo the multi-column. */
-  @media (min-width: 1024px) {
-    .page.weather .sections { column-count: 1; column-rule: none; }
-  }
+  /* The weather page stopped borrowing the sportsman column fill on
+     2026-08-25 — it sets as a newspaper page now, with the same section
+     grid the front page uses, so there is no multi-column flow left to
+     undo. What it does need is its own handling of Jim's confidence note,
+     which is a single paragraph inside a full-width box: the notebook's
+     two columns would split one short paragraph down the middle. */
+  .wx-confidence .wv-box { column-count: 1; }
+  .wx-confidence .wv-box p { margin: 0 0 10px; max-width: 92ch; }
+  .wx-confidence .wv-box p:last-child { margin-bottom: 0; }
+  .wx-roundup { margin: 0; }
+  /* Jim writes in half a dozen short reports rather than long copy, so the
+     label chip has to survive a stacked heading — three towns sharing one
+     forecast — without pushing the section out of its column. */
+  .page.weather .section-label { white-space: normal; line-height: 1.35; }
 
   @media print {
     body { background: #fff; padding: 0; }
     .page { border: 0; box-shadow: none; max-width: none; }
-    .sections { display: grid; grid-template-columns: repeat(4, 1fr); column-gap: 24px; }
+    .wire-flow { column-count: var(--wire-cols, 3); column-gap: 24px; }
     .sec-wv { grid-column: 1 / -1; order: 9; }
   }
 </style>
@@ -674,13 +791,13 @@
   <hr class="rule-thick">
   <hr class="rule-thin">
 
-  <nav class="paper-nav"><a href="../index.html">Home</a><a href="../sportsman/">Sports &amp; Sportsman</a><a href="../weather/">The Weather Claude</a></nav>
+  <nav class="paper-nav" aria-label="Sections"><a href="../home.html">Home</a><a href="../sportsman/">Sports &amp; Sportsman</a><a href="../weather/">The Weather Claude</a></nav>
 
   <div class="headline">Canada sets dollar-for-dollar tariffs on U.S. goods for Sept. 8</div>
   <div class="subhead">Carney says Washington &#x27;asked too much and offered too little&#x27; after 50% U.S. duties took effect</div>
   <div class="byline">By Wire Reports</div>
 
-  <div class="lead-block">
+  <div class="lead-block with-art">
     <figure class="art">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" role="img"
      aria-label="Sketch: a container freight yard. A reach stacker holds one container in the air beside a wall of stacked containers rising six high, with a rail catenary line crossing the sky behind the machine.">
@@ -812,21 +929,22 @@
   <div class="stat-strip"><div><b>7,674.37</b><span class="stat-label">S&amp;P 500</span><span class="stat-change"><span class="tri up" aria-hidden="true"></span>+0.43%</span></div><div><b>53,277.01</b><span class="stat-label">Dow</span><span class="stat-change"><span class="tri up" aria-hidden="true"></span>+0.98%</span></div><div><b>26,180.46</b><span class="stat-label">Nasdaq</span><span class="stat-change"><span class="tri up" aria-hidden="true"></span>+0.43%</span></div><div><b>$76,489</b><span class="stat-label">Bitcoin</span><span class="stat-change"><span class="tri down" aria-hidden="true"></span>-0.94%</span></div></div>
   <p class="stats-note">Market data compiled before the opening bell</p>
 
-  <div class="sections">
+  <div class="sections" style="--wire-cols: 3">
+  <div class="wire-flow">
   <section class="sec sec-wire">
   <div class="section-label">U.S.</div>
   <div class="two-col-briefs"><div class="brief">
       <div class="brief-head">Judge voids the 75-country immigrant visa ban</div>
-      <p>A federal judge ruled Friday the ban violates immigration law&#x27;s bar on nationality discrimination and set aside denials made under it.</p><span class="src"><a href="https://text.npr.org/nx-s1-5941765" rel="noopener nofollow">NPR</a></span>
+      <p>A federal judge ruled Friday the ban violates immigration law&#x27;s bar on nationality discrimination and set aside denials made under it.</p><span class="src"><a href="https://text.npr.org/nx-s1-5941765" target="_blank" rel="noopener nofollow">NPR</a></span>
     </div><div class="brief">
       <div class="brief-head">Interior orders Colorado River cuts through 2028</div>
-      <p>Arizona loses 760,000 acre-feet, California 440,000 and Nevada 50,000 under the two-year plan, with Lake Mead and Lake Powell at record lows.</p><span class="src"><a href="https://text.npr.org/nx-s1-5940831" rel="noopener nofollow">NPR</a></span>
+      <p>Arizona loses 760,000 acre-feet, California 440,000 and Nevada 50,000 under the two-year plan, with Lake Mead and Lake Powell at record lows.</p><span class="src"><a href="https://text.npr.org/nx-s1-5940831" target="_blank" rel="noopener nofollow">NPR</a></span>
     </div><div class="brief">
       <div class="brief-head">Texas court cuts Alex Jones judgment to $1.5M</div>
-      <p>The appeals court found the Sandy Hook parents did not show harassment past a $750,000 damages cap; a $1.4B Connecticut judgment stands.</p><span class="src"><a href="https://spectrumlocalnews.com/tx/south-texas-el-paso/news/2026/08/21/court-slashes--50m-judgment-against-infowars--alex-jones" rel="noopener nofollow">AP</a></span>
+      <p>The appeals court found the Sandy Hook parents did not show harassment past a $750,000 damages cap; a $1.4B Connecticut judgment stands.</p><span class="src"><a href="https://spectrumlocalnews.com/tx/south-texas-el-paso/news/2026/08/21/court-slashes--50m-judgment-against-infowars--alex-jones" target="_blank" rel="noopener nofollow">AP</a></span>
     </div><div class="brief">
       <div class="brief-head">TikTok to pay $400M over children&#x27;s privacy</div>
-      <p>The settlement ends a 2024 Justice Department and FTC suit over data collected from users under 13 without parental consent.</p><span class="src"><a href="https://www.euronews.com/next/2026/08/22/tiktok-agrees-to-pay-400-million-to-settle-us-childrens-privacy-lawsuit" rel="noopener nofollow">Euronews</a></span>
+      <p>The settlement ends a 2024 Justice Department and FTC suit over data collected from users under 13 without parental consent.</p><span class="src"><a href="https://www.euronews.com/next/2026/08/22/tiktok-agrees-to-pay-400-million-to-settle-us-childrens-privacy-lawsuit" target="_blank" rel="noopener nofollow">Euronews</a></span>
     </div></div>
 </section>
 
@@ -834,18 +952,38 @@
   <div class="section-label">World</div>
   <div class="two-col-briefs"><div class="brief">
       <div class="brief-head">Wrong-way driver kills seven, two of them police, in England</div>
-      <p>A pursued car hit a police vehicle head-on near Middlesbrough early Saturday, killing all seven people in the two vehicles, two constables among them.</p><span class="src"><a href="https://www.aljazeera.com/news/2026/8/22/seven-killed-including-two-police-officers-in-uk-wrong-side-car-crash" rel="noopener nofollow">Al Jazeera</a></span>
+      <p>A pursued car hit a police vehicle head-on near Middlesbrough early Saturday, killing all seven people in the two vehicles, two constables among them.</p><span class="src"><a href="https://www.aljazeera.com/news/2026/8/22/seven-killed-including-two-police-officers-in-uk-wrong-side-car-crash" target="_blank" rel="noopener nofollow">Al Jazeera</a></span>
     </div><div class="brief">
       <div class="brief-head">Iran calls joining U.S. sanctions an act of enmity</div>
-      <p>Security official Mohsen Rezai said countries joining new U.S. sanctions are &#x27;considered an enemy&#x27;; the Treasury promised a coordinated squeeze.</p><span class="src"><a href="https://www.cbsnews.com/live-updates/iran-war-trump-economic-crackdown/" rel="noopener nofollow">CBS</a></span>
+      <p>Security official Mohsen Rezai said countries joining new U.S. sanctions are &#x27;considered an enemy&#x27;; the Treasury promised a coordinated squeeze.</p><span class="src"><a href="https://www.cbsnews.com/live-updates/iran-war-trump-economic-crackdown/" target="_blank" rel="noopener nofollow">CBS</a></span>
     </div><div class="brief">
       <div class="brief-head">Kazakhstan votes for a single-chamber parliament</div>
-      <p>Seven approved parties, all aligned with President Tokayev, contest the new 145-seat legislature; the same overhaul reset his term limits.</p><span class="src"><a href="https://www.aljazeera.com/news/2026/8/23/kazakhstan-holds-parliamentary-election-expected-to-cement-presidents-grip" rel="noopener nofollow">Al Jazeera</a></span>
+      <p>Seven approved parties, all aligned with President Tokayev, contest the new 145-seat legislature; the same overhaul reset his term limits.</p><span class="src"><a href="https://www.aljazeera.com/news/2026/8/23/kazakhstan-holds-parliamentary-election-expected-to-cement-presidents-grip" target="_blank" rel="noopener nofollow">Al Jazeera</a></span>
     </div><div class="brief">
       <div class="brief-head">Magnitude 5.9 quake injures at least 37 near Tokyo</div>
-      <p>The overnight quake under southern Ibaraki disrupted trains and damaged a building; the prime minister urged vigilance for a similar shock.</p><span class="src"><a href="https://www.euronews.com/2026/08/23/59-magnitude-earthquake-strikes-japan-injuring-at-least-37" rel="noopener nofollow">Euronews</a></span>
+      <p>The overnight quake under southern Ibaraki disrupted trains and damaged a building; the prime minister urged vigilance for a similar shock.</p><span class="src"><a href="https://www.euronews.com/2026/08/23/59-magnitude-earthquake-strikes-japan-injuring-at-least-37" target="_blank" rel="noopener nofollow">Euronews</a></span>
     </div></div>
 </section>
+
+  <section class="sec sec-wire">
+  <div class="section-label">Science &amp; Technology</div>
+  <div class="two-col-briefs"><div class="brief">
+      <div class="brief-head">Spin explains stars that survive black holes twice</div>
+      <p>Rapidly spinning stars shed less material each pass, so their repeating flares fade - seen in four of about 10 known systems.</p><span class="src"><a href="https://www.sciencedaily.com/releases/2026/08/260822015119.htm" target="_blank" rel="noopener nofollow">Syracuse University</a></span>
+    </div><div class="brief">
+      <div class="brief-head">Webb finds early galaxies hiding faint stars</div>
+      <p>Spectra of nine early galaxies show far more faint stars than assumed, making them three to four times heavier. Nature Astronomy.</p><span class="src"><a href="https://www.sciencedaily.com/releases/2026/08/260822015141.htm" target="_blank" rel="noopener nofollow">Penn State</a></span>
+    </div><div class="brief">
+      <div class="brief-head">Greenland shark eyes show no aging at 400 years</div>
+      <p>Sharks caught off Greenland showed no age-related retinal cell death; one examined eye was about 200 years old. Nature Communications.</p><span class="src"><a href="https://www.sciencedaily.com/releases/2026/08/260821012232.htm" target="_blank" rel="noopener nofollow">UC Irvine</a></span>
+    </div><div class="brief">
+      <div class="brief-head">High-dose vitamin D tied to better cognition scores</div>
+      <p>Among 54 older adults with mild impairment, daily 5,000 IU users scored 13% higher on cognition tests; the small study shows association, not cause.</p><span class="src"><a href="https://www.sciencedaily.com/releases/2026/08/260822015138.htm" target="_blank" rel="noopener nofollow">Emory University</a></span>
+    </div></div>
+</section>
+  </div>
+
+  <hr class="rule-anchor">
 
   <section class="sec sec-wv">
   <div class="section-label">West Virginia</div>
@@ -854,44 +992,29 @@
     
     <div class="brief">
       <div class="brief-head">Two young people die in Clay County crash</div>
-      <p>A car and a state vehicle collided on Route 16 near Indore Saturday afternoon; a third young person was hospitalized.</p><span class="src"><a href="https://wvmetronews.com/2026/08/23/two-young-people-dead-in-clay-county-crash/" rel="noopener nofollow">WV MetroNews</a></span>
+      <p>A car and a state vehicle collided on Route 16 near Indore Saturday afternoon; a third young person was hospitalized.</p><span class="src"><a href="https://wvmetronews.com/2026/08/23/two-young-people-dead-in-clay-county-crash/" target="_blank" rel="noopener nofollow">WV MetroNews</a></span>
     </div><div class="brief">
       <div class="brief-head">WVDOT studies the interstate split where four died</div>
-      <p>The department is weighing anti-skid surfacing, rumble strips and warning lights at the I-64/77 split after a fourth barrier crash since 2022.</p><span class="src"><a href="https://www.wsaz.com/2026/08/23/wvdot-says-its-studying-safety-measures-after-repeated-crashes-interstate/" rel="noopener nofollow">WSAZ</a></span>
+      <p>The department is weighing anti-skid surfacing, rumble strips and warning lights at the I-64/77 split after a fourth barrier crash since 2022.</p><span class="src"><a href="https://www.wsaz.com/2026/08/23/wvdot-says-its-studying-safety-measures-after-repeated-crashes-interstate/" target="_blank" rel="noopener nofollow">WSAZ</a></span>
     </div><div class="wv-block wv-regional">
       <p class="wv-block-label">Around the State</p>
-      <ul class="roundup"><li><span class="place">Putnam / Kanawha - Charleston</span> <span class="folk">(Nate)</span> &mdash; An unidentified body was recovered from the Kanawha River near Patrick Street on Saturday afternoon.<span class="src"><a href="https://wvmetronews.com/2026/08/23/body-recovered-in-kanawha-river-2/" rel="noopener nofollow">WV MetroNews</a></span></li></ul>
+      <ul class="roundup"><li><span class="place">Putnam / Kanawha - Charleston</span> <span class="folk">(Nate)</span> &mdash; An unidentified body was recovered from the Kanawha River near Patrick Street on Saturday afternoon.<span class="src"><a href="https://wvmetronews.com/2026/08/23/body-recovered-in-kanawha-river-2/" target="_blank" rel="noopener nofollow">WV MetroNews</a></span></li></ul>
     </div><div class="wv-block wv-away">
       <p class="wv-block-label">The Away Desk</p>
-      <ul class="roundup"><li><span class="place">Prince George, BC</span> <span class="folk">(Kirsten)</span> &mdash; Police say the charter down on Foothills Boulevard had lost power in one engine; the TSB has the case.<span class="src"><a href="https://globalnews.ca/news/12030605/prince-george-plane-emergency-landing-engine-losing-power/" rel="noopener nofollow">Global News</a></span></li></ul>
+      <ul class="roundup"><li><span class="place">Prince George, BC</span> <span class="folk">(Kirsten)</span> &mdash; Police say the charter down on Foothills Boulevard had lost power in one engine; the TSB has the case.<span class="src"><a href="https://globalnews.ca/news/12030605/prince-george-plane-emergency-landing-engine-losing-power/" target="_blank" rel="noopener nofollow">Global News</a></span></li></ul>
     </div><div class="wv-block wv-fishing">
       <p class="wv-block-label">On the Water</p>
       <ul class="roundup"><li><span class="water">Williams River (Cowen)</span> &mdash; 242 cfs and falling - pushy. Wadeable at the edges, not across.<span class="src">USGS 03186500</span></li><li><span class="water">Topsail Beach (surf and sound)</span> &mdash; Sound highs 4:55 a.m. and 5:40 p.m.; lows 11:12 a.m. and 12:07 a.m. Monday.<span class="src">NOAA CO-OPS 8657813</span></li></ul>
     </div>
   </div>
 </section>
-
-  <section class="sec sec-wire">
-  <div class="section-label">Science &amp; Technology</div>
-  <div class="two-col-briefs"><div class="brief">
-      <div class="brief-head">Spin explains stars that survive black holes twice</div>
-      <p>Rapidly spinning stars shed less material each pass, so their repeating flares fade - seen in four of about 10 known systems.</p><span class="src"><a href="https://www.sciencedaily.com/releases/2026/08/260822015119.htm" rel="noopener nofollow">Syracuse University</a></span>
-    </div><div class="brief">
-      <div class="brief-head">Webb finds early galaxies hiding faint stars</div>
-      <p>Spectra of nine early galaxies show far more faint stars than assumed, making them three to four times heavier. Nature Astronomy.</p><span class="src"><a href="https://www.sciencedaily.com/releases/2026/08/260822015141.htm" rel="noopener nofollow">Penn State</a></span>
-    </div><div class="brief">
-      <div class="brief-head">Greenland shark eyes show no aging at 400 years</div>
-      <p>Sharks caught off Greenland showed no age-related retinal cell death; one examined eye was about 200 years old. Nature Communications.</p><span class="src"><a href="https://www.sciencedaily.com/releases/2026/08/260821012232.htm" rel="noopener nofollow">UC Irvine</a></span>
-    </div><div class="brief">
-      <div class="brief-head">High-dose vitamin D tied to better cognition scores</div>
-      <p>Among 54 older adults with mild impairment, daily 5,000 IU users scored 13% higher on cognition tests; the small study shows association, not cause.</p><span class="src"><a href="https://www.sciencedaily.com/releases/2026/08/260822015138.htm" rel="noopener nofollow">Emory University</a></span>
-    </div></div>
-</section>
   </div>
 
   <div class="kicker">The away desk returns from Prince George; Huntington, Parkersburg, Nicholas and Summers were quiet.</div>
 
   <div class="footer-note">Compiled from wire reports<span class="sep">&middot;</span><a href="../archive.html">Back issues</a></div>
+
+  <nav class="paper-nav paper-nav-foot" aria-label="Sections, repeated"><a href="../home.html">Home</a><a href="../sportsman/">Sports &amp; Sportsman</a><a href="../weather/">The Weather Claude</a></nav>
 
 </div>
 </body>

@@ -88,6 +88,90 @@
     color: var(--ink-mute);
   }
 
+  /* The family banner: the WHOLE thing is The Ashgrove Times (Nate,
+     2026-08-21), so every section page carries it above its own name. */
+  .family-line {
+    text-align: center;
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin: 2px 0 0;
+  }
+
+  /* Section-to-section buttons, house-styled like the section labels. */
+  /* The rule that closes the wire columns off from the anchor sections
+     below them (Nate, 2026-08-26). A column bottom is a ragged edge, and
+     without this the notebook read as one more thing the last column ran
+     into. In the BASE stylesheet, not a breakpoint: the sections stack on a
+     phone and the break between the wire and the anchors still needs
+     saying — a browser-default <hr> in a letterpress page does not. */
+  .rule-anchor {
+    border: 0;
+    border-top: 1px solid var(--ink);
+    margin: 6px 0 16px;
+  }
+
+  /* A tier heading inside the Canada section. Smaller than a section label
+     and not reversed out — it is a sub-head, and three black chips stacked
+     under one black chip would read as four sections. Matches the
+     notebook's .wv-block-label, which is the same idea one box over. */
+  .tier-label {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 4px;
+    margin: 0 0 10px;
+  }
+  .sec-canada .tier { margin-bottom: 6px; }
+
+  .paper-nav { text-align: center; margin: 0 0 18px; }
+  .paper-nav a {
+    display: inline-block;
+    border: 1px solid var(--ink);
+    background: var(--wv-tint);
+    color: var(--ink);
+    text-decoration: none;
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 11.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    margin: 0 4px 6px;
+  }
+  .paper-nav a:hover { background: var(--ink); color: var(--parchment); }
+  /* The same row repeated at the foot of the page, where a reader who has
+     finished actually is. Ruled off above so it reads as the end of the
+     paper rather than as one more thing to read. */
+  .paper-nav-foot {
+    margin: 22px 0 2px;
+    padding-top: 16px;
+    border-top: 1px solid var(--rule);
+  }
+
+  /* The tide table: a real table, because Nate asked for one. */
+  .tide-table { border-collapse: collapse; margin: 10px auto 4px; font-size: 13.5px; }
+  .tide-table caption {
+    font-family: var(--display); font-weight: 700; font-size: 13px;
+    letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-mute);
+    padding-bottom: 6px;
+  }
+  .tide-table th, .tide-table td {
+    border: 1px solid var(--rule); padding: 4px 12px; text-align: center;
+  }
+  .tide-table th {
+    font-family: var(--display); font-size: 11.5px; letter-spacing: 0.08em;
+    text-transform: uppercase; background: var(--wv-tint);
+  }
+  .tide-table td:first-child { font-weight: 600; }
+
   /* ---------- masthead ---------- */
 
   .masthead {
@@ -484,45 +568,123 @@
     .tagline { font-size: 15px; margin-bottom: 10px; }
     .headline { font-size: 40px; line-height: 1.08; }
     .subhead { font-size: 17px; }
-    .columns { column-count: 3; font-size: 15.5px; }
+    .columns { column-count: 2; font-size: 15.5px; }
     .drop { font-size: 58px; }
+
+    /* WITH a drawing: art at roughly a third of the measure, story beside
+       it. Scoped to .with-art deliberately — when this rule was on the bare
+       .lead-block and the day's drawing went to another section, the story
+       became the first grid child, inherited the 27% art column, and left
+       three quarters of the page white beside eight lines of type. */
+    .lead-block.with-art {
+      display: grid;
+      grid-template-columns: minmax(240px, 27%) 1fr;
+      gap: 0 30px;
+      align-items: start;
+    }
+    .lead-block.with-art .art { max-width: none; margin: 0; }
+    /* Cap the drawing so its bottom lands near the text's, instead of
+       running past it and opening a hole under the columns. */
+    .lead-block.with-art .art svg { max-height: 210px; width: 100%; }
+
+    /* WITHOUT one: nothing shares this line of the page, so the lead runs
+       the full measure. Column COUNT rather than width, because a lead is
+       short and a fixed column-width would leave a half-empty third column
+       on a thin news day. */
+    .lead-block.no-art .columns { column-count: 2; }
   }
 
   @media (min-width: 1320px) {
     .page { max-width: 1420px; padding: 40px 54px 56px; }
-    .art { max-width: 560px; }
     .masthead { font-size: 96px; letter-spacing: 3px; }
     .headline { font-size: 50px; }
-    .columns { column-count: 4; }
 
-    /* The wire sections sit side by side across the page, one to a column,
-       the way the four beats run across a front page below the fold.
+    /* Three columns across ~1,310px of measure is about 420px a column —
+       roughly 58 characters, which is a newspaper line. Two would set 85+
+       and read like a blog. Measured against a real lead: 766 characters on
+       2026-08-24, which fills three columns about five lines deep. */
+    .lead-block.no-art .columns { column-count: 3; }
 
-       GRID, not CSS multi-column. Multi-column was the first attempt and it
-       looked right until you counted: a `column-span: all` element splits
-       the flow, so the two sections above the notebook spread across four
-       columns and left two of them empty. Grid places each section in its
-       own column and lets the notebook span deliberately rather than as a
-       side effect. */
-    .sections {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
+    /* The wire sections FLOW through these columns; they are not placed in
+       them. (2026-08-26 — this was a grid until Pat said "lots and lots of
+       unused space.")
+
+       A grid gave each section its own cell and made every row as tall as
+       its tallest member. On an ordinary morning — U.S. 524px, World 637px,
+       Sci/Tech 901px — that stood 28% of the section area empty, and a last
+       row that did not divide evenly was worse. Copy that runs down one
+       column and continues into the next cannot leave a hole, whatever
+       shape the news turns out to be that day. Measured on the 2026-08-26
+       edition: the section block went 1917px to 999px and the page 3093px
+       to 2653px, with nothing added and nothing cut.
+
+       The original objection to multi-column here was real and is now
+       answered rather than ignored: a `column-span: all` child splits a
+       flow and strands columns, which is exactly what happened the first
+       time. So the notebook is not a child of the flow at all — it is a
+       sibling block below it, and nothing inside the flow spans.
+
+       Sports & Sportsman has set this way since it launched. */
+    .sections { display: block; }
+    .wire-flow {
+      column-count: var(--wire-cols, 3);
       column-gap: 30px;
-      align-items: start;
+      column-rule: 1px solid #c9c2ac;
     }
+    .wire-flow > .sec {
+      break-inside: auto;      /* a section MAY continue into the next column */
+      border-left: 0;
+      padding-left: 0;
+      margin: 0 0 18px;
+    }
+    /* ...but a brief, the drawing, and a label stranded from the brief
+       under it may not be split. Those are the atoms. */
+    .wire-flow .brief { break-inside: avoid; }
+    .wire-flow .art { break-inside: avoid; }
+    .wire-flow .section-label { break-after: avoid; margin-top: 0; }
+    .wire-flow .sec + .sec .section-label { margin-top: 12px; }
     .sec { margin-bottom: 20px; }
     .sec .two-col-briefs { column-count: 1; column-rule: none; }
     .sec .section-label { margin-top: 0; }
-    /* Rules between the wire columns, none before the first. */
-    .sec-wire + .sec-wire { border-left: 1px solid #c9c2ac; padding-left: 30px; }
+
+
+    /* Anchored sections — the notebook and British Columbia — take the full
+       measure below the flow. Their briefs run in their own columns, since
+       one column across 1,310px would set 85-character lines. */
+    .sec-anchor { margin: 0 0 18px; }
+    .sec-anchor .two-col-briefs {
+      column-count: 3;
+      column-gap: 30px;
+      column-rule: 1px solid var(--rule);
+    }
+    .sec-anchor .brief { break-inside: avoid; }
+
+    /* Canada does its own columns, so the anchor rule above must not also
+       fragment it — a grid inside a CSS multi-column container gets sliced
+       across the columns, which put a tier label above an empty column and
+       stranded its brief two columns away. */
+    .sec-canada .two-col-briefs { column-count: 1; column-rule: none; }
+
+    /* The Canada section's three tiers sit side by side across the measure,
+       local first. A tier with nothing in it does not render, so a thin
+       morning closes to two columns rather than standing one empty — the
+       whole page was rebuilt to stop doing exactly that. */
+    .sec-canada .tiers {
+      display: grid;
+      grid-template-columns: repeat(var(--tier-cols, 3), 1fr);
+      column-gap: 30px;
+      align-items: start;
+    }
+    .sec-canada .tier + .tier { border-left: 1px solid var(--rule); padding-left: 30px; }
 
     /* The notebook is the anchor and it is wide content — four sub-blocks
-       that would strangle in a 300px column. It spans the whole measure as
+       that would strangle in a 300px column. It takes the whole measure as
        a boxed feature, which is both where the space is and the treatment
-       Ian asked for. `order` moves it below the wire columns without
-       touching DOM order, so the phone layout and screen readers still get
-       Ian's sequence. */
-    .sec-wv { grid-column: 1 / -1; order: 9; margin: 10px 0 8px; }
+       Ian asked for. It sits BELOW the flow because the renderer emits it
+       as a sibling after .wire-flow, not because of a CSS `order` — that
+       was a grid trick and the grid is gone. Screen readers and the phone
+       layout get the same sequence the markup has. */
+    .sec-wv { margin: 10px 0 8px; }
     .sec-wv .wv-box { padding: 22px 28px; column-count: 2; column-gap: 36px; }
     .sec-wv .wv-title { column-span: all; font-size: 24px; }
     .sec-wv .wv-box > .brief,
@@ -532,8 +694,9 @@
   @media (min-width: 1700px) {
     .page { max-width: 1600px; }
     .masthead { font-size: 108px; }
-    .sections { grid-template-columns: repeat(4, 1fr); }
-    .columns { column-count: 5; }
+    /* Three, not four, even here. The lead runs about 700 characters — a
+       fourth column would set it three lines deep and read as a caption
+       rather than as the day's story. */
   }
 
   /* ---------- Sports & Sportsman page layout ----------
@@ -573,10 +736,40 @@
     .page.sportsman .wv-block-label { break-after: avoid; }
   }
 
+  /* ---------- the weather page (Jim Claudtore's briefing, typeset) ---- */
+
+  .wx-briefing { max-width: 760px; margin: 0 auto; font-size: 15px; line-height: 1.55; }
+  .wx-briefing p { margin: 0 0 12px; }
+  .wx-day {
+    font-family: var(--display); font-weight: 900; font-size: 26px;
+    line-height: 1.15; margin: 4px 0 6px;
+  }
+  .wx-dek { font-style: italic; font-size: 15px; color: var(--ink-soft); margin: 0 0 16px; }
+  .wx-loc {
+    font-family: var(--display); font-weight: 700; font-size: 17px;
+    border-top: 1px solid var(--rule); padding-top: 12px; margin: 18px 0 6px;
+  }
+  .wx-list { margin: 0 0 12px; padding-left: 20px; }
+  .wx-list li { margin-bottom: 6px; }
+  /* The weather page stopped borrowing the sportsman column fill on
+     2026-08-25 — it sets as a newspaper page now, with the same section
+     grid the front page uses, so there is no multi-column flow left to
+     undo. What it does need is its own handling of Jim's confidence note,
+     which is a single paragraph inside a full-width box: the notebook's
+     two columns would split one short paragraph down the middle. */
+  .wx-confidence .wv-box { column-count: 1; }
+  .wx-confidence .wv-box p { margin: 0 0 10px; max-width: 92ch; }
+  .wx-confidence .wv-box p:last-child { margin-bottom: 0; }
+  .wx-roundup { margin: 0; }
+  /* Jim writes in half a dozen short reports rather than long copy, so the
+     label chip has to survive a stacked heading — three towns sharing one
+     forecast — without pushing the section out of its column. */
+  .page.weather .section-label { white-space: normal; line-height: 1.35; }
+
   @media print {
     body { background: #fff; padding: 0; }
     .page { border: 0; box-shadow: none; max-width: none; }
-    .sections { display: grid; grid-template-columns: repeat(4, 1fr); column-gap: 24px; }
+    .wire-flow { column-count: var(--wire-cols, 3); column-gap: 24px; }
     .sec-wv { grid-column: 1 / -1; order: 9; }
   }
 </style>
@@ -592,37 +785,42 @@
   <div class="ear">
     <span class="ear-label">Weather</span>Today&#x27;s forecast lands at 7:15, from Jim Claudtore.
   </div>
-  <div class="masthead">THE ASHGROVE TIMES</div>
+  <div class="family-line">The Ashgrove Times</div>
+  <div class="masthead">THE NEWS DESK</div>
   <div class="tagline">&ldquo;For the Fellers&rdquo;</div>
   <hr class="rule-thick">
   <hr class="rule-thin">
+
+  <nav class="paper-nav" aria-label="Sections"><a href="../home.html">Home</a><a href="../sportsman/">Sports &amp; Sportsman</a><a href="../weather/">The Weather Claude</a></nav>
 
   <div class="headline">Kushner meets Hamas chief in Cairo before Netanyahu talks</div>
   <div class="subhead">Hamas would disarm and Israeli forces withdraw. Netanyahu rejected the plan last week.</div>
   <div class="byline">By Wire Reports</div>
 
-  
-
-  <div class="columns"><p><span class="drop">U</span>.S. negotiator Jared Kushner met Hamas chief Khalil al-Hayya in Cairo on Sunday for more than two hours, seeking the group&#x27;s commitment to a 15-point American road map for Gaza. Egyptian, Qatari and Turkish officials attended with envoy Steve Witkoff.</p><p>The plan would have Hamas hand its weapons to a Palestinian technocratic committee while Israeli forces halt attacks and withdraw, with an international force between them. Hamas said it wants Israel pulled back to the yellow line before a 14-day negotiating period opens.</p><p>Kushner, Tony Blair and Board of Peace director Nickolay Mladenov meet Prime Minister Benjamin Netanyahu on Monday. Netanyahu rejected the road map last week, saying Israel will not leave any position until Hamas is disarmed.</p></div>
+  <div class="lead-block no-art">
+    
+    <div class="columns"><p><span class="drop">U</span>.S. negotiator Jared Kushner met Hamas chief Khalil al-Hayya in Cairo on Sunday for more than two hours, seeking the group&#x27;s commitment to a 15-point American road map for Gaza. Egyptian, Qatari and Turkish officials attended with envoy Steve Witkoff.</p><p>The plan would have Hamas hand its weapons to a Palestinian technocratic committee while Israeli forces halt attacks and withdraw, with an international force between them. Hamas said it wants Israel pulled back to the yellow line before a 14-day negotiating period opens.</p><p>Kushner, Tony Blair and Board of Peace director Nickolay Mladenov meet Prime Minister Benjamin Netanyahu on Monday. Netanyahu rejected the road map last week, saying Israel will not leave any position until Hamas is disarmed.</p></div>
+  </div>
 
   <div class="stat-strip"><div><b>7,785.76</b><span class="stat-label">S&amp;P 500</span><span class="stat-change"><span class="tri down" aria-hidden="true"></span>-0.17%</span></div><div><b>53,732.41</b><span class="stat-label">Dow</span><span class="stat-change"><span class="tri down" aria-hidden="true"></span>-0.20%</span></div><div><b>26,729.16</b><span class="stat-label">Nasdaq</span><span class="stat-change"><span class="tri down" aria-hidden="true"></span>-0.28%</span></div><div><b>$63,310</b><span class="stat-label">Bitcoin</span><span class="stat-change"><span class="tri up" aria-hidden="true"></span>+0.47%</span></div></div>
   <p class="stats-note">Market data compiled before the opening bell</p>
 
-  <div class="sections">
+  <div class="sections" style="--wire-cols: 3">
+  <div class="wire-flow">
   <section class="sec sec-wire">
   <div class="section-label">U.S.</div>
   <div class="two-col-briefs"><div class="brief">
       <div class="brief-head">Indiana flood deaths rise to 7 as Trump clears disaster aid</div>
-      <p>Storms since Aug. 11 have killed at least seven. The White River crested above 24 feet at Anderson, past the 1913 record.</p><span class="src"><a href="https://www.pbs.org/newshour/nation/at-least-6-people-have-died-from-days-of-storms-and-record-setting-flooding-in-indiana" rel="noopener nofollow">PBS NewsHour</a></span>
+      <p>Storms since Aug. 11 have killed at least seven. The White River crested above 24 feet at Anderson, past the 1913 record.</p><span class="src"><a href="https://www.pbs.org/newshour/nation/at-least-6-people-have-died-from-days-of-storms-and-record-setting-flooding-in-indiana" target="_blank" rel="noopener nofollow">PBS NewsHour</a></span>
     </div><div class="brief">
       <div class="brief-head">Four states take Meta to trial over children&#x27;s safety</div>
-      <p>California, Colorado, Kentucky and New Jersey say the apps were built to addict children. The trial opens this week in Oakland.</p><span class="src"><a href="https://www.npr.org/2026/08/17/nx-s1-5930701/meta-trial-kids-social-media-addiction" rel="noopener nofollow">NPR</a></span>
+      <p>California, Colorado, Kentucky and New Jersey say the apps were built to addict children. The trial opens this week in Oakland.</p><span class="src"><a href="https://www.npr.org/2026/08/17/nx-s1-5930701/meta-trial-kids-social-media-addiction" target="_blank" rel="noopener nofollow">NPR</a></span>
     </div><div class="brief">
       <div class="brief-head">Lake Powell falls to its lowest level on record</div>
-      <p>The reservoir hit 3,519.91 feet Saturday, under the April 2023 record and about 30 feet above where Glen Canyon Dam stops generating.</p><span class="src"><a href="https://www.pbs.org/newshour/nation/lake-powell-hits-record-low-threatening-key-water-and-electricity-supply-for-millions" rel="noopener nofollow">PBS NewsHour</a></span>
+      <p>The reservoir hit 3,519.91 feet Saturday, under the April 2023 record and about 30 feet above where Glen Canyon Dam stops generating.</p><span class="src"><a href="https://www.pbs.org/newshour/nation/lake-powell-hits-record-low-threatening-key-water-and-electricity-supply-for-millions" target="_blank" rel="noopener nofollow">PBS NewsHour</a></span>
     </div><div class="brief">
       <div class="brief-head">Trump orders joint drills with South Korea cut back</div>
-      <p>Trump told Defense Secretary Pete Hegseth to cut drills he called costly and hostile to North Korea. Ulchi Freedom Shield involves 18,000 troops.</p><span class="src"><a href="https://www.npr.org/2026/08/17/g-s1-138969/trump-exercises-south-korea" rel="noopener nofollow">NPR</a></span>
+      <p>Trump told Defense Secretary Pete Hegseth to cut drills he called costly and hostile to North Korea. Ulchi Freedom Shield involves 18,000 troops.</p><span class="src"><a href="https://www.npr.org/2026/08/17/g-s1-138969/trump-exercises-south-korea" target="_blank" rel="noopener nofollow">NPR</a></span>
     </div></div>
 </section>
 
@@ -630,15 +828,35 @@
   <div class="section-label">World</div>
   <div class="two-col-briefs"><div class="brief">
       <div class="brief-head">Thieves take Antonello works from a Sicilian museum</div>
-      <p>A double-sided panel and three polyptych sections, valued at up to 80 million euros, were cut from the MuMe museum in Messina on Sunday night.</p><span class="src"><a href="https://www.aljazeera.com/news/2026/8/17/thieves-steal-renaissance-artworks-in-museum-heist-during-italian-holiday" rel="noopener nofollow">Al Jazeera</a></span>
+      <p>A double-sided panel and three polyptych sections, valued at up to 80 million euros, were cut from the MuMe museum in Messina on Sunday night.</p><span class="src"><a href="https://www.aljazeera.com/news/2026/8/17/thieves-steal-renaissance-artworks-in-museum-heist-during-italian-holiday" target="_blank" rel="noopener nofollow">Al Jazeera</a></span>
     </div><div class="brief">
       <div class="brief-head">Hichilema leads Zambia count as opposition alleges a raid</div>
-      <p>The president had nearly 59% of votes counted, rival Brian Mundubile about a third. EU observers called the vote skewed to the incumbent.</p><span class="src"><a href="https://www.aljazeera.com/news/2026/8/17/zambia-incumbent-takes-early-election-lead-as-opposition-alleges-armed-raid" rel="noopener nofollow">Al Jazeera</a></span>
+      <p>The president had nearly 59% of votes counted, rival Brian Mundubile about a third. EU observers called the vote skewed to the incumbent.</p><span class="src"><a href="https://www.aljazeera.com/news/2026/8/17/zambia-incumbent-takes-early-election-lead-as-opposition-alleges-armed-raid" target="_blank" rel="noopener nofollow">Al Jazeera</a></span>
     </div><div class="brief">
       <div class="brief-head">Falling electric pole kills 7 at a Bihar temple</div>
-      <p>The pole came down at the Ashok Dham temple in Lakhisarai during Shravan, electrocuting worshippers and setting off a crush.</p><span class="src"><a href="https://www.euronews.com/2026/08/17/at-least-seven-killed-in-stampede-at-hindu-temple-in-india" rel="noopener nofollow">Euronews</a></span>
+      <p>The pole came down at the Ashok Dham temple in Lakhisarai during Shravan, electrocuting worshippers and setting off a crush.</p><span class="src"><a href="https://www.euronews.com/2026/08/17/at-least-seven-killed-in-stampede-at-hindu-temple-in-india" target="_blank" rel="noopener nofollow">Euronews</a></span>
     </div></div>
 </section>
+
+  <section class="sec sec-wire">
+  <div class="section-label">Science &amp; Technology</div>
+  <div class="two-col-briefs"><div class="brief">
+      <div class="brief-head">Cheap heart drug cuts hospital admissions by a quarter</div>
+      <p>A 1,000-patient trial across 43 Dutch centers found low-dose digoxin cut heart-failure admissions 25%. It costs under 10 cents a day.</p><span class="src"><a href="https://www.sciencedaily.com/releases/2026/08/260814235858.htm" target="_blank" rel="noopener nofollow">University Medical Center Groningen</a></span>
+    </div><div class="brief">
+      <div class="brief-head">Collider data points to a gluon junction inside protons</div>
+      <p>The STAR detector logged about twice as many baryons as expected, evidence a Y-shaped gluon knot carries baryon number, not the quarks.</p><span class="src"><a href="https://www.sciencedaily.com/releases/2026/08/260815064805.htm" target="_blank" rel="noopener nofollow">Brookhaven National Laboratory</a></span>
+    </div><div class="brief">
+      <div class="brief-head">Sharp wrinkles turn graphene into an electrical switch</div>
+      <p>Folds narrower than a nanometer separated charge up to 10 million times more strongly than larger systems. Sharpness beat height.</p><span class="src"><a href="https://www.sciencedaily.com/releases/2026/08/260815064801.htm" target="_blank" rel="noopener nofollow">Rice University</a></span>
+    </div><div class="brief">
+      <div class="brief-head">COVID wakes dormant viruses in hospitalized patients</div>
+      <p>A study of 1,154 patients at 20 hospitals found 11 viruses reactivating within 40 days. Inflammation, not immune suppression, was the trigger.</p><span class="src"><a href="https://www.sciencedaily.com/releases/2026/08/260814011034.htm" target="_blank" rel="noopener nofollow">Boston Children&#x27;s Hospital</a></span>
+    </div></div>
+</section>
+  </div>
+
+  <hr class="rule-anchor">
 
   <section class="sec sec-wv">
   <div class="section-label">West Virginia</div>
@@ -749,41 +967,26 @@
 </figure>
     <div class="brief">
       <div class="brief-head">Storms drop nearly a foot of rain on the Kanawha Valley</div>
-      <p>Gauges read 11.8 inches near Eskdale, 6 to 10 from Kincaid to Danese. High water damaged U.S. 60 at Kanawha Falls and washed out CSX track near Pratt.</p><span class="src"><a href="https://wvmetronews.com/2026/08/16/new-bullseye-for-summer-of-rain-damage-reported-in-fayette-kanawha-raleigh-surrounding-counties/" rel="noopener nofollow">WV MetroNews</a></span>
+      <p>Gauges read 11.8 inches near Eskdale, 6 to 10 from Kincaid to Danese. High water damaged U.S. 60 at Kanawha Falls and washed out CSX track near Pratt.</p><span class="src"><a href="https://wvmetronews.com/2026/08/16/new-bullseye-for-summer-of-rain-damage-reported-in-fayette-kanawha-raleigh-surrounding-counties/" target="_blank" rel="noopener nofollow">WV MetroNews</a></span>
     </div><div class="brief">
       <div class="brief-head">Pratt &amp; Whitney lands a $1B engine contract at Bridgeport</div>
-      <p>The nine-year deal covers overhauls of PT6A-68 engines for military T-6 trainers at Bridgeport, where about 500 people work.</p><span class="src"><a href="https://wvmetronews.com/2026/08/16/pratt-whitney-canada-new-contract-will-provide-major-boost-at-north-central-west-virginia-airport/" rel="noopener nofollow">WV MetroNews</a></span>
+      <p>The nine-year deal covers overhauls of PT6A-68 engines for military T-6 trainers at Bridgeport, where about 500 people work.</p><span class="src"><a href="https://wvmetronews.com/2026/08/16/pratt-whitney-canada-new-contract-will-provide-major-boost-at-north-central-west-virginia-airport/" target="_blank" rel="noopener nofollow">WV MetroNews</a></span>
     </div><div class="wv-block wv-regional">
       <p class="wv-block-label">Around the State</p>
-      <ul class="roundup"><li><span class="place">Putnam / Kanawha - Charleston</span> <span class="folk">(Nate)</span> &mdash; Crews made water rescues on Garrison Avenue and Valley Road Sunday night as Elk Twomile Creek left its banks.<span class="src"><a href="https://www.herald-dispatch.com/news/kanawha-county-pounded-with-storms-flash-flooding-forces-rescues/article_960c81a2-fd5c-4fb9-a6da-affe21510d34.html" rel="noopener nofollow">The Herald-Dispatch</a></span></li></ul>
+      <ul class="roundup"><li><span class="place">Putnam / Kanawha - Charleston</span> <span class="folk">(Nate)</span> &mdash; Crews made water rescues on Garrison Avenue and Valley Road Sunday night as Elk Twomile Creek left its banks.<span class="src"><a href="https://www.herald-dispatch.com/news/kanawha-county-pounded-with-storms-flash-flooding-forces-rescues/article_960c81a2-fd5c-4fb9-a6da-affe21510d34.html" target="_blank" rel="noopener nofollow">The Herald-Dispatch</a></span></li></ul>
     </div><div class="wv-block wv-fishing">
       <p class="wv-block-label">On the Water</p>
       <ul class="roundup"><li><span class="water">Williams River (Cowen)</span> &mdash; 4620 cfs and rising, up from 179 a day ago - blown out. Stay on the bank.<span class="src">USGS 03186500</span></li><li><span class="water">Topsail Beach (surf and sound)</span> &mdash; Sound highs 12:08 a.m. and 12:43 p.m.; lows 6:32 a.m. and 7:05 p.m.<span class="src">NOAA CO-OPS 8657813</span></li></ul>
     </div>
   </div>
 </section>
-
-  <section class="sec sec-wire">
-  <div class="section-label">Science &amp; Technology</div>
-  <div class="two-col-briefs"><div class="brief">
-      <div class="brief-head">Cheap heart drug cuts hospital admissions by a quarter</div>
-      <p>A 1,000-patient trial across 43 Dutch centers found low-dose digoxin cut heart-failure admissions 25%. It costs under 10 cents a day.</p><span class="src"><a href="https://www.sciencedaily.com/releases/2026/08/260814235858.htm" rel="noopener nofollow">University Medical Center Groningen</a></span>
-    </div><div class="brief">
-      <div class="brief-head">Collider data points to a gluon junction inside protons</div>
-      <p>The STAR detector logged about twice as many baryons as expected, evidence a Y-shaped gluon knot carries baryon number, not the quarks.</p><span class="src"><a href="https://www.sciencedaily.com/releases/2026/08/260815064805.htm" rel="noopener nofollow">Brookhaven National Laboratory</a></span>
-    </div><div class="brief">
-      <div class="brief-head">Sharp wrinkles turn graphene into an electrical switch</div>
-      <p>Folds narrower than a nanometer separated charge up to 10 million times more strongly than larger systems. Sharpness beat height.</p><span class="src"><a href="https://www.sciencedaily.com/releases/2026/08/260815064801.htm" rel="noopener nofollow">Rice University</a></span>
-    </div><div class="brief">
-      <div class="brief-head">COVID wakes dormant viruses in hospitalized patients</div>
-      <p>A study of 1,154 patients at 20 hospitals found 11 viruses reactivating within 40 days. Inflammation, not immune suppression, was the trigger.</p><span class="src"><a href="https://www.sciencedaily.com/releases/2026/08/260814011034.htm" rel="noopener nofollow">Boston Children&#x27;s Hospital</a></span>
-    </div></div>
-</section>
   </div>
 
   <div class="kicker">Four of the five West Virginia regions were quiet; Sunday&#x27;s rain was the story.</div>
 
   <div class="footer-note">Compiled from wire reports<span class="sep">&middot;</span><a href="../archive.html">Back issues</a></div>
+
+  <nav class="paper-nav paper-nav-foot" aria-label="Sections, repeated"><a href="../home.html">Home</a><a href="../sportsman/">Sports &amp; Sportsman</a><a href="../weather/">The Weather Claude</a></nav>
 
 </div>
 </body>

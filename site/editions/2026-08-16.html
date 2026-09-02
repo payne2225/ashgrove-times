@@ -88,6 +88,90 @@
     color: var(--ink-mute);
   }
 
+  /* The family banner: the WHOLE thing is The Ashgrove Times (Nate,
+     2026-08-21), so every section page carries it above its own name. */
+  .family-line {
+    text-align: center;
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin: 2px 0 0;
+  }
+
+  /* Section-to-section buttons, house-styled like the section labels. */
+  /* The rule that closes the wire columns off from the anchor sections
+     below them (Nate, 2026-08-26). A column bottom is a ragged edge, and
+     without this the notebook read as one more thing the last column ran
+     into. In the BASE stylesheet, not a breakpoint: the sections stack on a
+     phone and the break between the wire and the anchors still needs
+     saying — a browser-default <hr> in a letterpress page does not. */
+  .rule-anchor {
+    border: 0;
+    border-top: 1px solid var(--ink);
+    margin: 6px 0 16px;
+  }
+
+  /* A tier heading inside the Canada section. Smaller than a section label
+     and not reversed out — it is a sub-head, and three black chips stacked
+     under one black chip would read as four sections. Matches the
+     notebook's .wv-block-label, which is the same idea one box over. */
+  .tier-label {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 4px;
+    margin: 0 0 10px;
+  }
+  .sec-canada .tier { margin-bottom: 6px; }
+
+  .paper-nav { text-align: center; margin: 0 0 18px; }
+  .paper-nav a {
+    display: inline-block;
+    border: 1px solid var(--ink);
+    background: var(--wv-tint);
+    color: var(--ink);
+    text-decoration: none;
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 11.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    margin: 0 4px 6px;
+  }
+  .paper-nav a:hover { background: var(--ink); color: var(--parchment); }
+  /* The same row repeated at the foot of the page, where a reader who has
+     finished actually is. Ruled off above so it reads as the end of the
+     paper rather than as one more thing to read. */
+  .paper-nav-foot {
+    margin: 22px 0 2px;
+    padding-top: 16px;
+    border-top: 1px solid var(--rule);
+  }
+
+  /* The tide table: a real table, because Nate asked for one. */
+  .tide-table { border-collapse: collapse; margin: 10px auto 4px; font-size: 13.5px; }
+  .tide-table caption {
+    font-family: var(--display); font-weight: 700; font-size: 13px;
+    letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-mute);
+    padding-bottom: 6px;
+  }
+  .tide-table th, .tide-table td {
+    border: 1px solid var(--rule); padding: 4px 12px; text-align: center;
+  }
+  .tide-table th {
+    font-family: var(--display); font-size: 11.5px; letter-spacing: 0.08em;
+    text-transform: uppercase; background: var(--wv-tint);
+  }
+  .tide-table td:first-child { font-weight: 600; }
+
   /* ---------- masthead ---------- */
 
   .masthead {
@@ -484,45 +568,123 @@
     .tagline { font-size: 15px; margin-bottom: 10px; }
     .headline { font-size: 40px; line-height: 1.08; }
     .subhead { font-size: 17px; }
-    .columns { column-count: 3; font-size: 15.5px; }
+    .columns { column-count: 2; font-size: 15.5px; }
     .drop { font-size: 58px; }
+
+    /* WITH a drawing: art at roughly a third of the measure, story beside
+       it. Scoped to .with-art deliberately — when this rule was on the bare
+       .lead-block and the day's drawing went to another section, the story
+       became the first grid child, inherited the 27% art column, and left
+       three quarters of the page white beside eight lines of type. */
+    .lead-block.with-art {
+      display: grid;
+      grid-template-columns: minmax(240px, 27%) 1fr;
+      gap: 0 30px;
+      align-items: start;
+    }
+    .lead-block.with-art .art { max-width: none; margin: 0; }
+    /* Cap the drawing so its bottom lands near the text's, instead of
+       running past it and opening a hole under the columns. */
+    .lead-block.with-art .art svg { max-height: 210px; width: 100%; }
+
+    /* WITHOUT one: nothing shares this line of the page, so the lead runs
+       the full measure. Column COUNT rather than width, because a lead is
+       short and a fixed column-width would leave a half-empty third column
+       on a thin news day. */
+    .lead-block.no-art .columns { column-count: 2; }
   }
 
   @media (min-width: 1320px) {
     .page { max-width: 1420px; padding: 40px 54px 56px; }
-    .art { max-width: 560px; }
     .masthead { font-size: 96px; letter-spacing: 3px; }
     .headline { font-size: 50px; }
-    .columns { column-count: 4; }
 
-    /* The wire sections sit side by side across the page, one to a column,
-       the way the four beats run across a front page below the fold.
+    /* Three columns across ~1,310px of measure is about 420px a column —
+       roughly 58 characters, which is a newspaper line. Two would set 85+
+       and read like a blog. Measured against a real lead: 766 characters on
+       2026-08-24, which fills three columns about five lines deep. */
+    .lead-block.no-art .columns { column-count: 3; }
 
-       GRID, not CSS multi-column. Multi-column was the first attempt and it
-       looked right until you counted: a `column-span: all` element splits
-       the flow, so the two sections above the notebook spread across four
-       columns and left two of them empty. Grid places each section in its
-       own column and lets the notebook span deliberately rather than as a
-       side effect. */
-    .sections {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
+    /* The wire sections FLOW through these columns; they are not placed in
+       them. (2026-08-26 — this was a grid until Pat said "lots and lots of
+       unused space.")
+
+       A grid gave each section its own cell and made every row as tall as
+       its tallest member. On an ordinary morning — U.S. 524px, World 637px,
+       Sci/Tech 901px — that stood 28% of the section area empty, and a last
+       row that did not divide evenly was worse. Copy that runs down one
+       column and continues into the next cannot leave a hole, whatever
+       shape the news turns out to be that day. Measured on the 2026-08-26
+       edition: the section block went 1917px to 999px and the page 3093px
+       to 2653px, with nothing added and nothing cut.
+
+       The original objection to multi-column here was real and is now
+       answered rather than ignored: a `column-span: all` child splits a
+       flow and strands columns, which is exactly what happened the first
+       time. So the notebook is not a child of the flow at all — it is a
+       sibling block below it, and nothing inside the flow spans.
+
+       Sports & Sportsman has set this way since it launched. */
+    .sections { display: block; }
+    .wire-flow {
+      column-count: var(--wire-cols, 3);
       column-gap: 30px;
-      align-items: start;
+      column-rule: 1px solid #c9c2ac;
     }
+    .wire-flow > .sec {
+      break-inside: auto;      /* a section MAY continue into the next column */
+      border-left: 0;
+      padding-left: 0;
+      margin: 0 0 18px;
+    }
+    /* ...but a brief, the drawing, and a label stranded from the brief
+       under it may not be split. Those are the atoms. */
+    .wire-flow .brief { break-inside: avoid; }
+    .wire-flow .art { break-inside: avoid; }
+    .wire-flow .section-label { break-after: avoid; margin-top: 0; }
+    .wire-flow .sec + .sec .section-label { margin-top: 12px; }
     .sec { margin-bottom: 20px; }
     .sec .two-col-briefs { column-count: 1; column-rule: none; }
     .sec .section-label { margin-top: 0; }
-    /* Rules between the wire columns, none before the first. */
-    .sec-wire + .sec-wire { border-left: 1px solid #c9c2ac; padding-left: 30px; }
+
+
+    /* Anchored sections — the notebook and British Columbia — take the full
+       measure below the flow. Their briefs run in their own columns, since
+       one column across 1,310px would set 85-character lines. */
+    .sec-anchor { margin: 0 0 18px; }
+    .sec-anchor .two-col-briefs {
+      column-count: 3;
+      column-gap: 30px;
+      column-rule: 1px solid var(--rule);
+    }
+    .sec-anchor .brief { break-inside: avoid; }
+
+    /* Canada does its own columns, so the anchor rule above must not also
+       fragment it — a grid inside a CSS multi-column container gets sliced
+       across the columns, which put a tier label above an empty column and
+       stranded its brief two columns away. */
+    .sec-canada .two-col-briefs { column-count: 1; column-rule: none; }
+
+    /* The Canada section's three tiers sit side by side across the measure,
+       local first. A tier with nothing in it does not render, so a thin
+       morning closes to two columns rather than standing one empty — the
+       whole page was rebuilt to stop doing exactly that. */
+    .sec-canada .tiers {
+      display: grid;
+      grid-template-columns: repeat(var(--tier-cols, 3), 1fr);
+      column-gap: 30px;
+      align-items: start;
+    }
+    .sec-canada .tier + .tier { border-left: 1px solid var(--rule); padding-left: 30px; }
 
     /* The notebook is the anchor and it is wide content — four sub-blocks
-       that would strangle in a 300px column. It spans the whole measure as
+       that would strangle in a 300px column. It takes the whole measure as
        a boxed feature, which is both where the space is and the treatment
-       Ian asked for. `order` moves it below the wire columns without
-       touching DOM order, so the phone layout and screen readers still get
-       Ian's sequence. */
-    .sec-wv { grid-column: 1 / -1; order: 9; margin: 10px 0 8px; }
+       Ian asked for. It sits BELOW the flow because the renderer emits it
+       as a sibling after .wire-flow, not because of a CSS `order` — that
+       was a grid trick and the grid is gone. Screen readers and the phone
+       layout get the same sequence the markup has. */
+    .sec-wv { margin: 10px 0 8px; }
     .sec-wv .wv-box { padding: 22px 28px; column-count: 2; column-gap: 36px; }
     .sec-wv .wv-title { column-span: all; font-size: 24px; }
     .sec-wv .wv-box > .brief,
@@ -532,8 +694,9 @@
   @media (min-width: 1700px) {
     .page { max-width: 1600px; }
     .masthead { font-size: 108px; }
-    .sections { grid-template-columns: repeat(4, 1fr); }
-    .columns { column-count: 5; }
+    /* Three, not four, even here. The lead runs about 700 characters — a
+       fourth column would set it three lines deep and read as a caption
+       rather than as the day's story. */
   }
 
   /* ---------- Sports & Sportsman page layout ----------
@@ -573,10 +736,40 @@
     .page.sportsman .wv-block-label { break-after: avoid; }
   }
 
+  /* ---------- the weather page (Jim Claudtore's briefing, typeset) ---- */
+
+  .wx-briefing { max-width: 760px; margin: 0 auto; font-size: 15px; line-height: 1.55; }
+  .wx-briefing p { margin: 0 0 12px; }
+  .wx-day {
+    font-family: var(--display); font-weight: 900; font-size: 26px;
+    line-height: 1.15; margin: 4px 0 6px;
+  }
+  .wx-dek { font-style: italic; font-size: 15px; color: var(--ink-soft); margin: 0 0 16px; }
+  .wx-loc {
+    font-family: var(--display); font-weight: 700; font-size: 17px;
+    border-top: 1px solid var(--rule); padding-top: 12px; margin: 18px 0 6px;
+  }
+  .wx-list { margin: 0 0 12px; padding-left: 20px; }
+  .wx-list li { margin-bottom: 6px; }
+  /* The weather page stopped borrowing the sportsman column fill on
+     2026-08-25 — it sets as a newspaper page now, with the same section
+     grid the front page uses, so there is no multi-column flow left to
+     undo. What it does need is its own handling of Jim's confidence note,
+     which is a single paragraph inside a full-width box: the notebook's
+     two columns would split one short paragraph down the middle. */
+  .wx-confidence .wv-box { column-count: 1; }
+  .wx-confidence .wv-box p { margin: 0 0 10px; max-width: 92ch; }
+  .wx-confidence .wv-box p:last-child { margin-bottom: 0; }
+  .wx-roundup { margin: 0; }
+  /* Jim writes in half a dozen short reports rather than long copy, so the
+     label chip has to survive a stacked heading — three towns sharing one
+     forecast — without pushing the section out of its column. */
+  .page.weather .section-label { white-space: normal; line-height: 1.35; }
+
   @media print {
     body { background: #fff; padding: 0; }
     .page { border: 0; box-shadow: none; max-width: none; }
-    .sections { display: grid; grid-template-columns: repeat(4, 1fr); column-gap: 24px; }
+    .wire-flow { column-count: var(--wire-cols, 3); column-gap: 24px; }
     .sec-wv { grid-column: 1 / -1; order: 9; }
   }
 </style>
@@ -592,16 +785,20 @@
   <div class="ear">
     <span class="ear-label">Weather</span>The weather desk files at 7:15, right behind this page.
   </div>
-  <div class="masthead">THE ASHGROVE TIMES</div>
+  <div class="family-line">The Ashgrove Times</div>
+  <div class="masthead">THE NEWS DESK</div>
   <div class="tagline">&ldquo;For the Fellers&rdquo;</div>
   <hr class="rule-thick">
   <hr class="rule-thin">
+
+  <nav class="paper-nav" aria-label="Sections"><a href="../home.html">Home</a><a href="../sportsman/">Sports &amp; Sportsman</a><a href="../weather/">The Weather Claude</a></nav>
 
   <div class="headline">Flores quake toll climbs to 51 as thousands leave home</div>
   <div class="subhead">Indonesia counts 341 aftershocks two days after a magnitude 7.7 struck off the island</div>
   <div class="byline">By Wire Reports</div>
 
-  <figure class="art">
+  <div class="lead-block with-art">
+    <figure class="art">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600" role="img" aria-label="A house on a hillside with its corrugated roof collapsed into a steep triangle over a rubble foundation, an intact plank outbuilding standing beside it, bamboo and trees behind, and a hazy ridge in the distance.">
   <title>Collapsed house on a hillside after the Flores earthquake</title>
   <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
@@ -697,27 +894,28 @@
 </svg>
   <figcaption><span class="art-caption">A hillside house in East Manggarai with its corrugated roof collapsed onto the stone foundation, an outbuilding still standing beside it.</span> <span class="art-credit">Sketched from an NPR photograph</span></figcaption>
 </figure>
-
-  <div class="columns"><p><span class="drop">A</span>t least 51 people are dead and about 5,000 displaced after a magnitude 7.7 earthquake struck off Flores island in eastern Indonesia early Saturday, Al Jazeera reported, citing the national disaster agency. The toll has more than doubled since Saturday morning.</p><p>The quake hit at 5:58 a.m. local time about 68 kilometers north-northwest of Ende at a depth of 10 kilometers, the U.S. Geological Survey said. Thirty-six people were seriously hurt and 77 slightly. It flattened 157 houses and damaged some 1,300 more.</p><p>More than 3,500 military and police have deployed and the government is weighing a state of emergency. A quake in the same waters in 1992 killed more than 2,500 people.</p></div>
+    <div class="columns"><p><span class="drop">A</span>t least 51 people are dead and about 5,000 displaced after a magnitude 7.7 earthquake struck off Flores island in eastern Indonesia early Saturday, Al Jazeera reported, citing the national disaster agency. The toll has more than doubled since Saturday morning.</p><p>The quake hit at 5:58 a.m. local time about 68 kilometers north-northwest of Ende at a depth of 10 kilometers, the U.S. Geological Survey said. Thirty-six people were seriously hurt and 77 slightly. It flattened 157 houses and damaged some 1,300 more.</p><p>More than 3,500 military and police have deployed and the government is weighing a state of emergency. A quake in the same waters in 1992 killed more than 2,500 people.</p></div>
+  </div>
 
   <div class="stat-strip"><div><b>7,785.76</b><span class="stat-label">S&amp;P 500</span><span class="stat-change"><span class="tri down" aria-hidden="true"></span>-0.17%</span></div><div><b>53,732.41</b><span class="stat-label">Dow</span><span class="stat-change"><span class="tri down" aria-hidden="true"></span>-0.20%</span></div><div><b>26,729.16</b><span class="stat-label">Nasdaq</span><span class="stat-change"><span class="tri down" aria-hidden="true"></span>-0.28%</span></div><div><b>$63,014</b><span class="stat-label">Bitcoin</span><span class="stat-change"><span class="tri up" aria-hidden="true"></span>+0.14%</span></div></div>
   <p class="stats-note">Market data compiled before the opening bell</p>
 
-  <div class="sections">
+  <div class="sections" style="--wire-cols: 3">
+  <div class="wire-flow">
   <section class="sec sec-wire">
   <div class="section-label">U.S.</div>
   <div class="two-col-briefs"><div class="brief">
       <div class="brief-head">Hurricane Lala closes on Hawaii&#x27;s Big Island</div>
-      <p>Lala reached Category 1 with 75 mph winds, the island&#x27;s first direct hit in 155 years. Gov. Josh Green told residents to shelter.</p><span class="src"><a href="https://www.pbs.org/newshour/nation/hawaiis-big-island-lashed-by-rain-and-wind-as-tropical-storm-lala-closes-in" rel="noopener nofollow">PBS NewsHour</a></span>
+      <p>Lala reached Category 1 with 75 mph winds, the island&#x27;s first direct hit in 155 years. Gov. Josh Green told residents to shelter.</p><span class="src"><a href="https://www.pbs.org/newshour/nation/hawaiis-big-island-lashed-by-rain-and-wind-as-tropical-storm-lala-closes-in" target="_blank" rel="noopener nofollow">PBS NewsHour</a></span>
     </div><div class="brief">
       <div class="brief-head">Indiana flooding kills at least 5</div>
-      <p>The White River crested above 24 feet at Anderson, past the 1913 record, after 11 inches of rain in two days.</p><span class="src"><a href="https://www.pbs.org/newshour/nation/indiana-authorities-say-at-least-5-people-have-died-in-flooding-across-the-state" rel="noopener nofollow">PBS NewsHour</a></span>
+      <p>The White River crested above 24 feet at Anderson, past the 1913 record, after 11 inches of rain in two days.</p><span class="src"><a href="https://www.pbs.org/newshour/nation/indiana-authorities-say-at-least-5-people-have-died-in-flooding-across-the-state" target="_blank" rel="noopener nofollow">PBS NewsHour</a></span>
     </div><div class="brief">
       <div class="brief-head">Trump says the USS Lincoln tour is not long enough</div>
-      <p>Asked Friday whether the nine-month deployment ran too long, Trump said it was &quot;not nearly long enough.&quot;</p><span class="src"><a href="https://www.npr.org/2026/08/15/nx-s1-5932539/uss-lincoln-trump-dire-conditions" rel="noopener nofollow">NPR</a></span>
+      <p>Asked Friday whether the nine-month deployment ran too long, Trump said it was &quot;not nearly long enough.&quot;</p><span class="src"><a href="https://www.npr.org/2026/08/15/nx-s1-5932539/uss-lincoln-trump-dire-conditions" target="_blank" rel="noopener nofollow">NPR</a></span>
     </div><div class="brief">
       <div class="brief-head">Memo would let U.S. firms hack foreign cybercriminals</div>
-      <p>A memorandum issued Aug. 14 lets vetted companies disrupt networks of designated foreign groups, subject to vetting and a bond.</p><span class="src"><a href="https://www.npr.org/2026/08/15/nx-s1-5930311/trump-companies-hack-foreign-cybercriminals" rel="noopener nofollow">NPR</a></span>
+      <p>A memorandum issued Aug. 14 lets vetted companies disrupt networks of designated foreign groups, subject to vetting and a bond.</p><span class="src"><a href="https://www.npr.org/2026/08/15/nx-s1-5930311/trump-companies-hack-foreign-cybercriminals" target="_blank" rel="noopener nofollow">NPR</a></span>
     </div></div>
 </section>
 
@@ -725,15 +923,35 @@
   <div class="section-label">World</div>
   <div class="two-col-briefs"><div class="brief">
       <div class="brief-head">Israeli strikes kill 11 in southern Lebanon</div>
-      <p>Strikes on Ansar and Deir al-Zahrani killed 11, three of them children, the Health Ministry said. It is the deadliest day since the June truce.</p><span class="src"><a href="https://www.pbs.org/newshour/world/israeli-airstrikes-on-southern-lebanon-kill-11-people-health-ministry-says" rel="noopener nofollow">PBS NewsHour</a></span>
+      <p>Strikes on Ansar and Deir al-Zahrani killed 11, three of them children, the Health Ministry said. It is the deadliest day since the June truce.</p><span class="src"><a href="https://www.pbs.org/newshour/world/israeli-airstrikes-on-southern-lebanon-kill-11-people-health-ministry-says" target="_blank" rel="noopener nofollow">PBS NewsHour</a></span>
     </div><div class="brief">
       <div class="brief-head">Bus crash on a Hungarian motorway kills 12</div>
-      <p>A Polish coach carrying 57 overturned on the M3 near Mezokeresztes about 1 a.m. Police said the driver likely fell asleep.</p><span class="src"><a href="https://www.euronews.com/2026/08/16/at-least-12-people-killed-in-a-polish-tourist-bus-crash-in-hungary" rel="noopener nofollow">Euronews</a></span>
+      <p>A Polish coach carrying 57 overturned on the M3 near Mezokeresztes about 1 a.m. Police said the driver likely fell asleep.</p><span class="src"><a href="https://www.euronews.com/2026/08/16/at-least-12-people-killed-in-a-polish-tourist-bus-crash-in-hungary" target="_blank" rel="noopener nofollow">Euronews</a></span>
     </div><div class="brief">
       <div class="brief-head">Ukraine sends about 600 drones at Moscow</div>
-      <p>Moscow&#x27;s mayor said 201 were destroyed over the region and an 83-year-old man killed. Russian strikes on Kryvyi Rih killed a woman.</p><span class="src"><a href="https://www.aljazeera.com/news/2026/8/16/russian-strikes-kill-ukrainian-woman-as-nato-jet-downs-drone-over-romania" rel="noopener nofollow">Al Jazeera</a></span>
+      <p>Moscow&#x27;s mayor said 201 were destroyed over the region and an 83-year-old man killed. Russian strikes on Kryvyi Rih killed a woman.</p><span class="src"><a href="https://www.aljazeera.com/news/2026/8/16/russian-strikes-kill-ukrainian-woman-as-nato-jet-downs-drone-over-romania" target="_blank" rel="noopener nofollow">Al Jazeera</a></span>
     </div></div>
 </section>
+
+  <section class="sec sec-wire">
+  <div class="section-label">Science &amp; Technology</div>
+  <div class="two-col-briefs"><div class="brief">
+      <div class="brief-head">Detector reads a reactor that is switched off</div>
+      <p>Double Chooz logged about 100 antineutrinos over 17.2 days with both units offline, from decay in the cores and pools.</p><span class="src"><a href="https://www.sciencedaily.com/releases/2026/08/260814011036.htm" target="_blank" rel="noopener nofollow">Max Planck Institute for Nuclear Physics</a></span>
+    </div><div class="brief">
+      <div class="brief-head">Superconducting circuit runs as a quantum heat engine</div>
+      <p>A qubit, a resonator and a quantum refrigerator ran repeated Otto cycles near absolute zero, in Nature Communications.</p><span class="src"><a href="https://www.sciencedaily.com/releases/2026/08/260814011041.htm" target="_blank" rel="noopener nofollow">Aalto University</a></span>
+    </div><div class="brief">
+      <div class="brief-head">Ant and bee genetics fail to explain their colonies</div>
+      <p>Across nearly 69,000 insect species, haplodiploidy predicted eusociality only among ants, bees and stinging wasps.</p><span class="src"><a href="https://www.sciencedaily.com/releases/2026/08/260813045552.htm" target="_blank" rel="noopener nofollow">Arizona State University</a></span>
+    </div><div class="brief">
+      <div class="brief-head">Osaka rock yields 4 bones of a Cretaceous sea lizard</div>
+      <p>Bones collected near Kaizuka City in 1990-92 sat in rock 30 years, and include a first premaxilla for a Japanese mosasaur.</p><span class="src"><a href="https://www.sciencedaily.com/releases/2026/08/260813045555.htm" target="_blank" rel="noopener nofollow">Okayama University of Science</a></span>
+    </div></div>
+</section>
+  </div>
+
+  <hr class="rule-anchor">
 
   <section class="sec sec-wv">
   <div class="section-label">West Virginia</div>
@@ -742,41 +960,26 @@
     
     <div class="brief">
       <div class="brief-head">CAMC settles unnecessary-surgery suit for $40M</div>
-      <p>The class covers more than 4,000 patients given hernia repairs during bariatric surgery. Two surgeons named in the 2025 filing have left the hospital.</p><span class="src"><a href="https://wvmetronews.com/2026/08/14/camc-announces-40-million-settlement-in-lawsuit-connected-to-unnecessary-surgeries/" rel="noopener nofollow">WV MetroNews</a></span>
+      <p>The class covers more than 4,000 patients given hernia repairs during bariatric surgery. Two surgeons named in the 2025 filing have left the hospital.</p><span class="src"><a href="https://wvmetronews.com/2026/08/14/camc-announces-40-million-settlement-in-lawsuit-connected-to-unnecessary-surgeries/" target="_blank" rel="noopener nofollow">WV MetroNews</a></span>
     </div><div class="brief">
       <div class="brief-head">Justices close a $500M Greenbrier joint venture</div>
-      <p>Kennedy Lewis Investment Management takes 51% and the 90-job casino stays open. The Lottery Commission votes Aug. 26 on the new board.</p><span class="src"><a href="https://wvmetronews.com/2026/08/14/justices-complete-half-billion-dollar-joint-venture-on-the-greenbrier/" rel="noopener nofollow">WV MetroNews</a></span>
+      <p>Kennedy Lewis Investment Management takes 51% and the 90-job casino stays open. The Lottery Commission votes Aug. 26 on the new board.</p><span class="src"><a href="https://wvmetronews.com/2026/08/14/justices-complete-half-billion-dollar-joint-venture-on-the-greenbrier/" target="_blank" rel="noopener nofollow">WV MetroNews</a></span>
     </div><div class="wv-block wv-regional">
       <p class="wv-block-label">Around the State</p>
-      <ul class="roundup"><li><span class="place">Huntington &amp; the Cabell-Mason corridor</span> <span class="folk">(Trav, Justin, Nate and Ian)</span> &mdash; Mayor Patrick Farrell gave the Public Safety Committee a Flock ordinance holding camera data seven days.<span class="src"><a href="https://www.wsaz.com/2026/08/15/huntington-mayor-presents-proposed-flock-guardrails/" rel="noopener nofollow">WSAZ</a></span></li><li><span class="place">Putnam / Kanawha - Charleston</span> <span class="folk">(Nate)</span> &mdash; Night work starts this month on the I-64 Carter bridge ahead of a $74M deck replacement.<span class="src"><a href="https://wvmetronews.com/2026/08/14/night-time-work-to-prepare-states-busiest-bridge-for-74-million-rehab-expected-soon/" rel="noopener nofollow">WV MetroNews</a></span></li></ul>
+      <ul class="roundup"><li><span class="place">Huntington &amp; the Cabell-Mason corridor</span> <span class="folk">(Trav, Justin, Nate and Ian)</span> &mdash; Mayor Patrick Farrell gave the Public Safety Committee a Flock ordinance holding camera data seven days.<span class="src"><a href="https://www.wsaz.com/2026/08/15/huntington-mayor-presents-proposed-flock-guardrails/" target="_blank" rel="noopener nofollow">WSAZ</a></span></li><li><span class="place">Putnam / Kanawha - Charleston</span> <span class="folk">(Nate)</span> &mdash; Night work starts this month on the I-64 Carter bridge ahead of a $74M deck replacement.<span class="src"><a href="https://wvmetronews.com/2026/08/14/night-time-work-to-prepare-states-busiest-bridge-for-74-million-rehab-expected-soon/" target="_blank" rel="noopener nofollow">WV MetroNews</a></span></li></ul>
     </div><div class="wv-block wv-fishing">
       <p class="wv-block-label">On the Water</p>
       <ul class="roundup"><li><span class="water">Williams River (Cowen)</span> &mdash; 141 cfs and falling at 1.84 feet - prime wading water.<span class="src">USGS 03186500</span></li><li><span class="water">Topsail Beach (surf and sound)</span> &mdash; Sound high 11:50 a.m. at Hampstead, lows 5:51 a.m. and 6:14 p.m.<span class="src">NOAA CO-OPS 8657813</span></li></ul>
     </div>
   </div>
 </section>
-
-  <section class="sec sec-wire">
-  <div class="section-label">Science &amp; Technology</div>
-  <div class="two-col-briefs"><div class="brief">
-      <div class="brief-head">Detector reads a reactor that is switched off</div>
-      <p>Double Chooz logged about 100 antineutrinos over 17.2 days with both units offline, from decay in the cores and pools.</p><span class="src"><a href="https://www.sciencedaily.com/releases/2026/08/260814011036.htm" rel="noopener nofollow">Max Planck Institute for Nuclear Physics</a></span>
-    </div><div class="brief">
-      <div class="brief-head">Superconducting circuit runs as a quantum heat engine</div>
-      <p>A qubit, a resonator and a quantum refrigerator ran repeated Otto cycles near absolute zero, in Nature Communications.</p><span class="src"><a href="https://www.sciencedaily.com/releases/2026/08/260814011041.htm" rel="noopener nofollow">Aalto University</a></span>
-    </div><div class="brief">
-      <div class="brief-head">Ant and bee genetics fail to explain their colonies</div>
-      <p>Across nearly 69,000 insect species, haplodiploidy predicted eusociality only among ants, bees and stinging wasps.</p><span class="src"><a href="https://www.sciencedaily.com/releases/2026/08/260813045552.htm" rel="noopener nofollow">Arizona State University</a></span>
-    </div><div class="brief">
-      <div class="brief-head">Osaka rock yields 4 bones of a Cretaceous sea lizard</div>
-      <p>Bones collected near Kaizuka City in 1990-92 sat in rock 30 years, and include a first premaxilla for a Japanese mosasaur.</p><span class="src"><a href="https://www.sciencedaily.com/releases/2026/08/260813045555.htm" rel="noopener nofollow">Okayama University of Science</a></span>
-    </div></div>
-</section>
   </div>
 
   <div class="kicker">The away desk and three of the five regions had nothing dated over the weekend.</div>
 
   <div class="footer-note">Compiled from wire reports<span class="sep">&middot;</span><a href="../archive.html">Back issues</a></div>
+
+  <nav class="paper-nav paper-nav-foot" aria-label="Sections, repeated"><a href="../home.html">Home</a><a href="../sportsman/">Sports &amp; Sportsman</a><a href="../weather/">The Weather Claude</a></nav>
 
 </div>
 </body>

@@ -223,36 +223,117 @@ def _nav_html(current: str, root: str, foot: bool = False) -> str:
     return f'<nav class="{classes}"{label}>' + "".join(buttons) + "</nav>"
 
 
-def _tide_table_html(date_iso: str | None = None) -> str:
-    """Today's full tide cycle as a real table, straight from the fetcher.
+# The water each sports edition was written from, frozen beside it.
+#
+# out/fishing.json is gitignored and overwritten every fetch, and the tide
+# table reads it LIVE while everything else on a page comes from the edition
+# JSON. Twice in one week that typeset the wrong day's tides into a
+# published page, and the date guard that stopped it also meant no layout
+# change could ever reach a back issue — the sports archive could not be
+# re-rendered at all. Since 2026-09-02 the morning render copies the live
+# file to editions/data/<date>.fishing.json and commits it with the edition,
+# so a sports page can be re-rendered on any later day from exactly the
+# water it was set from. Editions before that date have no snapshot and
+# keep their committed HTML; render_all() refuses them by name.
+DATA_DIR = os.path.join(EDITIONS_DIR, "data")
+LIVE_FISHING_PATH = os.path.join(OUT_DIR, "fishing.json")
 
-    Reads out/fishing.json rather than the edition: the table is instrument
-    data, the same standing as the gauges, and going through the fetcher's
-    own file means no hand can mistype a tide. Absent or tide-less data
-    renders nothing — a missing table beats a stale one.
 
-    THE DATE IS CHECKED, since 2026-08-26. This function reads a live file
-    while every other part of the page comes from the edition JSON, so
-    re-rendering a page with an old fishing.json silently typesets the wrong
-    day's tides into it — which is exactly what happened when the
-    2026-08-26 sports page was re-rendered to correct a headline and went
-    out carrying 2026-08-21's tide times. Nothing else on the page could
-    have revealed it. A mismatched file now renders no table at all, and
-    says so on stderr rather than quietly.
+def fishing_snapshot_path(date_iso: str) -> str:
+    return os.path.join(DATA_DIR, f"{date_iso}.fishing.json")
+
+
+def _fishing_date(data: dict) -> str:
+    return data.get("date") or (data.get("generated_at") or "")[:10]
+
+
+def _load_fishing_for(date_iso: str | None) -> tuple[dict | None, str]:
+    """The fishing data a page dated `date_iso` may be set from: (data, path).
+
+    The dated snapshot first, always. The live out/fishing.json only when
+    there is no snapshot AND the live file carries this page's date — which
+    is the morning render itself, before the snapshot exists. Any other
+    combination returns None: a missing table beats a wrong one.
     """
+    if date_iso:
+        snapshot = fishing_snapshot_path(date_iso)
+        try:
+            with open(snapshot, encoding="utf-8") as f:
+                return json.load(f), snapshot
+        except FileNotFoundError:
+            pass
+        except (OSError, ValueError) as exc:
+            print(f"WARN: {snapshot} is unreadable ({exc}) — tide table "
+                  "omitted", file=sys.stderr)
+            return None, snapshot
     try:
-        with open(os.path.join(OUT_DIR, "fishing.json"), encoding="utf-8") as f:
+        with open(LIVE_FISHING_PATH, encoding="utf-8") as f:
             data = json.load(f)
     except (OSError, ValueError):
-        return ""
-    fetched = data.get("date") or (data.get("generated_at") or "")[:10]
+        return None, LIVE_FISHING_PATH
+    fetched = _fishing_date(data)
     if date_iso and fetched and fetched != date_iso:
         print(
             f"WARN: out/fishing.json is dated {fetched} but this page is "
-            f"{date_iso} — tide table omitted rather than printing the wrong "
-            "day's water; re-run fetch_fishing.py",
+            f"{date_iso} and has no editions/data/{date_iso}.fishing.json — "
+            "tide table omitted rather than printing the wrong day's water",
             file=sys.stderr,
         )
+        return None, LIVE_FISHING_PATH
+    return data, LIVE_FISHING_PATH
+
+
+def ensure_fishing_snapshot(date_iso: str) -> str | None:
+    """Freeze today's out/fishing.json beside the edition, once.
+
+    Returns the snapshot path, or None when nothing could honestly be
+    frozen: no live file, or a live file from another day. Never
+    overwrites an existing snapshot — the water an edition was written from
+    is a fact about that morning, and a later fetch is a different fact.
+    Bytes are copied, not re-serialised, so the snapshot IS the file the
+    validator byte-matched against.
+    """
+    target = fishing_snapshot_path(date_iso)
+    if os.path.exists(target):
+        return target
+    try:
+        with open(LIVE_FISHING_PATH, "rb") as f:
+            raw = f.read()
+        data = json.loads(raw.decode("utf-8"))
+    except (OSError, ValueError):
+        print(f"WARN: no readable out/fishing.json — no snapshot written for "
+              f"{date_iso}", file=sys.stderr)
+        return None
+    fetched = _fishing_date(data)
+    if fetched and fetched != date_iso:
+        print(f"WARN: out/fishing.json is dated {fetched}, not {date_iso} — "
+              "no snapshot written; a snapshot is only ever the day's own "
+              "water", file=sys.stderr)
+        return None
+    os.makedirs(DATA_DIR, exist_ok=True)
+    with open(target, "wb") as f:
+        f.write(raw)
+    return target
+
+
+def _tide_table_html(date_iso: str | None = None) -> str:
+    """The day's full tide cycle as a real table, straight from the fetcher.
+
+    Reads the fetcher's file rather than the edition: the table is
+    instrument data, the same standing as the gauges, and going through the
+    fetcher's own file means no hand can mistype a tide. Absent or tide-less
+    data renders nothing — a missing table beats a stale one.
+
+    THE DATE IS CHECKED, since 2026-08-26, and the source is the dated
+    snapshot, since 2026-09-02 (see _load_fishing_for). This function is the
+    one live read on the page, and re-rendering a page with an old
+    fishing.json silently typeset the wrong day's tides into it — the
+    2026-08-26 sports page was re-rendered to correct a headline and went
+    out carrying 2026-08-21's tide times. Nothing else on the page could
+    have revealed it.
+    """
+    data, _ = _load_fishing_for(date_iso)
+    if not data:
         return ""
     tides = (data.get("topsail") or {}).get("tides") or []
     rows = []
@@ -1898,11 +1979,117 @@ def write_weather_site(date_iso: str, briefing_md: str) -> list[str]:
     return written
 
 
+def _dated_jsons(directory: str) -> list[str]:
+    """Edition dates with a JSON in `directory`, oldest first."""
+    try:
+        names = os.listdir(directory)
+    except OSError:
+        return []
+    return sorted(m.group(1) for m in map(_DATED_JSON.match, names) if m)
+
+
+def _write(path: str, html: str) -> None:
+    _ensure_dir(path)
+    with open(path, "w", encoding="utf-8", newline="\n") as f:
+        f.write(html)
+
+
+def render_all(weatherman_dir: str | None = None) -> int:
+    """Re-render every page whose inputs are all committed, and name the rest.
+
+    Times pages read nothing live — the edition JSON, the art and the
+    template are all in the repo — so every one is re-rendered and the
+    archive takes whatever layout the template has today. Sports pages are
+    re-rendered only where editions/data/<date>.fishing.json exists; the
+    ones before the snapshot began keep their committed HTML and are listed
+    by name. Weather pages are re-rendered where the archived briefing is
+    on disk (the weatherman checkout is the snapshot for those), and the
+    ping-scrub guard still applies. No hero cards: those are Discord's.
+
+    today.html and the two index.html bookmarks are written from the NEWEST
+    edition of each paper only, so a bulk run can never repoint a bookmark
+    at a back issue. The archive index is rebuilt once at the end.
+    """
+    failures = 0
+
+    # ---- The News Desk
+    times_dates = _dated_jsons(EDITIONS_DIR)
+    for date_iso in times_dates:
+        with open(os.path.join(EDITIONS_DIR, f"{date_iso}.json"),
+                  encoding="utf-8") as f:
+            edition = json.load(f)
+        _write(os.path.join(SITE_DIR, "editions", f"{date_iso}.html"),
+               render_html(edition))
+        if date_iso == times_dates[-1]:
+            _write(os.path.join(SITE_DIR, "today.html"),
+                   render_html(edition, root=""))
+    print(f"OK: re-rendered {len(times_dates)} Times page(s)")
+
+    # ---- Sports & Sportsman, snapshot-gated
+    sm_dir = os.path.join(EDITIONS_DIR, "sportsman")
+    sm_dates = _dated_jsons(sm_dir)
+    rendered_sm = [d for d in sm_dates if os.path.exists(fishing_snapshot_path(d))]
+    for date_iso in rendered_sm:
+        with open(os.path.join(sm_dir, f"{date_iso}.json"), encoding="utf-8") as f:
+            edition = json.load(f)
+        html = render_sportsman_html(edition)
+        _write(os.path.join(SITE_DIR, "sportsman", f"{date_iso}.html"), html)
+        if date_iso == sm_dates[-1]:
+            _write(os.path.join(SITE_DIR, "sportsman", "index.html"), html)
+    for date_iso in sm_dates:
+        if date_iso not in rendered_sm:
+            print(f"SKIP: sportsman {date_iso} — no editions/data/{date_iso}"
+                  ".fishing.json; the committed page stands")
+    print(f"OK: re-rendered {len(rendered_sm)} of {len(sm_dates)} sports page(s)")
+
+    # ---- The Weather Claude, briefing-gated
+    weather_dir = os.path.join(SITE_DIR, "weather")
+    weather_dates = sorted(
+        m.group(1) for m in (re.match(r"^(\d{4}-\d{2}-\d{2})\.html$", n)
+                             for n in (os.listdir(weather_dir)
+                                       if os.path.isdir(weather_dir) else []))
+        if m)
+    briefings = os.path.join(weatherman_dir, "briefings") if weatherman_dir else None
+    rendered_wx: list[str] = []
+    for date_iso in weather_dates:
+        source = os.path.join(briefings, f"{date_iso}.md") if briefings else None
+        if not source or not os.path.exists(source):
+            print(f"SKIP: weather {date_iso} — no briefing at "
+                  f"{source or '<no weatherman checkout>'}; the committed page stands")
+            continue
+        with open(source, encoding="utf-8") as f:
+            briefing = f.read()
+        try:
+            html = render_weather_html(date_iso, briefing)
+        except ValueError as exc:  # the id-scrub guard
+            print(f"ERROR: weather {date_iso}: {exc}", file=sys.stderr)
+            failures += 1
+            continue
+        _write(os.path.join(weather_dir, f"{date_iso}.html"), html)
+        rendered_wx.append(date_iso)
+        if date_iso == weather_dates[-1]:
+            _write(os.path.join(weather_dir, "index.html"), html)
+    print(f"OK: re-rendered {len(rendered_wx)} of {len(weather_dates)} weather page(s)")
+
+    _write(os.path.join(SITE_DIR, "archive.html"),
+           render_archive_html(archive_entries()))
+    print("OK: rebuilt site/archive.html")
+    return 1 if failures else 0
+
+
 def main() -> int:
     # A UnicodeEncodeError while PRINTING would fail a render that succeeded;
     # Nate's manual fallback runs happen on a cp1252 Windows console.
     config.use_utf8_stdio()
     parser = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
+    parser.add_argument("--all", action="store_true",
+                        help="re-render every Times page, every sports page "
+                             "with a fishing snapshot and every weather page "
+                             "with an archived briefing; name the rest")
+    parser.add_argument("--weatherman", metavar="DIR",
+                        default=os.path.join(HERE, "..", "weatherman"),
+                        help="the weatherman checkout --all reads briefings "
+                             "from (default ../weatherman)")
     parser.add_argument("--date", help="edition date, YYYY-MM-DD")
     parser.add_argument("--edition", help="path to the edition JSON")
     parser.add_argument("--out", help="path for the broadsheet HTML")
@@ -1920,6 +2107,10 @@ def main() -> int:
     parser.add_argument("--make-fallback", action="store_true",
                         help="redraw assets/masthead-fallback.png and exit")
     args = parser.parse_args()
+
+    if args.all:
+        wm = args.weatherman if os.path.isdir(args.weatherman) else None
+        return render_all(wm)
 
     if args.weather:
         if not args.date:
@@ -1977,6 +2168,14 @@ def main() -> int:
         return 1
 
     if args.sportsman:
+        # Freeze the water FIRST, so the page and the snapshot are set from
+        # the same file and the snapshot is committed with the edition.
+        snapshot = ensure_fishing_snapshot(date_iso)
+        if snapshot:
+            print(f"OK: fishing snapshot {snapshot}")
+        else:
+            print(f"WARN: no fishing snapshot for {date_iso} — this page "
+                  "cannot be re-rendered later", file=sys.stderr)
         # No hero card and no newspaper site index — this paper's whole
         # visual output is its page under site/sportsman/.
         written = write_sportsman_site(edition)

@@ -88,6 +88,90 @@
     color: var(--ink-mute);
   }
 
+  /* The family banner: the WHOLE thing is The Ashgrove Times (Nate,
+     2026-08-21), so every section page carries it above its own name. */
+  .family-line {
+    text-align: center;
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin: 2px 0 0;
+  }
+
+  /* Section-to-section buttons, house-styled like the section labels. */
+  /* The rule that closes the wire columns off from the anchor sections
+     below them (Nate, 2026-08-26). A column bottom is a ragged edge, and
+     without this the notebook read as one more thing the last column ran
+     into. In the BASE stylesheet, not a breakpoint: the sections stack on a
+     phone and the break between the wire and the anchors still needs
+     saying — a browser-default <hr> in a letterpress page does not. */
+  .rule-anchor {
+    border: 0;
+    border-top: 1px solid var(--ink);
+    margin: 6px 0 16px;
+  }
+
+  /* A tier heading inside the Canada section. Smaller than a section label
+     and not reversed out — it is a sub-head, and three black chips stacked
+     under one black chip would read as four sections. Matches the
+     notebook's .wv-block-label, which is the same idea one box over. */
+  .tier-label {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 4px;
+    margin: 0 0 10px;
+  }
+  .sec-canada .tier { margin-bottom: 6px; }
+
+  .paper-nav { text-align: center; margin: 0 0 18px; }
+  .paper-nav a {
+    display: inline-block;
+    border: 1px solid var(--ink);
+    background: var(--wv-tint);
+    color: var(--ink);
+    text-decoration: none;
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 11.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    margin: 0 4px 6px;
+  }
+  .paper-nav a:hover { background: var(--ink); color: var(--parchment); }
+  /* The same row repeated at the foot of the page, where a reader who has
+     finished actually is. Ruled off above so it reads as the end of the
+     paper rather than as one more thing to read. */
+  .paper-nav-foot {
+    margin: 22px 0 2px;
+    padding-top: 16px;
+    border-top: 1px solid var(--rule);
+  }
+
+  /* The tide table: a real table, because Nate asked for one. */
+  .tide-table { border-collapse: collapse; margin: 10px auto 4px; font-size: 13.5px; }
+  .tide-table caption {
+    font-family: var(--display); font-weight: 700; font-size: 13px;
+    letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-mute);
+    padding-bottom: 6px;
+  }
+  .tide-table th, .tide-table td {
+    border: 1px solid var(--rule); padding: 4px 12px; text-align: center;
+  }
+  .tide-table th {
+    font-family: var(--display); font-size: 11.5px; letter-spacing: 0.08em;
+    text-transform: uppercase; background: var(--wv-tint);
+  }
+  .tide-table td:first-child { font-weight: 600; }
+
   /* ---------- masthead ---------- */
 
   .masthead {
@@ -484,45 +568,123 @@
     .tagline { font-size: 15px; margin-bottom: 10px; }
     .headline { font-size: 40px; line-height: 1.08; }
     .subhead { font-size: 17px; }
-    .columns { column-count: 3; font-size: 15.5px; }
+    .columns { column-count: 2; font-size: 15.5px; }
     .drop { font-size: 58px; }
+
+    /* WITH a drawing: art at roughly a third of the measure, story beside
+       it. Scoped to .with-art deliberately — when this rule was on the bare
+       .lead-block and the day's drawing went to another section, the story
+       became the first grid child, inherited the 27% art column, and left
+       three quarters of the page white beside eight lines of type. */
+    .lead-block.with-art {
+      display: grid;
+      grid-template-columns: minmax(240px, 27%) 1fr;
+      gap: 0 30px;
+      align-items: start;
+    }
+    .lead-block.with-art .art { max-width: none; margin: 0; }
+    /* Cap the drawing so its bottom lands near the text's, instead of
+       running past it and opening a hole under the columns. */
+    .lead-block.with-art .art svg { max-height: 210px; width: 100%; }
+
+    /* WITHOUT one: nothing shares this line of the page, so the lead runs
+       the full measure. Column COUNT rather than width, because a lead is
+       short and a fixed column-width would leave a half-empty third column
+       on a thin news day. */
+    .lead-block.no-art .columns { column-count: 2; }
   }
 
   @media (min-width: 1320px) {
     .page { max-width: 1420px; padding: 40px 54px 56px; }
-    .art { max-width: 560px; }
     .masthead { font-size: 96px; letter-spacing: 3px; }
     .headline { font-size: 50px; }
-    .columns { column-count: 4; }
 
-    /* The wire sections sit side by side across the page, one to a column,
-       the way the four beats run across a front page below the fold.
+    /* Three columns across ~1,310px of measure is about 420px a column —
+       roughly 58 characters, which is a newspaper line. Two would set 85+
+       and read like a blog. Measured against a real lead: 766 characters on
+       2026-08-24, which fills three columns about five lines deep. */
+    .lead-block.no-art .columns { column-count: 3; }
 
-       GRID, not CSS multi-column. Multi-column was the first attempt and it
-       looked right until you counted: a `column-span: all` element splits
-       the flow, so the two sections above the notebook spread across four
-       columns and left two of them empty. Grid places each section in its
-       own column and lets the notebook span deliberately rather than as a
-       side effect. */
-    .sections {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
+    /* The wire sections FLOW through these columns; they are not placed in
+       them. (2026-08-26 — this was a grid until Pat said "lots and lots of
+       unused space.")
+
+       A grid gave each section its own cell and made every row as tall as
+       its tallest member. On an ordinary morning — U.S. 524px, World 637px,
+       Sci/Tech 901px — that stood 28% of the section area empty, and a last
+       row that did not divide evenly was worse. Copy that runs down one
+       column and continues into the next cannot leave a hole, whatever
+       shape the news turns out to be that day. Measured on the 2026-08-26
+       edition: the section block went 1917px to 999px and the page 3093px
+       to 2653px, with nothing added and nothing cut.
+
+       The original objection to multi-column here was real and is now
+       answered rather than ignored: a `column-span: all` child splits a
+       flow and strands columns, which is exactly what happened the first
+       time. So the notebook is not a child of the flow at all — it is a
+       sibling block below it, and nothing inside the flow spans.
+
+       Sports & Sportsman has set this way since it launched. */
+    .sections { display: block; }
+    .wire-flow {
+      column-count: var(--wire-cols, 3);
       column-gap: 30px;
-      align-items: start;
+      column-rule: 1px solid #c9c2ac;
     }
+    .wire-flow > .sec {
+      break-inside: auto;      /* a section MAY continue into the next column */
+      border-left: 0;
+      padding-left: 0;
+      margin: 0 0 18px;
+    }
+    /* ...but a brief, the drawing, and a label stranded from the brief
+       under it may not be split. Those are the atoms. */
+    .wire-flow .brief { break-inside: avoid; }
+    .wire-flow .art { break-inside: avoid; }
+    .wire-flow .section-label { break-after: avoid; margin-top: 0; }
+    .wire-flow .sec + .sec .section-label { margin-top: 12px; }
     .sec { margin-bottom: 20px; }
     .sec .two-col-briefs { column-count: 1; column-rule: none; }
     .sec .section-label { margin-top: 0; }
-    /* Rules between the wire columns, none before the first. */
-    .sec-wire + .sec-wire { border-left: 1px solid #c9c2ac; padding-left: 30px; }
+
+
+    /* Anchored sections — the notebook and British Columbia — take the full
+       measure below the flow. Their briefs run in their own columns, since
+       one column across 1,310px would set 85-character lines. */
+    .sec-anchor { margin: 0 0 18px; }
+    .sec-anchor .two-col-briefs {
+      column-count: 3;
+      column-gap: 30px;
+      column-rule: 1px solid var(--rule);
+    }
+    .sec-anchor .brief { break-inside: avoid; }
+
+    /* Canada does its own columns, so the anchor rule above must not also
+       fragment it — a grid inside a CSS multi-column container gets sliced
+       across the columns, which put a tier label above an empty column and
+       stranded its brief two columns away. */
+    .sec-canada .two-col-briefs { column-count: 1; column-rule: none; }
+
+    /* The Canada section's three tiers sit side by side across the measure,
+       local first. A tier with nothing in it does not render, so a thin
+       morning closes to two columns rather than standing one empty — the
+       whole page was rebuilt to stop doing exactly that. */
+    .sec-canada .tiers {
+      display: grid;
+      grid-template-columns: repeat(var(--tier-cols, 3), 1fr);
+      column-gap: 30px;
+      align-items: start;
+    }
+    .sec-canada .tier + .tier { border-left: 1px solid var(--rule); padding-left: 30px; }
 
     /* The notebook is the anchor and it is wide content — four sub-blocks
-       that would strangle in a 300px column. It spans the whole measure as
+       that would strangle in a 300px column. It takes the whole measure as
        a boxed feature, which is both where the space is and the treatment
-       Ian asked for. `order` moves it below the wire columns without
-       touching DOM order, so the phone layout and screen readers still get
-       Ian's sequence. */
-    .sec-wv { grid-column: 1 / -1; order: 9; margin: 10px 0 8px; }
+       Ian asked for. It sits BELOW the flow because the renderer emits it
+       as a sibling after .wire-flow, not because of a CSS `order` — that
+       was a grid trick and the grid is gone. Screen readers and the phone
+       layout get the same sequence the markup has. */
+    .sec-wv { margin: 10px 0 8px; }
     .sec-wv .wv-box { padding: 22px 28px; column-count: 2; column-gap: 36px; }
     .sec-wv .wv-title { column-span: all; font-size: 24px; }
     .sec-wv .wv-box > .brief,
@@ -532,20 +694,88 @@
   @media (min-width: 1700px) {
     .page { max-width: 1600px; }
     .masthead { font-size: 108px; }
-    .sections { grid-template-columns: repeat(4, 1fr); }
-    .columns { column-count: 5; }
+    /* Three, not four, even here. The lead runs about 700 characters — a
+       fourth column would set it three lines deep and read as a caption
+       rather than as the day's story. */
   }
+
+  /* ---------- Sports & Sportsman page layout ----------
+     A true newsprint fill. Fixed left/right blocks stranded whitespace the
+     moment one side outgrew the other, so instead the whole paper flows
+     through balanced CSS columns: Our Teams runs down column one and spills
+     into column two, Around the Leagues starts right where it ends, and the
+     browser balances the column bottoms. Briefs and roundup lines are
+     atomic; sections and state blocks are allowed to break between them. */
+
+  @media (min-width: 1024px) {
+    .page.sportsman .sections {
+      display: block;   /* undo the Times grid — columns need flow layout */
+      column-count: 2;
+      column-gap: 34px;
+      column-rule: 1px solid var(--rule);
+    }
+  }
+
+  @media (min-width: 1320px) {
+    .page.sportsman .sections { column-count: 3; }
+  }
+
+  @media (min-width: 1024px) {
+    .page.sportsman .sections > .sec {
+      break-inside: auto;
+      border-left: 0;
+      padding-left: 0;
+      margin: 0 0 20px;
+    }
+    .page.sportsman .sec .two-col-briefs { column-count: 1; column-rule: none; }
+    .page.sportsman .brief,
+    .page.sportsman .roundup li { break-inside: avoid; }
+    .page.sportsman .section-label { break-after: avoid; margin-top: 0; }
+    .page.sportsman .sec + .sec .section-label { margin-top: 10px; }
+    .page.sportsman .wv-block { break-inside: auto; }
+    .page.sportsman .wv-block-label { break-after: avoid; }
+  }
+
+  /* ---------- the weather page (Jim Claudtore's briefing, typeset) ---- */
+
+  .wx-briefing { max-width: 760px; margin: 0 auto; font-size: 15px; line-height: 1.55; }
+  .wx-briefing p { margin: 0 0 12px; }
+  .wx-day {
+    font-family: var(--display); font-weight: 900; font-size: 26px;
+    line-height: 1.15; margin: 4px 0 6px;
+  }
+  .wx-dek { font-style: italic; font-size: 15px; color: var(--ink-soft); margin: 0 0 16px; }
+  .wx-loc {
+    font-family: var(--display); font-weight: 700; font-size: 17px;
+    border-top: 1px solid var(--rule); padding-top: 12px; margin: 18px 0 6px;
+  }
+  .wx-list { margin: 0 0 12px; padding-left: 20px; }
+  .wx-list li { margin-bottom: 6px; }
+  /* The weather page stopped borrowing the sportsman column fill on
+     2026-08-25 — it sets as a newspaper page now, with the same section
+     grid the front page uses, so there is no multi-column flow left to
+     undo. What it does need is its own handling of Jim's confidence note,
+     which is a single paragraph inside a full-width box: the notebook's
+     two columns would split one short paragraph down the middle. */
+  .wx-confidence .wv-box { column-count: 1; }
+  .wx-confidence .wv-box p { margin: 0 0 10px; max-width: 92ch; }
+  .wx-confidence .wv-box p:last-child { margin-bottom: 0; }
+  .wx-roundup { margin: 0; }
+  /* Jim writes in half a dozen short reports rather than long copy, so the
+     label chip has to survive a stacked heading — three towns sharing one
+     forecast — without pushing the section out of its column. */
+  .page.weather .section-label { white-space: normal; line-height: 1.35; }
 
   @media print {
     body { background: #fff; padding: 0; }
     .page { border: 0; box-shadow: none; max-width: none; }
-    .sections { display: grid; grid-template-columns: repeat(4, 1fr); column-gap: 24px; }
+    .wire-flow { column-count: var(--wire-cols, 3); column-gap: 24px; }
     .sec-wv { grid-column: 1 / -1; order: 9; }
   }
 </style>
 </head>
 <body>
-<div class="page">
+<div class="page ">
 
   <div class="top-bar">
     <span>Vol. I — No. 1</span>
@@ -555,34 +785,39 @@
   <div class="ear">
     <span class="ear-label">Weather</span>Forecast at 7:15 — read this, then dress for it.
   </div>
-  <div class="masthead">THE ASHGROVE TIMES</div>
+  <div class="family-line">The Ashgrove Times</div>
+  <div class="masthead">THE NEWS DESK</div>
   <div class="tagline">&ldquo;For the Fellers&rdquo;</div>
   <hr class="rule-thick">
   <hr class="rule-thin">
+
+  <nav class="paper-nav" aria-label="Sections"><a href="../home.html">Home</a><a href="../sportsman/">Sports &amp; Sportsman</a><a href="../weather/">The Weather Claude</a></nav>
 
   <div class="headline">Iran, Oman agree on Hormuz route as US presses for deal</div>
   <div class="subhead">The waterway, shut since late February, normally carries a fifth of the world’s traded oil and gas.</div>
   <div class="byline">By Wire Reports</div>
 
-  
-
-  <div class="columns"><p><span class="drop">I</span>ran and Oman have agreed on coordinates for a commercial shipping route through the Strait of Hormuz, Iranian Foreign Ministry spokesman Esmail Baghaei said Wednesday. A joint statement covering technical, legal, security and environmental terms is under final review.</p><p>The strait, which carried about a fifth of the world’s traded oil and gas, has been effectively closed since Iran shut it after U.S. and Israeli strikes in late February. Under the proposal, ships would enter the Gulf through an Iranian-controlled lane and exit through an Omani one.</p><p>Tehran wants service fees for security and environmental protection. Washington refuses. Secretary of State Marco Rubio said talks had progressed but had not reached finality. Treasury Secretary Scott Bessent said a deal could come within a day or two.</p></div>
+  <div class="lead-block no-art">
+    
+    <div class="columns"><p><span class="drop">I</span>ran and Oman have agreed on coordinates for a commercial shipping route through the Strait of Hormuz, Iranian Foreign Ministry spokesman Esmail Baghaei said Wednesday. A joint statement covering technical, legal, security and environmental terms is under final review.</p><p>The strait, which carried about a fifth of the world’s traded oil and gas, has been effectively closed since Iran shut it after U.S. and Israeli strikes in late February. Under the proposal, ships would enter the Gulf through an Iranian-controlled lane and exit through an Omani one.</p><p>Tehran wants service fees for security and environmental protection. Washington refuses. Secretary of State Marco Rubio said talks had progressed but had not reached finality. Treasury Secretary Scott Bessent said a deal could come within a day or two.</p></div>
+  </div>
 
   <div class="stat-strip"><div><b>7,736.52</b><span class="stat-label">S&amp;P 500</span><span class="stat-change"><span class="tri up" aria-hidden="true"></span>+1.79%</span></div><div><b>54,085.88</b><span class="stat-label">Dow</span><span class="stat-change"><span class="tri up" aria-hidden="true"></span>+1.71%</span></div><div><b>26,584.99</b><span class="stat-label">Nasdaq</span><span class="stat-change"><span class="tri up" aria-hidden="true"></span>+2.59%</span></div><div><b>$64,785</b><span class="stat-label">Bitcoin</span><span class="stat-change"><span class="tri up" aria-hidden="true"></span>+0.76%</span></div></div>
   <p class="stats-note">Market data compiled before the opening bell</p>
 
-  <div class="sections">
+  <div class="sections" style="--wire-cols: 3">
+  <div class="wire-flow">
   <section class="sec sec-wire">
   <div class="section-label">U.S.</div>
   <div class="two-col-briefs"><div class="brief">
       <div class="brief-head">Senate confirms Erica Schwartz as CDC director, 51-44</div>
-      <p>Schwartz, a retired rear admiral and former deputy surgeon general, fills a post vacant since Health Secretary Robert F. Kennedy Jr. fired Susan Monarez last August.</p><span class="src"><a href="https://www.statnews.com/2026/08/05/senate-confirms-dr-erica-schwartz-new-cdc-director/" rel="noopener nofollow">STAT</a></span>
+      <p>Schwartz, a retired rear admiral and former deputy surgeon general, fills a post vacant since Health Secretary Robert F. Kennedy Jr. fired Susan Monarez last August.</p><span class="src"><a href="https://www.statnews.com/2026/08/05/senate-confirms-dr-erica-schwartz-new-cdc-director/" target="_blank" rel="noopener nofollow">STAT</a></span>
     </div><div class="brief">
       <div class="brief-head">Wyden report says banks ignored Epstein red flags</div>
-      <p>A Senate Finance report, “Looking the Other Way,” says Bank of America, Deutsche Bank and JPMorgan Chase left suspicious transfers unreported to Treasury for nearly two decades.</p><span class="src"><a href="https://www.bloomberg.com/news/articles/2026-08-04/deutsche-bank-jpmorgan-bofa-enabled-epstein-wyden-report-says" rel="noopener nofollow">Bloomberg</a></span>
+      <p>A Senate Finance report, “Looking the Other Way,” says Bank of America, Deutsche Bank and JPMorgan Chase left suspicious transfers unreported to Treasury for nearly two decades.</p><span class="src"><a href="https://www.bloomberg.com/news/articles/2026-08-04/deutsche-bank-jpmorgan-bofa-enabled-epstein-wyden-report-says" target="_blank" rel="noopener nofollow">Bloomberg</a></span>
     </div><div class="brief">
       <div class="brief-head">Experts question FDA’s ‘lower risk’ label on Zyn pouches</div>
-      <p>The FDA cleared 20 Zyn nicotine pouch products to claim lower cancer and heart risk than cigarettes. Lifetime use among 12th graders rose to 10% from 6.8%.</p><span class="src"><a href="https://www.npr.org/2026/08/05/nx-s1-5919626/smoking-fda-nicotine-cigarettes-tobacco" rel="noopener nofollow">NPR</a></span>
+      <p>The FDA cleared 20 Zyn nicotine pouch products to claim lower cancer and heart risk than cigarettes. Lifetime use among 12th graders rose to 10% from 6.8%.</p><span class="src"><a href="https://www.npr.org/2026/08/05/nx-s1-5919626/smoking-fda-nicotine-cigarettes-tobacco" target="_blank" rel="noopener nofollow">NPR</a></span>
     </div></div>
 </section>
 
@@ -590,15 +825,46 @@
   <div class="section-label">World</div>
   <div class="two-col-briefs"><div class="brief">
       <div class="brief-head">Russian barrage kills 17 in Kyiv and surrounding region</div>
-      <p>Russia fired 24 ballistic missiles and 115 drones overnight Wednesday. Ukraine downed none of the missiles, and Zelenskyy blamed a Patriot interceptor shortage.</p><span class="src"><a href="https://www.euronews.com/my-europe/2026/08/05/russian-overnight-barrage-on-ukraine-kills-at-least-15-in-kyiv-and-surrounding-region" rel="noopener nofollow">Euronews</a></span>
+      <p>Russia fired 24 ballistic missiles and 115 drones overnight Wednesday. Ukraine downed none of the missiles, and Zelenskyy blamed a Patriot interceptor shortage.</p><span class="src"><a href="https://www.euronews.com/my-europe/2026/08/05/russian-overnight-barrage-on-ukraine-kills-at-least-15-in-kyiv-and-surrounding-region" target="_blank" rel="noopener nofollow">Euronews</a></span>
     </div><div class="brief">
       <div class="brief-head">Congo Ebola deaths pass 1,700 as WHO speeds up drug trials</div>
-      <p>The Bundibugyo strain has killed 1,707 people among 3,802 cases since May 15. Ituri province accounts for nearly 90 percent of infections.</p><span class="src"><a href="https://www.aljazeera.com/news/2026/8/4/dr-congo-ebola-outbreak-kills-more-than-1700-as-who-accelerates-trials" rel="noopener nofollow">Al Jazeera</a></span>
+      <p>The Bundibugyo strain has killed 1,707 people among 3,802 cases since May 15. Ituri province accounts for nearly 90 percent of infections.</p><span class="src"><a href="https://www.aljazeera.com/news/2026/8/4/dr-congo-ebola-outbreak-kills-more-than-1700-as-who-accelerates-trials" target="_blank" rel="noopener nofollow">Al Jazeera</a></span>
     </div><div class="brief">
       <div class="brief-head">US revokes visa of Brazil’s ambassador in envoy standoff</div>
-      <p>The State Department pulled Ambassador Maria Luiza Ribeiro Viotti’s visa Tuesday after Brazil stalled the U.S. nominee. She was not expelled.</p><span class="src"><a href="https://www.pbs.org/newshour/world/trump-administration-revokes-visa-of-brazils-ambassador-to-us-in-escalation-of-spat-with-lula" rel="noopener nofollow">PBS NewsHour</a></span>
+      <p>The State Department pulled Ambassador Maria Luiza Ribeiro Viotti’s visa Tuesday after Brazil stalled the U.S. nominee. She was not expelled.</p><span class="src"><a href="https://www.pbs.org/newshour/world/trump-administration-revokes-visa-of-brazils-ambassador-to-us-in-escalation-of-spat-with-lula" target="_blank" rel="noopener nofollow">PBS NewsHour</a></span>
     </div></div>
 </section>
+
+  <section class="sec sec-wire">
+  <div class="section-label">Science &amp; Technology</div>
+  <div class="two-col-briefs"><div class="brief">
+      <div class="brief-head">COVID reactivates dormant viruses in half of severe cases</div>
+      <p>A Nature study of more than 1,100 hospitalized patients found nearly half reactivated latent viruses such as Epstein-Barr, tracking with longer stays and death.</p><span class="src"><a href="https://dellmed.utexas.edu/news/ut-led-study-finds-covid-19-can-awaken-hidden-viruses-throughout-the-body" target="_blank" rel="noopener nofollow">UT Austin Dell Medical School</a></span>
+    </div><div class="brief">
+      <div class="brief-head">NHTSA opens probe into 1.2 million Tesla Model 3s and Ys</div>
+      <p>Regulators are investigating 156 complaints that a front lower lateral link detaches without warning on 2018-2020 Model 3s and 2021-2023 Model Ys.</p><span class="src"><a href="https://electrek.co/2026/07/31/nhtsa-probes-tesla-model-3-model-y-suspension-failures/" target="_blank" rel="noopener nofollow">Electrek</a></span>
+    </div><div class="brief">
+      <div class="brief-head">Climate change made Spanish fire weather 20 times likelier</div>
+      <p>World Weather Attribution found human warming made July’s extreme fire conditions at least 20 times more likely in central Spain and twice as likely in southwest France.</p><span class="src"><a href="https://www.worldweatherattribution.org/climate-change-increases-likelihood-of-compounding-drivers-of-severe-wildfire-conditions-in-france-and-spain/" target="_blank" rel="noopener nofollow">World Weather Attribution</a></span>
+    </div></div>
+</section>
+
+  <section class="sec sec-wire">
+  <div class="section-label">Sports</div>
+  <div class="two-col-briefs"><div class="brief">
+      <div class="brief-head">West Virginia opens fall camp, quarterback job unsettled</div>
+      <p>The Mountaineers held their first practice Wednesday. Rich Rodriguez has not named a starter between Scotty Fox Jr. and Oklahoma transfer Michael Hawkins Jr.</p><span class="src"><a href="https://wvusports.com/news/2026/8/5/rodriguez-emphasizes-sense-of-urgency-with-his-football-team" target="_blank" rel="noopener nofollow">WVU Athletics</a></span>
+    </div><div class="brief">
+      <div class="brief-head">Sumo association doubles top-division championship purse</div>
+      <p>The Japan Sumo Association will raise the makuuchi title prize to 20 million yen in January 2027, its first purse revision since 1994. Salaries also rise.</p><span class="src"><a href="https://www.nippon.com/en/news/yjj2026073000935/" target="_blank" rel="noopener nofollow">Nippon.com</a></span>
+    </div><div class="brief">
+      <div class="brief-head">Bears, tackle Darnell Wright agree to record $116M deal</div>
+      <p>The four-year extension includes $93 million guaranteed, the most ever for an NFL offensive lineman. Wright becomes the highest-paid right tackle at $29 million a year.</p><span class="src"><a href="https://www.nfl.com/news/bears-ot-darnell-wright-agrees-to-four-year-116m-extension" target="_blank" rel="noopener nofollow">NFL.com</a></span>
+    </div></div>
+</section>
+  </div>
+
+  <hr class="rule-anchor">
 
   <section class="sec sec-wv">
   <div class="section-label">West Virginia</div>
@@ -607,55 +873,29 @@
     
     <div class="brief">
       <div class="brief-head">Trump OKs $4.5M in flood aid for Upshur, Lewis counties</div>
-      <p>Federal Individual Assistance was approved after the July 21 flooding. FEMA is still weighing disaster requests from five other West Virginia counties.</p><span class="src"><a href="https://wvmetronews.com/2026/08/03/trump-approves-west-virginias-4-5-million-disaster-declaration-request-in-upshur-lewis-counties/" rel="noopener nofollow">WV MetroNews</a></span>
+      <p>Federal Individual Assistance was approved after the July 21 flooding. FEMA is still weighing disaster requests from five other West Virginia counties.</p><span class="src"><a href="https://wvmetronews.com/2026/08/03/trump-approves-west-virginias-4-5-million-disaster-declaration-request-in-upshur-lewis-counties/" target="_blank" rel="noopener nofollow">WV MetroNews</a></span>
     </div><div class="brief">
       <div class="brief-head">Greenbrier’s $500M deal on track, big hurdles remain</div>
-      <p>Lawyers say the Kennedy Lewis financing should close by Aug. 7, but a debtholder payoff and Lottery Commission approval of the casino license are unsettled.</p><span class="src"><a href="https://wvmetronews.com/2026/08/05/lawyers-for-the-greenbrier-say-500-million-deal-is-on-track-but-with-big-hurdles-remaining/" rel="noopener nofollow">WV MetroNews</a></span>
+      <p>Lawyers say the Kennedy Lewis financing should close by Aug. 7, but a debtholder payoff and Lottery Commission approval of the casino license are unsettled.</p><span class="src"><a href="https://wvmetronews.com/2026/08/05/lawyers-for-the-greenbrier-say-500-million-deal-is-on-track-but-with-big-hurdles-remaining/" target="_blank" rel="noopener nofollow">WV MetroNews</a></span>
     </div><div class="wv-block wv-regional">
       <p class="wv-block-label">Around the State</p>
-      <ul class="roundup"><li><span class="place">Huntington &amp; the Cabell-Mason corridor</span> <span class="folk">(Trav, Justin, Nate and Ian)</span> &mdash; Cabell County’s school board approved baseball, softball and co-ed soccer at all four middle schools, starting in spring 2027.<span class="src"><a href="https://www.herald-dispatch.com/news/cabell-county-board-of-education-approves-addition-of-new-middle-school-sports/article_3818c46b-61ba-460c-bbb6-d7e928476981.html" rel="noopener nofollow">The Herald-Dispatch</a></span></li><li><span class="place">Putnam / Kanawha - Charleston</span> <span class="folk">(Nate)</span> &mdash; New bleachers, a press box and accessible walkways are going in at Poca High School’s O.O. White Stadium ahead of the Aug. 28 home opener.<span class="src"><a href="https://www.wsaz.com/2026/08/04/new-bleachers-installed-poca-high-schools-oo-white-stadium/" rel="noopener nofollow">WSAZ</a></span></li><li><span class="place">Mid-Ohio Valley / Parkersburg</span> <span class="folk">(Pat)</span> &mdash; Parkersburg hosts an Aug. 13 town hall on independent testing results from the Peoples Cartage warehouse fire.<span class="src"><a href="https://www.wtap.com/2026/08/05/community-invited-town-hall-learn-impact-peoples-cartage-warehouse-fire/" rel="noopener nofollow">WTAP</a></span></li><li><span class="place">Summers / Hinton &amp; the New River</span> <span class="folk">(Greg)</span> &mdash; Elliott Pritt, the District 50 House candidate from Fayette County, quit the November ballot after a federal child-enticement arrest.<span class="src"><a href="https://www.register-herald.com/news/local_news/elliott-pritt-withdraws-from-house-ballot-law-prohibits-gop-to-fill-vacancy-for-november-election/article_ae233c2b-8a12-4d4e-b526-ecfdea923fac.html" rel="noopener nofollow">The Register-Herald</a></span></li></ul>
+      <ul class="roundup"><li><span class="place">Huntington &amp; the Cabell-Mason corridor</span> <span class="folk">(Trav, Justin, Nate and Ian)</span> &mdash; Cabell County’s school board approved baseball, softball and co-ed soccer at all four middle schools, starting in spring 2027.<span class="src"><a href="https://www.herald-dispatch.com/news/cabell-county-board-of-education-approves-addition-of-new-middle-school-sports/article_3818c46b-61ba-460c-bbb6-d7e928476981.html" target="_blank" rel="noopener nofollow">The Herald-Dispatch</a></span></li><li><span class="place">Putnam / Kanawha - Charleston</span> <span class="folk">(Nate)</span> &mdash; New bleachers, a press box and accessible walkways are going in at Poca High School’s O.O. White Stadium ahead of the Aug. 28 home opener.<span class="src"><a href="https://www.wsaz.com/2026/08/04/new-bleachers-installed-poca-high-schools-oo-white-stadium/" target="_blank" rel="noopener nofollow">WSAZ</a></span></li><li><span class="place">Mid-Ohio Valley / Parkersburg</span> <span class="folk">(Pat)</span> &mdash; Parkersburg hosts an Aug. 13 town hall on independent testing results from the Peoples Cartage warehouse fire.<span class="src"><a href="https://www.wtap.com/2026/08/05/community-invited-town-hall-learn-impact-peoples-cartage-warehouse-fire/" target="_blank" rel="noopener nofollow">WTAP</a></span></li><li><span class="place">Summers / Hinton &amp; the New River</span> <span class="folk">(Greg)</span> &mdash; Elliott Pritt, the District 50 House candidate from Fayette County, quit the November ballot after a federal child-enticement arrest.<span class="src"><a href="https://www.register-herald.com/news/local_news/elliott-pritt-withdraws-from-house-ballot-law-prohibits-gop-to-fill-vacancy-for-november-election/article_ae233c2b-8a12-4d4e-b526-ecfdea923fac.html" target="_blank" rel="noopener nofollow">The Register-Herald</a></span></li></ul>
     </div><div class="wv-block wv-away">
       <p class="wv-block-label">The Away Desk</p>
-      <ul class="roundup"><li><span class="place">North Bennington, VT</span> <span class="folk">(Wes)</span> &mdash; Bennington received the remains of Army Pfc. Bernard Sweet, who died in a Japanese POW camp in 1942 and was identified by DNA last year.<span class="src"><a href="https://vtdigger.org/2026/08/02/world-war-2-soldiers-remains-returned-home-to-bennington/" rel="noopener nofollow">VTDigger</a></span></li><li><span class="place">Prince George, BC</span> <span class="folk">(Kirsten)</span> &mdash; Prince George Coun. Frizzell entered the mayor’s race, pitching economic development and public safety as his priorities.<span class="src"><a href="https://ckpgtoday.ca/2026/08/05/frizzell-launches-bid-for-prince-george-mayor/" rel="noopener nofollow">CKPG Today</a></span></li><li><span class="place">Topsail Beach, NC</span> &mdash; A nonprofit led by Pender County Commissioner Jimmy Tate is under state review over complaints alleging Medicaid fraud.<span class="src"><a href="https://www.wwaytv3.com/complaints-filed-against-nonprofit-operations-involving-pender-county-commissioner-jimmy-tate/" rel="noopener nofollow">WWAY</a></span></li></ul>
+      <ul class="roundup"><li><span class="place">North Bennington, VT</span> <span class="folk">(Wes)</span> &mdash; Bennington received the remains of Army Pfc. Bernard Sweet, who died in a Japanese POW camp in 1942 and was identified by DNA last year.<span class="src"><a href="https://vtdigger.org/2026/08/02/world-war-2-soldiers-remains-returned-home-to-bennington/" target="_blank" rel="noopener nofollow">VTDigger</a></span></li><li><span class="place">Prince George, BC</span> <span class="folk">(Kirsten)</span> &mdash; Prince George Coun. Frizzell entered the mayor’s race, pitching economic development and public safety as his priorities.<span class="src"><a href="https://ckpgtoday.ca/2026/08/05/frizzell-launches-bid-for-prince-george-mayor/" target="_blank" rel="noopener nofollow">CKPG Today</a></span></li><li><span class="place">Topsail Beach, NC</span> &mdash; A nonprofit led by Pender County Commissioner Jimmy Tate is under state review over complaints alleging Medicaid fraud.<span class="src"><a href="https://www.wwaytv3.com/complaints-filed-against-nonprofit-operations-involving-pender-county-commissioner-jimmy-tate/" target="_blank" rel="noopener nofollow">WWAY</a></span></li></ul>
     </div><div class="wv-block wv-fishing">
       <p class="wv-block-label">On the Water</p>
       <ul class="roundup"><li><span class="water">Williams River (Cowen)</span> &mdash; Down to 108 cfs from 251 yesterday, 1.68 ft and falling — prime wading water.<span class="src">USGS 03186500</span></li><li><span class="water">Topsail Beach (surf and sound)</span> &mdash; Ocean highs 12:14 AM and 1:02 PM; water 83.3F at Wrightsville Beach, 25 mi up the coast.<span class="src">NOAA CO-OPS</span></li></ul>
     </div>
   </div>
 </section>
-
-  <section class="sec sec-wire">
-  <div class="section-label">Sports</div>
-  <div class="two-col-briefs"><div class="brief">
-      <div class="brief-head">West Virginia opens fall camp, quarterback job unsettled</div>
-      <p>The Mountaineers held their first practice Wednesday. Rich Rodriguez has not named a starter between Scotty Fox Jr. and Oklahoma transfer Michael Hawkins Jr.</p><span class="src"><a href="https://wvusports.com/news/2026/8/5/rodriguez-emphasizes-sense-of-urgency-with-his-football-team" rel="noopener nofollow">WVU Athletics</a></span>
-    </div><div class="brief">
-      <div class="brief-head">Sumo association doubles top-division championship purse</div>
-      <p>The Japan Sumo Association will raise the makuuchi title prize to 20 million yen in January 2027, its first purse revision since 1994. Salaries also rise.</p><span class="src"><a href="https://www.nippon.com/en/news/yjj2026073000935/" rel="noopener nofollow">Nippon.com</a></span>
-    </div><div class="brief">
-      <div class="brief-head">Bears, tackle Darnell Wright agree to record $116M deal</div>
-      <p>The four-year extension includes $93 million guaranteed, the most ever for an NFL offensive lineman. Wright becomes the highest-paid right tackle at $29 million a year.</p><span class="src"><a href="https://www.nfl.com/news/bears-ot-darnell-wright-agrees-to-four-year-116m-extension" rel="noopener nofollow">NFL.com</a></span>
-    </div></div>
-</section>
-
-  <section class="sec sec-wire">
-  <div class="section-label">Science &amp; Technology</div>
-  <div class="two-col-briefs"><div class="brief">
-      <div class="brief-head">COVID reactivates dormant viruses in half of severe cases</div>
-      <p>A Nature study of more than 1,100 hospitalized patients found nearly half reactivated latent viruses such as Epstein-Barr, tracking with longer stays and death.</p><span class="src"><a href="https://dellmed.utexas.edu/news/ut-led-study-finds-covid-19-can-awaken-hidden-viruses-throughout-the-body" rel="noopener nofollow">UT Austin Dell Medical School</a></span>
-    </div><div class="brief">
-      <div class="brief-head">NHTSA opens probe into 1.2 million Tesla Model 3s and Ys</div>
-      <p>Regulators are investigating 156 complaints that a front lower lateral link detaches without warning on 2018-2020 Model 3s and 2021-2023 Model Ys.</p><span class="src"><a href="https://electrek.co/2026/07/31/nhtsa-probes-tesla-model-3-model-y-suspension-failures/" rel="noopener nofollow">Electrek</a></span>
-    </div><div class="brief">
-      <div class="brief-head">Climate change made Spanish fire weather 20 times likelier</div>
-      <p>World Weather Attribution found human warming made July’s extreme fire conditions at least 20 times more likely in central Spain and twice as likely in southwest France.</p><span class="src"><a href="https://www.worldweatherattribution.org/climate-change-increases-likelihood-of-compounding-drivers-of-severe-wildfire-conditions-in-france-and-spain/" rel="noopener nofollow">World Weather Attribution</a></span>
-    </div></div>
-</section>
   </div>
 
   <div class="kicker">Vol. I, No. 1. The Ashgrove Times runs every morning at seven.</div>
 
   <div class="footer-note">Compiled from wire reports<span class="sep">&middot;</span><a href="../archive.html">Back issues</a></div>
+
+  <nav class="paper-nav paper-nav-foot" aria-label="Sections, repeated"><a href="../home.html">Home</a><a href="../sportsman/">Sports &amp; Sportsman</a><a href="../weather/">The Weather Claude</a></nav>
 
 </div>
 </body>

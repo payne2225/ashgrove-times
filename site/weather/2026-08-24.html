@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Jim Claudtore&#x27;s forecast for Monday, August 24, 2026.">
-<title>Jim Claudtore — Monday, August 24, 2026</title>
+<meta name="description" content="Bluebird, the sequel — home stays crisp while the severe map bites the beach">
+<title>The Weather Claude — Monday, August 24, 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
@@ -102,6 +102,35 @@
   }
 
   /* Section-to-section buttons, house-styled like the section labels. */
+  /* The rule that closes the wire columns off from the anchor sections
+     below them (Nate, 2026-08-26). A column bottom is a ragged edge, and
+     without this the notebook read as one more thing the last column ran
+     into. In the BASE stylesheet, not a breakpoint: the sections stack on a
+     phone and the break between the wire and the anchors still needs
+     saying — a browser-default <hr> in a letterpress page does not. */
+  .rule-anchor {
+    border: 0;
+    border-top: 1px solid var(--ink);
+    margin: 6px 0 16px;
+  }
+
+  /* A tier heading inside the Canada section. Smaller than a section label
+     and not reversed out — it is a sub-head, and three black chips stacked
+     under one black chip would read as four sections. Matches the
+     notebook's .wv-block-label, which is the same idea one box over. */
+  .tier-label {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 4px;
+    margin: 0 0 10px;
+  }
+  .sec-canada .tier { margin-bottom: 6px; }
+
   .paper-nav { text-align: center; margin: 0 0 18px; }
   .paper-nav a {
     display: inline-block;
@@ -576,38 +605,86 @@
        2026-08-24, which fills three columns about five lines deep. */
     .lead-block.no-art .columns { column-count: 3; }
 
-    /* The wire sections sit side by side across the page, one to a column,
-       the way the four beats run across a front page below the fold.
+    /* The wire sections FLOW through these columns; they are not placed in
+       them. (2026-08-26 — this was a grid until Pat said "lots and lots of
+       unused space.")
 
-       GRID, not CSS multi-column. Multi-column was the first attempt and it
-       looked right until you counted: a `column-span: all` element splits
-       the flow, so the two sections above the notebook spread across four
-       columns and left two of them empty. Grid places each section in its
-       own column and lets the notebook span deliberately rather than as a
-       side effect. */
-    .sections {
-      display: grid;
-      /* As many columns as there are wire sections, set by the renderer.
-         Hard-coding 4 counted West Virginia as a beat, but the notebook
-         spans the whole measure on its own row — so the fourth track was
-         always empty, a quarter of the page blank beside the news. */
-      grid-template-columns: repeat(var(--wire-cols, 3), 1fr);
+       A grid gave each section its own cell and made every row as tall as
+       its tallest member. On an ordinary morning — U.S. 524px, World 637px,
+       Sci/Tech 901px — that stood 28% of the section area empty, and a last
+       row that did not divide evenly was worse. Copy that runs down one
+       column and continues into the next cannot leave a hole, whatever
+       shape the news turns out to be that day. Measured on the 2026-08-26
+       edition: the section block went 1917px to 999px and the page 3093px
+       to 2653px, with nothing added and nothing cut.
+
+       The original objection to multi-column here was real and is now
+       answered rather than ignored: a `column-span: all` child splits a
+       flow and strands columns, which is exactly what happened the first
+       time. So the notebook is not a child of the flow at all — it is a
+       sibling block below it, and nothing inside the flow spans.
+
+       Sports & Sportsman has set this way since it launched. */
+    .sections { display: block; }
+    .wire-flow {
+      column-count: var(--wire-cols, 3);
       column-gap: 30px;
-      align-items: start;
+      column-rule: 1px solid #c9c2ac;
     }
+    .wire-flow > .sec {
+      break-inside: auto;      /* a section MAY continue into the next column */
+      border-left: 0;
+      padding-left: 0;
+      margin: 0 0 18px;
+    }
+    /* ...but a brief, the drawing, and a label stranded from the brief
+       under it may not be split. Those are the atoms. */
+    .wire-flow .brief { break-inside: avoid; }
+    .wire-flow .art { break-inside: avoid; }
+    .wire-flow .section-label { break-after: avoid; margin-top: 0; }
+    .wire-flow .sec + .sec .section-label { margin-top: 12px; }
     .sec { margin-bottom: 20px; }
     .sec .two-col-briefs { column-count: 1; column-rule: none; }
     .sec .section-label { margin-top: 0; }
-    /* Rules between the wire columns, none before the first. */
-    .sec-wire + .sec-wire { border-left: 1px solid #c9c2ac; padding-left: 30px; }
+
+
+    /* Anchored sections — the notebook and British Columbia — take the full
+       measure below the flow. Their briefs run in their own columns, since
+       one column across 1,310px would set 85-character lines. */
+    .sec-anchor { margin: 0 0 18px; }
+    .sec-anchor .two-col-briefs {
+      column-count: 3;
+      column-gap: 30px;
+      column-rule: 1px solid var(--rule);
+    }
+    .sec-anchor .brief { break-inside: avoid; }
+
+    /* Canada does its own columns, so the anchor rule above must not also
+       fragment it — a grid inside a CSS multi-column container gets sliced
+       across the columns, which put a tier label above an empty column and
+       stranded its brief two columns away. */
+    .sec-canada .two-col-briefs { column-count: 1; column-rule: none; }
+
+    /* The Canada section's three tiers sit side by side across the measure,
+       local first. A tier with nothing in it does not render, so a thin
+       morning closes to two columns rather than standing one empty — the
+       whole page was rebuilt to stop doing exactly that. */
+    .sec-canada .tiers {
+      display: grid;
+      grid-template-columns: repeat(var(--tier-cols, 3), 1fr);
+      column-gap: 30px;
+      align-items: start;
+    }
+    .sec-canada .tier + .tier { border-left: 1px solid var(--rule); padding-left: 30px; }
 
     /* The notebook is the anchor and it is wide content — four sub-blocks
-       that would strangle in a 300px column. It spans the whole measure as
+       that would strangle in a 300px column. It takes the whole measure as
        a boxed feature, which is both where the space is and the treatment
-       Ian asked for. `order` moves it below the wire columns without
-       touching DOM order, so the phone layout and screen readers still get
-       Ian's sequence. */
-    .sec-wv { grid-column: 1 / -1; order: 9; margin: 10px 0 8px; }
+       Ian asked for. It sits BELOW the flow because the renderer emits it
+       as a sibling after .wire-flow, not because of a CSS `order` — that
+       was a grid trick and the grid is gone. Screen readers and the phone
+       layout get the same sequence the markup has. */
+    .sec-wv { margin: 10px 0 8px; }
     .sec-wv .wv-box { padding: 22px 28px; column-count: 2; column-gap: 36px; }
     .sec-wv .wv-title { column-span: all; font-size: 24px; }
     .sec-wv .wv-box > .brief,
@@ -674,22 +751,31 @@
   }
   .wx-list { margin: 0 0 12px; padding-left: 20px; }
   .wx-list li { margin-bottom: 6px; }
-  /* The weather page borrows the sportsman column fill at desktop; a single
-     long column reads better for a briefing, so undo the multi-column. */
-  @media (min-width: 1024px) {
-    .page.weather .sections { column-count: 1; column-rule: none; }
-  }
+  /* The weather page stopped borrowing the sportsman column fill on
+     2026-08-25 — it sets as a newspaper page now, with the same section
+     grid the front page uses, so there is no multi-column flow left to
+     undo. What it does need is its own handling of Jim's confidence note,
+     which is a single paragraph inside a full-width box: the notebook's
+     two columns would split one short paragraph down the middle. */
+  .wx-confidence .wv-box { column-count: 1; }
+  .wx-confidence .wv-box p { margin: 0 0 10px; max-width: 92ch; }
+  .wx-confidence .wv-box p:last-child { margin-bottom: 0; }
+  .wx-roundup { margin: 0; }
+  /* Jim writes in half a dozen short reports rather than long copy, so the
+     label chip has to survive a stacked heading — three towns sharing one
+     forecast — without pushing the section out of its column. */
+  .page.weather .section-label { white-space: normal; line-height: 1.35; }
 
   @media print {
     body { background: #fff; padding: 0; }
     .page { border: 0; box-shadow: none; max-width: none; }
-    .sections { display: grid; grid-template-columns: repeat(var(--wire-cols, 3), 1fr); column-gap: 24px; }
+    .wire-flow { column-count: var(--wire-cols, 3); column-gap: 24px; }
     .sec-wv { grid-column: 1 / -1; order: 9; }
   }
 </style>
 </head>
 <body>
-<div class="page sportsman weather">
+<div class="page weather">
 
   <div class="top-bar">
     <span>The Forecast</span>
@@ -703,11 +789,11 @@
   <hr class="rule-thick">
   <hr class="rule-thin">
 
-  <nav class="paper-nav" aria-label="Sections"><a href="../index.html">Home</a><a href="../today.html">The News Desk</a><a href="../sportsman/">Sports &amp; Sportsman</a></nav>
+  <nav class="paper-nav" aria-label="Sections"><a href="../home.html">Home</a><a href="../today.html">The News Desk</a><a href="../sportsman/">Sports &amp; Sportsman</a></nav>
 
-  <div class="headline"></div>
-  
-  <div class="byline"></div>
+  <div class="headline">Monday, August 24</div>
+  <div class="subhead">Bluebird, the sequel — home stays crisp while the severe map bites the beach</div>
+  <div class="byline">By Jim Claudtore</div>
 
   <div class="lead-block no-art">
     
@@ -716,42 +802,54 @@
 
   
 
-  <div class="sections">
-  <div class="wx-briefing"><p class="wx-day">☀️ Monday, August 24</p>
-<p class="wx-dek">Bluebird, the sequel — home stays crisp while the severe map bites the beach</p>
-<p>The only severe ink today is at the shore: a <b>Slight Risk (2/5)</b> rides the coastal Carolinas, Topsail included — afternoon storms there can open as hail-makers, then gang up into damaging-wind clusters before standing down around sunset. Every West Virginia seat is clean, and the air back home is too dry to scare up a cloud if it tried.</p>
-<p class="wx-loc">📍 Apple Grove — Nate &amp; Ian</p>
-<p>Opener eve. Today plays simple: wall-to-wall sun, high <b>77°F (25°C)</b>, afternoon humidity 37%, down to <b>56°F (13°C)</b> tonight. And tomorrow&#x27;s Hannan opener at Ashton (5 PM vs. Calvary) held its forecast overnight — kickoff reads <b>80°F (27°C)</b>, sunny, rain a flat zero, wind under 7 mph. Calvary gets no weather excuses, and Ian gets one last quiet evening to sweat the lineup instead of the radar. Nate — the only weather note for Hurricane is that there isn&#x27;t any; commute-grade boring, both directions.</p>
-<p class="wx-loc">📍 Parkersburg — Pat</p>
-<p class="wx-loc">📍 Huntington — Trav</p>
-<p>The river bookends run the same play: cloudless, bone dry, rain 0–1%. Parkersburg tops at <b>75°F (24°C)</b> on 46% afternoon air; Huntington&#x27;s the warm, arid end at <b>80°F (27°C)</b> and a desert-grade 29%. Tonight lands <b>56–57°F (13–14°C)</b> for both — porch season on cruise control through the 8:10 sunset.</p>
-<p class="wx-loc">📍 Summersville — Clayton</p>
-<p>Coolest seat again, and tonight cashes the &quot;colder still&quot; check I wrote yesterday: sunny, high <b>72°F (22°C)</b>, afternoon humidity 55%, then down to <b>51°F (11°C)</b> — the plateau flirting with the 40s while the river holds the mid-50s. Best sleeping air of the month on the mountain.</p>
-<p class="wx-loc">🍁 The Hart, Prince George — Kirsten</p>
-<p>Back to bluebird. Sunny, clouding up a touch by afternoon on a northwest breeze around 20 km/h, high <b>25°C (77°F)</b> — then clear and <b>8°C (46°F)</b> overnight, one-upping last night&#x27;s 9 as the month&#x27;s best open-window air. ECCC does slip the word &quot;hazy&quot; into tonight&#x27;s forecast, but the air is pristine right now (AQI 20), so it reads as thin high stuff, not smoke at the nose. One honest note: Open-Meteo skipped Prince George this morning, so today runs on Environment Canada alone — humidity was 91% at daybreak (standard issue for a 9°C morning), and I&#x27;ve got no afternoon percentage to hand you.</p>
-<p class="wx-loc">🎖️ Honorable mentions</p>
-<ul class="wx-list">
-<li><b>Lesage — Justin:</b> the feed&#x27;s back — Open-Meteo found Lesage again after two dark mornings, and it returns bearing the driest air of the month: <b>80°F (27°C) / 57°F (14°C)</b>, afternoon humidity 27%. Air that dry has the county&#x27;s burn-ban notice out early, and for the third straight year it names Justin individually, with the standing clarification &quot;this includes his oils.&quot;</li>
-<li><b>Hinton — Greg:</b> honest walk-back — that 48°F Tuesday-morning tease loosens to <b>52°F (11°C)</b>, still the crew&#x27;s coolest floor. Today: sunny and quiet in New River Gorge country, <b>74°F (23°C)</b>, humidity 59%.</li>
-<li><b>North Bennington — Wes:</b> the map moves on. After Sunday&#x27;s brush with actual severe, Vermont&#x27;s down to general-thunder shading and a 7% stray-shower chance — <b>73°F (23°C) / 52°F (11°C)</b>, humidity 50%.</li>
-</ul>
-<p class="wx-loc">🌀 Quick hits</p>
-<ul class="wx-list">
-<li><b>Cowen, WV:</b> empty cabin, mountain-crisp — sunny, H <b>68°F (20°C) / L 54°F (12°C)</b>, humidity 55%.</li>
-</ul>
-<p class="wx-loc">🏖️ Topsail Beach, NC — beach report</p>
-<p>The day&#x27;s teeth. Topsail sits inside that <b>Slight Risk (2/5)</b>: storms firing this afternoon can drop hail early, then it turns into a damaging-wind game as they cluster — the severe window runs afternoon to sunset. High <b>87°F (31°C)</b>, overnight <b>72°F (22°C)</b>, and the air nudges moderate (AQI 51). Honest gap: Open-Meteo timed out on Topsail too, so no humidity percentage or UV number today — assume the usual August soup and sunscreen anyway.</p>
-<p>&gt; 🎯 <b>Confidence:</b> high at home — a second straight high-pressure bluebird is the easiest forecast of the year: sunny, dry, crisp, done. Medium on the beach: the Slight Risk is solid, but whether Topsail itself eats a storm or watches one offshore is a coin toss. The next story is already queued — the warm rebuild starts tomorrow and runs to low 90s by the weekend.</p>
-<p>&gt; ⚠️ <b>Today:</b> Carolina coast only — near Topsail this afternoon, treat the first storm as a hail risk and everything after it as a wind risk; it&#x27;s done by sunset.</p>
-<p>-# WV sun&#x27;s down 8:10 at Apple Grove. Air&#x27;s clean crew-wide (AQI 20s–30s). Open-Meteo timed out on Topsail and Prince George this morning — those sections run on the National Weather Service and Environment and Climate Change Canada alone.</p>
-<p>-# SPC (Storm Prediction Center) · NWS (National Weather Service) · Open-Meteo · ECCC (Environment and Climate Change Canada) — data fetched 7:27 AM ET</p></div>
+  <div class="sections" style="--wire-cols: 3">
+  <div class="wire-flow">
+  <section class="sec sec-wire wx-standfirst"><p>The only severe ink today is at the shore: a <b>Slight Risk (2/5)</b> rides the coastal Carolinas, Topsail included — afternoon storms there can open as hail-makers, then gang up into damaging-wind clusters before standing down around sunset. Every West Virginia seat is clean, and the air back home is too dry to scare up a cloud if it tried.</p></section>
+
+  <section class="sec sec-wire">
+  <div class="section-label">Apple Grove — Nate &amp; Ian</div>
+  <div class="two-col-briefs"><p>Opener eve. Today plays simple: wall-to-wall sun, high <b>77°F (25°C)</b>, afternoon humidity 37%, down to <b>56°F (13°C)</b> tonight. And tomorrow&#x27;s Hannan opener at Ashton (5 PM vs. Calvary) held its forecast overnight — kickoff reads <b>80°F (27°C)</b>, sunny, rain a flat zero, wind under 7 mph. Calvary gets no weather excuses, and Ian gets one last quiet evening to sweat the lineup instead of the radar. Nate — the only weather note for Hurricane is that there isn&#x27;t any; commute-grade boring, both directions.</p></div>
+</section>
+
+  <section class="sec sec-wire">
+  <div class="section-label">Parkersburg — Pat · Huntington — Trav</div>
+  <div class="two-col-briefs"><p>The river bookends run the same play: cloudless, bone dry, rain 0–1%. Parkersburg tops at <b>75°F (24°C)</b> on 46% afternoon air; Huntington&#x27;s the warm, arid end at <b>80°F (27°C)</b> and a desert-grade 29%. Tonight lands <b>56–57°F (13–14°C)</b> for both — porch season on cruise control through the 8:10 sunset.</p></div>
+</section>
+
+  <section class="sec sec-wire">
+  <div class="section-label">Summersville — Clayton</div>
+  <div class="two-col-briefs"><p>Coolest seat again, and tonight cashes the &quot;colder still&quot; check I wrote yesterday: sunny, high <b>72°F (22°C)</b>, afternoon humidity 55%, then down to <b>51°F (11°C)</b> — the plateau flirting with the 40s while the river holds the mid-50s. Best sleeping air of the month on the mountain.</p></div>
+</section>
+
+  <section class="sec sec-wire">
+  <div class="section-label">The Hart, Prince George — Kirsten</div>
+  <div class="two-col-briefs"><p>Back to bluebird. Sunny, clouding up a touch by afternoon on a northwest breeze around 20 km/h, high <b>25°C (77°F)</b> — then clear and <b>8°C (46°F)</b> overnight, one-upping last night&#x27;s 9 as the month&#x27;s best open-window air. ECCC does slip the word &quot;hazy&quot; into tonight&#x27;s forecast, but the air is pristine right now (AQI 20), so it reads as thin high stuff, not smoke at the nose. One honest note: Open-Meteo skipped Prince George this morning, so today runs on Environment Canada alone — humidity was 91% at daybreak (standard issue for a 9°C morning), and I&#x27;ve got no afternoon percentage to hand you.</p></div>
+</section>
+
+  <section class="sec sec-wire">
+  <div class="section-label">Honorable mentions</div>
+  <div class="two-col-briefs"><ul class="roundup wx-roundup"><li><b>Lesage — Justin:</b> the feed&#x27;s back — Open-Meteo found Lesage again after two dark mornings, and it returns bearing the driest air of the month: <b>80°F (27°C) / 57°F (14°C)</b>, afternoon humidity 27%. Air that dry has the county&#x27;s burn-ban notice out early, and for the third straight year it names Justin individually, with the standing clarification &quot;this includes his oils.&quot;</li><li><b>Hinton — Greg:</b> honest walk-back — that 48°F Tuesday-morning tease loosens to <b>52°F (11°C)</b>, still the crew&#x27;s coolest floor. Today: sunny and quiet in New River Gorge country, <b>74°F (23°C)</b>, humidity 59%.</li><li><b>North Bennington — Wes:</b> the map moves on. After Sunday&#x27;s brush with actual severe, Vermont&#x27;s down to general-thunder shading and a 7% stray-shower chance — <b>73°F (23°C) / 52°F (11°C)</b>, humidity 50%.</li></ul></div>
+</section>
+
+  <section class="sec sec-wire">
+  <div class="section-label">Quick hits</div>
+  <div class="two-col-briefs"><ul class="roundup wx-roundup"><li><b>Cowen, WV:</b> empty cabin, mountain-crisp — sunny, H <b>68°F (20°C) / L 54°F (12°C)</b>, humidity 55%.</li></ul></div>
+</section>
+
+  <section class="sec sec-wire">
+  <div class="section-label">Topsail Beach, NC — beach report</div>
+  <div class="two-col-briefs"><p>The day&#x27;s teeth. Topsail sits inside that <b>Slight Risk (2/5)</b>: storms firing this afternoon can drop hail early, then it turns into a damaging-wind game as they cluster — the severe window runs afternoon to sunset. High <b>87°F (31°C)</b>, overnight <b>72°F (22°C)</b>, and the air nudges moderate (AQI 51). Honest gap: Open-Meteo timed out on Topsail too, so no humidity percentage or UV number today — assume the usual August soup and sunscreen anyway.</p></div>
+</section>
+  </div>
+
+  <section class="sec sec-wv wx-confidence"><div class="wv-box"><p><b>Confidence:</b> high at home — a second straight high-pressure bluebird is the easiest forecast of the year: sunny, dry, crisp, done. Medium on the beach: the Slight Risk is solid, but whether Topsail itself eats a storm or watches one offshore is a coin toss. The next story is already queued — the warm rebuild starts tomorrow and runs to low 90s by the weekend.</p><p><b>Today:</b> Carolina coast only — near Topsail this afternoon, treat the first storm as a hail risk and everything after it as a wind risk; it&#x27;s done by sunset.</p></div></section>
   </div>
 
   
 
-  <div class="footer-note">Filed to the channel at 7:15 ET by Jim Claudtore</div>
+  <div class="footer-note">WV sun&#x27;s down 8:10 at Apple Grove. Air&#x27;s clean crew-wide (AQI 20s–30s). Open-Meteo timed out on Topsail and Prince George this morning — those sections run on the National Weather Service and Environment and Climate Change Canada alone.  SPC (Storm Prediction Center) · NWS (National Weather Service) · Open-Meteo · ECCC (Environment and Climate Change Canada) — data fetched 7:27 AM ET</div>
 
-  <nav class="paper-nav paper-nav-foot" aria-label="Sections, repeated"><a href="../index.html">Home</a><a href="../today.html">The News Desk</a><a href="../sportsman/">Sports &amp; Sportsman</a></nav>
+  <nav class="paper-nav paper-nav-foot" aria-label="Sections, repeated"><a href="../home.html">Home</a><a href="../today.html">The News Desk</a><a href="../sportsman/">Sports &amp; Sportsman</a></nav>
 
 </div>
 </body>
