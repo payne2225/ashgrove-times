@@ -2855,3 +2855,71 @@ Both papers landed **exactly on their holds**: the Times at **7:00** (No. 16, me
 `spurs-adarabioyo-mudryk`, `liverpool-brughmans-loanback`, `reds-padres-4-3`, `pirates-giants-13-12`,
 `marshall-gmu-3-3`, `aki-dates-cited-sept13-27`, `hoshoryu-surgery-in-print`, `flounder-day-two`,
 `topsail-shellfish-reopen-pa42`
+
+## 2026-09-03 — No. 30 (Times) and No. 20 (Sports & Sportsman)
+
+| Open-ended | **Ninth morning under the digest contract, first under the three new gates, and all three passed on the first try.** Both papers researched (five parallel research agents), written, validated, rendered and pushed by **5:49 a.m. ET**, 19 minutes after the 5:30 wake; Pages served both dated pages 200 inside ~35 seconds. The MLB standings byte-match took "68-72, fourth in the NL Central, 19 back" straight from `out/standings.json` with no cut; the date-word gate passed every away and hotspots line as written; the standings snapshot froze beside the fishing one in `editions/data/`. `send_later` armed for 6:56, digest posted in the FOREGROUND with `--not-before 07:00` and a verified `--page-url`, **landed at 7:00:01 ET** (message 1545025569341579366, 1044 embed chars, hero attached, zero degraded). Keep the pattern | **standing practice** |
+| Open-ended | **The stored schedule prompt is now the thin pointer** (2026-09-02 rewrite): it named routine.md as authoritative, handed over ONE webhook, and said Sports & Sportsman does not post. First morning with no stale two-post instruction to override. Detached HEAD at session start again — seventh occurrence (Aug 27, 28, 30, 31, Sept 1, 2, 3); `git checkout main` + `git reset --hard origin/main` while HEAD matched origin/main fixed it before any work | **OPEN — recurring** |
+| Open-ended | **The `result` gate caught two SCORE-SHAPED strings that were not scores**: "lost 45-7 at Georgia" (last year's opener, in the Marshall preview) and "30-40 cm" (Wakatakakage's incision) both tripped "prints a score but has no result". Rewritten as "a 38-point loss" and "30 to 40 centimeters". Worth knowing: any `\d+-\d+` in a sports brief needs a `result` or a rewrite, even a measurement | |
+| Open-ended | **Sumo finally cites Japanese origins directly.** Sanspo, Hochi and Nikkan Sports refuse the pipeline, but **Daily Sports (`daily.co.jp`) and Chunichi (`chunichi.co.jp`) OPENED** — the Wakatakakage full-Aki kyujo (compartment syndrome, four surgeries, juryo in November) ran on Daily Sports and the Hoshoryu "unclear until the last moment" line on Chunichi, both found through Sumostats' English digests, which link every Japanese daily and are now the working sumo wire. r/Sumo, NHK and Kyodo unreachable again (12th morning for r/Sumo) | **watch** |
+| Open-ended | **Lead art fell to rung 2 for a stated reason.** The Al Jazeera lead photographs were Trump at the Resolute Desk (a face) and the bombed Kuhestak wedding courtyard (aftermath of violence) — both out under §4.5. Drew Hubble's polar view of Saturn's south-pole decagon instead, placed in Science & Technology, credited to NASA. Not a FAILURES line | |
+| Open-ended | **Source status this morning.** NEWLY OPENED: **wvmetronews.com** (the Marshall-Penn State preview fetched clean — first time since the Cloudflare block), northtopsailbeachnc.gov (answered again), daily.co.jp, chunichi.co.jp, herald-dispatch article pages (two loaded, one 429). STILL BLOCKED: WOWK (every page), WV Watch, sanspo/hochi/nikkansports, NPR article pages (503 x4 across desks), The Verge, Axios, Forbes, openai.com/index, mlb.com team schedule pages (406 — `mlb.com/scores/YYYY-MM-DD` renders), ESPN schedule pages (empty), MLS club sites (JS shells — tqlstadium.com gives ET kickoffs, FOX renders UTC). Fisherman's Post September Topsail monthly (published Sept. 1) opened via the direct slug | **watch** |
+| Open-ended | **Six date traps dodged.** (1) The Kyiv Independent "502 drones" story in Sept. 3 roundups is from Sept. 3, **2025**. (2) A Buenos Aires Times obituary is 2025. (3) Kris Warner's Webster courthouse tour is 2025. (4) The Bennington Banner road-construction list is Aug. 29, **2025**. (5) visitwebsterwv.com and wvstateparks.com carry 2025 and 2023 Holly River festival dates — only webstercountytourism.com has 2026's Sept. 5-6. (6) Two ScienceDaily items (sitting/cancer, Devonian scorpion) are July papers re-dated. All caught by opening pages and reading dates | |
+
+### Forward-dated events added or moved
+
+| Date | Event | Note |
+|---|---|---|
+| **open** | **U.S.-Iran is the lead a third straight morning and still widening** | No. 30 led with Iran's overnight strikes on Ahmad al-Jaber (Kuwait) and Al Minhad (UAE), Iran's 18-dead toll, the Red Crescent's ICC request over Kuhestak, Iran's claim of fresh Hormuz mines and Trump's "anytime we want." Tomorrow: Kuwait/UAE damage, any U.S. answer, Brent (~$95), the Sept. 26 UNSC sanctions-panel vote France plans. Health ministry later put wounded at 142 (AJ) — the paper used the minister's 108 |
+| **2026-09-03** | **Talwani preliminary-injunction hearing on the USPS mail-ballot rule — TODAY, not run** | No ruling by press time; the hearing itself was a curtain-raiser already printed Wednesday. Friday's U.S. brief if she rules; NC starts mailing ballots Friday |
+| **2026-09-03** | **Pacific Islands Forum communique on China's missile test** | Ran as the Oceania brief while the retreat was still closing — the outcome (condemnation or not) is tomorrow's follow |
+| **2026-09-04** | **Hannan v. Logan RESULT (tonight 6 p.m., Ashton) — outside outlet only; MaxPreps does not even list the fixture** | Also: Roane (Sept. 1) still unreported on both MaxPreps pages. Check MaxPreps and Logan's page first |
+| **2026-09-04** | **Hoshoryu at (or absent from) the YDC joint practice — his Aki entry signal** | Chunichi: "unclear until the last moment. I want to participate." Wakatakakage's kyujo is now PRINTED (Daily Sports) |
+| **2026-09-04** | **Liverpool at Ipswich, 3 p.m. ET; Reds open at Milwaukee 6:10 p.m. ET; Pirates finish v. Giants TODAY 12:35 p.m. ET** | Friday's teams material |
+| **2026-09-05** | **College football opens: WVU v. Coastal Carolina (noon, TNT), Marshall at No. 18 Penn State (3:30, FS1), Ohio at Nebraska (noon, FS1); Tottenham at Forest 10 a.m. ET; FC Cincinnati v. D.C. United and Crew v. Colorado 7:30 p.m. ET; Holly River State Park Festival Sept. 5-6; squirrel youth weekend** | The Crew kickoff is FOX's UTC slot converted — an ET-labeled page would be better |
+| **2026-09-06** | **Chelsea at Arsenal 11:30 a.m. ET; WVU women host Marshall 7 p.m.** | |
+| **2026-09-07** | **WV gun bear first window closes (selected counties)** | Ran in going-out with the no-county-list caveat |
+| **2026-09-08** | **Canada counter-tariffs effective; Beth Burns sworn in to the Pender commission** | |
+| **2026-09-09** | **Webster County Fair opens (through Sept. 12); King Harald's funeral; DoubleTree deadline; Croft Road at PG council; Liverpool v. Atletico 3 p.m. ET; Hannan v. Point JV; NFL opens (Seahawks host New England, 8:20 p.m. ET)** | |
+| **2026-09-13** | **Aki basho opens (through Sept. 27); Bengals v. Buccaneers 1 p.m. ET; Browns at Jacksonville; Hannan-Westside is Sept. 10 at Shawnee (Institute)** | |
+| **2026-09-14** | **NC flounder closes 11:59 p.m.; Bennington option-tax meetings Sept. 14 and 28 ahead of the Nov. 3 vote** | |
+| **2026-09-17** | **NCDMF kingfishes meeting, Wilmington; Gauley Fest opens** | |
+| **2026-09-21** | **Black Diamond Power status hearing, PSC** | Ran statewide today |
+| **2026-09-26** | **Abbotsford-Mission byelection; USMNT-Peru; WV archery deer/bear and boar archery open** | |
+| **mid-October** | **Pender commissioners vote on the 930-home Sidbury Road rezoning** | Ran as today's Topsail line |
+| **2026-11-17** | **Maduro immunity arguments before Judge Hellerstein; trial June 1, 2027** | |
+
+### Open threads
+
+- **us-iran-hormuz** — led a third day; see forward-dated row.
+- **nepal-flood** — 1,252 dead / 4,216 missing (NDRRMA, Thursday noon, via Kathmandu Post); the missing count is fluctuating (4,858 a day earlier) — always "at least".
+- **malta-fenech-acquittal** — NEW; RSF/ECPMF reaction ran; an appeal is only in snippets, unprinted.
+- **pacific-forum-china-missile** — NEW; outcome pending.
+- **nigeria-us-troops-withdraw** — NEW; no date.
+- **wooton-medical** — NEW; no condition update by press time; the court's calendar through Sept. 23 is affected.
+- **mammoth-solar-cannelton** — NEW; PSC sited it Nov. 2025; construction 2027.
+- **black-diamond-power** — NEW; Sept. 21 hearing.
+- **fy28-flat-budgets** — NEW; income-tax trigger not met.
+- **bc-conservative-exodus** — moved: ninth MLA, chief of staff Delaney out, RCMP questioned Paton (Globe) — the Paton item is unprinted and is tomorrow's bc tier if it moves.
+- **google-adtech-remedy** — NEW; opinion sealed 14 days, judgment due in 30.
+- **maduro-immunity** — NEW; Nov. 17.
+- **edouard** — aftermath ran (East Texas flooding); remnant low dissipates today.
+- **openai-astra-critical / doj-fair-use-brief / tumbler-ridge-37-suits** — all NEW.
+- **hoshoryu-aki-entry** — Friday's YDC practice; **wakatakakage-kyujo** — CLOSED, printed.
+- **hannan-roane / hannan-logan** — both results owed.
+- **usps-mail-ballot** — ruling pending after today's hearing.
+- **kenscoff-hostages / zambia / norway** — dead today per the World desk.
+- **marl-psc / meta-settlement-approval / putnam-google-datacenter / nitro-elementary / milton-culloden / bluefield-state / fundamental-data-appeal** — pending, not run.
+
+### Covered slugs, 2026-09-03
+
+`iran-strikes-kuwait-uae-bases`, `edouard-east-texas-21-inches`, `google-adtech-no-breakup`, `beige-book-modest-datacenters`,
+`maduro-immunity-motion`, `nepal-toll-1252`, `malta-fenech-acquitted`, `pacific-forum-china-missile`, `nigeria-us-troops-withdraw`,
+`wooton-medical-incident`, `mammoth-solar-cannelton-350m`, `fy28-flat-budgets-46m`, `black-diamond-no-deal`,
+`huntington-marshall-houses-reinspect`, `putnam-us35-safety-review`, `parkersburg-recycling-fee-3`, `rocket-boys-pipestem-riley`,
+`bennington-bridge-6-complete`, `holly-river-festival-sept5-6`, `pender-930-homes-denied`, `pg-wich-homicide`, `lyn-hall-northern-health`,
+`bc-ninth-mla-delaney-resigns`, `gas-tax-holiday-jan31`, `saturn-south-decagon`, `venetoclax-siv-reservoir`, `galaxies-hydrogen-star-formation`,
+`alzheimers-cd8-lymph-nodes`, `openai-astra-critical-cyber`, `doj-openai-fair-use-brief`, `tumbler-ridge-37-suits`,
+`reds-padres-7-3`, `giants-pirates-5-4-10`, `chelsea-camara-monaco-collapse`, `marshall-gibson-penn-state`, `bengals-stewart-pads`,
+`wvu-depth-chart-or`, `wakatakakage-aki-kyujo`, `hoshoryu-last-minute`, `brewers-cubs-9-5`, `nba-clippers-ballmer-suspended`,
+`flounder-day-three`, `kingfish-scoping-tonight`
