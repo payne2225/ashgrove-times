@@ -157,20 +157,29 @@
   }
 
   /* The tide table: a real table, because Nate asked for one. */
-  .tide-table { border-collapse: collapse; margin: 10px auto 4px; font-size: 13.5px; }
+  .tide-table, .wx-stats { border-collapse: collapse; margin: 10px auto 4px; font-size: 13.5px; }
   .tide-table caption {
     font-family: var(--display); font-weight: 700; font-size: 13px;
     letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-mute);
     padding-bottom: 6px;
   }
-  .tide-table th, .tide-table td {
+  .tide-table th, .tide-table td, .wx-stats th, .wx-stats td {
     border: 1px solid var(--rule); padding: 4px 12px; text-align: center;
   }
-  .tide-table th {
+  .tide-table th, .wx-stats th {
     font-family: var(--display); font-size: 11.5px; letter-spacing: 0.08em;
     text-transform: uppercase; background: var(--wv-tint);
   }
   .tide-table td:first-child { font-weight: 600; }
+  /* The weather page's numbers table: the first thing under every location
+     chip since 2026-09-03 (Nate: "show the data first and foremost"), so
+     the read underneath can be a read and not a ledger. Full measure, a
+     little tighter than the tide table, and it must never overflow a
+     column on a phone. */
+  .wx-stats { width: 100%; margin: 2px 0 10px; font-size: 13px; }
+  .wx-stats th, .wx-stats td { padding: 3px 6px; white-space: nowrap; }
+  .wx-stats td:first-child { font-weight: 600; }
+  .sec .wx-stats { break-inside: avoid; }
 
   /* ---------- masthead ---------- */
 
@@ -812,27 +821,27 @@
 
   <section class="sec sec-wire">
   <div class="section-label">Parkersburg — Pat</div>
-  <div class="two-col-briefs"><p><b>93°F (34°C)</b>, 46% afternoon humidity, feels-like 101°F (38°C) from 1 to 5, tonight <b>72°F (22°C)</b> — then the board&#x27;s only Slight Risk seat. Storm fuel is loaded after 9 PM with nothing to light it until the Ohio clusters arrive, 10–11% between 1 and 3 AM. If a line makes it, it&#x27;s gusty and after midnight; likelier is a cloudy hour and a radar that looks mean and never reaches you.</p></div>
+  <div class="two-col-briefs"><table class="wx-stats"><tr><th>H</th><th>L</th><th>Feels like</th><th>RH</th><th>Rain</th><th>AQI</th></tr><tr><td>93°</td><td>72°</td><td>102° at 2–3 PM</td><td>47%</td><td>8%</td><td>81</td></tr></table><p><b>93°F (34°C)</b>, 46% afternoon humidity, feels-like 101°F (38°C) from 1 to 5, tonight <b>72°F (22°C)</b> — then the board&#x27;s only Slight Risk seat. Storm fuel is loaded after 9 PM with nothing to light it until the Ohio clusters arrive, 10–11% between 1 and 3 AM. If a line makes it, it&#x27;s gusty and after midnight; likelier is a cloudy hour and a radar that looks mean and never reaches you.</p></div>
 </section>
 
   <section class="sec sec-wire">
   <div class="section-label">Apple Grove — Nate &amp; Ian</div>
-  <div class="two-col-briefs"><p><b>95°F (35°C)</b>, 35% afternoon humidity, feels-like <b>103°F (39°C)</b> at 2–3 PM, tonight <b>73°F (23°C)</b>, rain 2%, afternoon AQI into the 90s (moderate). Nothing fires before dark. Hurricane tops the house by two at 97°F (36°C), Nate, and the porch is still 90°F (32°C) at 8 — pour late.</p><ul class="roundup wx-roundup"><li><b>Ian:</b> Logan at Ashton, 6:00. Kickoff: about <b>97°F (36°C)</b>, and with the air dried to 25% humidity the feels-like is the same 97 — dry heat, and the hottest kickoff of this wave. West wind 7 mph, gusts to 12; second half near 94°F (34°C), whole match in sun, the 7:55 sunset right after the whistle. <b>Lightning: non-factor</b> — clear sky, zero storm fuel at kickoff. The call is heat: water and shade every stoppage, rolling subs, bench out of the sun. Eighty minutes at 97°F under an advisory is a welfare line, not a delay line.</li></ul></div>
+  <div class="two-col-briefs"><table class="wx-stats"><tr><th>H</th><th>L</th><th>Feels like</th><th>RH</th><th>Rain</th><th>AQI</th></tr><tr><td>95°</td><td>73°</td><td>104° at 3–4 PM</td><td>39%</td><td>8%</td><td>97</td></tr></table><p><b>95°F (35°C)</b>, 35% afternoon humidity, feels-like <b>103°F (39°C)</b> at 2–3 PM, tonight <b>73°F (23°C)</b>, rain 2%, afternoon AQI into the 90s (moderate). Nothing fires before dark. Hurricane tops the house by two at 97°F (36°C), Nate, and the porch is still 90°F (32°C) at 8 — pour late.</p><ul class="roundup wx-roundup"><li><b>Ian:</b> Logan at Ashton, 6:00. Kickoff: about <b>97°F (36°C)</b>, and with the air dried to 25% humidity the feels-like is the same 97 — dry heat, and the hottest kickoff of this wave. West wind 7 mph, gusts to 12; second half near 94°F (34°C), whole match in sun, the 7:55 sunset right after the whistle. <b>Lightning: non-factor</b> — clear sky, zero storm fuel at kickoff. The call is heat: water and shade every stoppage, rolling subs, bench out of the sun. Eighty minutes at 97°F under an advisory is a welfare line, not a delay line.</li></ul></div>
 </section>
 
   <section class="sec sec-wire">
   <div class="section-label">Huntington — Trav</div>
-  <div class="two-col-briefs"><p>The advisory&#x27;s peak: <b>98°F (37°C)</b> official, 2 PM feels-like <b>106°F (41°C)</b>. Humidity 33%, rain 1%, still 94°F (34°C) at 8 PM, tonight <b>74°F (23°C)</b>, no storms. A gummy at 5 lands right as the porch dips under 95 at 8 — the day&#x27;s one good timing.</p></div>
+  <div class="two-col-briefs"><table class="wx-stats"><tr><th>H</th><th>L</th><th>Feels like</th><th>RH</th><th>Rain</th><th>AQI</th></tr><tr><td>98°</td><td>74°</td><td>106° at 1–3 PM</td><td>36%</td><td>8%</td><td>93</td></tr></table><p>The advisory&#x27;s peak: <b>98°F (37°C)</b> official, 2 PM feels-like <b>106°F (41°C)</b>. Humidity 33%, rain 1%, still 94°F (34°C) at 8 PM, tonight <b>74°F (23°C)</b>, no storms. A gummy at 5 lands right as the porch dips under 95 at 8 — the day&#x27;s one good timing.</p></div>
 </section>
 
   <section class="sec sec-wire">
   <div class="section-label">Summersville — Clayton</div>
-  <div class="two-col-briefs"><p>I promised 90; the National Weather Service says <b>89°F (32°C)</b> — Pat&#x27;s old one-degree loophole, now Clayton&#x27;s. Humidity 52%, feels-like 96°F (36°C) at 2 PM, tonight <b>68°F (20°C)</b>. Marginal (1/5), rain 7%.</p></div>
+  <div class="two-col-briefs"><table class="wx-stats"><tr><th>H</th><th>L</th><th>Feels like</th><th>RH</th><th>Rain</th><th>AQI</th></tr><tr><td>89°</td><td>68°</td><td>96° at 1–4 PM</td><td>53%</td><td>9%</td><td>82</td></tr></table><p>I promised 90; the National Weather Service says <b>89°F (32°C)</b> — Pat&#x27;s old one-degree loophole, now Clayton&#x27;s. Humidity 52%, feels-like 96°F (36°C) at 2 PM, tonight <b>68°F (20°C)</b>. Marginal (1/5), rain 7%.</p></div>
 </section>
 
   <section class="sec sec-wire">
   <div class="section-label">The Hart, Prince George — Kirsten</div>
-  <div class="two-col-briefs"><p>Called it: periods of rain, 5–10 mm, high <b>18°C (64°F)</b>, humidity 80%, wind flipping north 20 km/h early afternoon with a late-day thunderstorm risk. Showers quit near midnight, then the story: tonight <b>8°C (46°F)</b>, Friday sun-and-cloud and windy at 19°C (66°F), Friday night clear and <b>plus 4°C (39°F)</b> — the open-window streak becomes the second-blanket streak, and the garden gets its first warning shot.</p></div>
+  <div class="two-col-briefs"><table class="wx-stats"><tr><th>H</th><th>L</th><th>Feels like</th><th>RH</th><th>Rain</th><th>AQI</th></tr><tr><td>21°C</td><td>12°C</td><td>21°C at 3 PM</td><td>80%</td><td>84%</td><td>42</td></tr></table><p>Called it: periods of rain, 5–10 mm, high <b>18°C (64°F)</b>, humidity 80%, wind flipping north 20 km/h early afternoon with a late-day thunderstorm risk. Showers quit near midnight, then the story: tonight <b>8°C (46°F)</b>, Friday sun-and-cloud and windy at 19°C (66°F), Friday night clear and <b>plus 4°C (39°F)</b> — the open-window streak becomes the second-blanket streak, and the garden gets its first warning shot.</p></div>
 </section>
 
   <section class="sec sec-wire">
@@ -847,7 +856,7 @@
 
   <section class="sec sec-wire">
   <div class="section-label">Topsail Beach, NC — beach report</div>
-  <div class="two-col-briefs"><p>H <b>89°F (32°C) / L 76°F (24°C)</b>, humidity 76% on a 77°F dew point, rain 2%, UV 7.4. The beach is the humid one, the river&#x27;s the hot one — pick your poison.</p></div>
+  <div class="two-col-briefs"><table class="wx-stats"><tr><th>H</th><th>L</th><th>Feels like</th><th>RH</th><th>Rain</th><th>AQI</th></tr><tr><td>89°</td><td>76°</td><td>98° at 1–3 PM</td><td>77%</td><td>2%</td><td>36</td></tr></table><p>H <b>89°F (32°C) / L 76°F (24°C)</b>, humidity 76% on a 77°F dew point, rain 2%, UV 7.4. The beach is the humid one, the river&#x27;s the hot one — pick your poison.</p></div>
 </section>
   </div>
 
