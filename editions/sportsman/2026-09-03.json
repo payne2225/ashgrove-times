@@ -1,0 +1,403 @@
+{
+  "edition_date": "2026-09-03",
+  "edition_number": 20,
+  "volume": "I",
+  "sections": [
+    {
+      "id": "teams",
+      "label": "Our Teams",
+      "briefs": [
+        {
+          "headline": "Reds rally from three down to beat the Padres 7-3, take the series",
+          "summary": "Rookie Juan Brito's first big-league homer, a three-run shot in the third, tied it Wednesday, and Hector Rodriguez and J.J. Bleday also went deep; Brandon Williamson got the win and Casey Mize the loss as Cincinnati took two of three.",
+          "team": "Cincinnati Reds",
+          "league": "MLB",
+          "source": "CBS Sports",
+          "url": "https://www.cbssports.com/mlb/gametracker/boxscore/MLB_20260902_SD@CIN/",
+          "result": {
+            "winner": "Cincinnati Reds",
+            "loser": "San Diego Padres",
+            "score": "7-3"
+          }
+        },
+        {
+          "headline": "Giants score twice in the 10th to beat the Pirates 5-4",
+          "summary": "Pittsburgh tied it with single runs in the seventh and eighth Wednesday, but Bryce Eldridge's RBI double and a Turner Hill sacrifice fly won it in the 10th; Rafael Devers hit his 32nd homer, and Camilo Doval took the loss. The series ends today at 12:35 p.m. ET.",
+          "team": "Pittsburgh Pirates",
+          "league": "MLB",
+          "source": "CBS Sports",
+          "url": "https://www.cbssports.com/mlb/gametracker/boxscore/MLB_20260902_SF@PIT/",
+          "result": {
+            "winner": "San Francisco Giants",
+            "loser": "Pittsburgh Pirates",
+            "score": "5-4"
+          }
+        },
+        {
+          "headline": "Monaco backs out of £47M Camara sale, leaving Chelsea without an Enzo replacement",
+          "summary": "Sky Sports reported Wednesday that Monaco reneged on a written club-to-club agreement before the deadline after its own Balogun-to-Everton deal collapsed; Chelsea called the conduct \"extraordinary and deeply unprofessional\" and go to Arsenal Sunday.",
+          "team": "Chelsea",
+          "league": "Premier League",
+          "source": "Sky Sports",
+          "url": "https://www.skysports.com/football/news/11668/13580189/lamine-camara-monaco-pull-out-of-selling-camara"
+        },
+        {
+          "headline": "Marshall's Gibson wants no repeat of last year's opener at Penn State",
+          "summary": "Tony Gibson said Wednesday the Herd has \"watched a ton of Iowa State tape\" with 25 Cyclones following Matt Campbell to State College; Carlos Del Rio-Wilson starts at quarterback for a team that opened last season with a 38-point loss at Georgia.",
+          "team": "Marshall",
+          "league": "NCAA",
+          "source": "WV MetroNews",
+          "url": "https://wvmetronews.com/2026/09/02/marshall-looks-to-put-its-best-foot-forward-in-challenging-opener-at-no-18-penn-state/"
+        },
+        {
+          "headline": "Bengals get Shemar Stewart back in pads; Chase and Higgins limited",
+          "summary": "The second-year defensive end practiced in pads Wednesday for the first time in five weeks after a hyperextended knee; Zac Taylor said Ja'Marr Chase and Tee Higgins are limited this week but on track for the Sept. 13 opener against Tampa Bay.",
+          "team": "Cincinnati Bengals",
+          "league": "NFL",
+          "source": "Bengals.com",
+          "url": "https://www.bengals.com/news/quick-hits-dexter-lawrence-jack-endries-injury-update-shemar-stewart"
+        },
+        {
+          "headline": "WVU's first depth chart lists Hawkins or Fox at quarterback",
+          "summary": "Tuesday's chart carries an \"OR\" at quarterback between Mike Hawkins and Scotty Fox Jr., at tight end, at kicker and at several defensive spots; Rodriguez said most are \"because we feel good about multiple guys.\" Coastal Carolina visits Saturday at noon.",
+          "team": "West Virginia",
+          "league": "NCAA",
+          "source": "Sports Illustrated",
+          "url": "https://www.si.com/college/westvirginia/football/wvu-releases-depth-chart-for-week-1-matchup-vs-coastal-carolina"
+        }
+      ],
+      "sat_out": [
+        {
+          "team": "Tottenham",
+          "league": "Premier League",
+          "reason": "no news Wednesday; the trip to Nottingham Forest is Saturday, with no points and no goals from two matches"
+        },
+        {
+          "team": "Liverpool",
+          "league": "Premier League",
+          "reason": "previews only ahead of Friday's trip to Ipswich"
+        },
+        {
+          "team": "Cleveland Browns",
+          "league": "NFL",
+          "reason": "practice-squad churn only: WR Bryce Oliver signed Wednesday, a day after RB Jaleel McLaughlin"
+        },
+        {
+          "team": "Columbus Crew",
+          "league": "MLS",
+          "reason": "no midweek match; Colorado visits Saturday"
+        },
+        {
+          "team": "FC Cincinnati",
+          "league": "MLS",
+          "reason": "no midweek match; D.C. United visits Saturday"
+        },
+        {
+          "team": "Ohio University",
+          "league": "NCAA",
+          "reason": "opens Saturday at Nebraska; the school's game-week release would not render"
+        },
+        {
+          "team": "San Antonio Spurs",
+          "league": "NBA",
+          "reason": "offseason"
+        },
+        {
+          "team": "USMNT",
+          "league": "Soccer",
+          "reason": "no window until the Sept. 26 Peru friendly in Orlando"
+        }
+      ],
+      "standings": [
+        {
+          "team": "Pittsburgh Pirates",
+          "line": "68-72, fourth in the NL Central, 19 back",
+          "source": "MLB.com",
+          "url": "https://www.mlb.com/standings/"
+        },
+        {
+          "team": "Cincinnati Reds",
+          "line": "67-73, fifth in the NL Central, 20 back",
+          "source": "MLB.com",
+          "url": "https://www.mlb.com/standings/"
+        },
+        {
+          "team": "Chelsea",
+          "line": "6 points from two wins, fourth in the Premier League",
+          "source": "Sky Sports",
+          "url": "https://www.skysports.com/premier-league-table"
+        },
+        {
+          "team": "Liverpool",
+          "line": "2 points from two draws, 13th in the Premier League",
+          "source": "Sky Sports",
+          "url": "https://www.skysports.com/premier-league-table"
+        },
+        {
+          "team": "Tottenham",
+          "line": "0 points from two matches, 20th and last in the Premier League",
+          "source": "Sky Sports",
+          "url": "https://www.skysports.com/premier-league-table"
+        },
+        {
+          "team": "FC Cincinnati",
+          "line": "31 points, sixth in the Eastern Conference",
+          "source": "FOX Sports",
+          "url": "https://www.foxsports.com/soccer/mls/standings"
+        },
+        {
+          "team": "Columbus Crew",
+          "line": "20 points, 15th in the Eastern Conference",
+          "source": "FOX Sports",
+          "url": "https://www.foxsports.com/soccer/mls/standings"
+        },
+        {
+          "team": "Hannan",
+          "line": "1-1, with the Calvary loss and the 7-0 win at St. Marys the only results posted",
+          "source": "MaxPreps",
+          "url": "https://www.maxpreps.com/wv/ashton/hannan-wildcats/soccer/schedule/"
+        }
+      ],
+      "upcoming": [
+        {
+          "team": "Hannan",
+          "fixture": "vs. Logan, at Ashton",
+          "when": "Thursday, Sept. 3, 6 p.m. ET",
+          "source": "Hannan schedule",
+          "url": null
+        },
+        {
+          "team": "Pittsburgh Pirates",
+          "fixture": "vs. Giants, series finale",
+          "when": "Thursday, Sept. 3, 12:35 p.m. ET",
+          "source": "MLB.com",
+          "url": "https://www.mlb.com/scores/2026-09-03"
+        },
+        {
+          "team": "Cincinnati Reds",
+          "fixture": "at Brewers, series opener",
+          "when": "Friday, Sept. 4, 6:10 p.m. ET",
+          "source": "MLB.com",
+          "url": "https://www.mlb.com/scores/2026-09-04"
+        },
+        {
+          "team": "Liverpool",
+          "fixture": "at Ipswich",
+          "when": "Friday, Sept. 4, 3 p.m. ET",
+          "source": "Sky Sports",
+          "url": "https://www.skysports.com/liverpool-fixtures"
+        },
+        {
+          "team": "Tottenham",
+          "fixture": "at Nottingham Forest",
+          "when": "Saturday, Sept. 5, 10 a.m. ET",
+          "source": "Sky Sports",
+          "url": "https://www.skysports.com/tottenham-hotspur-fixtures"
+        },
+        {
+          "team": "West Virginia",
+          "fixture": "vs. Coastal Carolina, football opener, on TNT",
+          "when": "Saturday, Sept. 5, noon ET",
+          "source": "Sports Illustrated",
+          "url": "https://www.si.com/college/westvirginia/football/wvu-releases-depth-chart-for-week-1-matchup-vs-coastal-carolina"
+        },
+        {
+          "team": "Ohio University",
+          "fixture": "at Nebraska, football opener, on FS1",
+          "when": "Saturday, Sept. 5, noon ET",
+          "source": "Nebraska Athletics",
+          "url": "https://huskers.com/news/2026/05/27/kickoff-times-set-for-four-husker-football-games"
+        },
+        {
+          "team": "Marshall",
+          "fixture": "at No. 18 Penn State, football opener, on FS1",
+          "when": "Saturday, Sept. 5, 3:30 p.m. ET",
+          "source": "WV MetroNews",
+          "url": "https://wvmetronews.com/2026/09/02/marshall-looks-to-put-its-best-foot-forward-in-challenging-opener-at-no-18-penn-state/"
+        },
+        {
+          "team": "FC Cincinnati",
+          "fixture": "vs. D.C. United, TQL Stadium",
+          "when": "Saturday, Sept. 5, 7:30 p.m. ET",
+          "source": "TQL Stadium",
+          "url": "https://www.tqlstadium.com/events"
+        },
+        {
+          "team": "Columbus Crew",
+          "fixture": "vs. Colorado, Lower.com Field",
+          "when": "Saturday, Sept. 5, 7:30 p.m. ET",
+          "source": "FOX Sports",
+          "url": "https://www.foxsports.com/soccer/mls/schedule"
+        },
+        {
+          "team": "Chelsea",
+          "fixture": "at Arsenal",
+          "when": "Sunday, Sept. 6, 11:30 a.m. ET",
+          "source": "Sky Sports",
+          "url": "https://www.skysports.com/chelsea-fixtures"
+        },
+        {
+          "team": "West Virginia",
+          "fixture": "women's soccer vs. Marshall, Morgantown",
+          "when": "Sunday, Sept. 6, 7 p.m. ET",
+          "source": "The Dominion Post",
+          "url": "https://www.dominionpost.com/2026/08/30/saige-wimes-sends-no-7-wvu-past-army"
+        },
+        {
+          "team": "Hannan",
+          "fixture": "vs. Point Pleasant JV, at Ashton",
+          "when": "Wednesday, Sept. 9, 6 p.m. ET",
+          "source": "Hannan schedule",
+          "url": null
+        },
+        {
+          "team": "Liverpool",
+          "fixture": "vs. Atletico Madrid, Champions League",
+          "when": "Wednesday, Sept. 9, 3 p.m. ET",
+          "source": "Sky Sports",
+          "url": "https://www.skysports.com/liverpool-fixtures"
+        }
+      ],
+      "note": "Hannan's Tuesday match at Roane is still unreported: MaxPreps lists no Sept. 1 game for either side, and it does not carry tonight's Logan match either, which runs here from the coach's own schedule. A score prints when an outside source has one."
+    },
+    {
+      "id": "leagues",
+      "label": "Around the Leagues",
+      "capped_at": 3,
+      "briefs": [
+        {
+          "headline": "Wakatakakage sits out Aki after four operations that nearly cost his leg",
+          "summary": "The two-time champion, now east maegashira 12, said compartment syndrome in his left thigh in July meant four emergency surgeries and an incision of 30 to 40 centimeters, with doctors telling him every second counted; he misses the whole basho and drops to juryo (the second division) for November.",
+          "league": "Sumo",
+          "source": "Daily Sports",
+          "url": "https://www.daily.co.jp/general/2026/09/02/0020772309.shtml"
+        },
+        {
+          "headline": "Hoshoryu will not decide on Aki until the last minute",
+          "summary": "The west yokozuna, back to 148 kg at a mid-August checkup after falling to 135 following right-knee surgery, resumed shiko Tuesday and said \"It's unclear until the last moment. I want to participate\"; he consults Tatsunami before Friday's Yokozuna Deliberation Council practice. The basho opens Sept. 13 in Tokyo, 10 days out.",
+          "league": "Sumo",
+          "source": "Chunichi Shimbun",
+          "url": "https://www.chunichi.co.jp/article/1305046"
+        },
+        {
+          "headline": "Brewers beat the Cubs 9-5 to push their NL Central lead to nine",
+          "summary": "Jackson Chourio had four hits at Wrigley Wednesday as Milwaukee (87-53) moved nine games clear of second-place Chicago (78-62); St. Louis beat the Dodgers 8-6 in 10 innings, and Toronto blanked Cleveland 11-0.",
+          "league": "MLB",
+          "source": "CBS Sports",
+          "url": "https://www.cbssports.com/mlb/gametracker/boxscore/MLB_20260902_MIL@CHC/",
+          "result": {
+            "winner": "Milwaukee Brewers",
+            "loser": "Chicago Cubs",
+            "score": "9-5"
+          }
+        },
+        {
+          "headline": "NBA suspends Ballmer a year, strips the Clippers of five first-round picks",
+          "summary": "The league fined the Clippers $30 million and Kawhi Leonard $700,000 Wednesday after finding the team helped route off-court income, including a $28 million Aspiration deal, to Leonard; the Clippers said they \"vehemently reject\" the findings.",
+          "league": "NBA",
+          "source": "Chicago Sun-Times",
+          "url": "https://chicago.suntimes.com/nba/2026/09/02/nba-fines-clippers-suspends-owner-steve-ballmer-kawhi-leonard"
+        }
+      ],
+      "note": "Sanspo, Hochi and Nikkan Sports refuse this pipeline; Daily Sports and Chunichi opened, and Sumostats' English digests link each of the Japanese dailies. NHK, Kyodo and r/Sumo were unreachable again."
+    },
+    {
+      "id": "seasons",
+      "label": "In Season",
+      "coming_in": [
+        {
+          "state": "WV",
+          "species": "Squirrel",
+          "method": "Youth / Class Q / Class XS",
+          "dates": "Sept. 5 - 6",
+          "item": "The youth weekend is Saturday and Sunday - daily bag 6, possession and season limit 12, details on pamphlet page 40; the general season opens a week later, Sept. 12, and runs to Feb. 28.",
+          "source": "WVDNR",
+          "reference": "reference/wv-hunting-2026-27.json",
+          "publication": "West Virginia Hunting and Trapping Regulations Summary, July 2026 - June 2027"
+        },
+        {
+          "state": "WV",
+          "species": "Black bear",
+          "method": "Youth / Class Q / Class XS",
+          "dates": "Sept. 12 - 13",
+          "item": "The youth bear weekend opens nine days out, Sept. 12-13; limits are on pamphlet page 34 and electronic registration is required.",
+          "source": "WVDNR",
+          "reference": "reference/wv-hunting-2026-27.json",
+          "publication": "West Virginia Hunting and Trapping Regulations Summary, July 2026 - June 2027"
+        }
+      ],
+      "prime": [
+        {
+          "state": "NC",
+          "species": "Southern flounder",
+          "method": "Hook-and-line and gig",
+          "dates": "Sept. 1 - 14",
+          "item": "Day three of the two-week window under proclamation FF-27-2026: one fish per day, 15-inch minimum, harvest reporting mandatory, and the season closes at 11:59 p.m. Sept. 14.",
+          "source": "NCDMF",
+          "url": "https://www.deq.nc.gov/marine-fisheries/fisheries-management-proclamations/2026/flounder-recreational-internal-coastal-and-joint-fishing-waters-and-atlantic-ocean-waters/open"
+        },
+        {
+          "state": "NC",
+          "species": "Red drum",
+          "item": "Bull-drum month on the coast; the coastal-water limit on the DMF page updated Sept. 2 is an 18-to-27-inch slot, one per day, with harvest reporting required.",
+          "source": "NCDMF",
+          "url": "https://www.deq.nc.gov/about/divisions/marine-fisheries/rules-proclamations-and-size-and-bag-limits/recreational-size-and-bag-limits"
+        }
+      ],
+      "going_out": [
+        {
+          "state": "WV",
+          "species": "Black bear",
+          "method": "Gun",
+          "dates": "Aug. 29 - Sept. 7",
+          "item": "The first gun window, in SELECTED COUNTIES only, has four days left and closes Monday; the county list is not in the pamphlet's summary table, so none is named here. Daily 1, season limit 2, registration required.",
+          "source": "WVDNR",
+          "reference": "reference/wv-hunting-2026-27.json",
+          "publication": "West Virginia Hunting and Trapping Regulations Summary, July 2026 - June 2027"
+        }
+      ],
+      "note": "NCDMF holds the first kingfishes (sea mullet) scoping meeting tonight, 6-8 p.m. in Morehead City, with Wilmington's on Sept. 17 and comments due Sept. 30. The DNR's separate migratory-bird summary is still untranscribed here."
+    },
+    {
+      "id": "water",
+      "label": "On the Water",
+      "waters": [
+        {
+          "water": "Williams River",
+          "near": "Cowen",
+          "reading": "65.6 cfs and falling, 1.42 feet.",
+          "read": "66 cfs - prime wading water.",
+          "working": "Down from 101 a day ago and thinner every morning this week - the river is a string of pools now, with the riffles between them ankle-deep. Fish it from below on your knees: a 12-foot leader, one beetle or ant dropped under the overhanging bank, and a small olive sculpin swung through the two or three plunge pools still holding depth. Sculpin and caddis are the forage here, and at this flow the caddis are what the fish see.",
+          "source": "USGS 03186500"
+        },
+        {
+          "water": "Ohio River at Point Pleasant",
+          "near": "14 miles above R.C. Byrd Locks and Dam",
+          "reading": "24.8 feet and steady.",
+          "read": "24.8 ft - normal pool. Ordinary bank access.",
+          "working": "Pool water, unchanged in a day - the wing-dam tips and the riprap are the structure, shad the forage, so a white swimbait or a spoon over the tips early and a football jig dragged down the seam once the sun is on the water.",
+          "source": "USGS 03201500"
+        },
+        {
+          "water": "Ohio River at Huntington",
+          "near": "below R.C. Byrd Locks and Dam",
+          "reading": "25.81 feet and rising.",
+          "read": "25.8 ft and rising - normal pool. Ordinary bank access.",
+          "working": "Up three-tenths in a day below the dam, so there is a little more current on the lock wall and the barge cuts - crawfish colors on a jig pitched into the cuts, and a skipjack-pattern swimbait worked along the riprap where the flow pushes bait against it.",
+          "source": "USGS 03206000"
+        },
+        {
+          "water": "Topsail Sound",
+          "near": "New Topsail Inlet",
+          "reading": "Sound highs 1:17 AM at 3.4 ft and 1:57 PM at 4.3 ft at Hampstead; lows 7:36 AM at 0.4 ft and 8:45 PM at 0.9 ft.",
+          "read": "Fish the moving water either side of high at 1:17 AM and 1:57 PM in the sound.",
+          "working": "The Fisherman's Post September report, published Tuesday and two days old, has reds and specks on topwater at dock lights, creek mouths and grass banks early, flounder \"going wild\" at 20 to 24 inches on bucktails with soft plastics, and Spanish and blues hit-or-miss on Gotchas off the piers. Flounder want moving water on structure, so work the flood into the 1:57 PM high; reds want the last of the fall, into tonight's 8:45 PM low. Waning gibbous at 61%, easing toward the neap. Water 85.6F at Beaufort, 60 miles up the coast.",
+          "source": "NOAA CO-OPS 8657813",
+          "note": "Hampstead is the sound station and the read that matters; the oceanfront pier runs well ahead and is quoted only for a surf read. NWS Wilmington's 3:30 a.m. surf zone forecast has a moderate rip current risk on Pender beaches through this evening with 2-foot surf; today's Heat Advisory covers inland Pender and coastal Onslow, not Topsail Beach or Surf City."
+        }
+      ]
+    }
+  ],
+  "kicker": "The Aki basho opens in 10 days; whether its west yokozuna enters waits on Friday's Yokozuna Deliberation Council practice.",
+  "sources_note": "Compiled from wire reports"
+}
