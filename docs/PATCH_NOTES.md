@@ -12,7 +12,10 @@ foremost for each block/region, THEN you can get conversational about the
 data... I want to see the numbers maybe tabled above the readout." Both
 surfaces, and he wrote the line himself:
 
-    H: 95° / L: 73° · feels 103° at 2–3 PM · RH 35% · rain 2% · AQI 97
+    H: 95° / L: 73° · feels 103° at 2–3 PM · Hum 35% · rain 2% · AQI 97
+
+  ("RH" for the first hour; Nate asked what the R stood for and chose
+  "Hum". The parser still accepts the old word.)
 
 - **In the channel** every location block now opens with that line, copied
   verbatim from `weatherman/briefing_stats.py`, which builds it from the

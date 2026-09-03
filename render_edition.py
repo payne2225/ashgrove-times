@@ -1966,7 +1966,7 @@ def _wx_parse(body: str) -> dict:
 # conversational about the data"). Jim copies it verbatim from
 # weatherman/briefing_stats.py, which builds it from the fetcher's numbers:
 #
-#     H: 95° / L: 73° · feels 103° at 2–3 PM · RH 35% · rain 2% · AQI 97
+#     H: 95° / L: 73° · feels 103° at 2–3 PM · Hum 35% · rain 2% · AQI 97
 #
 # In a stack, each location's line is prefixed with its bold place name.
 # On the page the line becomes a table row above the prose, so the channel
@@ -1979,7 +1979,7 @@ _WX_STATS_RE = re.compile(
     r"(?P<rest>(?:\s*·\s*.+)?)$"
 )
 _WX_STATS_COLUMNS = (("high", "H"), ("low", "L"), ("feels", "Feels like"),
-                     ("rh", "RH"), ("rain", "Rain"), ("aqi", "AQI"))
+                     ("rh", "Hum"), ("rain", "Rain"), ("aqi", "AQI"))
 
 
 def _wx_stats_row(line: str) -> dict | None:
@@ -1997,7 +1997,9 @@ def _wx_stats_row(line: str) -> dict | None:
         low = seg.lower()
         if low.startswith("feels "):
             row["feels"] = seg[6:].strip()
-        elif low.startswith("rh "):
+        elif low.startswith("hum "):
+            row["rh"] = seg[4:].strip()
+        elif low.startswith("rh "):          # the first day's wording
             row["rh"] = seg[3:].strip()
         elif low.startswith("rain "):
             row["rain"] = seg[5:].strip()

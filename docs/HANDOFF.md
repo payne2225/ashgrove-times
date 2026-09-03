@@ -217,7 +217,7 @@ Jim posts**; the renderer only ever reads his archived markdown. **Numbers
 first, then the read** (Nate, 2026-09-03): every location block in the
 briefing now opens with a numbers line Jim copies from
 `weatherman/briefing_stats.py` — `H: 95° / L: 73° · feels 103° at 2–3 PM ·
-RH 35% · rain 2% · AQI 97` — and the page renders each such line as a table
+Hum 35% · rain 2% · AQI 97` — and the page renders each such line as a table
 above the prose (`_wx_stats_row`; one row per bold-prefixed place in a
 stack). Channel and site show the same numbers by construction, because
 both come from the fetcher and neither is retyped.
