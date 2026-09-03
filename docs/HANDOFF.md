@@ -317,6 +317,13 @@ times, a persona or name, the format, who gets pinged.
 4. **Hannan soccer** — `reference/hannan-soccer-2026.json` exists in
    BOTH repos, because each routine checks out only its own. Correct
    one, correct the other.
+5. **Punta Cana, through 2026-09-18** (Pat & Rachel, Sept. 12–18; Pat asked
+   in the channel 2026-09-03). Weatherman only: `tropics.py` reads NHC,
+   the briefing carries a daily "Atlantic watch" line after Topsail, and
+   the alert watcher pings Pat if a storm names the Dominican Republic or
+   comes inside 300 miles. Switched on by the `tropics_watch` on the
+   `punta_cana` location in `weatherman/config.py`; **prune it and the
+   `travel.json` trip after the 18th.** The Times does not cover the trip.
 
 ## 8. Ian coaches Hannan
 
