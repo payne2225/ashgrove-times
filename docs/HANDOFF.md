@@ -197,6 +197,13 @@ morning** — they are the shop window, not housekeeping. It links:
 | Back issues | `/archive.html` | `write_site` (both nav rows, like every page, since 2026-09-02) |
 | RSS | `/feed.xml` | `write_site` — one item per Times edition, dated permalink, dek, 7:00 ET pubDate; Home's `<head>` advertises it (2026-09-02) |
 
+**Type (2026-09-03).** Playfair Display is for what is set large or black:
+masthead, lead headline, drop cap, section chips. Small mixed-case headlines
+(brief heads, the back-issue list, stat-strip figures) use the `--headline`
+token — Source Serif 4 at 600 — because Playfair's hairlines vanish at 16px
+on a screen. Add a new small headline to the page and it takes `--headline`,
+not `--display`.
+
 **Page layout (2026-08-26).** The wire sections FLOW through balanced
 columns — a grid stranded 28% of the section area as white. Two sections do
 not flow: **West Virginia and British Columbia are anchors**, set at the

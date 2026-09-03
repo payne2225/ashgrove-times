@@ -21,6 +21,13 @@
     --display: "Playfair Display", "Iowan Old Style", "Palatino Linotype",
                Palatino, "Book Antiqua", Georgia, "Times New Roman", serif;
     --alt: "Old Standard TT", "Playfair Display", Georgia, "Times New Roman", serif;
+    /* Small headlines. Playfair is a Didone: its hairlines are drawn for
+       the masthead and the lead, and at 16px they fall below a pixel and
+       the tops of letters vanish (Nate, 2026-09-03, reading a brief head).
+       Source Serif at 600 has the same warmth with strokes that survive a
+       screen; Playfair stays for everything set large or in black weight. */
+    --headline: "Source Serif 4", "Source Serif Pro", Charter, "Iowan Old Style",
+      Georgia, "Times New Roman", serif;
     --body: "Source Serif 4", "Source Serif Pro", Charter, "Iowan Old Style",
             Georgia, Cambria, "Times New Roman", serif;
   }
@@ -157,20 +164,29 @@
   }
 
   /* The tide table: a real table, because Nate asked for one. */
-  .tide-table { border-collapse: collapse; margin: 10px auto 4px; font-size: 13.5px; }
+  .tide-table, .wx-stats { border-collapse: collapse; margin: 10px auto 4px; font-size: 13.5px; }
   .tide-table caption {
     font-family: var(--display); font-weight: 700; font-size: 13px;
     letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-mute);
     padding-bottom: 6px;
   }
-  .tide-table th, .tide-table td {
+  .tide-table th, .tide-table td, .wx-stats th, .wx-stats td {
     border: 1px solid var(--rule); padding: 4px 12px; text-align: center;
   }
-  .tide-table th {
+  .tide-table th, .wx-stats th {
     font-family: var(--display); font-size: 11.5px; letter-spacing: 0.08em;
     text-transform: uppercase; background: var(--wv-tint);
   }
   .tide-table td:first-child { font-weight: 600; }
+  /* The weather page's numbers table: the first thing under every location
+     chip since 2026-09-03 (Nate: "show the data first and foremost"), so
+     the read underneath can be a read and not a ledger. Full measure, a
+     little tighter than the tide table, and it must never overflow a
+     column on a phone. */
+  .wx-stats { width: 100%; margin: 2px 0 10px; font-size: 13px; }
+  .wx-stats th, .wx-stats td { padding: 3px 6px; white-space: nowrap; }
+  .wx-stats td:first-child { font-weight: 600; }
+  .sec .wx-stats { break-inside: avoid; }
 
   /* ---------- masthead ---------- */
 
@@ -256,7 +272,8 @@
 
   .stat-strip b {
     display: block;
-    font-family: var(--display);
+    font-family: var(--headline);
+    font-weight: 600;
     font-size: 15px;
     font-variant-numeric: tabular-nums;
   }
@@ -329,9 +346,10 @@
   }
 
   .brief-head {
-    font-family: var(--display);
-    font-weight: 700;
-    font-size: 16px;
+    font-family: var(--headline);
+    font-weight: 600;
+    font-size: 16.5px;
+    line-height: 1.25;
     margin: 0 0 3px;
   }
 
@@ -472,9 +490,9 @@
 
   .issue .hed {
     flex: 1 1 16rem;
-    font-family: var(--display);
-    font-weight: 700;
-    font-size: 16px;
+    font-family: var(--headline);
+    font-weight: 600;
+    font-size: 16.5px;
     line-height: 1.28;
   }
 

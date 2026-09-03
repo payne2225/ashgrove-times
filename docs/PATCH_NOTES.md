@@ -4,6 +4,19 @@ Running changelog. Dated entries, newest first. Touched only when
 behavior changes, not every edition — the per-day record lives in
 `editions/index.json`, and degraded runs go in `docs/FAILURES.md`.
 
+## 2026-09-03 — small headlines leave Playfair
+
+Nate, reading a U.S. brief: "the tops of some letters are too thin and hard
+to read." Playfair Display is a Didone — its hairlines are drawn for the
+masthead and the lead headline, and at 16px on a screen they fall below a
+pixel. A new `--headline` token (Source Serif 4, already loaded for body
+copy and vendored for the hero) now sets the small headlines at weight 600:
+brief heads, the back-issue list, the stat-strip figures. Everything set
+large or in black weight — masthead, lead headline, drop cap, section chips,
+notebook title, the weather page's day — stays Playfair, where it belongs.
+Today's three pages re-set so the change can be seen; the archive picks it
+up with the next `--all`.
+
 ## 2026-09-03 — the weather page shows the numbers first
 
 Nate, looking at the Apple Grove block on the weather page: "It's all
