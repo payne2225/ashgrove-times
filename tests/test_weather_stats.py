@@ -9,7 +9,7 @@ from __future__ import annotations
 
 import render_edition as r
 
-LINE = "H: 95° / L: 73° · feels 103° at 2–3 PM · Hum35% · rain 2% · AQI 97"
+LINE = "H: 95° / L: 73° · feels 103° at 2–3 PM · Hum 35% · rain 2% · AQI 97"
 
 
 def test_the_line_parses_into_cells():
@@ -19,9 +19,9 @@ def test_the_line_parses_into_cells():
 
 
 def test_prefixed_and_celsius_and_missing_segments():
-    row = r._wx_stats_row("**Apple Grove** H: 21°C / L: 12°C · feels 19°C at 2 PM · Hum80% · rain 84%")
+    row = r._wx_stats_row("**Apple Grove** H: 21°C / L: 12°C · feels 19°C at 2 PM · Hum 80% · rain 84%")
     assert row["place"] == "Apple Grove" and row["high"] == "21°C" and row["aqi"] == ""
-    assert r._wx_stats_row("H: — / L: 67° · Hum50%")["high"] == "—"
+    assert r._wx_stats_row("H: — / L: 67° · Hum 50%")["high"] == "—"
 
 
 def test_prose_is_not_a_stats_line():
@@ -43,8 +43,8 @@ def test_section_renders_the_table_above_the_prose():
 
 def test_a_stack_gets_one_row_per_place():
     body = ("### 📍 Apple Grove — Nate & Ian\n### 📍 Huntington — Trav\n"
-            "**Apple Grove** H: 95° / L: 73° · feels 103° at 2–3 PM · Hum35% · rain 2% · AQI 97\n"
-            "**Huntington** H: 98° / L: 74° · feels 106° at 2 PM · Hum33% · rain 2% · AQI 88\n"
+            "**Apple Grove** H: 95° / L: 73° · feels 103° at 2–3 PM · Hum 35% · rain 2% · AQI 97\n"
+            "**Huntington** H: 98° / L: 74° · feels 106° at 2 PM · Hum 33% · rain 2% · AQI 88\n"
             "One shared read for the river.\n")
     doc = r._wx_parse(body)
     html_out = r._wx_section_html(r.load_blocks(), doc["sections"][0])
