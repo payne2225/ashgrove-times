@@ -1948,6 +1948,9 @@ def _wx_parse(body: str) -> dict:
 
         if stripped.startswith("- "):
             list_buffer.append(stripped[2:].strip())
+        elif _wx_stats_row(stripped) is not None:
+            flush_list()
+            current["blocks"].append(("stats", stripped))
         else:
             flush_list()
             current["blocks"].append(("p", stripped))
@@ -1958,11 +1961,81 @@ def _wx_parse(body: str) -> dict:
     return doc
 
 
+# The numbers line every location block opens with, since 2026-09-03 (Nate:
+# "show the data first and foremost for each block/region, THEN you can get
+# conversational about the data"). Jim copies it verbatim from
+# weatherman/briefing_stats.py, which builds it from the fetcher's numbers:
+#
+#     H: 95° / L: 73° · feels 103° at 2–3 PM · RH 35% · rain 2% · AQI 97
+#
+# In a stack, each location's line is prefixed with its bold place name.
+# On the page the line becomes a table row above the prose, so the channel
+# and the site show the same numbers by construction. Any segment may be
+# absent (a dead source drops it); the Hart prints Celsius.
+
+_WX_STATS_RE = re.compile(
+    r"^(?:\*\*(?P<place>[^*]+?)\*\*\s+)?"
+    r"H:\s*(?P<high>-?\d+°?C?|—)\s*/\s*L:\s*(?P<low>-?\d+°?C?|—)"
+    r"(?P<rest>(?:\s*·\s*.+)?)$"
+)
+_WX_STATS_COLUMNS = (("high", "H"), ("low", "L"), ("feels", "Feels like"),
+                     ("rh", "RH"), ("rain", "Rain"), ("aqi", "AQI"))
+
+
+def _wx_stats_row(line: str) -> dict | None:
+    """Parse a numbers line into cells, or None when the line is prose."""
+    match = _WX_STATS_RE.match(line.strip())
+    if not match:
+        return None
+    row = {"place": (match.group("place") or "").strip(),
+           "high": match.group("high"), "low": match.group("low"),
+           "feels": "", "rh": "", "rain": "", "aqi": ""}
+    for segment in re.split(r"\s*·\s*", match.group("rest").strip(" ·")):
+        seg = segment.strip()
+        if not seg:
+            continue
+        low = seg.lower()
+        if low.startswith("feels "):
+            row["feels"] = seg[6:].strip()
+        elif low.startswith("rh "):
+            row["rh"] = seg[3:].strip()
+        elif low.startswith("rain "):
+            row["rain"] = seg[5:].strip()
+        elif low.startswith("aqi "):
+            row["aqi"] = seg[4:].strip()
+    return row
+
+
+def _wx_stats_table(rows: list[dict]) -> str:
+    """The section's numbers, as the table the chat line could not be."""
+    if not rows:
+        return ""
+    with_place = any(r["place"] for r in rows)
+    head = ("<th>Place</th>" if with_place else "") + "".join(
+        f"<th>{esc(label)}</th>" for _, label in _WX_STATS_COLUMNS)
+    body = []
+    for r in rows:
+        cells = (f"<td>{esc(r['place'])}</td>" if with_place else "") + "".join(
+            f"<td>{esc(r[key]) or '—'}</td>" for key, _ in _WX_STATS_COLUMNS)
+        body.append(f"<tr>{cells}</tr>")
+    return ('<table class="wx-stats"><tr>' + head + "</tr>"
+            + "".join(body) + "</table>")
+
+
 def _wx_section_html(blocks: dict[str, str], section: dict) -> str:
     """One location report as a wire section: label chip, then prose."""
     label = " · ".join(l for l in section["labels"] if l)
     parts: list[str] = []
+    # Numbers first, then the read: every stats line in the section becomes
+    # a row of one table set above the prose, whatever order Jim wrote them.
+    rows = [_wx_stats_row(payload) for kind, payload in section["blocks"]
+            if kind == "stats"]
+    table = _wx_stats_table([r for r in rows if r])
+    if table:
+        parts.append(table)
     for kind, payload in section["blocks"]:
+        if kind == "stats":
+            continue
         if kind == "p":
             parts.append(f"<p>{_wx_inline(payload)}</p>")
         else:

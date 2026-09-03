@@ -4,6 +4,29 @@ Running changelog. Dated entries, newest first. Touched only when
 behavior changes, not every edition — the per-day record lives in
 `editions/index.json`, and degraded runs go in `docs/FAILURES.md`.
 
+## 2026-09-03 — the weather page shows the numbers first
+
+Nate, looking at the Apple Grove block on the weather page: "It's all
+cooked into conversational text blocks. Can we show the data first and
+foremost for each block/region, THEN you can get conversational about the
+data... I want to see the numbers maybe tabled above the readout." Both
+surfaces, and he wrote the line himself:
+
+    H: 95° / L: 73° · feels 103° at 2–3 PM · RH 35% · rain 2% · AQI 97
+
+- **In the channel** every location block now opens with that line, copied
+  verbatim from `weatherman/briefing_stats.py`, which builds it from the
+  fetcher's numbers (that side is in the weatherman patch notes).
+- **On the page** `_wx_parse` recognises the line (`_wx_stats_row`) and
+  `_wx_section_html` sets every stats line in a section as one
+  `<table class="wx-stats">` above the prose — H, L, Feels like, RH, Rain,
+  AQI, plus a Place column when a stack carries one bold-prefixed line per
+  town. A segment a dead source dropped renders as a dash. Briefings from
+  before today carry no such line and render exactly as they did.
+- `tests/test_weather_stats.py`: the parse, Celsius and missing segments,
+  prose left alone, table above prose, one row per place in a stack, the
+  pre-change briefing unchanged, and a whole page render.
+
 ## 2026-09-02 — the alert watcher's quiet run costs a script
 
 Full-pass item 11, Nate's yes the same day. The change is in the weatherman
