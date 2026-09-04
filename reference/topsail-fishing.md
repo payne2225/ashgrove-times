@@ -129,7 +129,8 @@ file's memory.** As of the 2026-08-05 research:
 - **Speckled trout** — harvest reopened July 1, 2026 after the February
   cold-stun closure. 14–20" slot, 3/day.
 - **Red drum** — 18–27" slot, 1/day, harvest must be reported.
-- **Sheepshead** — 10" fork length, 10/day.
+- **Sheepshead** — 14" total length, 5/day (corrected 2026-09-04 against the
+  NCDMF limits page effective Sept 2, 2026; this file had said 10" FL, 10/day).
 - **Spanish mackerel** — 12" fork length, 15/day. **Bluefish** — no
   minimum, 5/day. **Sea mullet** — no size or creel limit.
 - **Tarpon** — release only.
