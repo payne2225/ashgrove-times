@@ -2923,3 +2923,87 @@ Both papers landed **exactly on their holds**: the Times at **7:00** (No. 16, me
 `reds-padres-7-3`, `giants-pirates-5-4-10`, `chelsea-camara-monaco-collapse`, `marshall-gibson-penn-state`, `bengals-stewart-pads`,
 `wvu-depth-chart-or`, `wakatakakage-aki-kyujo`, `hoshoryu-last-minute`, `brewers-cubs-9-5`, `nba-clippers-ballmer-suspended`,
 `flounder-day-three`, `kingfish-scoping-tonight`
+
+## 2026-09-04 — No. 31 (Times) and No. 21 (Sports & Sportsman)
+
+| Open-ended | **Tenth morning under the digest contract.** Six parallel research agents (lead/U.S./World, WV notebook, Canada, Sci/AI, sports teams and leagues, outdoors). The Times was validated, rendered and pushed at **5:46 a.m. ET** and Sports at **5:49**, 19 minutes after the 5:30 wake; Pages served both dated pages 200 by 5:49:28. `send_later` armed for 6:56, digest to post in the FOREGROUND with `--not-before 07:00` — landing time recorded in the post row below | **standing practice** |
+| Open-ended | **Detached HEAD at session start again — eighth occurrence** (Aug 27, 28, 30, 31, Sept 1, 2, 3, 4). `git checkout main` while HEAD matched origin/main fixed it before any work. The stored prompt is the thin pointer (second morning) and handed over one webhook only | **OPEN — recurring** |
+| Open-ended | **Lead art drew the lead for the first time in a week — rung 1.** France 24's live-page og:image was tankers off Bandar Abbas (no people, no damage); drawn as three vessels at anchor, placed on the lead. The CBS live-blog image was hospital casualties and was not drawn | |
+| Open-ended | **`reference/topsail-fishing.md` had a WRONG sheepshead limit** (10" FL, 10/day, from the Aug. 5 research). NCDMF's limits page effective Sept. 2, 2026 says **14" TL, 5/day**. Corrected in the reference file this morning; the paper never printed the old figure. The regs block in that file is memory, not a source — it says so itself — but a wrong memory is worth fixing | **done** |
+| Open-ended | **Source status.** NEWLY BLOCKED: **Prince George Citizen (403 on every path — was reliable)**, My PG Now, CBC, Castanet, Energeticcity (all 403), Politico homepage (refused), Houston Public Media (403), Nature.com (login wall on every article), Space.com (membership shell), USACE Huntington (503), sponichi.co.jp (refused; its text was read on Yahoo Japan article pages), chunichi sumo section (404), football.london and Liverpool Echo (refused), Point Pleasant Register (503), Al Jazeera Sept. 4 Iran liveblog (header only). OPENED: wvmetronews (clean, second straight day), WSAZ, WTAP, WCHS, WVPB, WOAY, Hinton News, Register-Herald (once), Bennington Banner, Port City Daily, WECT, surfcitync.gov, northtopsailbeachnc.gov, topsailbeachnc.gov, webstercountytourism.com, CKPG, CHEK, Global, CP24, CKOM, news.gov.bc.ca, deq.nc.gov (news + limits page; the proclamation PDFs cannot be text-extracted here — cite the DMF releases and the limits page instead), fishermanspost.com (September Topsail monthly, Sept. 1), coastalanglermag.com, api.weather.gov, fs.usda.gov, Okinawa Times (Kyodo copy), Yahoo Japan (Sponichi/Nikkan copy), sumostats, sumo.or.jp/En, CBS box scores/previews, mlb.com/scores, Sky Sports, FOX Sports, liverpoolfc.com, columbuscrew.com, fccincinnati.com, bengals.com, clevelandbrowns.com, Athens Messenger, MaxPreps, Dominion Post. NOTE: CBS and FOX schedule pages render kickoff times in UTC to this fetcher — convert, and confirm home/away from the CBS preview slug (MIL@CIN exists; the mlb.com scores page mislabeled the Reds as the road team) | **watch** |
+| Open-ended | **Traps dodged.** (1) chelseafc.com served a STALE 2024-25 "Maresca confirms goalkeeper" article as if current — Chelsea's head coach is Xabi Alonso per Sky; (2) a search-snippet "Forest have won the last four meetings" claim was never on a page and was not printed; (3) three ScienceDaily items dated Sept. 3 were March, July and August papers; (4) commerce.wv.gov's dove release is the 2024-25 one; (5) TechCrunch and Google differ on WeatherNext 3's rain-forecast improvement (60% vs "up to 50%") — the item was left out rather than pick a number; (6) the ISRO mission page still carries an Aug. 29 date header for Friday's launch — The Tribune's dated story ran instead | |
+| Open-ended | **The `result` gate caught nothing today because the desk pre-empted it**: Onosato's "10-5" and Kirishima's "10-6" practice tallies and Liverpool's "2-2 draws" were written as words before validation. Any `\d+-\d+` in a sports brief is a score to the validator | |
+
+### Forward-dated events added or moved
+
+| Date | Event | Note |
+|---|---|---|
+| **open** | **U.S.-Iran led a FOURTH straight morning, on the diplomatic and economic side**: Vance's no-talks-until-shipping-stops line and his "not a war" framing, Kuwait's interceptions, UAE's denial, Brent $95.67, Hormuz at 102 transits a day (Lloyd's List via CBS), record diesel $5.85 (AAA). Iran's toll unchanged at 18. Tomorrow: any U.S. answer, South Korea's Hormuz decision, the wedding-strike investigation, Sept. 26 UNSC vote | |
+| **2026-09-04** | **August jobs report (BLS) is due this morning; not in the paper** | Saturday's U.S. brief if it moves markets |
+| **2026-09-08** | **Justice Jackson's deadline for responses to the DOJ's Supreme Court application on the USPS mail-ballot rule (Tuesday); Canada counter-tariffs effective** | Talwani has still not ruled on the injunction; USPS says the portal is usable "sometime next week" |
+| **2026-09-05** | **College football opens: WVU v. Coastal Carolina (noon, TNT, Pat White's No. 5 retired 11:45), Marshall at No. 18 Penn State (3:30, FS1), Ohio at Nebraska (noon, FS1, Poulos starting); Tottenham at Forest 10 a.m. ET; Crew v. Colorado and FCC v. D.C. United 7:30 p.m. ET; Reds v. Brewers and Pirates v. Angels series (both HOME; weekend times unconfirmed on a readable page); squirrel youth weekend; Lilly Mountaineers at Jerry Run 7 p.m.** | Saturday's whole sports paper |
+| **2026-09-06** | **Chelsea at Arsenal 11:30 a.m. ET; No. 7 WVU women host Marshall 7 p.m.** | |
+| **2026-09-07** | **WV gun bear first window closes (selected counties)** | Ran in going-out with the no-county-list caveat |
+| **2026-09-09** | **NFL Kickoff, Patriots at Seahawks 8:20 p.m. ET; Hannan v. Point JV 6 p.m.; Crew at D.C. United and FCC at Philadelphia 7:30 p.m. ET; Webster County Fair opens (through Sept. 12); Croft Road at PG council; King Harald's funeral; DoubleTree deadline** | |
+| **2026-09-10** | **Hannan v. Westside at Shawnee (Institute); Surf City Shoreline & Resiliency Committee 9 a.m.** | |
+| **2026-09-11** | **Topsail Beach 9/11 remembrance walk 8:30 a.m.; Vermont Veterans Home 25th-anniversary ceremony** | |
+| **2026-09-13** | **Aki basho opens (through Sept. 27); Bengals v. Buccaneers 1 p.m. ET; Browns at Jacksonville 1 p.m. ET; North Bennington Village Block Party noon-2** | Hoshoryu's entry is still "uncertain until right before the tournament" (Sponichi via Yahoo Japan) after Friday's YDC practice — he did shiko and pushing drills, no bouts |
+| **2026-09-14** | **NC flounder closes 11:59 p.m. (ran in going-out today); Bennington option-tax meetings Sept. 14 and 28** | |
+| **2026-09-17** | **NCDMF kingfishes meeting, Wilmington (comments to Sept. 30); Gauley Fest opens** | Thursday's Morehead City meeting outcome was NOT reported anywhere readable |
+| **2026-09-21** | **Black Diamond Power status hearing, PSC** | |
+| **2026-09-26** | **Abbotsford-Mission byelection; USMNT-Peru; WV archery deer/bear and boar archery open** | |
+| **2026-10-16** | **Public hearing on the $15M Hampstead freestanding ED (ran as today's Topsail line)** | Target opening June 2029 |
+| **2026-11-15** | **Snowbirds' final CT-114 display at the Grey Cup, Calgary** (Global) | Not run today; a Canada brief when it nears |
+| **2027-01-31** | **Walbran blockade injunction runs to this date** | Ran as a bc brief |
+
+### Open threads
+
+- **us-iran-hormuz** — led a fourth day (Vance no-talks line); see forward-dated row.
+- **nepal-flood** — 1,287 dead / ~5,083 missing (NDRRMA Friday noon; the missing figure now includes unidentified recovered bodies — say so every time); two Trishuli 3A workers rescued after nine days; 557 of that project's workers still missing (AJ).
+- **missouri-map-blocked** — NEW; AG Hanaway to petition SCOTUS.
+- **usps-mail-ballot** — moved: DOJ went to SCOTUS; responses due Tuesday; no Talwani ruling.
+- **treasury-race-admissions-rule** — NEW; comment period follows.
+- **pacific-forum-china-missile** — CLOSED with the communique (24-hour notice ask; Nauru dissent).
+- **vw-100k-cuts** — NEW; four German plants phased out from 2031.
+- **uber-nigeria-uganda** — NEW.
+- **mason-starwood-datacenter-12b** — NEW, the WV lead; Starwood says it funds its own infrastructure; the state's certification is the only official act so far. The NScale Monarch and Putnam Google threads are separate.
+- **wooton-medical** — CLOSED: back at work Thursday; arguments to be rescheduled.
+- **brooke-principal-cameras** — NEW; superintendent action unconfirmed (snippets only).
+- **vape-safety-act-suit** — NEW; injunction motion pending.
+- **kanawha-flood-buyout** — NEW; applications to Sept. 30.
+- **pond-creek-bridge** — moved (partial reopening); DOH says done Sept. 12. WCHS names a different bridge for the fines story — still unreconciled.
+- **hampstead-freestanding-ed** — NEW; Oct. 16 hearing.
+- **bennington-pfas-nsf-7-9m** — NEW.
+- **north-coast-transmission-line** — NEW (groundbreaking in PG); First Nations co-ownership agreements due by end of 2026; funding figures differ by outlet ($3.9B combined fed-prov is CP/CKPG/province; Black Press says $3.5B federal) — the paper used $3.9B combined.
+- **bc-conservative-exodus** — moved: Eby says NDP won't court the nine; Findlay called a caucus meeting (CTV, unreadable); Giddens (PG-Mackenzie) staying and calling for a "bigger tent" (CKPG, unprinted, a PG brief if it moves).
+- **walbran-injunction** — NEW.
+- **ontario-byelections** — CLOSED (PCs and NDP held).
+- **via-rail-313-cars** — NEW; no delivery timeline.
+- **eby-openai-tumbler-ridge** — Eby called OpenAI's mediation exit "inexcusable" and said B.C. intends to join the suits (CP24) — UNPRINTED today (AI section was full); tomorrow's bc or AI brief if it moves. CP's count is "30 new lawsuits"; the desk's is 37 total (30 new + 7 earlier) — consistent.
+- **isro-gslv-f17 / bepicolombo-mtm-separation / pig-kidney-271-days / nagoya-nanoribbon** — all NEW; BepiColombo orbit insertion Nov. 21.
+- **crew-13** — no movement; no new date.
+- **nvidia-hugging-face-12-9b / uk-parliament-ai-text-15pct / kaist-safeql** — all NEW.
+- **google-weathernext-3** — UNPRINTED (conflicting improvement figure); a brief if an independent evaluation appears.
+- **hoshoryu-aki-entry** — moved (YDC practice, no bouts, "uncertain until right before"); decision by Sept. 12. **kirishima-tsunatori** — NEW: 10 of 16 in practice, Hakkaku unimpressed.
+- **hannan-logan / hannan-roane** — BOTH results still owed; MaxPreps lists neither match. Point Pleasant Register 503. Try WSAZ/WOWK high-school pages and Logan's MaxPreps again Saturday.
+- **marshall-women-murray-state (Thu) / wvu-men-akron (Thu, possibly weather no-contest)** — both uncited; likely die quietly.
+- **liverpool-nguessan / spurs-richarlison-omitted / crew-zaroury / fcc-malatini-doudera / spurs-dazn / ohio-poulos-starter / wvu-white-out-pat-white** — all ran or noted today.
+- **kingfish-scoping** — Morehead City outcome unreported; Wilmington Sept. 17.
+- **jolthead-porgy-record** — ran in the seasons note.
+- **marl-psc / meta-settlement-approval / putnam-google-datacenter / nitro-elementary / milton-culloden / bluefield-state / fundamental-data-appeal / black-diamond-power / justice-2028-run (MetroNews interview, unprinted) / kenscoff-hostages / malta-fenech / maduro-immunity** — pending, not run.
+
+### Covered slugs, 2026-09-04
+
+`vance-no-iran-talks-shipping`, `missouri-map-blocked`, `doj-scotus-mail-ballot`, `treasury-race-admissions-501c3`, `steinem-dies-92`,
+`nepal-toll-1287-tunnel-rescue`, `pacific-forum-24h-notice`, `vw-50k-more-cuts`, `uber-exits-nigeria-uganda`,
+`mason-starwood-datacenter-12b`, `wooton-back-at-work`, `brooke-principal-cameras`, `vape-safety-act-suit`,
+`cabell-ems-sim-lab`, `kanawha-flood-buyout-2m`, `pond-creek-bridge-partial`, `summers-deputies-sworn`,
+`bennington-college-pfas-7-9m`, `lilly-mountaineers-jerry-run-sept5`, `hampstead-freestanding-ed-15m`,
+`north-coast-line-groundbreaking-pg`, `eby-wont-court-defectors`, `walbran-injunction-2028`, `ontario-byelections-held`, `via-rail-313-cars-4-7b`,
+`isro-gslv-f17-eos05`, `bepicolombo-mtm-separation`, `pig-kidney-271-days-lancet`, `nagoya-switchable-nanoribbon`,
+`nvidia-hugging-face-12-9b`, `uk-parliament-ai-text-15pct`, `kaist-safeql-87pct`,
+`liverpool-barcola-ipswich-nguessan`, `spurs-richarlison-omitted`, `pirates-giants-5-2`, `wvu-white-out-pat-white-no5`,
+`ohio-poulos-starter`, `bengals-weekend-off-chase-higgins`, `crew-zaroury-loan`, `hoshoryu-ydc-practice-no-bouts`,
+`kirishima-tsunatori-10-of-16`, `cubs-brewers-2-1-pca-39`, `nfl-kickoff-patriots-seahawks`,
+`flounder-day-four-going-out`, `red-drum-slot`, `seatrout-slot`, `squirrel-youth-sept5-6`, `bear-youth-sept12-13`, `bear-gun-closes-sept7`,
+`jolthead-porgy-record`, `tea-creek-bridge-williams`
