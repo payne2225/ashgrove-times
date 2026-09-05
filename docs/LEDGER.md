@@ -3007,3 +3007,87 @@ Both papers landed **exactly on their holds**: the Times at **7:00** (No. 16, me
 `kirishima-tsunatori-10-of-16`, `cubs-brewers-2-1-pca-39`, `nfl-kickoff-patriots-seahawks`,
 `flounder-day-four-going-out`, `red-drum-slot`, `seatrout-slot`, `squirrel-youth-sept5-6`, `bear-youth-sept12-13`, `bear-gun-closes-sept7`,
 `jolthead-porgy-record`, `tea-creek-bridge-williams`
+
+## 2026-09-05 — No. 32 (Times) and No. 22 (Sports & Sportsman)
+
+| Open-ended | **Eleventh morning under the digest contract.** Seven parallel research agents (lead/U.S./World, WV notebook, Canada, Sci/AI, Our Teams, Around the Leagues + sumo, outdoors/water). Both papers validated, rendered and pushed at **5:51 a.m. ET**, 21 minutes after the 5:30 wake; Pages served both dated pages 200 at 5:51:37, about 30 seconds after the push. `send_later` armed for 6:56, digest to post in the FOREGROUND with `--not-before 07:00`. No detached HEAD this morning — the clone came up on `main` matching `origin/main` (first clean start since Aug. 26). `config.head_start_minutes` reads 90 against the 5:30 wake; `edition.md` §0 still says "should be 60" from the 6:00 era and is stale on that one number | **standing practice** |
+| Open-ended | **Lead art fell to rung 2 for a stated reason.** The envoy story's photographs are Witkoff and Kushner at a lectern and a Putin/Zelenskyy composite — faces, out under §4.5. Drew Bennu from the OSIRIS-REx mosaic on phys.org (the Sci/Tech Nature Communications brief), placed in Science & Technology; the PBS ballot-carton image was the other candidate and is a close-up of boxes, not a scene. Generated from a seeded Python script (162 path elements, 30 KB) — crude, but a rubble pile with a limb and a terminator. Not a FAILURES line | |
+| Open-ended | **The NC hunting-season gate.** The validator refuses any NC `seasons` entry whose source is not NCDMF/Marine Fisheries, so NCWRC dates (dove opened TODAY Sept. 5, teal Sept. 10-19 east of U.S. 17, archery deer Sept. 12) ran in the seasons `note`, attributed to the Wildlife Resources Commission, not as bucket entries. That is the validator doing what it was written to do for Topsail fish; if NC hunting is wanted as entries, the rule needs a hunting carve-out and that is Nate's call, not the desk's. WV dove dates are now printable: the West Virginia Daily News (`wvdn.com/200186/`, July 14) carries the DNR release — Sept. 1-Oct. 11, Nov. 2-15, Dec. 7-Jan. 10, 15/day, HIP required; ran in the note today | **OPEN — for Nate** |
+| Open-ended | **Yesterday's sumo attribution may be off.** No. 21 credited Hakkaku's "hips are still too high" to Kirishima (Nikkan). Today's desk read Nikkan's Sept. 4 12:28 JST piece and found that line said of ONOSATO ("he'll probably struggle this tournament too"); Hakkaku's Kirishima line was "lacks forward drive... must take strong sumo, not skilful sumo." Not re-verified against the exact page No. 21 cited; a correction is warranted only if someone opens that page and confirms | **watch** |
+| Open-ended | **Hannan schedule mismatch worth asking Ian.** Roane County's MaxPreps page shows Roane home to Webster County on Sept. 2 and at Tyler on Sept. 3 — no Sept. 1 match with Hannan — and Logan's shows no Sept. 3 fixture. Both of Ian's fixtures remain unreported anywhere; the paper printed only that no score was published. Roane is due at Ashton Sept. 24 on both his doc and Roane's page | **OPEN** |
+| Open-ended | **Source status.** NEWLY BLOCKED: **wvmetronews.com** (403 on every path, after two clean mornings), Prince George Citizen, My PG Now, CBC, Castanet (all 403 again), National Post, CTV article bodies (index only), Japan Times sumo (402), USACE Huntington (503), USACE Great Lakes news (403), NIH and NOAA news indexes (403), science.org, journals.aps.org, politico.eu, wvnews.com, jdnews.com, topsailvoice.com (503), bennington.edu (403), Athlon, WBOY, Point Pleasant Register (503, third day). OPENED: PBS, CBS, Al Jazeera articles (liveblogs header-only), Euronews, Kathmandu Post, Africanews, ABC Australia, KSHB, SCOTUSblog, BLS, WSAZ, WTAP, WCHS, WVPB, WVVA, WOAY, Lootpress, Dominion Post, News & Sentinel, Intelligencer, West Virginia Record (now at legalnewsline.com/west-virginia-record/), Herald-Dispatch (2 loads), Bennington Banner, Pender County CivicAlerts, WECT, WWAY, Port City Daily, surfcitync.gov, northtopsailbeachnc.gov/news, webstercountytourism.com, wvstateparks.com, americanwhitewater.org, CKPG, CHEK (after 429s), Global, CP24, CJME, news.gov.bc.ca, StatCan, TechCrunch, The Register, Gizmodo, phys.org, EurekAlert, UCR/MIT/NASA, anthropic.com, collusion.wiki, deq.nc.gov (limits, releases, PA-45 PDF), ncwildlife.gov PDFs (media/5176 and the at-a-glance sheet — the HTML season pages 404), fishermanspost.com, coastalanglermag.com, api.weather.gov, fs.usda.gov, wvdn.com, wvexplorer.com, outdoorlife.com, Kumanichi (kumanichi.com — NEW, Kyodo sumo copy without a paywall), daily.co.jp, Yahoo Japan article pages, sumostats, ryogokukokugikan.com, sumo.or.jp/En, CBS box scores (doubleheader nightcap slug is `_2`), CBS wild-card standings (`/mlb/standings/wildcard/` — the only wild-card table that loads), mlb.com/scores (until it 406'd mid-run), Sky Sports, FOX schedules/standings (UTC times — convert), liverpoolfc.com, tottenhamhotspur.com articles, chelseafc.com article (undated — corroborated by a dated Sky video), fccincinnati.com, bengals.com, clevelandbrowns.com, MaxPreps, Logan Banner, Athens Messenger, SI, ussoccer.com, gostanford.com | **watch** |
+| Open-ended | **Traps dodged.** (1) ScienceDaily "Stanford seafood reverses aging" is a 2022 Frontiers paper from XJTLU. (2) EurekAlert 1142356 is dated Sept. 5 for a July 22 paper. (3) Sports Hochi "Aonishiki to hospital" is May 6. (4) Kyodo "Atamifuji 7 straight" is Aug. 24. (5) SI's Penn State preview and two MLS previews date Saturday as "Sept. 6." (6) commerce.wv.gov's dove release is 2024-25; gazette-mail Gauley dates are 2023; aceraft.com shows 2025. (7) Port City Daily printed the Abbey Nature Preserve grant as $50,000; WECT, WWAY and the county say $500,000 — cited the county. (8) The B.C. TFL 30 prior cut (~412,000) was back-calculated by the fetcher, not on the page — printed only 340,000 and 17.6%. (9) Al Jazeera's envoy page was summarized as "Sept. 7-8" — CBS and Euronews say Saturday/Sunday. (10) Gold and Blue Nation "scoreless draw with Akron" hits are 2025 and 2021. (11) The Belleville incest verdict was "last week" despite a Sept. 4 dateline. (12) WVPB's Distance Run summary said "Saturday, September 6" | |
+
+### Forward-dated events added or moved
+
+| Date | Event | Note |
+|---|---|---|
+| **open** | **Witkoff and Kushner in Moscow today, Kyiv Sunday** — the lead; Zelenskyy's strike pause holds while they are in Moscow | Sunday's lead if Kyiv produces anything; U.S.-Iran dropped to a U.S. brief (Trump "small potatoes," Pickaxe Mountain threat, Tasnim's Kharg tanker claim unconfirmed by CENTCOM) after four mornings leading |
+| **2026-09-06** | **Chelsea at Arsenal 11:30 a.m. ET; Reds-Brewers finale 12:10; Pirates-Angels finale 1:35 (Skenes); WVU women v. Marshall 7 p.m.; Starlink 15-24 from Vandenberg NET 6:59 a.m. EDT; Aonishiki's Nagoya yusho parade (Nikkan, unread); Red Dress march to Lheidli T'enneh Memorial Park** | Saturday's results are Sunday's teams section: Spurs at Forest, WVU-Coastal, Ohio-Nebraska, Marshall-Penn State, Crew-Colorado, FCC-D.C., Reds, Pirates |
+| **2026-09-07** | **Missouri: responses due on Hanaway's SCOTUS application (she asked for a ruling Monday); Reds at Dodgers 9:10 p.m. ET; Pirates off; Aonishiki resumes bouts; WV gun bear first window closes; Canada Labour Day; NTB offices closed** | |
+| **2026-09-08** | **Missouri ballot deadline; Justice Jackson's USPS response deadline; Canada counter-tariffs effective; UNBC classes begin; Reds at Dodgers (time unread); Pirates at White Sox (time unread); North Bennington trustees 7 p.m.** | |
+| **2026-09-09** | **NFL Kickoff; King Harald's funeral 1 p.m. Oslo; Hannan v. Point JV 6 p.m.; Crew at D.C. and FCC at Philadelphia 7:30; Webster County Fair opens (through 12th); Holly River farm-to-table 5:30; Croft Road VP2026-29 at PG council** | |
+| **2026-09-10** | **Hannan v. Westside at Shawnee, Institute, 6 p.m.; NC September teal opens (east of U.S. 17, through Sept. 19); Guyandotte floodwall gate exercise; Surf City Shoreline committee 9 a.m.** | |
+| **2026-09-11** | **Hoshoryu's Aki entry decided at the JSA bout-drawing meeting (morning JST = Thursday evening ET); U.S. CPI; Gauley season releases begin (through Oct. 18); Reds at Brewers and Pirates at Cubs (times unread); Topsail 9/11 walk 8:30** | |
+| **2026-09-12** | **WV squirrel general and NC archery deer open; WV youth bear weekend (12-13); WVU v. UT Martin 1 p.m., Ohio v. Jacksonville State 6, Marshall v. MTSU 7 (all ESPN+); Liverpool v. Fulham 10 a.m., Spurs v. Everton 12:30; Crew v. Red Bulls and FCC v. Charlotte 7:30; Pond Creek Bridge due finished** | |
+| **2026-09-13** | **Aki basho opens (through 27th); Bengals v. Bucs and Browns at Jaguars 1 p.m. ET; Bennington option-tax survey closes** | |
+| **2026-09-14** | **NC flounder closes 11:59 p.m.; Brooke principal's preliminary hearing; Bennington Select Board option-tax session; ESA FLEX/Sentinel-3C on Vega-C VV30 (9:21 p.m. EDT)** | FLEX is a Sept. 15 Sci/Tech brief |
+| **2026-09-16** | **Fed meeting (hike odds near 60% after the jobs report); Lake Paran septic workshop, North Bennington, noon** | |
+| **2026-09-17** | **Gauley Fest opens (through 20th); NCDMF kingfishes meeting, Wilmington** | |
+| **2026-09-21** | **Black Diamond Power PSC hearing; D-SNAP applications open in Lewis, Pleasants, Ritchie, Upshur (through 25th)** | |
+| **2026-09-23** | **Pender resiliency-plan comment window closes; Tumbler Ridge ChatGPT case-management conference (Judge Schulman — from a law-firm summary, unverified); Uber Nigeria/Uganda help center closes** | |
+| **2026-09-26** | **Abbotsford-Mission byelection; USMNT-Peru 4:30 p.m. ET Orlando; WV archery deer/bear open; Chelsea at Brentford is Sept. 18** | |
+| **2026-09-29** | **Clancy status hearing (mistrial declared Friday, PBS)** | Not run today; a U.S. brief if a retrial decision comes |
+| **2026-10-05** | **B.C. legislature returns; the Milobar party aims to be registered by then; Bennington special meeting on the option tax (vote Nov. 3)** | |
+| **2026-12-02** | **SCOTUS argues the AR-15 ban cases (Viramontes / Grant); Dec. 8 RNC v. Mi Familia Vota** | Not run today (SCOTUSblog) |
+
+### Open threads
+
+- **witkoff-kushner-moscow-kyiv** — NEW, the lead; Kyiv stop Sunday.
+- **us-iran-hormuz** — dropped to a brief after four leads; Kharg tanker report (Tasnim) unconfirmed; polygraphs of ~50 Joint Staff (AJ citing NYT) unprinted; Brent $96.90 Friday (Fortune).
+- **usps-mail-ballot** — MOVED: Talwani preliminary injunction Friday; 1st Circuit appeal promised; SCOTUS responses Tuesday.
+- **missouri-map** — MOVED: Hanaway's emergency application; responses Monday, ballot deadline Tuesday.
+- **august-jobs-162k** — ran; CPI Sept. 11, Fed Sept. 16.
+- **nepal-flood** — 1,342 dead / 4,886 missing, now NEPAL POLICE at 8 a.m. daily via the Kathmandu Post (not the NDRRMA); Saturday's piece did not say whether the missing count includes unidentified bodies — attribute that caveat to Friday's NDRRMA figure only.
+- **sara-duterte-warrant** — NEW; Philstar/NPR snippets say she posted bail Saturday (unverified).
+- **reform-uk-donations-sting** — NEW; Met referral.
+- **guinea-landfill** — NEW (funeral peg).
+- **milei-falklands / clancy-mistrial / scotus-dec-ar15 / germany-grid-sabotage / unga-equal-earth-map** — read, not run.
+- **brooke-cameras** — MOVED: three suits, suspension, Sept. 14 hearing. **ruby-memorial-cameras-class-action** — NEW (WV Record, Sept. 1 filing), unprinted, a statewide brief when it moves.
+- **mason-starwood-datacenter** — MOVED: reaction and the HB 2014 request.
+- **rhtp-first-awards** — NEW. **chamber-summit** — panels ran (GOP economic panel); the childcare HB 4191 panel (News & Sentinel) is unprinted.
+- **justice-2028-run** — Justice "100 percent" considering (Lootpress/WOAY, Thursday), still unprinted; a brief if he decides.
+- **milton-culloden** — MOVED (regional line: "early stages," no petition).
+- **wayne-ai-threats / dsnap-four-counties / wood-assessor / belle-fire / hinton-apartments** — ran or noted.
+- **hannan-roane / hannan-logan** — still owed; schedule mismatch (see table).
+- **wvu-men-akron / marshall-women-murray-state** — Thursday results never found; the Sunday women's match may reveal Marshall's record.
+- **hoshoryu-aki-entry** — MOVED: hospital Saturday, decision Sept. 11. **atamifuji-ozeki-run** — NEW (needs 12). **kirishima-tsunatori** — degeiko from Sept. 5 (Sponichi), a Sept. 9 Onosato rematch is sumostats-only, unconfirmed. **shindo-57kg-recruit** — read, not run.
+- **liverpool-iraola-first-win / spurs-maddison-out / chelsea-caicedo / reds-brewers-10-7 / pirates-angels-1-0 / ohio-nebraska / marshall-penn-state / fcc-dc-united** — ran.
+- **hof-voting-overhaul / guardians-double-walkoff / miami-mensah** — ran in leagues.
+- **bc-new-party-milobar** — MOVED: five MLAs, registration before Oct. 5; Findlay's caucus meeting outcome unreported; Paton/RCMP last moved Sept. 1. **giddens-bigger-tent** — read (CKPG), not run.
+- **brink-pg-cuts / tfl30-cut** — NEW, ran. **pg-council-race** (Pears, Klassen) — a roundup line on a thin day. **pg-college-heights-gunfire** — read, not run.
+- **statcan-august-jobs / fca-ei-maternity** — NEW, ran. **jazz-flight-attendants-strike-mandate / zahid-arson-charge / vpd-dosanjh-fraud / surrey-treatment-facility / duncan-gala-vista / victoria-transit-mediation** — read, not run.
+- **eby-join-openai-suits** — ran (AI section) as the Tumbler Ridge movement.
+- **openai-agents-dsewiki / anthropic-flt-lean** — NEW, ran. **wayve-uber-london / weathernext-3-leaderboard** — read, not run (WeatherNext still has no independent evaluation readable).
+- **ucr-kamchatka-gps / katalyst-link-swift / mit-cellular-self-reporting / bennu-1-pascal** — ran. **manchester-magic-angle / betelgeuse-alma / cicadas-50-yards / mercury-graphite-crust / x59-mach-1-2 / hubble-n44** — alternates, unprinted.
+- **crew-13** — no new date. **esa-flex-sept14** — NEW forward item.
+- **blue-catfish-record-harmon / gauley-season-sept11 / wv-dove-dates / nc-dove-teal-archery / dmf-fmp-review / topsail-shellfish-pa45** — ran in the seasons and water notes.
+- **kingfish-scoping** — Wilmington Sept. 17. **summersville-drawdown** — USACE unreachable again.
+- **fr86-williams-river-road** — closure posted to end Aug. 31, still listed; ran in the Williams note.
+- **marl-psc / meta-settlement-approval / putnam-google-datacenter / nitro-elementary / bluefield-state / fundamental-data-appeal / black-diamond-power / pond-creek-bridge / mammoth-solar / vape-safety-act-suit / wooton / kenscoff-hostages / malta-fenech / maduro-immunity / pacific-forum / nigeria-us-troops / king-harald-funeral** — pending, no movement found.
+
+### Covered slugs, 2026-09-05
+
+`witkoff-kushner-moscow-kyiv-peace-proposal`, `talwani-injunction-usps-mail-ballot-rule`, `august-jobs-162k-hike-odds`, `missouri-hanaway-scotus-emergency-application`,
+`trump-small-potatoes-pickaxe-mountain`, `nepal-toll-1342-police-4886-missing`, `sara-duterte-arrest-warrant-grave-threats`, `reform-uk-aides-suspended-donations-sting`,
+`guinea-conakry-landfill-36-buried`, `brooke-cameras-three-suits-class-action`, `mason-starwood-reaction-hb2014`, `rhtp-first-awards-2-4m`, `chamber-gop-panel-sb1-pers`,
+`milton-annexation-early-stages`, `belle-witcher-creek-fire`, `wood-assessor-shortfall-two-thirds`, `hinton-new-river-grocery-apartments`,
+`vt-purple-heart-duverney`, `bergoo-bash-sept5`, `pender-abbey-preserve-500k`,
+`brink-pg-fingerjoint-85-to-30`, `tfl30-aac-340k-cut-17pct`, `bc-new-party-five-mlas-milobar`, `statcan-august-jobs-minus-42k`, `fca-ei-maternity-charter`,
+`ucr-asperity-gps-kamchatka-grl`, `katalyst-link-swift-12km-boost-dropped`, `mit-cellular-self-reporting-cell`, `bennu-1-pascal-coffee-nature-comms`,
+`openai-agents-dsewiki-18000-posts`, `anthropic-claude-flt-lean-13m-lines`, `eby-province-join-tumbler-ridge-suits`,
+`chelsea-arsenal-caicedo-decision`, `liverpool-isak-brace-ipswich-2-0-barcola-debut`, `spurs-forest-maddison-out-savio-back`, `brewers-reds-10-7-pratt-triple`,
+`pirates-angels-1-0-jones-ninth-shutout`, `ohio-nebraska-keys-poulos-colandrea`, `marshall-penn-state-campbell-debut-gibson`, `fcc-dc-united-home-form-noonan`,
+`hoshoryu-hospital-decision-sept11`, `atamifuji-ozeki-run-hakkaku-praise`, `guardians-double-walkoff-wildcard`, `hof-voting-overhaul-belichick`, `miami-mensah-five-td-stanford`,
+`squirrel-general-sept12`, `bear-youth-sept12-13`, `squirrel-youth-today`, `spanish-mackerel-limits`, `flounder-day-five-fmp-review`, `bear-gun-closes-sept7`,
+`nc-dove-opens-sept5`, `wv-dove-dates-wvdn`, `wv-blue-catfish-record-harmon`, `gauley-season-sept11`, `fr86-williams-river-road`, `topsail-shellfish-reopen-pa45`, `topsail-heat-advisory-rip-moderate`
