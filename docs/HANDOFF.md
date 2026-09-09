@@ -390,7 +390,17 @@ an outside source has it and can be cited. Ian reads the paper.
   Read that morning's briefing — the section should exist only that day,
   lead with the kickoff window, and tag Pat. The Oct. 10 and Oct. 24
   kickoffs are TBD in `weatherman/reference/ohio-football-2026.json`
-  until ESPN posts them; re-fetch the file when they do.
+  until ESPN posts them; re-fetch the file when they do. Verified
+  2026-09-09 afternoon: `bobcats_games()` returns `today: null` for the
+  9th and the Jacksonville State game for the 12th, ESPN's live feed still
+  says 6:00 p.m. ET, weatherman's 23 tests pass. **Thursday 2026-09-10 is
+  the first briefing with `athens_oh` in `data.json`** — read it and
+  confirm it says nothing about Athens or the Bobcats on a non-game day.
+  The alert watcher polls `athens_oh` every half hour like any other
+  location, so a significant NWS alert at Peden would post on a weekday
+  with nobody tagged; that matches how the other unoccupied special
+  locations already behave, and Nate has not been asked whether he wants
+  it.
 - **Punta Cana re-arm** when Pat sends April 2027 dates: the recipe is the
   comment on the `punta_cana` location in `weatherman/config.py`, plus a
   `travel.json` trip.
