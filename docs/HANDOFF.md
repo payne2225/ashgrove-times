@@ -11,7 +11,7 @@ have to ask anyone to write a handoff again.
 > exists now, what is decided, what is open. Delete what stopped being
 > true rather than appending to it.
 
-Last updated: **2026-09-02**
+Last updated: **2026-09-09**
 
 ---
 
@@ -382,10 +382,22 @@ an outside source has it and can be cited. Ian reads the paper.
     but the prompt. Same treatment as item 1 when there is a session for it:
     pytest over `verify.py`'s scoring with a fixture week, and a test that a
     card whose grades exceed its own bust list is refused.
-- **Tomorrow (2026-09-03) is the first morning under three new gates** —
-  MLB standings byte-match, the date-word rule, the standings snapshot.
-  Read the routine's report: if the desk had to cut an MLB line or an away
-  line, that is the gate working, not failing, but confirm it read as such.
+- **The three 2026-09-03 gates** (MLB standings byte-match, the date-word
+  rule, the standings snapshot) passed on their first morning and every
+  morning since; nothing to watch there any more.
+- **Saturday 2026-09-12 is the first Bobcats home game** under the new
+  weatherman section (§7 item 6): Jacksonville State, 6 p.m. at Peden.
+  Read that morning's briefing — the section should exist only that day,
+  lead with the kickoff window, and tag Pat. The Oct. 10 and Oct. 24
+  kickoffs are TBD in `weatherman/reference/ohio-football-2026.json`
+  until ESPN posts them; re-fetch the file when they do.
+- **Punta Cana re-arm** when Pat sends April 2027 dates: the recipe is the
+  comment on the `punta_cana` location in `weatherman/config.py`, plus a
+  `travel.json` trip.
+- **The weather page shows numbers first** since 2026-09-03 (§4) and small
+  headlines left Playfair the same day; the back issues still wear the old
+  type until someone runs `render_edition.py --all`, which is safe and
+  changes only what the template changed.
 
 - **The Topsail water temperature moved stations — watch it this week.**
   NOAA dropped the `water_temperature` product from **8658163 Wrightsville
