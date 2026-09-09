@@ -331,13 +331,19 @@ times, a persona or name, the format, who gets pinged.
 4. **Hannan soccer** — `reference/hannan-soccer-2026.json` exists in
    BOTH repos, because each routine checks out only its own. Correct
    one, correct the other.
-5. **Punta Cana, through 2026-09-18** (Pat & Rachel, Sept. 12–18; Pat asked
-   in the channel 2026-09-03). Weatherman only: `tropics.py` reads NHC,
-   the briefing carries a daily "Atlantic watch" line after Topsail, and
-   the alert watcher pings Pat if a storm names the Dominican Republic or
-   comes inside 300 miles. Switched on by the `tropics_watch` on the
-   `punta_cana` location in `weatherman/config.py`; **prune it and the
-   `travel.json` trip after the 18th.** The Times does not cover the trip.
+5. **Punta Cana — DORMANT.** The Sept. 12–18 trip moved to April 2027
+   (Pat, via Nate, 2026-09-09). The machinery stays in weatherman
+   (`tropics.py`, the briefing's Atlantic section, the watcher's NHC
+   triggers) and is switched on by a `tropics_watch` block on the
+   `punta_cana` location in `weatherman/config.py`; the comment there is
+   the re-arm recipe. Nothing runs while the block is absent.
+6. **Ohio Bobcats home games** (Pat, via Nate, 2026-09-09). Weatherman
+   only: `athens_oh` location, `reference/ohio-football-2026.json` (six
+   home games from ESPN's schedule API), a `bobcats` block in `data.json`,
+   and a briefing section that exists only on home-game days. Sports &
+   Sportsman already follows Ohio for results; its fixtures file is not
+   mirrored here yet — if the sports desk starts using one, mirror it
+   the way Hannan's is.
 
 ## 8. Ian coaches Hannan
 
