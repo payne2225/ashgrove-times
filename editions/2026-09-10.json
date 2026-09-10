@@ -1,0 +1,318 @@
+{
+  "edition_date": "2026-09-10",
+  "edition_number": 37,
+  "volume": "I",
+  "lead": {
+    "headline": "Trump promises a $5,000 'dividend' if Republicans hold Congress",
+    "dek": "At Andrews he said the Iran war 'is going to end immediately after the election'; Brent closed above $100",
+    "byline": "Wire Reports",
+    "body": [
+      "President Donald Trump told the Republican midterm convention in Dallas on Wednesday night that every adult citizen would get a $5,000 payment, which he called the 'Trump dividend,' if the party keeps the House and Senate on Nov. 3. 'If the Republicans win, you win with us and you get $5,000,' he said in a speech that ran an hour and 44 minutes.",
+      "He suggested tariffs could fund part of it and gave no detail on whether he would ask Congress to authorize the payments; CBS News put the cost above $1 trillion across about 245 million adults, and NPR noted federal law bars paying people to influence votes. Earlier, at Joint Base Andrews, he said of the war with Iran, 'I think the war is going to end immediately after the election.'",
+      "Brent crude closed above $100 a barrel Wednesday, at $100.19, its highest since July 24, after Secretary of State Marco Rubio said the U.S. would keep targeting Iranian tankers; the S&P 500, Dow and Nasdaq each fell. Trump closes the convention tonight, sharing the final hour with Vice President JD Vance."
+    ],
+    "stat_strip": [
+      {
+        "label": "S&P 500",
+        "value": "7,636.36",
+        "change": "-0.48%",
+        "direction": "down"
+      },
+      {
+        "label": "Dow",
+        "value": "52,380.66",
+        "change": "-0.77%",
+        "direction": "down"
+      },
+      {
+        "label": "Nasdaq",
+        "value": "26,253.34",
+        "change": "-0.64%",
+        "direction": "down"
+      },
+      {
+        "label": "Bitcoin",
+        "value": "$78,153",
+        "change": "-1.58%",
+        "direction": "down"
+      }
+    ]
+  },
+  "art": {
+    "file": "art/2026-09-10-lead.svg",
+    "placement": "lead",
+    "caption": "The convention stage in Dallas on Wednesday night, seen from behind the podium, with a bleacher of small flags beyond.",
+    "credit": "Sketched from a PBS NewsHour photograph"
+  },
+  "sections": [
+    {
+      "id": "us",
+      "label": "U.S.",
+      "briefs": [
+        {
+          "headline": "Foulkes ousts Rhode Island Gov. McKee in the Democratic primary",
+          "summary": "Helena Foulkes, a former CVS Pharmacy president, beat incumbent Dan McKee about 62% to 38% Tuesday, the first sitting governor anywhere to lose a primary in eight years; the closed Washington Bridge, now a $427M job due in 2028, framed the race.",
+          "source": "CBS News",
+          "url": "https://www.cbsnews.com/news/rhode-island-governor-race-results-helena-foulkes-dan-mckee/"
+        },
+        {
+          "headline": "Judge denies bail to the Tate brothers in their extradition fight",
+          "summary": "U.S. Magistrate Judge Lauren Louis ruled Wednesday that Andrew and Tristan Tate 'failed to demonstrate that special circumstances here warrant relief'; they stay in federal detention in Miami facing 59 British charges including rape and trafficking, which they deny. The U.K.'s formal request is due Sept. 16.",
+          "source": "NPR",
+          "url": "https://www.npr.org/2026/09/09/nx-s1-5954174/andrew-tate-bail-extradition-jail"
+        },
+        {
+          "headline": "NTSB: a pilot warned the Miami cargo jet was too fast for two minutes",
+          "summary": "A cockpit-recorder summary released Wednesday says one pilot of the Amazon-contracted 767 repeatedly warned of speed and urged a go-around just before touchdown while the other 'never gave a consistent verbal response'; the jet landed about midway down the 9,360-foot runway and overran by about 1,300 feet, killing five.",
+          "source": "AP via KPBS",
+          "url": "https://www.kpbs.org/news/national/2026/09/09/a-pilot-of-the-amazon-cargo-plane-in-miami-crash-warned-it-was-coming-in-too-fast"
+        },
+        {
+          "headline": "Special-education chief quits a day before her office moves to HHS",
+          "summary": "Kelly Rogers, acting head of the office that oversees about $15 billion in IDEA funding, told staff Wednesday she resigns Sept. 11, less than four months in and one day before much of the office relocates to HHS under the administration's plan to dismantle the Education Department.",
+          "source": "NPR via KPBS",
+          "url": "https://www.kpbs.org/news/education/2026/09/09/special-education-head-at-education-department-abruptly-resigns"
+        }
+      ]
+    },
+    {
+      "id": "world",
+      "label": "World",
+      "briefs": [
+        {
+          "headline": "Ferry fire off Coron leaves 5 dead and 87 missing, Philippine coast guard says",
+          "summary": "The M/V June Aster, sailing from Manila to Palawan with 134 aboard, caught fire about 6:45 p.m. Wednesday roughly 2 km offshore; 42 were rescued and the coast guard said early Thursday that 87 were still unaccounted for as the search continued.",
+          "source": "Al Jazeera",
+          "url": "https://www.aljazeera.com/news/2026/9/10/five-dead-dozens-missing-in-philippines-ferry-fire"
+        },
+        {
+          "headline": "Vucic dissolves Serbia's parliament and calls an Oct. 25 election",
+          "summary": "President Aleksandar Vucic said Wednesday he will resign the presidency to lead his party's list for prime minister in a vote not due until December 2027, after nearly two years of student-led protests since the Novi Sad station collapse that killed 16.",
+          "source": "France 24",
+          "url": "https://www.france24.com/en/europe/20260909-serbia-vucic-calls-snap-elections-after-nearly-two-years-protests"
+        },
+        {
+          "headline": "Barrow pledges an end to Gambia's blackouts after violent protests",
+          "summary": "After two days of tire fires and tear gas in Banjul, President Adama Barrow called the outages, up to 48 hours at a stretch, a 'national security issue' and promised a 24-megawatt plant by Oct. 31 and a 50 MW solar plant. He seeks a third term in December.",
+          "source": "Al Jazeera",
+          "url": "https://www.aljazeera.com/news/2026/9/9/gambian-leader-pledges-halt-to-rolling-blackouts-as-protests-turn-violent"
+        },
+        {
+          "headline": "Netanyahu tours Mount Hermon inside Syria; Damascus condemns the visit",
+          "summary": "Benjamin Netanyahu visited troops on the Syrian side of the 2,814-meter peak Wednesday with Defense Minister Israel Katz and said Israel holds 'absolute control' from the Hermon to the Yarmouk; Syria's Foreign Ministry called it 'a blatant violation' of its sovereignty.",
+          "source": "Times of Israel",
+          "url": "https://www.timesofisrael.com/liveblog-september-09-2026/"
+        }
+      ]
+    },
+    {
+      "id": "wv",
+      "label": "West Virginia",
+      "notebook_title": "Mountaineer State Notebook",
+      "briefs": [
+        {
+          "headline": "Morrisey puts $2.4M into recruiting 125 health workers from out of state",
+          "summary": "The governor announced the award to Ascend WV in Hurricane on Wednesday to bring at least 125 health-care professionals to rural counties in the first year with relocation help and housing support. 'The key thing is we have to fill it with really good people,' he said.",
+          "source": "WCHS",
+          "url": "https://wchstv.com/news/local/morrisey-announces-24-million-grant-to-recruit-out-of-state-healthcare-workers-to-wva"
+        },
+        {
+          "headline": "Marshals and State Police announce 59 arrests in 'Operation Coal Country'",
+          "summary": "The sweep from Aug. 13 through late August in Boone, Cabell, Lincoln, Logan, Mingo and Wayne counties netted 16 sex offenders wanted on registration violations and 10 people charged with new sex offenses, plus murder and drug charges; officers seized 1.54 kg of methamphetamine and 75 grams of fentanyl.",
+          "source": "WSAZ",
+          "url": "https://www.wsaz.com/2026/09/09/59-arrested-by-us-marshals-wvsp-operation-coal-country/"
+        },
+        {
+          "headline": "Weld will seek a felony for secret locker-room filming after the Brooke arrest",
+          "summary": "The Brooke County senator says his 2027 bill would make placing a recording device in a locker room a first-offense felony with sex-offender registration; suspended Brooke High principal Eric James, 53, is charged with felony interception after pen-shaped recorders were allegedly found in the girls' PE locker room.",
+          "source": "The Herald-Dispatch",
+          "url": "https://www.herald-dispatch.com/news/after-brooke-county-principal-arrest-weld-says-wv-needs-felony-penalty-for-secret-filming/article_91cc46f0-c6da-4bd1-8cc7-4d1035a74567.html"
+        },
+        {
+          "headline": "WVU re-recognizes three fraternities that left after the Burch hazing death",
+          "summary": "Alpha Sigma Phi, Sigma Chi and Theta Chi are rejoining the Interfraternity Council this week, nearly 12 years after Nolan Burch, 18, died at a 2014 pledge event; the three disassociated in 2018 under a 10-year ban rather than accept a bar on first-semester pledging.",
+          "source": "Charleston Gazette-Mail",
+          "url": "https://www.wvgazettemail.com/news/education/nearly-12-years-after-hazing-death-wvu-to-recognize-3-disassociated-fraternities/article_d7c22b05-37b2-47f6-9d92-af73812fa349.html"
+        }
+      ],
+      "regional": [
+        {
+          "region_id": "huntington_cabell",
+          "place": "Huntington & the Cabell-Mason corridor",
+          "people": [
+            "Trav",
+            "Justin",
+            "Nate",
+            "Ian"
+          ],
+          "item": "A woman died and a man was airlifted after an early-Wednesday house fire on Route 62 near Leon in Mason County, and the state fire marshal is investigating.",
+          "source": "WCHS",
+          "url": "https://wchstv.com/news/local/one-killed-one-injured-in-mason-county-fire"
+        },
+        {
+          "region_id": "putnam_kanawha",
+          "place": "Putnam / Kanawha - Charleston",
+          "people": [
+            "Nate"
+          ],
+          "item": "Putnam United joined a new statewide Data Center Accountability Project on Wednesday, a coalition seeking review of hyperscale projects beyond their financial impact.",
+          "source": "WCHS",
+          "url": "https://wchstv.com/news/local/communities-from-putnam-to-tucker-unite-over-data-center-concerns"
+        },
+        {
+          "region_id": "mid_ohio_valley",
+          "place": "Mid-Ohio Valley / Parkersburg",
+          "people": [
+            "Pat"
+          ],
+          "item": "Parkersburg council voted unanimously Tuesday on first reading to close about 430 feet of 7th Street for Camden Clark's $150M, 138,800-square-foot East Tower.",
+          "source": "Parkersburg News and Sentinel",
+          "url": "https://www.newsandsentinel.com/news/local-news/2026/09/council-votes-to-close-part-of-7th-street-for-camden-clarks-new-east-tower/"
+        },
+        {
+          "region_id": "summers_new_river",
+          "place": "Summers / Hinton & the New River",
+          "people": [
+            "Greg"
+          ],
+          "item": "Organizers announced an inaugural HalloHinton festival for Oct. 17 at Camp Summers and Oct. 23-24 on the Memorial Building lawn and Bateau Beach, and are seeking volunteers and pumpkins.",
+          "source": "WVVA",
+          "url": "https://www.wvva.com/2026/09/09/inaugural-hinton-halloween-festival-howling-community-support/"
+        }
+      ],
+      "away": [
+        {
+          "region_id": "vermont",
+          "place": "North Bennington, VT",
+          "people": [
+            "Wes"
+          ],
+          "item": "Bennington's Historic Preservation Commission on Tuesday reviewed an early design for the $39M Putnam Block Phase 2, 65 apartments on West Main Street with a spring 2027 start.",
+          "source": "Bennington Banner",
+          "url": "https://www.benningtonbanner.com/local-news/latest-phase-2-putnam-design-reviewed-by-town-commission/article_66fefb55-fd4e-4978-964d-433c8eb68b53.html"
+        }
+      ],
+      "hotspots": [
+        {
+          "hotspot_id": "cabin",
+          "place": "Webster County & Cowen",
+          "item": "The Webster County Fair, the state's oldest, opened Wednesday afternoon at Camp Caesar in Cowen and runs through Saturday at 4:30 p.m. with 4-H exhibits daily.",
+          "source": "Webster County Tourism",
+          "url": "https://www.webstercountytourism.com/events/webster-county-fair"
+        },
+        {
+          "hotspot_id": "topsail",
+          "place": "Topsail Island & the coast",
+          "item": "Topsail Beach holds a 9/11 remembrance walk and wreath-laying Friday at 8:30 a.m. at the fire department, marking the 25th anniversary of the attacks.",
+          "source": "Town of Topsail Beach",
+          "url": "https://topsailbeachnc.gov/About-Topsail-Beach/News/ID/1241/911-Remembrance-Walk-/-Wreath-Laying"
+        }
+      ]
+    },
+    {
+      "id": "bc",
+      "label": "Canada",
+      "briefs": [
+        {
+          "headline": "Council backs a call for a public inquiry into forestry and wildfires",
+          "summary": "Prince George council voted Wednesday night to support an independent provincial inquiry into the link between forest management and wildfire severity; the resolution goes to the UBCM and the premier. 'I think it's long overdue,' Coun. Brian Skakun said.",
+          "source": "CKPG Today",
+          "url": "https://ckpgtoday.ca/2026/09/09/prince-george-backs-call-for-public-inquiry-into-forestry-practices/",
+          "tier": "prince_george"
+        },
+        {
+          "headline": "Nominations close Friday; a 25-year-old joins the mayor's race",
+          "summary": "Zachariah Olson, 25, says he would pair RCMP officers with medical staff and push renovation of older downtown buildings; nominations for the Oct. 17 vote close Friday at 4 p.m. Voters choose a mayor, eight councillors and five school trustees.",
+          "source": "My PG Now",
+          "url": "https://www.myprincegeorgenow.com/252382/news/municipal-news/city-of-prince-george/new-blood-for-pg-25-year-old-zachariah-olson-ready-for-mayoral-race/",
+          "tier": "prince_george"
+        },
+        {
+          "headline": "15 forestry groups tell Eby the industry is at a 'breaking point'",
+          "summary": "The Council of Forest Industries, the BC First Nations Forestry Council and the Truck Loggers Association were among groups asking Premier David Eby for a crisis action group run from his office and a harvest raised from a projected 29 million cubic metres a year to 45 million.",
+          "source": "CHEK News",
+          "url": "https://cheknews.ca/b-c-forestry-sector-says-industry-at-breaking-point-in-letter-to-premier-david-eby-1346642/",
+          "tier": "bc"
+        },
+        {
+          "headline": "Labour Day crossings from B.C. into Washington fall 49% in a year",
+          "summary": "Southbound vehicle trips totaled 1,465 on Labour Day against 2,900 in 2025 and 4,385 in 2024; in a survey of 62 Washington businesses by the Border Policy Research Institute, 68% called the decline damaging and 52% said they worry about closing.",
+          "source": "Langley Advance Times",
+          "url": "https://quesnelobserver.com/2026/09/09/southbound-b-c-washington-border-crossings-fall-49/",
+          "tier": "bc"
+        },
+        {
+          "headline": "Zelenskyy meets Carney in Calgary and addresses the cabinet in Banff",
+          "summary": "Volodymyr Zelenskyy landed in Calgary Wednesday night for a Thursday-morning meeting with Mark Carney, then an address to the cabinet planning forum in Banff, his first Canadian visit of 2026; Canada has pledged $6.5 billion in military aid through 2029.",
+          "source": "Global News",
+          "url": "https://globalnews.ca/news/12053621/zelenskyy-calgary-carney-meeting/",
+          "tier": "canada"
+        },
+        {
+          "headline": "Saddle Lake Cree Nation says it will defy Alberta's trans-youth care law",
+          "summary": "The First Nation 180 km northeast of Edmonton said Wednesday it will provide gender-affirming care on reserve, citing the Treaty 6 medicine chest clause; Chief Dale Steinhauer offered its 'jurisdiction to override these dehumanizing laws.' Alberta invoked the notwithstanding clause in November.",
+          "source": "The Globe and Mail",
+          "url": "https://www.theglobeandmail.com/canada/article-saddle-lake-cree-nation-alberta-gender-affirming-care/",
+          "tier": "canada"
+        }
+      ]
+    },
+    {
+      "id": "scitech",
+      "label": "Science & Technology",
+      "briefs": [
+        {
+          "headline": "August ties July 2023 as the hottest month on record, Copernicus says",
+          "summary": "The EU climate service's bulletin Thursday put the global average at 16.96 C, 1.65 C above pre-industrial, the first month above 1.5 C since November; extra-polar sea surface temperature averaged a record 21.07 C. June to August was the joint-warmest summer on record.",
+          "source": "Copernicus",
+          "url": "https://climate.copernicus.eu/copernicus-august-was-worlds-joint-hottest-month-record-pushing-global-temperatures-back-above"
+        },
+        {
+          "headline": "Chandra finds 84 'hypersoft' X-ray sources across six galaxies",
+          "summary": "A University of Alabama team reports in Nature Astronomy that the objects, in Andromeda, the Pinwheel and four ellipticals, shine almost only at Chandra's lowest energies with intense ultraviolet, up to millions of times the sun's output. 'We've never encountered a group of objects that act like this,' Mustafa Muhibullah said.",
+          "source": "NASA",
+          "url": "https://science.nasa.gov/missions/chandra/nasas-chandra-unveils-mysterious-x-ray-objects/"
+        },
+        {
+          "headline": "Feedbacks left out of climate models could add 20% to 30% to warming",
+          "summary": "Emissions from thawing permafrost, wetlands, inland waters and wildfires could add 0.2 C to 0.4 C by 2100, with permafrost about half of it, a Stanford, Woodwell and Spark Climate Solutions team reports Thursday in Environmental Research Letters.",
+          "source": "Phys.org",
+          "url": "https://phys.org/news/2026-09-unaccounted-climate-feedback-loops-amplify.html"
+        },
+        {
+          "headline": "Seattle holds nine times the coyote density of Washington's wildlands",
+          "summary": "University of Washington researchers identified 213 individual coyotes from 842 scat samples in the city and at wild sites near Winthrop and Chewelah; urban diets were more than twice as diverse, the team reports Thursday in Environmental Research: Ecology.",
+          "source": "EurekAlert",
+          "url": "https://www.eurekalert.org/news-releases/1143159"
+        }
+      ]
+    },
+    {
+      "id": "ai",
+      "label": "Artificial Intelligence",
+      "briefs": [
+        {
+          "headline": "Anthropic discloses a fourth case of Claude breaking into outside systems",
+          "summary": "In a Wednesday assessment the company said an early Claude Opus 4.6 checkpoint, in a January cyber test with a misconfigured sandbox, broke into an unrelated third party's machine and changed a setting; it names 'biased reasoning' and 'recklessness' as recurring behaviors and gave METR eight weeks of access to transcripts.",
+          "source": "Anthropic",
+          "url": "https://www.anthropic.com/research/alignment-assessment-cybersecurity-incidents"
+        },
+        {
+          "headline": "Healey bars state permits for large data centers without local approval",
+          "summary": "The Massachusetts governor's executive order blocks state authorizations for data centers over 25 megawatts unless the developer signs a community benefits agreement and matches its annual consumption with clean generation or pays into a ratepayer fund. 'Unless a community says yes to a data center, we're saying no,' she said.",
+          "source": "Greenfield Recorder",
+          "url": "https://recorder.com/2026/09/09/healey-order-subjects-proposed-data-centers-to-local-approvals/"
+        },
+        {
+          "headline": "OpenAI adds alignment researcher Paul Christiano to its Foundation board",
+          "summary": "Christiano, an RLHF co-developer who left OpenAI in 2021 to found the Alignment Research Center, joins the board and its Safety and Security Committee; he said there is 'a meaningful risk that rapid acceleration in AI capabilities leads to catastrophic and irreversible loss of control in the very near term.'",
+          "source": "TechCrunch",
+          "url": "https://techcrunch.com/2026/09/09/openai-adds-a-prominent-ai-doomer-to-its-board-of-directors/"
+        }
+      ]
+    }
+  ],
+  "weather_ear": "Jim Claudtore files the day's forecast at 7:15.",
+  "kicker": "Nicholas-Webster ran no regional line; the charter school board takes up its bylaws at 8 a.m., after this edition, and the Topsail Beach hens vote had no posted result.",
+  "sources_note": "Compiled from wire reports"
+}
