@@ -1,0 +1,115 @@
+{
+  "generated_at": "2026-09-11T05:32:46-04:00",
+  "date": "2026-09-11",
+  "williams": {
+    "water": "Williams River (Cowen)",
+    "gauge": "Williams River at Dyer",
+    "site": "03186500",
+    "discharge_cfs": 44.2,
+    "discharge_cfs_at": "2026-09-11T05:15:00.000-04:00",
+    "discharge_cfs_24h_ago": 54.9,
+    "discharge_cfs_trend": "falling",
+    "stage_ft": 1.25,
+    "stage_ft_at": "2026-09-11T05:15:00.000-04:00",
+    "stage_ft_24h_ago": 1.34,
+    "stage_ft_trend": "falling",
+    "read": "44 cfs - prime wading water."
+  },
+  "ohio": [
+    {
+      "water": "Ohio River at Point Pleasant",
+      "site": "03201500",
+      "note": "14 miles above R.C. Byrd Locks and Dam — the pool side",
+      "stage_ft": 25.68,
+      "stage_ft_at": "2026-09-11T05:00:00.000-04:00",
+      "stage_ft_24h_ago": 24.72,
+      "stage_ft_trend": "rising",
+      "read": "25.7 ft and rising — normal pool. Ordinary bank access."
+    },
+    {
+      "water": "Ohio River at Huntington",
+      "site": "03206000",
+      "note": "below R.C. Byrd Locks and Dam",
+      "stage_ft": 28.54,
+      "stage_ft_at": "2026-09-11T05:00:00.000-04:00",
+      "stage_ft_24h_ago": 26.41,
+      "stage_ft_trend": "rising",
+      "read": "28.5 ft and rising — up and pushing. Expect colour and current; fish the slack behind anything solid."
+    }
+  ],
+  "topsail": {
+    "water": "Topsail Beach (surf and sound)",
+    "tides": [
+      {
+        "station": "Hampstead",
+        "station_id": "8657813",
+        "side": "sound",
+        "note": "inside the ICWW/Topsail Sound, about on par with where the crew fishes two nautical miles north of New Topsail Inlet",
+        "events": [
+          {
+            "type": "low",
+            "time_local": "3:08 AM",
+            "height_ft": 0.3
+          },
+          {
+            "type": "high",
+            "time_local": "8:50 AM",
+            "height_ft": 4.2
+          },
+          {
+            "type": "low",
+            "time_local": "3:23 PM",
+            "height_ft": 0.3
+          },
+          {
+            "type": "high",
+            "time_local": "9:15 PM",
+            "height_ft": 4.2
+          }
+        ]
+      },
+      {
+        "station": "Ocean City Beach pier",
+        "station_id": "8657419",
+        "side": "ocean",
+        "note": "oceanfront, 11 mi along the open coast - the surf read, and it runs well ahead of the sound",
+        "events": [
+          {
+            "type": "low",
+            "time_local": "1:52 AM",
+            "height_ft": -0.0
+          },
+          {
+            "type": "high",
+            "time_local": "8:02 AM",
+            "height_ft": 5.2
+          },
+          {
+            "type": "low",
+            "time_local": "2:09 PM",
+            "height_ft": -0.2
+          },
+          {
+            "type": "high",
+            "time_local": "8:26 PM",
+            "height_ft": 5.3
+          }
+        ]
+      }
+    ],
+    "moon": {
+      "phase": "new moon",
+      "illumination_pct": 0,
+      "age_days": 29.1
+    },
+    "water_temp": {
+      "water_temp_f": 82.0,
+      "observed_at": "2026-09-11 05:24",
+      "station": "Beaufort",
+      "miles_away": 60,
+      "bearing": "up the coast"
+    },
+    "read": "Fish the moving water either side of high at 8:50 AM and 9:15 PM in the sound."
+  },
+  "errors": []
+}
