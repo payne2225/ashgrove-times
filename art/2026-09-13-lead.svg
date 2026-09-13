@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-label="Sketch after a photograph of the Strait of Hormuz off Bandar Abbas: four commercial ships anchored in haze along a high horizon, a tanker alone at left and three vessels clustered at right, with two small motorboats crossing the grey water in the foreground and leaving thin wakes, the sea drawn as faint broken lines">
+  <defs>
+    <style>
+      path { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; }
+      .faint { opacity: 0.22; }
+      .mid { opacity: 0.5; }
+      .ink { opacity: 0.85; }
+    </style>
+  </defs>
+  <g>
+    <!-- horizon, softened by haze: broken line -->
+    <path class="faint" stroke-width="0.9" d="M0,178 L60,178.4 M95,178.6 L210,179 M245,179.2 L330,179.4 M370,179.6 L480,179.9 M520,180 L610,180.2 M660,180.4 L800,180.8"/>
+
+    <!-- LEFT SHIP: a coastal tanker, bow to the left, superstructure aft (right) -->
+    <path class="ink" stroke-width="1.5" d="M158,181 L164,168 L232,168 L236,181"/>
+    <path class="ink" stroke-width="1.4" d="M164,168 L168,158 L176,158 L176,164"/>
+    <path class="ink" stroke-width="1.4" d="M205,168 L205,152 L226,152 L228,168"/>
+    <path class="ink" stroke-width="1.2" d="M209,152 L209,145 L221,145 L221,152"/>
+    <path class="ink" stroke-width="1.0" d="M213,145 L213,138"/>
+    <path class="ink" stroke-width="1.0" d="M172,158 L172,141"/>
+    <path class="mid" stroke-width="0.8" d="M170,146 L174,146"/>
+    <path class="mid" stroke-width="0.9" d="M176,164 L205,164"/>
+    <path class="mid" stroke-width="0.8" d="M180,168 L184,161 M188,168 L192,161 M196,168 L200,161"/>
+    <path class="mid" stroke-width="0.7" d="M209,158 L222,158 M209,163 L222,163"/>
+    <path class="faint" stroke-width="0.8" d="M156,184 L240,184"/>
+
+    <!-- RIGHT CLUSTER: three ships in haze, drawn lighter with distance -->
+    <!-- far ship, small, furthest -->
+    <path class="mid" stroke-width="1.2" d="M528,180 L531,171 L590,171 L594,180"/>
+    <path class="mid" stroke-width="1.1" d="M540,171 L540,161 L556,161 L556,171"/>
+    <path class="mid" stroke-width="1.0" d="M543,161 L543,155 L553,155 L553,161"/>
+    <path class="mid" stroke-width="0.9" d="M548,155 L548,149"/>
+    <path class="faint" stroke-width="0.8" d="M566,171 L566,166 L582,166 L582,171"/>
+    <!-- middle ship, tall superstructure forward -->
+    <path class="ink" stroke-width="1.4" d="M612,181 L616,167 L668,167 L672,181"/>
+    <path class="ink" stroke-width="1.3" d="M620,167 L620,149 L644,149 L644,167"/>
+    <path class="ink" stroke-width="1.1" d="M624,149 L624,141 L640,141 L640,149"/>
+    <path class="ink" stroke-width="1.0" d="M632,141 L632,133"/>
+    <path class="mid" stroke-width="0.7" d="M624,155 L640,155 M624,160 L640,160"/>
+    <path class="mid" stroke-width="0.9" d="M648,167 L648,161 L664,161 L664,167"/>
+    <!-- nearest right ship, bow left, bridge aft, sitting lower and closer -->
+    <path class="ink" stroke-width="1.6" d="M636,196 L642,182 L716,182 L720,196"/>
+    <path class="ink" stroke-width="1.4" d="M642,182 L646,173 L656,173 L656,178"/>
+    <path class="ink" stroke-width="1.4" d="M688,182 L688,162 L712,162 L714,182"/>
+    <path class="ink" stroke-width="1.2" d="M692,162 L692,154 L708,154 L708,162"/>
+    <path class="ink" stroke-width="1.0" d="M700,154 L700,146"/>
+    <path class="mid" stroke-width="0.8" d="M692,168 L708,168 M692,174 L708,174"/>
+    <path class="mid" stroke-width="0.9" d="M656,178 L688,178"/>
+    <path class="mid" stroke-width="0.8" d="M660,182 L664,175 M670,182 L674,175 M680,182 L684,175"/>
+    <path class="faint" stroke-width="0.8" d="M634,199 L722,199"/>
+
+    <!-- SEA: broken drift lines, denser and longer toward the foreground -->
+    <path class="faint" stroke-width="0.7" d="M20,206 L96,206 M140,207 L230,207 M300,206 L360,206 M420,207 L470,207 M560,206 L600,206 M740,207 L790,207"/>
+    <path class="faint" stroke-width="0.7" d="M60,224 L120,224 M180,225 L260,225 M330,224 L410,224 M480,225 L530,225 M620,224 L700,224"/>
+    <path class="faint" stroke-width="0.8" d="M10,246 L70,246 M110,247 L200,247 M250,246 L320,246 M390,247 L460,247 M540,246 L590,246 M660,247 L760,247"/>
+    <path class="faint" stroke-width="0.8" d="M40,270 L130,270 M170,271 L220,271 M290,270 L380,270 M440,271 L500,271 M590,270 L680,270 M730,271 L800,271"/>
+    <path class="faint" stroke-width="0.9" d="M0,296 L80,296 M140,297 L240,297 M300,296 L350,296 M430,297 L520,297 M600,296 L650,296 M700,297 L770,297"/>
+    <path class="faint" stroke-width="0.9" d="M30,324 L110,324 M160,325 L280,325 M340,324 L400,324 M470,325 L560,325 M620,324 L710,324"/>
+    <path class="mid" stroke-width="0.9" d="M0,354 L90,354 M150,355 L230,355 M290,354 L390,354 M450,355 L510,355 M580,354 L640,354 M720,355 L800,355"/>
+    <path class="mid" stroke-width="1.0" d="M50,386 L140,386 M200,387 L260,387 M330,386 L450,386 M520,387 L590,387 M650,386 L730,386"/>
+    <path class="mid" stroke-width="1.0" d="M0,420 L70,420 M130,421 L250,421 M310,420 L370,420 M440,421 L540,421 M610,420 L690,420 M750,421 L800,421"/>
+    <path class="mid" stroke-width="1.1" d="M40,456 L160,456 M220,457 L300,457 M360,456 L480,456 M550,457 L620,457 M700,456 L780,456"/>
+    <path class="mid" stroke-width="1.1" d="M0,488 L110,488 M170,489 L290,489 M350,488 L430,488 M500,489 L640,489 M710,488 L800,488"/>
+
+    <!-- LEFT MOTORBOAT, small, mid-distance, heading right; wake trailing left -->
+    <path class="ink" stroke-width="1.3" d="M78,232 L84,238 L110,238 L114,232 Z"/>
+    <path class="ink" stroke-width="1.0" d="M96,232 L98,226 L104,226 L106,232"/>
+    <path class="mid" stroke-width="0.8" d="M76,240 L40,241 M72,238 L52,238"/>
+    <path class="faint" stroke-width="0.7" d="M116,240 L124,239"/>
+
+    <!-- RIGHT MOTORBOAT, foreground, heading left; two figures as contours, no faces -->
+    <path class="ink" stroke-width="1.8" d="M628,396 L640,410 L718,410 L734,398 L738,392 L636,392 Z"/>
+    <path class="ink" stroke-width="1.2" d="M646,392 L660,392 L660,386 L646,386 Z"/>
+    <path class="ink" stroke-width="1.2" d="M700,392 L700,376 L706,372 L710,376 L710,392"/>
+    <path class="ink" stroke-width="1.0" d="M705,372 L705,366 M702,366 A3,3 0 1 1 708,366 A3,3 0 1 1 702,366"/>
+    <path class="ink" stroke-width="1.2" d="M676,392 L676,380 L681,377 L685,380 L685,392"/>
+    <path class="ink" stroke-width="1.0" d="M680.5,377 L680.5,372 M678,372 A2.5,2.5 0 1 1 683,372 A2.5,2.5 0 1 1 678,372"/>
+    <path class="mid" stroke-width="1.0" d="M740,404 L790,408 M742,400 L800,402"/>
+    <path class="mid" stroke-width="0.9" d="M744,412 L772,417"/>
+    <path class="faint" stroke-width="0.9" d="M624,404 L600,406"/>
+  </g>
+</svg>
