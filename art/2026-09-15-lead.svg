@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-label="Sketch after a video still of an official ballot drop box seen from below: a tall red metal box with a field of stars and diagonal flag stripes across its face, the word OFFICIAL in block capitals cropped by the bottom of the frame, a stainless slot hood at the upper right, and a mail ballot envelope halfway into the slot, held by a hand and sleeve drawn as a plain contour entering from the right edge">
+  <defs>
+    <style>
+      path { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; }
+      text { stroke: none; fill: currentColor; font-family: Helvetica, Arial, sans-serif; font-weight: bold; }
+      .faint { opacity: 0.18; }
+      .soft { opacity: 0.34; }
+      .mid { opacity: 0.58; }
+      .ink { opacity: 0.9; }
+    </style>
+  </defs>
+  <g>
+    <!-- sky: a few loose horizontal drift marks, upper right -->
+    <path class="faint" stroke-width="0.8" d="M640,30 C690,26 740,28 790,24 M660,70 C700,66 730,70 785,64 M700,110 C730,108 760,112 792,106"/>
+
+    <!-- the box: front face as a tall trapezoid seen from below, widening upward -->
+    <path class="ink" stroke-width="2.2" d="M40,500 L8,60 Q8,42 24,40 L530,12 Q548,12 552,32 L590,500"/>
+    <!-- side face on the right, receding -->
+    <path class="ink" stroke-width="1.8" d="M552,32 L640,70 L660,500 M590,500 L660,500"/>
+    <!-- top edge seen from underneath: the lid overhang -->
+    <path class="mid" stroke-width="1.4" d="M24,40 L44,18 L536,-6 M536,-6 L552,32"/>
+    <path class="soft" stroke-width="1.0" d="M44,18 L22,60"/>
+
+    <!-- seam lines and rivet row along the left edge -->
+    <path class="soft" stroke-width="1.0" d="M30,90 L46,90 M32,150 L48,150 M34,210 L50,210 M36,270 L52,270 M38,330 L54,330 M40,390 L56,390 M42,450 L58,450"/>
+    <path class="mid" stroke-width="1.2" d="M22,120 L26,124 L22,128 L18,124 Z M26,220 L30,224 L26,228 L22,224 Z M30,320 L34,324 L30,328 L26,324 Z M34,420 L38,424 L34,428 L30,424 Z"/>
+
+    <!-- a heavy horizontal rail across the box, a third of the way down -->
+    <path class="ink" stroke-width="2.0" d="M14,160 L560,138"/>
+    <path class="soft" stroke-width="1.0" d="M16,176 L560,154"/>
+
+    <!-- the stars field: a canton at the upper left, drawn as a bounded panel -->
+    <path class="mid" stroke-width="1.4" d="M20,48 L246,36 L252,150 L26,160 Z"/>
+    <!-- stars as small five-point marks in offset rows -->
+    <path class="mid" stroke-width="1.1" d="M40,62 l3,8 l8,1 l-6,5 l2,8 l-7,-4 l-7,4 l2,-8 l-6,-5 l8,-1 z"/>
+    <path class="mid" stroke-width="1.1" d="M84,60 l3,8 l8,1 l-6,5 l2,8 l-7,-4 l-7,4 l2,-8 l-6,-5 l8,-1 z"/>
+    <path class="mid" stroke-width="1.1" d="M128,58 l3,8 l8,1 l-6,5 l2,8 l-7,-4 l-7,4 l2,-8 l-6,-5 l8,-1 z"/>
+    <path class="mid" stroke-width="1.1" d="M172,56 l3,8 l8,1 l-6,5 l2,8 l-7,-4 l-7,4 l2,-8 l-6,-5 l8,-1 z"/>
+    <path class="mid" stroke-width="1.1" d="M216,54 l3,8 l8,1 l-6,5 l2,8 l-7,-4 l-7,4 l2,-8 l-6,-5 l8,-1 z"/>
+    <path class="mid" stroke-width="1.1" d="M62,90 l3,8 l8,1 l-6,5 l2,8 l-7,-4 l-7,4 l2,-8 l-6,-5 l8,-1 z"/>
+    <path class="mid" stroke-width="1.1" d="M106,88 l3,8 l8,1 l-6,5 l2,8 l-7,-4 l-7,4 l2,-8 l-6,-5 l8,-1 z"/>
+    <path class="mid" stroke-width="1.1" d="M150,86 l3,8 l8,1 l-6,5 l2,8 l-7,-4 l-7,4 l2,-8 l-6,-5 l8,-1 z"/>
+    <path class="mid" stroke-width="1.1" d="M194,84 l3,8 l8,1 l-6,5 l2,8 l-7,-4 l-7,4 l2,-8 l-6,-5 l8,-1 z"/>
+    <path class="mid" stroke-width="1.1" d="M42,118 l3,8 l8,1 l-6,5 l2,8 l-7,-4 l-7,4 l2,-8 l-6,-5 l8,-1 z"/>
+    <path class="mid" stroke-width="1.1" d="M86,116 l3,8 l8,1 l-6,5 l2,8 l-7,-4 l-7,4 l2,-8 l-6,-5 l8,-1 z"/>
+    <path class="mid" stroke-width="1.1" d="M130,114 l3,8 l8,1 l-6,5 l2,8 l-7,-4 l-7,4 l2,-8 l-6,-5 l8,-1 z"/>
+    <path class="mid" stroke-width="1.1" d="M174,112 l3,8 l8,1 l-6,5 l2,8 l-7,-4 l-7,4 l2,-8 l-6,-5 l8,-1 z"/>
+    <path class="mid" stroke-width="1.1" d="M218,110 l3,8 l8,1 l-6,5 l2,8 l-7,-4 l-7,4 l2,-8 l-6,-5 l8,-1 z"/>
+
+    <!-- the stripes: bands sweeping from the canton across the upper face, bending down at the right like a furled flag -->
+    <path class="mid" stroke-width="1.3" d="M252,46 C340,40 420,48 470,70 C510,88 540,110 552,136"/>
+    <path class="mid" stroke-width="1.3" d="M252,66 C340,60 414,68 462,90 C500,108 528,124 548,150"/>
+    <path class="mid" stroke-width="1.3" d="M252,86 C336,80 406,88 452,110 C486,126 512,140 540,160"/>
+    <path class="mid" stroke-width="1.3" d="M252,106 C332,100 398,108 442,130 C474,146 500,158 528,176"/>
+    <path class="mid" stroke-width="1.3" d="M252,126 C328,120 390,128 430,150 C462,166 488,178 518,194"/>
+    <path class="mid" stroke-width="1.3" d="M252,146 C320,142 378,150 416,172 C448,188 474,200 508,214"/>
+    <!-- hatching inside every other stripe to read as the red bands -->
+    <path class="faint" stroke-width="0.7" d="M262,56 l4,-9 M282,54 l4,-9 M302,53 l4,-9 M322,52 l4,-9 M342,52 l4,-9 M362,53 l4,-9 M382,55 l4,-9 M402,58 l4,-9 M422,62 l4,-9 M442,68 l4,-9 M462,76 l4,-9 M482,86 l4,-9 M502,98 l4,-9 M522,112 l4,-9"/>
+    <path class="faint" stroke-width="0.7" d="M262,96 l4,-9 M282,94 l4,-9 M302,93 l4,-9 M322,92 l4,-9 M342,93 l4,-9 M362,95 l4,-9 M382,98 l4,-9 M402,103 l4,-9 M422,110 l4,-9 M442,120 l4,-9 M462,132 l4,-9 M482,144 l4,-9 M502,156 l4,-9"/>
+    <path class="faint" stroke-width="0.7" d="M262,136 l4,-9 M282,134 l4,-9 M302,133 l4,-9 M322,133 l4,-9 M342,135 l4,-9 M362,138 l4,-9 M382,143 l4,-9 M402,150 l4,-9 M422,160 l4,-9 M442,172 l4,-9 M462,184 l4,-9 M482,196 l4,-9"/>
+    <!-- the furl: where the stripes fold under at the right -->
+    <path class="soft" stroke-width="1.2" d="M508,214 C496,222 488,238 494,256 C500,272 518,276 536,270"/>
+
+    <!-- the slot hood: a stainless box projecting from the upper right of the face -->
+    <path class="ink" stroke-width="2.0" d="M470,178 L604,166 L618,214 L488,228 Z"/>
+    <path class="ink" stroke-width="1.6" d="M604,166 L640,182 L652,232 L618,214"/>
+    <path class="mid" stroke-width="1.2" d="M488,228 L500,244 L628,230 L618,214"/>
+    <!-- the dark slot itself, a thin wedge under the hood -->
+    <path class="ink" stroke-width="1.4" d="M496,206 L612,196 L616,206 L500,216 Z"/>
+    <path class="mid" stroke-width="0.8" d="M500,210 L612,200 M502,213 L614,203"/>
+
+    <!-- the envelope: a folded mailer halfway into the slot, angled up to the right -->
+    <path class="ink" stroke-width="2.0" d="M556,202 L676,150 L700,178 L590,226 Z"/>
+    <path class="mid" stroke-width="1.2" d="M676,150 L688,164 L700,178"/>
+    <!-- printed lines on the envelope face -->
+    <path class="soft" stroke-width="0.9" d="M584,206 L650,176 M590,214 L662,182 M598,220 L640,200"/>
+    <!-- a return-address block and a postage box -->
+    <path class="soft" stroke-width="0.9" d="M660,168 L682,158 L688,166 L666,176 Z"/>
+    <path class="faint" stroke-width="0.7" d="M600,208 L616,201 M604,214 L620,207"/>
+
+    <!-- the hand and sleeve: a plain contour entering from the right edge, no detail -->
+    <path class="ink" stroke-width="2.0" d="M800,140 C776,144 754,156 736,170 C722,182 708,190 700,196"/>
+    <path class="ink" stroke-width="2.0" d="M800,210 C778,206 756,206 740,212 C728,218 716,220 708,214"/>
+    <!-- the thumb over the envelope edge and the closed fingers beneath -->
+    <path class="ink" stroke-width="1.8" d="M700,196 C692,190 686,178 692,170 C698,164 706,168 708,178 C709,186 704,192 700,196"/>
+    <path class="ink" stroke-width="1.8" d="M708,214 C702,206 700,196 706,190 C714,186 722,194 720,204 C726,200 732,204 730,212 C726,218 716,218 708,214"/>
+    <!-- the cuff line where the sleeve begins -->
+    <path class="mid" stroke-width="1.2" d="M752,150 C760,166 762,190 756,208"/>
+
+    <!-- OFFICIAL lettering across the lower face, cropped by the frame, tilted with the perspective -->
+    <text x="70" y="452" font-size="96" transform="rotate(-3.5 70 452) skewX(-4)" letter-spacing="5">OFFICIAL</text>
+    <!-- the second word begins below the frame: only the tops of two letters show -->
+    <path class="mid" stroke-width="2.4" d="M84,500 L84,486 L110,486 M138,500 L138,486 L162,486 L168,500 M196,486 L196,500"/>
+
+    <!-- small label plate at the lower left, the way the real box carries a bilingual notice -->
+    <path class="soft" stroke-width="1.0" d="M30,300 L110,296 L114,352 L34,356 Z"/>
+    <path class="faint" stroke-width="0.7" d="M38,310 L104,307 M38,320 L100,317 M38,330 L106,327 M38,340 L96,337"/>
+
+    <!-- weathering: a few dents and streaks on the lower face -->
+    <path class="faint" stroke-width="0.9" d="M300,250 C306,262 304,280 296,290 M360,236 C368,250 366,268 358,276 M420,300 C428,312 426,330 418,340"/>
+    <path class="faint" stroke-width="0.9" d="M200,330 L206,338 L200,346 M236,362 L242,370 L236,378"/>
+  </g>
+</svg>
