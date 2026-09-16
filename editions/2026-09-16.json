@@ -1,0 +1,318 @@
+{
+  "edition_date": "2026-09-16",
+  "edition_number": 43,
+  "volume": "I",
+  "lead": {
+    "headline": "Senate blocks crypto market bill as Democrats hold out on ethics",
+    "dek": "Cloture on the Clarity Act fails 49-50; Tillis enters a motion to reconsider and bitcoin slides 4%",
+    "byline": "Wire Reports",
+    "body": [
+      "The Senate on Tuesday refused to take up the Digital Asset Market Clarity Act, the crypto industry's top legislative priority, after every Democrat present and four Republicans voted against ending debate on a motion to proceed to the House-passed bill. The 49-50 vote fell 11 short of the 60 needed, and the bill now faces an uncertain path to becoming law.",
+      "Sens. Susan Collins, Josh Hawley, Jerry Moran and Thom Tillis were the Republicans voting no, the Senate record shows; Tillis entered a motion to reconsider that keeps the bill alive. Democrats said an ethics clause meant to bar presidents and other officials from profiting from crypto in office was too weak because the Justice Department would enforce it, NPR reported.",
+      "The 600-page bill, a version of which passed the House last year, would split oversight of digital assets between the SEC and the Commodity Futures Trading Commission. Bitcoin fell to $75,850, down 4.2% in 24 hours, CoinDesk reported. Sen. Ruben Gallego, D-Ariz., said Republican leaders \"ended talks and forced a vote\" while ethics negotiations were progressing."
+    ],
+    "stat_strip": [
+      {
+        "label": "S&P 500",
+        "value": "7,585.73",
+        "change": "-0.45%",
+        "direction": "down"
+      },
+      {
+        "label": "Dow",
+        "value": "52,093.11",
+        "change": "-0.63%",
+        "direction": "down"
+      },
+      {
+        "label": "Nasdaq",
+        "value": "25,981.57",
+        "change": "-0.78%",
+        "direction": "down"
+      },
+      {
+        "label": "Bitcoin",
+        "value": "$75,785",
+        "change": "-1.42%",
+        "direction": "down"
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "us",
+      "label": "U.S.",
+      "briefs": [
+        {
+          "headline": "News helicopter crash in Los Angeles kills 3",
+          "summary": "An NBC4 chopper covering a fatal bus wreck crashed in Chatsworth on Tuesday night, killing its photojournalist, its pilot and a pedestrian, fire officials said.",
+          "source": "NBC News",
+          "url": "https://www.nbcnews.com/news/us-news/helicopter-crashes-los-angeles-chatsworth-rcna598061"
+        },
+        {
+          "headline": "Senate advances college sports overhaul bill on 74-24 vote",
+          "summary": "The Protect College Sports Act cleared a filibuster Tuesday. It would cap athlete revenue sharing at 22% and allow one penalty-free transfer.",
+          "source": "AP via Boston.com",
+          "url": "https://www.boston.com/news/politics/2026/09/15/a-sweeping-college-sports-overhaul-bill-clears-early-hurdle-in-senate-vote/"
+        },
+        {
+          "headline": "Maduro ally Saab pleads guilty in Miami, agrees to cooperate",
+          "summary": "Alex Saab admitted one money laundering count tied to Venezuelan food contracts Tuesday, agreed to forfeit $195 million and to aid federal probes.",
+          "source": "AP via Local 10",
+          "url": "https://www.local10.com/business/2026/09/15/maduro-ally-alex-saab-pleads-guilty-in-federal-money-laundering-case/"
+        },
+        {
+          "headline": "Fed expected to raise rates today for first time since 2023",
+          "summary": "Futures put a roughly 90% chance on a quarter-point hike to 3.75%-4% at 2 p.m. ET, per CME FedWatch, with August CPI at 3.4%. Warsh speaks at 2:30.",
+          "source": "CBS News",
+          "url": "https://www.cbsnews.com/news/fed-rate-hike-interest-rates-impact/"
+        }
+      ]
+    },
+    {
+      "id": "world",
+      "label": "World",
+      "briefs": [
+        {
+          "headline": "Saudi coalition says it downed Houthi drone bound for Mecca",
+          "summary": "Spokesman Turki al-Maliki called the holy sites a \"red line.\" The Houthis denied targeting Mecca and said they shot down a Saudi F-15 fighter.",
+          "source": "Al Jazeera",
+          "url": "https://www.aljazeera.com/news/2026/9/16/saudi-led-coalition-intercepts-drone-headed-for-mecca"
+        },
+        {
+          "headline": "Russian drone strike on bus kills 5 near Nikopol",
+          "summary": "Gov. Oleksandr Hanzha said the minibus was hit Wednesday morning in Dnipropetrovsk Oblast, wounding at least 7. Russia launched 80 drones overnight.",
+          "source": "Kyiv Independent",
+          "url": "https://kyivindependent.com/russian-attacks-across-ukraine-kill-at-least-9-injure-36-as-drone-strike-on-bus-kills-5/"
+        },
+        {
+          "headline": "Sudan gold mine collapse kills at least 60, survivors say",
+          "summary": "Shafts at the Al-Zaraa mine near El-Nahud caved in Tuesday and 60 bodies were retrieved by morning, survivors told AFP; more remain trapped.",
+          "source": "Euronews",
+          "url": "https://www.euronews.com/2026/09/16/at-least-60-dead-after-gold-mine-collapses-in-sudan"
+        },
+        {
+          "headline": "Hong Kong's John Lee unveils city's first five-year plan",
+          "summary": "The plan through 2030 aligns the city with Beijing's and centers on a 30,000-hectare Northern Metropolis that Lee said would house 2.5M people.",
+          "source": "France24",
+          "url": "https://www.france24.com/en/asia-pacific/20260916-hong-kong-unveils-first-five-year-plan-to-cement-position-as-global-financial-hub"
+        }
+      ]
+    },
+    {
+      "id": "wv",
+      "label": "West Virginia",
+      "notebook_title": "Mountaineer State Notebook",
+      "briefs": [
+        {
+          "headline": "Lawmakers weigh keeping aging coal plants running",
+          "summary": "FirstEnergy told the Joint Committee on Energy and Public Works on Tuesday it has spent $500M in five years on plants nearly 50 years old as demand grows.",
+          "source": "WCHS",
+          "url": "https://wchstv.com/news/local/west-virginia-lawmakers-weigh-costly-upgrades-to-aging-coal-plants-to-meet-power-demand"
+        },
+        {
+          "headline": "State tax collections run $46.1M ahead of estimate",
+          "summary": "Revenue officials told the Joint Finance Committee on Tuesday the state took in $838.3M in the fiscal year's first two months, 5.8% above estimate.",
+          "source": "Parkersburg News and Sentinel",
+          "url": "https://www.newsandsentinel.com/news/local-news/2026/09/joint-finance-committee-receives-updates-on-tax-collections-rural-health-transformation/"
+        },
+        {
+          "headline": "DOT will add contractor names to project dashboard",
+          "summary": "Transportation Secretary Stephen Rumbaugh told an oversight commission Tuesday the agency will add prime contractors and dates to its dashboard, with no timeline.",
+          "source": "WSAZ",
+          "url": "https://www.wsaz.com/2026/09/15/wva-department-transportation-improve-construction-project-dashboard/"
+        },
+        {
+          "headline": "Benson launches WVU Express direct admission",
+          "summary": "President Michael Benson said Monday qualifying seniors in Monongalia and Kanawha counties can be admitted without applying; 32 Kanawha students signed up in days.",
+          "source": "Parkersburg News and Sentinel",
+          "url": "https://www.newsandsentinel.com/news/local-news/2026/09/benson-touts-mountaineer-momentum-in-second-state-of-the-university/"
+        }
+      ],
+      "regional": [
+        {
+          "region_id": "huntington_cabell",
+          "place": "Huntington & the Cabell-Mason corridor",
+          "people": [
+            "Trav",
+            "Justin",
+            "Nate",
+            "Ian"
+          ],
+          "item": "Icon Cinemas takes over the Marquee at Pullman Square Oct. 1 for a $6M, nine-month remodel adding a 10-lane bowling alley and arcade.",
+          "source": "The Herald-Dispatch",
+          "url": "https://www.herald-dispatch.com/news/new-ownership-to-revamp-pullman-square-movie-theater-add-activities/article_ea84b1e8-4b7e-4b6b-a785-40c3310d2d20.html"
+        },
+        {
+          "region_id": "putnam_kanawha",
+          "place": "Putnam / Kanawha - Charleston",
+          "people": [
+            "Nate"
+          ],
+          "item": "The Putnam County Commission will take up a Putnam United resolution seeking local say over hyperscale data centers at its Sept. 29 meeting.",
+          "source": "WCHS",
+          "url": "https://wchstv.com/news/local/putnam-county-commission-to-take-up-data-center-resolution"
+        },
+        {
+          "region_id": "mid_ohio_valley",
+          "place": "Mid-Ohio Valley / Parkersburg",
+          "people": [
+            "Pat"
+          ],
+          "item": "Parkersburg council's finance committee voted 4-0 Tuesday to put $668,142 in unused federal housing money toward up to four new homes on city lots.",
+          "source": "Parkersburg News and Sentinel",
+          "url": "https://www.newsandsentinel.com/news/local-news/2026/09/parkersburg-city-council-finance-committee-votes-to-allocate-668k-for-affordable-housing/"
+        },
+        {
+          "region_id": "summers_new_river",
+          "place": "Summers / Hinton & the New River",
+          "people": [
+            "Greg"
+          ],
+          "item": "Pipestem State Park holds its first Oktoberfest Oct. 16-18, with a German buffet and free concert Friday and a car show and biergarten Saturday.",
+          "source": "WOAY",
+          "url": "https://woay.com/pipestem-resort-state-park-preparing-for-first-ever-oktoberfest-kicking-off-on-october-16/"
+        }
+      ],
+      "away": [
+        {
+          "region_id": "vermont",
+          "place": "North Bennington, VT",
+          "people": [
+            "Wes"
+          ],
+          "item": "The village has joined a national PFAS class action seeking cleanup and firefighter-gear costs from chemical makers, the Banner reported Tuesday.",
+          "source": "Bennington Banner",
+          "url": "https://www.benningtonbanner.com/local-news/north-bennington-joins-pfas-class-action-representing-small-municipalities/article_9fcec65d-8f7c-46ac-86b6-1b03875a5ab7.html"
+        }
+      ],
+      "hotspots": [
+        {
+          "hotspot_id": "cabin",
+          "place": "Webster County & Cowen",
+          "item": "The Webster County EDA voted Sept. 8 to make an offer on more than 50 DNR-owned acres near Big Ditch Lake for a possible RV park, the Echo reported Monday.",
+          "source": "The Webster Echo",
+          "url": "https://webconews.com/2026/09/14/eda-eyes-land-for-rv-park-near-big-ditch/"
+        },
+        {
+          "hotspot_id": "topsail",
+          "place": "Topsail Island & the coast",
+          "item": "North Topsail Beach relaunches its town website today, Sept. 16, keeping the same navigation, at no added cost to taxpayers, the town said in a Sept. 14 notice.",
+          "source": "Town of North Topsail Beach",
+          "url": "https://www.northtopsailbeachnc.gov/community/page/new-website-launching-sept-16"
+        }
+      ]
+    },
+    {
+      "id": "bc",
+      "label": "Canada",
+      "briefs": [
+        {
+          "headline": "Prince George fields 9 mayoral candidates, most in B.C.",
+          "summary": "Nine people are running for mayor, more than Vancouver or Victoria with eight each. Incumbent Simon Yu is among them; 19 seek eight council seats.",
+          "source": "CBC",
+          "url": "https://www.cbc.ca/news/canada/british-columbia/prince-george-9-people-mayor-s-race-who-is-running-9.7344024",
+          "tier": "prince_george"
+        },
+        {
+          "headline": "RCMP investigate axe attack on downtown security guard",
+          "summary": "A guard patrolling the 1100 block of 3rd Avenue was attacked with an axe just after 9 p.m. Sunday and suffered minor hand injuries, police said.",
+          "source": "CKPG Today",
+          "url": "https://ckpgtoday.ca/2026/09/15/axe-attack-under-investigation-in-downtown-prince-george/",
+          "tier": "prince_george"
+        },
+        {
+          "headline": "B.C. court strikes rural rule for foreign-trained doctors",
+          "summary": "The court found the province cannot make foreign medical graduates work in remote areas to get residency. Ravi Kahlon said the program will be revised.",
+          "source": "CBC",
+          "url": "https://www.cbc.ca/news/canada/british-columbia/foreign-trained-doctors-remote-areas-b-c-9.7345553",
+          "tier": "bc"
+        },
+        {
+          "headline": "Harbour Air buys Pacific Coastal Airlines in B.C. merger",
+          "summary": "The combined group will fly 59 aircraft to 25 communities with up to 300 daily flights and 900 staff. Both brands continue; no price was disclosed.",
+          "source": "CHEK News",
+          "url": "https://cheknews.ca/harbour-air-acquires-pacific-coastal-airlines-to-form-new-regional-airline-group-1347725/",
+          "tier": "bc"
+        },
+        {
+          "headline": "Von der Leyen offers Canada first EU associate membership",
+          "summary": "Ursula von der Leyen said in Strasbourg she wants to open the door for Canada as the bloc's first associate member. Carney speaks to MEPs Thursday.",
+          "source": "CP via iNFOnews",
+          "url": "https://infonews.ca/news/7872421/europe-wants-canada-as-its-first-associate-member-von-der-leyen-tells-carney/",
+          "tier": "canada"
+        },
+        {
+          "headline": "Rivals target Fréchette's record in first Quebec debate",
+          "summary": "PQ, Liberal and Conservative leaders accused the CAQ premier of ballooning spending and debt in the two-hour debate. Quebec votes Oct. 5.",
+          "source": "CP via Medicine Hat News",
+          "url": "https://medicinehatnews.com/news/national-news/2026/09/15/caq-leader-christine-frechettes-record-comes-under-attack-in-quebec-debate/",
+          "tier": "canada"
+        }
+      ]
+    },
+    {
+      "id": "scitech",
+      "label": "Science & Technology",
+      "briefs": [
+        {
+          "headline": "SpaceX scrubs USSF-259 launch, resets for Wednesday",
+          "summary": "SpaceX called off Tuesday's Falcon 9 launch of a classified Space Force payload before fueling, giving no reason. Backup window: 9 p.m. ET Wednesday.",
+          "source": "Spaceflight Now",
+          "url": "https://spaceflightnow.com/2026/09/15/live-coverage-spacex-to-launch-national-security-payload-for-the-u-s-space-force-on-falcon-9-rocket-from-vandenberg/"
+        },
+        {
+          "headline": "Study puts Australia's 1788 Indigenous population at 2.2M",
+          "summary": "Flinders-led modeling puts the median 1788 population at 2.22 million, against prior estimates of 250,000 to 1 million, with 93% lost by 1861.",
+          "source": "Phys.org",
+          "url": "https://phys.org/news/2026-09-indigenous-australian-population-larger-previously.html"
+        },
+        {
+          "headline": "NASA switches on Roman telescope's 300-megapixel camera",
+          "summary": "The Wide Field Instrument was activated Sept. 11 after its 18 infrared detectors cooled to about minus 300 F, NASA said. First images are due in 2027.",
+          "source": "NASA",
+          "url": "https://science.nasa.gov/blogs/roman/2026/09/15/nasa-activates-romans-primary-instrument-checks-out-coronagraph/"
+        },
+        {
+          "headline": "Study ties Epstein-Barr virus activity to MS relapses",
+          "summary": "Mass General Brigham researchers found Epstein-Barr virus activity rising in immune cells up to three months before relapses in 114 patients.",
+          "source": "Mass General Brigham",
+          "url": "https://www.eurekalert.org/news-releases/1143890"
+        }
+      ]
+    },
+    {
+      "id": "ai",
+      "label": "Artificial Intelligence",
+      "briefs": [
+        {
+          "headline": "China publishes version 3.0 of its AI safety framework",
+          "summary": "China's internet regulator released the update Monday, a day after state security minister Chen Yixin called AI the main battleground of tech rivalry.",
+          "source": "The Register",
+          "url": "https://www.theregister.com/ai-and-ml/2026/09/15/the-latest-ai-doomsayer-is-chinas-intelligence-boss/5296451"
+        },
+        {
+          "headline": "OpenAI says it has held safety talks with Anthropic, Google",
+          "summary": "Policy chief Chris Lehane said the labs have coordinated for weeks since Dario Amodei's slowdown call. Altman said OpenAI will add outside evaluators.",
+          "source": "TechCrunch",
+          "url": "https://techcrunch.com/2026/09/15/openai-anthropic-google-have-been-in-talks-on-ai-safety-for-weeks/"
+        },
+        {
+          "headline": "iLands AI agents flood inboxes with unsolicited offers",
+          "summary": "Agents emailed journalists offering $20-25 services; iLands counts 70,000 agents and 1.6M messages. Founder Kaixin Tang said no one directed them.",
+          "source": "404 Media",
+          "url": "https://www.404media.co/ai-agent-platform-reinvents-spam-floods-inboxes-worldwide/"
+        }
+      ]
+    }
+  ],
+  "weather_ear": "The weather desk files Wednesday's forecast at 7:15.",
+  "kicker": "Nicholas-Webster ran no regional line; the Fed decides at 2 p.m. ET, and SpaceX's USSF-259 backup window opens at 9 p.m. ET.",
+  "sources_note": "Compiled from wire reports",
+  "art": {
+    "file": "art/2026-09-16-lead.svg",
+    "placement": "lead",
+    "caption": "Novelty bitcoin tokens heaped on a brushed-metal table, each stamped with a B over a field of code.",
+    "credit": "Sketched from an NPR photograph"
+  }
+}
