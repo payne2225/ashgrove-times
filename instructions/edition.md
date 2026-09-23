@@ -494,10 +494,10 @@ useless advice without somewhere to search. **Start here.**
 
 | Source | URL | State |
 |---|---|---|
-| North Topsail Beach — town news | `northtopsailbeachnc.gov/news` | **fetches.** Dated items, several a month |
+| North Topsail Beach — town news | `northtopsailbeachnc.gov/m/newsflash` | **fetches.** Dated items, several a month. The town relaunched its site Sept. 16, 2026; the old `/news` path is a 404 since |
 | Surf City — news flash | `surfcitync.gov/civicalerts` | **fetches.** Bids, RFPs, projects, dated |
 | Topsail Beach — town news | `topsailbeachnc.gov/About-Topsail-Beach/News` | try it; the site answered search |
-| North Topsail Beach — meetings | `northtopsailbeachnc.gov/meetings` | agendas and cancellations |
+| North Topsail Beach — meetings | `northtopsailbeachnc.gov/meetings` | **404 since the Sept. 16, 2026 relaunch** — find the new agenda path from `/m/newsflash` and record it here |
 | Webster County Commission | `webstercountywv.com` · `webstercounty.wv.gov` | meets the 1st and 3rd Wednesday |
 
 **Blocked from here, do not burn time on them:** `webconews.com` (The
