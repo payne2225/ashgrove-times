@@ -496,14 +496,20 @@ useless advice without somewhere to search. **Start here.**
 |---|---|---|
 | North Topsail Beach — town news | `northtopsailbeachnc.gov/m/newsflash` | **fetches.** Dated items, several a month. The town relaunched its site Sept. 16, 2026; the old `/news` path is a 404 since |
 | Surf City — news flash | `surfcitync.gov/civicalerts` | **fetches.** Bids, RFPs, projects, dated |
-| Topsail Beach — town news | `topsailbeachnc.gov/About-Topsail-Beach/News` | try it; the site answered search |
-| North Topsail Beach — meetings | `northtopsailbeachnc.gov/meetings` | **404 since the Sept. 16, 2026 relaunch** — find the new agenda path from `/m/newsflash` and record it here |
+| Topsail Beach — town news | `topsailbeachnc.gov/About-Topsail-Beach/News` | **fetches WITHOUT `www`** (verified 2026-09-28: News, Government/Agenda-Minutes and RFQs all 200); `www.topsailbeachnc.gov` throws a DotNetNuke 404 on every path |
+| North Topsail Beach — meetings | `northtopsailbeachnc.gov/meetings` | **404 since the Sept. 16, 2026 relaunch.** `/350/Agenda-Minutes` and `/AgendaCenter` answer 200 but as CivicPlus shells with no agenda links in the HTML (checked 2026-09-28) — the agenda path is still unfound |
 | Webster County Commission | `webstercountywv.com` · `webstercounty.wv.gov` | meets the 1st and 3rd Wednesday |
 
-**Blocked from here, do not burn time on them:** `webconews.com` (The
-Webster Echo — 403, and `wvecho.com` now redirects to it), `wowktv.com`
+**Blocked from here, do not burn time on them:** `wowktv.com`
 Webster County page (403), `wvfairsandfestivals.org` (403). If one of these
 starts answering again, say so in the run report.
+
+**`webconews.com` (The Webster Echo) answers again** — 200 on the front page,
+category indexes and article pages on 2026-09-27 and 2026-09-28, after a
+spell of 403s (`wvecho.com` redirects to it). It is paywalled below the lede
+("Membership Required"), so a line may carry only what the visible first
+paragraph says. Its news batch posts early in the week; on a Monday morning
+the newest item is usually the previous Monday's.
 
 **Real examples the ladder produced on the day it was written**, both from
 rung 2 after rung 1 was blocked: North Topsail Beach posting a major water
