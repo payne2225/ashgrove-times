@@ -11,7 +11,7 @@ have to ask anyone to write a handoff again.
 > exists now, what is decided, what is open. Delete what stopped being
 > true rather than appending to it.
 
-Last updated: **2026-09-09**
+Last updated: **2026-10-04**
 
 ---
 
@@ -38,14 +38,15 @@ drives everything. The one carve-out is in section 5.
 | **7:00, held** | **The digest posts** — one message, what is in today's edition and a link to Home | Times |
 | **7:15, held** | **Jim Claudtore's briefing** posts | weatherman |
 | every :30 | Alert watcher — silent unless something NEW | weatherman |
-| wakes 8:10 / 7:10, **looks at 7:45, held** | Weather page typeset onto the site | weather-page |
+| fires 7:17, 8:17, 9:17 / 6:17, 7:17, 8:17 | Weather page typeset onto the site — the first fire after Jim archives publishes it, the rest stop | weather-page |
 | 9:00 / 8:00 | Watchdog — silent unless something failed | watchdog |
 | Sun 18:00 / 17:00 | Weekly report card | weatherman |
 
 **"Held" means the Eastern time is fixed and survives the clock change**
 (2026-09-02): the digest by `post_discord.py --not-before 07:00`, Jim by his
-own `post_discord.py --at`, and the weather page by `hold_until.py 07:45`
-before it looks for the briefing. Everything else fires on a raw UTC cron
+own `post_discord.py --at`. The weather page is not held; it fires three
+times and `wait_for_briefing.py` decides each time (2026-10-04, see §4).
+Everything else fires on a raw UTC cron
 and simply runs an hour earlier in Eastern terms all winter, which is fine
 for a watchdog and a Sunday report card and is only more head start for the
 papers. `tests/test_hold.py` checks the hold on both sides of 2026-11-01.
@@ -93,7 +94,7 @@ same command and says the two must change together.
 | Weatherman Alert Watcher | `trig_01AxyXnGTWwT4vXKWTv6w7Uq` | `30 * * * *` |
 | Weatherman Weekly Report Card | `trig_01GTwkNWUrDkwMPi1XNx8MxZ` | `0 22 * * 0` |
 | Weatherman Watchdog | `trig_01THzxTGHkdRgJWJwBZwjKQX` | `0 13 * * *` |
-| Ashgrove Weather Page | `trig_01MEbyaBjFYcU4v9pERM4Paa` | `10 12 * * *` |
+| Ashgrove Weather Page | `trig_01MEbyaBjFYcU4v9pERM4Paa` | `17 11,12,13 * * *` |
 
 The watchdog row said 8:00 until 2026-08-30; its cron is `0 13 * * *` UTC,
 which is 9:00 ET on daylight time — the table had been quietly an hour out.
@@ -116,9 +117,9 @@ published in full and still never reach the channel), and yesterday's
 
 **DST is handled everywhere it matters** (2026-09-02). Every post the
 channel sees is held to an Eastern time — see the table in §2 — and the
-one routine whose UTC drift would have broken something, the weather page
-landing at 7:10 ET before Jim's 7:15 post, now holds to 7:45 ET before it
-looks. The crons themselves stay raw UTC on purpose: moving six crons twice
+one routine whose UTC drift would have broken something, the weather page,
+fires three times and lets `wait_for_briefing.py` refuse anything before
+7:10 ET. The crons themselves stay raw UTC on purpose: moving six crons twice
 a year is a chore that gets forgotten, and a hold that computes Eastern
 time from the date is not.
 
@@ -236,6 +237,16 @@ its own masthead, plus nav buttons (Home and the other two sections)
 read the next section gets made; the top row alone made that a scroll back
 up. Both rows come from `_nav_html()` in `render_edition.py`, so they cannot
 drift apart.
+**The weather page lands right behind Jim** (2026-10-04). Pat, two
+mornings running: *"sports and news is today but weather is yesterday."*
+The routine woke once at 8:10 ET while Jim posts at 7:15 and archives by
+7:16–7:36, so the page sat an hour behind the channel every day. It now
+fires at 7:17, 8:17 and 9:17 ET (6:17, 7:17, 8:17 in winter) and runs
+`wait_for_briefing.py`, which answers `READY`, `DONE` (already published),
+`EARLY` (before 7:10 ET) or `WAITING`. The first fire after the archive
+publishes; the others stop in a few turns. No call sleeps longer than nine
+minutes, which also retires the 35-minute winter hold the 2026-09-02 design
+would have asked a single tool call to survive.
 Pages build via GitHub Actions with **unbounded lag** — 23 seconds to 9
 minutes observed. Post on time, backfill the link when the build lands.
 
@@ -257,7 +268,7 @@ flowed layout and the foot nav.
 ## 5. The one boundary left
 
 `instructions/weatherpage.md` holds it. The interactive session may
-develop weatherman freely. **The unattended 8:10 weather-page routine
+develop weatherman freely. **The unattended weather-page routine
 stays read-only in weatherman** — it reads, it writes only to
 ashgrove-times, it never posts. An unattended job with write access to a
 live publishing repo is how a broken 7:15 post happens with nobody awake
@@ -326,7 +337,7 @@ times, a persona or name, the format, who gets pinged.
    **water** — tides, moon, what's running — belongs to Sports &
    Sportsman. `reference/topsail-fishing.md` lives HERE only; the
    weatherman copy was deleted 2026-08-23 to stop the drift.
-3. **The weather page** — the 8:10 routine reads Jim's archived briefing
+3. **The weather page** — the weather-page routine reads Jim's archived briefing
    and typesets it. See section 5.
 4. **Hannan soccer** — `reference/hannan-soccer-2026.json` exists in
    BOTH repos, because each routine checks out only its own. Correct

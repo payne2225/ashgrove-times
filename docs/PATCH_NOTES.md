@@ -4,6 +4,20 @@ Running changelog. Dated entries, newest first. Touched only when
 behavior changes, not every edition — the per-day record lives in
 `editions/index.json`, and degraded runs go in `docs/FAILURES.md`.
 
+## 2026-10-04 — the weather page publishes right behind Jim
+
+Pat, in the channel on Oct. 3 and again on Oct. 4: the weather page still
+showed yesterday at 7:22 and 7:47 while the papers showed today. Nothing
+had failed. The weather-page routine woke at 8:10 ET by design and landed
+the page between 8:12 and 8:39, while Jim posted at 7:15–7:35 and archived
+a minute later. The routine now fires three times (`17 11,12,13 * * *` UTC)
+and the new `wait_for_briefing.py` tells each fire what to do: render
+today's briefing, stop because the page is already up, stop because it is
+before 7:10 ET, or wait up to nine minutes more. The page should now be up
+within a few minutes of Jim's archive, plus Pages build time.
+`hold_until.py` is no longer called by any routine; its `eastern_now()`
+stays and the new script uses it. Tests: `tests/test_wait_for_briefing.py`.
+
 ## 2026-09-03 — small headlines leave Playfair
 
 Nate, reading a U.S. brief: "the tops of some letters are too thin and hard

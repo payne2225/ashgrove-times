@@ -25,27 +25,38 @@ halves:
 
 1. Both repos are checked out: `ashgrove-times` and `weatherman`. Find
    them; `git pull --rebase` in each.
-2. **Hold to 7:45 ET before you look**, from the ashgrove-times checkout:
+2. **Wait for Jim's archive**, from the ashgrove-times checkout:
 
    ```
-   python hold_until.py 07:45
+   python wait_for_briefing.py --weatherman ../weatherman
    ```
 
-   It sleeps until 7:45 Eastern and returns; if that is already past it
-   returns at once and says so. Your cron is raw UTC (`10 12 * * *`): 8:10
-   ET in summer, but **7:10 ET from 2026-11-01** — five minutes before Jim
-   posts. Without the hold, the twenty-minute search below would give up
-   all winter before he had archived anything. The script does the
-   daylight-time arithmetic; do not try to time this yourself, and never
-   skip it because the file "is probably there".
-3. Today's **Eastern** date is the edition date (the script printed it).
-   The briefing is `weatherman/briefings/<date>.md`. Jim archives and
-   pushes it shortly after his 7:15 post, usually by about 7:45.
-4. **If today's file is not there yet:** `git pull --rebase` in weatherman
-   every two minutes, up to about twenty minutes. If it never appears,
-   STOP and say so — **never publish an older briefing under today's
-   date**, and never improvise a forecast. A missing weather page costs
-   nothing; Jim's post is already in the channel.
+   (Adjust the path to wherever the weatherman checkout landed.) It pulls
+   weatherman once a minute for up to nine minutes and prints ONE line.
+   Do what the line says:
+
+   - `READY <date> <path>`: render that path under that date (step 5).
+   - `DONE <date>`: today's page is already published by an earlier
+     fire. **Stop and report "already published".** Do not re-render.
+   - `EARLY <date>`: it is before 7:10 ET, so Jim has not posted yet. Stop
+     and report it; a later fire this morning publishes the page.
+   - `WAITING <date>`: not archived yet. Run the same command ONE more
+     time. If it says `WAITING` again, stop and report it; the next fire
+     an hour later is the retry.
+
+   **Why three fires and no long hold** (2026-10-04): your cron is
+   `17 11,12,13 * * *` UTC, which is 7:17, 8:17 and 9:17 ET in summer and
+   6:17, 7:17 and 8:17 ET from 2026-11-01. The first fire after Jim
+   archives publishes, a couple of minutes behind his 7:15 post; every
+   other fire is a `DONE` or an `EARLY` and costs nothing. The old single
+   8:10 fire put the page up an hour after the channel had the forecast,
+   and readers noticed. Do not time any of this yourself; the script does
+   the Eastern-time arithmetic.
+3. The date the script printed is today's **Eastern** date and the only
+   date you may publish. The briefing is `weatherman/briefings/<date>.md`.
+4. **Never publish an older briefing under today's date**, and never
+   improvise a forecast. A missing weather page costs little; Jim's post
+   is already in the channel.
 5. Render, from the ashgrove-times checkout:
 
    ```

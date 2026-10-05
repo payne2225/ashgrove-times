@@ -2,6 +2,13 @@
 
     python hold_until.py 07:45
 
+No routine calls this script any more (2026-10-04): the weather page now
+fires three times and `wait_for_briefing.py` gates each fire, because a
+single cloud tool call cannot sleep the 35 minutes this hold asked of it in
+winter. `eastern_now()` below is still the shared Eastern clock, and
+`seconds_until()` stays tested. The rest of this docstring is the
+2026-09-02 reasoning, kept for the record.
+
 The cloud routines fire on raw UTC crons, and five of the six are not held
 to an Eastern time the way Jim Claudtore's briefing is (`post_discord.py
 --at` in the weatherman repo) or the Times digest is (`post_discord.py

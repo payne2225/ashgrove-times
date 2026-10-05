@@ -1,6 +1,10 @@
 """hold_until.py on both sides of the November clock change.
 
-The weather-page cron is `10 12 * * *` UTC: 8:10 ET on daylight time and
+History (2026-10-04): no routine calls hold_until.py any more; see
+wait_for_briefing.py. These tests keep eastern_now() and seconds_until()
+honest because the new script relies on the first.
+
+The weather-page cron WAS `10 12 * * *` UTC: 8:10 ET on daylight time and
 7:10 ET on standard time, five minutes before Jim posts. The routine holds
 to 7:45 ET before it looks for his archived briefing, and the hold has to
 compute the SAME Eastern time in February as in August.
