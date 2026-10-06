@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 506" role="img"
+     aria-label="Sketch: a white Fort Hood Police pickup truck parked side-on at a post gate, its door marked with a Texas-shaped badge and the lettering FORT HOOD POLICE along the bed, drawn after a news photograph.">
+  <defs>
+    <style>
+      .ink  { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; }
+      .mask { fill: var(--parchment, #f4f0e6); stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; }
+      .tint { fill: currentColor; opacity: 0.16; stroke: none; }
+      .faint { opacity: 0.35; }
+      .mid { opacity: 0.6; }
+      .word { font-family: Georgia, 'Times New Roman', serif; font-weight: 700; fill: currentColor; letter-spacing: 3px; }
+    </style>
+  </defs>
+
+  <!-- Ground: the lot, a low horizon of pavement with a kerb line far behind. -->
+  <g class="ink faint" stroke-width="1.2">
+    <path d="M0 468 H900"/>
+    <path d="M0 492 C180 489 420 491 900 488"/>
+    <path d="M40 480 h60 M140 484 h30 M620 478 h50 M760 483 h90"/>
+  </g>
+
+  <!-- Truck body: a half-ton pickup seen broadside, nose running off the left edge. -->
+  <path class="mask" stroke-width="2.6"
+        d="M0 262 C40 256 70 250 92 246 L128 178 C140 160 158 150 184 148 L368 146
+           C392 146 404 156 410 172 L418 246 L900 244 L900 408 L832 410
+           C826 358 776 334 736 338 C692 342 664 374 660 410 L250 414
+           C246 356 196 326 156 330 C110 334 84 372 82 416 L0 416 Z"/>
+
+  <!-- Cab roof and windscreen edge, A-pillar, rear window line. -->
+  <g class="ink" stroke-width="2">
+    <path d="M128 178 L402 176"/>
+    <path d="M136 180 C146 168 160 162 182 160 L364 160 C382 160 392 166 396 176 Z" class="tint"/>
+    <path d="M186 158 L186 242"/>
+  </g>
+  <!-- Door window, glazed darker; the door seam; handle. -->
+  <g class="ink" stroke-width="2">
+    <path d="M200 162 L364 160 C382 160 392 168 396 178 L400 240 L200 242 Z" class="tint"/>
+    <path d="M414 182 L418 408"/>
+    <path d="M412 246 L0 250"/>
+    <path d="M330 284 h46 a6 6 0 0 1 6 6 v6 a6 6 0 0 1 -6 6 h-46 a6 6 0 0 1 -6 -6 v-6 a6 6 0 0 1 6 -6 Z"/>
+  </g>
+  <!-- The livery stripe sweeping from the fender up the door and along the bed. -->
+  <g class="ink mid" stroke-width="2.4">
+    <path d="M0 330 C120 312 210 282 300 266 C380 252 470 250 560 252 L900 254"/>
+    <path d="M0 344 C120 326 212 296 302 280 C382 266 472 264 562 266 L900 268"/>
+  </g>
+  <!-- Rocker panel, step bar, bed seam. -->
+  <g class="ink faint" stroke-width="1.6">
+    <path d="M250 400 L660 398"/>
+    <path d="M430 388 L900 386"/>
+    <path d="M0 404 L84 402"/>
+  </g>
+
+  <!-- Texas-shaped door badge with a round seal inside it. -->
+  <g class="ink" stroke-width="2">
+    <path d="M232 296 L262 296 L264 318 L292 320 L302 334 L326 336 L336 352 L326 372 L312 384
+             L300 402 L282 396 L270 380 L252 376 L236 358 L222 344 L216 326 L230 318 Z"
+          class="mask" stroke-width="2.2"/>
+    <circle cx="276" cy="346" r="14"/>
+    <circle cx="276" cy="346" r="8" class="faint"/>
+  </g>
+
+  <!-- Lettering along the bed side. -->
+  <text x="462" y="326" class="word" font-size="54">FORT HOOD</text>
+  <text x="470" y="372" class="word" font-size="42">POLICE</text>
+
+  <!-- Wheels: tyre, rim, hub, a few spokes shrinking toward the hub. -->
+  <g class="ink" stroke-width="2.4">
+    <circle cx="166" cy="412" r="62"/>
+    <circle cx="166" cy="412" r="40" class="mask" stroke-width="2"/>
+    <circle cx="166" cy="412" r="9"/>
+    <path d="M166 372 L166 403 M205 412 L175 412 M166 452 L166 421 M127 412 L157 412
+             M193 384 L173 404 M193 440 L173 420 M139 440 L159 420 M139 384 L159 404" class="mid" stroke-width="1.8"/>
+    <circle cx="746" cy="410" r="60"/>
+    <circle cx="746" cy="410" r="38" class="mask" stroke-width="2"/>
+    <circle cx="746" cy="410" r="9"/>
+    <path d="M746 372 L746 401 M784 410 L755 410 M746 448 L746 419 M708 410 L737 410
+             M773 383 L753 403 M773 437 L753 417 M719 437 L739 417 M719 383 L739 403" class="mid" stroke-width="1.8"/>
+  </g>
+  <!-- Wheel-arch shadows on the pavement. -->
+  <g class="ink faint" stroke-width="1.4">
+    <path d="M96 474 C140 472 200 472 240 474"/>
+    <path d="M684 472 C724 470 780 470 818 472"/>
+  </g>
+</svg>
