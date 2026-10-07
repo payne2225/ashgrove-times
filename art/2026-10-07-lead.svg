@@ -1,0 +1,143 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 506" role="img"
+     aria-label="Sketch: a column of smoke rising above a tree line and a row of street lamps in Kyiv at night, with Soviet-era apartment blocks on the skyline to either side and low sheds at the right, drawn after a news photograph of the overnight Russian attack.">
+  <defs>
+    <style>
+      .ink  { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; }
+      .mask { fill: var(--parchment, #f4f0e6); stroke: none; }
+      .tint { fill: currentColor; opacity: 0.14; stroke: none; }
+      .tint2 { fill: currentColor; opacity: 0.26; stroke: none; }
+      .faint { opacity: 0.35; }
+      .mid { opacity: 0.6; }
+    </style>
+  </defs>
+
+  <!-- Night sky: a few faint horizontal haze lines high up. -->
+  <g class="ink faint" stroke-width="1">
+    <path d="M20 60 C120 56 200 62 300 58"/>
+    <path d="M700 40 C760 44 820 38 880 42"/>
+    <path d="M40 120 C90 116 140 122 190 118"/>
+  </g>
+
+  <!-- Left apartment blocks: three slabs stepping back, window grids. -->
+  <g class="ink" stroke-width="1.8">
+    <path d="M0 236 H118 V356 H0"/>
+    <path d="M118 262 H206 V356 H118"/>
+    <path d="M206 250 H268 V356 H206"/>
+    <path d="M268 272 H330 V356 H268"/>
+  </g>
+  <g class="ink faint" stroke-width="1">
+    <path d="M12 250 H106 M12 266 H106 M12 282 H106 M12 298 H106 M12 314 H106 M12 330 H106"/>
+    <path d="M24 244 V352 M44 244 V352 M64 244 V352 M84 244 V352 M104 244 V352"/>
+    <path d="M128 276 H196 M128 292 H196 M128 308 H196 M128 324 H196 M128 340 H196"/>
+    <path d="M142 268 V352 M160 268 V352 M178 268 V352"/>
+    <path d="M214 264 H260 M214 280 H260 M214 296 H260 M214 312 H260 M214 328 H260 M214 344 H260"/>
+    <path d="M226 256 V352 M242 256 V352 M258 256 V352"/>
+    <path d="M276 286 H322 M276 302 H322 M276 318 H322 M276 334 H322"/>
+    <path d="M290 278 V352 M306 278 V352"/>
+  </g>
+  <!-- A few lit windows, left. -->
+  <g class="tint2">
+    <rect x="30" y="286" width="8" height="6"/>
+    <rect x="70" y="318" width="8" height="6"/>
+    <rect x="146" y="296" width="7" height="6"/>
+    <rect x="230" y="300" width="7" height="6"/>
+    <rect x="294" y="306" width="7" height="6"/>
+  </g>
+
+  <!-- Right apartment blocks. -->
+  <g class="ink" stroke-width="1.8">
+    <path d="M900 226 H790 V360 H900"/>
+    <path d="M790 252 H724 V360 H790"/>
+    <path d="M724 272 H662 V360 H724"/>
+  </g>
+  <g class="ink faint" stroke-width="1">
+    <path d="M800 240 H890 M800 256 H890 M800 272 H890 M800 288 H890 M800 304 H890 M800 320 H890 M800 336 H890"/>
+    <path d="M812 234 V354 M832 234 V354 M852 234 V354 M872 234 V354"/>
+    <path d="M732 266 H782 M732 282 H782 M732 298 H782 M732 314 H782 M732 330 H782 M732 346 H782"/>
+    <path d="M748 260 V354 M766 260 V354"/>
+    <path d="M670 286 H716 M670 302 H716 M670 318 H716 M670 334 H716"/>
+    <path d="M686 280 V354 M702 280 V354"/>
+  </g>
+  <g class="tint2">
+    <rect x="818" y="276" width="8" height="6"/>
+    <rect x="858" y="310" width="8" height="6"/>
+    <rect x="752" y="300" width="7" height="6"/>
+    <rect x="688" y="306" width="7" height="6"/>
+  </g>
+
+  <!-- Smoke column: layered billows rising from behind the tree line, out the top. -->
+  <path class="tint" d="M330 420 C300 380 320 330 350 300 C330 260 360 220 400 200 C380 150 420 100 470 90 C460 50 500 10 540 0 L640 0 C660 40 690 80 700 130 C740 160 730 210 700 240 C740 280 720 340 690 370 C700 400 660 420 620 420 Z"/>
+  <g class="ink mid" stroke-width="2">
+    <path d="M336 416 C306 384 322 334 352 304"/>
+    <path d="M352 304 C330 262 362 222 402 204"/>
+    <path d="M402 204 C382 152 424 104 472 94"/>
+    <path d="M472 94 C462 54 500 14 540 0"/>
+    <path d="M640 0 C660 42 690 82 702 132"/>
+    <path d="M702 132 C742 162 732 212 704 242"/>
+    <path d="M704 242 C742 282 722 342 692 372"/>
+    <path d="M692 372 C702 402 662 420 624 418"/>
+  </g>
+  <!-- Inner billow contours, fainter, to give the column body. -->
+  <g class="ink faint" stroke-width="1.4">
+    <path d="M420 300 C400 270 420 240 450 232 C440 200 470 170 500 168"/>
+    <path d="M560 60 C580 90 600 130 590 170 C620 190 630 230 610 260"/>
+    <path d="M470 380 C450 350 470 320 500 310"/>
+    <path d="M620 330 C640 300 630 270 600 260"/>
+    <path d="M540 130 C520 150 530 180 556 190"/>
+    <path d="M500 230 C530 240 560 230 580 250 C600 280 580 310 560 330"/>
+  </g>
+  <!-- Glow at the base of the column, behind the trees. -->
+  <path class="tint2" d="M380 428 C376 392 430 378 480 380 C540 378 600 398 608 428 Z"/>
+
+  <!-- Power lines and poles across the middle distance. -->
+  <g class="ink faint" stroke-width="1">
+    <path d="M0 364 C150 372 300 370 450 368 C600 366 750 370 900 362"/>
+    <path d="M0 372 C150 380 300 378 450 376 C600 374 750 378 900 370"/>
+    <path d="M160 350 V420 M160 350 H176 M452 346 V420 M452 346 H468 M760 348 V420 M760 348 H776"/>
+  </g>
+
+  <!-- Street lamps: a row of small glowing discs on short posts. -->
+  <g class="tint2">
+    <circle cx="178" cy="364" r="7"/>
+    <circle cx="236" cy="372" r="6"/>
+    <circle cx="640" cy="366" r="7"/>
+    <circle cx="698" cy="372" r="6"/>
+    <circle cx="780" cy="372" r="5"/>
+    <circle cx="834" cy="378" r="5"/>
+  </g>
+  <g class="ink faint" stroke-width="1">
+    <path d="M178 371 V404 M236 378 V404 M640 373 V404 M698 378 V404 M780 377 V404 M834 383 V404"/>
+  </g>
+
+  <!-- Tree band: a parchment mask so the smoke and glow sit behind the crowns. -->
+  <path class="mask" d="M0 440 C20 404 60 400 80 420 C96 392 140 392 156 416 C170 398 200 400 214 420 C226 404 254 404 266 424 C284 396 324 400 340 426 C352 384 410 380 428 410 C442 376 500 374 520 406 C536 384 582 386 596 414 C612 392 650 396 664 420 C680 400 714 404 728 424 C740 406 776 408 790 428 C806 410 844 412 858 432 C870 420 890 422 900 436 V506 H0 Z"/>
+  <!-- Tree line: rounded crowns across the frame, denser in the centre. -->
+  <g class="ink" stroke-width="1.8">
+    <path d="M0 440 C20 404 60 400 80 420 C96 392 140 392 156 416 C170 398 200 400 214 420 C226 404 254 404 266 424 C284 396 324 400 340 426"/>
+    <path d="M340 426 C352 384 410 380 428 410 C442 376 500 374 520 406 C536 384 582 386 596 414 C612 392 650 396 664 420"/>
+    <path d="M664 420 C680 400 714 404 728 424 C740 406 776 408 790 428 C806 410 844 412 858 432 C870 420 890 422 900 436"/>
+  </g>
+  <g class="ink faint" stroke-width="1.2">
+    <path d="M60 424 C70 440 66 460 60 476 M300 428 C306 446 302 462 300 480 M480 410 C486 430 484 450 480 470"/>
+    <path d="M120 430 C130 420 150 422 158 434 M400 416 C412 404 430 406 440 418 M560 412 C572 400 592 402 600 416"/>
+  </g>
+
+  <!-- Low sheds and a fence at the right, in front of the trees. -->
+  <g class="ink" stroke-width="1.6">
+    <path d="M700 452 H900 V484 H700 Z"/>
+    <path d="M700 452 L716 440 H900"/>
+    <path d="M740 452 V484 M790 452 V484 M840 452 V484"/>
+    <path d="M700 484 H900"/>
+  </g>
+  <g class="ink faint" stroke-width="1">
+    <path d="M0 470 H160 M12 460 V480 M40 460 V480 M68 460 V480 M96 460 V480 M124 460 V480 M152 460 V480"/>
+  </g>
+
+  <!-- Foreground: dark bank, a few scrub contours. -->
+  <g class="ink" stroke-width="2">
+    <path d="M0 506 C120 486 260 490 380 498 C500 506 620 494 740 500 C800 503 860 500 900 506"/>
+  </g>
+  <g class="ink faint" stroke-width="1.2">
+    <path d="M60 500 C70 490 84 490 92 498 M300 502 C312 492 326 492 334 500 M520 500 C530 490 546 490 556 498"/>
+  </g>
+</svg>
