@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 506" role="img"
+     aria-label="Sketch: a satellite view of Hurricane Isaias in the southern Gulf of Mexico, a spiral of cloud bands around a bright core, with the Mexican coast curving down the left side, the Yucatan Peninsula at lower right, the western tip of Cuba at the right edge, and a latitude and longitude grid across the frame, drawn after a satellite image published by CBS News.">
+  <defs>
+    <style>
+      .ink  { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; }
+      .tint { fill: currentColor; opacity: 0.08; stroke: none; }
+      .tint2 { fill: currentColor; opacity: 0.16; stroke: none; }
+      .dot  { fill: currentColor; opacity: 0.45; stroke: none; }
+      .faint { opacity: 0.3; }
+      .mid { opacity: 0.55; }
+    </style>
+  </defs>
+
+  <!-- Frame: the satellite image's own border -->
+  <rect class="ink faint" x="1" y="1" width="898" height="504" stroke-width="1"/>
+
+  <!-- Graticule: two parallels and three meridians, thin and faint -->
+  <g class="ink faint" stroke-width="1" stroke-dasharray="6 5">
+    <path d="M0 132 H900"/>
+    <path d="M0 408 H900"/>
+    <path d="M322 0 V506"/>
+    <path d="M598 0 V506"/>
+    <path d="M876 0 V506"/>
+  </g>
+  <g class="faint" font-family="serif" font-size="13" fill="currentColor">
+    <text x="852" y="127">25N</text>
+    <text x="852" y="403">20N</text>
+  </g>
+
+  <!-- Land, lightly tinted: the Mexican coast down the left, the Yucatan at lower right, Cuba at the right edge -->
+  <path class="tint" d="M0 0 H198 C190 40 170 60 165 92 C158 130 180 165 170 200 C160 240 150 275 160 310 C170 345 215 370 240 405 C262 440 258 480 270 506 H0 Z"/>
+  <path class="tint" d="M548 506 C545 460 555 420 580 395 C610 365 650 360 690 358 C730 356 770 372 772 400 C774 440 745 480 735 506 Z"/>
+  <path class="tint" d="M900 280 C880 282 860 290 848 300 C842 312 862 322 880 326 C890 330 900 332 900 332 Z"/>
+
+  <!-- Coastlines, the firmest line in the drawing -->
+  <g class="ink" stroke-width="2">
+    <path d="M198 0 C190 40 170 60 165 92 C158 130 180 165 170 200 C160 240 150 275 160 310 C170 345 215 370 240 405 C262 440 258 480 270 506"/>
+    <path d="M548 506 C545 460 555 420 580 395 C610 365 650 360 690 358 C730 356 770 372 772 400 C774 440 745 480 735 506"/>
+    <path d="M900 280 C880 282 860 290 848 300 C842 312 862 322 880 326 C890 330 900 332 900 332"/>
+  </g>
+  <!-- Inland borders, faint -->
+  <g class="ink faint" stroke-width="1">
+    <path d="M60 0 C70 60 40 120 70 180 C90 220 60 260 80 300 C100 340 70 400 90 450 C100 480 95 495 100 506"/>
+    <path d="M0 200 C40 190 90 210 140 190"/>
+    <path d="M0 330 C50 320 100 340 160 330"/>
+    <path d="M600 506 C620 470 660 450 700 440 C740 430 760 420 772 400"/>
+    <path d="M650 506 C660 480 690 470 720 462"/>
+  </g>
+
+  <!-- City lights on the land, read as loose clusters of dots -->
+  <g class="dot">
+    <circle cx="110" cy="62" r="2"/><circle cx="118" cy="70" r="1.5"/><circle cx="104" cy="74" r="1.5"/><circle cx="124" cy="58" r="1.2"/>
+    <circle cx="30" cy="120" r="1.5"/><circle cx="38" cy="128" r="1.2"/><circle cx="22" cy="132" r="1.2"/>
+    <circle cx="150" cy="225" r="1.5"/><circle cx="156" cy="232" r="1.2"/>
+    <circle cx="90" cy="280" r="2"/><circle cx="98" cy="288" r="1.5"/><circle cx="84" cy="292" r="1.3"/><circle cx="104" cy="278" r="1.2"/>
+    <circle cx="50" cy="360" r="1.5"/><circle cx="58" cy="366" r="1.2"/>
+    <circle cx="170" cy="440" r="2"/><circle cx="178" cy="448" r="1.5"/><circle cx="162" cy="452" r="1.3"/><circle cx="186" cy="438" r="1.2"/>
+    <circle cx="120" cy="470" r="1.5"/><circle cx="128" cy="478" r="1.2"/><circle cx="60" cy="470" r="1.4"/><circle cx="40" cy="486" r="1.2"/>
+    <circle cx="590" cy="378" r="2"/><circle cx="598" cy="384" r="1.4"/><circle cx="582" cy="386" r="1.2"/>
+    <circle cx="742" cy="388" r="1.8"/><circle cx="748" cy="396" r="1.3"/>
+  </g>
+
+  <!-- The storm: core mass, then spiral bands winding counterclockwise out of it -->
+  <path class="tint2" d="M470 190 C500 170 540 180 556 212 C570 240 552 272 522 282 C490 292 456 276 448 246 C442 222 450 204 470 190 Z"/>
+  <path class="tint" d="M430 150 C480 120 560 128 600 170 C630 200 630 250 610 290 C590 325 540 345 500 338 C450 330 410 290 404 246 C400 208 408 166 430 150 Z"/>
+  <path class="tint" d="M560 200 C590 160 650 150 700 160 C740 170 760 200 770 230 C750 222 720 212 690 216 C660 220 640 236 620 256"/>
+
+  <g class="ink mid" stroke-width="1.6">
+    <!-- eye and core -->
+    <path d="M504 232 C510 228 508 220 500 220 C488 220 482 232 486 244 C492 258 512 262 526 252 C544 240 542 212 524 198 C500 180 466 188 454 212 C440 240 456 272 488 282 C520 292 554 272 560 240"/>
+    <path d="M470 190 C500 170 540 180 556 212 C570 240 552 272 522 282 C490 292 456 276 448 246 C442 222 450 204 470 190"/>
+  </g>
+  <g class="ink" stroke-width="1.4">
+    <!-- outer spiral: starts at the top, sweeps west and under, then out to the southeast -->
+    <path d="M520 150 C470 140 420 160 406 210 C394 256 418 310 468 330 C520 350 580 330 606 290 C632 250 618 196 574 176"/>
+    <path d="M440 300 C400 330 380 380 400 420 C420 460 470 480 520 470"/>
+    <!-- northeast band stretching toward Florida -->
+    <path d="M556 200 C600 160 660 150 720 165 C770 178 810 200 840 230"/>
+    <path d="M586 230 C630 210 680 206 730 214 C770 220 800 238 820 262"/>
+  </g>
+  <!-- cloud texture inside the bands: short broken strokes following the curves -->
+  <g class="ink faint" stroke-width="1">
+    <path d="M430 180 C446 168 462 162 480 160"/>
+    <path d="M412 230 C416 214 424 200 436 190"/>
+    <path d="M420 290 C434 304 452 314 472 320"/>
+    <path d="M500 346 C530 348 558 340 582 326"/>
+    <path d="M610 270 C620 250 622 226 614 206"/>
+    <path d="M640 180 C670 170 700 170 730 178"/>
+    <path d="M760 196 C786 206 806 222 822 244"/>
+    <path d="M410 370 C404 392 410 414 426 432"/>
+    <path d="M450 456 C476 468 502 470 528 464"/>
+    <path d="M462 206 C470 196 482 190 496 188"/>
+    <path d="M530 196 C544 204 552 216 554 232"/>
+  </g>
+  <!-- scattered cloud scraps to the west and south, loose broken strokes -->
+  <g class="ink faint" stroke-width="1">
+    <path d="M258 84 C272 72 296 70 312 80 M268 94 C286 100 304 98 318 92"/>
+    <path d="M298 182 C310 174 326 176 334 186 M304 194 C318 198 330 194 338 188"/>
+    <path d="M228 262 C240 254 256 256 262 266 M236 274 C248 276 258 272 262 266"/>
+    <path d="M298 444 C318 432 348 436 362 452 M306 462 C330 470 356 466 372 456 M316 450 C330 444 346 446 356 454"/>
+    <path d="M382 482 C396 474 412 478 420 490"/>
+    <path d="M640 332 C658 322 680 328 688 344 M650 350 C668 356 686 352 698 344"/>
+    <path d="M758 302 C770 292 786 296 792 306"/>
+    <path d="M818 122 C832 110 852 112 862 124 M826 134 C842 140 856 136 866 128"/>
+    <path d="M698 62 C712 52 730 56 738 68"/>
+  </g>
+</svg>
