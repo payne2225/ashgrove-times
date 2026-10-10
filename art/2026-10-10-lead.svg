@@ -1,0 +1,202 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 506" role="img"
+     aria-label="Sketch: a Pensacola waterfront house during Hurricane Isaias, seen across choppy water from a grassy bank. A straight concrete seawall runs in from the right and ends in a pile of riprap, a single palm on the lawn bends hard to the left, a cluster of taller trees leans the same way behind the house, a smaller beach house sits dim in the rain, a box-shaped structure floats in the mist at left, and sea oats on the near bank blow the other way, drawn after an AFP photograph on Al Jazeera.">
+  <defs>
+    <style>
+      .ink   { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; }
+      .mask  { fill: var(--parchment, #f4f0e6); stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; }
+      .tint  { fill: currentColor; opacity: 0.07; stroke: none; }
+      .tint2 { fill: currentColor; opacity: 0.16; stroke: none; }
+      .tint3 { fill: currentColor; opacity: 0.3; stroke: none; }
+      .faint { opacity: 0.3; }
+      .mid   { opacity: 0.58; }
+    </style>
+  </defs>
+
+  <!-- Rain: long slanted strokes, sparse, no horizon line at all. -->
+  <g class="ink faint" stroke-width="0.8">
+    <path d="M60 20 L30 150"/>
+    <path d="M190 10 L160 120"/>
+    <path d="M330 40 L300 170"/>
+    <path d="M470 15 L440 140"/>
+    <path d="M600 60 L575 160"/>
+    <path d="M120 120 L95 230"/>
+    <path d="M260 150 L238 250"/>
+    <path d="M400 190 L380 280"/>
+    <path d="M540 150 L520 250"/>
+    <path d="M700 90 L682 170"/>
+    <path d="M820 30 L800 120"/>
+  </g>
+
+  <!-- Mist band low over the water, a wash and nothing more -->
+  <path class="tint" d="M0 262 H900 V300 H0 Z"/>
+
+  <!-- A box-shaped structure, a pier end, far out in the mist at left -->
+  <g class="ink faint" stroke-width="1.2">
+    <path d="M196 254 H230 V282 H196 Z"/>
+    <path d="M196 262 H230"/>
+    <path d="M204 262 V282 M214 262 V282 M224 262 V282"/>
+  </g>
+
+  <!-- Trees behind the house, canopy lumps all streaming left -->
+  <path class="mask" d="M640 262 C650 232 672 218 700 224 C712 204 742 198 760 212 C778 196 808 200 820 220 C840 212 866 222 870 244 C880 252 876 266 866 272 L640 272 Z" stroke-width="1.8"/>
+  <g class="ink faint" stroke-width="0.9">
+    <path d="M700 224 C688 232 676 246 672 262"/>
+    <path d="M760 212 C748 224 738 240 734 258"/>
+    <path d="M820 220 C806 230 796 246 792 262"/>
+    <path d="M660 250 C650 254 644 262 642 270"/>
+  </g>
+
+  <!-- The house: three stories at the right edge, hip roof, arched openings -->
+  <path class="tint2" d="M690 272 H900 V420 H690 Z"/>
+  <g class="ink" stroke-width="2">
+    <!-- roof -->
+    <path d="M668 288 L742 254 L900 246"/>
+    <path d="M668 288 L686 290 L900 282"/>
+    <path d="M742 254 L758 260 L900 258"/>
+    <!-- walls -->
+    <path d="M690 290 V420"/>
+    <path d="M900 282 V420"/>
+    <path d="M690 420 H900"/>
+    <!-- floor bands -->
+    <path d="M690 336 H900"/>
+    <path d="M690 380 H900"/>
+    <!-- arched openings on the porch wing at right -->
+    <path d="M800 336 V300 C800 288 816 288 816 300 V336"/>
+    <path d="M830 336 V300 C830 288 846 288 846 300 V336"/>
+    <path d="M860 336 V300 C860 288 876 288 876 300 V336"/>
+    <path d="M800 380 V350 C800 340 816 340 816 350 V380"/>
+    <path d="M830 380 V350 C830 340 846 340 846 350 V380"/>
+    <path d="M860 380 V350 C860 340 876 340 876 350 V380"/>
+    <!-- windows on the brick block -->
+    <path d="M704 304 H724 V328 H704 Z"/>
+    <path d="M740 304 H760 V328 H740 Z"/>
+    <path d="M704 350 H724 V374 H704 Z"/>
+    <path d="M740 350 H760 V374 H740 Z"/>
+    <!-- balcony rail across the lower band -->
+    <path d="M700 396 H900"/>
+  </g>
+  <g class="ink faint" stroke-width="1">
+    <path d="M706 398 V418 M716 398 V418 M726 398 V418 M736 398 V418 M746 398 V418 M756 398 V418 M766 398 V418 M776 398 V418 M786 398 V418 M796 398 V418 M806 398 V418 M816 398 V418 M826 398 V418 M836 398 V418 M846 398 V418 M856 398 V418 M866 398 V418 M876 398 V418 M886 398 V418"/>
+    <!-- brick courses, a few only -->
+    <path d="M694 312 H700 M694 320 H700 M694 344 H700 M694 360 H700 M694 368 H700"/>
+    <path d="M768 312 H790 M768 320 H790 M768 344 H790 M768 360 H790"/>
+  </g>
+
+  <!-- The smaller beach house, dim, behind the palm -->
+  <g class="ink faint" stroke-width="1.2">
+    <path d="M606 324 L636 310 L672 316 L672 334 L606 334 Z"/>
+    <path d="M612 334 V356 H668 V334"/>
+    <path d="M622 340 H634 V352 H622 Z"/>
+  </g>
+
+  <!-- The palm: trunk leaning a little, every frond streaming left -->
+  <g class="ink" stroke-width="2.2">
+    <path d="M582 420 C584 400 584 372 580 346 C578 338 574 332 568 326"/>
+    <path d="M580 348 C586 400 588 410 586 420"/>
+  </g>
+  <g class="ink" stroke-width="1.6">
+    <path d="M568 326 C556 320 532 318 508 322"/>
+    <path d="M568 326 C552 316 530 306 506 304"/>
+    <path d="M568 326 C560 312 548 300 530 292"/>
+    <path d="M568 326 C566 312 562 300 556 290"/>
+    <path d="M568 326 C552 328 532 332 512 342"/>
+    <path d="M568 326 C558 334 546 342 536 352"/>
+    <path d="M568 326 C574 314 578 302 580 290"/>
+  </g>
+  <g class="ink mid" stroke-width="0.9">
+    <path d="M540 318 C536 314 532 312 526 312 M526 322 C522 318 516 316 512 316"/>
+    <path d="M546 306 C542 302 536 300 530 300"/>
+    <path d="M540 334 C536 336 532 340 528 344"/>
+  </g>
+
+  <!-- Lawn, low wall, and the seawall running in from the right -->
+  <path class="mask" d="M420 420 L900 414 V434 L420 436 Z" stroke-width="1.6"/>
+  <g class="ink" stroke-width="2.2">
+    <path d="M420 420 L900 414"/>
+    <path d="M420 436 L900 432"/>
+    <path d="M420 420 V436"/>
+  </g>
+  <g class="ink mid" stroke-width="1">
+    <path d="M460 420 V436 M500 420 V436 M540 420 V436 M580 420 V436 M620 420 V435 M660 419 V435 M700 418 V434 M740 418 V434 M780 417 V433 M820 416 V433 M860 415 V433"/>
+    <!-- low rail along the top of the wall -->
+    <path d="M560 420 V412 H900 M600 412 V420 M640 412 V420 M680 412 V419"/>
+  </g>
+  <!-- Riprap where the wall ends -->
+  <g class="ink" stroke-width="1.6">
+    <path d="M372 442 L390 430 L412 434 L420 446 L404 454 L380 452 Z"/>
+    <path d="M400 452 L422 446 L446 450 L450 462 L428 468 L404 464 Z"/>
+    <path d="M440 440 L462 436 L478 444 L472 454 L450 452 Z"/>
+    <path d="M470 452 L494 448 L516 456 L508 466 L484 466 Z"/>
+    <path d="M510 446 L534 442 L552 450 L544 460 L520 458 Z"/>
+    <path d="M548 452 L572 450 L590 458 L584 466 L560 466 Z"/>
+    <path d="M588 454 L612 452 L632 460 L626 468 L600 468 Z"/>
+    <path d="M630 456 L656 454 L676 462 L670 470 L642 470 Z"/>
+    <path d="M674 458 L700 456 L720 464 L714 472 L686 472 Z"/>
+    <path d="M718 460 L744 458 L764 466 L758 474 L730 474 Z"/>
+    <path d="M762 462 L788 460 L808 468 L802 476 L774 476 Z"/>
+    <path d="M806 464 L832 462 L852 470 L846 478 L818 478 Z"/>
+    <path d="M850 466 L876 464 L900 470 L900 480 L862 480 Z"/>
+  </g>
+
+  <!-- Water: chop driving at the wall, crests broken and short -->
+  <path class="tint" d="M0 300 H900 V470 H0 Z"/>
+  <g class="ink mid" stroke-width="1.2">
+    <path d="M0 322 C40 316 70 328 110 322 C150 316 180 328 220 322 C260 316 290 328 330 322 C370 316 400 328 440 322"/>
+    <path d="M0 346 C50 338 90 352 140 344 C190 336 230 352 280 344 C330 336 370 352 420 344"/>
+    <path d="M20 372 C70 362 110 380 170 370 C230 360 270 380 330 370 C380 362 410 374 440 368"/>
+    <path d="M0 400 C60 388 110 408 180 396 C250 384 300 406 370 394"/>
+    <path d="M0 430 C70 416 130 440 210 426 C290 412 340 436 410 424"/>
+    <path d="M0 458 C80 444 150 468 240 454 C330 440 390 462 440 454"/>
+    <path d="M460 470 C520 460 580 476 640 468 C700 460 760 476 820 468 C850 464 880 468 900 470"/>
+  </g>
+  <!-- Whitecaps: short masks over the crests -->
+  <g class="mask" stroke-width="1.4">
+    <path d="M60 320 C72 312 88 312 100 320 Z"/>
+    <path d="M250 318 C262 310 278 310 290 318 Z"/>
+    <path d="M120 342 C134 334 152 334 166 342 Z"/>
+    <path d="M300 340 C314 332 332 332 346 340 Z"/>
+    <path d="M40 368 C56 358 76 358 92 368 Z"/>
+    <path d="M220 366 C236 356 256 356 272 366 Z"/>
+    <path d="M380 364 C394 356 412 356 426 364 Z"/>
+    <path d="M140 394 C158 382 182 382 200 394 Z"/>
+    <path d="M320 392 C338 380 362 380 380 392 Z"/>
+    <path d="M60 424 C80 410 108 410 128 424 Z"/>
+    <path d="M260 422 C280 408 308 408 328 422 Z"/>
+    <path d="M400 430 C418 420 440 420 456 430 Z"/>
+    <path d="M160 452 C184 436 216 436 240 452 Z"/>
+    <path d="M520 466 C540 456 566 456 586 466 Z"/>
+    <path d="M700 466 C720 456 746 456 766 466 Z"/>
+  </g>
+  <!-- Spray blowing off the wall face -->
+  <g class="ink faint" stroke-width="0.9">
+    <path d="M396 428 C380 418 366 416 350 420 M384 436 C368 430 352 430 340 436"/>
+  </g>
+
+  <!-- The near bank: grass and sea oats, blown to the right -->
+  <path class="mask" d="M0 470 C120 462 240 474 360 468 C480 462 600 478 720 470 C800 466 860 474 900 470 V506 H0 Z" stroke-width="1.8"/>
+  <g class="ink" stroke-width="1.3">
+    <path d="M20 500 C26 480 30 462 28 446 C34 452 44 452 52 446"/>
+    <path d="M60 504 C66 484 68 468 64 452 C72 458 82 456 90 450"/>
+    <path d="M110 500 C116 480 118 466 114 452 C124 458 134 456 142 450"/>
+    <path d="M150 504 C158 486 160 470 156 456 C166 462 176 460 184 454"/>
+    <path d="M200 500 C208 482 212 466 208 452 C218 458 228 456 236 452"/>
+    <path d="M250 504 C258 486 262 472 258 458 C268 464 278 462 286 456"/>
+    <path d="M300 502 C308 484 312 470 308 458 C318 464 326 462 334 458"/>
+    <path d="M340 504 C346 490 350 478 346 466 C356 470 364 468 372 464"/>
+    <path d="M380 500 C388 486 392 474 388 462 C398 468 408 466 416 462"/>
+    <path d="M430 504 C438 490 442 478 438 466 C448 472 458 470 466 466"/>
+    <path d="M480 502 C488 490 492 480 488 470 C498 476 508 474 516 470"/>
+    <path d="M700 504 C706 492 708 482 704 474 C712 480 720 478 728 474"/>
+    <path d="M760 502 C768 490 770 480 766 472 C776 478 784 476 792 472"/>
+    <path d="M820 504 C826 492 830 482 826 474 C834 480 842 478 850 474"/>
+  </g>
+  <g class="ink mid" stroke-width="0.9">
+    <path d="M0 486 C60 480 120 490 180 484 C240 478 300 490 360 484"/>
+    <path d="M540 494 C600 488 660 498 720 492 C780 486 840 496 900 490"/>
+  </g>
+  <!-- The small signpost at far left -->
+  <g class="ink" stroke-width="1.4">
+    <path d="M100 470 V442"/>
+    <path d="M90 442 H110 V430 H90 Z"/>
+  </g>
+</svg>
