@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 506" role="img"
+     aria-label="Sketch: the apron at King Khalid International Airport in Riyadh. A low flat-roofed terminal block runs across the middle distance with a glass-walled jet bridge along its face, a tall white light mast stands in front of it, and a thick column of dark smoke boils up from behind the roofline and spreads across the sky. At lower left a pushback tug with a big rear tyre sits on the concrete beside two traffic cones; at right the nose and cockpit windows of a parked airliner with a cheatline along the fuselage, under the canopy of a second jet bridge. Drawn after an AP video still published by NBC News.">
+  <defs>
+    <style>
+      .ink   { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; }
+      .mask  { fill: var(--parchment, #f4f0e6); stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; }
+      .tint  { fill: currentColor; opacity: 0.08; stroke: none; }
+      .tint2 { fill: currentColor; opacity: 0.2; stroke: none; }
+      .tint3 { fill: currentColor; opacity: 0.38; stroke: none; }
+      .tint4 { fill: currentColor; opacity: 0.55; stroke: none; }
+      .faint { opacity: 0.3; }
+      .mid   { opacity: 0.6; }
+    </style>
+  </defs>
+
+  <!-- Apron: the ground plane, a faint horizon of concrete joints. -->
+  <g class="ink faint" stroke-width="0.9">
+    <path d="M0 418 H900 M0 452 H900 M0 486 H900"/>
+    <path d="M60 400 L20 506 M250 400 L236 506 M470 400 L476 506 M690 400 L720 506"/>
+  </g>
+
+  <!-- Smoke column: a stem rising from behind the right-hand block, widening and
+       leaning left as it climbs, mushrooming at the top. Darker at the core. -->
+  <g>
+    <!-- outer, lightest envelope -->
+    <path class="tint" d="M590 302 C560 270 572 232 544 200 C500 190 474 150 490 112 C440 96 428 44 476 30 C500 2 560 0 586 26 C640 10 712 30 716 80 C770 90 792 150 752 178 C790 212 770 262 724 258 C740 300 700 316 672 302 Z"/>
+    <!-- middle envelope -->
+    <path class="tint2" d="M600 302 C578 276 586 244 562 220 C526 210 508 174 522 142 C486 128 480 86 518 74 C534 48 584 42 606 62 C650 48 708 66 708 108 C748 118 760 162 730 186 C758 214 742 254 704 250 C716 288 686 306 660 300 Z"/>
+    <!-- dark core -->
+    <path class="tint3" d="M612 302 C598 280 606 254 586 236 C560 226 548 196 562 168 C536 156 536 120 566 112 C580 92 618 90 634 106 C668 98 708 116 704 148 C736 158 740 192 716 210 C736 234 716 262 686 254 C690 284 668 298 648 296 Z"/>
+    <path class="tint4" d="M622 300 C612 282 618 262 606 248 C590 236 586 214 598 196 C584 184 590 158 612 154 C624 140 650 140 660 152 C686 148 712 164 706 188 C724 200 722 224 704 234 C716 252 700 272 680 264 C680 288 662 296 646 294 Z"/>
+    <!-- lobe edges, so the column rolls rather than sits flat -->
+    <g class="ink mid" stroke-width="1.3">
+      <path d="M490 112 C440 96 428 44 476 30 C500 2 560 0 586 26"/>
+      <path d="M586 26 C640 10 712 30 716 80"/>
+      <path d="M716 80 C770 90 792 150 752 178"/>
+      <path d="M544 200 C500 190 474 150 490 112"/>
+      <path d="M752 178 C790 212 770 262 724 258"/>
+      <path d="M590 302 C560 270 572 232 544 200"/>
+    </g>
+    <g class="ink faint" stroke-width="1">
+      <path d="M522 142 C486 128 480 86 518 74 M606 62 C650 48 708 66 708 108 M730 186 C758 214 742 254 704 250"/>
+      <path d="M562 168 C536 156 536 120 566 112 M634 106 C668 98 708 116 704 148"/>
+    </g>
+  </g>
+
+  <!-- Terminal block: low, flat-roofed, with a taller boxed section at right where the smoke rises from behind. -->
+  <g>
+    <path class="mask" d="M40 328 H560 V390 H40 Z" stroke-width="2"/>
+    <path class="mask" d="M560 300 H700 V390 H560 Z" stroke-width="2"/>
+    <path class="mask" d="M0 346 H40 V390 H0 Z" stroke-width="1.6"/>
+    <!-- parapet and roof lines -->
+    <path class="ink" d="M40 340 H560 M560 312 H700" stroke-width="1"/>
+    <!-- Jet bridge along the terminal face: a glass band on columns. -->
+    <path class="mask" d="M60 356 H520 V380 H60 Z" stroke-width="1.6"/>
+    <g class="ink faint" stroke-width="0.9">
+      <path d="M90 356 V380 M130 356 V380 M170 356 V380 M210 356 V380 M250 356 V380 M290 356 V380 M330 356 V380 M370 356 V380 M410 356 V380 M450 356 V380 M490 356 V380"/>
+      <path d="M60 368 H520"/>
+    </g>
+    <g class="ink" stroke-width="1.4">
+      <path d="M100 380 V404 M300 380 V404 M500 380 V404"/>
+    </g>
+    <!-- Terminal windows, a faint band. -->
+    <path class="tint" d="M70 366 H510 V378 H70 Z"/>
+    <path class="tint" d="M575 320 H690 V384 H575 Z"/>
+  </g>
+
+  <!-- Light mast in front of the terminal, splitting the frame. -->
+  <g class="ink" stroke-width="2.4">
+    <path d="M452 404 V96"/>
+    <path d="M440 96 H464 M443 104 H461" stroke-width="1.6"/>
+  </g>
+  <path class="tint2" d="M449 96 H455 V404 H449 Z"/>
+
+  <!-- Airliner nose at right, under a second jet bridge canopy that cuts the top corner. -->
+  <g>
+    <path class="mask" d="M900 40 L760 118 L900 150 Z" stroke-width="1.8"/>
+    <path class="ink faint" d="M900 70 L800 120 M900 100 L830 134" stroke-width="1"/>
+    <!-- fuselage -->
+    <path class="mask" d="M900 230 C840 230 790 262 756 300 C738 322 736 352 752 378 C770 404 820 420 900 420 Z" stroke-width="2.2"/>
+    <!-- cockpit windows -->
+    <g class="ink" stroke-width="1.4">
+      <path d="M784 290 L812 272 L846 270 L844 286 L810 290 Z"/>
+      <path d="M812 272 L814 288 M830 271 L829 288"/>
+    </g>
+    <!-- cheatline along the fuselage -->
+    <path class="tint3" d="M900 352 C840 352 790 356 752 370 C756 380 764 388 772 392 C810 384 850 380 900 380 Z"/>
+    <path class="ink" d="M752 370 C790 356 840 352 900 352 M772 392 C810 384 850 380 900 380" stroke-width="1"/>
+    <!-- nose gear -->
+    <path class="ink" d="M800 420 V448 M792 452 a8 8 0 1 0 16 0 a8 8 0 1 0 -16 0" stroke-width="1.8"/>
+    <path class="tint3" d="M792 452 a8 8 0 1 0 16 0 a8 8 0 1 0 -16 0"/>
+  </g>
+
+  <!-- Pushback tug, lower left: a low white cab, a long body, one big rear tyre. -->
+  <g>
+    <path class="mask" d="M30 436 L30 408 L70 400 L130 400 L150 414 L246 414 L246 448 L30 448 Z" stroke-width="2"/>
+    <path class="ink" d="M70 400 V414 H150 M90 406 H126" stroke-width="1.2"/>
+    <path class="tint" d="M76 404 H124 V414 H76 Z"/>
+    <path class="mask" d="M246 420 H300 V448 H246 Z" stroke-width="1.6"/>
+    <!-- wheels -->
+    <path class="mask" d="M50 456 a14 14 0 1 0 28 0 a14 14 0 1 0 -28 0" stroke-width="2"/>
+    <path class="tint4" d="M50 456 a14 14 0 1 0 28 0 a14 14 0 1 0 -28 0"/>
+    <path class="mask" d="M196 462 a24 24 0 1 0 48 0 a24 24 0 1 0 -48 0" stroke-width="2.2"/>
+    <path class="tint4" d="M196 462 a24 24 0 1 0 48 0 a24 24 0 1 0 -48 0"/>
+    <path class="mask" d="M212 462 a8 8 0 1 0 16 0 a8 8 0 1 0 -16 0" stroke-width="1.2"/>
+    <path class="ink" d="M30 448 H196 M244 448 H300" stroke-width="1.2"/>
+  </g>
+
+  <!-- Pickup truck in the middle distance, small. -->
+  <g>
+    <path class="mask" d="M396 392 L404 380 L434 380 L442 392 L470 392 V406 H396 Z" stroke-width="1.4"/>
+    <path class="ink" d="M404 406 a5 5 0 1 0 10 0 a5 5 0 1 0 -10 0 M452 406 a5 5 0 1 0 10 0 a5 5 0 1 0 -10 0" stroke-width="1.2"/>
+  </g>
+
+  <!-- Two traffic cones at lower right of the apron. -->
+  <g class="ink" stroke-width="1.4">
+    <path d="M620 484 L626 462 L632 484 Z M614 484 H638"/>
+    <path d="M662 476 L667 458 L672 476 Z M657 476 H677"/>
+  </g>
+  <path class="tint3" d="M620 484 L626 462 L632 484 Z M662 476 L667 458 L672 476 Z"/>
+</svg>
