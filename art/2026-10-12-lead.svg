@@ -1,0 +1,167 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 506" role="img"
+     aria-label="Sketch: the Gazprom Neft refinery on the Moscow skyline at dawn, seen from across a dark belt of trees. A flare tower at left burns at its tip and trails a long plume of smoke that arches up and to the right across the sky; a cluster of distillation columns, pipe racks and thin stacks runs across the middle distance; and two thick columns of dark smoke boil up from fires at the base of the plant on the right, spreading into a flat cloud at the top of the picture. Scattered lights dot the ground along the bottom of the frame. Drawn after a CNN photograph of the Sept. 20 strike.">
+  <defs>
+    <style>
+      .ink   { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; }
+      .mask  { fill: var(--parchment, #f4f0e6); stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; }
+      .tint  { fill: currentColor; opacity: 0.08; stroke: none; }
+      .tint2 { fill: currentColor; opacity: 0.18; stroke: none; }
+      .tint3 { fill: currentColor; opacity: 0.34; stroke: none; }
+      .tint4 { fill: currentColor; opacity: 0.55; stroke: none; }
+      .faint { opacity: 0.35; }
+      .mid   { opacity: 0.6; }
+    </style>
+  </defs>
+
+  <!-- Sky: a few long faint strokes for the dawn haze band above the horizon. -->
+  <g class="ink faint" stroke-width="0.8">
+    <path d="M20 250 C140 244 260 246 380 240"/>
+    <path d="M30 268 C120 262 210 266 300 258"/>
+    <path d="M640 236 C720 232 800 238 880 230"/>
+  </g>
+
+  <!-- THE BIG SMOKE: right of centre, two columns rising from the fires at the base
+       of the plant and spreading into one flat cloud at the top. Layered tints,
+       darkest at the stem, so the column reads as thick and the cloud as thinning. -->
+  <g>
+    <path class="tint" d="M400 40 C360 10 420 -10 500 6 C560 -14 660 -10 720 14 C800 0 860 30 850 80
+                          C880 120 840 160 790 150 C760 190 700 200 640 180 C600 210 540 200 520 170
+                          C470 180 420 160 410 120 C380 90 370 60 400 40 Z"/>
+    <path class="tint2" d="M450 70 C440 40 480 20 540 30 C600 14 680 20 730 50 C790 50 820 90 800 130
+                           C780 160 740 170 700 160 C680 200 620 205 590 180 C560 200 520 190 505 160
+                           C470 160 445 130 450 100 Z"/>
+    <!-- Column one: from the fire at x~505 up and to the right. -->
+    <path class="tint3" d="M486 300 C482 260 492 220 500 180 C505 140 520 110 540 90 C560 70 600 60 630 70
+                           C650 90 640 120 620 130 C600 150 590 180 580 210 C575 240 560 270 548 300 Z"/>
+    <path class="tint4" d="M492 300 C490 262 500 226 508 196 C512 170 522 150 536 136 C546 128 556 134 552 150
+                           C542 170 538 196 532 222 C528 250 520 276 514 300 Z"/>
+    <!-- Column two: from the fires at x~600-640, fatter and leaning right. -->
+    <path class="tint3" d="M590 302 C596 262 612 226 632 196 C650 166 672 140 700 120 C730 100 770 96 790 110
+                           C800 130 780 150 756 150 C730 160 712 182 700 210 C690 240 676 272 664 302 Z"/>
+    <path class="tint4" d="M604 302 C610 266 624 236 642 208 C656 186 672 170 690 160 C700 158 704 168 696 180
+                           C680 196 666 220 654 248 C646 268 638 286 632 302 Z"/>
+    <!-- Edges of the columns in ink so they do not dissolve on a light page. -->
+    <g class="ink mid" stroke-width="1.1">
+      <path d="M486 300 C482 260 492 220 500 180 C505 140 520 110 540 90"/>
+      <path d="M548 300 C560 270 575 240 580 210 C590 180 600 150 620 130"/>
+      <path d="M590 302 C596 262 612 226 632 196 C650 166 672 140 700 120"/>
+      <path d="M664 302 C676 272 690 240 700 210 C712 182 730 160 756 150"/>
+      <path d="M430 60 C470 30 540 24 600 36 C660 22 740 30 790 62 C830 90 820 130 790 148"/>
+    </g>
+    <!-- Billow marks inside the cloud. -->
+    <g class="ink faint" stroke-width="0.9">
+      <path d="M520 110 c-14 10 -16 26 -4 36M560 80 c-16 8 -20 24 -8 34M610 64 c-16 8 -18 24 -6 34M670 70 c-14 10 -14 26 -2 36M720 90 c-14 10 -14 26 0 36M760 118 c-12 10 -10 24 2 32"/>
+      <path d="M470 150 c-10 10 -10 24 0 32M700 180 c-10 10 -8 24 2 30M640 150 c-12 10 -12 26 0 34"/>
+    </g>
+  </g>
+
+  <!-- THE FLARE PLUME: from the tower at left, a long plume that leans up and right
+       and thins as it goes, drawn as a tapering band. -->
+  <g>
+    <path class="tint2" d="M74 268 C90 230 120 196 160 172 C210 142 260 128 320 122 C370 116 410 118 440 128
+                           C430 142 400 146 360 148 C300 152 250 168 200 196 C160 220 120 250 96 282 Z"/>
+    <path class="tint3" d="M76 270 C92 240 118 212 150 190 C190 164 230 150 270 144 C300 140 330 142 350 146
+                           C340 156 310 158 282 160 C240 166 200 182 166 206 C136 228 110 254 94 280 Z"/>
+    <g class="ink mid" stroke-width="1">
+      <path d="M74 268 C90 230 120 196 160 172 C210 142 260 128 320 122 C370 116 410 118 440 128"/>
+      <path d="M96 282 C120 250 160 220 200 196 C250 168 300 152 360 148 C400 146 430 142 440 128"/>
+    </g>
+    <g class="ink faint" stroke-width="0.8">
+      <path d="M130 212 c-8 8 -8 20 0 26M190 182 c-10 6 -12 20 -2 28M250 160 c-10 6 -12 20 -2 28M320 142 c-10 6 -10 20 0 26"/>
+    </g>
+  </g>
+
+  <!-- Flare tower: a thin lattice mast with a flame at the tip. -->
+  <g class="ink" stroke-width="1.4">
+    <path d="M70 306 L72 280 M80 306 L78 280 M72 280 L78 280"/>
+    <path d="M70 306 L80 306"/>
+    <g stroke-width="0.8" class="faint"><path d="M72 300 L78 294 M72 294 L78 288 M72 288 L78 282"/></g>
+    <!-- Flame, as a leaning teardrop outline. -->
+    <path d="M75 280 C70 274 68 266 74 260 C76 266 82 268 80 274 C80 278 78 280 75 280 Z" stroke-width="1.2"/>
+    <path class="tint3" d="M75 280 C70 274 68 266 74 260 C76 266 82 268 80 274 C80 278 78 280 75 280 Z"/>
+  </g>
+
+  <!-- THE PLANT. Distillation columns, stacks, pipe racks and tank tops across the
+       middle distance, drawn as simple verticals of varying height on a base line. -->
+  <g class="ink" stroke-width="1.3">
+    <!-- base line of the plant, broken where the smoke stems cover it -->
+    <path d="M110 306 H484 M556 306 H588 M668 306 H900"/>
+    <!-- left group: low sheds and a short stack -->
+    <path d="M118 306 V292 H150 V306 M160 306 V296 H196 V306"/>
+    <path d="M176 296 V276 H182 V296"/>
+    <!-- tall thin stack with a thread of smoke -->
+    <path d="M226 306 V246 H232 V306" stroke-width="1.5"/>
+    <path class="faint" d="M229 246 C226 236 232 228 228 218 C226 210 234 204 232 196" stroke-width="0.9"/>
+    <!-- centre cluster: three distillation columns of different heights, pipes between -->
+    <path d="M300 306 V252 C300 248 304 246 308 246 C312 246 316 248 316 252 V306" stroke-width="1.5"/>
+    <path d="M336 306 V236 C336 232 340 230 344 230 C348 230 352 232 352 236 V306" stroke-width="1.5"/>
+    <path d="M370 306 V262 C370 258 373 256 376 256 C379 256 382 258 382 262 V306" stroke-width="1.5"/>
+    <g class="faint" stroke-width="0.8">
+      <path d="M300 268 H316 M300 284 H316 M336 250 H352 M336 266 H352 M336 282 H352 M370 276 H382 M370 290 H382"/>
+      <path d="M316 258 H336 M352 258 H370 M316 286 H370"/>
+    </g>
+    <!-- stack at 400 with its own plume drifting right -->
+    <path d="M400 306 V234 H406 V306" stroke-width="1.5"/>
+    <path class="mid" d="M403 234 C400 224 410 218 420 214 C436 208 452 212 466 206" stroke-width="1"/>
+    <path class="tint2" d="M403 234 C400 224 410 218 420 214 C436 208 452 212 466 206 C462 214 448 218 434 222 C420 226 410 232 403 234 Z"/>
+    <!-- pipe rack and low units toward the fires -->
+    <path d="M420 306 V288 H484 M440 288 V306 M462 288 V306"/>
+    <path d="M556 306 V290 H588 V306"/>
+    <!-- right-hand group beyond the second column: tank tops and a lattice tower -->
+    <path d="M700 306 V282 C700 278 708 276 716 276 C724 276 732 278 732 282 V306"/>
+    <path d="M748 306 V258 L752 258 L756 306 M748 306 H756" stroke-width="1.2"/>
+    <g class="faint" stroke-width="0.7"><path d="M749 296 L755 288 M749 288 L755 280 M749 280 L755 272 M749 272 L755 264"/></g>
+    <path d="M780 306 V294 H830 V306 M846 306 V288 H870 V306"/>
+    <path d="M800 294 V274 H806 V294" />
+  </g>
+
+  <!-- Fires at the base of the plant: short bright tongues, as outlines, where the
+       two big columns rise. The photograph shows them as the brightest points. -->
+  <g class="ink" stroke-width="1.1">
+    <path d="M496 306 C492 298 496 290 502 286 C506 292 512 294 510 300 C509 304 504 306 496 306 Z"/>
+    <path d="M608 306 C602 296 606 288 614 284 C618 290 626 292 624 298 C622 304 616 306 608 306 Z"/>
+    <path d="M636 306 C632 300 634 294 640 292 C642 296 648 298 646 302 C645 305 640 306 636 306 Z"/>
+  </g>
+  <g>
+    <path class="tint2" d="M496 306 C492 298 496 290 502 286 C506 292 512 294 510 300 C509 304 504 306 496 306 Z"/>
+    <path class="tint2" d="M608 306 C602 296 606 288 614 284 C618 290 626 292 624 298 C622 304 616 306 608 306 Z"/>
+  </g>
+
+  <!-- Faint glow haze over the fire bases: a low tint band. -->
+  <path class="tint" d="M470 306 C500 292 540 290 580 296 C620 288 660 290 690 306 Z"/>
+
+  <!-- TREELINE AND FOREGROUND. A dark belt of trees below the plant, then the
+       ground falling away toward the viewer, with scattered lights. The band is a
+       heavy tint with a ragged top edge, the lights are the parchment showing through. -->
+  <g>
+    <path class="tint4" d="M0 322 C40 312 70 318 100 312 C140 306 170 316 200 310 C250 302 290 314 330 308
+                           C380 300 420 312 460 306 C500 300 540 312 580 306 C630 298 670 312 710 306
+                           C760 300 800 312 840 306 C870 302 890 310 900 308 V400 H0 Z"/>
+    <path class="tint3" d="M0 400 H900 V506 H0 Z"/>
+    <g class="ink mid" stroke-width="1">
+      <path d="M0 322 C40 312 70 318 100 312 C140 306 170 316 200 310 C250 302 290 314 330 308
+               C380 300 420 312 460 306 C500 300 540 312 580 306 C630 298 670 312 710 306
+               C760 300 800 312 840 306 C870 302 890 310 900 308"/>
+    </g>
+    <!-- Canopy texture: short arcs along the top of the belt. -->
+    <g class="ink faint" stroke-width="0.8">
+      <path d="M30 318c6-8 14-8 20 0M110 314c6-8 14-8 20 0M212 312c6-8 14-8 20 0M298 312c6-8 14-8 20 0M392 308c6-8 14-8 20 0M486 306c6-8 14-8 20 0M596 306c6-8 14-8 20 0M690 306c6-8 14-8 20 0M786 306c6-8 14-8 20 0M860 306c6-8 14-8 20 0"/>
+      <path d="M60 340c8-6 16-6 24 0M180 344c8-6 16-6 24 0M330 338c8-6 16-6 24 0M520 342c8-6 16-6 24 0M700 340c8-6 16-6 24 0M830 344c8-6 16-6 24 0"/>
+    </g>
+    <!-- A slow bend of open ground, the river flat in the photograph, as a lighter sweep. -->
+    <path class="tint" d="M0 418 C120 404 260 412 400 400 C540 390 700 404 900 392 V430 C720 440 540 428 380 438 C240 446 120 440 0 450 Z"/>
+    <!-- Scattered lights: small parchment dots with ink rims, denser toward the right. -->
+    <g class="mask" stroke-width="0.6">
+      <circle cx="42" cy="372" r="1.6"/><circle cx="118" cy="386" r="1.4"/><circle cx="206" cy="366" r="1.6"/>
+      <circle cx="288" cy="392" r="1.3"/><circle cx="356" cy="372" r="1.6"/><circle cx="430" cy="384" r="1.4"/>
+      <circle cx="516" cy="368" r="1.6"/><circle cx="574" cy="390" r="1.4"/><circle cx="640" cy="372" r="1.8"/>
+      <circle cx="702" cy="388" r="1.4"/><circle cx="748" cy="366" r="1.6"/><circle cx="804" cy="382" r="1.8"/>
+      <circle cx="846" cy="364" r="1.6"/><circle cx="878" cy="392" r="1.4"/><circle cx="770" cy="402" r="1.4"/>
+      <circle cx="96" cy="456" r="2"/><circle cx="330" cy="470" r="1.8"/><circle cx="612" cy="462" r="2"/>
+      <circle cx="818" cy="474" r="2.2"/><circle cx="700" cy="488" r="1.8"/><circle cx="220" cy="492" r="1.8"/>
+    </g>
+  </g>
+
+  <!-- Frame line at the bottom so the dark foreground does not bleed off the page. -->
+  <path class="ink faint" d="M0 505 H900" stroke-width="0.8"/>
+</svg>
