@@ -48,47 +48,39 @@ FIRST_EDITION_DATE = "2026-08-05"
 
 # The paper lands ahead of Jim Claudtore's 7:15 file, so the edition
 # carries a WEATHER EAR — the small boxed pointer a real front page runs
-# beside the masthead.
-#
-# THE CRON IS UTC-FIXED AND THE ET POST TIME THEREFORE MOVES WITH DAYLIGHT
-# SAVING. `0 11 * * *` is 7:00 AM EDT and 6:00 AM EST, so leaving it alone
-# through the winter lands the paper 75 minutes ahead of the forecast while
-# every "fifteen minutes" phrasing in the repo keeps claiming 15. That is
-# why the cron has TWO settings and a dated switch — the commitment lives in
-# docs/LEDGER.md — and why nothing hard-codes the gap in words: it is
-# derived per date by weather_gap_minutes() / weather_gap_words().
-POST_TIME_ET = "7:00 AM ET"   # the TARGET, which both crons are aimed at
+# beside the masthead. Nothing hard-codes the gap in words: it is derived
+# per date by weather_gap_minutes() / weather_gap_words().
+POST_TIME_ET = "7:00 AM ET"   # the delivery TARGET; the post is held to it
 POST_TIME_24H = "07:00"
-# THE ROUTINE WAKES AT 6:00, NOT 7:00. Measured 2026-08-06: research +
-# render + push took 37 minutes, so a 7:00 wake put the paper in the channel
-# at 7:41 — 26 minutes AFTER the Weatherman it is supposed to precede, while
-# its own ear promised the forecast was still coming. Waking early and
-# holding the post until 7:00 (`--not-before`) fixes the ordering, and the
-# hold doubles as the GitHub Pages build window so the permalink is live.
+# THE ROUTINE STARTS AT 5:30 ET, ALL YEAR (since 2026-10-14). Its cron is
+# UTC and fires TWICE, an hour apart:
 #
-# A full hour, not the 37 minutes measured: research time varies with the
-# news, a slow wire day is exactly when the paper most needs the room, and
-# arriving early costs nothing because delivery is held either way.
-# 5:30 rather than 6:00 since 2026-08-14: the routine now researches and
-# builds TWO papers in the head start, the Times and Sports & Sportsman, so
-# that both can be posted the moment their hold expires. Measured research
-# for the Times alone was 37 minutes; ninety minutes covers both without
-# either being rushed.
-POST_CRON_UTC = "30 9 * * *"            # daylight time (Mar-Nov) -> 5:30 AM EDT
-POST_CRON_UTC_STANDARD = "30 10 * * *"  # standard time (Nov-Mar) -> 5:30 AM EST
+#                     09:30 UTC          10:30 UTC
+#     EDT (Mar-Nov)   5:30 AM  builds    6:30 AM  stops: already claimed
+#     EST (Nov-Mar)   4:30 AM  stops     5:30 AM  builds
+#
+# morning_gate.py decides each fire: before GATE_OPENS_ET it stops, and a
+# fire that finds today already claimed in editions/claim.json stops. So the
+# start is 5:30 on both sides of the clock change and no cron is edited
+# twice a year. This replaced a dated cron switch (LEDGER, 2026-11-01 and
+# 2027-03-14) that depended on somebody remembering.
+#
+# Why that early: a 7:00 wake put the paper out at 7:41 on 2026-08-06,
+# after the forecast it points at. Delivery is HELD — the digest to 7:00 by
+# `--not-before`, Jim to 7:15 by `--at` — from a send_later wake at WAKE_ET,
+# so starting early costs nothing and a slow news day still lands on time.
+# The scheduler itself starts the session 0 to 25 minutes after the cron.
+POST_CRON_UTC = "30 9,10 * * *"
+GATE_OPENS_ET = "05:15"
+WAKE_ET = "06:55"
 
-# THE MORNING SEQUENCE. Nate, 2026-08-14: the Times first, then Sports, then
-# the weather — in that order, in succession.
-#
-# The order is achieved by STAGGERED HOLDS rather than by chaining, and that
-# is deliberate. Jim Claudtore runs from his own repo on his own routine and
-# is the post people actually dress by; making him wait on the newspaper
-# finishing would turn every newspaper hang into a missing forecast. The two
-# papers share a repo and a routine, so their order is guaranteed by
-# construction; the forecast keeps its independence and simply follows.
-#
-# Both editions are researched BEFORE either is posted, so the gap between
-# them is a delivery gap, not a research gap.
+# THE MORNING SEQUENCE. Nate, 2026-08-14: the Times first, then the weather,
+# in succession. From 2026-10-14 ONE session owns both: a desk writes Jim's
+# briefing beside the papers, and the 6:55 wake posts the digest at 7:00 and
+# Jim at 7:15, each held to its time. Jim's independence now comes from a
+# standby routine in the weatherman repo that posts his briefing from 7:30
+# ET if this session dies (weatherman/instructions/standby.md). Sports &
+# Sportsman stopped posting on 2026-08-25; its target below is history.
 POST_TARGET_ET = "07:00"          # The Ashgrove Times
 SPORTSMAN_TARGET_ET = "07:05"     # Sports & Sportsman, five minutes later
 WEATHER_TIME_ET_SEQUENCE = "7:15" # Jim Claudtore, unchanged and uncoupled
@@ -182,12 +174,12 @@ def et_utc_offset_hours(date: str | None = None) -> int:
 
 
 def cron_for(date: str | None = None) -> str:
-    """The UTC cron that actually wakes the routine at 6:00 AM ET on a date.
+    """The routine's UTC cron on a date: the same two-fire cron all year.
 
-    Two settings, one target. Installing the wrong one does not break the
-    paper — it slides it an hour and silently widens the weather gap.
+    It had a summer and a winter setting and a dated switch until
+    2026-10-14; morning_gate.py now picks the right fire instead.
     """
-    return POST_CRON_UTC if is_eastern_dst(date) else POST_CRON_UTC_STANDARD
+    return POST_CRON_UTC
 
 
 def now_et() -> datetime.datetime:
@@ -205,10 +197,10 @@ def now_et() -> datetime.datetime:
     return (utc - datetime.timedelta(hours=et_utc_offset_hours())).replace(tzinfo=None)
 
 
-def _cron_minutes_utc(cron: str) -> int:
-    """Minutes past midnight UTC that a `M H * * *` cron fires."""
+def _cron_fires_utc(cron: str) -> list[int]:
+    """Minutes past midnight UTC that a `M H[,H...] * * *` cron fires."""
     fields = cron.split()
-    return int(fields[1]) * 60 + int(fields[0])
+    return sorted(int(hour) * 60 + int(fields[0]) for hour in fields[1].split(","))
 
 
 def _time_minutes(hhmm: str) -> int:
@@ -218,14 +210,18 @@ def _time_minutes(hhmm: str) -> int:
 
 
 def wake_minutes_et(date: str | None = None, cron: str | None = None) -> int:
-    """Minutes past midnight ET at which the INSTALLED cron actually fires.
+    """Minutes past midnight ET at which the paper's work actually starts.
 
-    Pass the cron that is really in the routine. The default is the module's
-    daylight-time setting, which is the whole point of the check: if nobody
-    switched it in November this returns 300 (5:00 AM), not 360.
+    That is the first fire of the cron at or after GATE_OPENS_ET; an earlier
+    fire is stopped by morning_gate.py. 330 (5:30 AM) on both sides of the
+    clock change for the installed cron. Pass a different cron to ask what
+    it would do.
     """
-    utc = _cron_minutes_utc(cron or POST_CRON_UTC)
-    return (utc - et_utc_offset_hours(date) * 60) % (24 * 60)
+    offset = et_utc_offset_hours(date) * 60
+    fires = sorted((utc - offset) % (24 * 60)
+                   for utc in _cron_fires_utc(cron or POST_CRON_UTC))
+    opens = _time_minutes(GATE_OPENS_ET)
+    return next((f for f in fires if f >= opens), fires[0])
 
 
 def post_minutes_et(date: str | None = None, cron: str | None = None) -> int:
@@ -244,20 +240,11 @@ def post_minutes_et(date: str | None = None, cron: str | None = None) -> int:
 
 
 def head_start_minutes(date: str | None = None, cron: str | None = None) -> int:
-    """Minutes between waking and the delivery target. 60 when correct.
+    """Minutes between the start and the delivery target: 90, all year.
 
-    This, not the reader-facing gap, is what a missed daylight-saving switch
-    actually costs — `--not-before` pins delivery either way. The two
-    failures are not symmetric:
-
-      * Missing the NOVEMBER switch wakes the routine at 5:00 and hands it a
-        120-minute head start. Wasteful, invisible to readers, harmless.
-      * Missing the MARCH switch wakes it at 7:00, a head start of ZERO. The
-        hold is already past on arrival, so the paper posts whenever the
-        research happens to finish — roughly 40 minutes late, after the
-        forecast it points at.
-
-    So <= 0 is the alarming direction, not merely "not 60".
+    `--not-before` pins delivery either way, so this is the research room,
+    not the reader's clock. <= 0 would mean the cron starts the paper after
+    7:00 — the failure the old dated cron switch risked every March.
     """
     return _time_minutes(POST_TARGET_ET) - wake_minutes_et(date, cron)
 
@@ -288,12 +275,12 @@ def weather_gap_words(date: str | None = None, cron: str | None = None) -> str:
     return _GAP_WORDS.get(minutes, f"{minutes} minutes")
 
 
-# Dated commitments this module cannot enforce on its own; docs/LEDGER.md
-# carries them as forward-dated rows and the routine reads it every morning.
-CRON_SWITCH_DATES = {
-    "2026-11-01": POST_CRON_UTC_STANDARD,  # EDT ends; 11:00 UTC becomes 6 AM ET
-    "2027-03-14": POST_CRON_UTC,           # EDT resumes; 12:00 UTC becomes 8 AM ET
-}
+# The Times' live webhook, as the SHA-256 of its numeric ID: this repo is
+# public, so not even the ID is written here. post_discord.py refuses to
+# send the digest through any other webhook, because from 2026-10-14 the
+# morning session also holds Jim's, and a paper posted with the other
+# paper's webhook lands in the wrong channel.
+TIMES_WEBHOOK_ID_SHA256 = "892cf3dbe996d3e0fbe6de43304981677bb623c974ac3513f24b1c1d80912a4d"
 
 
 # ------------------------------------------------------------------ colors

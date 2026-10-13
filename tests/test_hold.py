@@ -75,6 +75,12 @@ def test_garbage_target_does_not_hold():
     assert wait == 0.0 and "could not parse" in why
 
 
+def test_an_offset_stamp_is_converted_not_read_as_a_wall_clock():
+    # NWS writes alert times with their own offset; this read 4 h off once.
+    assert h.eastern_now(dt.datetime.fromisoformat("2026-10-14T20:00:00-04:00")) == \
+        dt.datetime(2026, 10, 14, 20, 0)
+
+
 def test_times_digest_hold_is_unaffected_by_the_change():
     # The papers wake at 09:30 UTC: 5:30 EDT, 4:30 EST. Either way the digest
     # is held to 7:00 ET; only the head start grows.

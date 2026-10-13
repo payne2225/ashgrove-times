@@ -54,6 +54,9 @@ def eastern_now(now_utc: dt.datetime | None = None) -> dt.datetime:
     utc = now_utc or dt.datetime.now(dt.timezone.utc)
     if utc.tzinfo is None:
         utc = utc.replace(tzinfo=dt.timezone.utc)
+    # An instant with its own offset (an NWS "-04:00" stamp) is converted,
+    # not read as a wall clock: that read was four hours off.
+    utc = utc.astimezone(dt.timezone.utc)
     provisional = utc - dt.timedelta(hours=config.et_utc_offset_hours(utc.strftime("%Y-%m-%d")))
     offset = config.et_utc_offset_hours(provisional.strftime("%Y-%m-%d"))
     return (utc - dt.timedelta(hours=offset)).replace(tzinfo=None)

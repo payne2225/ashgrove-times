@@ -33,7 +33,13 @@ An edition already recorded `posted` in `editions/index.json` is skipped, so a
 routine retry can never double-post; `--force` overrides. The ledger row is
 written after the send, and `--not-before HH:MM` holds delivery to an
 Eastern wall-clock time so the routine can wake early and still post at
-seven.
+seven. One call holds at most `--max-hold` seconds (default 540, because a
+cloud tool call dies at 600); a longer wait holds that long and exits 12
+having sent nothing, and the same command run again finishes the hold.
+
+The live webhook must be the Times' own (config.TIMES_WEBHOOK_ID_SHA256) or
+nothing is sent, a dry run included: from 2026-10-14 the morning session
+also holds Jim Claudtore's webhook, for his channel.
 
 Nothing this module prints, appends to docs/FAILURES.md or writes to the ledger
 can carry the webhook token: the webhook URL *is* the credential and `requests`
@@ -45,6 +51,7 @@ from __future__ import annotations
 
 import argparse
 import datetime as dt
+import hashlib
 import json
 import os
 import re
@@ -97,6 +104,9 @@ HTTP_TIMEOUT = 30
 RATE_LIMIT_ATTEMPTS = 5
 SERVER_ERROR_ATTEMPTS = 3
 LONG_RETRY_WAIT = 600  # one last try ~10 min out; still a morning post
+MAX_HOLD_SECONDS = 540  # one cloud tool call is killed at 600
+HOLDING_EXIT = 12       # held as long as one call may; nothing sent; run again
+WRONG_WEBHOOK_EXIT = 3
 
 
 class Result:
@@ -142,6 +152,22 @@ def load_env_webhook(var: str) -> str | None:
 REDACTION = "<webhook-token-redacted>"
 WEBHOOK_PATH_RE = re.compile(r"(/api/webhooks/)(\d+)/[\w.-]+")
 _WEBHOOK_HINT: str | None = None
+
+
+def webhook_problem(url: str | None) -> str | None:
+    """Why this live URL must not carry the digest, or None when it is ours.
+
+    Compared by a hash of the webhook's numeric ID, never the ID itself,
+    and nothing about the URL is echoed: the token is the credential.
+    """
+    match = WEBHOOK_PATH_RE.search(url or "")
+    if not match:
+        return "DISCORD_WEBHOOK_URL is not a Discord webhook URL. Nothing was sent."
+    if hashlib.sha256(match.group(2).encode()).hexdigest() != config.TIMES_WEBHOOK_ID_SHA256:
+        return ("DISCORD_WEBHOOK_URL is not the Times webhook. It is most likely Jim "
+                "Claudtore's, and the digest posts only to #the-ashgrove-times. "
+                "Nothing was sent.")
+    return None
 
 
 def remember_webhook(url: str | None) -> None:
@@ -1095,38 +1121,47 @@ def find_record(index: dict, date: str) -> dict | None:
     return None
 
 
-def _hold_until(target: str | None) -> tuple[bool, str | None]:
-    """Sleep until `target` (HH:MM Eastern) so delivery lands at a fixed hour.
+def _hold_until(target: str | None, max_hold: float = MAX_HOLD_SECONDS,
+                now=None, sleep=time.sleep) -> tuple[bool, str | None, bool]:
+    """Sleep toward `target` (HH:MM Eastern) so delivery lands at a fixed hour.
 
     The routine wakes early because the research is slow and variable —
     37 minutes one morning — but readers should get their paper at the same
     time every day, and the paper has to precede the 7:15 forecast it points
     at. So the work starts early and the POST waits.
 
-    Returns (held, note). A target already past is not an error: the run was
-    simply slower than the head start, and the paper goes out immediately.
+    Returns (held, note, ready). A target already past is not an error: the
+    run was simply slower than the head start, and the paper goes out
+    immediately. `ready` is False only when the wait was longer than
+    `max_hold` (0 = no limit): this call slept `max_hold`, nothing may be
+    sent, and the same command run again finishes the hold.
     """
     if not target:
-        return False, None
+        return False, None, True
     try:
         hour, minute = (int(part) for part in target.split(":", 1))
         goal_time = dt.time(hour, minute)
     except (TypeError, ValueError):
-        return False, f"could not parse --not-before {target!r}; posting now"
+        return False, f"could not parse --not-before {target!r}; posting now", True
 
-    now = config.now_et() if hasattr(config, "now_et") else dt.datetime.now()
-    goal = now.replace(hour=goal_time.hour, minute=goal_time.minute,
-                       second=0, microsecond=0)
-    wait = (goal - now).total_seconds()
+    current = now() if now else config.now_et()
+    goal = current.replace(hour=goal_time.hour, minute=goal_time.minute,
+                           second=0, microsecond=0)
+    wait = (goal - current).total_seconds()
     if wait <= 0:
         return False, (f"--not-before {target} already passed "
-                       f"({now.strftime('%H:%M')}); posting now")
+                       f"({current.strftime('%H:%M')}); posting now"), True
     # A head start measured in hours means a misconfigured cron, not patience.
     if wait > 3 * 3600:
         return False, (f"--not-before {target} is {wait / 3600:.1f}h away; "
-                       "that is not a delivery hold, posting now")
-    time.sleep(wait)
-    return True, f"waited {wait / 60:.0f} min to post at {target} ET"
+                       "that is not a delivery hold, posting now"), True
+    if max_hold and wait > max_hold:
+        sleep(max_hold)
+        return True, (f"held {max_hold / 60:.0f} min toward {target} ET; about "
+                      f"{(wait - max_hold) / 60:.0f} min still to go. Nothing was "
+                      "sent. Run the same command again."), False
+    sleep(wait)
+    return True, f"waited {wait / 60:.0f} min to post at {target} ET", True
 
 
 def record_edition(date: str, record: dict) -> None:
@@ -1245,6 +1280,11 @@ def main() -> int:
                              "(e.g. 07:00). The routine wakes early to do the "
                              "research; this is what keeps delivery at a "
                              "consistent hour. Ignored if the time has passed.")
+    parser.add_argument("--max-hold", type=float, default=MAX_HOLD_SECONDS,
+                        metavar="SECONDS",
+                        help=f"longest one call holds (default {MAX_HOLD_SECONDS:.0f}; "
+                             f"0 = no limit). A longer wait exits {HOLDING_EXIT} "
+                             "having sent nothing: run the same command again.")
     parser.add_argument("--digest", action="store_true",
                         help="accepted for the routine's command line; the "
                              "digest is the only message this script sends, "
@@ -1280,6 +1320,17 @@ def main() -> int:
             file=sys.stderr,
         )
         return 1
+
+    # Checked before anything else, a dry run included: from 2026-10-14 this
+    # session also holds Jim's webhook, and a wrong one should fail at the
+    # wake, not at 7:00.
+    var = "DISCORD_TEST_WEBHOOK_URL" if args.test else "DISCORD_WEBHOOK_URL"
+    webhook_url = load_env_webhook(var)
+    if webhook_url and not args.test:
+        problem = webhook_problem(webhook_url)
+        if problem:
+            print(f"ERROR: {problem}", file=sys.stderr)
+            return WRONG_WEBHOOK_EXIT
 
     if not args.dry_run and not args.force:
         prior = find_record(load_index(), args.date)
@@ -1343,16 +1394,19 @@ def main() -> int:
         print(f"payload written to {payload_file}", file=sys.stderr)
         for note in degraded:
             print(f"DEGRADED: {note}", file=sys.stderr)
+        if webhook_url and not args.test:
+            print("webhook check: DISCORD_WEBHOOK_URL is the Times'", file=sys.stderr)
         return 0
 
-    var = "DISCORD_TEST_WEBHOOK_URL" if args.test else "DISCORD_WEBHOOK_URL"
-    webhook_url = load_env_webhook(var)
     if not webhook_url:
         print(f"ERROR: {var} not set (env or .env)", file=sys.stderr)
         return 1
     remember_webhook(webhook_url)  # nothing printed or logged past here carries the token
 
-    held, hold_note = _hold_until(args.not_before)
+    held, hold_note, ready = _hold_until(args.not_before, args.max_hold)
+    if not ready:
+        print(f"HOLDING: {hold_note}")
+        return HOLDING_EXIT
     if hold_note:
         print(f"{'HELD' if held else 'WARN'}: {hold_note}", file=sys.stderr)
         if not held:
