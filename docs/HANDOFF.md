@@ -11,7 +11,7 @@ have to ask anyone to write a handoff again.
 > exists now, what is decided, what is open. Delete what stopped being
 > true rather than appending to it.
 
-Last updated: **2026-10-04**
+Last updated: **2026-10-13**
 
 ---
 
@@ -246,7 +246,10 @@ fires at 7:17, 8:17 and 9:17 ET (6:17, 7:17, 8:17 in winter) and runs
 `EARLY` (before 7:10 ET) or `WAITING`. The first fire after the archive
 publishes; the others stop in a few turns. No call sleeps longer than nine
 minutes, which also retires the 35-minute winter hold the 2026-09-02 design
-would have asked a single tool call to survive.
+would have asked a single tool call to survive. **The script fetches
+`origin/main` rather than pulling** (2026-10-13): the sandbox lands on a
+detached HEAD most mornings, `git pull` fails there, and on Oct. 8 that
+silent failure put the page up at 8:29. A fire may make three calls.
 Pages build via GitHub Actions with **unbounded lag** — 23 seconds to 9
 minutes observed. Post on time, backfill the link when the build lands.
 
@@ -372,6 +375,27 @@ an outside source has it and can be cited. Ian reads the paper.
   town's own forecast.
 
 ## 9. Open items
+
+- **Morning timing, measured 2026-10-04 to 10-13 — a decision is waiting
+  on Nate.** He asked (2026-10-13) whether one supervisor building all
+  three papers at once would fix the timing. What the ten mornings show:
+  - **Jim posts late every day**, 7:25 to 7:43 against his 7:15 slot. His
+    cron is 11:00 UTC, the scheduler fires it 6 to 20 minutes late (the
+    API's own `next_run_at` carries the jitter), and he writes for 13 to 27
+    minutes. His `--at` hold has never had anything to hold. From
+    2026-11-01 the same cron is 6:00 EST and the hold becomes 30 to 55
+    minutes in the foreground, which no cloud tool call has survived yet.
+  - **The Times' 7:00 hold is killed by a container restart most mornings**
+    (nine of twelve, Oct. 1 to 13, docs/FAILURES.md). The idle container
+    recycles and takes the `setsid nohup` process with it. The 6:58 backup
+    wake reposts in the foreground and has landed every digest at 7:00
+    since Oct. 4, so readers see nothing, but the backup is load-bearing.
+  - **The weather page** landed one to two minutes behind Jim's archive on
+    eight of ten mornings; Oct. 8 (the detached-HEAD bug, fixed 10-13) and
+    Oct. 9 (Jim archived after the first fire's window, now widened) were
+    the misses.
+  - Every routine's session starts 0 to 25 minutes after its cron. Only the
+    Times, with about an hour of slack, absorbs that.
 
 - **The 2026-09-02 full pass landed items 1–10** (tests, snapshots and
   `--all`, the retired embed path, DST holds, watchdog checks, standings

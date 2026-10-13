@@ -40,9 +40,16 @@ halves:
      fire. **Stop and report "already published".** Do not re-render.
    - `EARLY <date>`: it is before 7:10 ET, so Jim has not posted yet. Stop
      and report it; a later fire this morning publishes the page.
-   - `WAITING <date>`: not archived yet. Run the same command ONE more
-     time. If it says `WAITING` again, stop and report it; the next fire
-     an hour later is the retry.
+   - `WAITING <date>`: not archived yet. Run the same command again, up
+     to THREE calls in all this fire. If the third still says `WAITING`,
+     stop and report it; the next fire an hour later is the retry.
+     (Three, not two, since 2026-10-13: Jim has been archiving as late as
+     7:45, and on Oct. 9 the second call gave up two minutes before he
+     did.)
+   - **Do not `git pull` weatherman yourself and do not move its checkout
+     by hand.** The script fetches `origin/main` itself, because the
+     sandbox often lands on a detached HEAD where `git pull` fails; that
+     silent failure is why the Oct. 8 page went up an hour late.
 
    **Why three fires and no long hold** (2026-10-04): your cron is
    `17 11,12,13 * * *` UTC, which is 7:17, 8:17 and 9:17 ET in summer and

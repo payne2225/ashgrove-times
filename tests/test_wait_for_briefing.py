@@ -80,3 +80,36 @@ def test_cron_fires_land_where_the_docstring_says():
               for h in (11, 12, 13)]
     assert summer == ["07:17", "08:17", "09:17"]
     assert winter == ["06:17", "07:17", "08:17"]
+
+
+def test_pull_sees_a_new_briefing_from_a_detached_checkout(tmp_path):
+    # 2026-10-08: the sandbox cloned weatherman onto a detached HEAD, where
+    # `git pull` fails, so two nine-minute waits never saw a briefing that
+    # had been on origin/main since 7:32 ET. The page went up at 8:29.
+    import subprocess
+
+    def git(*args, cwd):
+        subprocess.run(["git", "-c", "user.name=t", "-c", "user.email=t@t",
+                        "-c", "commit.gpgsign=false", *args],
+                       cwd=cwd, check=True, capture_output=True)
+
+    origin, seed, checkout = tmp_path / "origin.git", tmp_path / "seed", tmp_path / "weatherman"
+    git("init", "-q", "--bare", "-b", "main", str(origin), cwd=tmp_path)
+    git("clone", "-q", str(origin), str(seed), cwd=tmp_path)
+    (seed / "briefings").mkdir()
+    (seed / "briefings" / "2026-10-07.md").write_text("yesterday")
+    git("add", "-A", cwd=seed)
+    git("commit", "-q", "-m", "Briefing 2026-10-07", cwd=seed)
+    git("push", "-q", "origin", "HEAD:main", cwd=seed)
+
+    git("clone", "-q", str(origin), str(checkout), cwd=tmp_path)
+    git("checkout", "-q", "--detach", cwd=checkout)  # how the sandbox lands
+
+    (seed / "briefings" / "2026-10-08.md").write_text("today")
+    git("add", "-A", cwd=seed)
+    git("commit", "-q", "-m", "Briefing 2026-10-08", cwd=seed)
+    git("push", "-q", "origin", "HEAD:main", cwd=seed)
+
+    assert not (checkout / "briefings" / "2026-10-08.md").exists()
+    w.pull(str(checkout))
+    assert (checkout / "briefings" / "2026-10-08.md").read_text() == "today"

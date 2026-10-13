@@ -21,8 +21,9 @@ Prints ONE status line on stdout and exits with its code:
     READY <date> <path>   0   today's briefing is here: render it
     DONE <date>           10  site/weather/<date>.html already exists: stop
     EARLY <date>          11  before 7:10 ET, Jim cannot have archived: stop
-    WAITING <date>        12  not here after --minutes: run this once more,
-                              or stop and let the next fire take it
+    WAITING <date>        12  not here after --minutes: run it again, up to
+                              three calls a fire, then stop and let the next
+                              fire take it
 
 The date is always the EASTERN date, so a briefing from yesterday can never
 be published under today's.
@@ -65,9 +66,27 @@ def page_path(date: str, site_root: str = HERE) -> str:
 
 
 def pull(weatherman: str) -> None:
-    """Best effort. A failed pull just means the next look sees the same tree."""
-    subprocess.run(["git", "-C", weatherman, "pull", "--rebase", "-q"],
-                   check=False, capture_output=True, timeout=120)
+    """Bring the read-only weatherman checkout up to origin/main.
+
+    Not `git pull`. The cloud sandbox lands its checkouts on a detached HEAD
+    more mornings than not, and there `git pull` fails ("git pull <remote>
+    <branch>"). On 2026-10-08 it failed silently through two nine-minute
+    waits while Jim's briefing sat on origin/main, and the page went up an
+    hour late. Fetching main and detaching onto it works from any checkout
+    state. Nothing is committed: this routine never edits weatherman, so its
+    working tree is clean and the checkout only moves forward.
+    """
+    def git(*args: str) -> subprocess.CompletedProcess:
+        return subprocess.run(["git", "-C", weatherman, *args], check=False,
+                              capture_output=True, text=True, timeout=120)
+
+    for step in (("fetch", "-q", "origin", "main"),
+                 ("checkout", "-q", "--detach", "FETCH_HEAD")):
+        done = git(*step)
+        if done.returncode != 0:
+            print(f"wait_for_briefing: git {step[0]} failed: "
+                  f"{(done.stderr or done.stdout).strip()[:200]}", file=sys.stderr)
+            return
 
 
 def wait(weatherman: str, minutes: float, interval: float = 60.0,

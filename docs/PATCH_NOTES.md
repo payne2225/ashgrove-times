@@ -4,6 +4,18 @@ Running changelog. Dated entries, newest first. Touched only when
 behavior changes, not every edition — the per-day record lives in
 `editions/index.json`, and degraded runs go in `docs/FAILURES.md`.
 
+## 2026-10-13 — wait_for_briefing fetches instead of pulling
+
+The Oct. 8 weather page went up at 8:29, an hour behind Jim. The 7:17 fire
+waited its full eighteen minutes while his briefing had been on
+`origin/main` since 7:32: the sandbox had cloned weatherman onto a detached
+HEAD, where `git pull` fails, and the script swallowed the failure. It now
+fetches `main` and detaches onto `FETCH_HEAD`, which works from any
+checkout state, and prints a failure instead of hiding it. A fire may now
+make three nine-minute calls instead of two, because on Oct. 9 Jim archived
+at 7:45, two minutes after the second call gave up. New test: a real git
+repo on a detached HEAD sees a briefing pushed after the clone.
+
 ## 2026-10-04 — the weather page publishes right behind Jim
 
 Pat, in the channel on Oct. 3 and again on Oct. 4: the weather page still
