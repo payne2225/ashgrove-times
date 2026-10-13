@@ -28,32 +28,61 @@ posts and the papers themselves went to the channel). Two repos:
 Local: `C:\Users\payne\Projects\ashgrove-times` and `...\weatherman`.
 
 **The Times session owns both repos** (Nate, 2026-08-22). One session
-drives everything. The one carve-out is in section 5.
+drives everything. Since 2026-10-14 that includes the unattended 5:30
+session, which writes Jim's briefing through a desk and posts him; the
+narrow limit on what it may write in weatherman is in section 5.
 
 ## 2. The morning
 
-| ET (EDT / from 2026-11-01 EST) | What | Routine |
+**Rebuilt 2026-10-13, live from 2026-10-14 (Nate: "build it and plan for
+DST hour changes").** One session, the Times routine, now runs all three:
+it spawns a desk that writes Jim's briefing while it builds both papers,
+and it posts the digest and Jim from one wake. Every time below is Eastern
+and is the same all year.
+
+| ET, all year | What | Who |
 |---|---|---|
-| wakes 5:30 / 4:30 | Research and PUBLISH both papers | Times |
-| **7:00, held** | **The digest posts** — one message, what is in today's edition and a link to Home | Times |
-| **7:15, held** | **Jim Claudtore's briefing** posts | weatherman |
-| every :30 | Alert watcher — silent unless something NEW | weatherman |
-| fires 7:17, 8:17, 9:17 / 6:17, 7:17, 8:17 | Weather page typeset onto the site — the first fire after Jim archives publishes it, the rest stop | weather-page |
-| 9:00 / 8:00 | Watchdog — silent unless something failed | watchdog |
+| fires 5:30 (+0 to 25 min) | `morning_gate.py` says GO; **Jim's desk spawns**; both papers researched and PUBLISHED | Times |
+| about 6:00 to 6:15 | Jim's draft pushed to weatherman; **the weather page goes up from it** | Times |
+| 6:55 | a `send_later` wake: claim Jim, hold the digest | Times |
+| **7:00, held** | **The digest posts**: one message, what is in today's edition and a link to Home | Times |
+| 7:08, held | refresh: a NEW warning, watch or SPC raise since Jim wrote goes under his dek | Times |
+| **7:15, held** | **Jim Claudtore's briefing posts**; the post is recorded; the page re-rendered | Times |
+| 7:32, 8:32, 9:32 (winter 7:32, 8:32) | **Standby**: posts Jim only if nobody has; almost every fire is one `DONE` | weatherman |
+| every :30 | Alert watcher, silent unless something NEW | weatherman |
+| 9:00 / 8:00 | Watchdog, silent unless something failed | watchdog |
 | Sun 18:00 / 17:00 | Weekly report card | weatherman |
 
-**"Held" means the Eastern time is fixed and survives the clock change**
-(2026-09-02): the digest by `post_discord.py --not-before 07:00`, Jim by his
-own `post_discord.py --at`. The weather page is not held; it fires three
-times and `wait_for_briefing.py` decides each time (2026-10-04, see §4).
-Everything else fires on a raw UTC cron
-and simply runs an hour earlier in Eastern terms all winter, which is fine
-for a watchdog and a Sunday report card and is only more head start for the
-papers. `tests/test_hold.py` checks the hold on both sides of 2026-11-01.
+**"Held" means a script holds to the Eastern clock**: the digest by
+`post_discord.py --not-before 07:00`, the refresh by `refresh_check.py
+--not-before 07:08`, Jim by his `post_discord.py --at`. Each call holds
+nine minutes at most and exits 12, having done nothing, when more is left;
+the session runs it again. **Nothing holds in the background any more**:
+the Times' old `setsid nohup` hold died with the container on nine mornings
+in twelve, and the session now ends its first turn with a `send_later` and
+does every post in the foreground of the wake.
 
-Jim is deliberately **independent**: if the papers run late he still
-files at 7:15. He is the post people actually dress by. Do not couple
-his schedule to theirs.
+**Why** (2026-10-04 to 10-13, measured): Jim posted between 7:25 and 7:43
+every morning against his 7:15 slot. His own routine fired at 7:00 ET, the
+scheduler started it 6 to 20 minutes late, and he wrote for 13 to 27. The
+weather page, typeset after his archive, trailed him. From 2026-11-01 his
+UTC cron would have meant 6:00 EST and a 30-to-55-minute hold that no cloud
+tool call survives. Written at 5:45, he waits for his slot instead.
+
+**What is still independent.** The digest never waits for Jim: if his
+desk is late, the digest posts at 7:00 and Jim whenever his draft lands. A
+paper that cannot find a lead posts no digest, and Jim still posts. If the
+session dies outright, the standby posts Jim from 7:32 (late, but never
+missing and never twice); nothing re-posts a lost digest, and the watchdog
+reports it the next morning.
+
+**Jim is posted once, by a lock in his archive.** `briefings/<date>.md`
+is written at about 6:00 with `posted_at: pending`; whoever posts first
+CLAIMS it on origin/main (`jim_gate.py`, git refuses a second push that is
+not a fast-forward), and `posted` stamps the time afterwards. A claim lasts
+30 minutes and never lapses before 7:45 ET, so the standby waits out a live
+one and takes over a dead one. The watchdog and the report card read a
+`pending` archive as a briefing that never reached the channel.
 
 ## 3. Live routines
 
@@ -89,12 +118,22 @@ same command and says the two must change together.
 
 | Routine | ID | Cron (UTC) |
 |---|---|---|
-| Ashgrove Times + Sports & Sportsman | `trig_01EMUikWUwB5GLE9GzGAPefb` | `30 9 * * *` |
-| Weatherman Daily Briefing | `trig_01GeSVSait6X3Dwam8tkMycj` | `0 11 * * *` |
+| Ashgrove Times + Sports & Sportsman + Jim | `trig_01EMUikWUwB5GLE9GzGAPefb` | `30 9,10 * * *` |
+| Weatherman Standby (was Daily Briefing) | `trig_01GeSVSait6X3Dwam8tkMycj` | `32 11,12,13 * * *` |
 | Weatherman Alert Watcher | `trig_01AxyXnGTWwT4vXKWTv6w7Uq` | `30 * * * *` |
 | Weatherman Weekly Report Card | `trig_01GTwkNWUrDkwMPi1XNx8MxZ` | `0 22 * * 0` |
 | Weatherman Watchdog | `trig_01THzxTGHkdRgJWJwBZwjKQX` | `0 13 * * *` |
-| Ashgrove Weather Page | `trig_01MEbyaBjFYcU4v9pERM4Paa` | `17 11,12,13 * * *` |
+| Ashgrove Weather Page | `trig_01MEbyaBjFYcU4v9pERM4Paa` | **disabled** 2026-10-14, kept for rollback |
+
+**The Times routine checks out both repos and carries two webhooks**
+(2026-10-14): `TIMES_WEBHOOK` for ashgrove-times' `post_discord.py` and
+`JIM_WEBHOOK` for weatherman's. Each script checks the webhook's ID before
+it holds or posts (the Times compares a SHA-256 of it, so the public repo
+never holds the ID; weatherman compares `config.WEBHOOK_ID`) and exits 3,
+sending nothing, when handed the other one. Its prompt carries its gate
+command, `python morning_gate.py`, stop on `DONE` or `EARLY`, verbatim:
+the second thin-prompt exception, for the same reason as the watcher's.
+The standby's prompt carries `python jim_gate.py standby` the same way.
 
 The watchdog row said 8:00 until 2026-08-30; its cron is `0 13 * * *` UTC,
 which is 9:00 ET on daylight time — the table had been quietly an hour out.
@@ -115,13 +154,18 @@ yesterday's `posted: true` in `editions/index.json` (an edition can be
 published in full and still never reach the channel), and yesterday's
 `site/weather/<date>.html`. All in `weatherman/instructions/watchdog.md`.
 
-**DST is handled everywhere it matters** (2026-09-02). Every post the
-channel sees is held to an Eastern time — see the table in §2 — and the
-one routine whose UTC drift would have broken something, the weather page,
-fires three times and lets `wait_for_briefing.py` refuse anything before
-7:10 ET. The crons themselves stay raw UTC on purpose: moving six crons twice
-a year is a chore that gets forgotten, and a hold that computes Eastern
-time from the date is not.
+**DST needs nobody, in either direction** (2026-10-13). The crons stay
+raw UTC on purpose: moving them twice a year is a chore that gets
+forgotten, and code that computes Eastern time from the date is not. The
+Times fires twice, at 09:30 and 10:30 UTC, and `morning_gate.py` lets one
+build: 5:30 EDT and 6:30 EDT (`DONE`, or the backup if 5:30 never started)
+in summer, 4:30 EST (`EARLY`) and 5:30 EST in winter. Its claim is
+`editions/claim.json`, pushed to origin/main. The standby's 6:32 winter
+fire is `EARLY` the same way, and every post is held to an Eastern time.
+The clock is the US rule itself (second Sunday of March, first Sunday of
+November) in `eastern.py` and `config.py`, not the sandbox's tz database,
+and both test suites run 2026-10-31, 11-01, 2027-03-13 and 03-14. The old
+"switch the Times cron on 2026-11-01" ledger row is superseded.
 
 ## 3.5 The channel gets a doorbell, not the paper (2026-08-25)
 
@@ -237,19 +281,15 @@ its own masthead, plus nav buttons (Home and the other two sections)
 read the next section gets made; the top row alone made that a scroll back
 up. Both rows come from `_nav_html()` in `render_edition.py`, so they cannot
 drift apart.
-**The weather page lands right behind Jim** (2026-10-04). Pat, two
-mornings running: *"sports and news is today but weather is yesterday."*
-The routine woke once at 8:10 ET while Jim posts at 7:15 and archives by
-7:16–7:36, so the page sat an hour behind the channel every day. It now
-fires at 7:17, 8:17 and 9:17 ET (6:17, 7:17, 8:17 in winter) and runs
-`wait_for_briefing.py`, which answers `READY`, `DONE` (already published),
-`EARLY` (before 7:10 ET) or `WAITING`. The first fire after the archive
-publishes; the others stop in a few turns. No call sleeps longer than nine
-minutes, which also retires the 35-minute winter hold the 2026-09-02 design
-would have asked a single tool call to survive. **The script fetches
-`origin/main` rather than pulling** (2026-10-13): the sandbox lands on a
-detached HEAD most mornings, `git pull` fails there, and on Oct. 8 that
-silent failure put the page up at 8:29. A fire may make three calls.
+**The weather page goes up before Jim posts** (2026-10-14). Pat, from
+2026-10-03: *"sports and news is today but weather is yesterday."* The page
+used to be typeset after Jim archived, by its own routine, and trailed his
+post by minutes to an hour. Now the Times session renders it from his draft
+at about 6:15 and again after the 7:15 post, so it carries any refresh line
+and the text exactly as posted; the standby renders it when it posts him
+instead. The Weather Page routine and `wait_for_briefing.py` are dormant,
+kept for rollback (`instructions/weatherpage.md` says what to fix first).
+The page's tagline still says Jim files at 7:15, which labels the slot.
 Pages build via GitHub Actions with **unbounded lag** — 23 seconds to 9
 minutes observed. Post on time, backfill the link when the build lands.
 
@@ -270,12 +310,14 @@ flowed layout and the foot nav.
 
 ## 5. The one boundary left
 
-`instructions/weatherpage.md` holds it. The interactive session may
-develop weatherman freely. **The unattended weather-page routine
-stays read-only in weatherman** — it reads, it writes only to
-ashgrove-times, it never posts. An unattended job with write access to a
-live publishing repo is how a broken 7:15 post happens with nobody awake
-to catch it.
+**The unattended Times session writes exactly one thing in weatherman**:
+`briefings/<date>.md`, and only through `jim_gate.py` (`draft`, `claim`,
+`posted`, each a single-file commit pushed to origin/main). It never
+commits anything else there, never edits a playbook or a script, never
+touches a routine. Nate drew this line on 2026-10-13 when he moved Jim's
+desk into the 5:30 session; it replaces the older rule that no unattended
+job wrote to weatherman at all. The desk itself never commits, pushes or
+posts. The interactive session may still develop weatherman freely.
 
 **Ask Nate before changing anything the channel experiences**: post
 times, a persona or name, the format, who gets pinged.
@@ -334,14 +376,17 @@ times, a persona or name, the format, who gets pinged.
 ## 7. Where the two projects touch
 
 1. **The weather ear** — the Times masthead points at Jim's 7:15 slot.
-   If his time moves, `instructions/edition.md` and `instructions/
-   routine.md` both go stale.
+   If his time moves, `instructions/edition.md`, `instructions/routine.md`
+   and weatherman's `post_discord.py` (`TARGET_ET`) all change together.
 2. **Topsail is split** (2026-08-21): the **weather** is Jim's, the
    **water** — tides, moon, what's running — belongs to Sports &
    Sportsman. `reference/topsail-fishing.md` lives HERE only; the
    weatherman copy was deleted 2026-08-23 to stop the drift.
-3. **The weather page** — the weather-page routine reads Jim's archived briefing
-   and typesets it. See section 5.
+3. **Jim himself** (2026-10-14) — the Times session spawns his desk,
+   pushes his draft, renders his page and posts him; `jim_gate.py` and
+   `refresh_check.py` live in weatherman, `morning_gate.py` here. A change
+   to his flow touches `instructions/routine.md` here and `briefing.md`,
+   `standby.md`, `watchdog.md` and `report-card.md` there. See §2 and §5.
 4. **Hannan soccer** — `reference/hannan-soccer-2026.json` exists in
    BOTH repos, because each routine checks out only its own. Correct
    one, correct the other.
@@ -376,26 +421,19 @@ an outside source has it and can be cited. Ian reads the paper.
 
 ## 9. Open items
 
-- **Morning timing, measured 2026-10-04 to 10-13 — a decision is waiting
-  on Nate.** He asked (2026-10-13) whether one supervisor building all
-  three papers at once would fix the timing. What the ten mornings show:
-  - **Jim posts late every day**, 7:25 to 7:43 against his 7:15 slot. His
-    cron is 11:00 UTC, the scheduler fires it 6 to 20 minutes late (the
-    API's own `next_run_at` carries the jitter), and he writes for 13 to 27
-    minutes. His `--at` hold has never had anything to hold. From
-    2026-11-01 the same cron is 6:00 EST and the hold becomes 30 to 55
-    minutes in the foreground, which no cloud tool call has survived yet.
-  - **The Times' 7:00 hold is killed by a container restart most mornings**
-    (nine of twelve, Oct. 1 to 13, docs/FAILURES.md). The idle container
-    recycles and takes the `setsid nohup` process with it. The 6:58 backup
-    wake reposts in the foreground and has landed every digest at 7:00
-    since Oct. 4, so readers see nothing, but the backup is load-bearing.
-  - **The weather page** landed one to two minutes behind Jim's archive on
-    eight of ten mornings; Oct. 8 (the detached-HEAD bug, fixed 10-13) and
-    Oct. 9 (Jim archived after the first fire's window, now widened) were
-    the misses.
-  - Every routine's session starts 0 to 25 minutes after its cron. Only the
-    Times, with about an hour of slack, absorbs that.
+- **The new morning starts 2026-10-14 — read its first reports.** Built
+  2026-10-13 (§2). Check, on the first few mornings: the gate line; when
+  Jim's desk reported and the weather page went up; that the wake arrived
+  near 6:56; the digest at 7:00 and Jim at 7:15; `MARKED`; and that every
+  standby fire said `DONE`. The first winter morning is **2026-11-01**: the
+  4:30 fire must say `EARLY`, the 5:30 fire `GO`, and the standby's 6:32
+  fire `EARLY`. Rollback, if it misbehaves: Times cron back to
+  `30 9 * * *` with the old prompt, Jim's routine back to `0 11 * * *`
+  with his old prompt (both in weatherman `docs/ROLLBACK-2026-10-14.md`,
+  webhooks redacted), the Weather Page routine re-enabled, and this
+  commit's instructions reverted. Not
+  built, on purpose: a standby for the digest. If the session dies, the
+  watchdog says so the next morning and Nate decides.
 
 - **The 2026-09-02 full pass landed items 1–10** (tests, snapshots and
   `--all`, the retired embed path, DST holds, watchdog checks, standings

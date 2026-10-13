@@ -4,6 +4,52 @@ Running changelog. Dated entries, newest first. Touched only when
 behavior changes, not every edition — the per-day record lives in
 `editions/index.json`, and degraded runs go in `docs/FAILURES.md`.
 
+## 2026-10-14 — one session runs all three, and DST needs nobody
+
+Nate, 2026-10-13: "build it and plan for DST hour changes." The 5:30
+session now writes Jim Claudtore's briefing too, through a desk, and posts
+the digest at 7:00 and Jim at 7:15 from one 6:55 wake. Jim had posted
+between 7:25 and 7:43 every morning for ten days, and his weather page
+behind him; his own routine was started 6 to 20 minutes late and wrote for
+13 to 27.
+
+- **`morning_gate.py`, the routine's first command.** The cron is now
+  `30 9,10 * * *` UTC all year and the gate lets one fire build: GO at 5:30
+  ET in both seasons, DONE for the summer 6:30 fire, EARLY for the winter
+  4:30 fire. The claim is `editions/claim.json`, a commit pushed straight to
+  origin/main, so two fires cannot both win. A fetch that fails is tried
+  three times, and if origin stays down a checkout that already holds
+  today's claim still says DONE. `morning_gate.py wake` prints when to set
+  the `send_later` (6:55 ET, or an interim wake when that is more than 65
+  minutes off; 68 minutes is the longest delivered so far).
+- **No background holds.** `post_discord.py` holds nine minutes at most
+  per call and exits 12 having sent nothing when more is left; the wake
+  runs it again. The old `setsid nohup` hold died with the container on
+  nine mornings in twelve.
+- **A webhook guard.** `post_discord.py` checks the webhook against
+  `config.TIMES_WEBHOOK_ID_SHA256` before it holds or posts, dry runs
+  included, and exits 3 when handed Jim's: the session now holds both.
+- **`config.py`**: the head start is 90 minutes all year; `cron_for()`
+  returns the one cron; the November and March cron-switch constants and
+  ledger rows are gone, superseded.
+- **The weather page goes up from Jim's draft at about 6:15** and again
+  after he posts. The Weather Page routine is disabled;
+  `instructions/weatherpage.md` and `wait_for_briefing.py` stay for
+  rollback.
+- **`instructions/routine.md` rewritten**; `edition.md` and `sportsman.md`
+  now pull with `git pull --rebase origin main` and push with
+  `git push origin HEAD:main`, which work on the detached HEAD the sandbox
+  lands on.
+- `hold_until.eastern_now()` reads an offset-stamped time correctly; it
+  used the offset's own hours as Eastern ones.
+- **Rehearsed in the cloud on 2026-10-13**, with fake webhook tokens and
+  nothing posted or pushed: both checkouts sit under `/home/user`, both
+  test suites pass on the sandbox's Python 3.11, each poster refuses the
+  other's webhook with exit 3, a background desk ran and handed back, and
+  a `send_later` wake arrived 36 seconds after its time. The wake turn
+  started in `/home/user/ashgrove-times`, not `/home/user`, so every
+  command in `routine.md` now carries its own `cd`.
+
 ## 2026-10-13 — wait_for_briefing fetches instead of pulling
 
 The Oct. 8 weather page went up at 8:29, an hour behind Jim. The 7:17 fire

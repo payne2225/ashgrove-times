@@ -33,7 +33,9 @@ consequence past embarrassment.
 ## 0. Setup
 
 Same as the main paper: get the date from the clock, use the **Eastern**
-date, `git pull --rebase`, `pip install -r requirements.txt`.
+date. No `git pull`: `morning_gate.py` has already put the checkout on
+origin/main (routine.md §1), and pulls and pushes here are
+`git pull --rebase origin main` and `git push origin HEAD:main`.
 
 Read first, in this order:
 
@@ -466,7 +468,7 @@ skimming. The line score has the runs in it and it is never ambiguous.
 python validate_edition.py editions/sportsman/YYYY-MM-DD.json --sportsman \
     --fishing out/fishing.json --standings out/standings.json
 python render_edition.py --sportsman --date YYYY-MM-DD   # also freezes editions/data/YYYY-MM-DD.{fishing,standings}.json
-git add -A && git commit && git push          # publishes site/sportsman/, commits the snapshots
+git add editions/ site/ && git commit -m "Sports & Sportsman No. {n} - YYYY-MM-DD" \n    && git pull --rebase origin main && git push origin HEAD:main   # publishes site/sportsman/, commits the snapshots
 ```
 
 Validate against the SAME `out/fishing.json` and `out/standings.json` the

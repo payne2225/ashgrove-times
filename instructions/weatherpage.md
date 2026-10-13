@@ -1,5 +1,22 @@
 # The weather page — publishing Jim Claudtore to the Newsstand
 
+> **RETIRED 2026-10-14. The Weather Page routine is disabled and nothing
+> reads this file.** Jim's briefing is now written by a desk inside the
+> 5:30 ET Times session, which renders this page from his draft at about
+> 6:15 ET and again after he posts at 7:15 (`instructions/routine.md` §4
+> and §6); the weatherman standby renders it when it posts him instead
+> (weatherman `instructions/standby.md` §4). The boundary below, that no
+> unattended job writes to weatherman, was replaced the same day by a
+> narrower one: the Times session writes only `briefings/<date>.md`, and
+> only through `jim_gate.py`.
+>
+> **Kept for rollback.** If Jim ever goes back to a routine of his own,
+> re-enable the Weather Page routine with this file as its playbook and
+> `wait_for_briefing.py` as its first command, both unchanged. One thing
+> to fix first: wait_for_briefing.py reads an archive as READY as soon as
+> it exists, so it would have to skip one whose `posted_at:` says
+> `pending`.
+
 A small, separate morning job: take the briefing Jim Claudtore has already
 posted and archived, and typeset it onto the Times site at
 `site/weather/<date>.html` (plus `site/weather/index.html` as the stable

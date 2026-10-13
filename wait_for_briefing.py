@@ -1,5 +1,10 @@
 """Wait for Jim's archived briefing, then say whether to typeset it.
 
+DORMANT since 2026-10-14, kept for rollback: the Weather Page routine that
+ran this is disabled, and the Times session renders the page itself from
+Jim's draft (instructions/routine.md). Before reviving it, make it treat an
+archive whose `posted_at:` is `pending` as not yet posted.
+
     python wait_for_briefing.py --weatherman ../weatherman
 
 The weather-page routine fires three times a morning on a raw UTC cron,

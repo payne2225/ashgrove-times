@@ -35,7 +35,7 @@ Two standing truths that override any convenience:
    `YYYY-MM-DD`. Note the sandbox clock is UTC and the Eastern date can
    differ from it — `config.now_et()` is the one that counts.
 
-   You wake at **6:00 AM ET** and the paper posts at **7:00**, ahead of
+   You wake at **5:30 AM ET** and the paper posts at **7:00**, ahead of
    Jim Claudtore's 7:15 slot. The gap is a head start, not slack:
    the research took 37 minutes on 2026-08-06, and a 7:00 wake put that
    edition in the channel at 7:41 — after the forecast it promised was
@@ -49,27 +49,23 @@ Two standing truths that override any convenience:
    year-round — but derive it anyway rather than typing "fifteen," so the
    prose cannot drift from the schedule the way it did before.
 
-   **Check the head start instead:** `config.head_start_minutes(date)`
-   should be **60**, and `config.cron_for(date)` says which cron belongs on
-   today's date. The two daylight-saving failures are not symmetric, so read
-   the number rather than just testing it against 60:
+   **The head start is 90 minutes all year** (`config.head_start_minutes`),
+   and daylight saving needs nothing from you. Since 2026-10-14 the cron is
+   `30 9,10 * * *` UTC in every season and `morning_gate.py` lets exactly
+   one fire build each morning: 5:30 EDT in summer, 5:30 EST in winter
+   (`instructions/routine.md`, "The clock"). There is no cron switch to
+   miss any more. If `config.head_start_minutes(date)` ever says anything
+   but 90, say so in your report; do not adjust the paper for it, and do
+   not edit the routine yourself. The cron is Nate's to change.
 
-   - **More than 60** (e.g. 120) — the November switch was missed. The
-     routine woke an hour early and idled. Wasteful, invisible to readers.
-     Note it in your report; it is not a `FAILURES.md` line.
-   - **0 or negative** — the March switch was missed. The delivery hold is
-     already past when you reach it, so the paper posts late, after the
-     forecast it points at. **Say so in your report and log a line in
-     `docs/FAILURES.md`.**
-
-   Either way: do not adjust the paper for it, and do not edit the routine
-   yourself. The cron is Nate's to change.
-
-2. You are in a clone of the `ashgrove-times` repo:
+2. You are in a clone of the `ashgrove-times` repo, already on
+   origin/main: `morning_gate.py` put you there (routine.md §1). **Do not
+   `git pull`**; the sandbox lands on a detached HEAD where a bare pull
+   fails. Every pull in this file is `git pull --rebase origin main` and
+   every push `git push origin HEAD:main`, which work either way.
 
    ```
-   git pull --rebase
-   pip install -r requirements.txt
+   python -m pip install -q -r requirements.txt
    ```
 
    Sandbox Python is at `/usr/local/bin/python` if bare `python` misses.
@@ -97,7 +93,8 @@ Read, in this order:
    forward-dated commitments (elections, launch windows, verdict dates, the
    next sumo tournament), and recently-covered slugs.
 
-3. **The 3 most recent `editions/*.json`.** This is your rerun check. A
+3. **The 3 most recent `editions/YYYY-MM-DD.json`** (`index.json` and
+   `claim.json` are not editions). This is your rerun check. A
    story you covered yesterday may only appear today if it has *moved* —
    and then it leads with the movement, not the setup ("Senate passed the
    bill Nate saw Monday" is news; re-summarizing Monday is filler).
@@ -976,10 +973,10 @@ to do, not even here. It is a pointer, not an ad, and it never promises
 what the forecast will say.
 
 **Name the time; never the interval.** "Fifteen minutes behind this page"
-is a claim about the gap, and the gap is only 15 minutes while the right
-cron is installed — 11:00 UTC is 7:00 AM in summer and 6:00 AM in winter
-(§0). The ear must stay true on the morning nobody remembered to switch it,
-so it says 7:15 and stops there.
+is a claim about the gap, and the gap is a schedule fact that has moved
+before: Jim ran from his own routine on a cron that daylight saving shifted
+by an hour, until 2026-10-14 put him on this session's wake. The ear must
+stay true whatever the schedule does next, so it says 7:15 and stops there.
 
 Serviceable examples — rotate, vary, and write your own:
 
@@ -1185,7 +1182,7 @@ around them** — if one fires, the answer is to draw, or to ship no art.
 The drawings will be crude before they are good. Crude and honest beats
 polished and borrowed.
 
-Budget yourself roughly **fifteen minutes** — you wake at 6:00 and the
+Budget yourself roughly **fifteen minutes** — you wake at 5:30 and the
 paper is not due until 7:00, so there is room, but the news comes first.
 If a drawing is fighting you, drop to a simpler subject on the ladder
 rather than pushing a bad one through. A river at its gauge height drawn
@@ -1260,10 +1257,10 @@ is not a daily decision.
 ## 7. Commit and push — BEFORE posting
 
 ```
-git add editions/ site/
+git add editions/ art/ site/
 git commit -m "Edition No. {n} - {YYYY-MM-DD}"
-git pull --rebase
-git push
+git pull --rebase origin main
+git push origin HEAD:main
 ```
 
 Pushing before posting is deliberate: the link in the Discord message must
@@ -1310,7 +1307,10 @@ lines because that is what the embed paid for. None of that was journalism —
 it was a chat app's shape pressing on the paper. Write the edition the news
 deserves and let the page be as long as it is.
 
-The task prompt provides `DISCORD_WEBHOOK_URL`. Inspect first, then send:
+The post goes out from the 6:55 wake (`instructions/routine.md` §6, step
+2), with the **TIMES** webhook from your prompt: the script refuses Jim's,
+or any other, with exit 3 before it sends anything. Inspect first, then
+send:
 
 ```
 python post_discord.py --date YYYY-MM-DD --digest --dry-run
@@ -1331,10 +1331,12 @@ while a dated permalink reaches one third of one of them.
 
 **Always pass `--not-before 07:00`.** You wake at 5:30 because the research
 is slow and variable, but the readers get their paper at seven, the same as
-yesterday and tomorrow. The flag sleeps until 7:00 ET and then posts. If you
-ran long and it is already past, it posts immediately and says so; that is
-not an error. The sandbox clock is UTC, so do not try to time this yourself
-— the flag converts.
+yesterday and tomorrow. The flag sleeps until 7:00 ET and then posts. One
+call sleeps nine minutes at most: with more left it **exits 12 having sent
+nothing**, and you run the same command again. If you ran long and it is
+already past, it posts immediately and says so; that is not an error. The
+sandbox clock is UTC, so do not try to time this yourself — the flag
+converts.
 
 That hold is also free Pages build time. Push in step 7, and by 7:00 the
 site has usually gone green on its own. **The digest does not need the Pages
@@ -1383,10 +1385,11 @@ Only after a successful post:
    - retire threads that closed
 
    The ledger's **Standing commitments** table is not yours to clear. If a
-   row's date has arrived and the thing was not done — the daylight-saving
-   cron switch is the standing example — leave the row open, say so in your
-   report, and log it in `docs/FAILURES.md`. Marking it done is a claim
-   about the world outside this repo that you cannot verify from inside it.
+   row's date has arrived and the thing was not done — a routine change Nate
+   promised, a renewal, anything outside this repo — leave the row open, say
+   so in your report, and log it in `docs/FAILURES.md`. Marking it done is a
+   claim about the world outside this repo that you cannot verify from
+   inside it.
 3. **`docs/FAILURES.md`** — one dated line for **every** degraded path
    taken: hero render failure, Pages timeout, budget trim, stripped URL,
    webhook retry, thin section. This log is what makes slow quality drift
@@ -1399,8 +1402,8 @@ Then:
 ```
 git add editions/ docs/
 git commit -m "Posted No. {n} - {YYYY-MM-DD}"
-git pull --rebase
-git push
+git pull --rebase origin main
+git push origin HEAD:main
 ```
 
 ---
