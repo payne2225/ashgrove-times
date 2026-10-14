@@ -188,7 +188,10 @@ def _commit_file(repo: str, base: str, rel: str, content: str, message: str) -> 
 def _sync(repo: str, rel: str, commit: str, content: str) -> None:
     """Bring a clean checkout onto the pushed commit; else just write the file."""
     path = os.path.join(repo, *rel.split("/"))
-    status = _out(_git(repo, "status", "--porcelain", "--untracked-files=no", check=False))
+    # Not _out(): stripping the whole output eats the first line's leading
+    # status column (" M path" -> "M path"), and the path no longer matches.
+    status = _git(repo, "status", "--porcelain", "--untracked-files=no",
+                  check=False).stdout.decode("utf-8", "replace")
     dirty = [line[3:].strip() for line in status.splitlines() if line.strip()]
     if all(p == rel for p in dirty):
         if _git(repo, "ls-files", "--error-unmatch", rel, check=False).returncode == 0:

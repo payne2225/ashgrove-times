@@ -421,7 +421,9 @@ an outside source has it and can be cited. Ian reads the paper.
 
 ## 9. Open items
 
-- **The new morning starts 2026-10-14 — read its first reports.** Built
+- **The new morning starts 2026-10-14 — read its first reports.** The
+  first one (2026-10-14) ran clean: digest 7:00:01, Jim 7:15:03, every
+  standby fire `DONE` (PATCH_NOTES has the clock). Built
   2026-10-13 (§2). Check, on the first few mornings: the gate line; when
   Jim's desk reported and the weather page went up; that the wake arrived
   near 6:56; the digest at 7:00 and Jim at 7:15; `MARKED`; and that every

@@ -4,6 +4,21 @@ Running changelog. Dated entries, newest first. Touched only when
 behavior changes, not every edition — the per-day record lives in
 `editions/index.json`, and degraded runs go in `docs/FAILURES.md`.
 
+## 2026-10-14 (later) — the first morning, and a stray local change
+
+The first morning on the new routine ran clean: GO at 5:31 ET, Times
+pushed 5:41, Sports 5:48, Jim's draft and the weather page 5:48, an
+interim wake that arrived at 6:53 in a fresh sandbox with the disk
+intact, the digest at 7:00:01, Jim at 7:15:03, `MARKED` at 7:15:17. The
+6:30 fire and both standby fires said `DONE`. One thing went wrong after
+the post: `morning_gate.py` and weatherman's `jim_gate.py` parsed `git
+status --porcelain` from stripped output, which eats the first line's
+leading status column, so a checkout with one edited file (here the
+archive the 7:08 refresh had touched) was never moved onto the pushed
+commit. The session's stop hook saw a modified file and the session
+reset it by hand. Both now read the raw output; a test in each repo
+fails without the fix.
+
 ## 2026-10-14 — one session runs all three, and DST needs nobody
 
 Nate, 2026-10-13: "build it and plan for DST hour changes." The 5:30

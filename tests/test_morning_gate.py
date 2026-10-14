@@ -116,6 +116,17 @@ def test_the_first_fire_claims_and_the_second_stops(clones):
     assert status == m.DONE and "5:43 AM ET" in detail
 
 
+def test_a_locally_edited_claim_still_lands_the_checkout_on_origin(clones):
+    first = str(clones[0])
+    (clones[0] / "editions" / "claim.json").write_text('{"date": "x"}\n', encoding="utf-8")
+    assert m.gate(first, _fire("2026-10-14", 9, 13), sleep=lambda s: None)[0] == m.GO
+    head = subprocess.run(["git", "rev-parse", "HEAD"], cwd=first, capture_output=True,
+                          text=True).stdout.strip()
+    status = subprocess.run(["git", "status", "--porcelain"], cwd=first, capture_output=True,
+                            text=True).stdout
+    assert head == m._fetch(first) and status == ""
+
+
 def test_a_race_for_the_claim_has_one_winner(clones, monkeypatch):
     first, second = (str(p) for p in clones)
     real_git = m._git
