@@ -1,0 +1,308 @@
+{
+  "edition_date": "2026-10-15",
+  "edition_number": 71,
+  "volume": "I",
+  "lead": {
+    "headline": "Inflation accelerates to 3.7% as gasoline jumps 9.1% in a month",
+    "dek": "Core prices climb to 2.6%; markets put odds of an Oct. 28 Fed hike above 55% and the Nasdaq falls 1.8%",
+    "byline": "Wire Reports",
+    "body": [
+      "U.S. consumer prices rose 3.7% in the 12 months through September, up from 3.4% in each of the two prior months and above the 3.6% economists expected, the Bureau of Labor Statistics said Wednesday, with a 9.1% one-month jump in gasoline accounting for more than half of the increase.",
+      "Prices rose 0.6% from August, and core inflation, which excludes food and energy, climbed to 2.6% from 2.4%, above the 2.5% economists had forecast. Energy was up 20.4% from a year earlier and airline fares 22.4%, CBS News reported. Regular gasoline averaged $4.33 a gallon Wednesday, up from $2.98 before the Iran war began, according to AAA.",
+      "The Federal Reserve raised its benchmark rate to 3.75% to 4% in September, its first increase since 2023, and meets next Oct. 27-28. NBC News reported market odds of an October hike rose above 55% after the release; the Nasdaq fell 1.8% and the S&P 500 1.1%. White House economic adviser Kevin Hassett called the last report before the Nov. 3 midterms \"a disappointing number.\""
+    ],
+    "stat_strip": [
+      {
+        "label": "S&P 500",
+        "value": "7,718.94",
+        "change": "-1.11%",
+        "direction": "down"
+      },
+      {
+        "label": "Dow",
+        "value": "51,621.48",
+        "change": "-0.09%",
+        "direction": "down"
+      },
+      {
+        "label": "Nasdaq",
+        "value": "26,692.87",
+        "change": "-1.88%",
+        "direction": "down"
+      },
+      {
+        "label": "Bitcoin",
+        "value": "$81,264",
+        "change": "-2.28%",
+        "direction": "down"
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "us",
+      "label": "U.S.",
+      "briefs": [
+        {
+          "headline": "DOJ gives California 48 hours to vet ballots for noncitizens",
+          "summary": "Acting Deputy AG Trent McCotter asked counties to set aside mail ballots of possible noncitizens on a federal list. The secretary of state said she got no list.",
+          "source": "CBS News",
+          "url": "https://www.cbsnews.com/news/justice-department-california-noncitizens-mail-ballots/"
+        },
+        {
+          "headline": "Supreme Court halts order forcing fast FCC ad-rate ruling",
+          "summary": "The per curiam order blocks a 4th Circuit mandate giving the FCC 48 hours to rule on party ad-rate discounts. Sotomayor and Jackson would have denied it.",
+          "source": "Supreme Court",
+          "url": "https://www.supremecourt.gov/opinions/26pdf/26a476_k537.pdf"
+        },
+        {
+          "headline": "Social Security sets 3.6% cost-of-living increase for 2027",
+          "summary": "The adjustment adds about $76 a month, or a little more than $900 a year, for the average retired worker starting in January.",
+          "source": "PBS NewsHour",
+          "url": "https://www.pbs.org/newshour/economy/what-is-the-social-security-cola-for-2027-heres-how-it-could-affect-you"
+        },
+        {
+          "headline": "Texas DA says ICE vehicle struck Houston man intentionally",
+          "summary": "Harris County DA Sean Teare said video shows an unmarked ICE vehicle swerved into Miguel Parra Hernandez Saturday. ICE called that \"RECKLESS and FALSE.\"",
+          "source": "NBC News",
+          "url": "https://www.nbcnews.com/news/us-news/advocates-fear-potential-witnesses-handcuffed-back-ice-vehicle-struck-rcna603445"
+        }
+      ]
+    },
+    {
+      "id": "world",
+      "label": "World",
+      "briefs": [
+        {
+          "headline": "School roof collapse kills 27 pupils and teacher in Peshawar",
+          "summary": "A Lady Reading Hospital official told AFP at least 27 pupils and a teacher died when a private school's roof fell Thursday. More than 30 were hurt.",
+          "source": "Euronews",
+          "url": "https://www.euronews.com/2026/10/15/school-roof-collapse-kills-teacher-and-at-least-17-children-in-northwest-pakistan"
+        },
+        {
+          "headline": "Istanbul floods kill teenager, shut schools across city",
+          "summary": "Authorities logged 1,277 floods and 15 landslides overnight; the governor's office said a 14-year-old was electrocuted. Classes were off Thursday.",
+          "source": "Al Jazeera",
+          "url": "https://www.aljazeera.com/news/2026/10/15/teenager-dies-as-heavy-rain-floods-istanbul"
+        },
+        {
+          "headline": "Kenya confirms second Ebola case in first patient's family",
+          "summary": "The ministry said a 39-year-old relative of the man who died Oct. 5 fell ill Tuesday in quarantine. Kenya is the fourth nation with a DRC-linked case.",
+          "source": "Al Jazeera",
+          "url": "https://www.aljazeera.com/news/2026/10/14/kenyas-health-ministry-confirms-second-ebola-case"
+        },
+        {
+          "headline": "Thousands march in Colombia against new president's agenda",
+          "summary": "Unions, students and Indigenous groups rallied in Bogota and Medellin Wednesday, the first large protests since Abelardo de la Espriella took office.",
+          "source": "AFP via France24",
+          "url": "https://www.france24.com/en/americas/20261015-thousands-protest-colombia-right-wing-president"
+        }
+      ]
+    },
+    {
+      "id": "wv",
+      "label": "West Virginia",
+      "notebook_title": "Mountaineer State Notebook",
+      "briefs": [
+        {
+          "headline": "Boone jury hears openings in granddaughter starvation trial",
+          "summary": "Prosecutors said Wednesday the 14-year-old died of severe malnutrition in a home with plenty of food; the defense said a tragedy is not a crime.",
+          "source": "WV MetroNews",
+          "url": "https://wvmetronews.com/2026/10/14/opening-statements-testimony-made-as-criminal-trial-of-boone-county-grandmother-begins/"
+        },
+        {
+          "headline": "State school board calls funding formula unconstitutional",
+          "summary": "The board voted Wednesday to argue in the pending Supreme Court case that the formula is inadequate; a department plan puts special education at $190M.",
+          "source": "WSAZ",
+          "url": "https://www.wsaz.com/2026/10/15/wva-department-education-proposes-updated-school-funding-formula/"
+        },
+        {
+          "headline": "West Virginia sues OpenAI in Mason County over child safety",
+          "summary": "Attorney General McCuskey filed Wednesday in Mason County Circuit Court, alleging ChatGPT lacks age checks and coached users toward self-harm.",
+          "source": "WCHS",
+          "url": "https://wchstv.com/news/local/west-virginia-sues-openai-over-alleged-chatgpt-safety-concerns"
+        },
+        {
+          "headline": "Supreme Court weighs admonishment of Judge Sweeney",
+          "summary": "Justices heard arguments Wednesday on a JIC admonishment over the Pleasants County judge's CPS staffing order, interviews and Facebook posts.",
+          "source": "News and Sentinel",
+          "url": "https://www.newsandsentinel.com/news/local-news/2026/10/w-va-supreme-court-hears-arguments-in-judge-sweeney-admonishment-appeal/"
+        }
+      ],
+      "regional": [
+        {
+          "region_id": "huntington_cabell",
+          "place": "Huntington & the Cabell-Mason corridor",
+          "people": [
+            "Trav",
+            "Justin",
+            "Nate",
+            "Ian"
+          ],
+          "item": "Huntington council voted 8-1 Tuesday to ban engine compression brakes citywide, with signs to be posted.",
+          "source": "Herald-Dispatch",
+          "url": "https://www.herald-dispatch.com/_recent_news/council-enacts-prohibition-on-use-of-engine-braking-in-the-city/article_43328d00-b8ab-4d42-b638-531a34165ff1.html"
+        },
+        {
+          "region_id": "putnam_kanawha",
+          "place": "Putnam / Kanawha - Charleston",
+          "people": [
+            "Nate"
+          ],
+          "item": "Charleston police are adding officers to bus routes after nearly a dozen close calls with drivers passing stopped buses.",
+          "source": "WCHS",
+          "url": "https://wchstv.com/news/local/charleston-police-increase-patrols-on-bus-routes-after-near-misses-passing-stopped-buses"
+        },
+        {
+          "region_id": "mid_ohio_valley",
+          "place": "Mid-Ohio Valley / Parkersburg",
+          "people": [
+            "Pat"
+          ],
+          "item": "Williamstown Elementary sent students home Wednesday after a phoned bomb threat; a search with a dog found no device.",
+          "source": "WTAP",
+          "url": "https://www.wtap.com/2026/10/14/students-sent-home-after-bomb-threat-williamstown-elementary/"
+        }
+      ],
+      "away": [
+        {
+          "region_id": "vermont",
+          "place": "North Bennington, VT",
+          "people": [
+            "Wes"
+          ],
+          "item": "Pownal named three members Oct. 8 to a study group on a regional EMS district merging the Bennington and Pownal rescue squads.",
+          "source": "Bennington Banner",
+          "url": "https://www.benningtonbanner.com/local-news/pownal-appoints-reps-to-study-group-on-forming-regional-ems-district/5033924"
+        }
+      ],
+      "hotspots": [
+        {
+          "hotspot_id": "cabin",
+          "place": "Webster County & Cowen",
+          "item": "The EDA's plan to buy 50-plus DNR acres across from Big Ditch Lake became a possible lease after DNR said a sale needs state approval, the Echo said Wednesday.",
+          "source": "The Webster Echo",
+          "url": "https://webconews.com/2026/10/14/big-ditch-property-sale-gives-way-to-lease-proposal/"
+        },
+        {
+          "hotspot_id": "topsail",
+          "place": "Topsail Island & the coast",
+          "item": "Autumn With Topsail runs Friday through Sunday on the Historical Society grounds in Topsail Beach, with more than 110 artists and a Kiwanis pancake breakfast.",
+          "source": "WWAY",
+          "url": "https://www.wwaytv3.com/autumn-with-topsail-festival-returns-with-more-than-100-artists-live-music-and-family-activities/"
+        }
+      ]
+    },
+    {
+      "id": "bc",
+      "label": "Canada",
+      "briefs": [
+        {
+          "headline": "Northern Health leads B.C. in drug-death rate, coroner says",
+          "summary": "BC Coroners Service preliminary data put the region at 43 deaths per 100,000 this year. Prince George has 36 so far, after 67 in 2025 and 107 in 2024.",
+          "source": "CKPG Today",
+          "url": "https://ckpgtoday.ca/2026/10/14/northern-health-records-highest-rate-of-unregulated-drug-deaths-in-b-c/",
+          "tier": "prince_george"
+        },
+        {
+          "headline": "Police car and truck collide on Highway 16, closing road",
+          "summary": "RCMP said a cruiser carrying two people under arrest hit a transport truck at Tabor Lake Road East early Wednesday. Injuries were called non-serious.",
+          "source": "CKPG Today",
+          "url": "https://ckpgtoday.ca/2026/10/14/collision-involving-police-vehicle-closes-highway-16/",
+          "tier": "prince_george"
+        },
+        {
+          "headline": "Eby, Doerkson and Lowan clash on deficit, ICBC and DRIPA",
+          "summary": "Doerkson said Wednesday he would repeal the Indigenous rights act, Eby asked how $5B in Tory promises is funded and Lowan pitched a $5.4B-a-year wealth tax.",
+          "source": "Global News",
+          "url": "https://globalnews.ca/news/12101213/watch-bc-election-provincial-leaders-debate-live/",
+          "tier": "bc"
+        },
+        {
+          "headline": "NDP costing shows B.C. deficit falling to $12B by 2028-29",
+          "summary": "The party said Wednesday its promises are covered by taxing the top 3.88% of earners, with $581M to spare. Eby said Tory tax cuts would blow a budget hole.",
+          "source": "CP via Global News",
+          "url": "https://globalnews.ca/news/12103092/bc-ndp-election-costings-deficit-fall-two-years/",
+          "tier": "bc"
+        },
+        {
+          "headline": "Smith votes to stay as 174,532 Albertans cast early ballots",
+          "summary": "The premier said in a video Wednesday that \"Canada can still work\" and urged yes on the other nine questions. Day one of advance polls beat 2023's daily average.",
+          "source": "Global News",
+          "url": "https://globalnews.ca/news/12102950/danielle-smith-votes-stay-in-canada/",
+          "tier": "canada"
+        },
+        {
+          "headline": "FSIN sues Ottawa over $12.4M in disputed spending",
+          "summary": "The federation of 74 Saskatchewan First Nations rejected Indigenous Services Canada's final ruling that the spending was ineligible. Chief Bobby Cameron said $8M was PPE.",
+          "source": "Global News",
+          "url": "https://globalnews.ca/news/12103039/fsin-legal-action-ottawa-12-milllion-audit-claim/",
+          "tier": "canada"
+        }
+      ]
+    },
+    {
+      "id": "scitech",
+      "label": "Science & Technology",
+      "briefs": [
+        {
+          "headline": "Satellites catch nearly all methane plumes in blind test",
+          "summary": "A Stanford-led Nature study ran 481 controlled releases in Arizona in 2025; dedicated methane satellites detected 92% to 100% of plumes.",
+          "source": "Phys.org",
+          "url": "https://phys.org/news/2026-10-satellites-accurately-methane-emissions-largest.html"
+        },
+        {
+          "headline": "Roman telescope's main instrument beats focus target",
+          "summary": "NASA said the Wide Field Instrument's optical error measured 63 nanometers against a 90-nanometer requirement, about 30% better than predicted.",
+          "source": "NASA",
+          "url": "https://science.nasa.gov/blogs/roman/2026/10/14/nasa-roman-team-checks-out-main-instrument-sharpens-telescopes-focus/"
+        },
+        {
+          "headline": "Warwick team finds green and pink white dwarfs nearby",
+          "summary": "Five of 151 white dwarfs within 65 light years would look yellow or pink to the eye, the University of Warwick said, and one is modeled as green.",
+          "source": "EurekAlert",
+          "url": "https://www.eurekalert.org/news-releases/1147389"
+        },
+        {
+          "headline": "Candida auris copies its whole genome to survive drugs",
+          "summary": "Exeter-led researchers said in Nature Communications the fungus made extra copies of its genome to survive antifungals; bloodstream cases kill 45%.",
+          "source": "Phys.org",
+          "url": "https://phys.org/news/2026-10-candida-auris-entire-genome-survive.html"
+        }
+      ]
+    },
+    {
+      "id": "ai",
+      "label": "Artificial Intelligence",
+      "briefs": [
+        {
+          "headline": "Covert AI bias sways choices of 233 trial participants",
+          "summary": "Participants picked the unfavorable option five to eight times more often when an AI adviser covertly pushed it, HKU and Tsinghua said in PNAS.",
+          "source": "EurekAlert",
+          "url": "https://www.eurekalert.org/news-releases/1147838"
+        },
+        {
+          "headline": "UK still weighing AI measures for cyber security bill",
+          "summary": "Civil servant Alexandra Jones told MPs the government is \"looking at\" amendments; committee chair Liam Byrne said a bill must legislate, not consider.",
+          "source": "The Register",
+          "url": "https://www.theregister.com/ai-and-ml/2026/10/15/uk-keeps-ai-safeguards-in-the-maybe-pile-for-cyber-security-bill/5303026"
+        },
+        {
+          "headline": "DeepMind reports no AI-driven speedup in its research",
+          "summary": "Google's Gemini 4 safety report says code changes fully delegated to AI rose from 7.5% to 11.9%; capability growth held at 0.1 index points a month.",
+          "source": "The Decoder",
+          "url": "https://the-decoder.com/google-says-self-improving-ai-isnt-anywhere-close/"
+        }
+      ]
+    }
+  ],
+  "weather_ear": "Thursday's forecast follows at 7:15, from the weather desk.",
+  "kicker": "Nicholas-Webster and Summers-New River carry no regional line today; the Williams River, blown out at 2,040 cfs, is read in Sports & Sportsman.",
+  "sources_note": "Compiled from wire reports",
+  "art": {
+    "file": "art/2026-10-15-lead.svg",
+    "placement": "lead",
+    "caption": "A shopper pauses with a cart in a supermarket aisle, between shelves of goods the September index priced 3.7% above a year ago.",
+    "credit": "Sketched from an NBC News photograph"
+  }
+}
