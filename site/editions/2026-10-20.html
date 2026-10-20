@@ -1,0 +1,1232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Alberta votes 76% to stay in Canada, rejecting a separation path Smith promises no second vote this mandate; separatists say they will test her hold on the UCP">
+<title>THE ASHGROVE TIMES — Tuesday, October 20, 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<style>
+  :root {
+    --parchment: #f4f0e6;
+    --parchment-alt: #e9e4d8;
+    --wv-tint: #ede7d6;
+    --ink: #1c1a16;
+    --ink-soft: #3a362a;
+    --ink-mute: #4a4536;
+    --ink-faint: #6b6555;
+    --rule: #c9c2ac;
+    --display: "Playfair Display", "Iowan Old Style", "Palatino Linotype",
+               Palatino, "Book Antiqua", Georgia, "Times New Roman", serif;
+    --alt: "Old Standard TT", "Playfair Display", Georgia, "Times New Roman", serif;
+    /* Small headlines. Playfair is a Didone: its hairlines are drawn for
+       the masthead and the lead, and at 16px they fall below a pixel and
+       the tops of letters vanish (Nate, 2026-09-03, reading a brief head).
+       Source Serif at 600 has the same warmth with strokes that survive a
+       screen; Playfair stays for everything set large or in black weight. */
+    --headline: "Source Serif 4", "Source Serif Pro", Charter, "Iowan Old Style",
+      Georgia, "Times New Roman", serif;
+    --body: "Source Serif 4", "Source Serif Pro", Charter, "Iowan Old Style",
+            Georgia, Cambria, "Times New Roman", serif;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    background: var(--parchment-alt);
+    margin: 0;
+    padding: 24px 12px 60px;
+    font-family: var(--body);
+    color: var(--ink);
+    font-kerning: normal;
+    text-rendering: optimizeLegibility;
+  }
+
+  .page {
+    max-width: 900px;
+    margin: 0 auto;
+    background: var(--parchment);
+    border: 1px solid var(--ink);
+    padding: 28px 34px 40px;
+    box-shadow: 0 2px 18px rgba(0, 0, 0, 0.18);
+  }
+
+  /* ---------- top bar and the weather ear ---------- */
+
+  .top-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 14px;
+    justify-content: space-between;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--ink);
+    padding-bottom: 6px;
+    margin-bottom: 10px;
+  }
+
+  /* The pointer to Claude the Weatherman's 7:15 forecast. Sits in the top
+     band rather than beside the masthead: at 58px the wordmark leaves about
+     120px of margin, which no ear fits into without shrinking the plate. */
+  .ear {
+    max-width: 320px;
+    margin: 0 0 6px auto;
+    text-wrap: balance;
+    border: 1px solid var(--ink);
+    background: var(--wv-tint);
+    padding: 5px 9px 6px;
+    font-size: 11px;
+    line-height: 1.35;
+    text-align: right;
+  }
+
+  .ear-label {
+    display: block;
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 9.5px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+
+  /* The family banner: the WHOLE thing is The Ashgrove Times (Nate,
+     2026-08-21), so every section page carries it above its own name. */
+  .family-line {
+    text-align: center;
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin: 2px 0 0;
+  }
+
+  /* Section-to-section buttons, house-styled like the section labels. */
+  /* The rule that closes the wire columns off from the anchor sections
+     below them (Nate, 2026-08-26). A column bottom is a ragged edge, and
+     without this the notebook read as one more thing the last column ran
+     into. In the BASE stylesheet, not a breakpoint: the sections stack on a
+     phone and the break between the wire and the anchors still needs
+     saying — a browser-default <hr> in a letterpress page does not. */
+  .rule-anchor {
+    border: 0;
+    border-top: 1px solid var(--ink);
+    margin: 6px 0 16px;
+  }
+
+  /* A tier heading inside the Canada section. Smaller than a section label
+     and not reversed out — it is a sub-head, and three black chips stacked
+     under one black chip would read as four sections. Matches the
+     notebook's .wv-block-label, which is the same idea one box over. */
+  .tier-label {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 4px;
+    margin: 0 0 10px;
+  }
+  .sec-canada .tier { margin-bottom: 6px; }
+
+  .paper-nav { text-align: center; margin: 0 0 18px; }
+  .paper-nav a {
+    display: inline-block;
+    border: 1px solid var(--ink);
+    background: var(--wv-tint);
+    color: var(--ink);
+    text-decoration: none;
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 11.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    margin: 0 4px 6px;
+  }
+  .paper-nav a:hover { background: var(--ink); color: var(--parchment); }
+  /* The same row repeated at the foot of the page, where a reader who has
+     finished actually is. Ruled off above so it reads as the end of the
+     paper rather than as one more thing to read. */
+  .paper-nav-foot {
+    margin: 22px 0 2px;
+    padding-top: 16px;
+    border-top: 1px solid var(--rule);
+  }
+
+  /* The tide table: a real table, because Nate asked for one. */
+  .tide-table, .wx-stats { border-collapse: collapse; margin: 10px auto 4px; font-size: 13.5px; }
+  .tide-table caption {
+    font-family: var(--display); font-weight: 700; font-size: 13px;
+    letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-mute);
+    padding-bottom: 6px;
+  }
+  .tide-table th, .tide-table td, .wx-stats th, .wx-stats td {
+    border: 1px solid var(--rule); padding: 4px 12px; text-align: center;
+  }
+  .tide-table th, .wx-stats th {
+    font-family: var(--display); font-size: 11.5px; letter-spacing: 0.08em;
+    text-transform: uppercase; background: var(--wv-tint);
+  }
+  .tide-table td:first-child { font-weight: 600; }
+  /* The weather page's numbers table: the first thing under every location
+     chip since 2026-09-03 (Nate: "show the data first and foremost"), so
+     the read underneath can be a read and not a ledger. Full measure, a
+     little tighter than the tide table, and it must never overflow a
+     column on a phone. */
+  .wx-stats { width: 100%; margin: 2px 0 10px; font-size: 13px; }
+  .wx-stats th, .wx-stats td { padding: 3px 6px; white-space: nowrap; }
+  .wx-stats td:first-child { font-weight: 600; }
+  .sec .wx-stats { break-inside: avoid; }
+
+  /* ---------- masthead ---------- */
+
+  .masthead {
+    text-align: center;
+    font-family: var(--alt);
+    font-weight: 700;
+    font-size: 58px;
+    letter-spacing: 1px;
+    margin: 6px 0 2px;
+    line-height: 1;
+  }
+
+  .tagline {
+    text-align: center;
+    font-style: italic;
+    font-size: 13px;
+    color: var(--ink-mute);
+    margin-bottom: 8px;
+  }
+
+  .rule-thick { border: none; border-top: 4px double var(--ink); margin: 6px 0 0; }
+  .rule-thin { border: none; border-top: 1px solid var(--ink); margin: 4px 0 16px; }
+
+  /* ---------- lead story ---------- */
+
+  .headline {
+    font-family: var(--display);
+    font-weight: 900;
+    font-size: 27px;
+    line-height: 1.15;
+    margin: 0 0 6px;
+  }
+
+  .subhead {
+    font-style: italic;
+    font-size: 14px;
+    color: var(--ink-soft);
+    margin: 0 0 10px;
+  }
+
+  .byline {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin: 0 0 12px;
+  }
+
+  .columns {
+    column-count: 2;
+    column-gap: 26px;
+    column-rule: 1px solid var(--rule);
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  .columns p { margin: 0 0 12px; }
+  .columns p:last-child { margin-bottom: 0; }
+
+  .drop {
+    float: left;
+    font-family: var(--display);
+    font-weight: 900;
+    font-size: 46px;
+    line-height: 0.8;
+    padding: 4px 6px 0 0;
+  }
+
+  /* ---------- stat strip ---------- */
+
+  .stat-strip {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid var(--ink);
+    border-bottom: 1px solid var(--ink);
+    padding: 8px 0;
+    margin: 18px 0;
+    font-size: 13px;
+  }
+
+  .stat-strip div { text-align: center; flex: 1; }
+
+  .stat-strip b {
+    display: block;
+    font-family: var(--headline);
+    font-weight: 600;
+    font-size: 15px;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .stat-label {
+    display: block;
+    font-size: 10.5px;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+
+  .stat-change {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3em;
+    margin-top: 1px;
+    font-size: 12px;
+    font-variant-numeric: tabular-nums;
+    color: var(--ink-soft);
+  }
+
+  /* Direction is a drawn triangle, not a glyph or a hue - it survives any
+     font fallback and reads without color vision. */
+  .tri {
+    width: 0;
+    height: 0;
+    border-left: 0.3em solid transparent;
+    border-right: 0.3em solid transparent;
+  }
+
+  .tri.up { border-bottom: 0.42em solid var(--ink); }
+  .tri.down { border-top: 0.42em solid var(--ink); }
+
+  .tri.flat {
+    width: 0.6em;
+    height: 2px;
+    border: 0;
+    background: var(--ink);
+  }
+
+  .stats-note {
+    margin: -8px 0 20px;
+    text-align: center;
+    font-size: 10.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+
+  /* ---------- sections ---------- */
+
+  .section-label {
+    font-family: var(--display);
+    font-weight: 900;
+    font-size: 15px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    background: var(--ink);
+    color: var(--parchment);
+    display: inline-block;
+    padding: 3px 10px;
+    margin: 26px 0 12px;
+  }
+
+  .brief {
+    margin-bottom: 14px;
+    font-size: 14.5px;
+    line-height: 1.5;
+  }
+
+  .brief-head {
+    font-family: var(--headline);
+    font-weight: 600;
+    font-size: 16.5px;
+    line-height: 1.25;
+    margin: 0 0 3px;
+  }
+
+  .brief p { margin: 0; }
+
+  .two-col-briefs {
+    column-count: 2;
+    column-gap: 26px;
+    column-rule: 1px solid var(--rule);
+  }
+
+  .two-col-briefs .brief { break-inside: avoid; page-break-inside: avoid; }
+  .two-col-briefs .brief:last-child { margin-bottom: 0; }
+
+  .src {
+    display: block;
+    margin-top: 3px;
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+
+  .src a { color: inherit; text-decoration-thickness: 1px; }
+  .src a:hover { color: var(--ink); }
+
+  /* ---------- West Virginia: the local anchor, not another wire section ---- */
+
+  .wv-box {
+    border: 2px solid var(--ink);
+    padding: 14px 18px;
+    margin-top: 10px;
+    background: var(--wv-tint);
+  }
+
+  .wv-title {
+    font-family: var(--display);
+    font-weight: 900;
+    font-size: 20px;
+    margin: 0 0 4px;
+  }
+
+  .wv-box > .brief:last-child { margin-bottom: 0; }
+
+  .wv-block {
+    margin-top: 14px;
+    padding-top: 11px;
+    border-top: 1px solid var(--rule);
+  }
+
+  .wv-block-label {
+    margin: 0 0 7px;
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+
+  .roundup { list-style: none; margin: 0; padding: 0; }
+
+  .roundup li {
+    margin: 0 0 8px;
+    font-size: 14px;
+    line-height: 1.45;
+  }
+
+  .roundup li:last-child { margin-bottom: 0; }
+
+  .roundup .src { display: inline; margin: 0 0 0 5px; }
+
+  .place,
+  .water {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 12.5px;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+  }
+
+  .folk { font-style: italic; color: var(--ink-mute); }
+
+  /* The out-of-town column: same shape as the regional roundup, one step
+     quieter, so it never competes with the in-state lines above it. */
+  .wv-away { border-left: 2px solid var(--rule); padding-left: 12px; }
+  .wv-away .roundup li { margin-bottom: 6px; font-size: 13px; color: var(--ink-soft); }
+  .wv-away .place { font-size: 11.5px; }
+
+  .wv-fishing { border-top: 1px solid var(--ink); }
+  .wv-fishing .roundup li { font-size: 13.5px; }
+
+  /* ---------- kicker and colophon ---------- */
+
+  .kicker {
+    margin-top: 26px;
+    padding: 12px 0;
+    border-top: 1px solid var(--ink);
+    border-bottom: 4px double var(--ink);
+    text-align: center;
+    font-style: italic;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .footer-note {
+    text-align: center;
+    font-size: 11px;
+    color: var(--ink-faint);
+    margin-top: 30px;
+    font-style: italic;
+  }
+
+  .footer-note a { color: inherit; }
+  .footer-note .sep { padding: 0 0.5em; }
+
+  /* ---------- archive ---------- */
+
+  .issues { list-style: none; margin: 18px 0 0; padding: 0; }
+
+  .issue {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2px 14px;
+    align-items: baseline;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .issue .no {
+    flex: 0 0 15rem;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+
+  .issue .hed {
+    flex: 1 1 16rem;
+    font-family: var(--headline);
+    font-weight: 600;
+    font-size: 16.5px;
+    line-height: 1.28;
+  }
+
+  .issue .hed a { color: inherit; text-decoration: none; }
+  .issue .hed a:hover { text-decoration: underline; }
+
+  .empty { margin-top: 20px; text-align: center; font-style: italic; }
+
+  /* ---------- the drawing ---------- */
+
+  .art { margin: 0 0 16px; }
+  .art svg { max-height: 46vh; object-fit: contain; }
+
+  /* currentColor is what makes the drawing ink rather than a picture: the
+     SVG inherits the page's colour, so it prints and inverts with the type
+     instead of sitting on top of it as a foreign object. */
+  .art svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    color: var(--ink);
+    background: var(--parchment);
+    border: 1px solid var(--ink);
+  }
+
+  .art figcaption {
+    margin-top: 5px;
+    font-size: 11.5px;
+    line-height: 1.4;
+    color: var(--ink-soft);
+  }
+
+  /* The credit is small caps and says "sketched" out loud - a reader must
+     never mistake the drawing for a photograph. */
+  .art-credit {
+    font-size: 10px;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    white-space: nowrap;
+  }
+
+  /* ---------- phone: most of the group opens this in Discord on mobile ---- */
+
+  @media (max-width: 840px) {
+    body { padding: 12px 8px 40px; }
+    .page { padding: 18px 16px 28px; }
+    /* THE ASHGROVE TIMES sets about 12.4x its font-size in Old Standard TT,
+       so 58px needs an 811px viewport. Below that the wordmark is measured
+       to the page rather than wrapped; /13 leaves slack for the fallback
+       serifs, which set wider. */
+    .masthead {
+      font-size: min(58px, calc((100vw - 48px) / 13));
+      letter-spacing: 0.5px;
+    }
+    .top-bar { justify-content: center; text-align: center; }
+    .ear { max-width: none; margin: 0 0 8px; text-align: center; }
+    .headline { font-size: 23px; }
+    .wv-box { padding: 12px 13px; }
+  }
+
+  @media (max-width: 640px) {
+    .columns,
+    .two-col-briefs { column-count: 1; column-rule: none; }
+    .stat-strip { flex-wrap: wrap; gap: 8px 0; }
+    .stat-strip div { flex: 0 0 50%; }
+    .issue .no { flex: 1 1 100%; }
+  }
+
+  /* ---------- desktop: this is where it becomes a real broadsheet --------
+
+     Everything above is the phone and tablet paper, which stays compact on
+     purpose. From here up the page stops being a narrow strip on a big
+     monitor and starts behaving like a front page: a wordmark that fills
+     the width, a lead that runs across several columns, and the wire
+     sections FLOWING through newspaper columns instead of stacking.
+
+     `.sections` uses CSS multi-column rather than grid because that is
+     genuinely how a page is set — copy fills column one, continues into
+     column two — and it keeps DOM order, so the phone layout and the
+     screen-reader order need no separate handling. */
+
+  @media (min-width: 1024px) {
+    body { padding: 34px 24px 70px; }
+    /* Art is furniture, not a banner. Left-aligned at roughly a third of
+       the measure so the lead still reads as the lead. */
+    .art { max-width: 480px; }
+    .art svg { max-height: none; }
+    .page { max-width: 1180px; padding: 34px 44px 46px; }
+    .masthead { font-size: 76px; letter-spacing: 2px; }
+    .tagline { font-size: 15px; margin-bottom: 10px; }
+    .headline { font-size: 40px; line-height: 1.08; }
+    .subhead { font-size: 17px; }
+    .columns { column-count: 2; font-size: 15.5px; }
+    .drop { font-size: 58px; }
+
+    /* WITH a drawing: art at roughly a third of the measure, story beside
+       it. Scoped to .with-art deliberately — when this rule was on the bare
+       .lead-block and the day's drawing went to another section, the story
+       became the first grid child, inherited the 27% art column, and left
+       three quarters of the page white beside eight lines of type. */
+    .lead-block.with-art {
+      display: grid;
+      grid-template-columns: minmax(240px, 27%) 1fr;
+      gap: 0 30px;
+      align-items: start;
+    }
+    .lead-block.with-art .art { max-width: none; margin: 0; }
+    /* Cap the drawing so its bottom lands near the text's, instead of
+       running past it and opening a hole under the columns. */
+    .lead-block.with-art .art svg { max-height: 210px; width: 100%; }
+
+    /* WITHOUT one: nothing shares this line of the page, so the lead runs
+       the full measure. Column COUNT rather than width, because a lead is
+       short and a fixed column-width would leave a half-empty third column
+       on a thin news day. */
+    .lead-block.no-art .columns { column-count: 2; }
+  }
+
+  @media (min-width: 1320px) {
+    .page { max-width: 1420px; padding: 40px 54px 56px; }
+    .masthead { font-size: 96px; letter-spacing: 3px; }
+    .headline { font-size: 50px; }
+
+    /* Three columns across ~1,310px of measure is about 420px a column —
+       roughly 58 characters, which is a newspaper line. Two would set 85+
+       and read like a blog. Measured against a real lead: 766 characters on
+       2026-08-24, which fills three columns about five lines deep. */
+    .lead-block.no-art .columns { column-count: 3; }
+
+    /* The wire sections FLOW through these columns; they are not placed in
+       them. (2026-08-26 — this was a grid until Pat said "lots and lots of
+       unused space.")
+
+       A grid gave each section its own cell and made every row as tall as
+       its tallest member. On an ordinary morning — U.S. 524px, World 637px,
+       Sci/Tech 901px — that stood 28% of the section area empty, and a last
+       row that did not divide evenly was worse. Copy that runs down one
+       column and continues into the next cannot leave a hole, whatever
+       shape the news turns out to be that day. Measured on the 2026-08-26
+       edition: the section block went 1917px to 999px and the page 3093px
+       to 2653px, with nothing added and nothing cut.
+
+       The original objection to multi-column here was real and is now
+       answered rather than ignored: a `column-span: all` child splits a
+       flow and strands columns, which is exactly what happened the first
+       time. So the notebook is not a child of the flow at all — it is a
+       sibling block below it, and nothing inside the flow spans.
+
+       Sports & Sportsman has set this way since it launched. */
+    .sections { display: block; }
+    .wire-flow {
+      column-count: var(--wire-cols, 3);
+      column-gap: 30px;
+      column-rule: 1px solid #c9c2ac;
+    }
+    .wire-flow > .sec {
+      break-inside: auto;      /* a section MAY continue into the next column */
+      border-left: 0;
+      padding-left: 0;
+      margin: 0 0 18px;
+    }
+    /* ...but a brief, the drawing, and a label stranded from the brief
+       under it may not be split. Those are the atoms. */
+    .wire-flow .brief { break-inside: avoid; }
+    .wire-flow .art { break-inside: avoid; }
+    .wire-flow .section-label { break-after: avoid; margin-top: 0; }
+    .wire-flow .sec + .sec .section-label { margin-top: 12px; }
+    .sec { margin-bottom: 20px; }
+    .sec .two-col-briefs { column-count: 1; column-rule: none; }
+    .sec .section-label { margin-top: 0; }
+
+
+    /* Anchored sections — the notebook and British Columbia — take the full
+       measure below the flow. Their briefs run in their own columns, since
+       one column across 1,310px would set 85-character lines. */
+    .sec-anchor { margin: 0 0 18px; }
+    .sec-anchor .two-col-briefs {
+      column-count: 3;
+      column-gap: 30px;
+      column-rule: 1px solid var(--rule);
+    }
+    .sec-anchor .brief { break-inside: avoid; }
+
+    /* Canada does its own columns, so the anchor rule above must not also
+       fragment it — a grid inside a CSS multi-column container gets sliced
+       across the columns, which put a tier label above an empty column and
+       stranded its brief two columns away. */
+    .sec-canada .two-col-briefs { column-count: 1; column-rule: none; }
+
+    /* The Canada section's three tiers sit side by side across the measure,
+       local first. A tier with nothing in it does not render, so a thin
+       morning closes to two columns rather than standing one empty — the
+       whole page was rebuilt to stop doing exactly that. */
+    .sec-canada .tiers {
+      display: grid;
+      grid-template-columns: repeat(var(--tier-cols, 3), 1fr);
+      column-gap: 30px;
+      align-items: start;
+    }
+    .sec-canada .tier + .tier { border-left: 1px solid var(--rule); padding-left: 30px; }
+
+    /* The notebook is the anchor and it is wide content — four sub-blocks
+       that would strangle in a 300px column. It takes the whole measure as
+       a boxed feature, which is both where the space is and the treatment
+       Ian asked for. It sits BELOW the flow because the renderer emits it
+       as a sibling after .wire-flow, not because of a CSS `order` — that
+       was a grid trick and the grid is gone. Screen readers and the phone
+       layout get the same sequence the markup has. */
+    .sec-wv { margin: 10px 0 8px; }
+    .sec-wv .wv-box { padding: 22px 28px; column-count: 2; column-gap: 36px; }
+    .sec-wv .wv-title { column-span: all; font-size: 24px; }
+    .sec-wv .wv-box > .brief,
+    .sec-wv .wv-block { break-inside: avoid; }
+  }
+
+  @media (min-width: 1700px) {
+    .page { max-width: 1600px; }
+    .masthead { font-size: 108px; }
+    /* Three, not four, even here. The lead runs about 700 characters — a
+       fourth column would set it three lines deep and read as a caption
+       rather than as the day's story. */
+  }
+
+  /* ---------- Sports & Sportsman page layout ----------
+     A true newsprint fill. Fixed left/right blocks stranded whitespace the
+     moment one side outgrew the other, so instead the whole paper flows
+     through balanced CSS columns: Our Teams runs down column one and spills
+     into column two, Around the Leagues starts right where it ends, and the
+     browser balances the column bottoms. Briefs and roundup lines are
+     atomic; sections and state blocks are allowed to break between them. */
+
+  @media (min-width: 1024px) {
+    .page.sportsman .sections {
+      display: block;   /* undo the Times grid — columns need flow layout */
+      column-count: 2;
+      column-gap: 34px;
+      column-rule: 1px solid var(--rule);
+    }
+  }
+
+  @media (min-width: 1320px) {
+    .page.sportsman .sections { column-count: 3; }
+  }
+
+  @media (min-width: 1024px) {
+    .page.sportsman .sections > .sec {
+      break-inside: auto;
+      border-left: 0;
+      padding-left: 0;
+      margin: 0 0 20px;
+    }
+    .page.sportsman .sec .two-col-briefs { column-count: 1; column-rule: none; }
+    .page.sportsman .brief,
+    .page.sportsman .roundup li { break-inside: avoid; }
+    .page.sportsman .section-label { break-after: avoid; margin-top: 0; }
+    .page.sportsman .sec + .sec .section-label { margin-top: 10px; }
+    .page.sportsman .wv-block { break-inside: auto; }
+    .page.sportsman .wv-block-label { break-after: avoid; }
+  }
+
+  /* ---------- the weather page (Jim Claudtore's briefing, typeset) ---- */
+
+  .wx-briefing { max-width: 760px; margin: 0 auto; font-size: 15px; line-height: 1.55; }
+  .wx-briefing p { margin: 0 0 12px; }
+  .wx-day {
+    font-family: var(--display); font-weight: 900; font-size: 26px;
+    line-height: 1.15; margin: 4px 0 6px;
+  }
+  .wx-dek { font-style: italic; font-size: 15px; color: var(--ink-soft); margin: 0 0 16px; }
+  .wx-loc {
+    font-family: var(--display); font-weight: 700; font-size: 17px;
+    border-top: 1px solid var(--rule); padding-top: 12px; margin: 18px 0 6px;
+  }
+  .wx-list { margin: 0 0 12px; padding-left: 20px; }
+  .wx-list li { margin-bottom: 6px; }
+  /* The weather page stopped borrowing the sportsman column fill on
+     2026-08-25 — it sets as a newspaper page now, with the same section
+     grid the front page uses, so there is no multi-column flow left to
+     undo. What it does need is its own handling of Jim's confidence note,
+     which is a single paragraph inside a full-width box: the notebook's
+     two columns would split one short paragraph down the middle. */
+  .wx-confidence .wv-box { column-count: 1; }
+  .wx-confidence .wv-box p { margin: 0 0 10px; max-width: 92ch; }
+  .wx-confidence .wv-box p:last-child { margin-bottom: 0; }
+  .wx-roundup { margin: 0; }
+  /* Jim writes in half a dozen short reports rather than long copy, so the
+     label chip has to survive a stacked heading — three towns sharing one
+     forecast — without pushing the section out of its column. */
+  .page.weather .section-label { white-space: normal; line-height: 1.35; }
+
+  @media print {
+    body { background: #fff; padding: 0; }
+    .page { border: 0; box-shadow: none; max-width: none; }
+    .wire-flow { column-count: var(--wire-cols, 3); column-gap: 24px; }
+    .sec-wv { grid-column: 1 / -1; order: 9; }
+    /* Buttons and the anchor rule are screen furniture: a printed page
+       has no other sections to go to, and the rule was drawn to separate
+       columns that print does not stack the same way. */
+    .paper-nav, .rule-anchor { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="page ">
+
+  <div class="top-bar">
+    <span>Vol. I — No. 76</span>
+    <span>Tuesday, October 20, 2026</span>
+    <span>Price: Free</span>
+  </div>
+  <div class="ear">
+    <span class="ear-label">Weather</span>Jim Claudtore has Tuesday&#x27;s forecast at 7:15.
+  </div>
+  <div class="family-line">The Ashgrove Times</div>
+  <div class="masthead">THE NEWS DESK</div>
+  <div class="tagline">&ldquo;For the Fellers&rdquo;</div>
+  <hr class="rule-thick">
+  <hr class="rule-thin">
+
+  <nav class="paper-nav" aria-label="Sections"><a href="../home.html">Home</a><a href="../sportsman/">Sports &amp; Sportsman</a><a href="../weather/">The Weather Claude</a></nav>
+
+  <div class="headline">Alberta votes 76% to stay in Canada, rejecting a separation path</div>
+  <div class="subhead">Smith promises no second vote this mandate; separatists say they will test her hold on the UCP</div>
+  <div class="byline">By Wire Reports</div>
+
+  <div class="lead-block with-art">
+    <figure class="art">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 506" role="img"
+     aria-label="Sketch: a large Canadian flag on a pole fills the top of the frame, its maple leaf at centre, with Alberta flags to the left and right, in front of the fluted stone columns and entablature of the Alberta Legislature in Edmonton. At right a figure in a round hat, full mask and armour holds the pole with both hands; at centre a hooded figure in a striped jersey is seen from behind; a row of heads in the crowd at lower left and the building's steps across the bottom. No faces are drawn. Drawn after a Canadian Press photograph on Global News.">
+  <defs><style>
+    .ink  { fill: none; stroke: currentColor; stroke-width: 1.3; stroke-linecap: round; stroke-linejoin: round; }
+    .faint{ opacity: 0.4; }
+    .mid  { opacity: 0.7; }
+    .body { fill: var(--parchment, #f4f0e6); stroke: currentColor; stroke-width: 1.5; stroke-linejoin: round; }
+  </style></defs>
+  <g>
+    <path class="ink mid" d="M0.0 70.0 L900.0 70.0"/>
+    <path class="ink faint" stroke-width="0.8" d="M0.0 84.0 L900.0 84.0"/>
+    <path class="ink mid" d="M0.0 96.0 L900.0 96.0"/>
+    <path class="ink faint" stroke-width="0.6" d="M10.0 84.0 L10.0 96.0"/>
+    <path class="ink faint" stroke-width="0.6" d="M32.0 84.0 L32.0 96.0"/>
+    <path class="ink faint" stroke-width="0.6" d="M54.0 84.0 L54.0 96.0"/>
+    <path class="ink faint" stroke-width="0.6" d="M76.0 84.0 L76.0 96.0"/>
+    <path class="ink faint" stroke-width="0.6" d="M98.0 84.0 L98.0 96.0"/>
+    <path class="ink faint" stroke-width="0.6" d="M120.0 84.0 L120.0 96.0"/>
+    <path class="ink faint" stroke-width="0.6" d="M142.0 84.0 L142.0 96.0"/>
+    <path class="ink faint" stroke-width="0.6" d="M164.0 84.0 L164.0 96.0"/>
+    <path class="ink faint" stroke-width="0.6" d="M186.0 84.0 L186.0 96.0"/>
+    <path class="ink faint" stroke-width="0.6" d="M208.0 84.0 L208.0 96.0"/>
+    <path class="ink faint" stroke-width="0.6" d="M230.0 84.0 L230.0 96.0"/>
+    <path class="ink faint" stroke-width="0.6" d="M252.0 84.0 L252.0 96.0"/>
+    <path class="ink faint" stroke-width="0.6" d="M274.0 84.0 L274.0 96.0"/>
+    <path class="ink faint" stroke-width="0.6" d="M296.0 84.0 L296.0 96.0"/>
+    <path class="ink faint" stroke-width="0.6" d="M318.0 84.0 L318.0 96.0"/>
+    <path class="ink faint" stroke-width="0.6" d="M340.0 84.0 L340.0 96.0"/>
+    <path class="ink faint" stroke-width="0.6" d="M362.0 84.0 L362.0 96.0"/>
+    <path class="ink faint" stroke-width="0.6" d="M384.0 84.0 L384.0 96.0"/>
+    <path class="ink faint" stroke-width="0.6" d="M406.0 84.0 L406.0 96.0"/>
+    <path class="ink faint" stroke-width="0.6" d="M428.0 84.0 L428.0 96.0"/>
+    <path class="ink faint" stroke-width="0.6" d="M450.0 84.0 L450.0 96.0"/>
+    <path class="ink faint" stroke-width="0.6" d="M472.0 84.0 L472.0 96.0"/>
+    <path class="ink faint" stroke-width="0.6" d="M494.0 84.0 L494.0 96.0"/>
+    <path class="ink faint" stroke-width="0.6" d="M516.0 84.0 L516.0 96.0"/>
+    <path class="ink faint" stroke-width="0.6" d="M538.0 84.0 L538.0 96.0"/>
+    <path class="ink faint" stroke-width="0.6" d="M560.0 84.0 L560.0 96.0"/>
+    <path class="ink faint" stroke-width="0.6" d="M582.0 84.0 L582.0 96.0"/>
+    <path class="ink faint" stroke-width="0.6" d="M604.0 84.0 L604.0 96.0"/>
+    <path class="ink faint" stroke-width="0.6" d="M626.0 84.0 L626.0 96.0"/>
+    <path class="ink faint" stroke-width="0.6" d="M648.0 84.0 L648.0 96.0"/>
+    <path class="ink faint" stroke-width="0.6" d="M670.0 84.0 L670.0 96.0"/>
+    <path class="ink faint" stroke-width="0.6" d="M692.0 84.0 L692.0 96.0"/>
+    <path class="ink faint" stroke-width="0.6" d="M714.0 84.0 L714.0 96.0"/>
+    <path class="ink faint" stroke-width="0.6" d="M736.0 84.0 L736.0 96.0"/>
+    <path class="ink faint" stroke-width="0.6" d="M758.0 84.0 L758.0 96.0"/>
+    <path class="ink faint" stroke-width="0.6" d="M780.0 84.0 L780.0 96.0"/>
+    <path class="ink faint" stroke-width="0.6" d="M802.0 84.0 L802.0 96.0"/>
+    <path class="ink faint" stroke-width="0.6" d="M824.0 84.0 L824.0 96.0"/>
+    <path class="ink faint" stroke-width="0.6" d="M846.0 84.0 L846.0 96.0"/>
+    <path class="ink faint" stroke-width="0.6" d="M868.0 84.0 L868.0 96.0"/>
+    <path class="ink faint" stroke-width="0.6" d="M890.0 84.0 L890.0 96.0"/>
+    <path class="ink mid" d="M41.0 96.0 L79.0 96.0 L85.0 112.0 L35.0 112.0 Z"/>
+    <path class="ink" d="M41.0 112.0 L41.0 420.0"/>
+    <path class="ink" d="M79.0 112.0 L79.0 420.0"/>
+    <path class="ink faint" stroke-width="0.6" d="M48.6 114.0 L48.6 418.0"/>
+    <path class="ink faint" stroke-width="0.6" d="M56.2 114.0 L56.2 418.0"/>
+    <path class="ink faint" stroke-width="0.6" d="M63.8 114.0 L63.8 418.0"/>
+    <path class="ink faint" stroke-width="0.6" d="M71.4 114.0 L71.4 418.0"/>
+    <path class="ink mid" d="M33.0 420.0 L87.0 420.0 L87.0 432.0 L33.0 432.0 Z"/>
+    <path class="ink mid" d="M191.0 96.0 L229.0 96.0 L235.0 112.0 L185.0 112.0 Z"/>
+    <path class="ink" d="M191.0 112.0 L191.0 420.0"/>
+    <path class="ink" d="M229.0 112.0 L229.0 420.0"/>
+    <path class="ink faint" stroke-width="0.6" d="M198.6 114.0 L198.6 418.0"/>
+    <path class="ink faint" stroke-width="0.6" d="M206.2 114.0 L206.2 418.0"/>
+    <path class="ink faint" stroke-width="0.6" d="M213.8 114.0 L213.8 418.0"/>
+    <path class="ink faint" stroke-width="0.6" d="M221.4 114.0 L221.4 418.0"/>
+    <path class="ink mid" d="M183.0 420.0 L237.0 420.0 L237.0 432.0 L183.0 432.0 Z"/>
+    <path class="ink mid" d="M341.0 96.0 L379.0 96.0 L385.0 112.0 L335.0 112.0 Z"/>
+    <path class="ink" d="M341.0 112.0 L341.0 420.0"/>
+    <path class="ink" d="M379.0 112.0 L379.0 420.0"/>
+    <path class="ink faint" stroke-width="0.6" d="M348.6 114.0 L348.6 418.0"/>
+    <path class="ink faint" stroke-width="0.6" d="M356.2 114.0 L356.2 418.0"/>
+    <path class="ink faint" stroke-width="0.6" d="M363.8 114.0 L363.8 418.0"/>
+    <path class="ink faint" stroke-width="0.6" d="M371.4 114.0 L371.4 418.0"/>
+    <path class="ink mid" d="M333.0 420.0 L387.0 420.0 L387.0 432.0 L333.0 432.0 Z"/>
+    <path class="ink mid" d="M501.0 96.0 L539.0 96.0 L545.0 112.0 L495.0 112.0 Z"/>
+    <path class="ink" d="M501.0 112.0 L501.0 420.0"/>
+    <path class="ink" d="M539.0 112.0 L539.0 420.0"/>
+    <path class="ink faint" stroke-width="0.6" d="M508.6 114.0 L508.6 418.0"/>
+    <path class="ink faint" stroke-width="0.6" d="M516.2 114.0 L516.2 418.0"/>
+    <path class="ink faint" stroke-width="0.6" d="M523.8 114.0 L523.8 418.0"/>
+    <path class="ink faint" stroke-width="0.6" d="M531.4 114.0 L531.4 418.0"/>
+    <path class="ink mid" d="M493.0 420.0 L547.0 420.0 L547.0 432.0 L493.0 432.0 Z"/>
+    <path class="ink mid" d="M661.0 96.0 L699.0 96.0 L705.0 112.0 L655.0 112.0 Z"/>
+    <path class="ink" d="M661.0 112.0 L661.0 420.0"/>
+    <path class="ink" d="M699.0 112.0 L699.0 420.0"/>
+    <path class="ink faint" stroke-width="0.6" d="M668.6 114.0 L668.6 418.0"/>
+    <path class="ink faint" stroke-width="0.6" d="M676.2 114.0 L676.2 418.0"/>
+    <path class="ink faint" stroke-width="0.6" d="M683.8 114.0 L683.8 418.0"/>
+    <path class="ink faint" stroke-width="0.6" d="M691.4 114.0 L691.4 418.0"/>
+    <path class="ink mid" d="M653.0 420.0 L707.0 420.0 L707.0 432.0 L653.0 432.0 Z"/>
+    <path class="ink mid" d="M821.0 96.0 L859.0 96.0 L865.0 112.0 L815.0 112.0 Z"/>
+    <path class="ink" d="M821.0 112.0 L821.0 420.0"/>
+    <path class="ink" d="M859.0 112.0 L859.0 420.0"/>
+    <path class="ink faint" stroke-width="0.6" d="M828.6 114.0 L828.6 418.0"/>
+    <path class="ink faint" stroke-width="0.6" d="M836.2 114.0 L836.2 418.0"/>
+    <path class="ink faint" stroke-width="0.6" d="M843.8 114.0 L843.8 418.0"/>
+    <path class="ink faint" stroke-width="0.6" d="M851.4 114.0 L851.4 418.0"/>
+    <path class="ink mid" d="M813.0 420.0 L867.0 420.0 L867.0 432.0 L813.0 432.0 Z"/>
+    <path class="ink faint" stroke-width="0.5" d="M90.0 130.0 L170.0 136.0"/>
+    <path class="ink faint" stroke-width="0.5" d="M90.0 154.0 L170.0 160.0"/>
+    <path class="ink faint" stroke-width="0.5" d="M90.0 178.0 L170.0 184.0"/>
+    <path class="ink faint" stroke-width="0.5" d="M90.0 202.0 L170.0 208.0"/>
+    <path class="ink faint" stroke-width="0.5" d="M90.0 226.0 L170.0 232.0"/>
+    <path class="ink faint" stroke-width="0.5" d="M90.0 250.0 L170.0 256.0"/>
+    <path class="ink faint" stroke-width="0.5" d="M90.0 274.0 L170.0 280.0"/>
+    <path class="ink faint" stroke-width="0.5" d="M90.0 298.0 L170.0 304.0"/>
+    <path class="ink faint" stroke-width="0.5" d="M90.0 322.0 L170.0 328.0"/>
+    <path class="ink faint" stroke-width="0.5" d="M90.0 346.0 L170.0 352.0"/>
+    <path class="ink faint" stroke-width="0.5" d="M90.0 370.0 L170.0 376.0"/>
+    <path class="ink faint" stroke-width="0.5" d="M90.0 394.0 L170.0 400.0"/>
+    <path class="ink faint" stroke-width="0.5" d="M240.0 130.0 L320.0 136.0"/>
+    <path class="ink faint" stroke-width="0.5" d="M240.0 154.0 L320.0 160.0"/>
+    <path class="ink faint" stroke-width="0.5" d="M240.0 178.0 L320.0 184.0"/>
+    <path class="ink faint" stroke-width="0.5" d="M240.0 202.0 L320.0 208.0"/>
+    <path class="ink faint" stroke-width="0.5" d="M240.0 226.0 L320.0 232.0"/>
+    <path class="ink faint" stroke-width="0.5" d="M240.0 250.0 L320.0 256.0"/>
+    <path class="ink faint" stroke-width="0.5" d="M240.0 274.0 L320.0 280.0"/>
+    <path class="ink faint" stroke-width="0.5" d="M240.0 298.0 L320.0 304.0"/>
+    <path class="ink faint" stroke-width="0.5" d="M240.0 322.0 L320.0 328.0"/>
+    <path class="ink faint" stroke-width="0.5" d="M240.0 346.0 L320.0 352.0"/>
+    <path class="ink faint" stroke-width="0.5" d="M240.0 370.0 L320.0 376.0"/>
+    <path class="ink faint" stroke-width="0.5" d="M240.0 394.0 L320.0 400.0"/>
+    <path class="ink faint" stroke-width="0.5" d="M390.0 130.0 L470.0 136.0"/>
+    <path class="ink faint" stroke-width="0.5" d="M390.0 154.0 L470.0 160.0"/>
+    <path class="ink faint" stroke-width="0.5" d="M390.0 178.0 L470.0 184.0"/>
+    <path class="ink faint" stroke-width="0.5" d="M390.0 202.0 L470.0 208.0"/>
+    <path class="ink faint" stroke-width="0.5" d="M390.0 226.0 L470.0 232.0"/>
+    <path class="ink faint" stroke-width="0.5" d="M390.0 250.0 L470.0 256.0"/>
+    <path class="ink faint" stroke-width="0.5" d="M390.0 274.0 L470.0 280.0"/>
+    <path class="ink faint" stroke-width="0.5" d="M390.0 298.0 L470.0 304.0"/>
+    <path class="ink faint" stroke-width="0.5" d="M390.0 322.0 L470.0 328.0"/>
+    <path class="ink faint" stroke-width="0.5" d="M390.0 346.0 L470.0 352.0"/>
+    <path class="ink faint" stroke-width="0.5" d="M390.0 370.0 L470.0 376.0"/>
+    <path class="ink faint" stroke-width="0.5" d="M390.0 394.0 L470.0 400.0"/>
+    <path class="ink faint" stroke-width="0.5" d="M550.0 130.0 L630.0 136.0"/>
+    <path class="ink faint" stroke-width="0.5" d="M550.0 154.0 L630.0 160.0"/>
+    <path class="ink faint" stroke-width="0.5" d="M550.0 178.0 L630.0 184.0"/>
+    <path class="ink faint" stroke-width="0.5" d="M550.0 202.0 L630.0 208.0"/>
+    <path class="ink faint" stroke-width="0.5" d="M550.0 226.0 L630.0 232.0"/>
+    <path class="ink faint" stroke-width="0.5" d="M550.0 250.0 L630.0 256.0"/>
+    <path class="ink faint" stroke-width="0.5" d="M550.0 274.0 L630.0 280.0"/>
+    <path class="ink faint" stroke-width="0.5" d="M550.0 298.0 L630.0 304.0"/>
+    <path class="ink faint" stroke-width="0.5" d="M550.0 322.0 L630.0 328.0"/>
+    <path class="ink faint" stroke-width="0.5" d="M550.0 346.0 L630.0 352.0"/>
+    <path class="ink faint" stroke-width="0.5" d="M550.0 370.0 L630.0 376.0"/>
+    <path class="ink faint" stroke-width="0.5" d="M550.0 394.0 L630.0 400.0"/>
+    <path class="ink faint" stroke-width="0.5" d="M710.0 130.0 L790.0 136.0"/>
+    <path class="ink faint" stroke-width="0.5" d="M710.0 154.0 L790.0 160.0"/>
+    <path class="ink faint" stroke-width="0.5" d="M710.0 178.0 L790.0 184.0"/>
+    <path class="ink faint" stroke-width="0.5" d="M710.0 202.0 L790.0 208.0"/>
+    <path class="ink faint" stroke-width="0.5" d="M710.0 226.0 L790.0 232.0"/>
+    <path class="ink faint" stroke-width="0.5" d="M710.0 250.0 L790.0 256.0"/>
+    <path class="ink faint" stroke-width="0.5" d="M710.0 274.0 L790.0 280.0"/>
+    <path class="ink faint" stroke-width="0.5" d="M710.0 298.0 L790.0 304.0"/>
+    <path class="ink faint" stroke-width="0.5" d="M710.0 322.0 L790.0 328.0"/>
+    <path class="ink faint" stroke-width="0.5" d="M710.0 346.0 L790.0 352.0"/>
+    <path class="ink faint" stroke-width="0.5" d="M710.0 370.0 L790.0 376.0"/>
+    <path class="ink faint" stroke-width="0.5" d="M710.0 394.0 L790.0 400.0"/>
+    <path class="ink mid" d="M0.0 440.0 L900.0 440.0"/>
+    <path class="ink faint" d="M0.0 458.0 L900.0 458.0"/>
+    <path class="ink mid" d="M0.0 476.0 L900.0 476.0"/>
+    <path class="ink faint" d="M0.0 494.0 L900.0 494.0"/>
+    <path class="ink" stroke-width="1.6" d="M214.0 232.0 L96.0 96.0"/>
+    <path class="body" stroke-width="1.5" d="M104.0 104.0 L30.0 150.0 Q30.0 150.0 15.0 180.0 Q0.0 210.0 3.0 255.0 Q6.0 300.0 33.0 311.0 Q60.0 322.0 95.0 311.0 Q130.0 300.0 168.0 273.0 L206.0 246.0 Z"/>
+    <path class="ink mid" stroke-width="1.1" d="M70.0 188.0 L120.0 180.0 Q120.0 180.0 135.0 188.0 Q150.0 196.0 146.0 223.0 Q142.0 250.0 123.0 266.0 Q104.0 282.0 85.0 266.0 Q66.0 250.0 61.0 230.0 L56.0 210.0 Z"/>
+    <path class="ink faint" stroke-width="0.8" d="M70.0 210.0 L100.0 204.0 Q100.0 204.0 118.0 209.0 L136.0 214.0"/>
+    <path class="ink faint" stroke-width="0.8" d="M66.0 228.0 L84.0 218.0 Q84.0 218.0 92.0 224.0 Q100.0 230.0 109.0 225.0 Q118.0 220.0 128.0 226.0 L138.0 232.0"/>
+    <path class="ink faint" stroke-width="0.8" d="M68.0 248.0 L104.0 256.0 Q104.0 256.0 121.0 252.0 L138.0 248.0"/>
+    <path class="ink faint" stroke-width="0.5" d="M12.0 120.0 L54.0 123.0"/>
+    <path class="ink faint" stroke-width="0.5" d="M12.7 134.0 L55.4 137.0"/>
+    <path class="ink faint" stroke-width="0.5" d="M13.4 148.0 L56.8 151.0"/>
+    <path class="ink faint" stroke-width="0.5" d="M14.1 162.0 L58.2 165.0"/>
+    <path class="ink faint" stroke-width="0.5" d="M14.8 176.0 L59.6 179.0"/>
+    <path class="ink faint" stroke-width="0.5" d="M15.5 190.0 L61.0 193.0"/>
+    <path class="ink faint" stroke-width="0.5" d="M16.2 204.0 L62.4 207.0"/>
+    <path class="ink faint" stroke-width="0.5" d="M16.9 218.0 L63.8 221.0"/>
+    <path class="ink faint" stroke-width="0.5" d="M17.6 232.0 L65.2 235.0"/>
+    <path class="ink faint" stroke-width="0.5" d="M18.3 246.0 L66.6 249.0"/>
+    <path class="ink faint" stroke-width="0.5" d="M19.0 260.0 L68.0 263.0"/>
+    <path class="ink faint" stroke-width="0.5" d="M19.7 274.0 L69.4 277.0"/>
+    <path class="ink faint" stroke-width="0.5" d="M20.4 288.0 L70.8 291.0"/>
+    <path class="body" stroke-width="1.1" d="M226.0 278.0 L176.0 296.0 Q176.0 296.0 173.0 323.0 Q170.0 350.0 192.0 353.0 Q214.0 356.0 231.0 348.0 L248.0 340.0 Z"/>
+    <path class="ink faint" stroke-width="0.8" d="M196.0 310.0 L220.0 306.0 Q220.0 306.0 225.0 316.0 Q230.0 326.0 222.0 334.0 Q214.0 342.0 203.0 337.0 L192.0 332.0 Z"/>
+    <path class="ink" stroke-width="2.0" d="M642.0 332.0 L556.0 6.0"/>
+    <path class="body" stroke-width="1.6" d="M566.0 22.0 L470.0 38.0 Q470.0 38.0 421.0 51.0 Q372.0 64.0 324.0 67.0 Q276.0 70.0 233.0 85.0 Q190.0 100.0 191.0 130.0 Q192.0 160.0 198.5 182.5 Q205.0 205.0 222.5 213.5 Q240.0 222.0 287.5 216.0 Q335.0 210.0 383.5 223.0 Q432.0 236.0 476.0 229.0 Q520.0 222.0 566.0 218.0 L612.0 214.0 Z"/>
+    <path class="ink mid" d="M276.0 70.0 L262.0 112.0 Q262.0 112.0 265.0 136.0 Q268.0 160.0 278.0 190.0 L288.0 220.0"/>
+    <path class="ink mid" d="M470.0 38.0 L458.0 90.0 Q458.0 90.0 462.0 120.0 Q466.0 150.0 473.0 187.5 L480.0 225.0"/>
+    <path class="ink faint" stroke-width="0.7" d="M196.0 104.0 L262.0 108.0"/>
+    <path class="ink faint" stroke-width="0.7" d="M196.9 113.0 L264.0 117.0"/>
+    <path class="ink faint" stroke-width="0.7" d="M197.8 122.0 L266.0 126.0"/>
+    <path class="ink faint" stroke-width="0.7" d="M198.7 131.0 L268.0 135.0"/>
+    <path class="ink faint" stroke-width="0.7" d="M199.6 140.0 L270.0 144.0"/>
+    <path class="ink faint" stroke-width="0.7" d="M200.5 149.0 L272.0 153.0"/>
+    <path class="ink faint" stroke-width="0.7" d="M201.4 158.0 L274.0 162.0"/>
+    <path class="ink faint" stroke-width="0.7" d="M202.3 167.0 L276.0 171.0"/>
+    <path class="ink faint" stroke-width="0.7" d="M203.2 176.0 L278.0 180.0"/>
+    <path class="ink faint" stroke-width="0.7" d="M204.1 185.0 L280.0 189.0"/>
+    <path class="ink faint" stroke-width="0.7" d="M205.0 194.0 L282.0 198.0"/>
+    <path class="ink faint" stroke-width="0.7" d="M205.9 203.0 L284.0 207.0"/>
+    <path class="ink faint" stroke-width="0.7" d="M206.8 212.0 L286.0 216.0"/>
+    <path class="ink faint" stroke-width="0.7" d="M462.0 46.0 L560.0 52.0"/>
+    <path class="ink faint" stroke-width="0.7" d="M462.9 56.0 L562.5 62.0"/>
+    <path class="ink faint" stroke-width="0.7" d="M463.8 66.0 L565.0 72.0"/>
+    <path class="ink faint" stroke-width="0.7" d="M464.7 76.0 L567.5 82.0"/>
+    <path class="ink faint" stroke-width="0.7" d="M465.6 86.0 L570.0 92.0"/>
+    <path class="ink faint" stroke-width="0.7" d="M466.5 96.0 L572.5 102.0"/>
+    <path class="ink faint" stroke-width="0.7" d="M467.4 106.0 L575.0 112.0"/>
+    <path class="ink faint" stroke-width="0.7" d="M468.3 116.0 L577.5 122.0"/>
+    <path class="ink faint" stroke-width="0.7" d="M469.2 126.0 L580.0 132.0"/>
+    <path class="ink faint" stroke-width="0.7" d="M470.1 136.0 L582.5 142.0"/>
+    <path class="ink faint" stroke-width="0.7" d="M471.0 146.0 L585.0 152.0"/>
+    <path class="ink faint" stroke-width="0.7" d="M471.9 156.0 L587.5 162.0"/>
+    <path class="ink faint" stroke-width="0.7" d="M472.8 166.0 L590.0 172.0"/>
+    <path class="ink faint" stroke-width="0.7" d="M473.7 176.0 L592.5 182.0"/>
+    <path class="ink faint" stroke-width="0.7" d="M474.6 186.0 L595.0 192.0"/>
+    <path class="ink faint" stroke-width="0.7" d="M475.5 196.0 L597.5 202.0"/>
+    <path class="ink faint" stroke-width="0.7" d="M476.4 206.0 L600.0 212.0"/>
+    <path class="ink faint" stroke-width="0.7" d="M477.3 216.0 L602.5 222.0"/>
+    <path class="ink" stroke-width="1.5" d="M372.0 70.0 L380.2 90.4 L392.4 85.0 L388.3 110.8 L404.6 102.6 L401.9 113.5 L437.3 120.3 L426.4 129.8 L431.8 142.1 L400.6 150.2 L407.4 161.1 L377.4 155.7 L376.1 174.7 L374.0 174.7 L367.9 174.7 L366.6 155.7 L336.6 161.1 L343.4 150.2 L312.2 142.1 L317.6 129.8 L306.7 120.3 L342.1 113.5 L339.4 102.6 L355.7 110.8 L351.6 85.0 L363.8 90.4 Z"/>
+    <path class="ink" stroke-width="1.5" d="M372.0 174.7 L372.0 203.3"/>
+    <path class="ink mid" stroke-width="1.2" d="M458.0 300.0 L448.0 246.0"/>
+    <path class="body" stroke-width="1.1" d="M452.0 250.0 L400.0 266.0 Q400.0 266.0 396.0 293.0 Q392.0 320.0 415.0 326.0 Q438.0 332.0 452.0 324.0 L466.0 316.0 Z"/>
+    <path class="ink faint" stroke-width="0.8" d="M418.0 276.0 L440.0 274.0 Q440.0 274.0 446.0 283.0 Q452.0 292.0 445.0 302.0 Q438.0 312.0 427.0 305.0 L416.0 298.0 Z"/>
+    <path class="body" stroke-width="1.0" d="M26 330 a14 14 0 1 1 28 0 Z"/>
+    <path class="ink faint" stroke-width="0.8" d="M16.0 370.0 L26.0 338.0 Q26.0 338.0 33.0 335.0 Q40.0 332.0 47.0 335.0 Q54.0 338.0 59.0 354.0 L64.0 370.0"/>
+    <path class="body" stroke-width="1.0" d="M73 346 a13 13 0 1 1 26 0 Z"/>
+    <path class="ink faint" stroke-width="0.8" d="M63.0 386.0 L73.0 354.0 Q73.0 354.0 79.5 351.0 Q86.0 348.0 92.5 351.0 Q99.0 354.0 104.0 370.0 L109.0 386.0"/>
+    <path class="body" stroke-width="1.0" d="M124 372 a16 16 0 1 1 32 0 Z"/>
+    <path class="ink faint" stroke-width="0.8" d="M114.0 412.0 L124.0 380.0 Q124.0 380.0 132.0 377.0 Q140.0 374.0 148.0 377.0 Q156.0 380.0 161.0 396.0 L166.0 412.0"/>
+    <path class="body" stroke-width="1.0" d="M181 392 a15 15 0 1 1 30 0 Z"/>
+    <path class="ink faint" stroke-width="0.8" d="M171.0 432.0 L181.0 400.0 Q181.0 400.0 188.5 397.0 Q196.0 394.0 203.5 397.0 Q211.0 400.0 216.0 416.0 L221.0 432.0"/>
+    <path class="body" stroke-width="1.0" d="M233 386 a13 13 0 1 1 26 0 Z"/>
+    <path class="ink faint" stroke-width="0.8" d="M223.0 426.0 L233.0 394.0 Q233.0 394.0 239.5 391.0 Q246.0 388.0 252.5 391.0 Q259.0 394.0 264.0 410.0 L269.0 426.0"/>
+    <path class="body" stroke-width="1.0" d="M18 380 a12 12 0 1 1 24 0 Z"/>
+    <path class="ink faint" stroke-width="0.8" d="M8.0 420.0 L18.0 388.0 Q18.0 388.0 24.0 385.0 Q30.0 382.0 36.0 385.0 Q42.0 388.0 47.0 404.0 L52.0 420.0"/>
+    <path class="body" stroke-width="1.5" d="M286.0 330.0 L306.0 306.0 Q306.0 306.0 326.0 302.0 Q346.0 298.0 365.0 300.0 Q384.0 302.0 402.0 310.0 Q420.0 318.0 430.0 339.0 Q440.0 360.0 442.0 400.0 Q444.0 440.0 364.0 440.0 Q284.0 440.0 282.0 410.0 L280.0 380.0 Z"/>
+    <path class="body" stroke-width="1.5" d="M318.0 246.0 L340.0 222.0 Q340.0 222.0 356.0 222.0 Q372.0 222.0 382.0 234.0 Q392.0 246.0 391.0 262.0 Q390.0 278.0 381.0 289.0 Q372.0 300.0 355.0 300.0 Q338.0 300.0 328.0 289.0 L318.0 278.0 Z"/>
+    <path class="ink faint" stroke-width="0.8" d="M324.0 258.0 L354.0 250.0 Q354.0 250.0 372.0 255.0 L390.0 260.0"/>
+    <path class="ink faint" stroke-width="0.8" d="M300.0 356.0 L340.0 350.0 Q340.0 350.0 360.0 352.0 Q380.0 354.0 400.0 358.0 L420.0 362.0"/>
+    <path class="ink faint" stroke-width="0.8" d="M300.0 384.0 L340.0 378.0 Q340.0 378.0 360.0 380.0 Q380.0 382.0 400.0 386.0 L420.0 390.0"/>
+    <path class="ink faint" stroke-width="0.8" d="M300.0 412.0 L340.0 406.0 Q340.0 406.0 360.0 408.0 Q380.0 410.0 400.0 414.0 L420.0 418.0"/>
+    <path class="body" stroke-width="1.5" d="M560.0 312.0 L590.0 296.0 Q590.0 296.0 605.0 294.0 Q620.0 292.0 640.0 296.0 Q660.0 300.0 680.0 298.0 Q700.0 296.0 720.0 305.0 Q740.0 314.0 755.0 332.0 Q770.0 350.0 775.0 395.0 Q780.0 440.0 674.0 440.0 Q568.0 440.0 562.0 400.0 L556.0 360.0 Z"/>
+    <path class="body" stroke-width="1.5" d="M616.0 246.0 L640.0 232.0 Q640.0 232.0 654.0 236.0 Q668.0 240.0 672.0 251.0 Q676.0 262.0 670.0 273.0 Q664.0 284.0 650.0 287.0 Q636.0 290.0 626.0 283.0 L616.0 276.0 Z"/>
+    <path class="body" stroke-width="1.2" d="M600.0 236.0 L630.0 214.0 Q630.0 214.0 651.0 217.0 Q672.0 220.0 681.0 235.0 Q690.0 250.0 683.0 256.0 Q676.0 262.0 670.0 254.0 Q664.0 246.0 652.0 242.0 Q640.0 238.0 628.0 242.0 Q616.0 246.0 611.0 247.0 L606.0 248.0 Z"/>
+    <path class="ink mid" d="M606.0 248.0 L596.0 262.0 Q596.0 262.0 598.0 271.0 Q600.0 280.0 608.0 278.0 L616.0 276.0"/>
+    <path class="ink mid" d="M600.0 300.0 L618.0 290.0 Q618.0 290.0 628.0 305.0 Q638.0 320.0 644.0 328.0 L650.0 336.0"/>
+    <path class="ink mid" d="M650.0 336.0 L668.0 340.0 Q668.0 340.0 673.0 331.0 Q678.0 322.0 669.0 311.0 L660.0 300.0"/>
+    <path class="ink mid" d="M652.0 338.0 L646.0 352.0 Q646.0 352.0 638.0 349.0 Q630.0 346.0 635.0 338.0 L640.0 330.0"/>
+    <path class="ink faint" stroke-width="0.8" d="M580.0 340.0 L620.0 330.0 Q620.0 330.0 640.0 335.0 Q660.0 340.0 680.0 334.0 Q700.0 328.0 720.0 338.0 L740.0 348.0"/>
+    <path class="ink faint" stroke-width="0.8" d="M580.0 372.0 L620.0 362.0 Q620.0 362.0 640.0 367.0 Q660.0 372.0 680.0 366.0 Q700.0 360.0 720.0 370.0 L740.0 380.0"/>
+    <path class="ink faint" stroke-width="0.8" d="M580.0 404.0 L620.0 394.0 Q620.0 394.0 640.0 399.0 Q660.0 404.0 680.0 398.0 Q700.0 392.0 720.0 402.0 L740.0 412.0"/>
+    <path class="ink faint" stroke-width="0.8" d="M650 372 a16 16 0 1 0 0.1 0"/>
+    <path class="ink faint" stroke-width="0.8" d="M846.0 320.0 L846.0 440.0"/>
+    <path class="ink faint" stroke-width="0.8" d="M868.0 320.0 L868.0 440.0"/>
+    <path class="ink faint" stroke-width="0.8" d="M890.0 320.0 L890.0 440.0"/>
+    <path class="ink mid" d="M840.0 320.0 L900.0 318.0"/>
+    <path class="ink faint" stroke-width="0.8" d="M840.0 380.0 L900.0 378.0"/>
+  </g>
+</svg>
+  <figcaption><span class="art-caption">Canadian and Alberta flags carried on the steps of the Alberta Legislature in Edmonton, its stone columns behind.</span> <span class="art-credit">Sketched from a Canadian Press photograph on Global News</span></figcaption>
+</figure>
+    <div class="columns"><p><span class="drop">A</span>lbertans voted by a wide margin Monday to remain in Canada, with early returns showing about 76% rejecting a path toward a binding separation referendum, Global News and CTV News reported as Elections Alberta counted ballots overnight in the nonbinding vote called by Premier Danielle Smith&#x27;s government.</p><p>CTV News projected 76.4% for remaining and 23.6% for beginning the legal process toward a separation vote, with the remain side passing 1 million votes shortly before 1 a.m. MT. More than 1.35 million ballots were cast in advance polls and by mail, Global News reported, against about 810,000 cast that way in the 2023 provincial election.</p><p>Smith, who said she voted to remain, had promised that 50% plus one would carry the day and that there would be no follow-up referendum in this mandate; she addresses the province Tuesday at 6:45 p.m. MT. Prime Minister Mark Carney said Albertans &quot;chose unity.&quot; Results on nine other questions, on immigration and the Constitution, are expected Wednesday.</p></div>
+  </div>
+
+  <div class="stat-strip"><div><b>7,690.73</b><span class="stat-label">S&amp;P 500</span><span class="stat-change"><span class="tri up" aria-hidden="true"></span>+0.41%</span></div><div><b>26,430.89</b><span class="stat-label">Nasdaq</span><span class="stat-change"><span class="tri up" aria-hidden="true"></span>+1.11%</span></div><div><b>$81,297</b><span class="stat-label">Bitcoin</span><span class="stat-change"><span class="tri down" aria-hidden="true"></span>-2.06%</span></div></div>
+  <p class="stats-note">Market data compiled before the opening bell</p>
+
+  <div class="sections" style="--wire-cols: 3">
+  <div class="wire-flow">
+  <section class="sec sec-wire">
+  <div class="section-label">U.S.</div>
+  <div class="two-col-briefs"><div class="brief">
+      <div class="brief-head">Trump says someone else should negotiate for Ukraine</div>
+      <p>Trump said Monday &quot;it&#x27;s time for somebody else to negotiate on behalf of Ukraine&quot; and that Zelenskyy &quot;doesn&#x27;t want to stop it.&quot; Zelenskyy meets U.S. negotiators this week.</p><span class="src"><a href="https://www.pbs.org/newshour/show/trump-escalates-clash-with-zelenskyy-as-russia-continues-deadly-attacks-on-ukraine" target="_blank" rel="noopener nofollow">PBS NewsHour</a></span>
+    </div><div class="brief">
+      <div class="brief-head">Supreme Court turns away 9/11 plea deal appeal</div>
+      <p>The court let stand a ruling that the Pentagon could withdraw 2024 plea deals for Khalid Sheikh Mohammed and two co-defendants. A military trial is set for June 2028.</p><span class="src"><a href="https://www.cbsnews.com/news/supreme-court-khalid-sheikh-mohammed-911-appeal/" target="_blank" rel="noopener nofollow">CBS News</a></span>
+    </div><div class="brief">
+      <div class="brief-head">Nasdaq rises 1.1% as chip stocks rebound from sell-off</div>
+      <p>The Nasdaq closed at 26,430.89 and the S&amp;P 500 added 0.41% to 7,690.73 Monday; the Dow slipped 0.07%. Micron rose 2.97% after last week&#x27;s AI-driven slide.</p><span class="src"><a href="https://aa.com.tr/en/economy/us-stocks-close-monday-mixed-as-tech-shares-raise/4093958" target="_blank" rel="noopener nofollow">Anadolu Agency</a></span>
+    </div><div class="brief">
+      <div class="brief-head">Nor&#x27;easter brings coastal flooding to the Carolina coast</div>
+      <p>Forecasters said an offshore nor&#x27;easter could push 1 to 4 feet of water into coastal North Carolina and up to a foot from Virginia to New Jersey, with gusts to 40 mph, through midweek.</p><span class="src"><a href="https://weather.com/2026/10/16/forecast/regional/coastal-storm-southeast-mid-atlantic" target="_blank" rel="noopener nofollow">Weather.com</a></span>
+    </div></div>
+</section>
+
+  <section class="sec sec-wire">
+  <div class="section-label">World</div>
+  <div class="two-col-briefs"><div class="brief">
+      <div class="brief-head">Houthi missiles kill at least 53 soldiers at Yemen camp</div>
+      <p>Yemeni military officials gave the toll for Monday&#x27;s strike on a camp in Shabwa province; the provincial government said 200 recruits were wounded.</p><span class="src"><a href="https://www.nbcnews.com/world/middle-east/houthi-rebels-strike-yemen-government-forces-killing-least-53-rcna604508" target="_blank" rel="noopener nofollow">AP via NBC News</a></span>
+    </div><div class="brief">
+      <div class="brief-head">Drone attacks across Sudan kill more than 160 since Friday</div>
+      <p>Medics and rights groups gave the toll. Residents and medical workers said a Sunday strike on a transport hub in West Kordofan killed 80.</p><span class="src"><a href="https://www.aljazeera.com/news/2026/10/19/160-reported-killed-in-escalating-drone-attacks-across-sudan" target="_blank" rel="noopener nofollow">Al Jazeera</a></span>
+    </div><div class="brief">
+      <div class="brief-head">France imposes overnight curfews in Paris, Lyon and Nice</div>
+      <p>Prime Minister Sebastien Lecornu said the localized curfews kept the peace overnight and may return Tuesday; early estimates put 3,000 businesses hit.</p><span class="src"><a href="https://www.france24.com/en/europe/20261020-live-curfews-come-into-effect-around-france-to-combat-looting" target="_blank" rel="noopener nofollow">France 24</a></span>
+    </div><div class="brief">
+      <div class="brief-head">Australian MP Helen Haines loses leg after car attack</div>
+      <p>ABC and the Sydney Morning Herald reported the amputation. Albanese said she remains critical after surgery; a 43-year-old driver is in custody.</p><span class="src"><a href="https://kuwaittimes.com/article/51961/world/australian-mp-helen-haines-loses-leg-in-car-attack/" target="_blank" rel="noopener nofollow">AFP via Kuwait Times</a></span>
+    </div></div>
+</section>
+
+  <section class="sec sec-wire">
+  <div class="section-label">Science &amp; Technology</div>
+  <div class="two-col-briefs"><div class="brief">
+      <div class="brief-head">JAXA launches Phobos sample mission on H3 rocket</div>
+      <p>The MMX spacecraft lifted off from Tanegashima at 3:41 p.m. ET Monday and separated from the H3&#x27;s upper stage 71 minutes later in its planned orbit, JAXA said. It is to land on Phobos and bring samples home.</p><span class="src"><a href="https://global.jaxa.jp/press/2026/10/20261020-1_e.html" target="_blank" rel="noopener nofollow">JAXA</a></span>
+    </div><div class="brief">
+      <div class="brief-head">Gulf deep-sea life fell 60% after Deepwater Horizon</div>
+      <p>A PNAS study led by Nova Southeastern University found fish, crustaceans and squid in the Gulf&#x27;s twilight zone dropped about 60% from the year after the 2010 spill to 2015 and have not recovered since.</p><span class="src"><a href="https://phys.org/news/2026-10-marine-life-declined-gulf-mexico.html" target="_blank" rel="noopener nofollow">AP via Phys.org</a></span>
+    </div><div class="brief">
+      <div class="brief-head">ESA&#x27;s Euclid telescope finds its first new comet</div>
+      <p>Comet C/2026 S1 (Euclid) turned up in images taken Sept. 16 to 24 about 810 million miles from Earth, flagged by a University of Helsinki researcher&#x27;s software. The Minor Planet Center confirmed it Oct. 8.</p><span class="src"><a href="https://phys.org/news/2026-10-euclid-comet-million-miles-earth.html" target="_blank" rel="noopener nofollow">ESA via Phys.org</a></span>
+    </div><div class="brief">
+      <div class="brief-head">NASA&#x27;s simulated Mars crew marks a year inside habitat</div>
+      <p>The four CHAPEA volunteers entered the 1,700-square-foot 3D-printed habitat at Johnson Space Center in Houston on Oct. 19, 2025, with communication delays of up to 45 minutes each way. They exit Oct. 31 after 378 days.</p><span class="src"><a href="https://www.nasa.gov/humans-in-space/nasas-simulated-mars-crew-marks-one-year-inside-habitat/" target="_blank" rel="noopener nofollow">NASA</a></span>
+    </div></div>
+</section>
+
+  <section class="sec sec-wire">
+  <div class="section-label">Artificial Intelligence</div>
+  <div class="two-col-briefs"><div class="brief">
+      <div class="brief-head">DHS orders civilian agencies to drop DeepSeek products</div>
+      <p>The Homeland Security order issued Monday covers DeepSeek products and third-party services developed with them. Luta Security&#x27;s Katie Moussouris said the &#x27;developed using&#x27; clause cannot be verified in practice.</p><span class="src"><a href="https://www.theregister.com/security/2026/10/20/deepseek-deep-sixed-at-all-us-federal-civilian-agencies/5304010" target="_blank" rel="noopener nofollow">The Register</a></span>
+    </div><div class="brief">
+      <div class="brief-head">OpenCode breach runs up charges on users&#x27; AI accounts</div>
+      <p>The open source coding agent said attackers broke into an older system Saturday, exposing API keys of 1.4% of OpenCode Console users. Developers reported charges in the hundreds of dollars; OpenAI said it is refunding them.</p><span class="src"><a href="https://techcrunch.com/2026/10/19/hackers-hit-ai-coding-tool-opencode-running-up-charges-on-users-ai-accounts/" target="_blank" rel="noopener nofollow">TechCrunch</a></span>
+    </div><div class="brief">
+      <div class="brief-head">Anthropic study ties drop in junior hiring to AI agents</div>
+      <p>The company&#x27;s own internal study says junior roles fell from 27% to 9% of technical new hires since early 2025 while its agents logged six times the hours of human staff by August. It says the results may not map onto the wider economy.</p><span class="src"><a href="https://the-decoder.com/anthropic-has-nearly-stopped-hiring-junior-staff-because-ai-agents-now-work-six-times-as-many-hours/" target="_blank" rel="noopener nofollow">The Decoder</a></span>
+    </div></div>
+</section>
+  </div>
+
+  <hr class="rule-anchor">
+
+  <section class="sec sec-wv">
+  <div class="section-label">West Virginia</div>
+  <div class="wv-box">
+    <div class="wv-title">Mountaineer State Notebook</div>
+    
+    <div class="brief">
+      <div class="brief-head">Boone jury convicts grandmother in teen&#x27;s starvation death</div>
+      <p>A Boone County jury found Donna Stone guilty Monday of murder by child neglect and neglect causing death in Kyneddi Miller&#x27;s 2024 death; it returns today to weigh mercy.</p><span class="src"><a href="https://wvmetronews.com/2026/10/19/boone-county-woman-convicted-on-both-charges-for-14-year-old-granddaughters-starvation-death-in-2024/" target="_blank" rel="noopener nofollow">WV MetroNews</a></span>
+    </div><div class="brief">
+      <div class="brief-head">GOP registration edge tops 200,000 as early voting nears</div>
+      <p>Republicans hold 527,532 registrations to Democrats&#x27; 326,697, a 200,835 edge as of Oct. 13, the Secretary of State&#x27;s report shows. Early voting runs Oct. 21-31.</p><span class="src"><a href="https://wchstv.com/news/local/gop-voter-edge-tops-200000-as-parties-eye-general-election-turnout" target="_blank" rel="noopener nofollow">WCHS</a></span>
+    </div><div class="brief">
+      <div class="brief-head">WVDNR stocks nearly 40 waters with 40,000 pounds of trout</div>
+      <p>The DNR&#x27;s fall stocking runs the weeks of Oct. 19 and Oct. 26, one stocking per water each week; locations are in the 2026 fishing regulations summary.</p><span class="src"><a href="https://www.wtap.com/2026/10/19/wvdnr-stock-40-state-waters-during-fall-trout-season/" target="_blank" rel="noopener nofollow">WTAP</a></span>
+    </div><div class="brief">
+      <div class="brief-head">Glenville oilman and donor Ike Morris dies</div>
+      <p>Morris founded Waco Oil &amp; Gas in 1975 and funded Glenville State&#x27;s arena and stadium; his daughter announced his death Monday. Morrisey and Justice issued tributes.</p><span class="src"><a href="https://wvmetronews.com/2026/10/19/ike-morris-well-known-west-virginia-businessman-and-philanthropist-dies/" target="_blank" rel="noopener nofollow">WV MetroNews</a></span>
+    </div><div class="wv-block wv-regional">
+      <p class="wv-block-label">Around the State</p>
+      <ul class="roundup"><li><span class="place">Huntington &amp; the Cabell-Mason corridor</span> <span class="folk">(Trav, Justin, Nate and Ian)</span> &mdash; Cabell commissioners publicly tested about eight pieces of election tabulation equipment Monday ahead of early voting Oct. 21.<span class="src"><a href="https://www.herald-dispatch.com/news/cabell-county-officials-test-election-equipment/article_b4abe6b8-daf0-48e5-b622-38052c51dae8.html" target="_blank" rel="noopener nofollow">The Herald-Dispatch</a></span></li><li><span class="place">Putnam / Kanawha - Charleston</span> <span class="folk">(Nate)</span> &mdash; Charleston council voted Monday to seek a $2.4M National Park Service grant toward $4.6M of work on the Cato Park and Kanawha City pools.<span class="src"><a href="https://www.wsaz.com/2026/10/20/charleston-council-authorizes-46-million-pool-grant-application-cato-kanawha-city-pools/" target="_blank" rel="noopener nofollow">WSAZ</a></span></li><li><span class="place">Mid-Ohio Valley / Parkersburg</span> <span class="folk">(Pat)</span> &mdash; Wood County&#x27;s board set attendance lines for the new Lincoln and Vienna elementaries opening in 2027-28; parent meetings start tonight.<span class="src"><a href="https://www.wtap.com/2026/10/19/wood-county-schools-open-new-lincoln-vienna-elementaries-with-new-2027-28-year/" target="_blank" rel="noopener nofollow">WTAP</a></span></li><li><span class="place">Summers / Hinton &amp; the New River</span> <span class="folk">(Greg)</span> &mdash; Summers County ARH&#x27;s main entrance and front lot in Hinton closed Monday for two to four weeks of paving for a new emergency department.<span class="src"><a href="https://www.register-herald.com/news/local_news/summers-county-arh-clinic-entrance-parking-lot-to-close-for-construction/article_295fe4fb-a18a-4e0e-a2c0-4435e298944e.html" target="_blank" rel="noopener nofollow">The Register-Herald</a></span></li></ul>
+    </div><div class="wv-block wv-away">
+      <p class="wv-block-label">The Away Desk</p>
+      <ul class="roundup"><li><span class="place">North Bennington, VT</span> <span class="folk">(Wes)</span> &mdash; Police charged a Shaftsbury man, 67, with manslaughter in a May 31 Dorset driveway death; he turned himself in Oct. 15, the Banner said.<span class="src"><a href="https://www.benningtonbanner.com/local-news/shaftsbury-man-charged-in-dorset-death/5036328" target="_blank" rel="noopener nofollow">Bennington Banner</a></span></li></ul>
+    </div><div class="wv-block wv-hotspots">
+      <p class="wv-block-label">Vacation Hotspots</p>
+      <ul class="roundup"><li><span class="place">Webster County &amp; Cowen</span> &mdash; A Curtin educator received West Virginia Adult Education&#x27;s Rising Strong Award for rebuilding the adult-ed program at Central Regional Jail, the Echo said Oct. 13.<span class="src"><a href="https://webconews.com/2026/10/13/webster-county-educator-receives-rising-strong-award/" target="_blank" rel="noopener nofollow">The Webster Echo</a></span></li><li><span class="place">Topsail Island &amp; the coast</span> &mdash; North Topsail Beach set a Nov. 4 public hearing on adding parking definitions and penalties to its public-safety code, the town posted Monday.<span class="src"><a href="https://www.northtopsailbeachnc.gov/m/newsflash/Home/Detail/350" target="_blank" rel="noopener nofollow">Town of North Topsail Beach</a></span></li></ul>
+    </div>
+  </div>
+</section>
+
+  <section class="sec sec-wire sec-anchor sec-canada">
+  <div class="section-label">Canada</div>
+  <div class="two-col-briefs"><div class="tiers" style="--tier-cols: 3"><div class="tier">
+      <p class="tier-label">Prince George</p>
+      <div class="brief">
+      <div class="brief-head">Kirk, Alan win last two Fraser-Fort George rural seats</div>
+      <p>Jerrilyn Kirk kept Area G with about 90% and Dannielle Alan won Area H, completing the regional district board; Ken Schinkel took the six-candidate Area D race.</p><span class="src"><a href="https://ckpgtoday.ca/2026/10/19/new-and-returning-directors-elected-to-regional-district-of-fraser-fort-george-board/" target="_blank" rel="noopener nofollow">CKPG Today</a></span>
+    </div><div class="brief">
+      <div class="brief-head">Thompson keeps Robson Valley school trustee seat</div>
+      <p>Bob Thompson took 248 votes to Lianne Abbott&#x27;s 196 in the last Prince George school board result to come in; the district&#x27;s results page shows 56,052 ballots cast.</p><span class="src"><a href="https://ckpgtoday.ca/2026/10/19/school-election-returns-four-incumbent-trustees/" target="_blank" rel="noopener nofollow">CKPG Today</a></span>
+    </div>
+    </div><div class="tier">
+      <p class="tier-label">British Columbia</p>
+      <div class="brief">
+      <div class="brief-head">Lytton mayoral race heads to judicial recount after 45-45 tie</div>
+      <p>Incumbent Denise O&#x27;Connor and challenger Jennifer Thoss each took 45 votes in results the village posted Monday. If the recount holds, the bylaw calls for drawing lots.</p><span class="src"><a href="https://www.ctvnews.ca/vancouver/article/election-results-tied-between-mayoral-candidates-in-lytton-bc/" target="_blank" rel="noopener nofollow">CP via CTV</a></span>
+    </div><div class="brief">
+      <div class="brief-head">B.C. advance turnout runs 8% below 2024 after three days</div>
+      <p>About 440,000 ballots were cast Friday through Sunday, about 12% of registered voters, against roughly 480,000 in 2024, The Canadian Press reported; advance polls close Wednesday at 8 p.m.</p><span class="src"><a href="https://ckpgtoday.ca/2026/10/20/advance-voting-in-b-c-election-is-down-compared-to-2024-2/" target="_blank" rel="noopener nofollow">CP via CKPG Today</a></span>
+    </div>
+    </div><div class="tier">
+      <p class="tier-label">Across Canada</p>
+      <div class="brief">
+      <div class="brief-head">Canada&#x27;s inflation rate rises to 3.1% in September</div>
+      <p>Statistics Canada said gasoline rose 27.8% from a year earlier while the CPI excluding gasoline slowed to 2.2% and grocery prices to 1.7%, the smallest rise since May 2024.</p><span class="src"><a href="https://www150.statcan.gc.ca/n1/daily-quotidien/261019/dq261019a-eng.htm" target="_blank" rel="noopener nofollow">Statistics Canada</a></span>
+    </div>
+    </div></div></div>
+</section>
+  </div>
+
+  <div class="kicker">Nicholas-Webster carries no regional line today; the Alberta result runs as the lead and not again in Canada.</div>
+
+  <div class="footer-note">Compiled from wire reports<span class="sep">&middot;</span><a href="../archive.html">Back issues</a></div>
+
+  <nav class="paper-nav paper-nav-foot" aria-label="Sections, repeated"><a href="../home.html">Home</a><a href="../sportsman/">Sports &amp; Sportsman</a><a href="../weather/">The Weather Claude</a></nav>
+
+</div>
+</body>
+</html>
