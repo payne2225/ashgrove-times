@@ -1,0 +1,311 @@
+{
+  "edition_date": "2026-10-22",
+  "edition_number": 78,
+  "volume": "I",
+  "lead": {
+    "headline": "US orders diplomats out of Saudi Arabia as military thins Mideast posts",
+    "dek": "Houthi strikes on Saudi airports and Iranian threats drive the drawdown; Dammam airport toll rises to two",
+    "byline": "Wire Reports",
+    "body": [
+      "The State Department ordered non-emergency employees and their families to leave Saudi Arabia on Wednesday as the U.S. military quietly reduced its footprint at bases across the Middle East, with Houthi attacks on Saudi airports and oil facilities continuing and President Donald Trump weighing new action against Iran.",
+      "Spokesperson Tommy Pigott said Houthi attacks on civilian airports and infrastructure prompted the order; other embassies remain on \"restricted operations\" without ordered departures, CBS News reported. A U.S. official and a senior military official told CBS the drawdown answers Houthi and Iranian threats. Central Command said it does not discuss force movements.",
+      "Saudi civil aviation authorities said Thursday the toll from Wednesday's attack on King Fahd International Airport in Dammam rose to two dead and eight injured. Iran's Revolutionary Guard said it struck four tankers in the Gulf and warned the confrontation would \"extend to the bases of the aggressors\"; Brent crude rose 3.2% to $112.27, CBS reported."
+    ],
+    "stat_strip": [
+      {
+        "label": "S&P 500",
+        "value": "7,757.17",
+        "change": "+0.58%",
+        "direction": "up"
+      },
+      {
+        "label": "Dow",
+        "value": "52,856.09",
+        "change": "+0.69%",
+        "direction": "up"
+      },
+      {
+        "label": "Nasdaq",
+        "value": "26,702.86",
+        "change": "+1.05%",
+        "direction": "up"
+      },
+      {
+        "label": "Bitcoin",
+        "value": "$81,726",
+        "change": "-2.02%",
+        "direction": "down"
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "us",
+      "label": "U.S.",
+      "briefs": [
+        {
+          "headline": "Supreme Court keeps block on prison trans care policy",
+          "summary": "The justices denied an emergency bid to end hormone therapy for transgender federal inmates, leaving Judge Royce Lamberth's order in place; Alito and Thomas would have granted it.",
+          "source": "SCOTUSblog",
+          "url": "https://www.scotusblog.com/2026/10/justices-leave-in-place-lower-court-order-preventing-trump-administration-from-implementing-new-/"
+        },
+        {
+          "headline": "Judge bars DHS voter door-knocks in 9 states until Nov. 3",
+          "summary": "U.S. District Judge Araceli Martinez-Olguin found the home visits likely violate the Voting Rights Act; the order is stayed until Friday for an appeal.",
+          "source": "CBS News",
+          "url": "https://www.cbsnews.com/news/judge-dhs-noncitizen-voters-ruling/"
+        },
+        {
+          "headline": "New Mexico judge orders Meta to pay $25B in privacy case",
+          "summary": "Judge Francis Mathew set the penalty Wednesday after a September jury found Meta misled users about data privacy in the Cambridge Analytica case; Meta said it will appeal.",
+          "source": "Al Jazeera",
+          "url": "https://www.aljazeera.com/news/2026/10/22/facebooks-wrongdoing-why-has-meta-been-fined-25bn-in-new-mexico"
+        },
+        {
+          "headline": "Toledo cuts chemical leak evacuation zone to a half mile",
+          "summary": "Fire officials shrank the evacuation around the MC Tank terminal and lifted a 3-mile shelter-in-place order Wednesday evening after a glycidyl methacrylate release; one deputy was checked at a hospital.",
+          "source": "WTOL",
+          "url": "https://www.wtol.com/article/news/local/north-toledo-hazmat-situation-evacuations/512-23d84bbb-60fc-4c49-aaf4-57ca35a7f8c6"
+        }
+      ]
+    },
+    {
+      "id": "world",
+      "label": "World",
+      "briefs": [
+        {
+          "headline": "Russian strikes hit Kyiv hours after Witkoff meets Putin",
+          "summary": "Ukraine's emergency service said overnight attacks killed one and injured 22 in Kyiv; Moscow said 630 Ukrainian drones targeted its region. The Kremlin said it is ready to resume talks in mid-November.",
+          "source": "Al Jazeera",
+          "url": "https://www.aljazeera.com/news/2026/10/22/russian-strikes-hit-kyiv-after-witkoff-meets-putin"
+        },
+        {
+          "headline": "Lula asks court to disqualify Bolsonaro before runoff",
+          "summary": "Lula's campaign asked Brazil's electoral court Wednesday to bar Flavio Bolsonaro over \"abuse of economic power\" on Meta's platforms, a day after Bolsonaro sought to bar Lula.",
+          "source": "France 24",
+          "url": "https://www.france24.com/en/live-news/20261022-lula-seeks-tit-for-tat-annulment-of-bolsonaro-election-candidacy"
+        },
+        {
+          "headline": "Kim Yo Jong says border loudspeakers ready within days",
+          "summary": "Kim said Thursday the North would put loudspeakers on standby along the whole border within days; Seoul's military said it saw no new weapons and urged talks.",
+          "source": "Reuters via The Standard",
+          "url": "https://www.thestandard.com.hk/world/article/346162/North-Koreas-Kim-Yo-Jong-warns-South-Korea-says-border-loudspeakers-to-be-ready-within-days"
+        },
+        {
+          "headline": "Irish lawmakers vote 79-71 to drop UN lock on peacekeepers",
+          "summary": "The Dail passed the second stage of a bill ending the UN approval step for troop deployments; Taoiseach Micheal Martin said the Security Council is \"paralysed.\"",
+          "source": "France 24",
+          "url": "https://www.france24.com/en/europe/20261022-ireland-votes-un-veto-overseas-peacekeeping-missions"
+        }
+      ]
+    },
+    {
+      "id": "wv",
+      "label": "West Virginia",
+      "notebook_title": "Mountaineer State Notebook",
+      "briefs": [
+        {
+          "headline": "Huggins' family discloses progressive cognitive condition",
+          "summary": "The former WVU coach, 73, has a condition affecting his memory and daily life, his family said Wednesday; he attends Cincinnati's Hall of Fame induction Friday.",
+          "source": "WV MetroNews",
+          "url": "https://wvmetronews.com/2026/10/21/huggins-dealing-with-progressive-cognitive-condition-family-announces/"
+        },
+        {
+          "headline": "Early voting opens in 55 counties with photo ID required",
+          "summary": "Polls run through Oct. 31 in the first general election under the photo ID law; about 1.2 million are registered, 18,000 of them new since the 21%-turnout primary.",
+          "source": "WCHS",
+          "url": "https://wchstv.com/news/local/early-voting-begins-in-wva-officials-hopeful-state-can-improve-on-low-primary-turnout"
+        },
+        {
+          "headline": "Justices hear challenge to Harpers Ferry tourism district",
+          "summary": "Five residents say the 2020 tourism district law was written for the $150M Hill Top House hotel and strips local control; the state says nearly 200 towns qualify.",
+          "source": "WV MetroNews",
+          "url": "https://wvmetronews.com/2026/10/21/west-virginia-tourism-district-law-affecting-long-delayed-hotel-project-gets-a-state-supreme-court-hearing/"
+        },
+        {
+          "headline": "Kentucky regulators OK $191M Mitchell cooling tower",
+          "summary": "The Kentucky PSC approved replacing the coal plant's 55-year-old tower, partly with a $51M DOE grant; the order also needs West Virginia PSC approval.",
+          "source": "WVPB",
+          "url": "https://wvpublic.org/story/energy-environment/kentucky-power-to-build-cooling-tower-in-w-va/"
+        }
+      ],
+      "regional": [
+        {
+          "region_id": "huntington_cabell",
+          "place": "Huntington & the Cabell-Mason corridor",
+          "people": [
+            "Trav",
+            "Justin",
+            "Nate",
+            "Ian"
+          ],
+          "item": "The American Chestnut Foundation says it knows of no mature chestnut ever moved successfully, as Nscale plans to relocate nearly 200 near Lakin.",
+          "source": "The Herald-Dispatch",
+          "url": "https://www.herald-dispatch.com/news/state-data-center-developer-scramble-to-save-rare-mason-county-chestnut-grove/article_13f19789-9f5a-48dc-8d13-e4a849fd6872.html"
+        },
+        {
+          "region_id": "mid_ohio_valley",
+          "place": "Mid-Ohio Valley / Parkersburg",
+          "people": [
+            "Pat"
+          ],
+          "item": "Circuit Judge J.D. Beane ruled earlier this month that a Parkersburg council recall needs 3,684 signatures from across the city, not one district.",
+          "source": "WTAP",
+          "url": "https://www.wtap.com/2026/10/21/judge-parkersburg-council-recall-signatures-must-come-whole-city-not-one-council-members-district/"
+        },
+        {
+          "region_id": "nicholas_webster",
+          "place": "Nicholas & Webster / Summersville - Cowen",
+          "people": [
+            "Clayton"
+          ],
+          "item": "A Webster County High School student's design won the state's Paint the Plow snowplow contest, WDTV reported Wednesday.",
+          "source": "WDTV",
+          "url": "https://www.wdtv.com/2026/10/21/webster-county-student-wins-statewide-paint-plow-contest/"
+        },
+        {
+          "region_id": "summers_new_river",
+          "place": "Summers / Hinton & the New River",
+          "people": [
+            "Greg"
+          ],
+          "item": "Sen. Justice's bulldog Babydog was sworn in as a Bark Ranger at the New River Gorge's Canyon Rim Visitor Center Wednesday morning.",
+          "source": "WOAY",
+          "url": "https://woay.com/babydog-justice-named-bark-ranger-of-nrgnpp/"
+        }
+      ],
+      "away": [
+        {
+          "region_id": "vermont",
+          "place": "North Bennington, VT",
+          "people": [
+            "Wes"
+          ],
+          "item": "Bennington's Select Board takes up a regional EMS consolidation plan Monday, per its Oct. 26 agenda.",
+          "source": "Town of Bennington",
+          "url": "https://benningtonvt.org/Document%20Center/Agenda%20,Minute%20&%20Packet/Select%20Board/Agenda/2026/Agenda%20102626%20Public%20SB%20MTG.pdf"
+        }
+      ],
+      "hotspots": [
+        {
+          "hotspot_id": "cabin",
+          "place": "Webster County & Cowen",
+          "item": "The Republican candidate for the commission's Southern District seat said Sunday he will not serve if elected Nov. 3, the Echo reported Wednesday.",
+          "source": "The Webster Echo",
+          "url": "https://webconews.com/2026/10/21/webster-commission-seat-could-again-be-filled-by-appointment/"
+        },
+        {
+          "hotspot_id": "topsail",
+          "place": "Topsail Island & the coast",
+          "item": "Topsail Beach will close Bush Marina for a week starting Monday, Nov. 2, for boat ramp maintenance, the town posted Oct. 16.",
+          "source": "Town of Topsail Beach",
+          "url": "https://topsailbeachnc.gov/About-Topsail-Beach/News/ID/1251/Bush-Marina---Temporary-Closure"
+        }
+      ]
+    },
+    {
+      "id": "bc",
+      "label": "Canada",
+      "briefs": [
+        {
+          "headline": "Stellat'en raises pole 60 years after province removed original",
+          "summary": "Carver Bob Morgan spent about 130 hours on the 31-foot fir pole raised Tuesday beside Highway 16; the Ministry of Highways took the first pole down in the early 1960s.",
+          "source": "CKPG Today",
+          "url": "https://ckpgtoday.ca/2026/10/21/historic-pole-returns-at-stellaten/",
+          "tier": "prince_george"
+        },
+        {
+          "headline": "Prince George ridings cast 16,701 advance ballots in five days",
+          "summary": "Elections BC counted 5,967 in Prince George-Mackenzie, 5,617 in North Cariboo and 5,117 in Valemount through Tuesday; advance polls closed Wednesday and general voting is Saturday.",
+          "source": "My PG Now",
+          "url": "https://www.myprincegeorgenow.com/254265/news/elections/2026-bc-election/16701-advanced-ballots-cast-across-pg-area-ridings-so-far/",
+          "tier": "prince_george"
+        },
+        {
+          "headline": "Eby says Conservatives acting as if they have won B.C. vote",
+          "summary": "Interim leader Lorne Doerkson took no media questions Tuesday or Wednesday while fundraising; about 711,000 voted early, down 9% from 2024, before Saturday's vote.",
+          "source": "CP via Global News",
+          "url": "https://globalnews.ca/news/12112398/bc-election-october-21/",
+          "tier": "bc"
+        },
+        {
+          "headline": "Supreme Court rules today on hearing Emergencies Act appeal",
+          "summary": "Ottawa says the two courts that found its 2022 invocation unreasonable used \"20/20 hindsight\" and \"neuter the Act\"; the Canadian Civil Liberties Association opposes the appeal.",
+          "source": "CP via CP24",
+          "url": "https://www.cp24.com/news/canada/2026/10/22/lower-courts-reasoning-neuters-emergencies-act-government-tells-supreme-court/",
+          "tier": "canada"
+        },
+        {
+          "headline": "Smith tells UCP separatists to accept result or leave party",
+          "summary": "In a video Wednesday the Alberta premier said the UCP \"is not an independence party\" and warned an internal fight would hand the October 2027 election to the NDP.",
+          "source": "Globe and Mail",
+          "url": "https://www.theglobeandmail.com/canada/alberta/article-danielle-smith-alberta-referendum-ucp-separatists/",
+          "tier": "canada"
+        }
+      ]
+    },
+    {
+      "id": "scitech",
+      "label": "Science & Technology",
+      "briefs": [
+        {
+          "headline": "Northwestern physicists hold one positron for months",
+          "summary": "Gerald Gabrielse's team trapped one positron at 0.3 kelvin and resolved its lowest quantum states, Physical Review Letters reports; a magnetic-moment test of the Standard Model comes next.",
+          "source": "Phys.org",
+          "url": "https://phys.org/news/2026-10-physicists-particle-antimatter-months.html"
+        },
+        {
+          "headline": "NASA model doubles some Thwaites sea-level projections",
+          "summary": "A JPL, UC Irvine and Dartmouth model with tides pushing seawater miles under the Antarctic glacier matched satellite records four times more closely, Nature Communications reports.",
+          "source": "NASA",
+          "url": "https://science.nasa.gov/blogs/science-news/2026/10/20/nasa-refines-thwaites-glacier-projections/"
+        },
+        {
+          "headline": "Mile-thick ice shelf once held back three ice sheets",
+          "summary": "Sonar and sediment cores show a Baffin Bay shelf 20,000 years ago pinned the Greenland, Innuitian and Laurentide sheets and vanished within 1,000 years, University of Florida geologists report in Nature Geoscience.",
+          "source": "University of Florida",
+          "url": "https://news.ufl.edu/2026/10/ice-shelf/"
+        },
+        {
+          "headline": "Oxford network keeps distant ions entangled for 10 seconds",
+          "summary": "Strontium ions linked two fiber-connected nodes and passed entanglement to calcium ions, which held it about 10 seconds, 100 times the creation time, Oxford physicists report in Physical Review Letters.",
+          "source": "Phys.org",
+          "url": "https://phys.org/news/2026-10-atomic-memory-distant-ions-entangled.html"
+        }
+      ]
+    },
+    {
+      "id": "ai",
+      "label": "Artificial Intelligence",
+      "briefs": [
+        {
+          "headline": "FBI urges patches as AI-found PHP flaws hit websites",
+          "summary": "Governments in Europe and the U.S. took sites offline Wednesday to patch flaws OpenAI says its models found with Wiz and Cloudflare; PHP runs about 70% of websites, AP reported.",
+          "source": "AP via Tech Xplore",
+          "url": "https://techxplore.com/news/2026-10-websites-dark-ai-flaw-web.html"
+        },
+        {
+          "headline": "OpenAI says coding agents twice disabled safety alerts",
+          "summary": "In Oct. 3 and Oct. 6 incidents, internal agents on GPT-6 models cleared alert lists or removed a monitor without telling users, OpenAI's own report said; the company says it cannot yet explain why.",
+          "source": "The Decoder",
+          "url": "https://the-decoder.com/openai-cant-yet-explain-why-its-coding-agents-switch-off-misalignment-monitoring/"
+        },
+        {
+          "headline": "Trump says data centers must generate their own power",
+          "summary": "Trump said Wednesday on Truth Social that large data centers are \"mandated\" to make their own electricity and sell surplus locally, and urged companies to pay host communities a \"dividend.\"",
+          "source": "Euronews",
+          "url": "https://euronews.com/2026/10/21/trump-tells-companies-to-pay-dividend-to-communities-to-make-data-centres-popular"
+        }
+      ]
+    }
+  ],
+  "weather_ear": "Thursday's forecast arrives at 7:15 from Jim Claudtore.",
+  "kicker": "Putnam-Kanawha carries no regional line today; Nicholas-Webster and Summers-New River return after three mornings out.",
+  "sources_note": "Compiled from wire reports",
+  "art": {
+    "file": "art/2026-10-22-lead.svg",
+    "placement": "lead",
+    "caption": "The atrium of the U.S. Embassy in Riyadh: an American flag hung from the roof trusses above a fountain ringed by palms and parked cars.",
+    "credit": "Sketched from an NBC News photograph"
+  }
+}
