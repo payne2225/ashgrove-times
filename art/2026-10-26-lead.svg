@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 506" role="img"
+     aria-label="Sketch after a CBS News photograph: a polling station in Brazil on runoff Sunday. A tall white cardboard voting booth lettered JUSTICA ELEITORAL and CABINA DE VOTACAO stands at left against a flat wall, an electronic voting machine with a small screen and keypad at its base. At right, a figure in a light shirt, cropped at the shoulders with no head or face in the frame, holds a large Brazilian flag open at chest height: the green field hatched, the yellow rhombus left light, the blue globe hatched dark with a pale band curving across it and a scatter of small stars.">
+  <defs><style>
+    .ink  { fill: none; stroke: currentColor; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
+    .body { fill: var(--parchment, #f4f0e6); stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+    .faint{ opacity: 0.35; }
+    .mid  { opacity: 0.65; }
+    .lbl  { fill: currentColor; font-family: Georgia, 'Times New Roman', serif; font-weight: bold; letter-spacing: 1px; }
+  </style></defs>
+  <g>
+    <!-- The wall: a flat plane, hinted by sparse horizontal hatching so the white booth and shirt read as light against it. -->
+    <g class="ink faint" stroke-width="0.8">
+      <path d="M0 30 H900 M0 62 H900 M0 94 H900 M0 126 H900 M0 158 H900 M0 190 H900 M0 222 H900 M0 254 H900 M0 286 H900 M0 318 H900 M0 350 H900 M0 382 H900 M0 414 H900 M0 446 H900"/>
+      <path d="M0 46 H900 M0 78 H900 M0 110 H900 M0 142 H900 M0 174 H900 M0 206 H900 M0 238 H900 M0 270 H900 M0 302 H900 M0 334 H900 M0 366 H900 M0 398 H900 M0 430 H900 M0 462 H900"/>
+    </g>
+    <!-- Table edge the booth and machine stand on. -->
+    <path class="ink mid" d="M0 478 H900" stroke-width="2"/>
+    <path class="ink faint" d="M0 492 H900" stroke-width="1"/>
+
+    <!-- THE BOOTH: a tall cardboard box, its front face and a narrow side face in perspective. -->
+    <path class="body" d="M74 40 L282 28 L282 470 L74 476 Z"/>
+    <path class="body" d="M282 28 L322 48 L322 452 L282 470 Z"/>
+    <path class="ink faint" d="M74 40 L114 58 L322 48" stroke-width="1"/>
+    <path class="ink faint" d="M90 60 L270 50 M90 456 L270 448" stroke-width="0.9"/>
+    <!-- Fold seams and a carry-handle slot on the side. -->
+    <path class="ink faint" d="M302 60 L302 440 M292 120 Q302 112 312 120" stroke-width="0.9"/>
+    <!-- Lettering, upper block. -->
+    <text class="lbl" x="178" y="112" font-size="26" text-anchor="middle" transform="rotate(-3 178 112)">JUSTICA</text>
+    <text class="lbl" x="178" y="146" font-size="26" text-anchor="middle" transform="rotate(-3 178 146)">ELEITORAL</text>
+    <!-- The republic's crest, drawn as a ringed star with rays. -->
+    <g class="ink mid" stroke-width="1.1">
+      <circle cx="178" cy="226" r="34"/>
+      <circle cx="178" cy="226" r="22"/>
+      <path d="M178 196 L185 218 L208 218 L190 232 L197 254 L178 240 L159 254 L166 232 L148 218 L171 218 Z"/>
+      <path d="M152 262 Q178 274 204 262 M158 186 L146 174 M198 186 L210 174 M140 230 L128 230 M216 230 L228 230"/>
+    </g>
+    <!-- Lettering, lower block. -->
+    <text class="lbl" x="178" y="336" font-size="22" text-anchor="middle" transform="rotate(-2 178 336)">CABINA DE</text>
+    <text class="lbl" x="178" y="366" font-size="22" text-anchor="middle" transform="rotate(-2 178 366)">VOTACAO</text>
+    <!-- The opening at the base with the voting machine inside. -->
+    <path class="ink" d="M96 392 L262 386 L262 468 L96 472 Z" stroke-width="1.6"/>
+    <path class="body" d="M110 406 L246 400 L246 462 L110 466 Z" stroke-width="1.3"/>
+    <path class="ink mid" d="M118 412 L178 409 L178 440 L118 443 Z" stroke-width="1"/>
+    <g class="ink faint" stroke-width="0.9">
+      <path d="M190 414 H236 M190 424 H236 M190 434 H236 M190 444 H236 M202 410 V450 M214 410 V450 M226 410 V450"/>
+      <path d="M124 452 H234 M120 460 Q150 466 160 460"/>
+    </g>
+    <!-- A loose cable at the foot. -->
+    <path class="ink mid" d="M104 468 C94 476 84 480 70 478 C60 477 56 486 62 492" stroke-width="1.2"/>
+
+    <!-- THE FIGURE: shirt and arms only, the head above the frame. -->
+    <path class="body" d="M470 0 L468 34 C500 70 540 76 600 76 C660 76 700 70 732 34 L730 0 Z"/>
+    <path class="ink faint" d="M560 76 L556 240 M640 76 L646 240 M600 76 L600 244" stroke-width="0.9"/>
+    <!-- Left arm (viewer's left) reaching to the flag's top-left corner. -->
+    <path class="body" d="M470 34 C420 60 380 120 356 206 C350 226 348 240 350 252 L392 252 C398 232 404 214 412 196 C432 150 452 110 478 72 Z"/>
+    <path class="ink faint" d="M372 236 L394 238 M366 252 L352 250" stroke-width="1"/>
+    <!-- Right arm to the top-right corner. -->
+    <path class="body" d="M730 34 C780 60 820 120 844 206 C850 226 852 240 850 252 L808 252 C802 232 796 214 788 196 C768 150 748 110 722 72 Z"/>
+    <path class="ink faint" d="M828 236 L806 238 M834 252 L848 250" stroke-width="1"/>
+    <!-- Hands on the top corners, drawn as simple curled contours. -->
+    <path class="body" d="M340 244 C338 232 350 226 362 230 C374 226 384 232 382 246 L380 262 L344 264 Z" stroke-width="1.3"/>
+    <path class="body" d="M860 244 C862 232 850 226 838 230 C826 226 816 232 818 246 L820 262 L856 264 Z" stroke-width="1.3"/>
+    <!-- Collar and placket, so the shirt reads as a shirt. -->
+    <path class="ink mid" d="M568 0 C580 24 596 36 600 40 C604 36 620 24 632 0 M600 40 L600 76" stroke-width="1.2"/>
+    <path class="ink faint" d="M600 56 h1 M600 70 h1" stroke-width="2.4"/>
+    <!-- A small badge on the shirt pocket. -->
+    <path class="ink mid" d="M636 112 L668 110 L668 134 L636 136 Z" stroke-width="1"/>
+    <path class="ink faint" d="M642 120 L662 119 M642 128 L662 127" stroke-width="0.8"/>
+
+    <!-- THE FLAG: hung from the two hands, its lower edge sagging. -->
+    <path class="body" d="M356 254 C420 246 520 250 600 246 C690 242 790 248 846 254 C848 320 848 390 842 456 C760 462 680 466 600 468 C520 470 440 466 360 456 C354 390 354 320 356 254 Z" stroke-width="1.8"/>
+    <!-- Green field: diagonal hatching, kept off the rhombus. -->
+    <g class="ink mid" stroke-width="0.9">
+      <path d="M362 300 L404 258 M362 344 L448 258 M364 386 L492 258 M368 428 L536 260 M378 456 L580 254 M418 462 L624 256 M462 464 L668 258 M506 466 L712 260 M550 466 L756 258 M594 466 L800 262 M640 466 L838 268 M686 466 L844 308 M732 464 L846 350 M778 462 L846 394 M822 458 L846 434"/>
+    </g>
+    <!-- Yellow rhombus: left light, one faint outline inside. -->
+    <path class="body" d="M600 262 L826 358 L600 452 L376 358 Z" stroke-width="1.6"/>
+    <path class="ink faint" d="M600 276 L808 358 L600 438 L394 358 Z" stroke-width="0.8"/>
+    <!-- Blue globe: dense cross-hatching, with the pale band curving across it. -->
+    <path class="body" d="M600 290 A68 68 0 1 1 599.9 290 Z" stroke-width="1.6"/>
+    <g class="ink" stroke-width="0.9">
+      <path d="M548 320 L584 292 M538 340 L614 290 M534 362 L640 296 M536 382 L656 310 M542 400 L664 330 M556 414 L668 352 M574 422 L666 376 M596 426 L656 398"/>
+      <path d="M548 320 L536 350 M560 304 L534 372 M576 294 L540 394 M594 290 L552 410 M614 290 L570 420 M636 296 L594 426 M654 308 L618 424 M664 328 L640 416"/>
+    </g>
+    <!-- The band, and lettering suggested as tick marks along it. -->
+    <path class="body" d="M534 352 C560 334 640 332 666 346 L664 364 C640 350 562 352 538 370 Z" stroke-width="1.2"/>
+    <path class="ink faint" d="M552 354 V362 M566 349 V357 M582 346 V354 M598 345 V353 M614 345 V353 M630 346 V354 M646 350 V358" stroke-width="1.2"/>
+    <!-- Stars. -->
+    <g class="ink" stroke-width="1.6">
+      <path d="M578 388 h1 M604 396 h1 M628 384 h1 M560 400 h1 M646 404 h1 M612 410 h1 M586 410 h1 M596 376 h1 M640 370 h1 M570 372 h1 M552 384 h1 M630 414 h1"/>
+    </g>
+    <!-- Cloth folds, so the flag hangs rather than sits flat. -->
+    <path class="ink faint" d="M430 262 C424 320 426 390 436 452 M770 262 C776 320 774 390 764 452 M600 254 C598 258 596 262 598 268" stroke-width="1"/>
+  </g>
+</svg>
