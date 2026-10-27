@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 506" role="img"
+     aria-label="Sketch after a CBS News photograph: cardboard voting privacy booths set up on folding tables inside a fire hall. A tall white booth fills the middle of the frame, its corner toward the viewer, each face printed with a waving American flag on a pole and the word VOTE; a smaller booth stands at left and two more sit on a table at right under a shelf of trophies. Painted lettering reading FIRE ASSN runs along the wall at upper left and a single lamp hangs from the ceiling at right. No people are in the room.">
+  <defs><style>
+    .ink  { fill: none; stroke: currentColor; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
+    .body { fill: var(--parchment, #f4f0e6); stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+    .dark { fill: currentColor; stroke: none; }
+    .faint{ opacity: 0.35; }
+    .mid  { opacity: 0.65; }
+    .lbl  { fill: currentColor; font-family: Georgia, 'Times New Roman', serif; font-weight: bold; letter-spacing: 2px; }
+  </style></defs>
+  <g>
+    <!-- The hall: ceiling beam, wall band, the back wall hinted with sparse hatching. -->
+    <g class="ink faint" stroke-width="0.8">
+      <path d="M0 24 H900 M0 36 H900"/>
+      <path d="M0 160 H900 M0 176 H900 M0 192 H900 M0 208 H900 M0 224 H900 M0 240 H900"/>
+      <path d="M0 256 H900 M0 272 H900 M0 288 H900 M0 304 H900 M0 320 H900 M0 336 H900"/>
+    </g>
+    <!-- Painted lettering on the wall, upper left, cut by the frame edge. -->
+    <path class="ink mid" d="M0 48 H200 M0 118 H200" stroke-width="1.2"/>
+    <text class="lbl" x="-4" y="100" font-size="42" letter-spacing="4">FIRE ASSN</text>
+    <!-- A framed sign under the lettering. -->
+    <path class="ink" d="M40 128 H88 V156 H40 Z"/>
+    <path class="ink faint" d="M46 134 H82 M46 142 H82 M46 150 H70" stroke-width="0.8"/>
+    <!-- The hanging lamp at right. -->
+    <path class="ink mid" d="M782 0 V110" stroke-width="1.2"/>
+    <path class="body" d="M772 110 H792 L796 128 H768 Z"/>
+    <!-- Trophy shelf at right rear. -->
+    <path class="ink" d="M672 236 H900"/>
+    <path class="ink faint" d="M672 240 H900" stroke-width="0.8"/>
+    <g class="ink mid" stroke-width="1">
+      <path d="M690 236 V222 H700 V236 M695 222 V206 M689 206 Q695 196 701 206"/>
+      <path d="M712 236 V218 H722 V236 M717 218 V200 M710 200 Q717 190 724 200"/>
+      <path d="M738 236 V224 H746 V236 M742 224 V210 M737 210 Q742 202 747 210"/>
+      <path d="M760 236 V216 H772 V236 M766 216 V196 M758 196 Q766 186 774 196"/>
+      <path d="M790 236 V222 H798 V236 M794 222 V206 M788 206 Q794 198 800 206"/>
+      <path d="M816 236 V220 H826 V236 M821 220 V202 M814 202 Q821 192 828 202"/>
+      <path d="M846 236 V218 H858 V236 M852 218 V198 M844 198 Q852 188 860 198"/>
+      <path d="M878 236 V224 H886 V236 M882 224 V208 M876 208 Q882 200 888 208"/>
+    </g>
+    <!-- The folding table at right, and the floor line. -->
+    <path class="ink mid" d="M660 392 H900 M660 392 L652 506" stroke-width="1.6"/>
+    <path class="ink faint" d="M690 396 V470 M860 396 V480" stroke-width="1"/>
+    <path class="ink faint" d="M0 496 H190 M444 462 L660 440" stroke-width="1"/>
+
+    <!-- LEFT BOOTH: smaller, its face turned slightly toward us, cut by the left edge. -->
+    <path class="body" d="M0 170 L178 160 L182 420 L0 426 Z"/>
+    <path class="ink faint" d="M0 184 L170 174 M8 410 L172 404" stroke-width="0.9"/>
+    <!-- Its flag: pole, finial, waving field. -->
+    <path class="ink" d="M42 214 L58 352" stroke-width="2"/>
+    <path class="ink" d="M40 208 Q44 200 50 206 Q46 212 40 208"/>
+    <path class="body" d="M46 222 C70 214 96 226 118 216 C130 212 138 206 148 206 C146 224 150 240 156 256 C140 258 128 270 108 276 C90 282 72 272 54 284 C54 262 50 242 46 222 Z"/>
+    <path class="dark" d="M46 222 C64 216 80 224 94 220 L98 246 C84 250 68 244 52 252 Z"/>
+    <g class="ink faint" stroke-width="0.8"><path d="M100 230 C118 224 134 216 150 218 M102 240 C120 234 136 226 152 228 M104 250 C122 244 138 238 154 240 M106 260 C124 254 136 250 150 252 M107 270 C120 266 132 262 146 264"/></g>
+    <text class="lbl" x="68" y="334" font-size="24" transform="skewY(-3)">VOTE</text>
+    <path class="ink faint" d="M70 352 H120" stroke-width="0.8"/>
+
+    <!-- CENTER BOOTH: the corner toward the viewer, two faces in perspective. -->
+    <!-- Left face. -->
+    <path class="body" d="M191 106 L432 30 L432 456 L191 484 Z"/>
+    <!-- Right face. -->
+    <path class="body" d="M432 30 L692 110 L692 432 L432 456 Z"/>
+    <!-- Flutes of the corrugated board, faint, on both faces. -->
+    <g class="ink faint" stroke-width="0.7">
+      <path d="M206 102 L206 480 M236 92 L236 476 M266 83 L266 472 M296 74 L296 469 M326 64 L326 465 M356 55 L356 462 M386 45 L386 459 M416 36 L416 457"/>
+      <path d="M452 36 L452 454 M482 46 L482 451 M512 55 L512 448 M542 64 L542 445 M572 74 L572 442 M602 83 L602 440 M632 92 L632 437 M662 101 L662 434"/>
+    </g>
+    <!-- Left face flag. -->
+    <path class="ink" d="M226 146 L248 424" stroke-width="2.4"/>
+    <path class="ink" d="M222 138 Q228 126 236 136 Q230 146 222 138"/>
+    <path class="body" d="M232 160 C262 150 292 166 322 154 C340 148 356 138 376 138 C370 166 376 196 388 226 C368 230 352 248 328 256 C304 264 282 250 258 266 C254 230 244 194 232 160 Z" stroke-width="1.8"/>
+    <path class="dark" d="M232 160 C254 152 276 162 298 156 L306 194 C284 200 264 190 242 200 Z"/>
+    <g class="ink faint" stroke-width="0.9"><path d="M300 162 C324 154 348 142 372 144 M303 175 C327 167 351 156 375 158 M306 188 C330 180 354 170 378 172 M309 201 C333 193 357 184 381 186 M312 214 C336 206 358 198 384 200 M315 227 C338 220 356 214 384 216 M318 240 C340 234 354 230 376 232"/></g>
+    <g class="ink mid" stroke-width="1.1"><path d="M312 170 C336 162 356 150 374 152 M318 196 C340 190 358 180 380 182 M322 222 C344 216 360 208 386 210"/></g>
+    <!-- Left face lettering, skewed with the face. -->
+    <text class="lbl" x="268" y="443" font-size="46" transform="skewY(-14)">VOTE</text>
+    <path class="ink faint" d="M274 448 L300 444 M304 452 L350 446" stroke-width="0.9"/>
+    <!-- Right face flag. -->
+    <path class="ink" d="M512 96 L526 422" stroke-width="2.4"/>
+    <path class="ink" d="M508 88 Q514 76 522 86 Q516 96 508 88"/>
+    <path class="body" d="M518 112 C546 106 574 128 604 124 C626 120 640 108 658 110 C648 140 652 178 660 222 C640 226 624 250 600 262 C578 272 556 258 534 276 C532 232 526 170 518 112 Z" stroke-width="1.8"/>
+    <path class="dark" d="M518 112 C540 108 562 122 584 120 L590 164 C566 168 546 158 524 168 Z"/>
+    <g class="ink faint" stroke-width="0.9"><path d="M586 128 C608 124 630 110 656 112 M589 142 C611 138 633 126 658 128 M592 156 C614 152 636 142 660 144 M595 170 C617 166 638 158 661 160 M598 184 C620 180 640 174 662 176 M601 198 C622 196 640 190 662 192 M603 212 C622 210 638 206 660 208 M605 226 C622 226 634 224 656 226"/></g>
+    <g class="ink mid" stroke-width="1.1"><path d="M588 135 C612 130 634 118 657 120 M593 163 C616 160 638 150 660 152 M599 191 C620 188 640 182 662 184 M604 219 C622 218 636 214 658 216"/></g>
+    <!-- Right face lettering. -->
+    <text class="lbl" x="546" y="313" font-size="44" transform="skewY(8)">VOTE</text>
+    <path class="ink faint" d="M596 436 L624 438 M628 440 L676 444" stroke-width="0.9"/>
+    <!-- The corner edge, drawn last so it reads crisp. -->
+    <path class="ink" d="M432 30 V456" stroke-width="2"/>
+
+    <!-- RIGHT REAR BOOTHS on the table, two faces each, small. -->
+    <path class="body" d="M676 250 L748 236 L748 392 L676 396 Z"/>
+    <path class="body" d="M748 236 L812 252 L812 390 L748 392 Z"/>
+    <path class="ink" d="M694 274 L700 360" stroke-width="1.4"/>
+    <path class="body" d="M697 280 C710 276 722 286 736 282 C734 296 736 310 740 322 C726 326 712 318 702 326 Z"/>
+    <path class="dark" d="M697 280 C706 278 714 282 722 282 L724 298 C716 300 708 296 700 300 Z"/>
+    <text class="lbl" x="700" y="482" font-size="15" transform="skewY(-8)">VOTE</text>
+    <path class="ink" d="M762 276 L766 362" stroke-width="1.4"/>
+    <path class="body" d="M765 282 C778 282 790 296 804 292 C800 308 802 322 806 334 C792 338 780 326 770 334 Z"/>
+    <path class="dark" d="M765 282 C774 282 782 290 790 290 L792 306 C784 306 776 300 768 304 Z"/>
+    <text class="lbl" x="762" y="240" font-size="14" transform="skewY(10)">VOTE</text>
+
+    <path class="body" d="M808 250 L870 238 L870 392 L812 390 Z"/>
+    <path class="body" d="M870 238 L900 246 L900 390 L870 392 Z"/>
+    <path class="ink" d="M824 274 L828 356" stroke-width="1.4"/>
+    <path class="body" d="M827 280 C840 276 850 288 862 284 C860 298 862 312 866 324 C852 328 840 318 832 326 Z"/>
+    <path class="dark" d="M827 280 C836 278 843 284 850 284 L852 298 C844 300 837 296 830 300 Z"/>
+    <text class="lbl" x="830" y="497" font-size="14" transform="skewY(-8)">VOTE</text>
+  </g>
+</svg>
