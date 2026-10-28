@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 506" role="img"
+     aria-label="Sketch after a WV MetroNews photograph: the driver's side door of a West Virginia University Police cruiser, seen close and slightly from below. A dark stripe runs along the top of the door under the window line, a pale band below it carries the words WEST VIRGINIA UNIVERSITY in small capitals, and the word POLICE fills the lower half of the door in large block letters. A shield-shaped badge with a figure and a flying WV sits at the left, a door seam runs down the middle, a sweep of lighter paint rises from the lower left, and the top of a rear wheel shows at the right edge. No people.">
+  <defs><style>
+    .ink  { fill: none; stroke: currentColor; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
+    .body { fill: var(--parchment, #f4f0e6); stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+    .dark { fill: currentColor; stroke: none; }
+    .faint{ opacity: 0.3; }
+    .mid  { opacity: 0.6; }
+    .lbl  { fill: currentColor; font-family: 'Arial Black', 'Helvetica Neue', Arial, sans-serif; font-weight: 900; }
+  </style></defs>
+  <g>
+    <!-- Ground: the dark pavement under the car, bottom of frame. -->
+    <path class="dark mid" d="M0 466 L900 452 L900 506 L0 506 Z"/>
+    <g class="ink faint" stroke-width="0.9">
+      <path d="M20 486 H120 M180 492 H260 M330 484 H400 M470 494 H560 M640 488 H700 M760 480 H860"/>
+    </g>
+
+    <!-- The door panel, a near-flat plane tilted a little: lower edge drops to the right. -->
+    <path class="body" d="M0 0 H900 V420 L0 446 Z" stroke-width="1.2"/>
+
+    <!-- Window sill: the sheet metal folds under the glass line at the top. -->
+    <path class="ink mid" d="M0 14 C300 8 600 8 900 14"/>
+    <!-- Door handle recess, top left. -->
+    <path class="body" d="M440 6 C440 2 452 0 462 2 L560 8 C572 10 572 22 560 24 L462 28 C450 28 440 22 440 16 Z"/>
+    <path class="ink faint" d="M452 16 H548" stroke-width="1"/>
+    <!-- Small latch pull, top right. -->
+    <path class="body" d="M832 22 C832 16 840 14 848 16 L884 22 C890 24 890 34 884 36 L848 40 C840 40 832 36 832 30 Z"/>
+
+    <!-- Upper stripe band, dark, running the full width just under the sill. -->
+    <path class="dark" d="M0 48 L900 40 L900 112 L0 120 Z" opacity="0.82"/>
+    <!-- A thin pale pinstripe inside the band. -->
+    <path class="ink" d="M0 112 L900 104" stroke="var(--parchment, #f4f0e6)" stroke-width="2"/>
+
+    <!-- The pale middle band carrying the small lettering; its lower edge is a long diagonal
+         sweep of darker paint rising from the lower left corner toward the right. -->
+    <path class="dark" d="M0 120 L0 446 L640 428 C520 380 340 330 180 250 C120 220 60 190 0 160 Z" opacity="0.28"/>
+    <!-- Hatch across that sweep to read it as a second colour, not a shadow. -->
+    <g class="ink faint" stroke-width="0.8">
+      <path d="M0 200 L120 260 M0 240 L170 310 M0 280 L220 360 M0 320 L270 408 M0 360 L300 440 M30 420 L160 442"/>
+      <path d="M60 170 L210 240 M120 180 L330 290 M200 200 L420 320 M280 230 L500 360 M360 270 L560 390 M440 320 L600 416"/>
+    </g>
+
+    <!-- Door seam, a vertical crease where the two doors meet, slightly off centre. -->
+    <path class="ink" d="M598 14 L596 432" stroke-width="2"/>
+    <path class="ink faint" d="M604 14 L602 432" stroke-width="0.8"/>
+
+    <!-- The badge: a shield with a figure and the flying WV, left of the lettering. -->
+    <path class="dark" d="M46 150 L190 142 L190 230 C190 290 150 330 118 352 C86 330 46 290 46 230 Z" opacity="0.85"/>
+    <path class="body" d="M58 160 L178 153 L178 228 C178 282 144 316 118 336 C92 316 58 282 58 228 Z" stroke-width="1.2"/>
+    <!-- The badge's own lettering, small, top and bottom. -->
+    <text class="lbl" x="70" y="184" font-size="15" letter-spacing="1">UNIVERSITY</text>
+    <text class="lbl" x="92" y="318" font-size="12" letter-spacing="1">POLICE</text>
+    <!-- The mountaineer figure, drawn as a contour with no face: hat, coat, rifle across the body. -->
+    <g class="ink" stroke-width="1.6">
+      <path d="M96 206 C96 198 104 196 108 200 L112 198 C116 202 116 212 110 214 L104 216 C98 214 96 210 96 206 Z"/>
+      <path d="M100 216 L94 238 L92 270 L100 272 L104 248 L110 246 L114 272 L122 270 L120 240 L116 218 Z"/>
+      <path d="M86 226 L128 252" stroke-width="2.2"/>
+      <path d="M90 230 L98 226 M118 246 L126 250"/>
+    </g>
+    <!-- The flying WV beside the figure. -->
+    <g class="ink" stroke-width="3">
+      <path d="M130 232 L138 262 L146 240 L154 262 L162 232"/>
+      <path d="M138 258 L146 236 L154 258" stroke-width="1.6"/>
+    </g>
+
+    <!-- Small lettering across the pale band: WEST VIRGINIA UNIVERSITY. -->
+    <text class="lbl" x="236" y="192" font-size="34" letter-spacing="2" transform="skewX(-8)">WEST VIRGINIA UNIVERSITY</text>
+    <path class="ink faint" d="M236 202 H842" stroke-width="0.8"/>
+
+    <!-- The big word: POLICE, filling the lower half of the door. -->
+    <text class="lbl" x="268" y="372" font-size="150" letter-spacing="6" transform="skewX(-8)">POLICE</text>
+
+    <!-- The sweep's far end runs under the big letters as a lighter wedge toward the right. -->
+    <path class="ink mid" d="M640 428 C700 410 790 400 900 392" stroke-width="1.2"/>
+
+    <!-- Rocker panel below the door: a darker strip with the door's bottom edge above it. -->
+    <path class="dark" d="M0 446 L900 420 L900 452 L0 466 Z" opacity="0.7"/>
+    <path class="ink" d="M0 446 L900 420" stroke="var(--parchment, #f4f0e6)" stroke-width="1.2"/>
+
+    <!-- The rear wheel: an arch cut into the panel at the right edge, tyre and rim inside it. -->
+    <path class="body" d="M760 420 C770 350 820 300 900 296 L900 420 Z" stroke-width="1.6"/>
+    <path class="dark" d="M776 420 C786 362 830 320 900 316 L900 420 Z" opacity="0.9"/>
+    <path class="ink" d="M840 420 C842 388 862 368 900 364" stroke="var(--parchment, #f4f0e6)" stroke-width="1.4"/>
+    <g class="ink faint" stroke-width="0.9">
+      <path d="M790 402 C800 372 826 346 860 334 M806 414 C814 388 836 364 870 352"/>
+    </g>
+    <!-- Mud flap and trim behind the wheel well. -->
+    <path class="ink mid" d="M760 420 L756 462" stroke-width="1.4"/>
+  </g>
+</svg>
