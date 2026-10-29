@@ -1,0 +1,150 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 506" role="img"
+     aria-label="Sketch after an Al Jazeera photograph of the Urda crash site in Toledo province: a medical helicopter marked 112 sits on dry grass in the foreground, its tail boom to the left and rotor blades drooping. Behind it a gravel embankment rises to the track, where a white high-speed train stands at the upper left and a red train at the upper right. Between them one carriage has tumbled nose-down off the slope and another lies on its side lower down among scattered wreckage. An olive tree frames the left edge. No people.">
+  <defs><style>
+    .ink  { fill: none; stroke: currentColor; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
+    .body { fill: var(--parchment, #f4f0e6); stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+    .dark { fill: currentColor; stroke: none; }
+    .faint{ opacity: 0.3; }
+    .mid  { opacity: 0.6; }
+    .lbl  { fill: currentColor; font-family: 'Arial Black', 'Helvetica Neue', Arial, sans-serif; font-weight: 900; }
+  </style></defs>
+  <g>
+    <!-- Sky line: nothing drawn; the parchment is the sky. -->
+
+    <!-- The embankment: a gravel slope rising from the field to the track bed. -->
+    <path class="ink" d="M0 330 C120 300 260 270 420 262 C560 254 720 236 900 220" stroke-width="1.6"/>
+    <path class="ink mid" d="M0 300 C140 262 300 236 460 226 C600 218 760 202 900 186" stroke-width="1.2"/>
+    <!-- Track bed edge along the top of the slope. -->
+    <path class="ink" d="M0 232 C160 212 330 196 500 186 C640 178 780 168 900 160" stroke-width="1.2"/>
+    <!-- Gravel: short hatch strokes down the face of the slope, sparser lower. -->
+    <g class="ink faint" stroke-width="0.9">
+      <path d="M30 262 l6 10 M70 258 l6 10 M118 250 l6 10 M160 246 l6 10 M210 242 l6 10 M260 238 l6 10 M300 236 l6 10 M350 232 l6 10 M400 230 l6 10 M450 226 l6 10 M500 222 l6 10 M550 218 l6 10 M600 212 l6 10 M650 208 l6 10 M700 202 l6 10 M750 198 l6 10 M800 192 l6 10 M850 186 l6 10"/>
+      <path d="M50 290 l6 10 M100 282 l6 10 M150 276 l6 10 M200 270 l6 10 M250 266 l6 10 M320 258 l6 10 M380 254 l6 10 M440 250 l6 10 M520 244 l6 10 M580 238 l6 10 M640 232 l6 10 M700 226 l6 10 M760 220 l6 10 M820 212 l6 10 M870 206 l6 10"/>
+      <path d="M90 316 l6 10 M170 304 l6 10 M240 296 l6 10 M330 288 l6 10 M420 282 l6 10 M500 276 l6 10 M590 266 l6 10 M680 256 l6 10 M770 246 l6 10 M850 236 l6 10"/>
+    </g>
+
+    <!-- The white train, upper left, standing on the track and receding to the left. -->
+    <path class="body" d="M0 150 L300 128 C318 126 330 134 330 150 L330 190 C330 198 322 200 314 200 L0 220 Z"/>
+    <!-- Roof line and window band of the white train. -->
+    <path class="ink mid" d="M0 162 L318 140"/>
+    <path class="ink" d="M20 176 L310 154 L310 168 L20 190 Z" stroke-width="1"/>
+    <g class="ink faint" stroke-width="0.9">
+      <path d="M50 174 V188 M80 172 V186 M110 170 V184 M140 168 V182 M170 166 V180 M200 164 V178 M230 162 V176 M260 160 V174 M290 158 V172"/>
+    </g>
+    <!-- Coupling gap between its coaches. -->
+    <path class="ink mid" d="M180 150 L178 212" stroke-width="1"/>
+    <!-- Dark skirt under the white train. -->
+    <path class="dark mid" d="M0 212 L314 192 L314 200 L0 220 Z"/>
+
+    <!-- The upended carriage: a long box tipped nose-down into the slope, between the two trains. -->
+    <path class="body" d="M480 110 L640 70 C656 66 668 74 672 90 L700 196 C704 210 696 220 684 224 L560 254 C546 258 536 252 532 238 Z"/>
+    <!-- Its roof curve and underframe lines. -->
+    <path class="ink mid" d="M498 118 L646 82"/>
+    <path class="ink mid" d="M548 226 L690 190"/>
+    <!-- Window strip along its side, now running downhill. -->
+    <path class="ink" d="M520 150 L664 114 L672 140 L528 176 Z" stroke-width="1"/>
+    <g class="ink faint" stroke-width="0.9">
+      <path d="M545 148 l6 24 M575 140 l6 24 M605 132 l6 24 M635 124 l6 24"/>
+    </g>
+    <!-- Torn end of the carriage, hatched dark. -->
+    <g class="ink mid" stroke-width="1">
+      <path d="M484 118 l12 20 M490 136 l12 20 M498 154 l12 20 M506 172 l12 20 M514 190 l12 20 M522 208 l12 20"/>
+    </g>
+
+    <!-- The red train, upper right, still on the track beyond the upended carriage. -->
+    <path class="body" d="M690 86 L900 62 L900 136 L720 158 C708 160 700 152 698 140 Z"/>
+    <path class="ink" d="M712 104 L900 82" stroke-width="1"/>
+    <path class="ink" d="M720 120 L900 98 L900 110 L722 132 Z" stroke-width="1"/>
+    <g class="ink faint" stroke-width="0.9">
+      <path d="M745 120 V132 M775 117 V129 M805 114 V126 M835 110 V122 M865 106 V118"/>
+    </g>
+    <!-- Red livery band, hatched to read darker. -->
+    <g class="ink mid" stroke-width="0.9">
+      <path d="M706 142 l14 -8 M726 140 l14 -8 M746 138 l14 -8 M766 136 l14 -8 M786 133 l14 -8 M806 131 l14 -8 M826 128 l14 -8 M846 126 l14 -8 M866 124 l14 -8 M886 121 l14 -8"/>
+    </g>
+
+    <!-- The second fallen carriage: on its side, lower on the slope in the middle. -->
+    <path class="body" d="M300 262 L500 234 C512 232 520 240 520 250 L522 290 C522 300 514 306 504 306 L310 324 C300 324 294 318 294 310 Z"/>
+    <path class="ink mid" d="M300 284 L516 258"/>
+    <path class="ink" d="M320 272 L500 248 L500 258 L320 282 Z" stroke-width="1"/>
+    <!-- Roof seam with vents. -->
+    <g class="ink faint" stroke-width="0.9">
+      <path d="M340 300 l0 10 M380 296 l0 10 M420 292 l0 10 M460 288 l0 10"/>
+    </g>
+
+    <!-- Debris: a scatter of short angular marks across the foot of the slope. -->
+    <g class="ink mid" stroke-width="1.1">
+      <path d="M130 318 l18 -6 M150 326 l10 -10 M210 316 l16 4 M240 324 l-8 -12 M560 290 l20 -4 M590 300 l8 -12 M630 286 l16 6 M660 296 l-6 -14 M700 280 l18 -2 M740 288 l10 -10 M770 276 l14 6"/>
+      <path d="M90 338 l22 -4 M118 346 l12 -8 M560 312 l16 6 M604 318 l-6 -12 M650 306 l20 -2 M690 312 l10 -8 M730 300 l16 4 M790 294 l12 -8 M820 302 l16 -2"/>
+    </g>
+
+    <!-- The field: a flat grass line, then the foreground. -->
+    <path class="ink" d="M0 352 C200 346 400 342 600 342 C720 342 820 346 900 350" stroke-width="1.2"/>
+    <g class="ink faint" stroke-width="0.9">
+      <path d="M20 372 l4 -10 M60 380 l4 -10 M110 368 l4 -10 M160 384 l4 -10 M220 376 l4 -10 M280 390 l4 -10 M340 378 l4 -10 M400 394 l4 -10 M470 382 l4 -10 M540 396 l4 -10 M610 386 l4 -10 M690 398 l4 -10 M760 388 l4 -10 M830 400 l4 -10 M880 390 l4 -10"/>
+      <path d="M40 430 l4 -10 M120 444 l4 -10 M200 436 l4 -10 M300 452 l4 -10 M380 440 l4 -10 M470 458 l4 -10 M560 446 l4 -10 M650 462 l4 -10 M740 450 l4 -10 M830 466 l4 -10"/>
+      <path d="M80 488 l4 -10 M180 496 l4 -10 M290 484 l4 -10 M420 498 l4 -10 M540 486 l4 -10 M660 496 l4 -10 M790 488 l4 -10"/>
+    </g>
+
+    <!-- The helicopter, foreground, facing right. -->
+    <!-- Tail boom, tapering back to the fenestron ring at the left. -->
+    <path class="body" d="M400 392 L600 384 L600 410 L400 408 Z"/>
+    <path class="ink mid" d="M410 400 L596 396"/>
+    <!-- Fenestron: a round shrouded tail rotor. -->
+    <circle class="body" cx="378" cy="398" r="34"/>
+    <circle class="ink mid" cx="378" cy="398" r="22"/>
+    <circle class="ink" cx="378" cy="398" r="6"/>
+    <g class="ink mid" stroke-width="1">
+      <path d="M378 376 V420 M356 398 H400 M362 382 L394 414 M394 382 L362 414"/>
+    </g>
+    <!-- Upper tail fin and the horizontal stabilizer. -->
+    <path class="body" d="M352 368 L384 362 L400 392 L360 392 Z"/>
+    <path class="ink" d="M430 384 L470 376 L472 384 L432 390 Z" stroke-width="1.1"/>
+    <!-- Fuselage: a rounded cabin with the nose at the right. -->
+    <path class="body" d="M580 374 C600 360 640 350 700 350 L760 350 C800 350 836 362 852 384 C864 400 866 420 856 434 C844 450 816 456 790 456 L640 456 C610 456 590 446 584 428 Z"/>
+    <!-- Cabin windows: the cockpit glazing and two side windows. -->
+    <path class="body" d="M792 358 C820 360 842 372 850 388 C856 400 854 410 846 414 L800 414 C792 414 788 408 788 400 Z" stroke-width="1.2"/>
+    <path class="ink faint" d="M800 364 C822 366 838 376 846 392" stroke-width="1"/>
+    <path class="body" d="M700 362 L770 362 C776 362 778 366 778 372 L778 406 C778 412 774 414 768 414 L700 414 Z" stroke-width="1.2"/>
+    <path class="ink mid" d="M736 362 V414" stroke-width="1"/>
+    <path class="body" d="M620 372 L680 366 L680 410 L622 412 Z" stroke-width="1.2"/>
+    <!-- Checkered nose band: a row of alternating dark squares. -->
+    <g class="dark">
+      <path d="M776 424 h14 v12 h-14 z M804 424 h14 v12 h-14 z M832 424 h14 v12 h-14 z"/>
+      <path d="M790 436 h14 v12 h-14 z M818 436 h14 v12 h-14 z"/>
+    </g>
+    <!-- The 112 marking on the door. -->
+    <text class="lbl" x="712" y="440" font-size="20">112</text>
+    <!-- Lower fuselage line. -->
+    <path class="ink mid" d="M590 430 L850 432"/>
+    <!-- Rotor mast and hub. -->
+    <path class="body" d="M700 350 L700 336 L724 336 L724 350 Z"/>
+    <circle class="body" cx="712" cy="330" r="8"/>
+    <!-- Four rotor blades, long and drooping slightly toward the tips. -->
+    <path class="ink" d="M712 330 C600 326 460 324 300 322" stroke-width="2"/>
+    <path class="ink" d="M712 330 C820 330 880 334 900 336" stroke-width="2"/>
+    <path class="ink" d="M712 330 C660 320 620 314 560 310" stroke-width="2"/>
+    <path class="ink" d="M712 330 C760 324 800 320 860 318" stroke-width="2"/>
+    <!-- Skids: two struts down to a long runner. -->
+    <path class="ink" d="M640 456 L636 480 M770 456 L776 480" stroke-width="2"/>
+    <path class="ink" d="M600 482 L820 480" stroke-width="2.4"/>
+    <path class="ink mid" d="M600 482 C592 480 588 476 590 470 M820 480 C830 478 834 472 830 466" stroke-width="1.6"/>
+    <!-- Shadow under the helicopter. -->
+    <path class="dark faint" d="M580 486 L840 484 L850 494 L570 496 Z"/>
+
+    <!-- The olive tree at the left edge: a trunk and a ragged crown of short strokes. -->
+    <path class="body" d="M28 506 L34 430 C36 414 24 400 20 388 L40 388 C46 404 50 420 48 436 L46 506 Z"/>
+    <g class="ink" stroke-width="1.1">
+      <path d="M0 300 C10 280 30 270 50 282 C70 268 92 276 96 296 C112 300 114 322 100 332 C110 348 96 366 78 360 C72 378 50 382 40 368 C22 376 4 366 0 352 Z"/>
+    </g>
+    <g class="ink mid" stroke-width="0.9">
+      <path d="M14 296 l10 -6 M36 288 l8 8 M58 290 l10 -4 M78 300 l6 8 M90 318 l-8 6 M82 340 l-10 -4 M64 352 l-8 8 M44 356 l-6 -8 M24 346 l8 -6 M12 326 l10 2 M30 312 l10 8 M52 320 l8 -8 M70 328 l-8 8 M46 338 l8 2"/>
+      <path d="M0 340 L8 330 M0 318 L10 312 M0 362 L8 376 M0 384 L12 392"/>
+    </g>
+    <!-- A second, smaller olive at the right edge, behind the helicopter. -->
+    <g class="ink mid" stroke-width="1">
+      <path d="M880 296 C870 284 876 268 892 268 C900 262 900 262 900 262 L900 330 C888 330 876 322 880 310 C874 306 874 300 880 296 Z"/>
+      <path d="M886 282 l8 6 M884 302 l10 -2 M890 316 l6 6 M888 292 l10 8"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,545 @@
+{
+  "edition_date": "2026-10-29",
+  "edition_number": 73,
+  "volume": "I",
+  "sections": [
+    {
+      "id": "teams",
+      "label": "Our Teams",
+      "briefs": [
+        {
+          "headline": "Liverpool and Chelsea draw 1-1 at Anfield; Liverpool go through 6-5 on penalties",
+          "summary": "The Carabao Cup fourth-round meeting of two followed clubs finished level after two first-half penalties four minutes apart: Morgan Rogers converted for Chelsea in the 40th minute after Gravenberch fouled Caicedo, and Cody Gakpo converted for Liverpool in the 43rd after a Fofana handball. Liverpool won the shootout 6-5 after 16 kicks, Mamardashvili saving from Emegha and Joe Gomez scoring his first goal of any kind in 281 appearances before Fofana put the last kick over. Mike Penders started in goal for Chelsea and saved from Araujo and Barcola; Cole Palmer served his suspension; Florian Wirtz came off the bench in the 59th minute and scored his shootout kick; Lacroix went off injured at halftime. Attendance was 60,214. Liverpool host Bournemouth in the quarterfinals in the week of Dec. 14; Chelsea are out. Alonso called it 'a small setback, probably the least important competition for us,' and Iraola said 'luckily for us, we finished on the right side of the penalty shootout.'",
+          "source": "ESPN",
+          "url": "https://www.espn.com/soccer/match/_/gameId/401921842",
+          "team": "Chelsea",
+          "result": {
+            "winner": "Liverpool",
+            "loser": "Chelsea",
+            "score": "1-1",
+            "note": "draw; Liverpool won 6-5 on penalties"
+          }
+        },
+        {
+          "headline": "Wembanyama's 36 and 14 carry the Spurs past the Jazz in overtime for a third straight win",
+          "summary": "Victor Wembanyama had 36 points, 14 rebounds, five assists, two blocks and two steals with no turnovers in 39 minutes, and San Antonio beat Utah one hundred seventeen to one hundred eleven in overtime at the Delta Center on Wednesday night. Utah led by as many as 11 and forced the extra period when Brice Sensabaugh and Keyonte George scored back-to-back baskets from five down; Sensabaugh opened overtime with a three before a 12 to nothing Spurs run settled it, Utah going two of seven with four turnovers in the period. Devin Vassell scored 21, 17 of them after halftime, and Stephon Castle and Dylan Harper had eight assists each. George scored a season-high 31 for the Jazz, who were without Jaren Jackson Jr., Lauri Markkanen and Jusuf Nurkic. The Spurs have three wins and two losses, are unbeaten in two road games, and host Minnesota on Saturday at 8 p.m. ET before Utah visits Monday.",
+          "source": "ESPN",
+          "url": "https://www.espn.com/nba/boxscore/_/gameId/401909890",
+          "team": "San Antonio Spurs"
+        },
+        {
+          "headline": "Crew beat FC Dallas 2-0 for a sixth win in seven league matches",
+          "summary": "Gonzalo Tapia scored in the 18th minute from an Anass Zaroury cross and Santiago Rodriguez added the second in the 70th as the Crew beat FC Dallas at Toyota Stadium on Wednesday night, Patrick Schulte keeping the clean sheet behind a three-man back line. Columbus have 41 points from 32 matches and moved up to ninth in the Eastern Conference, the second of the two wild-card places, with D.C. United at home Saturday at 2 p.m. ET and Decision Day at Chicago on Nov. 7. Dallas stay second in the West on 54.",
+          "source": "ESPN",
+          "url": "https://www.espn.com/soccer/match/_/gameId/761912",
+          "team": "Columbus Crew",
+          "result": {
+            "winner": "Columbus Crew",
+            "loser": "FC Dallas",
+            "score": "2-0"
+          }
+        },
+        {
+          "headline": "FC Cincinnati draw 2-2 at Inter Miami after leading in the 86th minute",
+          "summary": "Luis Suarez put Miami ahead in the 61st minute at Nu Stadium on Wednesday, Kenji Mboma Dem equalized in the 80th from an Evander pass, and Samuel Gidi's first MLS goal on the break in the 86th put Cincinnati in front before Riquelme Fillipi, also scoring his first MLS goal, leveled in the 90th from a Rodrigo De Paul assist. Ian Fray blocked Evander's chance in stoppage time. Cincinnati have 43 points from 32 matches and sit eighth in the East, level with seventh-place Orlando; ESPN's recap says they are still aiming to clinch a playoff place. Philadelphia visit TQL Stadium on Saturday at 2 p.m. ET, and MLS said Wednesday that the 2027 sprint season opens Feb. 19 with Miami hosting Cincinnati.",
+          "source": "ESPN",
+          "url": "https://www.espn.com/soccer/match/_/gameId/761908",
+          "team": "FC Cincinnati",
+          "result": {
+            "winner": "FC Cincinnati",
+            "loser": "Inter Miami",
+            "score": "2-2",
+            "note": "draw"
+          }
+        },
+        {
+          "headline": "Gibson will not name a Marshall starting quarterback for Old Dominion and says three could play",
+          "summary": "Tony Gibson declined to name his starter for Saturday's 1 p.m. ET game at Old Dominion but indicated Zion Turner, Khalil Wilkins and Carlos Del Rio-Wilson could all play, with Del Rio-Wilson in line to return after Turner and Wilkins took the snaps against South Alabama, WV MetroNews reported Wednesday. Marshall are fourth in the Sun Belt East; Old Dominion are last in the division.",
+          "source": "WV MetroNews",
+          "url": "https://wvmetronews.com/2026/10/28/gibson-mum-on-starting-quarterback-at-odu-but-indicates-trio-of-signal-callers-likely-to-play/",
+          "team": "Marshall"
+        }
+      ],
+      "standings": [
+        {
+          "team": "Chelsea",
+          "line": "Chelsea are 5th in the Premier League on 13 points from 8 matches (4-1-3, GD +2), unchanged with no league matches midweek, per the ESPN eng.1 standings page read at 5:46 a.m. ET Thursday; Manchester City and Arsenal lead on 21 each, Brighton are 3rd on 16 and Liverpool 4th on 15.",
+          "source": "ESPN",
+          "url": "https://site.api.espn.com/apis/v2/sports/soccer/eng.1/standings"
+        },
+        {
+          "team": "Liverpool",
+          "line": "Liverpool are 4th in the Premier League on 15 points from 8 matches (4-3-1, GD +3), unchanged, two points ahead of 5th-place Chelsea and six behind leaders Manchester City and Arsenal (21 each), per the ESPN eng.1 standings page read at 5:46 a.m. ET Thursday.",
+          "source": "ESPN",
+          "url": "https://site.api.espn.com/apis/v2/sports/soccer/eng.1/standings"
+        },
+        {
+          "team": "Tottenham",
+          "line": "Tottenham are 14th in the Premier League on 9 points from 8 matches (2-3-3, GD -2), unchanged, level on points with 13th-place Bournemouth and one point below Hull, Everton and Ipswich (10 each), per the ESPN eng.1 standings page read at 5:46 a.m. ET Thursday.",
+          "source": "ESPN",
+          "url": "https://site.api.espn.com/apis/v2/sports/soccer/eng.1/standings"
+        },
+        {
+          "team": "Columbus Crew",
+          "line": "Columbus are 9th in the MLS Eastern Conference on 41 points from 32 matches (12-15-5, GD +3), up from 10th after Wednesday's win at Dallas, two points behind 8th-place FC Cincinnati and two ahead of 10th-place Red Bull New York and Toronto (39 each), per the ESPN usa.1 standings page read at 5:46 a.m. ET Thursday; places 8 and 9 are the wild-card matches.",
+          "source": "ESPN",
+          "url": "https://site.api.espn.com/apis/v2/sports/soccer/usa.1/standings"
+        },
+        {
+          "team": "FC Cincinnati",
+          "line": "FC Cincinnati are 8th in the MLS Eastern Conference on 43 points from 32 matches (11-11-10, GD -7), unchanged in place after Wednesday's draw at Miami, level on points with 7th-place Orlando and four below 6th-place Philadelphia (47), per the ESPN usa.1 standings page read at 5:46 a.m. ET Thursday; Nashville lead on 71.",
+          "source": "ESPN",
+          "url": "https://site.api.espn.com/apis/v2/sports/soccer/usa.1/standings"
+        },
+        {
+          "team": "Cleveland Browns",
+          "line": "The Browns are 5-2 (W2), listed 1st in the AFC North and tied with Pittsburgh (5-2), with Cincinnati (4-2) half a game back and Baltimore (4-3) one back, and 3rd in the AFC seed column behind Kansas City and Buffalo (5-1 each), per the ESPN NFL standings page read at 5:46 a.m. ET Thursday; Sunday's winner at Pittsburgh takes sole possession of the division.",
+          "source": "ESPN",
+          "url": "https://site.api.espn.com/apis/v2/sports/football/nfl/standings?level=3"
+        },
+        {
+          "team": "Cincinnati Bengals",
+          "line": "The Bengals are 4-2 (W2), 3rd in the AFC North, half a game behind Cleveland and Pittsburgh (5-2 each) and 7th in the AFC seed column, unchanged, per the ESPN NFL standings page read at 5:46 a.m. ET Thursday.",
+          "source": "ESPN",
+          "url": "https://site.api.espn.com/apis/v2/sports/football/nfl/standings?level=3"
+        },
+        {
+          "team": "West Virginia",
+          "line": "West Virginia is 5-3 overall and 2-3 in the Big 12 (W2), listed 8th of 16 on the ESPN Big 12 standings page read at 5:46 a.m. ET Thursday, unchanged and idle this week; Utah leads at 7-0 (4-0), and Texas Tech, the Nov. 7 opponent, is 6-1 (3-1).",
+          "source": "ESPN",
+          "url": "https://site.api.espn.com/apis/v2/sports/football/college-football/standings?group=4"
+        },
+        {
+          "team": "Marshall",
+          "line": "Marshall is 4-3 overall and 1-2 in the Sun Belt (W1), listed 4th of 7 in the Sun Belt East on the ESPN standings page read at 5:46 a.m. ET Thursday, unchanged; James Madison leads the East at 7-1 (4-1), and Saturday's opponent Old Dominion is 2-6 (1-4) and last.",
+          "source": "ESPN",
+          "url": "https://site.api.espn.com/apis/v2/sports/football/college-football/standings?group=37"
+        },
+        {
+          "team": "Ohio University",
+          "line": "Ohio is 6-2 overall and 4-0 in the MAC, listed 1st of 13 on the ESPN MAC standings page read at 5:46 a.m. ET Thursday, unchanged, with Toledo (6-2, 3-1) listed 2nd; Akron, Tuesday's opponent, is 1-7 (0-4) and listed 12th.",
+          "source": "ESPN",
+          "url": "https://site.api.espn.com/apis/v2/sports/football/college-football/standings?group=15"
+        },
+        {
+          "team": "San Antonio Spurs",
+          "line": "The Spurs are 3-2 (W3) after Wednesday's overtime win at Utah, behind Houston (5-0) and Memphis (4-0) in the Southwest Division, level with Dallas (3-2) and ahead of New Orleans (0-4), and 6th of 15 in ESPN's Western Conference seed column, up from 7th, per the ESPN NBA standings page read at 5:46 a.m. ET Thursday.",
+          "source": "ESPN",
+          "url": "https://site.api.espn.com/apis/v2/sports/basketball/nba/standings?level=3"
+        }
+      ],
+      "upcoming": [
+        {
+          "team": "Chelsea",
+          "fixture": "Manchester United at Chelsea, Premier League (USA Network)",
+          "when": "Saturday, Oct. 31, 8:30 a.m. ET (12:30 p.m. GMT), Stamford Bridge, London",
+          "source": "ESPN",
+          "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard?dates=20261031"
+        },
+        {
+          "team": "Marshall",
+          "fixture": "Marshall at Old Dominion, Sun Belt (ESPN+)",
+          "when": "Saturday, Oct. 31, 1 p.m. ET, S.B. Ballard Stadium, Norfolk, Va.",
+          "source": "ESPN",
+          "url": "https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/276/schedule"
+        },
+        {
+          "team": "Tottenham",
+          "fixture": "Crystal Palace at Tottenham, Premier League (NBC)",
+          "when": "Saturday, Oct. 31, 1:30 p.m. ET (5:30 p.m. GMT), Tottenham Hotspur Stadium, London",
+          "source": "ESPN",
+          "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard?dates=20261031"
+        },
+        {
+          "team": "Columbus Crew",
+          "fixture": "D.C. United at Columbus, MLS (Apple TV)",
+          "when": "Saturday, Oct. 31, 2 p.m. ET, ScottsMiracle-Gro Field, Columbus",
+          "source": "ESPN",
+          "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/usa.1/scoreboard?dates=20261031"
+        },
+        {
+          "team": "FC Cincinnati",
+          "fixture": "Philadelphia at FC Cincinnati, MLS (Apple TV)",
+          "when": "Saturday, Oct. 31, 2 p.m. ET, TQL Stadium, Cincinnati",
+          "source": "ESPN",
+          "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/usa.1/scoreboard?dates=20261031"
+        },
+        {
+          "team": "San Antonio Spurs",
+          "fixture": "Minnesota at San Antonio (NBA League Pass)",
+          "when": "Saturday, Oct. 31, 8 p.m. ET, Frost Bank Center, San Antonio",
+          "source": "ESPN",
+          "url": "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams/24/schedule"
+        },
+        {
+          "team": "Liverpool",
+          "fixture": "Arsenal at Liverpool, Premier League (Peacock)",
+          "when": "Sunday, Nov. 1, 11:30 a.m. ET (4:30 p.m. GMT; U.S. clocks go back that morning), Anfield, Liverpool",
+          "source": "ESPN",
+          "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard?dates=20261101"
+        },
+        {
+          "team": "Cleveland Browns",
+          "fixture": "Cleveland at Pittsburgh (CBS)",
+          "when": "Sunday, Nov. 1, 1 p.m. ET, Acrisure Stadium, Pittsburgh",
+          "source": "ESPN",
+          "url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams/5/schedule"
+        },
+        {
+          "team": "Cincinnati Bengals",
+          "fixture": "Tennessee at Cincinnati (CBS)",
+          "when": "Sunday, Nov. 1, 1 p.m. ET, Paycor Stadium, Cincinnati",
+          "source": "ESPN",
+          "url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams/4/schedule"
+        },
+        {
+          "team": "San Antonio Spurs",
+          "fixture": "Utah at San Antonio (NBA League Pass)",
+          "when": "Monday, Nov. 2, 8:30 p.m. ET, Frost Bank Center, San Antonio",
+          "source": "ESPN",
+          "url": "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams/24/schedule"
+        },
+        {
+          "team": "Ohio University",
+          "fixture": "Ohio at Akron, MAC (ESPN2)",
+          "when": "Tuesday, Nov. 3, 7 p.m. ET, InfoCision Stadium, Akron",
+          "source": "ESPN",
+          "url": "https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/195/schedule"
+        },
+        {
+          "team": "San Antonio Spurs",
+          "fixture": "Dallas at San Antonio (ESPN)",
+          "when": "Wednesday, Nov. 4, 9:30 p.m. ET, Frost Bank Center, San Antonio",
+          "source": "ESPN",
+          "url": "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams/24/schedule"
+        }
+      ],
+      "sat_out": [
+        {
+          "team": "Hannan",
+          "reason": "Season over since the Oct. 21 regional quarterfinal loss at Buffalo; no newspaper season wrap has run and a search at 5:49 a.m. ET Thursday found none. Nothing to print until one does."
+        },
+        {
+          "team": "Cincinnati Bengals",
+          "reason": "No game until Sunday. Wednesday's injury report listed Ja'Marr Chase as not practicing for rest and an ankle, Kyle Dugger (quad) already ruled out, and Jonathan Allen resting; Joe Burrow was not on it."
+        },
+        {
+          "team": "Cleveland Browns",
+          "reason": "No game until Sunday at Pittsburgh. Wednesday's combined injury report had Jared Verse (knee), Tytus Howard (concussion) and Elgton Jenkins (knee) not practicing and seven others limited; nothing new on the quarterbacks since Monday."
+        },
+        {
+          "team": "Cincinnati Reds",
+          "reason": "Out of season; the World Series ended Wednesday night and the ESPN MLB feed read at 5:50 a.m. ET Thursday carried only Brewers items."
+        },
+        {
+          "team": "Pittsburgh Pirates",
+          "reason": "Out of season; the ESPN MLB feed read at 5:50 a.m. ET Thursday carried only World Series items."
+        },
+        {
+          "team": "West Virginia",
+          "reason": "Idle this week; next is Texas Tech on Nov. 7. The ESPN team news feed returned an empty object at 5:46 a.m. ET Thursday and the WV MetroNews sports page carried no football item dated Oct. 28 or 29."
+        },
+        {
+          "team": "Ohio University",
+          "reason": "Idle until Tuesday at Akron; no MAC games were played Tuesday or Wednesday, and the ESPN team news feed returned an empty object at 5:46 a.m. ET Thursday."
+        },
+        {
+          "team": "USMNT",
+          "reason": "No match in the next seven days; the Nations League quarterfinal first leg against Haiti is Saturday, Nov. 14, at 4:30 p.m. ET in Miami. Searches at 5:49 a.m. ET found no official Milan announcement of the Pulisic contract reported Wednesday."
+        }
+      ]
+    },
+    {
+      "id": "leagues",
+      "label": "Around the Leagues",
+      "briefs": [
+        {
+          "headline": "Brewers beat the Rays 4-1 to win the World Series, the first title in the franchise's 57 years",
+          "summary": "Milwaukee closed out the Series four games to one at Tropicana Field on Wednesday night behind Jacob Misiorowski, who threw five and two-thirds scoreless innings on two hits before leaving with a right calf cramp, and Trevor Megill, who finished with two innings. Rookie shortstop Cooper Pratt drove in two runs, singling home Brice Turang in the second and adding a sacrifice fly in the sixth after William Contreras' RBI double; Tampa Bay's only run came on Chandler Simpson's ninth-inning double off Megill. Contreras, who hit .381 in the Series and threw out four base stealers, was named MVP, the eighth catcher to win it. The Brewers won 103 regular-season games and went 11-2 in October.",
+          "source": "MLB Stats API box score; ESPN",
+          "url": "https://www.espn.com/mlb/story/_/id/50314006/brewers-rays-game-5-first-world-series-title",
+          "result": {
+            "winner": "Milwaukee Brewers",
+            "loser": "Tampa Bay Rays",
+            "score": "4-1"
+          }
+        },
+        {
+          "headline": "49ers reacquire DeForest Buckner from the Colts for a 2027 fourth-round pick",
+          "summary": "San Francisco, at six wins and one loss, sent Indianapolis a 2027 fourth-rounder on Tuesday to bring back the defensive tackle it drafted seventh overall in 2016 and traded away in March 2020; Buckner had aired his frustration in Indianapolis on Oct. 18. ESPN frames it as the first move before the Nov. 10 trade deadline, with receiver help still a need. Thursday night's game is Carolina at Green Bay, 8:15 p.m. ET on Prime Video.",
+          "source": "ESPN",
+          "url": "https://www.espn.com/nfl/story/_/id/50308923/san-francisco-49ers-deforest-buckner-trade-deadline-plans"
+        },
+        {
+          "headline": "Curry scores 44 as the Warriors hold off the Timberwolves; Rockets stay unbeaten",
+          "summary": "Stephen Curry had 44 points, eight rebounds and six assists and Golden State beat Minnesota one hundred nineteen to one hundred fourteen on Wednesday; Jonathan Kuminga scored 20 for the Wolves. Houston routed Milwaukee by 32 to go to five wins and no losses, Fred VanVleet scoring 24, while Oklahoma City lost its first game, by 24 at Dallas, where Cooper Flagg had 26 points and eight assists. Nikola Jokic recorded his 200th career triple-double, 21 points, 13 rebounds and 10 assists, in Denver's 13-point win over New Orleans.",
+          "source": "ESPN",
+          "url": "https://www.espn.com/nba/game/_/gameId/401909888"
+        },
+        {
+          "headline": "Big 12 fines UCF $100,000 over chants aimed at BYU and sets in-game penalties for a repeat",
+          "summary": "The fine follows fans' chants at Saturday's overtime win over BYU that targeted the Mormon church. The league set a conference-wide policy Wednesday: an automatic minimum $100,000 fine and a warning on a first confirmed incident, a 15-yard unsportsmanlike penalty in football or a two-shot technical in basketball on a second incident in the same game, a possible $500,000 fine, and season-long bans for ejected fans. UCF said it is reviewing its options. Elsewhere, Sam Houston fired Phil Longo after a one-and-seven start, and the first College Football Playoff rankings come Tuesday.",
+          "source": "AP via ESPN",
+          "url": "https://www.espn.com/college-football/story/_/id/50312595/big-12-fines-ucf-fans-chant-aimed-byu-mormon-church"
+        },
+        {
+          "headline": "Carabao Cup quarterfinal draw sends Bournemouth to Anfield and Bradford to the Etihad",
+          "summary": "Wednesday's other fourth-round results: Manchester City drew level with Brighton at two apiece and went through on penalties, Bournemouth beat Aston Villa by three goals to nil, Crystal Palace beat Fulham by a single Eddie Nketiah goal, and Sunderland beat Brentford by three goals to two. The draw for the week of Dec. 14 pairs Liverpool with Bournemouth, Crystal Palace with Sunderland, Manchester City with fourth-tier Bradford City and Fleetwood Town, who beat Arsenal on Tuesday, with the winner of Thursday's Everton-Newcastle tie. In Germany, Bayern Munich said Vincent Kompany left hospital Wednesday after Friday's collapse, diagnosed with meningeal irritation; assistant Aaron Danks led a six-goal cup win over Magdeburg.",
+          "source": "ESPN",
+          "url": "https://www.espn.com/soccer/story/_/id/50311784/carabao-cup-quarterfinal-draw-liverpool-bournemouth-fleetwood"
+        },
+        {
+          "headline": "Hoshoryu wins 20 of 29 practice bouts in a knee supporter as the Kyushu basho nears, 10 days out",
+          "summary": "Yokozuna (grand champion) Hoshoryu, who sat out the entire September tournament after July surgery on his right knee, went on degeiko (visiting practice) at Sakaigawa stable in Onojo, Fukuoka, on Thursday and took 29 straight bouts against top-division wrestler Hiradoumi, winning 20 after starting with two wins in his first five, Sankei Shimbun reported. He said his tachiai (initial charge) is 'coming back little by little' and he is training intending to compete in the Kyushu basho (tournament), which opens Sunday, Nov. 8, at the Fukuoka Kokusai Center and runs through Nov. 22; a final decision rests with his stablemaster. Fellow yokozuna Onosato held his first Fukuoka practice Tuesday, basics only, chasing a seventh yusho (championship) and his first back-to-back titles. The Japan Sumo Association's site lists the tournament sold out.",
+          "source": "Sankei Shimbun",
+          "url": "https://www.sankei.com/article/20261029-3SDFY5M54BIUVF267OW2FIP3NQ/"
+        }
+      ]
+    },
+    {
+      "id": "seasons",
+      "label": "In Season",
+      "coming_in": [
+        {
+          "state": "WV",
+          "species": "Youth waterfowl",
+          "method": "Second of two single days",
+          "dates": "Sept. 19 and Oct. 31",
+          "item": "Two days out. The second of the two youth waterfowl days is Saturday, Oct. 31; the first was Sept. 19. The migratory summary's footnote says the bag limit for the youth days is the same as the daily limit of the regular duck and goose seasons, except that two scaup may be taken as part of the six-duck daily bag; the day is open to youths under 18 for ducks, geese, coots, gallinules and mergansers, youths under 15 must be accompanied by a licensed adult 18 or older, and HIP registration is required. The dates are not in the hunting and trapping pamphlet, which says so itself; they were re-read this morning from WVDNR's separate Migratory Bird Hunting Regulations Summary 2026-2027, which fetched through the proxy at 5:45 a.m. (HTTP 200, 1,940,942 bytes, a 13th straight morning).",
+          "source": "WVDNR",
+          "url": "https://wvdnr.gov/wp-content/uploads/2026/08/Pub_Regs_MigBird2026_DNR_WILD_Rdr_Sprds_ADA.pdf",
+          "publication": "Migratory Bird Hunting Regulations Summary 2026-2027"
+        },
+        {
+          "state": "WV",
+          "species": "Mourning doves, second segment",
+          "method": "Second segment of a three-way split",
+          "dates": "Sept. 1 to Oct. 11, Nov. 2 to 15, Dec. 7 to Jan. 10",
+          "item": "Four days out. The second segment of the dove season opens Monday, Nov. 2, and runs through Nov. 15, with the third Dec. 7 through Jan. 10; the first segment closed Oct. 11. The migratory summary's line reads daily bag 15, possession 45, and shooting hours after opening day of the first segment are one-half hour before sunrise to sunset; its what's-new box says South Branch WMA is no longer under special dove regulations and Stonewall Jackson WMA now is. Re-read this morning from WVDNR's Migratory Bird Hunting Regulations Summary 2026-2027, fetched at 5:45 a.m.",
+          "source": "WVDNR",
+          "url": "https://wvdnr.gov/wp-content/uploads/2026/08/Pub_Regs_MigBird2026_DNR_WILD_Rdr_Sprds_ADA.pdf",
+          "publication": "Migratory Bird Hunting Regulations Summary 2026-2027"
+        },
+        {
+          "state": "WV",
+          "species": "Ducks, scaup and geese, second segment",
+          "method": "Second segment of a three-way split",
+          "dates": "Oct. 3 to 11, Nov. 7 to 15, Dec. 21 to Jan. 31",
+          "item": "Nine days out. The duck table's second segment opens Saturday, Nov. 7, and runs through Nov. 15, with the third Dec. 21 through Jan. 31; the first, Oct. 3 to 11, has closed. The migratory summary's line reads daily bag six, possession 18, with the species sub-limits in its footnote (no more than four mallards, two of them hens, two black ducks, three pintails, three wood ducks, two redheads, two canvasbacks); scaup, counted inside the duck bag, reads one per day Nov. 7 to 15 and Dec. 21 to Jan. 11 and two per day Jan. 12 to 31; coots run the same dates at 15 and 45. Canada, white-fronted, snow and blue geese share the same Nov. 7 to 15 second segment, with a third Dec. 8 through Jan. 31, at a daily bag of five and possession 15 in aggregate. Re-read this morning from WVDNR's Migratory Bird Hunting Regulations Summary 2026-2027, fetched at 5:45 a.m.",
+          "source": "WVDNR",
+          "url": "https://wvdnr.gov/wp-content/uploads/2026/08/Pub_Regs_MigBird2026_DNR_WILD_Rdr_Sprds_ADA.pdf",
+          "publication": "Migratory Bird Hunting Regulations Summary 2026-2027"
+        },
+        {
+          "state": "WV",
+          "species": "Bobwhite quail, cottontail rabbit, snowshoe hare, ring-necked pheasant, red and gray fox, bobcat, and the furbearer trapping lines",
+          "method": "Hunting and trapping openers of Saturday, Nov. 7",
+          "dates": "Nov. 7 opening",
+          "item": "Nine days out. The pamphlet's table opens a run of hunting and trapping lines on Saturday, Nov. 7: bobwhite quail through Jan. 2, daily bag three, possession nine, closed on Tomblin WMA; cottontail rabbit through Feb. 28, daily bag five, possession 20; snowshoe hare through Feb. 28, daily bag two, possession eight; ring-necked pheasant, cock birds only, through Jan. 2, daily bag two, possession two; raccoon trapping, and red and gray fox hunting and trapping, through Feb. 28; bobcat hunting and trapping through Feb. 28, season limit three, registration required; and the mink, muskrat, fisher, otter, beaver, skunk, opossum, coyote and weasel trapping lines, fisher and otter at a season limit of one with registration. The buck firearms season, Nov. 23 to Dec. 6, is outside two weeks. The pamphlet is valid through June 30, 2027, checked against this morning's date.",
+          "source": "WVDNR",
+          "reference": "reference/wv-hunting-2026-27.json",
+          "publication": "West Virginia Hunting and Trapping Regulations Summary, July 2026 - June 2027"
+        }
+      ],
+      "prime": [
+        {
+          "state": "WV",
+          "species": "Turkey",
+          "method": "Fall season, second and third windows, selected counties",
+          "dates": "Oct. 26 to Nov. 1, Oct. 26 to Nov. 15",
+          "item": "Day 4. The fall turkey table's two further windows, Oct. 26 to Nov. 1 and Oct. 26 to Nov. 15, both opened Monday in SELECTED COUNTIES, not statewide, the span depending on the county; the shorter window closes Sunday, Nov. 1, three days from today, and the longer Sunday, Nov. 15. The summary table does not carry the county lists, which are on pamphlet page 41, so no county is named and no date is statewide. The first window, Oct. 10 to 18, has closed. The table's line reads possession limit one, electronic registration required. The pamphlet is valid through June 30, 2027, checked against this morning's date.",
+          "source": "WVDNR",
+          "reference": "reference/wv-hunting-2026-27.json",
+          "publication": "West Virginia Hunting and Trapping Regulations Summary, July 2026 - June 2027"
+        },
+        {
+          "state": "WV",
+          "species": "Deer and bear",
+          "method": "Archery and crossbow",
+          "dates": "Sept. 26 to Dec. 31",
+          "item": "Day 34. Archery and crossbow seasons for deer and for bear opened Sept. 26 and run through Dec. 31 statewide, electronic registration required; limits are on pamphlet pages 13 to 18 for deer and 33 to 39 for bear, vary by county and permit class, and are not in the table, so none is printed. The next antlerless deer and gun bear windows, both selected counties, open Nov. 23, outside two weeks, alongside the buck firearms season. The pamphlet is valid through June 30, 2027, checked against this morning's date.",
+          "source": "WVDNR",
+          "reference": "reference/wv-hunting-2026-27.json",
+          "publication": "West Virginia Hunting and Trapping Regulations Summary, July 2026 - June 2027"
+        },
+        {
+          "state": "WV",
+          "species": "Wild boar",
+          "method": "Archery and crossbow",
+          "dates": "Sept. 26 to Dec. 31, Feb. 5 to 7",
+          "item": "Day 34. Wild boar archery and crossbow runs Sept. 26 through Dec. 31, with a second window Feb. 5 to 7; the table's line reads season limit one, electronic registration required. The boar gun season, Oct. 24 to 31, is in its sixth day and is carried under Going Out because it closes Saturday. The pamphlet is valid through June 30, 2027, checked against this morning's date.",
+          "source": "WVDNR",
+          "reference": "reference/wv-hunting-2026-27.json",
+          "publication": "West Virginia Hunting and Trapping Regulations Summary, July 2026 - June 2027"
+        },
+        {
+          "state": "WV",
+          "species": "Ruffed grouse",
+          "method": "Hunting",
+          "dates": "Oct. 17 to Feb. 28",
+          "item": "Day 13. Ruffed grouse opened Saturday, Oct. 17, and runs through Feb. 28; the table's line reads daily bag four, possession 16, no season limit. The pamphlet is valid through June 30, 2027, checked against this morning's date.",
+          "source": "WVDNR",
+          "reference": "reference/wv-hunting-2026-27.json",
+          "publication": "West Virginia Hunting and Trapping Regulations Summary, July 2026 - June 2027"
+        },
+        {
+          "state": "WV",
+          "species": "Woodcock (migratory game bird)",
+          "method": "Hunting",
+          "dates": "Oct. 17 to Nov. 21, Nov. 30 to Dec. 8",
+          "item": "Day 13. Woodcock opened Saturday, Oct. 17, and runs through Nov. 21, with a second segment Nov. 30 through Dec. 8; the migratory summary's line reads daily bag three, possession nine, and shooting hours for rails, snipe and woodcock are one-half hour before sunrise to sunset. Wilson's snipe runs Sept. 1 through Dec. 16, daily bag eight, possession 24, from the same table. The dates are not in the hunting and trapping pamphlet, which says so itself; they were re-read this morning from WVDNR's separate Migratory Bird Hunting Regulations Summary 2026-2027, fetched at 5:45 a.m.",
+          "source": "WVDNR",
+          "url": "https://wvdnr.gov/wp-content/uploads/2026/08/Pub_Regs_MigBird2026_DNR_WILD_Rdr_Sprds_ADA.pdf",
+          "publication": "Migratory Bird Hunting Regulations Summary 2026-2027"
+        },
+        {
+          "state": "WV",
+          "species": "Squirrel",
+          "method": "Gray, Black, Albino and Fox",
+          "dates": "Sept. 12 to Feb. 28",
+          "item": "Day 48. Squirrel runs Sept. 12 through Feb. 28; the table's line reads daily bag six, possession 24, no season limit. The pamphlet is valid through June 30, 2027, checked against this morning's date.",
+          "source": "WVDNR",
+          "reference": "reference/wv-hunting-2026-27.json",
+          "publication": "West Virginia Hunting and Trapping Regulations Summary, July 2026 - June 2027"
+        },
+        {
+          "state": "WV",
+          "species": "Raccoon",
+          "method": "Hunting",
+          "dates": "Oct. 17 to Feb. 28",
+          "item": "Day 13. Raccoon hunting opened Saturday, Oct. 17, and runs through Feb. 28; the table's daily bag of four is for the 24-hour period 6 a.m. to 6 a.m. Raccoon trapping is a separate line opening Saturday, Nov. 7, nine days out, carried under Coming In with the other Nov. 7 openers. The pamphlet is valid through June 30, 2027, checked against this morning's date.",
+          "source": "WVDNR",
+          "reference": "reference/wv-hunting-2026-27.json",
+          "publication": "West Virginia Hunting and Trapping Regulations Summary, July 2026 - June 2027"
+        },
+        {
+          "state": "WV",
+          "species": "Crow",
+          "method": "Split season",
+          "dates": "Oct. 1 to Nov. 21, Jan. 1 to March 6",
+          "item": "Day 29. The first segment of the crow split season opened Oct. 1 and runs through Nov. 21, 23 days out, with the second Jan. 1 through March 6; the table carries no bag limit for crow and notes that nuisance crows may be killed at any time when committing depredations. The pamphlet is valid through June 30, 2027, checked against this morning's date.",
+          "source": "WVDNR",
+          "reference": "reference/wv-hunting-2026-27.json",
+          "publication": "West Virginia Hunting and Trapping Regulations Summary, July 2026 - June 2027"
+        },
+        {
+          "state": "NC",
+          "species": "Oysters",
+          "method": "Recreational hand harvest, public bottom",
+          "dates": "Oct. 15 to March 31",
+          "item": "Day 15. Proclamation SF-1-2026, issued Oct. 2, opened the hand harvest of oysters from public bottom in internal coastal fishing waters at sunrise Oct. 15, and NCDMF's recreational limits page, read at 5:45 a.m. this morning, says the season runs through March 31 unless closed earlier by proclamation; the proclamations index, read at 5:46 a.m., lists no newer shellfish order. As the Oct. 22 desk read the proclamation, the personal-consumption limit is one bushel per person per day, not to exceed two bushels per vessel.",
+          "source": "NCDMF",
+          "url": "https://www.deq.nc.gov/about/divisions/marine-fisheries/rules-proclamations-and-size-and-bag-limits/recreational-size-and-bag-limits"
+        },
+        {
+          "state": "NC",
+          "species": "Red drum",
+          "method": "Hook and line",
+          "dates": "Open; 18- to 27-inch slot",
+          "item": "NCDMF's recreational size and bag limits page, opened this morning at 5:45 a.m. (HTTP 200, 108,142 bytes), lists red drum at an 18-inch minimum and 27-inch maximum total length and one per day, with the notes that it is unlawful to possess red drum over 27 inches and unlawful to gig, spear or gaff them. The page's footer now reads that the document is effective Nov. 1, 2026, and is for general information with no legal force; this desk could not tell from the page what, if anything, changes that day. The proclamations index, all six pages read at 5:46 a.m., carries nothing issued since Oct. 27, and its two newest entries, FF-48-2026 and M-25-2026, are commercial flounder and gill net orders.",
+          "source": "NCDMF",
+          "url": "https://www.deq.nc.gov/about/divisions/marine-fisheries/rules-proclamations-and-size-and-bag-limits/recreational-size-and-bag-limits"
+        },
+        {
+          "state": "NC",
+          "species": "Spotted seatrout",
+          "method": "Hook and line",
+          "dates": "Open; 14- to 20-inch slot, one over 26 inches",
+          "item": "NCDMF's limits page, opened this morning at 5:45 a.m., lists spotted seatrout, the speckled trout, at a 14- to 20-inch total-length slot with one fish over 26 inches allowed, three per day; the proclamations index read at 5:46 a.m. carries no seatrout proclamation since the July 1 harvest opening. The reference calendar lists trout for October and speckled trout as prime in November, three days away; Beaufort's thermometer, 60 miles up the coast, read 66.2F this morning.",
+          "source": "NCDMF",
+          "url": "https://www.deq.nc.gov/about/divisions/marine-fisheries/rules-proclamations-and-size-and-bag-limits/recreational-size-and-bag-limits"
+        },
+        {
+          "state": "NC",
+          "species": "Spanish mackerel, king mackerel and bluefish",
+          "method": "Hook and line",
+          "dates": "Open",
+          "item": "NCDMF's limits page, opened this morning at 5:45 a.m., lists Spanish mackerel at 12 inches fork length and 15 per day, king mackerel at 24 inches fork length and three per day, and bluefish with no minimum size and five per day, up to seven per person on a for-hire vessel. Nothing on the three has been issued by proclamation in October.",
+          "source": "NCDMF",
+          "url": "https://www.deq.nc.gov/about/divisions/marine-fisheries/rules-proclamations-and-size-and-bag-limits/recreational-size-and-bag-limits"
+        },
+        {
+          "state": "NC",
+          "species": "Black drum, sheepshead and spot",
+          "method": "Hook and line",
+          "dates": "Open",
+          "item": "NCDMF's limits page, opened this morning at 5:45 a.m., lists black drum at a 14-inch minimum and 25-inch maximum total length, 10 per day with one over 25 inches allowed, sheepshead at 14 inches total length, five per day, and spot with no minimum size and 50 per day; the proclamations index read at 5:46 a.m. carries nothing on any of the three issued in October. The reference calendar lists October as the peak of the spot run with black drum running.",
+          "source": "NCDMF",
+          "url": "https://www.deq.nc.gov/about/divisions/marine-fisheries/rules-proclamations-and-size-and-bag-limits/recreational-size-and-bag-limits"
+        },
+        {
+          "state": "NC",
+          "species": "Flounder",
+          "method": "Hook and line, gig",
+          "dates": "Harvest Sept. 1 to 14 only; closed since Sept. 15",
+          "item": "Closed, the 45th day. NCDMF's recreational size and bag limits page, opened this morning at 5:45 a.m., reads flounder, all species, unlawful to possess, linking the recreational flounder proclamation, and carries no later opening; the proclamation behind it, FF-27-2026, issued June 3, allowed recreational possession only from Sept. 1 through Sept. 14, 2026, as the Oct. 22 desk read it. The two newest flounder proclamations on the index, FF-47-2026 and FF-48-2026, are commercial, gear and area specific.",
+          "source": "NCDMF",
+          "url": "https://www.deq.nc.gov/about/divisions/marine-fisheries/rules-proclamations-and-size-and-bag-limits/recreational-size-and-bag-limits"
+        }
+      ],
+      "going_out": [
+        {
+          "state": "WV",
+          "species": "Wild boar",
+          "method": "Gun",
+          "dates": "Oct. 24 to 31, Feb. 5 to 7",
+          "item": "Day 6, closes Saturday. The wild boar gun season opened Saturday, Oct. 24, and runs through Saturday, Oct. 31, two days from today, with a second window Feb. 5 to 7; the table's line reads season limit one, electronic registration required. The table carries no county restriction on the line, but the pamphlet is a summary and the West Virginia Code and the Code of State Rules control. Boar archery and crossbow runs on through Dec. 31 and is carried under Prime. The pamphlet is valid through June 30, 2027, checked against this morning's date.",
+          "source": "WVDNR",
+          "reference": "reference/wv-hunting-2026-27.json",
+          "publication": "West Virginia Hunting and Trapping Regulations Summary, July 2026 - June 2027"
+        },
+        {
+          "state": "WV",
+          "species": "Sora and Virginia rails",
+          "method": "Migratory game birds",
+          "dates": "Sept. 1 to Nov. 9",
+          "item": "Closes in 11 days. Sora and Virginia rails run Sept. 1 through Monday, Nov. 9, daily bag 10 and possession 30, in aggregate, in the migratory summary; shooting hours for rails, snipe and woodcock are one-half hour before sunrise to sunset. The dates are not in the hunting and trapping pamphlet, which says so itself; they were re-read this morning from WVDNR's separate Migratory Bird Hunting Regulations Summary 2026-2027, fetched at 5:45 a.m.",
+          "source": "WVDNR",
+          "url": "https://wvdnr.gov/wp-content/uploads/2026/08/Pub_Regs_MigBird2026_DNR_WILD_Rdr_Sprds_ADA.pdf",
+          "publication": "Migratory Bird Hunting Regulations Summary 2026-2027"
+        }
+      ]
+    },
+    {
+      "id": "water",
+      "label": "On the Water",
+      "note": "Readings are from out/fishing.json, fetched at 5:40 a.m. ET Thursday, and the USGS and NOAA records behind it; the fetcher's 24-hour comparison fields again sit about 48 hours back. The Fisherman's Post Topsail/Sneads Ferry report is monthly: the newest is the October report, published Oct. 1 and 27.9 days old this morning, past this paper's 21-day gate, so what's running below is the reference calendar's seasonal pattern, labeled as such, not a live report. No 2026 fall trout delivery to the Williams, the Cranberry or the Summersville tailwater is confirmed by any outlet.",
+      "waters": [
+        {
+          "water": "Williams River",
+          "near": "Cowen",
+          "reading": "85.4 cfs, 1.55 feet at 5:15 a.m., falling on discharge and on stage against 103.0 cfs and 1.65 feet in the fetcher's comparison.",
+          "read": "85 cfs - prime wading water.",
+          "working": "Down 8.4 cfs and 0.05 feet on the day against the USGS trace's 93.8 cfs and 1.60 feet at 5:15 a.m. Wednesday, Wednesday's edition reading, a 12th straight falling morning with the recession still slowing (20, 16, 9, 9, 8), and the trace shows a clean stair-step with no rain bump: 93.8 at 6 a.m. Wednesday, 90.4 by noon, 88.7 at 6 p.m., 87.0 at midnight, 85.4 from about 5 a.m. The read string is the fetcher's own verdict, printed as it stands, \"85 cfs - prime wading water.\", and the fetcher's 103.0 cfs and 1.65 feet comparison points match the trace's 5:15 a.m. Tuesday values, about 48 hours old, so the 18-cfs drop they imply is two days' worth; the falling flags are right in direction. At 85 and clear after twelve days of recession the pocket water, plunge pools and undercut banks the file records as its structure are wadeable across at this flow and the fish are where the water still moves: the heads and seams of the plunge pools and the shade of the undercuts, not the flat tailouts. Low, clear water in late October is a long-leader, small-fly problem: a 12-foot leader to 6X, a size 18 to 20 blue-winged olive or a small parachute Adams on top in the afternoon, a size 18 pheasant tail or zebra midge dropped 18 inches under it through the morning, and a small olive or black woolly bugger swung through the deeper pools at dusk. Drab clothing and an upstream approach count for more than the pattern at this clarity.",
+          "source": "USGS 03186500"
+        },
+        {
+          "water": "Ohio River at Point Pleasant",
+          "near": "14 miles above R.C. Byrd Locks and Dam",
+          "reading": "24.68 feet at 5 a.m., steady against 24.62 in the fetcher's comparison.",
+          "read": "24.7 ft — normal pool. Ordinary bank access.",
+          "working": "The fetcher reads the pool steady, up 0.06 against its 24.62 comparison point; against the USGS trace's 24.86 at 5 a.m. Wednesday, Wednesday's edition reading, the gauge is down 0.18 on the day, inside the fetcher's 0.25-foot band, so steady holds on the day though the day's direction is down where the comparison implies up. The trace shows the pool easing through Wednesday, 24.91 at midnight, 24.82 at 6 a.m., 24.65 at noon, 24.57 at 9 p.m. and a 24.54 evening low, then edging back up a tenth overnight to 24.68 at 5 a.m.; the Williams above showed no rain. The read string is the fetcher's band verdict, normal pool, ordinary bank access, and at 24.7 the gauge is 2.3 feet under the up-and-pushing line at 27 feet. At normal pool the river fishes the structure and what current it makes: shad are the forage and skipjack are with them, so a white or pearl swimbait on a half-ounce head or a three-quarter-ounce spoon worked down the current face of each wing dam and along the riprap where the eddy line forms, and a crawfish-colored jig or a three-inch tube dragged on the rock for the smallmouth and drum holding tight. A pool that slipped a quarter foot and steadied leaves the fish on the same edges as Wednesday.",
+          "source": "USGS 03201500"
+        },
+        {
+          "water": "Ohio River at Huntington",
+          "near": "below R.C. Byrd Locks and Dam",
+          "reading": "25.70 feet at 5 a.m., steady against 25.88 in the fetcher's comparison.",
+          "read": "25.7 ft — normal pool. Ordinary bank access.",
+          "working": "The fetcher reads the gauge steady, down 0.18 against its 25.88 comparison point; against the USGS trace's 25.91 at 5 a.m. Wednesday, Wednesday's edition reading, it is down 0.21 on the day, inside the 0.25-foot band, so steady holds with a falling lean. The trace shows a slow, lockage-chopped drift down: 25.96 at 6 a.m. Wednesday, its high, 25.78 at noon, 25.74 at 9 p.m., 25.72 at midnight and 25.70 from 3 a.m., flat for the last five hours. The read string is the fetcher's band verdict, normal pool, ordinary bank access, and at 25.7 the gauge is 1.3 feet under the 27-foot line between that band and up and pushing, an 11th normal-pool morning. Steady low water below the dam keeps the fish on the current edges the structure makes: the forage is shad and skipjack with crawfish in the riprap, so a white swimbait or a three-quarter-ounce spoon down the current face of each wing dam rather than the eddy behind it, a half-ounce blade bait or a chartreuse-and-white paddletail on a half-ounce head along the lock wall's seam for the sauger starting to stack as the water cools, and cut skipjack on the bottom below the dam's discharge for blue and flathead catfish after dark.",
+          "source": "USGS 03206000"
+        },
+        {
+          "water": "Topsail Sound",
+          "near": "New Topsail Inlet",
+          "reading": "Sound at Hampstead: low 5:12 AM at 0.1 ft, high 11:27 AM at 4.7 ft, low 6:16 PM at 0.5 ft, high 11:48 PM at 3.4 ft. Surf at Ocean City Beach pier: low 3:33 AM at -0.1 ft, high 10:16 AM at 6.1 ft, low 4:46 PM at 0.2 ft, high 10:36 PM at 4.1 ft. Water 66.2F at Beaufort, 60 miles up the coast, observed 5:30 a.m. Moon waning gibbous, 88% lit, 18.0 days old.",
+          "read": "Fish the moving water either side of high at 11:27 AM and 11:48 PM in the sound.",
+          "working": "Waning gibbous, three days past full: the fetcher's file carries the moon at 88 percent lit and 18.0 days old, and the spring tides are starting to come off the water, the sound's morning high holding at 4.7 feet but the evening high down to 3.4 and the surf high to 6.1. The sound at Hampstead bottomed at 0.1 feet at 5:12 a.m. and is on its flood at press time, filling 4.6 feet to the 4.7-foot high at 11:27 a.m.; it drains 4.2 feet to a 0.5-foot low at 6:16 p.m., fills 2.9 feet to a 3.4-foot high at 11:48 p.m. and drains toward Friday's early low, which falls outside today's table. All four sound events land inside today; nothing carries a spillover tag. The surf at Ocean City Beach pier runs ahead and is the bigger water: low 3:33 a.m. at -0.1, high 10:16 a.m. at 6.1, low 4:46 p.m. at 0.2, high 10:36 p.m. at 4.1, so the sound lags the surf by 71 and 72 minutes on the highs and 99 and 90 minutes on the lows this morning, the long-lag-on-the-ebb pattern the reference describes. Beaufort's thermometer, 60 miles up the coast, read 66.2F at 5:30 a.m., up 1.4 on the day. What's running is the reference calendar's seasonal pattern, not a live report: the Fisherman's Post October report is 27.9 days old and past the 21-day gate, and no November report has posted on either the Fisherman's Post or the Coastal Angler feed. October's pattern is the spot run at its peak with red drum, trout, bluefish, sea mullet and black drum, and November's, three days off, puts speckled trout at prime. Tide is the whole game here: the afternoon ebb, 11:27 a.m. to 6:16 p.m., is the day's long window, and red drum want the last of it, so cut menhaden or a quarter-ounce jighead with a Gulp shrimp fan-cast a couple of feet off the creek-channel edges as the grass drains from about 3:30 p.m.; speckled trout on the first of the evening flood behind the 6:16 p.m. low, a popping cork with live shrimp over the oyster edges or a soft plastic worked slow as the light goes; spot and black drum on bloodworm or shrimp on a two-hook bottom rig in the channel on either side of the 11:27 a.m. high; sheepshead with fiddlers tight to the bridge pilings on the moving water. NWS Wilmington, read at 5:48 a.m.: a High Rip Current Risk for Coastal Pender through 8 p.m. today with a strong north-to-south longshore current, new since Wednesday; a Coastal Flood Advisory from 9 a.m. to noon, up to half a foot of inundation along the Intracoastal Waterway and tidal creeks; and a Small Craft Advisory on the coastal waters out 20 nautical miles until midnight tonight, seas 4 to 6 feet. The surf is not a fishing proposition today.",
+          "source": "NOAA CO-OPS 8657813 (sound), 8657419 (surf); NWS Wilmington"
+        }
+      ]
+    }
+  ],
+  "kicker": "The Brewers' first World Series title in 57 seasons; Liverpool past Chelsea on penalties in the house cup tie; the Kyushu basho (tournament) opens Nov. 8 in Fukuoka, 10 days out; no Fisherman's Post November report yet.",
+  "sources_note": "Compiled from box scores, standings pages, agency publications and gauge records"
+}
