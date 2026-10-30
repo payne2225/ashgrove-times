@@ -1,0 +1,311 @@
+{
+  "edition_date": "2026-10-30",
+  "edition_number": 84,
+  "volume": "I",
+  "lead": {
+    "headline": "Binance says hackers stole $6.3B in largest crypto theft on record",
+    "dek": "The exchange halted withdrawals and said about $3B tied to the attackers is frozen; analysts point to North Korea",
+    "byline": "Wire Reports",
+    "body": [
+      "Binance, the world's largest cryptocurrency exchange, said Thursday that hackers stole about $6.3 billion in what would be the largest crypto theft on record, and it suspended deposits and withdrawals while it works with law enforcement to freeze funds tied to the attackers.",
+      "Binance said the attack began with an engineer's compromised laptop, which let the attacker reach a service container and submit unauthorized withdrawals. The company said about $3 billion tied to the hackers had been identified and frozen and that it would cover all losses. Tether and Circle said they froze billions in assets linked to the attackers, NBC News reported.",
+      "Blockchain intelligence firm TRM Labs said it assessed with high confidence that North Korea's TraderTraitor unit, linked to the Lazarus Group, carried out the attack, Al Jazeera reported. The previous record was the $1.5 billion Bybit theft in February 2025. Bitcoin fell about 5% after the news, dropping below $77,000, Al Jazeera said. Binance said it would publish a post-mortem."
+    ],
+    "stat_strip": [
+      {
+        "label": "S&P 500",
+        "value": "7,720.39",
+        "change": "-0.30%",
+        "direction": "down"
+      },
+      {
+        "label": "Dow",
+        "value": "52,342.56",
+        "change": "-0.25%",
+        "direction": "down"
+      },
+      {
+        "label": "Nasdaq",
+        "value": "26,184.72",
+        "change": "-1.38%",
+        "direction": "down"
+      },
+      {
+        "label": "Bitcoin",
+        "value": "$77,588",
+        "change": "-3.12%",
+        "direction": "down"
+      }
+    ]
+  },
+  "art": {
+    "file": "art/2026-10-30-scitech.svg",
+    "placement": "scitech",
+    "caption": "A spacewalker at the station's solar arrays Thursday, the Canadarm2 boom reaching up from below and the Earth's limb behind.",
+    "credit": "Sketched from a NASA photograph"
+  },
+  "sections": [
+    {
+      "id": "us",
+      "label": "U.S.",
+      "briefs": [
+        {
+          "headline": "US economy grows at 3.4% rate in third quarter",
+          "summary": "The Commerce Department's advance estimate beat the 3.1% economists expected and the second quarter's 2.2%, on consumer spending and business investment.",
+          "source": "ABC News",
+          "url": "https://abcnews.com/Business/gdp-report-set-provide-snapshot-economy-ahead-midterm/story?id=137635585"
+        },
+        {
+          "headline": "Alphabet shares fall 12.6%, erasing about $500B in value",
+          "summary": "The stock's worst day on record followed revenue and ad sales that missed expectations; a Google executive said its AI Mode search feature shows fewer ads.",
+          "source": "NBC News",
+          "url": "https://www.nbcnews.com/business/markets/alphabet-google-stock-ai-advertising-rcna606322"
+        },
+        {
+          "headline": "Alaska governor orders state probe of Peltola campaign",
+          "summary": "Gov. Mike Dunleavy directed state police to investigate a reported effort to recruit a second Dan Sullivan to split the GOP incumbent's vote; Peltola's campaign denied any involvement.",
+          "source": "AP via PBS NewsHour",
+          "url": "https://www.pbs.org/newshour/politics/alaskas-governor-orders-a-probe-into-peltolas-senate-campaign-over-spoiler-candidate-controversy"
+        },
+        {
+          "headline": "Patrick Stewart, Star Trek's Capt. Picard, dies at 86",
+          "summary": "The actor died Wednesday at his home in Los Angeles; a statement posted to his social media said he had Alzheimer's disease and Lewy body dementia.",
+          "source": "NPR",
+          "url": "https://www.npr.org/1230906945"
+        }
+      ]
+    },
+    {
+      "id": "world",
+      "label": "World",
+      "briefs": [
+        {
+          "headline": "Israel's final count leaves both blocs short of a majority",
+          "summary": "The complete tally gives Netanyahu's bloc 53 seats and Gadi Eisenkot's 48; results go to President Herzog next Wednesday before coalition consultations.",
+          "source": "NBC News",
+          "url": "https://www.nbcnews.com/world/israel/israels-final-election-results-show-neither-netanyahu-rival-can-immedi-rcna606290"
+        },
+        {
+          "headline": "Lagarde to leave ECB presidency 9 months early",
+          "summary": "Christine Lagarde said she will step down Feb. 7, before France's April presidential vote, giving EU leaders time to choose a successor.",
+          "source": "Al Jazeera",
+          "url": "https://www.aljazeera.com/news/2026/10/29/european-central-bank-president-lagarde-to-step-down-early"
+        },
+        {
+          "headline": "China elevates lone remaining general to Politburo",
+          "summary": "The Central Committee elected Gen. Zhang Shengmin, the military commission's only member besides Xi, and adopted a discipline resolution as its plenum closed.",
+          "source": "AP via NPR",
+          "url": "https://www.npr.org/g-s1-150645"
+        },
+        {
+          "headline": "Machado calls for 2027 Venezuela elections on return",
+          "summary": "In her first remarks since ending 10 months in exile, the opposition leader thanked the Trump administration; Delcy Rodriguez promised a vote but set no date.",
+          "source": "Al Jazeera",
+          "url": "https://www.aljazeera.com/news/2026/10/30/machado-lauds-trump-for-freedom-floodgate-urges-2027-elections"
+        }
+      ]
+    },
+    {
+      "id": "wv",
+      "label": "West Virginia",
+      "notebook_title": "Mountaineer State Notebook",
+      "briefs": [
+        {
+          "headline": "Federal judge halts McCuskey probe of environmental groups",
+          "summary": "U.S. District Judge Joseph Goodwin issued a restraining order Thursday blocking the attorney general's subpoenas to WV Rivers Coalition and 350.org through Nov. 12.",
+          "source": "WV MetroNews",
+          "url": "https://wvmetronews.com/2026/10/29/federal-judge-halts-attorney-general-probe-of-environmental-groups-communications-for-now/"
+        },
+        {
+          "headline": "PEIA proposes 2% state premium increase, flat retiree rates",
+          "summary": "The finance board's plan raises state-plan premiums 2% and most non-state plans 4%, and holds retiree premiums flat for fiscal 2028; hearings begin Nov. 9.",
+          "source": "WV MetroNews",
+          "url": "https://wvmetronews.com/2026/10/29/peia-proposes-modest-state-increases-and-retiree-premiums-held-flat/"
+        },
+        {
+          "headline": "McCuskey sues TikTok over alleged harm to children",
+          "summary": "The complaint says TikTok's design encourages continuous use by children and that a test account for a 13-year-old received sexually suggestive content.",
+          "source": "WCHS",
+          "url": "https://wchstv.com/news/local/west-virginia-sues-tiktok-alleging-consumer-protection-law-violations-harms-children-wvu-study-jb-mccuskey-safety-social-media"
+        },
+        {
+          "headline": "DNA under victim's fingernail excluded Casto, analyst says",
+          "summary": "A State Police analyst said DNA under Cindy Ball's right fingernail excluded Gregory Casto on day three of his murder trial; blood in his truck bed could not be confirmed as human.",
+          "source": "WTAP",
+          "url": "https://www.wtap.com/2026/10/29/day-3-testimonies-trial-gregory-casto/"
+        }
+      ],
+      "regional": [
+        {
+          "region_id": "huntington_cabell",
+          "place": "Huntington & the Cabell-Mason corridor",
+          "people": [
+            "Trav",
+            "Justin",
+            "Nate",
+            "Ian"
+          ],
+          "item": "A state cold case task force reopened the 2005 Prom Night Murders of four Huntington teenagers Thursday, with city police keeping the case.",
+          "source": "The Herald-Dispatch",
+          "url": "https://www.herald-dispatch.com/news/huntingtons-unsolved-prom-night-homicide-case-reopened-with-new-task-force/article_b9e2ff24-571f-49a8-950d-7c459f4cd8cd.html"
+        },
+        {
+          "region_id": "mid_ohio_valley",
+          "place": "Mid-Ohio Valley / Parkersburg",
+          "people": [
+            "Pat"
+          ],
+          "item": "The Polymer Alliance Zone received a $197,000 USDA rural business grant Thursday for parking, truck access and lighting at its Davisville technology park.",
+          "source": "WTAP",
+          "url": "https://www.wtap.com/2026/10/29/polymer-alliance-zone-receiving-nearly-200k-rural-business-development-grant/"
+        },
+        {
+          "region_id": "nicholas_webster",
+          "place": "Nicholas & Webster / Summersville - Cowen",
+          "people": [
+            "Clayton"
+          ],
+          "item": "State Police charged three people after finding a five-gallon bucket of suspected meth in a car stopped Tuesday night at the Y Mart near Cowen.",
+          "source": "WTAP",
+          "url": "https://www.wtap.com/2026/10/29/3-charged-after-bucket-meth-found-car-during-webster-county-traffic-stop/"
+        },
+        {
+          "region_id": "summers_new_river",
+          "place": "Summers / Hinton & the New River",
+          "people": [
+            "Greg"
+          ],
+          "item": "Fayette County commissioners voted 3-0 Wednesday to oppose Park Service plans to demolish historic structures at Thurmond and Prince in the gorge.",
+          "source": "WOAY",
+          "url": "https://woay.com/fayette-county-commission-passes-a-resolution-opposing-the-demolition-of-historic-structures-in-thurmond/"
+        }
+      ],
+      "away": [
+        {
+          "region_id": "vermont",
+          "place": "North Bennington, VT",
+          "people": [
+            "Wes"
+          ],
+          "item": "The Select Board held its final information session Monday on the Nov. 3 local option tax question, which the town estimates at $1.8M a year.",
+          "source": "Bennington Banner",
+          "url": "https://www.benningtonbanner.com/local-news/select-board-holds-final-info-session-on-local-option-tax-question/5047992"
+        }
+      ],
+      "hotspots": [
+        {
+          "hotspot_id": "cabin",
+          "place": "Webster County & Cowen",
+          "item": "WVU Medicine's LUCAS mobile lung cancer screening unit will be at Camden Family Health in Webster Springs on Nov. 24, the health system said Monday.",
+          "source": "WV News",
+          "url": "https://www.wvnews.com/wvumedicine/lucas-to-offer-lung-cancer-screening-in-webster-springs/article_b1217ee0-7b79-4a00-86ab-95888517441d.html"
+        },
+        {
+          "hotspot_id": "topsail",
+          "place": "Topsail Island & the coast",
+          "item": "Surf City's council takes up a Segment 5 multiuse path contract award and zoning hearings on stormwater and home occupations Tuesday.",
+          "source": "Town of Surf City",
+          "url": "https://www.surfcitync.gov/DocumentCenter/View/8735/11032026---November-3-2026"
+        }
+      ]
+    },
+    {
+      "id": "bc",
+      "label": "Canada",
+      "briefs": [
+        {
+          "headline": "Prince George food bank hands out 225 hampers a month",
+          "summary": "St. Vincent de Paul says foot traffic at its Second Avenue drop-in has risen 10% to 15%; 225 to 240 hampers go out monthly, about 70 of them to seniors.",
+          "source": "My PG Now",
+          "url": "https://www.myprincegeorgenow.com/254722/news/community/st-vincent-de-paul-in-pg-handing-out-225-food-hampers-a-month-to-hungry-seniors-families/",
+          "tier": "prince_george"
+        },
+        {
+          "headline": "NDP caucus names Jennifer Whiteside interim leader",
+          "summary": "The 28-member caucus unanimously recommended the former labour minister Thursday in Victoria; Mike Farnworth is house leader. The provincial council must ratify.",
+          "source": "CBC British Columbia",
+          "url": "https://www.cbc.ca/news/canada/british-columbia/bc-ndp-announce-new-interim-leader-9.7401724",
+          "tier": "bc"
+        },
+        {
+          "headline": "OpenAI asks B.C. court to quash Tumbler Ridge privacy probe",
+          "summary": "In a B.C. Supreme Court petition, OpenAI says the privacy commissioner's investigation into ChatGPT use before the Feb. 10 school shooting exceeds the office's authority.",
+          "source": "CBC British Columbia",
+          "url": "https://www.cbc.ca/news/canada/british-columbia/openai-tumbler-ridge-bc-privacy-commissioner-investigation-9.7401870",
+          "tier": "bc"
+        },
+        {
+          "headline": "Ottawa releases first national security strategy in 20 years",
+          "summary": "The framework released Thursday pledges a multibillion-dollar military expansion and preparation for contingencies 'up to and including war'; a decision on a foreign intelligence agency is deferred.",
+          "source": "CBC News",
+          "url": "https://www.cbc.ca/news/politics/national-security-strategy-9.7401098",
+          "tier": "canada"
+        },
+        {
+          "headline": "Ottawa to invest up to $1.6B in AI firm Cohere",
+          "summary": "Carney announced the stake Thursday in Montreal as the Toronto company closed most of a round valuing it at $35.7B, the largest ever by a Canadian startup.",
+          "source": "The Globe and Mail",
+          "url": "https://www.theglobeandmail.com/business/article-ottawa-buys-stake-in-cohere-357-billion-in-new-financing/",
+          "tier": "canada"
+        }
+      ]
+    },
+    {
+      "id": "scitech",
+      "label": "Science & Technology",
+      "briefs": [
+        {
+          "headline": "Spacewalkers install 7th roll-out solar array on station",
+          "summary": "NASA's Anil Menon and CSA's Joshua Kutryk spent 7 hours, 11 minutes outside the ISS Thursday fitting the seventh roll-out array; the eighth is set for Nov. 5.",
+          "source": "NASA",
+          "url": "https://www.nasa.gov/blogs/spacestation/2026/10/29/spacewalkers-install-roll-out-solar-arrays-for-power-generation/"
+        },
+        {
+          "headline": "Voyager 1 goes silent two days, then resumes contact",
+          "summary": "NASA said Thursday the probe missed scheduled contacts Oct. 18 and 19 and was heard again Oct. 20 after a thruster group went offline and backups fired. It is 16 billion miles out.",
+          "source": "NASA",
+          "url": "https://science.nasa.gov/blogs/voyager/2026/10/29/nasas-voyager-1-conserves-power-resolves-brief-communications-pause/"
+        },
+        {
+          "headline": "Rubin Observatory finds two new Milky Way companions",
+          "summary": "Yale-led teams spotted a dwarf galaxy, Aquarius IV, 355,000 light-years away and a star cluster in Rubin preview data covering 7% of the sky; papers in Research Notes of the AAS and ApJL.",
+          "source": "Phys.org",
+          "url": "https://phys.org/news/2026-10-rubin-observatory-reveals-hidden-companions.html"
+        },
+        {
+          "headline": "Magnetic bead implants track muscle for prosthetic control",
+          "summary": "MIT researchers implanted 3 mm magnets in the ankle muscles of three amputees and read signals up to 6 cm deep, they reported in Nature Sensors; prosthesis control was not yet tested.",
+          "source": "Medical Xpress",
+          "url": "https://medicalxpress.com/news/2026-10-magnetic-bead-implants-accurate-prosthetic.html"
+        }
+      ]
+    },
+    {
+      "id": "ai",
+      "label": "Artificial Intelligence",
+      "briefs": [
+        {
+          "headline": "Analysts follow AI agent's coin-flip lean 86% of the time",
+          "summary": "In a trial Anthropic posted Monday, 50 causal-inference analysts using Claude Code matched the agent's randomly assigned preference on 86% of decisions; 15% credited the agent, the company said.",
+          "source": "Anthropic",
+          "url": "https://www.anthropic.com/research/agents-judgment-calls"
+        },
+        {
+          "headline": "Google says AI Mode searches earn less, adds more ads",
+          "summary": "Alphabet's search revenue growth slowed to 12% in the third quarter from 17%; chief business officer Philipp Schindler cited lower AI Mode monetization. Capex was $51.4B.",
+          "source": "The Register",
+          "url": "https://www.theregister.com/ai-and-ml/2026/10/30/googles-search-revenue-ferrari-hits-an-ai-powered-speed-bump/5306520"
+        },
+        {
+          "headline": "Reddit moves to logged-in site as search referrals fall",
+          "summary": "Reddit said search referrals fell more than 1 million a week in October and US daily users dropped to 50.7M from 53.2M; it will test the change outside the US this quarter.",
+          "source": "TechCrunch",
+          "url": "https://techcrunch.com/2026/10/29/as-search-traffic-dries-up-reddit-announces-its-shifting-to-a-logged-in-experience/"
+        }
+      ]
+    }
+  ],
+  "weather_ear": "Friday's forecast follows at 7:15 from Jim Claudtore's desk.",
+  "kicker": "Putnam-Kanawha carries no regional line today; the Kyushu basho (tournament) opens Nov. 8 in Fukuoka, nine days out.",
+  "sources_note": "Compiled from wire reports"
+}
