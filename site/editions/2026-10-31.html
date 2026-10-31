@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Tech sell-off erases $1 trillion as Intel posts its worst day Nasdaq 100 falls 3.4%, its worst day since June, as investors question returns on AI spending">
+<title>THE ASHGROVE TIMES — Saturday, October 31, 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<style>
+  :root {
+    --parchment: #f4f0e6;
+    --parchment-alt: #e9e4d8;
+    --wv-tint: #ede7d6;
+    --ink: #1c1a16;
+    --ink-soft: #3a362a;
+    --ink-mute: #4a4536;
+    --ink-faint: #6b6555;
+    --rule: #c9c2ac;
+    --display: "Playfair Display", "Iowan Old Style", "Palatino Linotype",
+               Palatino, "Book Antiqua", Georgia, "Times New Roman", serif;
+    --alt: "Old Standard TT", "Playfair Display", Georgia, "Times New Roman", serif;
+    /* Small headlines. Playfair is a Didone: its hairlines are drawn for
+       the masthead and the lead, and at 16px they fall below a pixel and
+       the tops of letters vanish (Nate, 2026-09-03, reading a brief head).
+       Source Serif at 600 has the same warmth with strokes that survive a
+       screen; Playfair stays for everything set large or in black weight. */
+    --headline: "Source Serif 4", "Source Serif Pro", Charter, "Iowan Old Style",
+      Georgia, "Times New Roman", serif;
+    --body: "Source Serif 4", "Source Serif Pro", Charter, "Iowan Old Style",
+            Georgia, Cambria, "Times New Roman", serif;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    background: var(--parchment-alt);
+    margin: 0;
+    padding: 24px 12px 60px;
+    font-family: var(--body);
+    color: var(--ink);
+    font-kerning: normal;
+    text-rendering: optimizeLegibility;
+  }
+
+  .page {
+    max-width: 900px;
+    margin: 0 auto;
+    background: var(--parchment);
+    border: 1px solid var(--ink);
+    padding: 28px 34px 40px;
+    box-shadow: 0 2px 18px rgba(0, 0, 0, 0.18);
+  }
+
+  /* ---------- top bar and the weather ear ---------- */
+
+  .top-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 14px;
+    justify-content: space-between;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--ink);
+    padding-bottom: 6px;
+    margin-bottom: 10px;
+  }
+
+  /* The pointer to Claude the Weatherman's 7:15 forecast. Sits in the top
+     band rather than beside the masthead: at 58px the wordmark leaves about
+     120px of margin, which no ear fits into without shrinking the plate. */
+  .ear {
+    max-width: 320px;
+    margin: 0 0 6px auto;
+    text-wrap: balance;
+    border: 1px solid var(--ink);
+    background: var(--wv-tint);
+    padding: 5px 9px 6px;
+    font-size: 11px;
+    line-height: 1.35;
+    text-align: right;
+  }
+
+  .ear-label {
+    display: block;
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 9.5px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+
+  /* The family banner: the WHOLE thing is The Ashgrove Times (Nate,
+     2026-08-21), so every section page carries it above its own name. */
+  .family-line {
+    text-align: center;
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin: 2px 0 0;
+  }
+
+  /* Section-to-section buttons, house-styled like the section labels. */
+  /* The rule that closes the wire columns off from the anchor sections
+     below them (Nate, 2026-08-26). A column bottom is a ragged edge, and
+     without this the notebook read as one more thing the last column ran
+     into. In the BASE stylesheet, not a breakpoint: the sections stack on a
+     phone and the break between the wire and the anchors still needs
+     saying — a browser-default <hr> in a letterpress page does not. */
+  .rule-anchor {
+    border: 0;
+    border-top: 1px solid var(--ink);
+    margin: 6px 0 16px;
+  }
+
+  /* A tier heading inside the Canada section. Smaller than a section label
+     and not reversed out — it is a sub-head, and three black chips stacked
+     under one black chip would read as four sections. Matches the
+     notebook's .wv-block-label, which is the same idea one box over. */
+  .tier-label {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 4px;
+    margin: 0 0 10px;
+  }
+  .sec-canada .tier { margin-bottom: 6px; }
+
+  .paper-nav { text-align: center; margin: 0 0 18px; }
+  .paper-nav a {
+    display: inline-block;
+    border: 1px solid var(--ink);
+    background: var(--wv-tint);
+    color: var(--ink);
+    text-decoration: none;
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 11.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    margin: 0 4px 6px;
+  }
+  .paper-nav a:hover { background: var(--ink); color: var(--parchment); }
+  /* The same row repeated at the foot of the page, where a reader who has
+     finished actually is. Ruled off above so it reads as the end of the
+     paper rather than as one more thing to read. */
+  .paper-nav-foot {
+    margin: 22px 0 2px;
+    padding-top: 16px;
+    border-top: 1px solid var(--rule);
+  }
+
+  /* The tide table: a real table, because Nate asked for one. */
+  .tide-table, .wx-stats { border-collapse: collapse; margin: 10px auto 4px; font-size: 13.5px; }
+  .tide-table caption {
+    font-family: var(--display); font-weight: 700; font-size: 13px;
+    letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-mute);
+    padding-bottom: 6px;
+  }
+  .tide-table th, .tide-table td, .wx-stats th, .wx-stats td {
+    border: 1px solid var(--rule); padding: 4px 12px; text-align: center;
+  }
+  .tide-table th, .wx-stats th {
+    font-family: var(--display); font-size: 11.5px; letter-spacing: 0.08em;
+    text-transform: uppercase; background: var(--wv-tint);
+  }
+  .tide-table td:first-child { font-weight: 600; }
+  /* The weather page's numbers table: the first thing under every location
+     chip since 2026-09-03 (Nate: "show the data first and foremost"), so
+     the read underneath can be a read and not a ledger. Full measure, a
+     little tighter than the tide table, and it must never overflow a
+     column on a phone. */
+  .wx-stats { width: 100%; margin: 2px 0 10px; font-size: 13px; }
+  .wx-stats th, .wx-stats td { padding: 3px 6px; white-space: nowrap; }
+  .wx-stats td:first-child { font-weight: 600; }
+  .sec .wx-stats { break-inside: avoid; }
+
+  /* ---------- masthead ---------- */
+
+  .masthead {
+    text-align: center;
+    font-family: var(--alt);
+    font-weight: 700;
+    font-size: 58px;
+    letter-spacing: 1px;
+    margin: 6px 0 2px;
+    line-height: 1;
+  }
+
+  .tagline {
+    text-align: center;
+    font-style: italic;
+    font-size: 13px;
+    color: var(--ink-mute);
+    margin-bottom: 8px;
+  }
+
+  .rule-thick { border: none; border-top: 4px double var(--ink); margin: 6px 0 0; }
+  .rule-thin { border: none; border-top: 1px solid var(--ink); margin: 4px 0 16px; }
+
+  /* ---------- lead story ---------- */
+
+  .headline {
+    font-family: var(--display);
+    font-weight: 900;
+    font-size: 27px;
+    line-height: 1.15;
+    margin: 0 0 6px;
+  }
+
+  .subhead {
+    font-style: italic;
+    font-size: 14px;
+    color: var(--ink-soft);
+    margin: 0 0 10px;
+  }
+
+  .byline {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin: 0 0 12px;
+  }
+
+  .columns {
+    column-count: 2;
+    column-gap: 26px;
+    column-rule: 1px solid var(--rule);
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  .columns p { margin: 0 0 12px; }
+  .columns p:last-child { margin-bottom: 0; }
+
+  .drop {
+    float: left;
+    font-family: var(--display);
+    font-weight: 900;
+    font-size: 46px;
+    line-height: 0.8;
+    padding: 4px 6px 0 0;
+  }
+
+  /* ---------- stat strip ---------- */
+
+  .stat-strip {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid var(--ink);
+    border-bottom: 1px solid var(--ink);
+    padding: 8px 0;
+    margin: 18px 0;
+    font-size: 13px;
+  }
+
+  .stat-strip div { text-align: center; flex: 1; }
+
+  .stat-strip b {
+    display: block;
+    font-family: var(--headline);
+    font-weight: 600;
+    font-size: 15px;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .stat-label {
+    display: block;
+    font-size: 10.5px;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+
+  .stat-change {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3em;
+    margin-top: 1px;
+    font-size: 12px;
+    font-variant-numeric: tabular-nums;
+    color: var(--ink-soft);
+  }
+
+  /* Direction is a drawn triangle, not a glyph or a hue - it survives any
+     font fallback and reads without color vision. */
+  .tri {
+    width: 0;
+    height: 0;
+    border-left: 0.3em solid transparent;
+    border-right: 0.3em solid transparent;
+  }
+
+  .tri.up { border-bottom: 0.42em solid var(--ink); }
+  .tri.down { border-top: 0.42em solid var(--ink); }
+
+  .tri.flat {
+    width: 0.6em;
+    height: 2px;
+    border: 0;
+    background: var(--ink);
+  }
+
+  .stats-note {
+    margin: -8px 0 20px;
+    text-align: center;
+    font-size: 10.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+
+  /* ---------- sections ---------- */
+
+  .section-label {
+    font-family: var(--display);
+    font-weight: 900;
+    font-size: 15px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    background: var(--ink);
+    color: var(--parchment);
+    display: inline-block;
+    padding: 3px 10px;
+    margin: 26px 0 12px;
+  }
+
+  .brief {
+    margin-bottom: 14px;
+    font-size: 14.5px;
+    line-height: 1.5;
+  }
+
+  .brief-head {
+    font-family: var(--headline);
+    font-weight: 600;
+    font-size: 16.5px;
+    line-height: 1.25;
+    margin: 0 0 3px;
+  }
+
+  .brief p { margin: 0; }
+
+  .two-col-briefs {
+    column-count: 2;
+    column-gap: 26px;
+    column-rule: 1px solid var(--rule);
+  }
+
+  .two-col-briefs .brief { break-inside: avoid; page-break-inside: avoid; }
+  .two-col-briefs .brief:last-child { margin-bottom: 0; }
+
+  .src {
+    display: block;
+    margin-top: 3px;
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+
+  .src a { color: inherit; text-decoration-thickness: 1px; }
+  .src a:hover { color: var(--ink); }
+
+  /* ---------- West Virginia: the local anchor, not another wire section ---- */
+
+  .wv-box {
+    border: 2px solid var(--ink);
+    padding: 14px 18px;
+    margin-top: 10px;
+    background: var(--wv-tint);
+  }
+
+  .wv-title {
+    font-family: var(--display);
+    font-weight: 900;
+    font-size: 20px;
+    margin: 0 0 4px;
+  }
+
+  .wv-box > .brief:last-child { margin-bottom: 0; }
+
+  .wv-block {
+    margin-top: 14px;
+    padding-top: 11px;
+    border-top: 1px solid var(--rule);
+  }
+
+  .wv-block-label {
+    margin: 0 0 7px;
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+
+  .roundup { list-style: none; margin: 0; padding: 0; }
+
+  .roundup li {
+    margin: 0 0 8px;
+    font-size: 14px;
+    line-height: 1.45;
+  }
+
+  .roundup li:last-child { margin-bottom: 0; }
+
+  .roundup .src { display: inline; margin: 0 0 0 5px; }
+
+  .place,
+  .water {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 12.5px;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+  }
+
+  .folk { font-style: italic; color: var(--ink-mute); }
+
+  /* The out-of-town column: same shape as the regional roundup, one step
+     quieter, so it never competes with the in-state lines above it. */
+  .wv-away { border-left: 2px solid var(--rule); padding-left: 12px; }
+  .wv-away .roundup li { margin-bottom: 6px; font-size: 13px; color: var(--ink-soft); }
+  .wv-away .place { font-size: 11.5px; }
+
+  .wv-fishing { border-top: 1px solid var(--ink); }
+  .wv-fishing .roundup li { font-size: 13.5px; }
+
+  /* ---------- kicker and colophon ---------- */
+
+  .kicker {
+    margin-top: 26px;
+    padding: 12px 0;
+    border-top: 1px solid var(--ink);
+    border-bottom: 4px double var(--ink);
+    text-align: center;
+    font-style: italic;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .footer-note {
+    text-align: center;
+    font-size: 11px;
+    color: var(--ink-faint);
+    margin-top: 30px;
+    font-style: italic;
+  }
+
+  .footer-note a { color: inherit; }
+  .footer-note .sep { padding: 0 0.5em; }
+
+  /* ---------- archive ---------- */
+
+  .issues { list-style: none; margin: 18px 0 0; padding: 0; }
+
+  .issue {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2px 14px;
+    align-items: baseline;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .issue .no {
+    flex: 0 0 15rem;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+
+  .issue .hed {
+    flex: 1 1 16rem;
+    font-family: var(--headline);
+    font-weight: 600;
+    font-size: 16.5px;
+    line-height: 1.28;
+  }
+
+  .issue .hed a { color: inherit; text-decoration: none; }
+  .issue .hed a:hover { text-decoration: underline; }
+
+  .empty { margin-top: 20px; text-align: center; font-style: italic; }
+
+  /* ---------- the drawing ---------- */
+
+  .art { margin: 0 0 16px; }
+  .art svg { max-height: 46vh; object-fit: contain; }
+
+  /* currentColor is what makes the drawing ink rather than a picture: the
+     SVG inherits the page's colour, so it prints and inverts with the type
+     instead of sitting on top of it as a foreign object. */
+  .art svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    color: var(--ink);
+    background: var(--parchment);
+    border: 1px solid var(--ink);
+  }
+
+  .art figcaption {
+    margin-top: 5px;
+    font-size: 11.5px;
+    line-height: 1.4;
+    color: var(--ink-soft);
+  }
+
+  /* The credit is small caps and says "sketched" out loud - a reader must
+     never mistake the drawing for a photograph. */
+  .art-credit {
+    font-size: 10px;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    white-space: nowrap;
+  }
+
+  /* ---------- phone: most of the group opens this in Discord on mobile ---- */
+
+  @media (max-width: 840px) {
+    body { padding: 12px 8px 40px; }
+    .page { padding: 18px 16px 28px; }
+    /* THE ASHGROVE TIMES sets about 12.4x its font-size in Old Standard TT,
+       so 58px needs an 811px viewport. Below that the wordmark is measured
+       to the page rather than wrapped; /13 leaves slack for the fallback
+       serifs, which set wider. */
+    .masthead {
+      font-size: min(58px, calc((100vw - 48px) / 13));
+      letter-spacing: 0.5px;
+    }
+    .top-bar { justify-content: center; text-align: center; }
+    .ear { max-width: none; margin: 0 0 8px; text-align: center; }
+    .headline { font-size: 23px; }
+    .wv-box { padding: 12px 13px; }
+  }
+
+  @media (max-width: 640px) {
+    .columns,
+    .two-col-briefs { column-count: 1; column-rule: none; }
+    .stat-strip { flex-wrap: wrap; gap: 8px 0; }
+    .stat-strip div { flex: 0 0 50%; }
+    .issue .no { flex: 1 1 100%; }
+  }
+
+  /* ---------- desktop: this is where it becomes a real broadsheet --------
+
+     Everything above is the phone and tablet paper, which stays compact on
+     purpose. From here up the page stops being a narrow strip on a big
+     monitor and starts behaving like a front page: a wordmark that fills
+     the width, a lead that runs across several columns, and the wire
+     sections FLOWING through newspaper columns instead of stacking.
+
+     `.sections` uses CSS multi-column rather than grid because that is
+     genuinely how a page is set — copy fills column one, continues into
+     column two — and it keeps DOM order, so the phone layout and the
+     screen-reader order need no separate handling. */
+
+  @media (min-width: 1024px) {
+    body { padding: 34px 24px 70px; }
+    /* Art is furniture, not a banner. Left-aligned at roughly a third of
+       the measure so the lead still reads as the lead. */
+    .art { max-width: 480px; }
+    .art svg { max-height: none; }
+    .page { max-width: 1180px; padding: 34px 44px 46px; }
+    .masthead { font-size: 76px; letter-spacing: 2px; }
+    .tagline { font-size: 15px; margin-bottom: 10px; }
+    .headline { font-size: 40px; line-height: 1.08; }
+    .subhead { font-size: 17px; }
+    .columns { column-count: 2; font-size: 15.5px; }
+    .drop { font-size: 58px; }
+
+    /* WITH a drawing: art at roughly a third of the measure, story beside
+       it. Scoped to .with-art deliberately — when this rule was on the bare
+       .lead-block and the day's drawing went to another section, the story
+       became the first grid child, inherited the 27% art column, and left
+       three quarters of the page white beside eight lines of type. */
+    .lead-block.with-art {
+      display: grid;
+      grid-template-columns: minmax(240px, 27%) 1fr;
+      gap: 0 30px;
+      align-items: start;
+    }
+    .lead-block.with-art .art { max-width: none; margin: 0; }
+    /* Cap the drawing so its bottom lands near the text's, instead of
+       running past it and opening a hole under the columns. */
+    .lead-block.with-art .art svg { max-height: 210px; width: 100%; }
+
+    /* WITHOUT one: nothing shares this line of the page, so the lead runs
+       the full measure. Column COUNT rather than width, because a lead is
+       short and a fixed column-width would leave a half-empty third column
+       on a thin news day. */
+    .lead-block.no-art .columns { column-count: 2; }
+  }
+
+  @media (min-width: 1320px) {
+    .page { max-width: 1420px; padding: 40px 54px 56px; }
+    .masthead { font-size: 96px; letter-spacing: 3px; }
+    .headline { font-size: 50px; }
+
+    /* Three columns across ~1,310px of measure is about 420px a column —
+       roughly 58 characters, which is a newspaper line. Two would set 85+
+       and read like a blog. Measured against a real lead: 766 characters on
+       2026-08-24, which fills three columns about five lines deep. */
+    .lead-block.no-art .columns { column-count: 3; }
+
+    /* The wire sections FLOW through these columns; they are not placed in
+       them. (2026-08-26 — this was a grid until Pat said "lots and lots of
+       unused space.")
+
+       A grid gave each section its own cell and made every row as tall as
+       its tallest member. On an ordinary morning — U.S. 524px, World 637px,
+       Sci/Tech 901px — that stood 28% of the section area empty, and a last
+       row that did not divide evenly was worse. Copy that runs down one
+       column and continues into the next cannot leave a hole, whatever
+       shape the news turns out to be that day. Measured on the 2026-08-26
+       edition: the section block went 1917px to 999px and the page 3093px
+       to 2653px, with nothing added and nothing cut.
+
+       The original objection to multi-column here was real and is now
+       answered rather than ignored: a `column-span: all` child splits a
+       flow and strands columns, which is exactly what happened the first
+       time. So the notebook is not a child of the flow at all — it is a
+       sibling block below it, and nothing inside the flow spans.
+
+       Sports & Sportsman has set this way since it launched. */
+    .sections { display: block; }
+    .wire-flow {
+      column-count: var(--wire-cols, 3);
+      column-gap: 30px;
+      column-rule: 1px solid #c9c2ac;
+    }
+    .wire-flow > .sec {
+      break-inside: auto;      /* a section MAY continue into the next column */
+      border-left: 0;
+      padding-left: 0;
+      margin: 0 0 18px;
+    }
+    /* ...but a brief, the drawing, and a label stranded from the brief
+       under it may not be split. Those are the atoms. */
+    .wire-flow .brief { break-inside: avoid; }
+    .wire-flow .art { break-inside: avoid; }
+    .wire-flow .section-label { break-after: avoid; margin-top: 0; }
+    .wire-flow .sec + .sec .section-label { margin-top: 12px; }
+    .sec { margin-bottom: 20px; }
+    .sec .two-col-briefs { column-count: 1; column-rule: none; }
+    .sec .section-label { margin-top: 0; }
+
+
+    /* Anchored sections — the notebook and British Columbia — take the full
+       measure below the flow. Their briefs run in their own columns, since
+       one column across 1,310px would set 85-character lines. */
+    .sec-anchor { margin: 0 0 18px; }
+    .sec-anchor .two-col-briefs {
+      column-count: 3;
+      column-gap: 30px;
+      column-rule: 1px solid var(--rule);
+    }
+    .sec-anchor .brief { break-inside: avoid; }
+
+    /* Canada does its own columns, so the anchor rule above must not also
+       fragment it — a grid inside a CSS multi-column container gets sliced
+       across the columns, which put a tier label above an empty column and
+       stranded its brief two columns away. */
+    .sec-canada .two-col-briefs { column-count: 1; column-rule: none; }
+
+    /* The Canada section's three tiers sit side by side across the measure,
+       local first. A tier with nothing in it does not render, so a thin
+       morning closes to two columns rather than standing one empty — the
+       whole page was rebuilt to stop doing exactly that. */
+    .sec-canada .tiers {
+      display: grid;
+      grid-template-columns: repeat(var(--tier-cols, 3), 1fr);
+      column-gap: 30px;
+      align-items: start;
+    }
+    .sec-canada .tier + .tier { border-left: 1px solid var(--rule); padding-left: 30px; }
+
+    /* The notebook is the anchor and it is wide content — four sub-blocks
+       that would strangle in a 300px column. It takes the whole measure as
+       a boxed feature, which is both where the space is and the treatment
+       Ian asked for. It sits BELOW the flow because the renderer emits it
+       as a sibling after .wire-flow, not because of a CSS `order` — that
+       was a grid trick and the grid is gone. Screen readers and the phone
+       layout get the same sequence the markup has. */
+    .sec-wv { margin: 10px 0 8px; }
+    .sec-wv .wv-box { padding: 22px 28px; column-count: 2; column-gap: 36px; }
+    .sec-wv .wv-title { column-span: all; font-size: 24px; }
+    .sec-wv .wv-box > .brief,
+    .sec-wv .wv-block { break-inside: avoid; }
+  }
+
+  @media (min-width: 1700px) {
+    .page { max-width: 1600px; }
+    .masthead { font-size: 108px; }
+    /* Three, not four, even here. The lead runs about 700 characters — a
+       fourth column would set it three lines deep and read as a caption
+       rather than as the day's story. */
+  }
+
+  /* ---------- Sports & Sportsman page layout ----------
+     A true newsprint fill. Fixed left/right blocks stranded whitespace the
+     moment one side outgrew the other, so instead the whole paper flows
+     through balanced CSS columns: Our Teams runs down column one and spills
+     into column two, Around the Leagues starts right where it ends, and the
+     browser balances the column bottoms. Briefs and roundup lines are
+     atomic; sections and state blocks are allowed to break between them. */
+
+  @media (min-width: 1024px) {
+    .page.sportsman .sections {
+      display: block;   /* undo the Times grid — columns need flow layout */
+      column-count: 2;
+      column-gap: 34px;
+      column-rule: 1px solid var(--rule);
+    }
+  }
+
+  @media (min-width: 1320px) {
+    .page.sportsman .sections { column-count: 3; }
+  }
+
+  @media (min-width: 1024px) {
+    .page.sportsman .sections > .sec {
+      break-inside: auto;
+      border-left: 0;
+      padding-left: 0;
+      margin: 0 0 20px;
+    }
+    .page.sportsman .sec .two-col-briefs { column-count: 1; column-rule: none; }
+    .page.sportsman .brief,
+    .page.sportsman .roundup li { break-inside: avoid; }
+    .page.sportsman .section-label { break-after: avoid; margin-top: 0; }
+    .page.sportsman .sec + .sec .section-label { margin-top: 10px; }
+    .page.sportsman .wv-block { break-inside: auto; }
+    .page.sportsman .wv-block-label { break-after: avoid; }
+  }
+
+  /* ---------- the weather page (Jim Claudtore's briefing, typeset) ---- */
+
+  .wx-briefing { max-width: 760px; margin: 0 auto; font-size: 15px; line-height: 1.55; }
+  .wx-briefing p { margin: 0 0 12px; }
+  .wx-day {
+    font-family: var(--display); font-weight: 900; font-size: 26px;
+    line-height: 1.15; margin: 4px 0 6px;
+  }
+  .wx-dek { font-style: italic; font-size: 15px; color: var(--ink-soft); margin: 0 0 16px; }
+  .wx-loc {
+    font-family: var(--display); font-weight: 700; font-size: 17px;
+    border-top: 1px solid var(--rule); padding-top: 12px; margin: 18px 0 6px;
+  }
+  .wx-list { margin: 0 0 12px; padding-left: 20px; }
+  .wx-list li { margin-bottom: 6px; }
+  /* The weather page stopped borrowing the sportsman column fill on
+     2026-08-25 — it sets as a newspaper page now, with the same section
+     grid the front page uses, so there is no multi-column flow left to
+     undo. What it does need is its own handling of Jim's confidence note,
+     which is a single paragraph inside a full-width box: the notebook's
+     two columns would split one short paragraph down the middle. */
+  .wx-confidence .wv-box { column-count: 1; }
+  .wx-confidence .wv-box p { margin: 0 0 10px; max-width: 92ch; }
+  .wx-confidence .wv-box p:last-child { margin-bottom: 0; }
+  .wx-roundup { margin: 0; }
+  /* Jim writes in half a dozen short reports rather than long copy, so the
+     label chip has to survive a stacked heading — three towns sharing one
+     forecast — without pushing the section out of its column. */
+  .page.weather .section-label { white-space: normal; line-height: 1.35; }
+
+  @media print {
+    body { background: #fff; padding: 0; }
+    .page { border: 0; box-shadow: none; max-width: none; }
+    .wire-flow { column-count: var(--wire-cols, 3); column-gap: 24px; }
+    .sec-wv { grid-column: 1 / -1; order: 9; }
+    /* Buttons and the anchor rule are screen furniture: a printed page
+       has no other sections to go to, and the rule was drawn to separate
+       columns that print does not stack the same way. */
+    .paper-nav, .rule-anchor { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="page ">
+
+  <div class="top-bar">
+    <span>Vol. I — No. 85</span>
+    <span>Saturday, October 31, 2026</span>
+    <span>Price: Free</span>
+  </div>
+  <div class="ear">
+    <span class="ear-label">Weather</span>Saturday&#x27;s forecast comes at 7:15 from the weather desk.
+  </div>
+  <div class="family-line">The Ashgrove Times</div>
+  <div class="masthead">THE NEWS DESK</div>
+  <div class="tagline">&ldquo;For the Fellers&rdquo;</div>
+  <hr class="rule-thick">
+  <hr class="rule-thin">
+
+  <nav class="paper-nav" aria-label="Sections"><a href="../home.html">Home</a><a href="../sportsman/">Sports &amp; Sportsman</a><a href="../weather/">The Weather Claude</a></nav>
+
+  <div class="headline">Tech sell-off erases $1 trillion as Intel posts its worst day</div>
+  <div class="subhead">Nasdaq 100 falls 3.4%, its worst day since June, as investors question returns on AI spending</div>
+  <div class="byline">By Wire Reports</div>
+
+  <div class="lead-block with-art">
+    <figure class="art">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 506" role="img"
+     aria-label="Sketch after an NBC News photograph of the New York Stock Exchange trading floor on Friday: the left half of the frame is a bank of three tall tilted monitors, their screens filled with rows of small figures, a pie chart on the upper panel of the nearest one. At the right a trader in a dark jacket with a flag patch on the shoulder stands with his back three-quarters to the viewer, facing the screens, no face visible. Above him a small American flag hangs from an overhead booth, more monitors are mounted along the top of the frame, and a wall sign at the far right reads CHANGE.">
+  <defs><style>
+    .ink  { fill: none; stroke: currentColor; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
+    .body { fill: var(--parchment, #f4f0e6); stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+    .dark { fill: currentColor; stroke: none; }
+    .faint{ opacity: 0.3; }
+    .mid  { opacity: 0.6; }
+    .pale { fill: none; stroke: var(--parchment, #f4f0e6); stroke-linecap: round; }
+    .palefill { fill: var(--parchment, #f4f0e6); stroke: none; }
+    .lbl  { fill: currentColor; font-family: 'Arial Black', 'Helvetica Neue', Arial, sans-serif; font-weight: 900; }
+  </style></defs>
+  <g>
+    <!-- Floor line and the base of the monitor bank. -->
+    <path class="ink mid" d="M0 470 L900 440" stroke-width="1.2"/>
+    <path class="ink faint" d="M560 470 L900 455" stroke-width="1"/>
+
+    <!-- The monitor bank: three tall panels in perspective, nearest at the left edge, receding right. -->
+    <!-- Panel 1 (nearest, largest, partly cut by the left edge). -->
+    <path class="body" d="M0 40 L250 70 L250 470 L0 500 Z"/>
+    <path class="dark" d="M14 60 L236 86 L236 452 L14 480 Z" opacity="0.88"/>
+    <!-- Panel 1 split into an upper and a lower screen. -->
+    <path class="pale" d="M14 262 L236 262" stroke-width="3" opacity="0.9"/>
+    <!-- Pie chart on the upper screen. -->
+    <circle cx="150" cy="170" r="48" class="pale" stroke-width="1.6"/>
+    <path d="M150 170 L150 122 A48 48 0 0 1 196 160 Z" class="palefill" opacity="0.85"/>
+    <path d="M150 170 L196 160 A48 48 0 0 1 168 214 Z" class="palefill" opacity="0.45"/>
+    <path d="M150 170 L168 214 A48 48 0 0 1 104 184 Z" class="palefill" opacity="0.65"/>
+    <!-- Rows of figures on the upper screen, left of the pie. -->
+    <g class="pale" stroke-width="1.6" opacity="0.7">
+      <path d="M26 96 h40 M72 101 h22 M26 112 h36 M70 116 h24 M26 128 h42 M74 133 h20 M26 144 h34 M68 148 h26 M26 160 h40 M72 165 h22 M26 176 h38 M70 180 h24 M26 192 h42 M74 197 h20 M26 208 h36 M68 212 h26 M26 224 h40 M72 229 h22 M26 240 h38 M70 244 h24"/>
+      <path d="M26 282 h42 M74 287 h30 M110 290 h28 M146 293 h24 M178 296 h40 M26 300 h36 M68 304 h34 M110 308 h28 M146 311 h24 M178 314 h40 M26 318 h42 M74 323 h30 M110 326 h28 M146 329 h24 M178 332 h40 M26 336 h36 M68 340 h34 M110 344 h28 M146 347 h24 M178 350 h40 M26 354 h42 M74 359 h30 M110 362 h28 M146 365 h24 M178 368 h40 M26 372 h36 M68 376 h34 M110 380 h28 M146 383 h24 M178 386 h40 M26 390 h42 M74 395 h30 M110 398 h28 M146 401 h24 M178 404 h40 M26 408 h36 M68 412 h34 M110 416 h28 M146 419 h24 M178 422 h40 M26 426 h42 M74 431 h30 M110 434 h28 M146 437 h24 M178 440 h40"/>
+    </g>
+    <!-- Panel 2, behind and to the right, narrower in perspective. -->
+    <path class="body" d="M262 78 L400 96 L400 440 L262 466 Z"/>
+    <path class="dark" d="M272 94 L390 110 L390 426 L272 448 Z" opacity="0.85"/>
+    <g class="pale" stroke-width="1.4" opacity="0.65">
+      <path d="M282 122 h30 M318 126 h26 M350 130 h30 M282 140 h26 M314 144 h30 M350 148 h30 M282 158 h30 M318 162 h26 M350 166 h30 M282 176 h26 M314 180 h30 M350 184 h30 M282 194 h30 M318 198 h26 M350 202 h30 M282 212 h26 M314 216 h30 M350 220 h30 M282 230 h30 M318 234 h26 M350 238 h30 M282 248 h26 M314 252 h30 M350 256 h30"/>
+      <path d="M282 286 h30 M318 290 h26 M350 294 h30 M282 304 h26 M314 308 h30 M350 312 h30 M282 322 h30 M318 326 h26 M350 330 h30 M282 340 h26 M314 344 h30 M350 348 h30 M282 358 h30 M318 362 h26 M350 366 h30 M282 376 h26 M314 380 h30 M350 384 h30 M282 394 h30 M318 398 h26 M350 402 h30 M282 412 h26 M314 416 h30"/>
+    </g>
+    <!-- Panel 3, the farthest, a thin sliver. -->
+    <path class="body" d="M410 100 L470 108 L470 420 L410 436 Z"/>
+    <path class="dark" d="M418 114 L462 120 L462 408 L418 420 Z" opacity="0.8"/>
+    <g class="pale" stroke-width="1.2" opacity="0.6">
+      <path d="M426 140 h26 M426 160 h20 M426 180 h26 M426 200 h20 M426 220 h26 M426 240 h20 M426 260 h26 M426 280 h20 M426 300 h26 M426 320 h20 M426 340 h26 M426 360 h20 M426 380 h26"/>
+    </g>
+    <!-- A ticker strip on a rail above the nearest panel. -->
+    <path class="dark mid" d="M0 20 L250 50 L250 64 L0 34 Z"/>
+
+    <!-- Overhead monitors along the top of the frame, behind the trader. -->
+    <path class="body" d="M500 30 L600 36 L600 100 L500 96 Z"/>
+    <path class="dark" d="M508 40 L592 45 L592 92 L508 88 Z" opacity="0.8"/>
+    <path class="body" d="M740 18 L860 26 L860 96 L740 90 Z"/>
+    <path class="dark" d="M748 28 L852 35 L852 88 L748 82 Z" opacity="0.8"/>
+    <g class="pale" stroke-width="1.2" opacity="0.6">
+      <path d="M518 54 h30 M556 56 h28 M518 66 h26 M552 68 h32 M518 78 h30 M556 80 h28"/>
+      <path d="M758 44 h40 M806 47 h36 M758 58 h34 M800 61 h42 M758 72 h40 M806 75 h36"/>
+    </g>
+    <!-- A booth post between the overhead monitors, and the small flag hanging from it. -->
+    <path class="ink" d="M690 0 L690 150" stroke-width="2"/>
+    <path class="ink" d="M690 40 L742 34" stroke-width="1.6"/>
+    <!-- The flag: a draped rectangle with the canton at the upper left and stripes hatched. -->
+    <path class="body" d="M694 44 L740 38 C744 60 742 82 736 104 L700 112 C692 90 692 66 694 44 Z"/>
+    <path class="dark" d="M694 44 L716 41 L717 70 L694 73 Z" opacity="0.85"/>
+    <g class="ink" stroke-width="1.1">
+      <path d="M717 50 L741 47 M717 59 L741 56 M717 68 L741 65 M695 80 L738 75 M696 89 L737 84 M698 98 L736 93 M700 107 L735 102"/>
+    </g>
+
+    <!-- The wall sign at the far right: CHANGE, the end of EXCHANGE, partly behind the trader. -->
+    <path class="ink faint" d="M640 150 L900 140 L900 230 L640 240 Z" stroke-width="1"/>
+    <text class="lbl" x="770" y="206" font-size="30" opacity="0.55">CHANGE</text>
+
+    <!-- A second, more distant figure far right, read as a plain silhouette with no face: head and shoulders only. -->
+    <path class="body" d="M846 176 C846 160 872 160 872 176 C872 186 866 192 859 192 C852 192 846 186 846 176 Z"/>
+    <path class="body" d="M826 250 C826 214 892 214 892 250 L892 300 L826 300 Z"/>
+
+    <!-- The trader: back three-quarters to the viewer, facing the screens. Head from behind, no face. -->
+    <!-- Head: a plain oval of hair and the back of the skull; one ear at the left edge where it turns toward the screens. -->
+    <path class="body" d="M556 148 C548 122 572 100 600 104 C626 108 640 132 632 160 C626 182 606 190 592 186 C576 182 560 168 556 148 Z"/>
+    <path class="ink" d="M556 150 C552 142 546 146 548 156 C550 162 556 164 558 160" stroke-width="1.2"/>
+    <!-- The temple of the glasses, seen from behind as a single short line. -->
+    <path class="ink mid" d="M560 142 L584 136" stroke-width="1.1"/>
+    <!-- Hair line, short strokes across the crown. -->
+    <g class="ink faint" stroke-width="1">
+      <path d="M566 120 c6 -4 12 -6 20 -6 M578 110 c8 -2 16 -2 24 2 M596 106 c8 2 16 6 22 12 M612 118 c6 6 10 12 12 20"/>
+    </g>
+    <!-- Neck and the high collar of the jacket. -->
+    <path class="body" d="M580 184 L612 180 L616 206 L578 212 Z"/>
+    <path class="body" d="M548 212 C566 196 622 192 648 206 L652 226 L544 236 Z"/>
+    <!-- The jacket: shoulders, back and the arm nearest the viewer, falling to the hip. -->
+    <path class="body" d="M520 236 C540 214 650 206 686 232 C708 248 716 300 718 360 L720 470 L512 476 L508 360 C506 300 508 252 520 236 Z"/>
+    <!-- Centre back seam and the yoke. -->
+    <path class="ink mid" d="M616 224 C610 300 606 380 604 470" stroke-width="1.2"/>
+    <path class="ink faint" d="M530 248 C580 236 650 234 698 246" stroke-width="1.1"/>
+    <!-- The far shoulder and sleeve, turned toward the screens, with the flag patch on it. -->
+    <path class="body" d="M508 262 C498 300 496 360 500 420 L506 474 L540 472 L538 410 C536 350 534 300 530 262 Z"/>
+    <path class="body" d="M504 282 L530 278 L532 300 L506 304 Z"/>
+    <path class="dark" d="M504 282 L515 281 L516 292 L505 293 Z" opacity="0.85"/>
+    <g class="ink" stroke-width="0.9">
+      <path d="M516 285 L531 283 M516 289 L531 287 M506 296 L531 293 M507 300 L531 297"/>
+    </g>
+    <!-- The near sleeve: the arm hanging at the right side of the back. -->
+    <path class="body" d="M690 262 C710 300 716 360 712 420 L710 474 L676 474 L678 410 C680 350 684 300 686 262 Z"/>
+    <!-- Cuff and the hand, drawn as a closed contour with no fingers picked out. -->
+    <path class="body" d="M680 470 C684 490 706 492 712 472 L712 480 C710 500 682 500 680 480 Z"/>
+    <!-- Fabric folds down the back. -->
+    <g class="ink faint" stroke-width="1">
+      <path d="M560 300 C556 340 556 390 560 440 M650 290 C654 340 652 390 648 440 M586 330 C584 370 586 410 590 450"/>
+    </g>
+    <!-- Jacket hem. -->
+    <path class="ink" d="M512 476 C560 468 660 466 720 470" stroke-width="1.2"/>
+  </g>
+</svg>
+  <figcaption><span class="art-caption">The New York Stock Exchange floor Friday, a bank of monitors at left and a trader with his back to the frame, facing the screens.</span> <span class="art-credit">Sketched from an NBC News photograph</span></figcaption>
+</figure>
+    <div class="columns"><p><span class="drop">T</span>echnology stocks plunged Friday, erasing more than $1 trillion in market value, as Intel suffered its steepest one-day drop in decades and investors questioned whether hundreds of billions of dollars in artificial intelligence data center spending will pay off.</p><p>The Nasdaq 100 fell 3.4% and the S&amp;P 500 lost 1.8%. CBS News put the Dow&#x27;s loss at 572 points, or 1.1%. Intel fell about 29% after forecasting lower fourth-quarter sales and profit; NBC News called it the stock&#x27;s worst day in records dating to the 1980s, while CBS News called it the biggest drop since 1974. Nvidia fell 4.2%, and AMD, Qualcomm and Marvell fell about 10%.</p><p>The selling followed Thursday&#x27;s earnings from Amazon and Intel, a day after Alphabet shed about $500 billion in value. Amazon CEO Andy Jassy said the company still expects about $220 billion in 2026 capital spending and more in 2027. Bitcoin fell toward $77,000 after the $6.3 billion Binance theft, CBS News reported. The S&amp;P 500 closed a third straight losing week.</p></div>
+  </div>
+
+  <div class="stat-strip"><div><b>7,580.07</b><span class="stat-label">S&amp;P 500</span><span class="stat-change"><span class="tri down" aria-hidden="true"></span>-1.82%</span></div><div><b>51,770.31</b><span class="stat-label">Dow</span><span class="stat-change"><span class="tri down" aria-hidden="true"></span>-1.09%</span></div><div><b>25,437.00</b><span class="stat-label">Nasdaq</span><span class="stat-change"><span class="tri down" aria-hidden="true"></span>-2.86%</span></div><div><b>$77,370</b><span class="stat-label">Bitcoin</span><span class="stat-change"><span class="tri down" aria-hidden="true"></span>-0.32%</span></div></div>
+  <p class="stats-note">Market data compiled before the opening bell</p>
+
+  <div class="sections" style="--wire-cols: 3">
+  <div class="wire-flow">
+  <section class="sec sec-wire">
+  <div class="section-label">U.S.</div>
+  <div class="two-col-briefs"><div class="brief">
+      <div class="brief-head">Judge blocks DOJ threats against local election officials</div>
+      <p>Judge Trina Thompson&#x27;s Friday night order, in force through Nov. 16, bars DOJ and DHS from coercing election workers over alleged noncitizen ballots.</p><span class="src"><a href="https://www.nbcnews.com/politics/2026-election/judge-orders-trump-administration-stop-threatening-election-officials-rcna606659" target="_blank" rel="noopener nofollow">NBC News</a></span>
+    </div><div class="brief">
+      <div class="brief-head">Binance says withdrawals to resume as recovery begins</div>
+      <p>Binance said withdrawals should resume within a day or two and that it found more &#x27;points of breach&#x27; beyond a laptop; Chainalysis joined TRM in blaming North Korea&#x27;s TraderTraitor.</p><span class="src"><a href="https://www.npr.org/2026/10/30/g-s1-150902/blockchain-intelligence-firms-link-north-korea-to-6-3b-hack-on-binance" target="_blank" rel="noopener nofollow">AP via NPR</a></span>
+    </div><div class="brief">
+      <div class="brief-head">Judge orders three taxpayer-funded Trump ads pulled</div>
+      <p>Judge Jennifer Rochon ordered the government to take down three ads, including one promising $5,000 to Americans if Republicans keep Congress.</p><span class="src"><a href="https://www.pbs.org/newshour/politics/judge-orders-3-taxpayer-funded-trump-administration-ads-to-be-pulled-from-tv-social-media" target="_blank" rel="noopener nofollow">AP via PBS NewsHour</a></span>
+    </div><div class="brief">
+      <div class="brief-head">Shooting at California Halloween store kills 1, wounds 6</div>
+      <p>Fairfield police hunted a shooter who opened fire in a Spirit Halloween store Friday night; three victims were in critical condition, the chief said.</p><span class="src"><a href="https://www.nbcnews.com/news/us-news/manhunt-california-spirit-halloween-shooting-dead-injured-police-rcna606673" target="_blank" rel="noopener nofollow">NBC News</a></span>
+    </div></div>
+</section>
+
+  <section class="sec sec-wire">
+  <div class="section-label">World</div>
+  <div class="two-col-briefs"><div class="brief">
+      <div class="brief-head">Polish president accuses government of court takeover</div>
+      <p>Karol Nawrocki cut short a Senegal trip after the tribunal&#x27;s president was suspended, scuffled with judges at its door and called emergency talks.</p><span class="src"><a href="https://www.euronews.com/2026/10/31/poland-political-crisis-constitutional-court-in-chaos-as-nawrocki-accuses-government-of-st" target="_blank" rel="noopener nofollow">Euronews</a></span>
+    </div><div class="brief">
+      <div class="brief-head">UN Western Sahara mission lapses after dueling vetoes</div>
+      <p>Russia vetoed a US draft making Morocco&#x27;s autonomy plan the sole basis for talks; the US then blocked Russia&#x27;s renewal. The mandate ends Oct. 31.</p><span class="src"><a href="https://www.dw.com/en/un-peacekeeping-mission-in-western-sahara-to-expire-amid-us-russia-vetoes/a-79814338" target="_blank" rel="noopener nofollow">DW</a></span>
+    </div><div class="brief">
+      <div class="brief-head">US, Japan, South Korea renew call to denuclearize North</div>
+      <p>Top diplomats at the G20 in Atlanta pledged &quot;complete denuclearization&quot; Friday as Trump seeks a new meeting with Kim Jong Un at November&#x27;s APEC.</p><span class="src"><a href="https://www.japantimes.co.jp/news/2026/10/31/asia-pacific/politics/north-korea-denuclearization-vow/" target="_blank" rel="noopener nofollow">AFP-Jiji via Japan Times</a></span>
+    </div><div class="brief">
+      <div class="brief-head">Brazil summons Argentine envoy over Bolsonaro&#x27;s exit</div>
+      <p>Brazil called in Argentina&#x27;s charge d&#x27;affaires over Flavio Bolsonaro&#x27;s route to Miami, Reuters reported; Argentina&#x27;s foreign minister denied it.</p><span class="src"><a href="https://www.aljazeera.com/news/2026/10/31/brazil-summons-argentinian-diplomat-over-bolsonaros-flight-to-us" target="_blank" rel="noopener nofollow">Al Jazeera</a></span>
+    </div></div>
+</section>
+
+  <section class="sec sec-wire">
+  <div class="section-label">Science &amp; Technology</div>
+  <div class="two-col-briefs"><div class="brief">
+      <div class="brief-head">Glass chip links two CHARA telescopes to observe stars</div>
+      <p>A Heriot-Watt University photonic chip combined light from two CHARA Array telescopes on-sky, reaching fainter stars than the optics it replaced, the team reported in Monthly Notices of the Royal Astronomical Society.</p><span class="src"><a href="https://phys.org/news/2026-10-tiny-photonic-chip-links-telescopes.html" target="_blank" rel="noopener nofollow">Phys.org</a></span>
+    </div><div class="brief">
+      <div class="brief-head">Cornell team maps two competing superconducting states in UTe2</div>
+      <p>Ultrasound measurements under pressure show two superconducting states coexist and compete in uranium ditelluride, a topological superconductor candidate, Cornell physicists reported Oct. 30 in Nature Physics.</p><span class="src"><a href="https://phys.org/news/2026-10-ute-reveals-flavors-superconductivity-extreme.html" target="_blank" rel="noopener nofollow">Phys.org</a></span>
+    </div><div class="brief">
+      <div class="brief-head">Kyoto hospital performs first approved iPS cell transplant for Parkinson&#x27;s</div>
+      <p>Sumitomo Pharma said Oct. 30 that Kyoto University Hospital transplanted donor-derived dopamine cell precursors into a patient in October, the first under Japan&#x27;s conditional approval granted in March, AFP reported.</p><span class="src"><a href="https://medicalxpress.com/news/2026-10-patient-stem-cell-treatment-parkinson.html" target="_blank" rel="noopener nofollow">AFP via Medical Xpress</a></span>
+    </div><div class="brief">
+      <div class="brief-head">Martian meteorite found in Mali dates to 4.1 billion years</div>
+      <p>A NASA Jet Propulsion Laboratory-led team reports in Science that Teghaza 001, an intact igneous rock found in the Sahara in 2022, formed at least 4.1 billion years ago and carries signs of hot water moving through the Martian crust.</p><span class="src"><a href="https://arstechnica.com/science/2026/10/rare-meteorite-from-mars-gives-us-a-view-into-its-ancient-crust/" target="_blank" rel="noopener nofollow">Ars Technica</a></span>
+    </div></div>
+</section>
+
+  <section class="sec sec-wire">
+  <div class="section-label">Artificial Intelligence</div>
+  <div class="two-col-briefs"><div class="brief">
+      <div class="brief-head">Open-weight model builds Firefox exploits for $1,000 each, Epoch AI finds</div>
+      <p>Epoch AI said Z.ai&#x27;s GLM 5.3 autonomously built working exploit chains against recent Firefox versions in as little as 12 hours at about $1,000 in API fees each; Mozilla patched the shared flaw in Firefox 159.0 on Oct. 27.</p><span class="src"><a href="https://the-decoder.com/open-weight-model-glm-5-3-built-full-firefox-exploit-chains-with-zero-human-input-in-under-48-hours/" target="_blank" rel="noopener nofollow">The Decoder</a></span>
+    </div><div class="brief">
+      <div class="brief-head">DoorDash counts only several hundred orders from AI agents</div>
+      <p>CEO Tony Xu told analysts on the third-quarter call that third-party AI agents have placed only several hundred orders, against an average of 3 million deliveries a day in 2025, TechCrunch reported.</p><span class="src"><a href="https://techcrunch.com/2026/10/30/doordash-said-its-only-received-several-hundred-orders-from-ai-agents/" target="_blank" rel="noopener nofollow">TechCrunch</a></span>
+    </div><div class="brief">
+      <div class="brief-head">Accenture says AI agents screen resumes and cut time to hire 28%</div>
+      <p>HR chief Kate Clifford told The Register that agents screen resumes and schedule interviews while humans make hiring decisions; the 28% figure and a claimed 30% gain in candidate quality are Accenture&#x27;s own numbers.</p><span class="src"><a href="https://www.theregister.com/ai-and-ml/2026/10/30/accenture-ai-agents-are-sifting-through-applicants/5306460" target="_blank" rel="noopener nofollow">The Register</a></span>
+    </div></div>
+</section>
+  </div>
+
+  <hr class="rule-anchor">
+
+  <section class="sec sec-wv">
+  <div class="section-label">West Virginia</div>
+  <div class="wv-box">
+    <div class="wv-title">Mountaineer State Notebook</div>
+    
+    <div class="brief">
+      <div class="brief-head">State officials ask court to pause school aid formula suit</div>
+      <p>House Speaker Roger Hanshaw, Senate President Randy Smith and other respondents asked the state Supreme Court Thursday to hold the ACLU&#x27;s school aid formula case until April 12, 2027, after the next session.</p><span class="src"><a href="https://www.newsandsentinel.com/news/local-news/2026/10/w-va-officials-seek-delay-in-school-aid-formula-case-citing-planned-legislative-overhaul/" target="_blank" rel="noopener nofollow">News and Sentinel</a></span>
+    </div><div class="brief">
+      <div class="brief-head">Cabell jury convicts Huntington man of second-degree murder</div>
+      <p>Jurors found Amar Abdu Richardson, 23, guilty of second-degree murder and two firearm counts in the March 20, 2025, shooting death of Rahmel Lundy, 33, on Seventh Avenue.</p><span class="src"><a href="https://wvmetronews.com/2026/10/30/huntington-man-convicted-of-second-degree-murder-in-fatal-2025-seventh-avenue-shooting/" target="_blank" rel="noopener nofollow">WV MetroNews</a></span>
+    </div><div class="brief">
+      <div class="brief-head">Former Southern Regional Jail officer gets two years</div>
+      <p>Michael Pack, 40, was sentenced Friday after pleading guilty in March to conspiring with other officers to beat inmates in camera blind spots and lie about their injuries.</p><span class="src"><a href="https://wvmetronews.com/2026/10/30/former-correctional-officer-sentenced-to-prison-for-role-in-conspiracy-punishing-inmates/" target="_blank" rel="noopener nofollow">WV MetroNews</a></span>
+    </div><div class="brief">
+      <div class="brief-head">Nucor says Mason County mill will start up by year&#x27;s end</div>
+      <p>The melt shop produced its first heat in September and the $4 billion Apple Grove mill should run its first coils through the hot mill by December, Nucor said on Tuesday&#x27;s earnings call, with production ramping in early 2027.</p><span class="src"><a href="https://www.herald-dispatch.com/business/nucor-steel-wv-mill-on-schedule-for-completion-this-fall/article_e9452a4a-bb54-4ec2-b64a-ee8a1d5a9d58.html" target="_blank" rel="noopener nofollow">Herald-Dispatch</a></span>
+    </div><div class="wv-block wv-regional">
+      <p class="wv-block-label">Around the State</p>
+      <ul class="roundup"><li><span class="place">Huntington &amp; the Cabell-Mason corridor</span> <span class="folk">(Trav, Justin, Nate and Ian)</span> &mdash; Cabell Chief Judge Sean Hammers is taking applications for the magistrate seat Danne Vance left to become county clerk.<span class="src"><a href="https://www.herald-dispatch.com/_recent_news/cabell-county-magistrate-vacancy-applications-open/article_7a6c33ea-6d17-4e92-a243-323dff8f0c84.html" target="_blank" rel="noopener nofollow">Herald-Dispatch</a></span></li><li><span class="place">Putnam / Kanawha - Charleston</span> <span class="folk">(Nate)</span> &mdash; Dominick Gray, 40, of Columbus, Ohio, drew 30 years in Kanawha court for the 2023 Lippert Street shooting of Beverly Hensley.<span class="src"><a href="https://wvmetronews.com/2026/10/30/ohio-man-sentenced-for-fatal-2023-charleston-shooting/" target="_blank" rel="noopener nofollow">WV MetroNews</a></span></li><li><span class="place">Mid-Ohio Valley / Parkersburg</span> <span class="folk">(Pat)</span> &mdash; Memorial Health System in Marietta is waiting on about $80 million in delayed Medicaid payments, slowing its Belpre hospital project.<span class="src"><a href="https://www.newsandsentinel.com/news/business/2026/10/memorial-awaiting-80-million-as-payment-delays-slow-hospital-project/" target="_blank" rel="noopener nofollow">News and Sentinel</a></span></li><li><span class="place">Summers / Hinton &amp; the New River</span> <span class="folk">(Greg)</span> &mdash; A Texas man, 35, reported missing in Raleigh County was found dead Thursday near the Prince rail station after a Route 41 dirt bike wreck.<span class="src"><a href="https://wvmetronews.com/2026/10/30/man-found-dead-after-dirt-bike-crash-in-fayette-county/" target="_blank" rel="noopener nofollow">WV MetroNews</a></span></li></ul>
+    </div><div class="wv-block wv-away">
+      <p class="wv-block-label">The Away Desk</p>
+      <ul class="roundup"><li><span class="place">North Bennington, VT</span> <span class="folk">(Wes)</span> &mdash; Pearls at the Garage restaurant in Bennington serves its final customers today, the Bennington Banner reported Friday.<span class="src"><a href="https://www.benningtonbanner.com/local-news/pearls-at-the-garage-to-close-after-oct-31/5048764" target="_blank" rel="noopener nofollow">Bennington Banner</a></span></li></ul>
+    </div><div class="wv-block wv-hotspots">
+      <p class="wv-block-label">Vacation Hotspots</p>
+      <ul class="roundup"><li><span class="place">Webster County &amp; Cowen</span> &mdash; The Diana waterline extension won $2.5 million in state block grant funding, announced at the Oct. 21 county commission meeting, The Webster Echo reported.<span class="src"><a href="https://webconews.com/2026/10/26/diana-waterline-gets-2-5m-boost/" target="_blank" rel="noopener nofollow">The Webster Echo</a></span></li><li><span class="place">Topsail Island &amp; the coast</span> &mdash; Updated Topsail Middle School renovation estimates ran more than $20 million, or 69.7%, over the initial cost, Port City Daily reported Friday.<span class="src"><a href="https://portcitydaily.com/local-news/2026/10/30/topsail-middle-school-renovations-exceed-original-estimates-by-nearly-70/" target="_blank" rel="noopener nofollow">Port City Daily</a></span></li></ul>
+    </div>
+  </div>
+</section>
+
+  <section class="sec sec-wire sec-anchor sec-canada">
+  <div class="section-label">Canada</div>
+  <div class="two-col-briefs"><div class="tiers" style="--tier-cols: 3"><div class="tier">
+      <p class="tier-label">Prince George</p>
+      <div class="brief">
+      <div class="brief-head">Prince George Legion pushes for new hall and veterans housing</div>
+      <p>Supporters want a hall with veterans and seniors housing on city-owned land at Ospika and 22nd. The branch&#x27;s lease on its current hall expires at year-end.</p><span class="src"><a href="https://ckpgtoday.ca/2026/10/30/prince-george-legion-renews-push-for-new-hall-and-veterans-housing/" target="_blank" rel="noopener nofollow">CKPG Today</a></span>
+    </div><div class="brief">
+      <div class="brief-head">Vanderhoof detox centre opens with five beds for the north</div>
+      <p>Carrier Sekani Family Services runs the centre while it finishes a 46-bed healing centre at Tachick Lake, 25 km southwest, with occupancy expected in fall 2027.</p><span class="src"><a href="https://www.cbc.ca/news/canada/british-columbia/vanderhoof-detox-centre-9.7401936" target="_blank" rel="noopener nofollow">CBC News</a></span>
+    </div>
+    </div><div class="tier">
+      <p class="tier-label">British Columbia</p>
+      <div class="brief">
+      <div class="brief-head">Ottawa names Roberts Bank port expansion project of national interest</div>
+      <p>The $5.9 billion Delta terminal would add 2.4 million containers a year at the Port of Vancouver. Ottawa said the listing moves its opening to 2035 from 2039.</p><span class="src"><a href="https://www.cbc.ca/news/canada/british-columbia/roberts-bank-terminal-2-listed-project-national-interest-delta-bc-9.7403297" target="_blank" rel="noopener nofollow">CBC News</a></span>
+    </div><div class="brief">
+      <div class="brief-head">Doerkson says new government will examine BC Ferries China contract</div>
+      <p>The premier-designate said he will review the deal for four Summit-class ferries from Weihai Shipyards, due from 2029. BC Ferries said no Canadian yard bid.</p><span class="src"><a href="https://globalnews.ca/news/12127816/new-government-examine-bc-ferries-shipbuilding-doerkson/" target="_blank" rel="noopener nofollow">Global News</a></span>
+    </div>
+    </div><div class="tier">
+      <p class="tier-label">Across Canada</p>
+      <div class="brief">
+      <div class="brief-head">Carney says Canada, EU find &#x27;common solutions&#x27; on carbon tariff</div>
+      <p>Closing the Montreal summit, Carney cited progress on the EU carbon border levy; envoy Jonathan Wilkinson said the EU will recognize Canada&#x27;s carbon price.</p><span class="src"><a href="https://www.cbc.ca/news/politics/canada-eu-summit-carbon-tariff-threat-carney-von-der-leyen-9.7403599" target="_blank" rel="noopener nofollow">CBC News</a></span>
+    </div>
+    </div></div></div>
+</section>
+  </div>
+
+  <div class="kicker">Nicholas-Webster carries no regional line today; the Kyushu basho (tournament) opens Nov. 8 in Fukuoka, eight days out.</div>
+
+  <div class="footer-note">Compiled from wire reports<span class="sep">&middot;</span><a href="../archive.html">Back issues</a></div>
+
+  <nav class="paper-nav paper-nav-foot" aria-label="Sections, repeated"><a href="../home.html">Home</a><a href="../sportsman/">Sports &amp; Sportsman</a><a href="../weather/">The Weather Claude</a></nav>
+
+</div>
+</body>
+</html>

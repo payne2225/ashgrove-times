@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 506" role="img"
+     aria-label="Sketch after an NBC News photograph of the New York Stock Exchange trading floor on Friday: the left half of the frame is a bank of three tall tilted monitors, their screens filled with rows of small figures, a pie chart on the upper panel of the nearest one. At the right a trader in a dark jacket with a flag patch on the shoulder stands with his back three-quarters to the viewer, facing the screens, no face visible. Above him a small American flag hangs from an overhead booth, more monitors are mounted along the top of the frame, and a wall sign at the far right reads CHANGE.">
+  <defs><style>
+    .ink  { fill: none; stroke: currentColor; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
+    .body { fill: var(--parchment, #f4f0e6); stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+    .dark { fill: currentColor; stroke: none; }
+    .faint{ opacity: 0.3; }
+    .mid  { opacity: 0.6; }
+    .pale { fill: none; stroke: var(--parchment, #f4f0e6); stroke-linecap: round; }
+    .palefill { fill: var(--parchment, #f4f0e6); stroke: none; }
+    .lbl  { fill: currentColor; font-family: 'Arial Black', 'Helvetica Neue', Arial, sans-serif; font-weight: 900; }
+  </style></defs>
+  <g>
+    <!-- Floor line and the base of the monitor bank. -->
+    <path class="ink mid" d="M0 470 L900 440" stroke-width="1.2"/>
+    <path class="ink faint" d="M560 470 L900 455" stroke-width="1"/>
+
+    <!-- The monitor bank: three tall panels in perspective, nearest at the left edge, receding right. -->
+    <!-- Panel 1 (nearest, largest, partly cut by the left edge). -->
+    <path class="body" d="M0 40 L250 70 L250 470 L0 500 Z"/>
+    <path class="dark" d="M14 60 L236 86 L236 452 L14 480 Z" opacity="0.88"/>
+    <!-- Panel 1 split into an upper and a lower screen. -->
+    <path class="pale" d="M14 262 L236 262" stroke-width="3" opacity="0.9"/>
+    <!-- Pie chart on the upper screen. -->
+    <circle cx="150" cy="170" r="48" class="pale" stroke-width="1.6"/>
+    <path d="M150 170 L150 122 A48 48 0 0 1 196 160 Z" class="palefill" opacity="0.85"/>
+    <path d="M150 170 L196 160 A48 48 0 0 1 168 214 Z" class="palefill" opacity="0.45"/>
+    <path d="M150 170 L168 214 A48 48 0 0 1 104 184 Z" class="palefill" opacity="0.65"/>
+    <!-- Rows of figures on the upper screen, left of the pie. -->
+    <g class="pale" stroke-width="1.6" opacity="0.7">
+      <path d="M26 96 h40 M72 101 h22 M26 112 h36 M70 116 h24 M26 128 h42 M74 133 h20 M26 144 h34 M68 148 h26 M26 160 h40 M72 165 h22 M26 176 h38 M70 180 h24 M26 192 h42 M74 197 h20 M26 208 h36 M68 212 h26 M26 224 h40 M72 229 h22 M26 240 h38 M70 244 h24"/>
+      <path d="M26 282 h42 M74 287 h30 M110 290 h28 M146 293 h24 M178 296 h40 M26 300 h36 M68 304 h34 M110 308 h28 M146 311 h24 M178 314 h40 M26 318 h42 M74 323 h30 M110 326 h28 M146 329 h24 M178 332 h40 M26 336 h36 M68 340 h34 M110 344 h28 M146 347 h24 M178 350 h40 M26 354 h42 M74 359 h30 M110 362 h28 M146 365 h24 M178 368 h40 M26 372 h36 M68 376 h34 M110 380 h28 M146 383 h24 M178 386 h40 M26 390 h42 M74 395 h30 M110 398 h28 M146 401 h24 M178 404 h40 M26 408 h36 M68 412 h34 M110 416 h28 M146 419 h24 M178 422 h40 M26 426 h42 M74 431 h30 M110 434 h28 M146 437 h24 M178 440 h40"/>
+    </g>
+    <!-- Panel 2, behind and to the right, narrower in perspective. -->
+    <path class="body" d="M262 78 L400 96 L400 440 L262 466 Z"/>
+    <path class="dark" d="M272 94 L390 110 L390 426 L272 448 Z" opacity="0.85"/>
+    <g class="pale" stroke-width="1.4" opacity="0.65">
+      <path d="M282 122 h30 M318 126 h26 M350 130 h30 M282 140 h26 M314 144 h30 M350 148 h30 M282 158 h30 M318 162 h26 M350 166 h30 M282 176 h26 M314 180 h30 M350 184 h30 M282 194 h30 M318 198 h26 M350 202 h30 M282 212 h26 M314 216 h30 M350 220 h30 M282 230 h30 M318 234 h26 M350 238 h30 M282 248 h26 M314 252 h30 M350 256 h30"/>
+      <path d="M282 286 h30 M318 290 h26 M350 294 h30 M282 304 h26 M314 308 h30 M350 312 h30 M282 322 h30 M318 326 h26 M350 330 h30 M282 340 h26 M314 344 h30 M350 348 h30 M282 358 h30 M318 362 h26 M350 366 h30 M282 376 h26 M314 380 h30 M350 384 h30 M282 394 h30 M318 398 h26 M350 402 h30 M282 412 h26 M314 416 h30"/>
+    </g>
+    <!-- Panel 3, the farthest, a thin sliver. -->
+    <path class="body" d="M410 100 L470 108 L470 420 L410 436 Z"/>
+    <path class="dark" d="M418 114 L462 120 L462 408 L418 420 Z" opacity="0.8"/>
+    <g class="pale" stroke-width="1.2" opacity="0.6">
+      <path d="M426 140 h26 M426 160 h20 M426 180 h26 M426 200 h20 M426 220 h26 M426 240 h20 M426 260 h26 M426 280 h20 M426 300 h26 M426 320 h20 M426 340 h26 M426 360 h20 M426 380 h26"/>
+    </g>
+    <!-- A ticker strip on a rail above the nearest panel. -->
+    <path class="dark mid" d="M0 20 L250 50 L250 64 L0 34 Z"/>
+
+    <!-- Overhead monitors along the top of the frame, behind the trader. -->
+    <path class="body" d="M500 30 L600 36 L600 100 L500 96 Z"/>
+    <path class="dark" d="M508 40 L592 45 L592 92 L508 88 Z" opacity="0.8"/>
+    <path class="body" d="M740 18 L860 26 L860 96 L740 90 Z"/>
+    <path class="dark" d="M748 28 L852 35 L852 88 L748 82 Z" opacity="0.8"/>
+    <g class="pale" stroke-width="1.2" opacity="0.6">
+      <path d="M518 54 h30 M556 56 h28 M518 66 h26 M552 68 h32 M518 78 h30 M556 80 h28"/>
+      <path d="M758 44 h40 M806 47 h36 M758 58 h34 M800 61 h42 M758 72 h40 M806 75 h36"/>
+    </g>
+    <!-- A booth post between the overhead monitors, and the small flag hanging from it. -->
+    <path class="ink" d="M690 0 L690 150" stroke-width="2"/>
+    <path class="ink" d="M690 40 L742 34" stroke-width="1.6"/>
+    <!-- The flag: a draped rectangle with the canton at the upper left and stripes hatched. -->
+    <path class="body" d="M694 44 L740 38 C744 60 742 82 736 104 L700 112 C692 90 692 66 694 44 Z"/>
+    <path class="dark" d="M694 44 L716 41 L717 70 L694 73 Z" opacity="0.85"/>
+    <g class="ink" stroke-width="1.1">
+      <path d="M717 50 L741 47 M717 59 L741 56 M717 68 L741 65 M695 80 L738 75 M696 89 L737 84 M698 98 L736 93 M700 107 L735 102"/>
+    </g>
+
+    <!-- The wall sign at the far right: CHANGE, the end of EXCHANGE, partly behind the trader. -->
+    <path class="ink faint" d="M640 150 L900 140 L900 230 L640 240 Z" stroke-width="1"/>
+    <text class="lbl" x="770" y="206" font-size="30" opacity="0.55">CHANGE</text>
+
+    <!-- A second, more distant figure far right, read as a plain silhouette with no face: head and shoulders only. -->
+    <path class="body" d="M846 176 C846 160 872 160 872 176 C872 186 866 192 859 192 C852 192 846 186 846 176 Z"/>
+    <path class="body" d="M826 250 C826 214 892 214 892 250 L892 300 L826 300 Z"/>
+
+    <!-- The trader: back three-quarters to the viewer, facing the screens. Head from behind, no face. -->
+    <!-- Head: a plain oval of hair and the back of the skull; one ear at the left edge where it turns toward the screens. -->
+    <path class="body" d="M556 148 C548 122 572 100 600 104 C626 108 640 132 632 160 C626 182 606 190 592 186 C576 182 560 168 556 148 Z"/>
+    <path class="ink" d="M556 150 C552 142 546 146 548 156 C550 162 556 164 558 160" stroke-width="1.2"/>
+    <!-- The temple of the glasses, seen from behind as a single short line. -->
+    <path class="ink mid" d="M560 142 L584 136" stroke-width="1.1"/>
+    <!-- Hair line, short strokes across the crown. -->
+    <g class="ink faint" stroke-width="1">
+      <path d="M566 120 c6 -4 12 -6 20 -6 M578 110 c8 -2 16 -2 24 2 M596 106 c8 2 16 6 22 12 M612 118 c6 6 10 12 12 20"/>
+    </g>
+    <!-- Neck and the high collar of the jacket. -->
+    <path class="body" d="M580 184 L612 180 L616 206 L578 212 Z"/>
+    <path class="body" d="M548 212 C566 196 622 192 648 206 L652 226 L544 236 Z"/>
+    <!-- The jacket: shoulders, back and the arm nearest the viewer, falling to the hip. -->
+    <path class="body" d="M520 236 C540 214 650 206 686 232 C708 248 716 300 718 360 L720 470 L512 476 L508 360 C506 300 508 252 520 236 Z"/>
+    <!-- Centre back seam and the yoke. -->
+    <path class="ink mid" d="M616 224 C610 300 606 380 604 470" stroke-width="1.2"/>
+    <path class="ink faint" d="M530 248 C580 236 650 234 698 246" stroke-width="1.1"/>
+    <!-- The far shoulder and sleeve, turned toward the screens, with the flag patch on it. -->
+    <path class="body" d="M508 262 C498 300 496 360 500 420 L506 474 L540 472 L538 410 C536 350 534 300 530 262 Z"/>
+    <path class="body" d="M504 282 L530 278 L532 300 L506 304 Z"/>
+    <path class="dark" d="M504 282 L515 281 L516 292 L505 293 Z" opacity="0.85"/>
+    <g class="ink" stroke-width="0.9">
+      <path d="M516 285 L531 283 M516 289 L531 287 M506 296 L531 293 M507 300 L531 297"/>
+    </g>
+    <!-- The near sleeve: the arm hanging at the right side of the back. -->
+    <path class="body" d="M690 262 C710 300 716 360 712 420 L710 474 L676 474 L678 410 C680 350 684 300 686 262 Z"/>
+    <!-- Cuff and the hand, drawn as a closed contour with no fingers picked out. -->
+    <path class="body" d="M680 470 C684 490 706 492 712 472 L712 480 C710 500 682 500 680 480 Z"/>
+    <!-- Fabric folds down the back. -->
+    <g class="ink faint" stroke-width="1">
+      <path d="M560 300 C556 340 556 390 560 440 M650 290 C654 340 652 390 648 440 M586 330 C584 370 586 410 590 450"/>
+    </g>
+    <!-- Jacket hem. -->
+    <path class="ink" d="M512 476 C560 468 660 466 720 470" stroke-width="1.2"/>
+  </g>
+</svg>

@@ -1,0 +1,311 @@
+{
+ "edition_date": "2026-10-31",
+ "edition_number": 85,
+ "volume": "I",
+ "lead": {
+  "headline": "Tech sell-off erases $1 trillion as Intel posts its worst day",
+  "dek": "Nasdaq 100 falls 3.4%, its worst day since June, as investors question returns on AI spending",
+  "byline": "Wire Reports",
+  "body": [
+   "Technology stocks plunged Friday, erasing more than $1 trillion in market value, as Intel suffered its steepest one-day drop in decades and investors questioned whether hundreds of billions of dollars in artificial intelligence data center spending will pay off.",
+   "The Nasdaq 100 fell 3.4% and the S&P 500 lost 1.8%. CBS News put the Dow's loss at 572 points, or 1.1%. Intel fell about 29% after forecasting lower fourth-quarter sales and profit; NBC News called it the stock's worst day in records dating to the 1980s, while CBS News called it the biggest drop since 1974. Nvidia fell 4.2%, and AMD, Qualcomm and Marvell fell about 10%.",
+   "The selling followed Thursday's earnings from Amazon and Intel, a day after Alphabet shed about $500 billion in value. Amazon CEO Andy Jassy said the company still expects about $220 billion in 2026 capital spending and more in 2027. Bitcoin fell toward $77,000 after the $6.3 billion Binance theft, CBS News reported. The S&P 500 closed a third straight losing week."
+  ],
+  "stat_strip": [
+   {
+    "label": "S&P 500",
+    "value": "7,580.07",
+    "change": "-1.82%",
+    "direction": "down"
+   },
+   {
+    "label": "Dow",
+    "value": "51,770.31",
+    "change": "-1.09%",
+    "direction": "down"
+   },
+   {
+    "label": "Nasdaq",
+    "value": "25,437.00",
+    "change": "-2.86%",
+    "direction": "down"
+   },
+   {
+    "label": "Bitcoin",
+    "value": "$77,370",
+    "change": "-0.32%",
+    "direction": "down"
+   }
+  ]
+ },
+ "sections": [
+  {
+   "id": "us",
+   "label": "U.S.",
+   "briefs": [
+    {
+     "headline": "Judge blocks DOJ threats against local election officials",
+     "summary": "Judge Trina Thompson's Friday night order, in force through Nov. 16, bars DOJ and DHS from coercing election workers over alleged noncitizen ballots.",
+     "source": "NBC News",
+     "url": "https://www.nbcnews.com/politics/2026-election/judge-orders-trump-administration-stop-threatening-election-officials-rcna606659"
+    },
+    {
+     "headline": "Binance says withdrawals to resume as recovery begins",
+     "summary": "Binance said withdrawals should resume within a day or two and that it found more 'points of breach' beyond a laptop; Chainalysis joined TRM in blaming North Korea's TraderTraitor.",
+     "source": "AP via NPR",
+     "url": "https://www.npr.org/2026/10/30/g-s1-150902/blockchain-intelligence-firms-link-north-korea-to-6-3b-hack-on-binance"
+    },
+    {
+     "headline": "Judge orders three taxpayer-funded Trump ads pulled",
+     "summary": "Judge Jennifer Rochon ordered the government to take down three ads, including one promising $5,000 to Americans if Republicans keep Congress.",
+     "source": "AP via PBS NewsHour",
+     "url": "https://www.pbs.org/newshour/politics/judge-orders-3-taxpayer-funded-trump-administration-ads-to-be-pulled-from-tv-social-media"
+    },
+    {
+     "headline": "Shooting at California Halloween store kills 1, wounds 6",
+     "summary": "Fairfield police hunted a shooter who opened fire in a Spirit Halloween store Friday night; three victims were in critical condition, the chief said.",
+     "source": "NBC News",
+     "url": "https://www.nbcnews.com/news/us-news/manhunt-california-spirit-halloween-shooting-dead-injured-police-rcna606673"
+    }
+   ]
+  },
+  {
+   "id": "world",
+   "label": "World",
+   "briefs": [
+    {
+     "headline": "Polish president accuses government of court takeover",
+     "summary": "Karol Nawrocki cut short a Senegal trip after the tribunal's president was suspended, scuffled with judges at its door and called emergency talks.",
+     "source": "Euronews",
+     "url": "https://www.euronews.com/2026/10/31/poland-political-crisis-constitutional-court-in-chaos-as-nawrocki-accuses-government-of-st"
+    },
+    {
+     "headline": "UN Western Sahara mission lapses after dueling vetoes",
+     "summary": "Russia vetoed a US draft making Morocco's autonomy plan the sole basis for talks; the US then blocked Russia's renewal. The mandate ends Oct. 31.",
+     "source": "DW",
+     "url": "https://www.dw.com/en/un-peacekeeping-mission-in-western-sahara-to-expire-amid-us-russia-vetoes/a-79814338"
+    },
+    {
+     "headline": "US, Japan, South Korea renew call to denuclearize North",
+     "summary": "Top diplomats at the G20 in Atlanta pledged \"complete denuclearization\" Friday as Trump seeks a new meeting with Kim Jong Un at November's APEC.",
+     "source": "AFP-Jiji via Japan Times",
+     "url": "https://www.japantimes.co.jp/news/2026/10/31/asia-pacific/politics/north-korea-denuclearization-vow/"
+    },
+    {
+     "headline": "Brazil summons Argentine envoy over Bolsonaro's exit",
+     "summary": "Brazil called in Argentina's charge d'affaires over Flavio Bolsonaro's route to Miami, Reuters reported; Argentina's foreign minister denied it.",
+     "source": "Al Jazeera",
+     "url": "https://www.aljazeera.com/news/2026/10/31/brazil-summons-argentinian-diplomat-over-bolsonaros-flight-to-us"
+    }
+   ]
+  },
+  {
+   "id": "wv",
+   "label": "West Virginia",
+   "notebook_title": "Mountaineer State Notebook",
+   "briefs": [
+    {
+     "headline": "State officials ask court to pause school aid formula suit",
+     "summary": "House Speaker Roger Hanshaw, Senate President Randy Smith and other respondents asked the state Supreme Court Thursday to hold the ACLU's school aid formula case until April 12, 2027, after the next session.",
+     "source": "News and Sentinel",
+     "url": "https://www.newsandsentinel.com/news/local-news/2026/10/w-va-officials-seek-delay-in-school-aid-formula-case-citing-planned-legislative-overhaul/"
+    },
+    {
+     "headline": "Cabell jury convicts Huntington man of second-degree murder",
+     "summary": "Jurors found Amar Abdu Richardson, 23, guilty of second-degree murder and two firearm counts in the March 20, 2025, shooting death of Rahmel Lundy, 33, on Seventh Avenue.",
+     "source": "WV MetroNews",
+     "url": "https://wvmetronews.com/2026/10/30/huntington-man-convicted-of-second-degree-murder-in-fatal-2025-seventh-avenue-shooting/"
+    },
+    {
+     "headline": "Former Southern Regional Jail officer gets two years",
+     "summary": "Michael Pack, 40, was sentenced Friday after pleading guilty in March to conspiring with other officers to beat inmates in camera blind spots and lie about their injuries.",
+     "source": "WV MetroNews",
+     "url": "https://wvmetronews.com/2026/10/30/former-correctional-officer-sentenced-to-prison-for-role-in-conspiracy-punishing-inmates/"
+    },
+    {
+     "headline": "Nucor says Mason County mill will start up by year's end",
+     "summary": "The melt shop produced its first heat in September and the $4 billion Apple Grove mill should run its first coils through the hot mill by December, Nucor said on Tuesday's earnings call, with production ramping in early 2027.",
+     "source": "Herald-Dispatch",
+     "url": "https://www.herald-dispatch.com/business/nucor-steel-wv-mill-on-schedule-for-completion-this-fall/article_e9452a4a-bb54-4ec2-b64a-ee8a1d5a9d58.html"
+    }
+   ],
+   "regional": [
+    {
+     "region_id": "huntington_cabell",
+     "place": "Huntington & the Cabell-Mason corridor",
+     "people": [
+      "Trav",
+      "Justin",
+      "Nate",
+      "Ian"
+     ],
+     "item": "Cabell Chief Judge Sean Hammers is taking applications for the magistrate seat Danne Vance left to become county clerk.",
+     "source": "Herald-Dispatch",
+     "url": "https://www.herald-dispatch.com/_recent_news/cabell-county-magistrate-vacancy-applications-open/article_7a6c33ea-6d17-4e92-a243-323dff8f0c84.html"
+    },
+    {
+     "region_id": "putnam_kanawha",
+     "place": "Putnam / Kanawha - Charleston",
+     "people": [
+      "Nate"
+     ],
+     "item": "Dominick Gray, 40, of Columbus, Ohio, drew 30 years in Kanawha court for the 2023 Lippert Street shooting of Beverly Hensley.",
+     "source": "WV MetroNews",
+     "url": "https://wvmetronews.com/2026/10/30/ohio-man-sentenced-for-fatal-2023-charleston-shooting/"
+    },
+    {
+     "region_id": "mid_ohio_valley",
+     "place": "Mid-Ohio Valley / Parkersburg",
+     "people": [
+      "Pat"
+     ],
+     "item": "Memorial Health System in Marietta is waiting on about $80 million in delayed Medicaid payments, slowing its Belpre hospital project.",
+     "source": "News and Sentinel",
+     "url": "https://www.newsandsentinel.com/news/business/2026/10/memorial-awaiting-80-million-as-payment-delays-slow-hospital-project/"
+    },
+    {
+     "region_id": "summers_new_river",
+     "place": "Summers / Hinton & the New River",
+     "people": [
+      "Greg"
+     ],
+     "item": "A Texas man, 35, reported missing in Raleigh County was found dead Thursday near the Prince rail station after a Route 41 dirt bike wreck.",
+     "source": "WV MetroNews",
+     "url": "https://wvmetronews.com/2026/10/30/man-found-dead-after-dirt-bike-crash-in-fayette-county/"
+    }
+   ],
+   "away": [
+    {
+     "region_id": "vermont",
+     "place": "North Bennington, VT",
+     "people": [
+      "Wes"
+     ],
+     "item": "Pearls at the Garage restaurant in Bennington serves its final customers today, the Bennington Banner reported Friday.",
+     "source": "Bennington Banner",
+     "url": "https://www.benningtonbanner.com/local-news/pearls-at-the-garage-to-close-after-oct-31/5048764"
+    }
+   ],
+   "hotspots": [
+    {
+     "hotspot_id": "cabin",
+     "place": "Webster County & Cowen",
+     "item": "The Diana waterline extension won $2.5 million in state block grant funding, announced at the Oct. 21 county commission meeting, The Webster Echo reported.",
+     "source": "The Webster Echo",
+     "url": "https://webconews.com/2026/10/26/diana-waterline-gets-2-5m-boost/"
+    },
+    {
+     "hotspot_id": "topsail",
+     "place": "Topsail Island & the coast",
+     "item": "Updated Topsail Middle School renovation estimates ran more than $20 million, or 69.7%, over the initial cost, Port City Daily reported Friday.",
+     "source": "Port City Daily",
+     "url": "https://portcitydaily.com/local-news/2026/10/30/topsail-middle-school-renovations-exceed-original-estimates-by-nearly-70/"
+    }
+   ]
+  },
+  {
+   "id": "bc",
+   "label": "Canada",
+   "briefs": [
+    {
+     "headline": "Prince George Legion pushes for new hall and veterans housing",
+     "summary": "Supporters want a hall with veterans and seniors housing on city-owned land at Ospika and 22nd. The branch's lease on its current hall expires at year-end.",
+     "source": "CKPG Today",
+     "url": "https://ckpgtoday.ca/2026/10/30/prince-george-legion-renews-push-for-new-hall-and-veterans-housing/",
+     "tier": "prince_george"
+    },
+    {
+     "headline": "Vanderhoof detox centre opens with five beds for the north",
+     "summary": "Carrier Sekani Family Services runs the centre while it finishes a 46-bed healing centre at Tachick Lake, 25 km southwest, with occupancy expected in fall 2027.",
+     "source": "CBC News",
+     "url": "https://www.cbc.ca/news/canada/british-columbia/vanderhoof-detox-centre-9.7401936",
+     "tier": "prince_george"
+    },
+    {
+     "headline": "Ottawa names Roberts Bank port expansion project of national interest",
+     "summary": "The $5.9 billion Delta terminal would add 2.4 million containers a year at the Port of Vancouver. Ottawa said the listing moves its opening to 2035 from 2039.",
+     "source": "CBC News",
+     "url": "https://www.cbc.ca/news/canada/british-columbia/roberts-bank-terminal-2-listed-project-national-interest-delta-bc-9.7403297",
+     "tier": "bc"
+    },
+    {
+     "headline": "Doerkson says new government will examine BC Ferries China contract",
+     "summary": "The premier-designate said he will review the deal for four Summit-class ferries from Weihai Shipyards, due from 2029. BC Ferries said no Canadian yard bid.",
+     "source": "Global News",
+     "url": "https://globalnews.ca/news/12127816/new-government-examine-bc-ferries-shipbuilding-doerkson/",
+     "tier": "bc"
+    },
+    {
+     "headline": "Carney says Canada, EU find 'common solutions' on carbon tariff",
+     "summary": "Closing the Montreal summit, Carney cited progress on the EU carbon border levy; envoy Jonathan Wilkinson said the EU will recognize Canada's carbon price.",
+     "source": "CBC News",
+     "url": "https://www.cbc.ca/news/politics/canada-eu-summit-carbon-tariff-threat-carney-von-der-leyen-9.7403599",
+     "tier": "canada"
+    }
+   ]
+  },
+  {
+   "id": "scitech",
+   "label": "Science & Technology",
+   "briefs": [
+    {
+     "headline": "Glass chip links two CHARA telescopes to observe stars",
+     "summary": "A Heriot-Watt University photonic chip combined light from two CHARA Array telescopes on-sky, reaching fainter stars than the optics it replaced, the team reported in Monthly Notices of the Royal Astronomical Society.",
+     "source": "Phys.org",
+     "url": "https://phys.org/news/2026-10-tiny-photonic-chip-links-telescopes.html"
+    },
+    {
+     "headline": "Cornell team maps two competing superconducting states in UTe2",
+     "summary": "Ultrasound measurements under pressure show two superconducting states coexist and compete in uranium ditelluride, a topological superconductor candidate, Cornell physicists reported Oct. 30 in Nature Physics.",
+     "source": "Phys.org",
+     "url": "https://phys.org/news/2026-10-ute-reveals-flavors-superconductivity-extreme.html"
+    },
+    {
+     "headline": "Kyoto hospital performs first approved iPS cell transplant for Parkinson's",
+     "summary": "Sumitomo Pharma said Oct. 30 that Kyoto University Hospital transplanted donor-derived dopamine cell precursors into a patient in October, the first under Japan's conditional approval granted in March, AFP reported.",
+     "source": "AFP via Medical Xpress",
+     "url": "https://medicalxpress.com/news/2026-10-patient-stem-cell-treatment-parkinson.html"
+    },
+    {
+     "headline": "Martian meteorite found in Mali dates to 4.1 billion years",
+     "summary": "A NASA Jet Propulsion Laboratory-led team reports in Science that Teghaza 001, an intact igneous rock found in the Sahara in 2022, formed at least 4.1 billion years ago and carries signs of hot water moving through the Martian crust.",
+     "source": "Ars Technica",
+     "url": "https://arstechnica.com/science/2026/10/rare-meteorite-from-mars-gives-us-a-view-into-its-ancient-crust/"
+    }
+   ]
+  },
+  {
+   "id": "ai",
+   "label": "Artificial Intelligence",
+   "briefs": [
+    {
+     "headline": "Open-weight model builds Firefox exploits for $1,000 each, Epoch AI finds",
+     "summary": "Epoch AI said Z.ai's GLM 5.3 autonomously built working exploit chains against recent Firefox versions in as little as 12 hours at about $1,000 in API fees each; Mozilla patched the shared flaw in Firefox 159.0 on Oct. 27.",
+     "source": "The Decoder",
+     "url": "https://the-decoder.com/open-weight-model-glm-5-3-built-full-firefox-exploit-chains-with-zero-human-input-in-under-48-hours/"
+    },
+    {
+     "headline": "DoorDash counts only several hundred orders from AI agents",
+     "summary": "CEO Tony Xu told analysts on the third-quarter call that third-party AI agents have placed only several hundred orders, against an average of 3 million deliveries a day in 2025, TechCrunch reported.",
+     "source": "TechCrunch",
+     "url": "https://techcrunch.com/2026/10/30/doordash-said-its-only-received-several-hundred-orders-from-ai-agents/"
+    },
+    {
+     "headline": "Accenture says AI agents screen resumes and cut time to hire 28%",
+     "summary": "HR chief Kate Clifford told The Register that agents screen resumes and schedule interviews while humans make hiring decisions; the 28% figure and a claimed 30% gain in candidate quality are Accenture's own numbers.",
+     "source": "The Register",
+     "url": "https://www.theregister.com/ai-and-ml/2026/10/30/accenture-ai-agents-are-sifting-through-applicants/5306460"
+    }
+   ]
+  }
+ ],
+ "weather_ear": "Saturday's forecast comes at 7:15 from the weather desk.",
+ "kicker": "Nicholas-Webster carries no regional line today; the Kyushu basho (tournament) opens Nov. 8 in Fukuoka, eight days out.",
+ "sources_note": "Compiled from wire reports",
+ "art": {
+  "file": "art/2026-10-31-lead.svg",
+  "placement": "lead",
+  "caption": "The New York Stock Exchange floor Friday, a bank of monitors at left and a trader with his back to the frame, facing the screens.",
+  "credit": "Sketched from an NBC News photograph"
+ }
+}
