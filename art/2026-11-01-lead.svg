@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 506" role="img"
+     aria-label="Sketch after an Al Jazeera file photograph of cargo ships at anchor in haze, seen from near water level: a flat horizon two-thirds of the way down the frame under a blank sky; at centre-right a mid-size cargo ship lies broadside, its dark hull low in the water, a raised stern ramp door standing up amidships, a white superstructure with bridge windows to the right of it and a tall thin mast above; far right a smaller cargo ship with a crane fades into the haze; far left two low flat vessels and a cluster of small boats sit faint on the horizon; the water below is calm, drawn in long ripple strokes that grow denser toward the bottom edge.">
+  <defs><style>
+    .ink  { fill: none; stroke: currentColor; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
+    .body { fill: var(--parchment, #f4f0e6); stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+    .dark { fill: currentColor; stroke: none; }
+    .faint{ opacity: 0.28; }
+    .mid  { opacity: 0.55; }
+    .pale { fill: none; stroke: var(--parchment, #f4f0e6); stroke-linecap: round; }
+  </style></defs>
+  <g>
+    <!-- Horizon, two-thirds down, drawn as a slightly broken hazy line. -->
+    <path class="ink faint" d="M0 332 L900 332" stroke-width="1"/>
+
+    <!-- Far left: two low flat vessels and a cluster of small boats, faint in the haze. -->
+    <g class="faint">
+      <path class="ink" d="M50 332 L58 318 L96 318 L98 324 L150 324 L152 332 Z"/>
+      <path class="ink" d="M66 318 L66 306 L80 306 L80 318"/>
+      <path class="ink" d="M70 306 L70 298"/>
+      <path class="ink" d="M160 332 L166 324 L192 324 L196 332 Z"/>
+      <path class="ink" d="M12 332 L16 322 L34 322 L38 332"/>
+      <path class="ink" d="M20 322 L20 314 L28 314 L28 322"/>
+      <path class="ink" d="M230 332 L234 326 L246 326 L250 332"/>
+    </g>
+
+    <!-- Centre-right: the main cargo ship, broadside, hull low in the water. -->
+    <!-- Hull: dark, with a lighter boot-top stripe. -->
+    <path class="dark" d="M300 300 L306 290 L612 290 L618 302 L612 338 L306 338 Z" opacity="0.9"/>
+    <path class="pale" d="M308 318 L612 318" stroke-width="2" opacity="0.5"/>
+    <path class="pale" d="M312 326 L610 326" stroke-width="1" opacity="0.35"/>
+    <!-- Hull name block and small fittings. -->
+    <path class="pale" d="M340 306 h26 M372 306 h10 M460 306 h30" stroke-width="2" opacity="0.6"/>
+    <!-- Rubbing fenders along the hull near the stern quarter. -->
+    <g class="pale" stroke-width="1.6" opacity="0.5">
+      <ellipse cx="540" cy="306" rx="5" ry="7"/>
+      <ellipse cx="556" cy="306" rx="5" ry="7"/>
+      <ellipse cx="572" cy="306" rx="5" ry="7"/>
+    </g>
+
+    <!-- Deck rail along the top of the hull. -->
+    <path class="ink" d="M306 290 L612 290"/>
+    <path class="ink mid" d="M306 284 L612 284" stroke-width="1"/>
+    <g class="ink mid" stroke-width="0.9">
+      <path d="M316 284 v6 M332 284 v6 M348 284 v6 M364 284 v6 M580 284 v6 M596 284 v6"/>
+    </g>
+
+    <!-- The raised stern ramp door, a dark upright slab amidships, slightly leaning. -->
+    <path class="dark" d="M378 290 L372 212 L452 206 L458 290 Z" opacity="0.92"/>
+    <path class="pale" d="M382 226 L448 222 M384 244 L450 240 M386 262 L452 258 M388 280 L454 276" stroke-width="1" opacity="0.35"/>
+    <path class="pale" d="M398 214 L404 286 M420 212 L426 286 M440 210 L446 286" stroke-width="1" opacity="0.3"/>
+
+    <!-- Funnel / vent housing at the left end of the deck. -->
+    <path class="body" d="M318 290 L318 246 L346 244 L348 290 Z"/>
+    <path class="dark" d="M322 246 L322 236 L330 236 L330 246 Z"/>
+    <path class="dark" d="M334 245 L334 235 L342 235 L342 245 Z"/>
+    <!-- Small davit arm reaching from behind the funnel toward the ramp door. -->
+    <path class="ink" d="M346 262 L372 248"/>
+    <path class="ink" d="M352 256 L362 248 L370 254"/>
+
+    <!-- Superstructure: white block to the right of the ramp door. -->
+    <path class="body" d="M466 290 L466 224 L598 224 L598 290 Z"/>
+    <!-- Bridge deck on top, narrower, with a row of windows. -->
+    <path class="body" d="M478 224 L478 202 L574 202 L574 224 Z"/>
+    <path class="dark" d="M484 206 h8 v9 h-8 Z M496 206 h8 v9 h-8 Z M508 206 h8 v9 h-8 Z M520 206 h8 v9 h-8 Z M532 206 h8 v9 h-8 Z M544 206 h8 v9 h-8 Z M556 206 h8 v9 h-8 Z"/>
+    <!-- Deck levels on the superstructure. -->
+    <path class="ink mid" d="M466 246 L598 246 M466 268 L598 268" stroke-width="1"/>
+    <!-- Portholes / windows on the lower decks. -->
+    <g class="dark" opacity="0.7">
+      <path d="M480 232 h6 v5 h-6 Z M494 232 h6 v5 h-6 Z M508 232 h6 v5 h-6 Z M522 232 h6 v5 h-6 Z M536 232 h6 v5 h-6 Z M550 232 h6 v5 h-6 Z M564 232 h6 v5 h-6 Z M578 232 h6 v5 h-6 Z"/>
+      <path d="M484 254 h5 v5 h-5 Z M500 254 h5 v5 h-5 Z M516 254 h5 v5 h-5 Z M532 254 h5 v5 h-5 Z M548 254 h5 v5 h-5 Z M564 254 h5 v5 h-5 Z"/>
+    </g>
+    <!-- Bridge wings. -->
+    <path class="ink" d="M470 224 L478 224 M574 224 L604 224 L604 230"/>
+    <!-- Lifeboat under a davit on the stern quarter. -->
+    <path class="ink" d="M586 276 q8 -6 16 0 q-8 6 -16 0 Z" stroke-width="1.2"/>
+
+    <!-- Masts: a tall thin mast over the foredeck, a shorter signal mast on the bridge. -->
+    <path class="ink" d="M410 206 L410 118" stroke-width="1.6"/>
+    <path class="ink" d="M404 140 L416 140 M402 128 L418 128 M407 118 L413 118" stroke-width="1"/>
+    <path class="ink mid" d="M410 150 L388 206 M410 150 L436 206" stroke-width="0.9"/>
+    <path class="ink" d="M524 202 L524 150" stroke-width="1.4"/>
+    <path class="ink" d="M512 162 L536 162 M514 172 L534 172 M518 182 L530 182" stroke-width="1"/>
+    <path class="ink mid" d="M524 156 L560 198" stroke-width="0.8"/>
+    <!-- Small flag at the mast top of the bridge. -->
+    <path class="dark" d="M560 176 L560 166 L572 169 L560 172 Z" opacity="0.8"/>
+    <path class="ink" d="M560 176 L560 164" stroke-width="1"/>
+
+    <!-- Far right: a second, smaller cargo ship with a crane, fainter in the haze. -->
+    <g class="mid">
+      <path class="body" d="M690 332 L694 306 L812 306 L818 332 Z" stroke-width="1.2"/>
+      <path class="dark" d="M696 318 L810 318 L814 332 L692 332 Z" opacity="0.55"/>
+      <path class="body" d="M700 306 L700 278 L740 278 L740 306 Z" stroke-width="1.1"/>
+      <path class="ink" d="M706 286 h6 M716 286 h6 M726 286 h6" stroke-width="1"/>
+      <path class="ink" d="M716 278 L716 258" stroke-width="1.1"/>
+      <path class="body" d="M760 306 L760 284 L776 284 L776 306 Z" stroke-width="1"/>
+      <path class="ink" d="M768 284 L768 258 L798 270 L800 306" stroke-width="1.1"/>
+      <path class="ink" d="M790 306 L790 266" stroke-width="1"/>
+      <path class="ink" d="M798 270 L806 290" stroke-width="0.9"/>
+    </g>
+
+    <!-- Waterline shadow under the main hull and the far ships. -->
+    <path class="ink mid" d="M300 340 Q460 346 618 340" stroke-width="1.2"/>
+    <path class="ink faint" d="M690 334 Q754 338 818 334" stroke-width="1"/>
+    <path class="ink faint" d="M50 334 Q100 337 152 334" stroke-width="1"/>
+
+    <!-- The water: long ripple strokes, sparse near the horizon, denser toward the bottom. -->
+    <g class="ink faint" stroke-width="0.9">
+      <path d="M40 350 q30 -3 60 0 M240 348 q26 -2 52 0 M640 352 q34 -3 68 0 M800 350 q28 -2 56 0"/>
+      <path d="M110 364 q36 -4 72 0 M330 366 q30 -3 60 0 M520 362 q40 -4 80 0 M720 368 q36 -3 72 0"/>
+      <path d="M20 380 q40 -4 80 0 M200 384 q44 -4 88 0 M420 378 q38 -4 76 0 M620 384 q46 -4 92 0 M820 380 q36 -3 72 0"/>
+    </g>
+    <g class="ink mid" stroke-width="1">
+      <path d="M60 400 q48 -5 96 0 M260 404 q52 -5 104 0 M500 398 q50 -5 100 0 M700 406 q54 -5 108 0"/>
+      <path d="M0 422 q56 -6 112 0 M180 426 q60 -6 120 0 M400 420 q58 -6 116 0 M620 428 q60 -6 120 0 M820 422 q40 -4 80 0"/>
+      <path d="M90 446 q64 -7 128 0 M330 450 q66 -7 132 0 M580 444 q66 -7 132 0 M790 452 q55 -6 110 0"/>
+    </g>
+    <g class="ink" stroke-width="1.2">
+      <path d="M0 470 q70 -8 140 0 M220 474 q76 -8 152 0 M460 468 q74 -8 148 0 M700 476 q76 -8 152 0"/>
+      <path d="M60 494 q84 -9 168 0 M320 496 q86 -9 172 0 M600 492 q84 -9 168 0 M840 496 q30 -3 60 0"/>
+    </g>
+  </g>
+</svg>
