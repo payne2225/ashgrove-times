@@ -1,0 +1,149 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 506" role="img"
+     aria-label="Sketch after an NBC News photograph of a wide, wet suburban road at dusk in Palm Beach County: a loose group of first responders drawn as outline figures seen from behind and in profile stands mid-frame on the pavement, some in reflective jackets with bands across the back; a sheriff's SUV with a light bar sits behind them at left; a green highway sign on a post and a traffic-signal mast with three signal heads hang above the road; a fire truck sits small far down the road at right under a line of utility poles; small debris is scattered on the roadway and the wet surface carries streaks of reflected light.">
+  <defs><style>
+    .ink  { fill: none; stroke: currentColor; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
+    .body { fill: var(--parchment, #f4f0e6); stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+    .dark { fill: currentColor; stroke: none; }
+    .faint{ opacity: 0.28; }
+    .mid  { opacity: 0.55; }
+  </style></defs>
+  <g>
+    <!-- Horizon and the far tree line, faint in the dusk. -->
+    <path class="ink faint" d="M0 262 L900 262" stroke-width="1"/>
+    <path class="ink faint" d="M0 258 C40 246 70 250 110 244 C150 238 180 248 220 240 C260 232 300 246 340 238 C380 230 420 244 470 236 C520 228 560 240 600 236 C640 232 680 244 720 238 C760 232 800 244 840 240 C870 237 885 246 900 244"/>
+    <!-- Utility poles and wires along the right, shrinking with distance. -->
+    <g class="ink mid" stroke-width="1.1">
+      <path d="M820 262 V96 M808 104 H834 M812 118 H830"/>
+      <path d="M760 262 V130 M752 136 H770"/>
+      <path d="M715 262 V156 M709 160 H722"/>
+      <path d="M684 262 V176 M680 179 H689"/>
+      <path d="M662 262 V190"/>
+    </g>
+    <path class="ink faint" d="M834 104 C800 112 775 128 752 136 C738 142 726 152 715 158 C700 166 690 172 684 178 C674 184 666 188 662 190" stroke-width="0.9"/>
+    <path class="ink faint" d="M0 118 C60 126 120 134 170 134" stroke-width="0.9"/>
+
+    <!-- Road: a wide carriageway receding to the right of centre. -->
+    <path class="ink" d="M0 506 L610 262" stroke-width="1.6"/>
+    <path class="ink" d="M900 440 L700 262" stroke-width="1.6"/>
+    <path class="ink faint" d="M0 430 L612 262" stroke-width="1"/>
+    <!-- Far kerb and median tip. -->
+    <path class="ink faint" d="M612 262 L700 262" stroke-width="1"/>
+    <!-- Lane dashes, foreshortened. -->
+    <g class="ink mid" stroke-width="2">
+      <path d="M150 500 L205 468"/><path d="M265 432 L305 408"/><path d="M350 380 L380 362"/><path d="M415 342 L438 328"/><path d="M468 310 L484 300"/><path d="M510 286 L522 279"/>
+      <path d="M880 500 L800 420"/><path d="M760 390 L728 356"/><path d="M706 334 L690 316"/>
+    </g>
+    <!-- Wet-pavement reflections: vertical streaks under the lights. -->
+    <g class="ink faint" stroke-width="1.2">
+      <path d="M96 470 V500 M104 462 V496 M112 476 V506"/>
+      <path d="M540 300 V330 M548 306 V336 M556 302 V326"/>
+      <path d="M640 290 V318 M650 286 V322"/>
+      <path d="M690 300 V340 M700 298 V336"/>
+      <path d="M760 340 V380 M772 346 V386"/>
+    </g>
+    <!-- Debris scattered on the roadway. -->
+    <g class="dark mid">
+      <path d="M300 460 l6 -2 l4 4 l-7 3 z M330 486 l5 -1 l3 3 l-6 2 z M380 450 l4 -2 l5 3 l-6 2 z M420 470 l6 -1 l2 3 l-6 2 z M470 430 l4 -1 l3 2 l-5 2 z M520 450 l5 -2 l3 3 l-6 2 z M560 420 l4 -1 l3 2 l-5 1 z M600 440 l5 -1 l2 2 l-5 2 z M650 400 l4 -1 l3 2 l-5 1 z M700 420 l4 -1 l2 2 l-4 1 z M740 398 l4 -1 l2 2 l-4 1 z M250 500 l5 -2 l4 3 l-7 2 z M360 500 l5 -1 l3 2 l-6 2 z"/>
+    </g>
+
+    <!-- Traffic-signal mast, upper centre-right, three signal heads. -->
+    <g class="ink" stroke-width="1.6">
+      <path d="M640 262 V40"/>
+      <path d="M640 48 C700 44 760 46 840 50"/>
+      <path d="M690 52 V66 M740 50 V64 M790 52 V66"/>
+      <rect class="body" x="681" y="66" width="18" height="40" rx="3"/>
+      <rect class="body" x="731" y="64" width="18" height="40" rx="3"/>
+      <rect class="body" x="781" y="66" width="18" height="40" rx="3"/>
+      <circle class="dark" cx="690" cy="74" r="4"/><circle class="dark" cx="740" cy="72" r="4"/><circle class="dark" cx="790" cy="74" r="4"/>
+      <circle class="ink" cx="690" cy="86" r="4" stroke-width="1"/><circle class="ink" cx="740" cy="84" r="4" stroke-width="1"/><circle class="ink" cx="790" cy="86" r="4" stroke-width="1"/>
+      <circle class="ink" cx="690" cy="98" r="4" stroke-width="1"/><circle class="ink" cx="740" cy="96" r="4" stroke-width="1"/><circle class="ink" cx="790" cy="98" r="4" stroke-width="1"/>
+    </g>
+    <!-- Green guide sign on a post, upper left, with two text lines drawn as bars. -->
+    <g class="ink" stroke-width="1.6">
+      <path d="M250 262 V150"/>
+      <rect class="body" x="180" y="60" width="150" height="90" rx="10"/>
+      <path d="M200 86 H310 M214 114 H296" stroke-width="5" class="ink mid"/>
+    </g>
+
+    <!-- Sheriff's SUV behind the figures at left: a boxy shape with a light bar. -->
+    <g class="ink" stroke-width="1.5">
+      <path class="body" d="M118 318 L140 282 C150 272 170 268 200 268 L292 268 C312 268 322 276 330 290 L340 318 L340 356 L118 356 Z"/>
+      <path d="M150 284 L166 278 L290 278 L318 292 L326 318 L140 318 Z"/>
+      <path d="M232 278 V318"/>
+      <path d="M118 338 H340"/>
+      <circle class="body" cx="158" cy="356" r="14"/><circle class="body" cx="310" cy="356" r="14"/>
+      <rect class="body" x="190" y="256" width="82" height="10" rx="3"/>
+      <path d="M198 261 H264" stroke-width="0.9" class="ink mid"/>
+      <path d="M150 330 C170 326 200 326 222 330" stroke-width="1" class="ink mid"/>
+    </g>
+    <!-- Emergency lights at the far left edge: a bank of glows drawn as rings. -->
+    <g class="ink faint" stroke-width="1.2">
+      <circle cx="40" cy="300" r="18"/><circle cx="40" cy="300" r="9"/>
+      <circle cx="70" cy="340" r="14"/><circle cx="70" cy="340" r="6"/>
+      <circle cx="30" cy="380" r="20"/><circle cx="30" cy="380" r="10"/>
+      <path d="M0 262 V506" stroke-width="3"/>
+    </g>
+
+    <!-- The responders: eight outline figures, backs and profiles, no faces. -->
+    <g class="ink" stroke-width="1.6">
+      <!-- figure 1, far left, dark uniform, hand on hip -->
+      <path class="body" d="M250 300 c-6 0 -11 5 -11 11 s5 11 11 11 s11 -5 11 -11 s-5 -11 -11 -11 z"/>
+      <path class="body" d="M234 326 c0 -6 8 -10 16 -10 s16 4 16 10 l6 46 h-8 l-4 -20 l-2 22 h-8 l-2 -22 l-4 20 h-8 z"/>
+      <path d="M236 334 l-12 22 l6 2 M268 330 l10 14"/>
+      <path d="M238 372 l-2 54 M244 372 l4 54 M258 372 l-2 54 M262 372 l4 54" stroke-width="1.5"/>
+      <!-- figure 2, reflective jacket, bands across back -->
+      <path class="body" d="M300 296 c-6 0 -11 5 -11 11 s5 11 11 11 s11 -5 11 -11 s-5 -11 -11 -11 z"/>
+      <path class="body" d="M280 322 c2 -6 10 -10 20 -10 s18 4 20 10 l8 50 h-56 z"/>
+      <path d="M284 336 H316 M286 350 H318 M288 362 H320" stroke-width="2.6" class="ink mid"/>
+      <path d="M282 326 l-10 26 l6 2 M320 326 l10 24"/>
+      <path d="M288 372 l-2 56 M296 372 l2 56 M308 372 l-2 56 M316 372 l2 56" stroke-width="1.5"/>
+      <!-- figure 3, dark, arms folded, slightly smaller -->
+      <path class="body" d="M344 302 c-5 0 -10 4 -10 10 s5 10 10 10 s10 -4 10 -10 s-5 -10 -10 -10 z"/>
+      <path class="body" d="M328 324 c2 -5 8 -8 16 -8 s14 3 16 8 l5 44 h-42 z"/>
+      <path d="M330 340 c8 -4 20 -4 28 0" stroke-width="1.3"/>
+      <path d="M334 368 l-1 52 M341 368 l2 52 M352 368 l-2 52 M358 368 l2 52" stroke-width="1.5"/>
+      <!-- figure 4, light shirt, profile, further back -->
+      <path class="body" d="M402 288 c-6 0 -10 5 -10 10 s4 10 10 10 s10 -5 10 -10 s-4 -10 -10 -10 z"/>
+      <path class="body" d="M386 312 c2 -6 8 -9 16 -9 s14 3 16 9 l6 46 h-44 z"/>
+      <path d="M388 322 l-8 26 l5 2 M420 320 l6 20 l-6 4"/>
+      <path d="M392 358 l-2 50 M398 358 l3 50 M410 358 l-2 50 M416 358 l3 50" stroke-width="1.5"/>
+      <!-- figure 5, dark, back to the frame -->
+      <path class="body" d="M448 294 c-6 0 -10 5 -10 10 s4 10 10 10 s10 -5 10 -10 s-4 -10 -10 -10 z"/>
+      <path class="body" d="M432 318 c2 -6 8 -9 16 -9 s14 3 16 9 l6 44 h-44 z"/>
+      <path d="M434 326 l-9 24 M464 326 l9 22"/>
+      <path d="M438 362 l-2 48 M444 362 l3 48 M456 362 l-2 48 M462 362 l3 48" stroke-width="1.5"/>
+      <!-- figure 6, reflective jacket, further right -->
+      <path class="body" d="M530 290 c-6 0 -10 5 -10 10 s4 10 10 10 s10 -5 10 -10 s-4 -10 -10 -10 z"/>
+      <path class="body" d="M512 314 c2 -6 8 -9 18 -9 s16 3 18 9 l6 46 h-48 z"/>
+      <path d="M516 326 H548 M518 338 H550 M520 350 H552" stroke-width="2.4" class="ink mid"/>
+      <path d="M514 320 l-8 26 M548 320 l8 24"/>
+      <path d="M518 360 l-2 50 M525 360 l2 50 M538 360 l-2 50 M545 360 l2 50" stroke-width="1.5"/>
+      <!-- figure 7, white shirt with a dark word band on the back -->
+      <path class="body" d="M584 286 c-6 0 -10 5 -10 10 s4 10 10 10 s10 -5 10 -10 s-4 -10 -10 -10 z"/>
+      <path class="body" d="M566 310 c2 -6 8 -9 18 -9 s16 3 18 9 l6 48 h-48 z"/>
+      <path d="M574 330 H598" stroke-width="4" class="ink mid"/>
+      <path d="M568 318 l-8 24 l6 2 M602 316 l8 22"/>
+      <path d="M572 358 l-2 50 M579 358 l2 50 M592 358 l-2 50 M599 358 l2 50" stroke-width="1.5"/>
+      <!-- figure 8, dark, partly behind figure 7 -->
+      <path class="body" d="M620 292 c-5 0 -9 4 -9 9 s4 9 9 9 s9 -4 9 -9 s-4 -9 -9 -9 z"/>
+      <path class="body" d="M606 312 c2 -5 7 -8 14 -8 s12 3 14 8 l5 42 h-38 z"/>
+      <path d="M610 354 l-2 46 M616 354 l2 46 M626 354 l-2 46 M631 354 l2 46" stroke-width="1.5"/>
+    </g>
+
+    <!-- Fire truck far down the road at right, small, with a ladder line on top. -->
+    <g class="ink" stroke-width="1.2">
+      <path class="body" d="M800 232 L806 214 H872 L878 232 V252 H800 Z"/>
+      <path d="M808 220 H828 M810 240 H868" class="ink mid" stroke-width="1"/>
+      <path d="M836 214 V252 M856 214 V252"/>
+      <path d="M812 212 H870" stroke-width="2"/>
+      <circle class="body" cx="814" cy="252" r="5"/><circle class="body" cx="862" cy="252" r="5"/>
+      <rect class="body" x="828" y="206" width="22" height="6" rx="2"/>
+    </g>
+    <!-- A second patrol car, small, beyond the group. -->
+    <g class="ink mid" stroke-width="1.1">
+      <path class="body" d="M668 262 L676 250 H716 L722 262 V272 H668 Z"/>
+      <circle class="body" cx="678" cy="272" r="4"/><circle class="body" cx="712" cy="272" r="4"/>
+      <rect class="body" x="686" y="245" width="18" height="4" rx="1"/>
+    </g>
+  </g>
+</svg>
