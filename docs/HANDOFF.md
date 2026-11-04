@@ -11,7 +11,7 @@ have to ask anyone to write a handoff again.
 > exists now, what is decided, what is open. Delete what stopped being
 > true rather than appending to it.
 
-Last updated: **2026-10-13**
+Last updated: **2026-11-04**
 
 ---
 
@@ -43,8 +43,9 @@ and is the same all year.
 | ET, all year | What | Who |
 |---|---|---|
 | fires 5:30 (+0 to 25 min) | `morning_gate.py` says GO; **Jim's desk spawns**; both papers researched and PUBLISHED | Times |
+| right after both papers push | **the `send_later` wake is set**, before anything of Jim's (since 2026-11-04) | Times |
 | about 6:00 to 6:15 | Jim's draft pushed to weatherman; **the weather page goes up from it** | Times |
-| 6:55 | a `send_later` wake: claim Jim, hold the digest | Times |
+| 6:55 | the wake: claim Jim, hold the digest | Times |
 | **7:00, held** | **The digest posts**: one message, what is in today's edition and a link to Home | Times |
 | 7:08, held | refresh: a NEW warning, watch or SPC raise since Jim wrote goes under his dek | Times |
 | **7:15, held** | **Jim Claudtore's briefing posts**; the post is recorded; the page re-rendered | Times |
@@ -61,6 +62,17 @@ the session runs it again. **Nothing holds in the background any more**:
 the Times' old `setsid nohup` hold died with the container on nine mornings
 in twelve, and the session now ends its first turn with a `send_later` and
 does every post in the foreground of the wake.
+
+**The wake never waits for Jim** (Nate, 2026-11-04: "This defeats the
+purposes of having automation"). That morning Jim's desk hand-wrote a curl
+with the account email in its User-Agent, the safety check held it on a
+permission prompt until 7:29, and the editor, waiting on the desk
+with no wake set, posted the digest at 7:42 instead of 7:00. Now the wake
+is set the moment both papers push, and while the editor waits on the
+desk it re-runs `morning_gate.py wake` and starts the wake steps on
+`NOW`. In weatherman the email is gone from `config.USER_AGENT`, and the
+desk's station readings and one-point hourly forecasts go through
+`obs.py`, never a hand-written call (weatherman 928a198).
 
 **Why** (2026-10-04 to 10-13, measured): Jim posted between 7:25 and 7:43
 every morning against his 7:15 slot. His own routine fired at 7:00 ET, the

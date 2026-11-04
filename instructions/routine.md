@@ -40,8 +40,9 @@ desk, not by you). This file says how the morning fits together.
 |---|---|
 | 5:30 (+0 to 25 min) | the fire; `morning_gate.py` says GO; Jim's desk spawns at once |
 | about 5:45 to 6:00 | both papers built, validated, rendered and pushed |
+| at once | `morning_gate.py wake` and one `send_later`, before anything of Jim's |
 | about 6:00 to 6:15 | Jim's desk reports; his draft and the weather page are pushed |
-| then | `morning_gate.py wake`, one `send_later`, and the first turn ends |
+| then | the first turn ends, once no desk is working |
 | 6:55 (+about 1 min) | **the wake**: claim Jim, hold the digest |
 | 7:00 | the digest posts |
 | 7:08 | the refresh looks for anything new since Jim wrote |
@@ -164,6 +165,9 @@ The validator must exit 0. **Fix the edition, never the validator**: not
 `--no-urls`, not a hand-edited payload, not a loosened rule. If one brief is
 what blocks, cut it and re-validate.
 
+**The moment both papers are pushed, set the wake (§5)**, before you look
+at Jim's desk or his weather page. Then come back to §4.
+
 There is no sportsman webhook and `post_discord.py` has no `--sportsman`
 flag; the digest is the only thing it can send.
 
@@ -194,10 +198,15 @@ it refuses, report it and do not work around the guard. The page going up
 at about 6:15, ahead of Jim's post, is the point: Pat kept finding the
 Times and sport on today and the weather on yesterday.
 
-## 5. The wake
+## 5. The wake, as soon as both papers are pushed
 
-When both papers are pushed and Jim's draft is handled (or handed to the
-standby):
+**Changed 2026-11-04 (Nate: "This defeats the purposes of having
+automation").** The wake used to wait until Jim's draft was handled. That
+morning his desk sat on a permission prompt until 7:29, the editor waited
+on it from 5:53 with no wake set, and nothing posted until 7:42. Now the wake goes in the
+moment both papers are pushed, before you wait on Jim, so whatever happens
+to his desk or to this turn, the digest has its 7:00 wake and Jim has the
+standby at 7:32.
 
 ```
 cd /home/user/ashgrove-times && python morning_gate.py wake
@@ -206,12 +215,20 @@ cd /home/user/ashgrove-times && python morning_gate.py wake
 - **`WAKE <time> ET = <UTC> (in N s)`**: call `send_later` (the
   Claude_Code_Remote tool) with `at` set to that UTC instant and this
   message: `WAKE YYYY-MM-DD: do §6, "The wake steps", in instructions/routine.md.`
-  Then end your turn, provided no desk is still working. Never hold a post
-  in the background: a background process dies with the sandbox, which is
-  why the digest's old background hold failed nine mornings in twelve.
+  **Set it once.** Then do §4, and end your turn only when no desk is
+  still working. Never hold a post in the background: a background process
+  dies with the sandbox, which is why the digest's old background hold
+  failed nine mornings in twelve.
 - **`... INTERIM ...`**: the same, and when that wake arrives, run
-  `python morning_gate.py wake` again instead of the wake steps.
+  `python morning_gate.py wake` again instead of the wake steps, and set
+  the one `send_later` it asks for.
 - **`NOW`**: it is 6:53 or later. Do the wake steps now, in this turn.
+
+**While you wait in the foreground for Jim's desk, run
+`python morning_gate.py wake` each time you look**, and call no
+`send_later` for it. Once it prints `NOW`, start the wake steps in this
+turn: the digest goes on time, and Jim follows once his draft is in (the
+last paragraph of §6).
 
 If you are woken and every wake step is already done, say so and stop.
 

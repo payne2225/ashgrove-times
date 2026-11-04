@@ -4,6 +4,27 @@ Running changelog. Dated entries, newest first. Touched only when
 behavior changes, not every edition — the per-day record lives in
 `editions/index.json`, and degraded runs go in `docs/FAILURES.md`.
 
+## 2026-11-04 — The wake goes in before anything of Jim's
+
+This morning the digest posted at 7:42 against 7:00 and Jim at 7:42
+against 7:15. Jim's desk hand-wrote a curl to api.weather.gov with the
+account email in its User-Agent; the routine's safety check held it on a
+permission prompt until Nate tapped Allow at 7:29 ET. The
+editor had both papers pushed at 5:53 and waited on the desk with no wake
+set. Nate: "This defeats the purposes of having automation."
+
+- `instructions/routine.md` §3 and §5: the `send_later` wake is set the
+  moment both papers are pushed, before Jim's draft or his weather page.
+  While the editor waits on the desk it re-runs `morning_gate.py wake`
+  each time it looks, with no second `send_later`, and starts the wake
+  steps on `NOW`, so the digest posts on time and Jim follows his draft.
+  If the turn ends early, the wake still comes at 6:55 and the standby
+  still covers Jim from 7:32.
+- weatherman 928a198: no email in `config.USER_AGENT`, a new `obs.py` for
+  station readings and one point's hourly forecast, and a briefing.md
+  rule that the desk never writes its own call to a weather service.
+- HANDOFF §2 says the same.
+
 ## 2026-10-14 (later) — the first morning, and a stray local change
 
 The first morning on the new routine ran clean: GO at 5:31 ET, Times
