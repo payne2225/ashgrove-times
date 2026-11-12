@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Sports &amp; Sportsman for Thursday, November 12, 2026 — teams, seasons and the morning&#x27;s gauges.">
+<title>SPORTS &amp; SPORTSMAN — Thursday, November 12, 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<style>
+  :root {
+    --parchment: #f4f0e6;
+    --parchment-alt: #e9e4d8;
+    --wv-tint: #ede7d6;
+    --ink: #1c1a16;
+    --ink-soft: #3a362a;
+    --ink-mute: #4a4536;
+    --ink-faint: #6b6555;
+    --rule: #c9c2ac;
+    --display: "Playfair Display", "Iowan Old Style", "Palatino Linotype",
+               Palatino, "Book Antiqua", Georgia, "Times New Roman", serif;
+    --alt: "Old Standard TT", "Playfair Display", Georgia, "Times New Roman", serif;
+    /* Small headlines. Playfair is a Didone: its hairlines are drawn for
+       the masthead and the lead, and at 16px they fall below a pixel and
+       the tops of letters vanish (Nate, 2026-09-03, reading a brief head).
+       Source Serif at 600 has the same warmth with strokes that survive a
+       screen; Playfair stays for everything set large or in black weight. */
+    --headline: "Source Serif 4", "Source Serif Pro", Charter, "Iowan Old Style",
+      Georgia, "Times New Roman", serif;
+    --body: "Source Serif 4", "Source Serif Pro", Charter, "Iowan Old Style",
+            Georgia, Cambria, "Times New Roman", serif;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    background: var(--parchment-alt);
+    margin: 0;
+    padding: 24px 12px 60px;
+    font-family: var(--body);
+    color: var(--ink);
+    font-kerning: normal;
+    text-rendering: optimizeLegibility;
+  }
+
+  .page {
+    max-width: 900px;
+    margin: 0 auto;
+    background: var(--parchment);
+    border: 1px solid var(--ink);
+    padding: 28px 34px 40px;
+    box-shadow: 0 2px 18px rgba(0, 0, 0, 0.18);
+  }
+
+  /* ---------- top bar and the weather ear ---------- */
+
+  .top-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 14px;
+    justify-content: space-between;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--ink);
+    padding-bottom: 6px;
+    margin-bottom: 10px;
+  }
+
+  /* The pointer to Claude the Weatherman's 7:15 forecast. Sits in the top
+     band rather than beside the masthead: at 58px the wordmark leaves about
+     120px of margin, which no ear fits into without shrinking the plate. */
+  .ear {
+    max-width: 320px;
+    margin: 0 0 6px auto;
+    text-wrap: balance;
+    border: 1px solid var(--ink);
+    background: var(--wv-tint);
+    padding: 5px 9px 6px;
+    font-size: 11px;
+    line-height: 1.35;
+    text-align: right;
+  }
+
+  .ear-label {
+    display: block;
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 9.5px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+
+  /* The family banner: the WHOLE thing is The Ashgrove Times (Nate,
+     2026-08-21), so every section page carries it above its own name. */
+  .family-line {
+    text-align: center;
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin: 2px 0 0;
+  }
+
+  /* Section-to-section buttons, house-styled like the section labels. */
+  /* The rule that closes the wire columns off from the anchor sections
+     below them (Nate, 2026-08-26). A column bottom is a ragged edge, and
+     without this the notebook read as one more thing the last column ran
+     into. In the BASE stylesheet, not a breakpoint: the sections stack on a
+     phone and the break between the wire and the anchors still needs
+     saying — a browser-default <hr> in a letterpress page does not. */
+  .rule-anchor {
+    border: 0;
+    border-top: 1px solid var(--ink);
+    margin: 6px 0 16px;
+  }
+
+  /* A tier heading inside the Canada section. Smaller than a section label
+     and not reversed out — it is a sub-head, and three black chips stacked
+     under one black chip would read as four sections. Matches the
+     notebook's .wv-block-label, which is the same idea one box over. */
+  .tier-label {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 4px;
+    margin: 0 0 10px;
+  }
+  .sec-canada .tier { margin-bottom: 6px; }
+
+  .paper-nav { text-align: center; margin: 0 0 18px; }
+  .paper-nav a {
+    display: inline-block;
+    border: 1px solid var(--ink);
+    background: var(--wv-tint);
+    color: var(--ink);
+    text-decoration: none;
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 11.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    margin: 0 4px 6px;
+  }
+  .paper-nav a:hover { background: var(--ink); color: var(--parchment); }
+  /* The same row repeated at the foot of the page, where a reader who has
+     finished actually is. Ruled off above so it reads as the end of the
+     paper rather than as one more thing to read. */
+  .paper-nav-foot {
+    margin: 22px 0 2px;
+    padding-top: 16px;
+    border-top: 1px solid var(--rule);
+  }
+
+  /* The tide table: a real table, because Nate asked for one. */
+  .tide-table, .wx-stats { border-collapse: collapse; margin: 10px auto 4px; font-size: 13.5px; }
+  .tide-table caption {
+    font-family: var(--display); font-weight: 700; font-size: 13px;
+    letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-mute);
+    padding-bottom: 6px;
+  }
+  .tide-table th, .tide-table td, .wx-stats th, .wx-stats td {
+    border: 1px solid var(--rule); padding: 4px 12px; text-align: center;
+  }
+  .tide-table th, .wx-stats th {
+    font-family: var(--display); font-size: 11.5px; letter-spacing: 0.08em;
+    text-transform: uppercase; background: var(--wv-tint);
+  }
+  .tide-table td:first-child { font-weight: 600; }
+  /* The weather page's numbers table: the first thing under every location
+     chip since 2026-09-03 (Nate: "show the data first and foremost"), so
+     the read underneath can be a read and not a ledger. Full measure, a
+     little tighter than the tide table, and it must never overflow a
+     column on a phone. */
+  .wx-stats { width: 100%; margin: 2px 0 10px; font-size: 13px; }
+  .wx-stats th, .wx-stats td { padding: 3px 6px; white-space: nowrap; }
+  .wx-stats td:first-child { font-weight: 600; }
+  .sec .wx-stats { break-inside: avoid; }
+
+  /* ---------- masthead ---------- */
+
+  .masthead {
+    text-align: center;
+    font-family: var(--alt);
+    font-weight: 700;
+    font-size: 58px;
+    letter-spacing: 1px;
+    margin: 6px 0 2px;
+    line-height: 1;
+  }
+
+  .tagline {
+    text-align: center;
+    font-style: italic;
+    font-size: 13px;
+    color: var(--ink-mute);
+    margin-bottom: 8px;
+  }
+
+  .rule-thick { border: none; border-top: 4px double var(--ink); margin: 6px 0 0; }
+  .rule-thin { border: none; border-top: 1px solid var(--ink); margin: 4px 0 16px; }
+
+  /* ---------- lead story ---------- */
+
+  .headline {
+    font-family: var(--display);
+    font-weight: 900;
+    font-size: 27px;
+    line-height: 1.15;
+    margin: 0 0 6px;
+  }
+
+  .subhead {
+    font-style: italic;
+    font-size: 14px;
+    color: var(--ink-soft);
+    margin: 0 0 10px;
+  }
+
+  .byline {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin: 0 0 12px;
+  }
+
+  .columns {
+    column-count: 2;
+    column-gap: 26px;
+    column-rule: 1px solid var(--rule);
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  .columns p { margin: 0 0 12px; }
+  .columns p:last-child { margin-bottom: 0; }
+
+  .drop {
+    float: left;
+    font-family: var(--display);
+    font-weight: 900;
+    font-size: 46px;
+    line-height: 0.8;
+    padding: 4px 6px 0 0;
+  }
+
+  /* ---------- stat strip ---------- */
+
+  .stat-strip {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid var(--ink);
+    border-bottom: 1px solid var(--ink);
+    padding: 8px 0;
+    margin: 18px 0;
+    font-size: 13px;
+  }
+
+  .stat-strip div { text-align: center; flex: 1; }
+
+  .stat-strip b {
+    display: block;
+    font-family: var(--headline);
+    font-weight: 600;
+    font-size: 15px;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .stat-label {
+    display: block;
+    font-size: 10.5px;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+
+  .stat-change {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3em;
+    margin-top: 1px;
+    font-size: 12px;
+    font-variant-numeric: tabular-nums;
+    color: var(--ink-soft);
+  }
+
+  /* Direction is a drawn triangle, not a glyph or a hue - it survives any
+     font fallback and reads without color vision. */
+  .tri {
+    width: 0;
+    height: 0;
+    border-left: 0.3em solid transparent;
+    border-right: 0.3em solid transparent;
+  }
+
+  .tri.up { border-bottom: 0.42em solid var(--ink); }
+  .tri.down { border-top: 0.42em solid var(--ink); }
+
+  .tri.flat {
+    width: 0.6em;
+    height: 2px;
+    border: 0;
+    background: var(--ink);
+  }
+
+  .stats-note {
+    margin: -8px 0 20px;
+    text-align: center;
+    font-size: 10.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+
+  /* ---------- sections ---------- */
+
+  .section-label {
+    font-family: var(--display);
+    font-weight: 900;
+    font-size: 15px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    background: var(--ink);
+    color: var(--parchment);
+    display: inline-block;
+    padding: 3px 10px;
+    margin: 26px 0 12px;
+  }
+
+  .brief {
+    margin-bottom: 14px;
+    font-size: 14.5px;
+    line-height: 1.5;
+  }
+
+  .brief-head {
+    font-family: var(--headline);
+    font-weight: 600;
+    font-size: 16.5px;
+    line-height: 1.25;
+    margin: 0 0 3px;
+  }
+
+  .brief p { margin: 0; }
+
+  .two-col-briefs {
+    column-count: 2;
+    column-gap: 26px;
+    column-rule: 1px solid var(--rule);
+  }
+
+  .two-col-briefs .brief { break-inside: avoid; page-break-inside: avoid; }
+  .two-col-briefs .brief:last-child { margin-bottom: 0; }
+
+  .src {
+    display: block;
+    margin-top: 3px;
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+
+  .src a { color: inherit; text-decoration-thickness: 1px; }
+  .src a:hover { color: var(--ink); }
+
+  /* ---------- West Virginia: the local anchor, not another wire section ---- */
+
+  .wv-box {
+    border: 2px solid var(--ink);
+    padding: 14px 18px;
+    margin-top: 10px;
+    background: var(--wv-tint);
+  }
+
+  .wv-title {
+    font-family: var(--display);
+    font-weight: 900;
+    font-size: 20px;
+    margin: 0 0 4px;
+  }
+
+  .wv-box > .brief:last-child { margin-bottom: 0; }
+
+  .wv-block {
+    margin-top: 14px;
+    padding-top: 11px;
+    border-top: 1px solid var(--rule);
+  }
+
+  .wv-block-label {
+    margin: 0 0 7px;
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+
+  .roundup { list-style: none; margin: 0; padding: 0; }
+
+  .roundup li {
+    margin: 0 0 8px;
+    font-size: 14px;
+    line-height: 1.45;
+  }
+
+  .roundup li:last-child { margin-bottom: 0; }
+
+  .roundup .src { display: inline; margin: 0 0 0 5px; }
+
+  .place,
+  .water {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 12.5px;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+  }
+
+  .folk { font-style: italic; color: var(--ink-mute); }
+
+  /* The out-of-town column: same shape as the regional roundup, one step
+     quieter, so it never competes with the in-state lines above it. */
+  .wv-away { border-left: 2px solid var(--rule); padding-left: 12px; }
+  .wv-away .roundup li { margin-bottom: 6px; font-size: 13px; color: var(--ink-soft); }
+  .wv-away .place { font-size: 11.5px; }
+
+  .wv-fishing { border-top: 1px solid var(--ink); }
+  .wv-fishing .roundup li { font-size: 13.5px; }
+
+  /* ---------- kicker and colophon ---------- */
+
+  .kicker {
+    margin-top: 26px;
+    padding: 12px 0;
+    border-top: 1px solid var(--ink);
+    border-bottom: 4px double var(--ink);
+    text-align: center;
+    font-style: italic;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .footer-note {
+    text-align: center;
+    font-size: 11px;
+    color: var(--ink-faint);
+    margin-top: 30px;
+    font-style: italic;
+  }
+
+  .footer-note a { color: inherit; }
+  .footer-note .sep { padding: 0 0.5em; }
+
+  /* ---------- archive ---------- */
+
+  .issues { list-style: none; margin: 18px 0 0; padding: 0; }
+
+  .issue {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2px 14px;
+    align-items: baseline;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .issue .no {
+    flex: 0 0 15rem;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+
+  .issue .hed {
+    flex: 1 1 16rem;
+    font-family: var(--headline);
+    font-weight: 600;
+    font-size: 16.5px;
+    line-height: 1.28;
+  }
+
+  .issue .hed a { color: inherit; text-decoration: none; }
+  .issue .hed a:hover { text-decoration: underline; }
+
+  .empty { margin-top: 20px; text-align: center; font-style: italic; }
+
+  /* ---------- the drawing ---------- */
+
+  .art { margin: 0 0 16px; }
+  .art svg { max-height: 46vh; object-fit: contain; }
+
+  /* currentColor is what makes the drawing ink rather than a picture: the
+     SVG inherits the page's colour, so it prints and inverts with the type
+     instead of sitting on top of it as a foreign object. */
+  .art svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    color: var(--ink);
+    background: var(--parchment);
+    border: 1px solid var(--ink);
+  }
+
+  .art figcaption {
+    margin-top: 5px;
+    font-size: 11.5px;
+    line-height: 1.4;
+    color: var(--ink-soft);
+  }
+
+  /* The credit is small caps and says "sketched" out loud - a reader must
+     never mistake the drawing for a photograph. */
+  .art-credit {
+    font-size: 10px;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    white-space: nowrap;
+  }
+
+  /* ---------- phone: most of the group opens this in Discord on mobile ---- */
+
+  @media (max-width: 840px) {
+    body { padding: 12px 8px 40px; }
+    .page { padding: 18px 16px 28px; }
+    /* THE ASHGROVE TIMES sets about 12.4x its font-size in Old Standard TT,
+       so 58px needs an 811px viewport. Below that the wordmark is measured
+       to the page rather than wrapped; /13 leaves slack for the fallback
+       serifs, which set wider. */
+    .masthead {
+      font-size: min(58px, calc((100vw - 48px) / 13));
+      letter-spacing: 0.5px;
+    }
+    .top-bar { justify-content: center; text-align: center; }
+    .ear { max-width: none; margin: 0 0 8px; text-align: center; }
+    .headline { font-size: 23px; }
+    .wv-box { padding: 12px 13px; }
+  }
+
+  @media (max-width: 640px) {
+    .columns,
+    .two-col-briefs { column-count: 1; column-rule: none; }
+    .stat-strip { flex-wrap: wrap; gap: 8px 0; }
+    .stat-strip div { flex: 0 0 50%; }
+    .issue .no { flex: 1 1 100%; }
+  }
+
+  /* ---------- desktop: this is where it becomes a real broadsheet --------
+
+     Everything above is the phone and tablet paper, which stays compact on
+     purpose. From here up the page stops being a narrow strip on a big
+     monitor and starts behaving like a front page: a wordmark that fills
+     the width, a lead that runs across several columns, and the wire
+     sections FLOWING through newspaper columns instead of stacking.
+
+     `.sections` uses CSS multi-column rather than grid because that is
+     genuinely how a page is set — copy fills column one, continues into
+     column two — and it keeps DOM order, so the phone layout and the
+     screen-reader order need no separate handling. */
+
+  @media (min-width: 1024px) {
+    body { padding: 34px 24px 70px; }
+    /* Art is furniture, not a banner. Left-aligned at roughly a third of
+       the measure so the lead still reads as the lead. */
+    .art { max-width: 480px; }
+    .art svg { max-height: none; }
+    .page { max-width: 1180px; padding: 34px 44px 46px; }
+    .masthead { font-size: 76px; letter-spacing: 2px; }
+    .tagline { font-size: 15px; margin-bottom: 10px; }
+    .headline { font-size: 40px; line-height: 1.08; }
+    .subhead { font-size: 17px; }
+    .columns { column-count: 2; font-size: 15.5px; }
+    .drop { font-size: 58px; }
+
+    /* WITH a drawing: art at roughly a third of the measure, story beside
+       it. Scoped to .with-art deliberately — when this rule was on the bare
+       .lead-block and the day's drawing went to another section, the story
+       became the first grid child, inherited the 27% art column, and left
+       three quarters of the page white beside eight lines of type. */
+    .lead-block.with-art {
+      display: grid;
+      grid-template-columns: minmax(240px, 27%) 1fr;
+      gap: 0 30px;
+      align-items: start;
+    }
+    .lead-block.with-art .art { max-width: none; margin: 0; }
+    /* Cap the drawing so its bottom lands near the text's, instead of
+       running past it and opening a hole under the columns. */
+    .lead-block.with-art .art svg { max-height: 210px; width: 100%; }
+
+    /* WITHOUT one: nothing shares this line of the page, so the lead runs
+       the full measure. Column COUNT rather than width, because a lead is
+       short and a fixed column-width would leave a half-empty third column
+       on a thin news day. */
+    .lead-block.no-art .columns { column-count: 2; }
+  }
+
+  @media (min-width: 1320px) {
+    .page { max-width: 1420px; padding: 40px 54px 56px; }
+    .masthead { font-size: 96px; letter-spacing: 3px; }
+    .headline { font-size: 50px; }
+
+    /* Three columns across ~1,310px of measure is about 420px a column —
+       roughly 58 characters, which is a newspaper line. Two would set 85+
+       and read like a blog. Measured against a real lead: 766 characters on
+       2026-08-24, which fills three columns about five lines deep. */
+    .lead-block.no-art .columns { column-count: 3; }
+
+    /* The wire sections FLOW through these columns; they are not placed in
+       them. (2026-08-26 — this was a grid until Pat said "lots and lots of
+       unused space.")
+
+       A grid gave each section its own cell and made every row as tall as
+       its tallest member. On an ordinary morning — U.S. 524px, World 637px,
+       Sci/Tech 901px — that stood 28% of the section area empty, and a last
+       row that did not divide evenly was worse. Copy that runs down one
+       column and continues into the next cannot leave a hole, whatever
+       shape the news turns out to be that day. Measured on the 2026-08-26
+       edition: the section block went 1917px to 999px and the page 3093px
+       to 2653px, with nothing added and nothing cut.
+
+       The original objection to multi-column here was real and is now
+       answered rather than ignored: a `column-span: all` child splits a
+       flow and strands columns, which is exactly what happened the first
+       time. So the notebook is not a child of the flow at all — it is a
+       sibling block below it, and nothing inside the flow spans.
+
+       Sports & Sportsman has set this way since it launched. */
+    .sections { display: block; }
+    .wire-flow {
+      column-count: var(--wire-cols, 3);
+      column-gap: 30px;
+      column-rule: 1px solid #c9c2ac;
+    }
+    .wire-flow > .sec {
+      break-inside: auto;      /* a section MAY continue into the next column */
+      border-left: 0;
+      padding-left: 0;
+      margin: 0 0 18px;
+    }
+    /* ...but a brief, the drawing, and a label stranded from the brief
+       under it may not be split. Those are the atoms. */
+    .wire-flow .brief { break-inside: avoid; }
+    .wire-flow .art { break-inside: avoid; }
+    .wire-flow .section-label { break-after: avoid; margin-top: 0; }
+    .wire-flow .sec + .sec .section-label { margin-top: 12px; }
+    .sec { margin-bottom: 20px; }
+    .sec .two-col-briefs { column-count: 1; column-rule: none; }
+    .sec .section-label { margin-top: 0; }
+
+
+    /* Anchored sections — the notebook and British Columbia — take the full
+       measure below the flow. Their briefs run in their own columns, since
+       one column across 1,310px would set 85-character lines. */
+    .sec-anchor { margin: 0 0 18px; }
+    .sec-anchor .two-col-briefs {
+      column-count: 3;
+      column-gap: 30px;
+      column-rule: 1px solid var(--rule);
+    }
+    .sec-anchor .brief { break-inside: avoid; }
+
+    /* Canada does its own columns, so the anchor rule above must not also
+       fragment it — a grid inside a CSS multi-column container gets sliced
+       across the columns, which put a tier label above an empty column and
+       stranded its brief two columns away. */
+    .sec-canada .two-col-briefs { column-count: 1; column-rule: none; }
+
+    /* The Canada section's three tiers sit side by side across the measure,
+       local first. A tier with nothing in it does not render, so a thin
+       morning closes to two columns rather than standing one empty — the
+       whole page was rebuilt to stop doing exactly that. */
+    .sec-canada .tiers {
+      display: grid;
+      grid-template-columns: repeat(var(--tier-cols, 3), 1fr);
+      column-gap: 30px;
+      align-items: start;
+    }
+    .sec-canada .tier + .tier { border-left: 1px solid var(--rule); padding-left: 30px; }
+
+    /* The notebook is the anchor and it is wide content — four sub-blocks
+       that would strangle in a 300px column. It takes the whole measure as
+       a boxed feature, which is both where the space is and the treatment
+       Ian asked for. It sits BELOW the flow because the renderer emits it
+       as a sibling after .wire-flow, not because of a CSS `order` — that
+       was a grid trick and the grid is gone. Screen readers and the phone
+       layout get the same sequence the markup has. */
+    .sec-wv { margin: 10px 0 8px; }
+    .sec-wv .wv-box { padding: 22px 28px; column-count: 2; column-gap: 36px; }
+    .sec-wv .wv-title { column-span: all; font-size: 24px; }
+    .sec-wv .wv-box > .brief,
+    .sec-wv .wv-block { break-inside: avoid; }
+  }
+
+  @media (min-width: 1700px) {
+    .page { max-width: 1600px; }
+    .masthead { font-size: 108px; }
+    /* Three, not four, even here. The lead runs about 700 characters — a
+       fourth column would set it three lines deep and read as a caption
+       rather than as the day's story. */
+  }
+
+  /* ---------- Sports & Sportsman page layout ----------
+     A true newsprint fill. Fixed left/right blocks stranded whitespace the
+     moment one side outgrew the other, so instead the whole paper flows
+     through balanced CSS columns: Our Teams runs down column one and spills
+     into column two, Around the Leagues starts right where it ends, and the
+     browser balances the column bottoms. Briefs and roundup lines are
+     atomic; sections and state blocks are allowed to break between them. */
+
+  @media (min-width: 1024px) {
+    .page.sportsman .sections {
+      display: block;   /* undo the Times grid — columns need flow layout */
+      column-count: 2;
+      column-gap: 34px;
+      column-rule: 1px solid var(--rule);
+    }
+  }
+
+  @media (min-width: 1320px) {
+    .page.sportsman .sections { column-count: 3; }
+  }
+
+  @media (min-width: 1024px) {
+    .page.sportsman .sections > .sec {
+      break-inside: auto;
+      border-left: 0;
+      padding-left: 0;
+      margin: 0 0 20px;
+    }
+    .page.sportsman .sec .two-col-briefs { column-count: 1; column-rule: none; }
+    .page.sportsman .brief,
+    .page.sportsman .roundup li { break-inside: avoid; }
+    .page.sportsman .section-label { break-after: avoid; margin-top: 0; }
+    .page.sportsman .sec + .sec .section-label { margin-top: 10px; }
+    .page.sportsman .wv-block { break-inside: auto; }
+    .page.sportsman .wv-block-label { break-after: avoid; }
+  }
+
+  /* ---------- the weather page (Jim Claudtore's briefing, typeset) ---- */
+
+  .wx-briefing { max-width: 760px; margin: 0 auto; font-size: 15px; line-height: 1.55; }
+  .wx-briefing p { margin: 0 0 12px; }
+  .wx-day {
+    font-family: var(--display); font-weight: 900; font-size: 26px;
+    line-height: 1.15; margin: 4px 0 6px;
+  }
+  .wx-dek { font-style: italic; font-size: 15px; color: var(--ink-soft); margin: 0 0 16px; }
+  .wx-loc {
+    font-family: var(--display); font-weight: 700; font-size: 17px;
+    border-top: 1px solid var(--rule); padding-top: 12px; margin: 18px 0 6px;
+  }
+  .wx-list { margin: 0 0 12px; padding-left: 20px; }
+  .wx-list li { margin-bottom: 6px; }
+  /* The weather page stopped borrowing the sportsman column fill on
+     2026-08-25 — it sets as a newspaper page now, with the same section
+     grid the front page uses, so there is no multi-column flow left to
+     undo. What it does need is its own handling of Jim's confidence note,
+     which is a single paragraph inside a full-width box: the notebook's
+     two columns would split one short paragraph down the middle. */
+  .wx-confidence .wv-box { column-count: 1; }
+  .wx-confidence .wv-box p { margin: 0 0 10px; max-width: 92ch; }
+  .wx-confidence .wv-box p:last-child { margin-bottom: 0; }
+  .wx-roundup { margin: 0; }
+  /* Jim writes in half a dozen short reports rather than long copy, so the
+     label chip has to survive a stacked heading — three towns sharing one
+     forecast — without pushing the section out of its column. */
+  .page.weather .section-label { white-space: normal; line-height: 1.35; }
+
+  @media print {
+    body { background: #fff; padding: 0; }
+    .page { border: 0; box-shadow: none; max-width: none; }
+    .wire-flow { column-count: var(--wire-cols, 3); column-gap: 24px; }
+    .sec-wv { grid-column: 1 / -1; order: 9; }
+    /* Buttons and the anchor rule are screen furniture: a printed page
+       has no other sections to go to, and the rule was drawn to separate
+       columns that print does not stack the same way. */
+    .paper-nav, .rule-anchor { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="page sportsman">
+
+  <div class="top-bar">
+    <span>Vol. I — No. 87</span>
+    <span>Thursday, November 12, 2026</span>
+    <span>Price: Free</span>
+  </div>
+  
+  <div class="family-line">The Ashgrove Times</div>
+  <div class="masthead">SPORTS &amp; SPORTSMAN</div>
+  <div class="tagline">&ldquo;For the Fellers&rdquo;</div>
+  <hr class="rule-thick">
+  <hr class="rule-thin">
+
+  <nav class="paper-nav" aria-label="Sections"><a href="../home.html">Home</a><a href="../today.html">The News Desk</a><a href="../weather/">The Weather Claude</a></nav>
+
+  <div class="headline"></div>
+  
+  <div class="byline"></div>
+
+  <div class="lead-block no-art">
+    
+    <div class="columns"></div>
+  </div>
+
+  
+
+  <div class="sections">
+  <section class="sec sec-wire">
+  <div class="section-label">Our Teams</div>
+  <div class="two-col-briefs"><div class="brief">
+      <div class="brief-head">Manchester United sack Carrick and move to hire Pochettino from the USMNT</div>
+      <p>Manchester United confirmed Thursday morning that Michael Carrick has departed as men&#x27;s first-team head coach, after he met chief executive Omar Berrada and director of football Jason Wilcox at Carrington following their Wednesday meeting with Sir Jim Ratcliffe in Monaco; the club statement said it intends to appoint a permanent successor as quickly as possible, and ESPN reported, citing sources, that United are close to an agreement with U.S. men&#x27;s national team coach Mauricio Pochettino, have made contact with U.S. Soccer ahead of triggering his $10 million release clause, and would pay about $2 million more for his staff, including assistant Jesus Perez. Carrick, 45, who signed a two-year contract in May after winning 12 of 17 matches to finish third last season, leaves with United 18th in the Premier League on one league win all season and three wins in 15 matches in all competitions, his last match a home draw with Aston Villa in which United twice came back from two goals down; sources told ESPN that U.S. Soccer expects Pochettino to oversee both Concacaf Nations League quarterfinal legs against Haiti, Saturday in Miami at 4:30 p.m. ET and Tuesday in Cincinnati at 7 p.m. ET, and United&#x27;s next match is at Anfield on Nov. 22.</p><span class="src"><a href="https://www.espn.com/soccer/story/_/id/50180844/man-united-michael-carrick-sacked-pochettino" target="_blank" rel="noopener nofollow">ESPN</a></span>
+    </div><div class="brief">
+      <div class="brief-head">Taylor says the Bengals&#x27; collapsed Ebiketie trade was on their end</div>
+      <p>Zac Taylor said Wednesday, reading a statement he said de facto general manager Duke Tobin asked him to deliver, that the Bengals&#x27; effort to add depth for the injured Cashius Howell became more costly than anticipated, that Tobin is apologetic, that Philadelphia was a great trade partner and that the failure was on Cincinnati&#x27;s end; ESPN reported, citing a source, that the agreed sixth-round-pick deal for edge rusher Arnold Ebiketie came apart when it became clear the Bengals would forfeit a 2027 compensatory third-round pick, awarded largely for losing Trey Hendrickson in free agency. Taylor said he did not ask Tobin how the club learned of the forfeiture, that it took three minutes of his day, and that Howell, placed on injured reserve Nov. 3 with a right wrist injury, is not ruled out for the season; the Bengals, with six wins and two losses, their best start in Taylor&#x27;s eight seasons, host Pittsburgh on Sunday night at 8:20 p.m. ET with sole possession of first place in the AFC North going to the winner.</p><span class="src"><a href="https://www.espn.com/nfl/story/_/id/50454351/bengals-zac-taylor-apologizes-failed-trade-eagles" target="_blank" rel="noopener nofollow">ESPN</a></span>
+    </div><div class="brief">
+      <div class="brief-head">Monken says Watson starts over Sanders on the &#x27;full body of work&#x27;</div>
+      <p>Todd Monken said Wednesday that his intention all along was to keep Deshaun Watson as the starter, that the Browns&#x27; announcement that morning of Watson as the starting quarterback for Sunday&#x27;s 1 p.m. ET home game against Houston, his former team, rested on his full body of work this season, and that Monday&#x27;s non-answer came only because he had not yet met with his offensive staff; Watson, who missed the New Orleans game in the concussion protocol, has five wins and three losses as a starter with five game-winning drives but a 40.9 QBR that ranks 28th of 31 qualifiers, and Shedeur Sanders went 19 of 31 for 297 yards and two touchdowns in his place in the overtime loss at the Saints. Watson said there was no question in his mind that he would remain the starter, that the rest of the season is up to Monken and the front office, and that facing Houston, where he played his first four seasons before the 2022 trade, is in the past.</p><span class="src"><a href="https://www.espn.com/nfl/story/_/id/50453932/browns-todd-monken-explains-call-start-deshaun-watson" target="_blank" rel="noopener nofollow">ESPN</a></span>
+    </div><div class="brief">
+      <div class="brief-head">Spurs rally from 22 down to beat the Bulls 124-119 for a 10th straight win</div>
+      <p>Victor Wembanyama scored 32 points on 13-of-18 shooting with nine rebounds and five blocks, Dylan Harper had 18 points, 10 assists and four steals and De&#x27;Aaron Fox 17 points and nine assists as San Antonio closed a four-game road trip unbeaten at the United Center on Wednesday night, two days after Wembanyama&#x27;s 40 at Phoenix; Chicago scored 41 in the first quarter, started 10 of 12 from 3-point range and led 64 to 42 midway through the second, its largest lead of the season, before the Spurs opened the third with an 18 to 3 run fed by five Bulls turnovers and took control with an 11 to 2 run in the fourth. Jalen Smith tied his career high with 23 for the Bulls, who have lost eight straight, and first-round pick Caleb Wilson left in the third quarter with a right hand injury; Devin Vassell sat a second straight game with adductor tightness, and the Spurs, with 10 wins and two losses, host Golden State on Friday at 9:30 p.m. ET in NBA Cup group play, with Stephen Curry, who left Houston&#x27;s win over the Warriors in the first quarter for an MRI on his right abdomen, in doubt.</p><span class="src"><a href="https://www.espn.com/nba/recap?gameId=401909969" target="_blank" rel="noopener nofollow">AP via ESPN</a></span>
+    </div><div class="wv-block sm-teams">
+      <p class="wv-block-label">Where they stand</p>
+      <ul class="roundup"><li><span class="place">Chelsea</span> &mdash; Chelsea are 5th in the Premier League on 16 points from 10 matches (5 wins, 1 draw, 4 losses, GD +3), level on points with 6th-place Everton and two behind 4th-place Liverpool (18), per the ESPN eng.1 standings page read at 5:45 a.m. ET Thursday, unchanged with the league paused for the international break; Arsenal lead on 27, Brighton are 2nd on 22 and Manchester City 3rd on 21. Chelsea next host Leeds on Saturday, Nov. 21, at 10 a.m. ET.<span class="src"><a href="https://site.api.espn.com/apis/v2/sports/soccer/eng.1/standings" target="_blank" rel="noopener nofollow">ESPN</a></span></li><li><span class="place">Liverpool</span> &mdash; Liverpool are 4th in the Premier League on 18 points from 10 matches (5 wins, 3 draws, 2 losses, GD +4), nine behind leaders Arsenal (27) and three behind 3rd-place Manchester City (21), per the ESPN eng.1 standings page read at 5:45 a.m. ET Thursday, unchanged through the international break; Manchester United, their Nov. 22 visitors, who sacked Michael Carrick on Thursday morning, are 18th on 8, above Sunderland on 8 and Crystal Palace on 7. Liverpool next host United on Sunday, Nov. 22, at 11:30 a.m. ET.<span class="src"><a href="https://site.api.espn.com/apis/v2/sports/soccer/eng.1/standings" target="_blank" rel="noopener nofollow">ESPN</a></span></li><li><span class="place">Tottenham</span> &mdash; Tottenham are 11th in the Premier League on 12 points from 10 matches (3 wins, 3 draws, 4 losses, GD -1), level on points with 12th-place Newcastle and one behind 10th-place Aston Villa (13), per the ESPN eng.1 standings page read at 5:45 a.m. ET Thursday, unchanged through the international break; Leeds are 9th on 14 and Ipswich, Tottenham&#x27;s Nov. 21 visitors, 14th on 11. Tottenham next host Ipswich on Saturday, Nov. 21, at 10 a.m. ET.<span class="src"><a href="https://site.api.espn.com/apis/v2/sports/soccer/eng.1/standings" target="_blank" rel="noopener nofollow">ESPN</a></span></li><li><span class="place">Cincinnati Bengals</span> &mdash; The Bengals are 6-2 (W4), 2nd in the AFC North and level on record with Pittsburgh (6-2, W4), which ESPN lists first, with Cleveland 5-4 and Baltimore 4-5, and listed as the AFC&#x27;s 6th seed, per the ESPN NFL standings page read at 5:45 a.m. ET Thursday, unchanged with no games since Monday night; Buffalo (7-1) holds the 1st seed and Denver (7-2) the 2nd. The Steelers visit Cincinnati on Sunday night at 8:20 p.m. ET, with first place in the division alone to the winner.<span class="src"><a href="https://site.api.espn.com/apis/v2/sports/football/nfl/standings?level=3" target="_blank" rel="noopener nofollow">ESPN</a></span></li><li><span class="place">Cleveland Browns</span> &mdash; The Browns are 5-4 (L2), 3rd in the AFC North, 1.5 games back of Pittsburgh and Cincinnati (both 6-2) and a game ahead of Baltimore (4-5, L4), and listed as the AFC&#x27;s 8th seed, one place outside the seven-team playoff line behind 7th-seeded New England (5-4), per the ESPN NFL standings page read at 5:45 a.m. ET Thursday, unchanged; Sunday&#x27;s visitors Houston are 3-5 (W1), 2nd in the AFC South, three games behind Jacksonville.<span class="src"><a href="https://site.api.espn.com/apis/v2/sports/football/nfl/standings?level=3" target="_blank" rel="noopener nofollow">ESPN</a></span></li><li><span class="place">Columbus Crew</span> &mdash; Columbus finished 7th in the MLS Eastern Conference on 47 points from 34 matches (14 wins, 5 draws, 15 losses, GD +7), per the ESPN usa.1 standings page read at 5:45 a.m. ET Thursday, unchanged with the regular season over; Nashville won the East on 77, Inter Miami, the Crew&#x27;s Round One opponent on Nov. 21, were 2nd on 60, New England 3rd on 58, Philadelphia 6th on 50, Orlando 8th on 46 and FC Cincinnati 9th on 46.<span class="src"><a href="https://site.api.espn.com/apis/v2/sports/soccer/usa.1/standings" target="_blank" rel="noopener nofollow">ESPN</a></span></li><li><span class="place">FC Cincinnati</span> &mdash; FC Cincinnati finished 9th in the MLS Eastern Conference on 46 points from 34 matches (12 wins, 10 draws, 12 losses, GD -8), level on points with 8th-place Orlando City, who host the Nov. 19 Wild Card match with 13 wins to Cincinnati&#x27;s 12, and one point behind 7th-place Columbus, per the ESPN usa.1 standings page read at 5:45 a.m. ET Thursday, unchanged.<span class="src"><a href="https://site.api.espn.com/apis/v2/sports/soccer/usa.1/standings" target="_blank" rel="noopener nofollow">ESPN</a></span></li><li><span class="place">Marshall</span> &mdash; Marshall is 5-4 overall (L1) and listed 5th of 7 in the Sun Belt East on the ESPN standings page read at 5:45 a.m. ET Thursday, unchanged, behind James Madison (8-2), Georgia Southern (5-4), Georgia State (5-4) and Saturday&#x27;s visitors App State (5-4), with Coastal Carolina (3-6) and Old Dominion (3-7) below; Louisiana Tech (7-2, W6) leads the West. The basketball team is 1-2 and plays at Youngstown State on Saturday.<span class="src"><a href="https://site.api.espn.com/apis/v2/sports/football/college-football/standings?group=37" target="_blank" rel="noopener nofollow">ESPN</a></span></li><li><span class="place">Ohio University</span> &mdash; Ohio is 7-3 overall and 5-1 in the MAC, listed 4th of 13 on the ESPN MAC standings page read at 5:45 a.m. ET Thursday, down from 2nd on Wednesday after Toledo (8-2) shut out UMass 24-0 and Buffalo (7-3, W5) beat Ball State 28-7 on Wednesday night; Toledo, Western Michigan (7-3), Buffalo and Ohio are all 5-1 in league play, per AP&#x27;s Toledo recap, with Miami (6-4) 5th. The basketball team is 2-0 and plays at Purdue on Friday.<span class="src"><a href="https://site.api.espn.com/apis/v2/sports/football/college-football/standings?group=15" target="_blank" rel="noopener nofollow">ESPN</a></span></li><li><span class="place">San Antonio Spurs</span> &mdash; The Spurs are 10-2 (W10, 6-0 on the road), listed as the Western Conference&#x27;s 2nd seed, half a game behind the Lakers (11-2, W7), who beat Milwaukee on Wednesday, per the ESPN NBA standings page read at 5:45 a.m. ET Thursday; Houston (9-3) is 1.5 back after ending Golden State&#x27;s eight-game streak, Portland and Minnesota (8-3) are two back, and Friday&#x27;s visitors Golden State and Oklahoma City (both 8-4) are 2.5 back. Sunday&#x27;s hosts Utah are 1-11 (L10), last in the West, and Tuesday&#x27;s visitors Detroit are 7-3, 3rd in the East.<span class="src"><a href="https://site.api.espn.com/apis/v2/sports/basketball/nba/standings" target="_blank" rel="noopener nofollow">ESPN</a></span></li><li><span class="place">West Virginia</span> &mdash; West Virginia is 5-4 overall (L1), listed 10th of 16 on the ESPN Big 12 standings page read at 5:45 a.m. ET Thursday, unchanged; Utah leads at 9-0, Texas Tech is 2nd at 8-1, BYU, Houston and Arizona (all 7-2) follow, and Saturday&#x27;s visitors Kansas are 3-6 and 16th. The basketball team is 2-0 and hosts Mercer tonight.<span class="src"><a href="https://site.api.espn.com/apis/v2/sports/football/college-football/standings?group=4" target="_blank" rel="noopener nofollow">ESPN</a></span></li></ul>
+    </div><div class="wv-block sm-teams">
+      <p class="wv-block-label">The week ahead</p>
+      <ul class="roundup"><li><span class="place">West Virginia</span> &mdash; Mercer at West Virginia, men&#x27;s basketball (ESPN+); Mercer is 2-2, Thursday, Nov. 12, 7 p.m. ET, Hope Coliseum, Morgantown<span class="src"><a href="https://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/teams/277/schedule" target="_blank" rel="noopener nofollow">ESPN</a></span></li><li><span class="place">Ohio University</span> &mdash; Ohio at Purdue, men&#x27;s basketball (B1G+), Friday, Nov. 13, 7 p.m. ET, Mackey Arena, West Lafayette, Ind.<span class="src"><a href="https://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/teams/195/schedule" target="_blank" rel="noopener nofollow">ESPN</a></span></li><li><span class="place">San Antonio Spurs</span> &mdash; Golden State at San Antonio, NBA Cup group play (Prime Video); Stephen Curry (right abdomen, MRI Wednesday night) in doubt for the Warriors, Devin Vassell (adductor) has missed two straight for the Spurs, Friday, Nov. 13, 9:30 p.m. ET, Frost Bank Center, San Antonio<span class="src"><a href="https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams/24/schedule" target="_blank" rel="noopener nofollow">ESPN</a></span></li><li><span class="place">USMNT</span> &mdash; Haiti v USMNT, Concacaf Nations League quarterfinal first leg, Haiti listed as the home side (TBS, truTV, Universo, HBO Max, Peacock), Saturday, Nov. 14, 4:30 p.m. ET, Nu Stadium, Miami<span class="src"><a href="https://site.api.espn.com/apis/site/v2/sports/soccer/concacaf.nations.league/scoreboard?dates=20261114" target="_blank" rel="noopener nofollow">ESPN</a></span></li><li><span class="place">West Virginia</span> &mdash; Kansas at West Virginia, Big 12 (ESPNU), Saturday, Nov. 14, 5:30 p.m. ET, Milan Puskar Stadium, Morgantown<span class="src"><a href="https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/277/schedule" target="_blank" rel="noopener nofollow">ESPN</a></span></li><li><span class="place">Marshall</span> &mdash; App State at Marshall, Sun Belt (ESPN+), Saturday, Nov. 14, 6 p.m. ET, Joan C. Edwards Stadium, Huntington<span class="src"><a href="https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/276/schedule" target="_blank" rel="noopener nofollow">ESPN</a></span></li><li><span class="place">Marshall</span> &mdash; Marshall at Youngstown State, men&#x27;s basketball (ESPN+), Saturday, Nov. 14, 6 p.m. ET, Beeghly Center, Youngstown, Ohio<span class="src"><a href="https://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/teams/276/schedule" target="_blank" rel="noopener nofollow">ESPN</a></span></li><li><span class="place">Cleveland Browns</span> &mdash; Houston at Cleveland (Fox); Deshaun Watson starts at quarterback, Sunday, Nov. 15, 1 p.m. ET, Huntington Bank Field, Cleveland<span class="src"><a href="https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams/5/schedule" target="_blank" rel="noopener nofollow">ESPN</a></span></li><li><span class="place">San Antonio Spurs</span> &mdash; San Antonio at Utah, Sunday, Nov. 15, 5 p.m. ET, Delta Center, Salt Lake City<span class="src"><a href="https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams/24/schedule" target="_blank" rel="noopener nofollow">ESPN</a></span></li><li><span class="place">Cincinnati Bengals</span> &mdash; Pittsburgh at Cincinnati, Sunday Night Football (NBC); both teams 6-2, Sunday, Nov. 15, 8:20 p.m. ET, Paycor Stadium, Cincinnati<span class="src"><a href="https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams/4/schedule" target="_blank" rel="noopener nofollow">ESPN</a></span></li><li><span class="place">USMNT</span> &mdash; USMNT v Haiti, Concacaf Nations League quarterfinal second leg (TBS, truTV, Universo, HBO Max, Peacock); ESPN&#x27;s scoreboard now carries a kickoff time, which U.S. Soccer had not listed on Wednesday, Tuesday, Nov. 17, 7 p.m. ET, TQL Stadium, Cincinnati<span class="src"><a href="https://site.api.espn.com/apis/site/v2/sports/soccer/concacaf.nations.league/scoreboard?dates=20261117" target="_blank" rel="noopener nofollow">ESPN</a></span></li><li><span class="place">Ohio University</span> &mdash; Ball State at Ohio, MAC (CBS Sports Network), Tuesday, Nov. 17, 7 p.m. ET, Peden Stadium, Athens, Ohio<span class="src"><a href="https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/195/schedule" target="_blank" rel="noopener nofollow">ESPN</a></span></li><li><span class="place">Marshall</span> &mdash; East Tennessee State at Marshall, men&#x27;s basketball (ESPN+), Tuesday, Nov. 17, 7 p.m. ET, Cam Henderson Center, Huntington<span class="src"><a href="https://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/teams/276/schedule" target="_blank" rel="noopener nofollow">ESPN</a></span></li><li><span class="place">San Antonio Spurs</span> &mdash; Detroit at San Antonio (NBC), Tuesday, Nov. 17, 8 p.m. ET, Frost Bank Center, San Antonio<span class="src"><a href="https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams/24/schedule" target="_blank" rel="noopener nofollow">ESPN</a></span></li><li><span class="place">West Virginia</span> &mdash; West Virginia v Auburn, men&#x27;s basketball, Las Vegas (ESPN); the ESPN schedule still carries a placeholder tip time, so none is printed, Tuesday, Nov. 17, Michelob Ultra Arena, Las Vegas<span class="src"><a href="https://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/teams/277/schedule" target="_blank" rel="noopener nofollow">ESPN</a></span></li><li><span class="place">Ohio University</span> &mdash; Morehead State at Ohio, men&#x27;s basketball (ESPN+), Wednesday, Nov. 18, 7 p.m. ET, Convocation Center, Athens, Ohio<span class="src"><a href="https://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/teams/195/schedule" target="_blank" rel="noopener nofollow">ESPN</a></span></li><li><span class="place">FC Cincinnati</span> &mdash; FC Cincinnati at Orlando City, MLS Cup Playoffs Wild Card (Apple TV); the winner goes to Round One against Nashville, Thursday, Nov. 19, 7:30 p.m. ET, Inter&amp;Co Stadium, Orlando, Fla.<span class="src"><a href="https://site.api.espn.com/apis/site/v2/sports/soccer/usa.1/scoreboard?dates=20261119" target="_blank" rel="noopener nofollow">ESPN</a></span></li></ul>
+    </div></div>
+</section>
+
+  <section class="sec sec-wire">
+  <div class="section-label">Around the Leagues</div>
+  <div class="two-col-briefs"><div class="brief">
+      <div class="brief-head">Fujiseiun takes a first kinboshi as Hoshoryu loses a 3rd straight bout</div>
+      <p>Maegashira (rank-and-file) 2 Fujiseiun, 28, got his favored right-hand inside grip off the tachiai (initial charge), denied yokozuna (grand champion) Hoshoryu any hold on his belt and forced him out on day 5 at the Fukuoka Kokusai Center on Thursday for his first kinboshi (gold star, a rank-and-filer&#x27;s win over a yokozuna), a day after losing his first bout against a yokozuna to Onosato; Hoshoryu, 27, back from three tournaments out after right knee surgery, has given up a kinboshi on three straight days, to Fujiryoga, Ura and Fujiseiun, which Kyodo said he last did at the 2025 Nagoya basho (tournament), and has two wins and three losses after opening with two wins. Japan Sumo Association chairman Hakkaku said the yokozuna&#x27;s legs had no strength in them, that consecutive losses are tough and that a yokozuna has to rebuild himself and always go forward; chief judge Kokonoe, the former ozeki (champion) Chiyotaikai, said Hoshoryu&#x27;s sumo looked brittle bout by bout, that the knee did not look bad, and that he wants the kihaku issen (a flash of fighting spirit) Hoshoryu pledged at his promotion. Fujiseiun, who went from Meiji University to a corporate job before turning to sumo during the pandemic and reached the top division in March, said his mind went blank at the win and that he had felt frustration, not congratulation, when his younger stablemate Fujiryoga took his own first kinboshi on day 3.</p><span class="src"><a href="https://news.yahoo.co.jp/articles/76bdd8c4f7238649c69c83be67c1bb03ae1b26a5" target="_blank" rel="noopener nofollow">Nikkan Sports</a></span>
+    </div><div class="brief">
+      <div class="brief-head">Atamifuji alone unbeaten after 5 days as Onosato slaps down Ura and the ozeki all win</div>
+      <p>Sekiwake Atamifuji, 24, at 198 kilograms 73 heavier than fellow sekiwake Fujinokawa, stood up slowly at the tachiai (initial charge), caught Fujinokawa&#x27;s sidestep and attempted leg grab, locked him up from the left and forced him down for a fifth win in five bouts, the only unbeaten record in the top division; NHK analyst Kotokaze said Atamifuji had expected a trick and Fujinokawa&#x27;s hand never reached the leg, and Fujinokawa has one win and four losses. Yokozuna (grand champion) Onosato, chasing a second straight yusho (championship), met Ura&#x27;s low charge with a two-handed thrust and slapped him down by hatakikomi for his fourth win, a day after Ura beat Hoshoryu, and Kotokaze said winning by pulling is a habit the body remembers; the three ozeki (champions) all won, per Kyodo, Kotozakura forcing out Takayasu for a fourth win, Kirishima forcing out Asanoyama to stay at one loss and Aonishiki throwing Hakunofuji by shitatenage (underarm throw) for a third win. Eleven wrestlers, Onosato among them, sit one win behind Atamifuji after five days, per Nikkan Sports; day 6 is Friday in Fukuoka, and the basho (tournament) closes Nov. 22.</p><span class="src"><a href="https://news.yahoo.co.jp/articles/8598e68a50754e7d4338f4b3d6fcd3aeb14be3d6" target="_blank" rel="noopener nofollow">Nikkan Sports</a></span>
+    </div><div class="brief">
+      <div class="brief-head">Curry leaves for an MRI on his abdomen as the Rockets end the Warriors&#x27; 8-game run</div>
+      <p>Stephen Curry grabbed at his right side minutes into Wednesday&#x27;s game in Houston, yelled in pain after making a 28-foot 3-pointer with 7:22 left in the first quarter, went to the locker room and was ruled out with right abdominal soreness, then left the arena in the second half for an MRI on his abdomen and oblique; coach Steve Kerr said Curry told him he had not felt the injury before, that concern is high and that he has no idea of the extent. Kevin Durant scored 20, Alperen Sengun and Amen Thompson 19 each and Reed Sheppard hit back-to-back 3s in a fourth-quarter eight-point run as Houston won 115-108 to end Golden State&#x27;s eight-game winning streak, its longest since 2022, with rookie Yaxel Lendeborg&#x27;s 25 points and 10 rebounds leading the Warriors; Houston&#x27;s Marcus Smart was ejected with a flagrant 2 late in the third for punching Charles Bassey. The Warriors, with eight wins and four losses, play at San Antonio on Friday.</p><span class="src"><a href="https://www.espn.com/nba/story/_/id/50458218/curry-exits-vs-rockets-ruled-abdominal-soreness" target="_blank" rel="noopener nofollow">ESPN</a></span>
+    </div><div class="brief">
+      <div class="brief-head">Lakers win a 7th straight at Milwaukee but lose Reaves to a heel injury</div>
+      <p>Luka Doncic scored 32, Sandro Mamukelashvili 23 against the team that drafted him and Austin Reaves 18 in 25 minutes as Los Angeles won 123-112 at the Bucks on Wednesday for a league-best 11 wins against two losses, scoring 28 points off 19 Milwaukee turnovers and outscoring the Bucks 33 to 23 in the third; Reaves landed awkwardly on a missed fast-break dunk, subbed himself out with 5:20 left in the third and limped off, and coach JJ Redick said X-rays on his left heel were negative, that the Achilles is not a concern and that imaging follows Thursday in Los Angeles. Doncic turned his right ankle on a Kyle Kuzma foul with 4:25 left and said he will be fine, Collin Sexton needed stitches over his right eye after a head-to-head collision, and the Lakers do not play again until Sunday at Phoenix; Milwaukee has lost eight straight and has one win in 12 games.</p><span class="src"><a href="https://www.espn.com/nba/story/_/id/50459249/reaves-exits-heel-injury-banged-lakers-win-again" target="_blank" rel="noopener nofollow">ESPN</a></span>
+    </div><div class="brief">
+      <div class="brief-head">Celtics overcome a 22-point deficit to beat the Raptors 98-93 for a 5th straight</div>
+      <p>Jayson Tatum made the tying and go-ahead free throws with 25.2 seconds left and scored 24 on 6-of-21 shooting, 10 of 12 at the line, as Boston came back from 59 to 37 down with 5:24 left in the second quarter in Toronto on Wednesday, answering with 16 straight points, the first 10 by Tatum, to trail by seven at the half; Derrick White scored 19, Payton Pritchard 14 and Neemias Queta had 11 points and 13 rebounds with Paul George sitting out ill a night after his 36 in Philadelphia. Ja&#x27;Kobe Walter, who scored 17, had 12 from 3-point range in a first quarter in which the Raptors tied a franchise record with 10 3s, going 10 of 18 from distance and then 6 of 25 the rest of the way; Toronto, without Kawhi Leonard for a ninth straight game and Scottie Barnes for a third, is below .500 for the first time this season, and Boston, with 10 wins and two losses, leads the East by a game over Philadelphia.</p><span class="src"><a href="https://www.espn.com/nba/recap?gameId=401909968" target="_blank" rel="noopener nofollow">AP via ESPN</a></span>
+    </div><div class="brief">
+      <div class="brief-head">Broncos say the deadline trade for Chargers linebacker Henley will not be finalized</div>
+      <p>Denver announced late Wednesday that its trade for Daiyan Henley, agreed just before Tuesday&#x27;s deadline for a 2027 fourth-round pick and a 2028 fifth-rounder and announced as pending a physical, will not be finalized, and gave no reason; team sources told ESPN that Henley was at the Broncos&#x27; complex Wednesday and underwent a physical, and the Chargers posted a welcome back to a player who has started 41 of 42 games over three seasons and leads them with 51 tackles. Henley, 27 next week and a free agent after the season, would have gone from the winless Chargers to the first-place Broncos, who have won five straight, rank 23rd against the run and have had Alex Singleton on the field for 617 of 618 defensive snaps; it is the second deadline deal to come apart in two days after the Bengals&#x27; Ebiketie trade, and Denver, on its bye, next plays Nov. 22 against Las Vegas.</p><span class="src"><a href="https://www.espn.com/nfl/story/_/id/50459330/broncos-say-trade-chargers-lb-henley-not-finalized" target="_blank" rel="noopener nofollow">ESPN</a></span>
+    </div><div class="brief">
+      <div class="brief-head">Misiorowski and Schlittler sweep the Cy Young votes in their first full seasons</div>
+      <p>Jacob Misiorowski, 24, took all 30 first-place votes for the National League award on Wednesday after 16 wins and five losses with a 1.80 ERA, 0.80 WHIP and 252 strikeouts in 174 2/3 innings for the World Series champion Brewers, leading the majors in all three, a 232 ERA+ that is the best full season since Pedro Martinez&#x27;s 291 in 2000, a fastball averaging 100.6 mph and more than 1,000 pitches at 100 or faster; he is the first pitcher since Randy Johnson in 2001 to win the Cy Young and the World Series in the same year, and finished ahead of Philadelphia&#x27;s Cristopher Sanchez and Atlanta&#x27;s Chris Sale. Cam Schlittler of the Yankees swept the American League vote ahead of Toronto&#x27;s Dylan Cease and Cleveland&#x27;s Parker Messick, and the writers&#x27; first Reliever of the Year awards went unanimously to San Diego&#x27;s Mason Miller, 1.67 ERA, 38 saves and 129 strikeouts in 70 innings, and to Toronto&#x27;s Louis Varland, whose 1.27 ERA over 78 innings was the lowest among qualified relievers, with 16 of 30 first-place votes.</p><span class="src"><a href="https://www.espn.com/mlb/story/_/id/50456772/brewers-misiorowski-yanks-schlittler-unanimous-cy-young-winners" target="_blank" rel="noopener nofollow">ESPN</a></span>
+    </div><div class="brief">
+      <div class="brief-head">Kucherov&#x27;s third-period natural hat trick carries the Lightning past the Sabres 8-3</div>
+      <p>Nikita Kucherov, who requested a trade Oct. 30, scored three straight goals and added an assist, all in the third period, after Buffalo had scored three in a row to get within a goal 33 seconds into the period on Tage Thompson&#x27;s goal, and Tampa Bay won 8-3 in Buffalo on Wednesday for a fourth win in five games; John Carlson had a goal and four assists, Jake Guentzel four assists, Brandon Hagel two goals and Andrei Vasilevskiy 28 saves, while Ukko-Pekka Luukkonen was pulled after nine saves on 14 shots. In Edmonton, Evan Bouchard&#x27;s one-timer 47 seconds into overtime won it 3-2 over Philadelphia, his 11th goal, most among NHL defensemen, and Connor McDavid&#x27;s second-period assist extended his season-opening points streak to 20 games, tying his career high, with a league-leading 49 points; Zach Hyman scored twice and the Oilers matched the second-best 20-game start in franchise history.</p><span class="src"><a href="https://www.espn.com/nhl/recap?gameId=401892690" target="_blank" rel="noopener nofollow">AP via ESPN</a></span>
+    </div><div class="brief">
+      <div class="brief-head">Toledo shuts out Massachusetts 24-0 and 4 MAC teams share the lead</div>
+      <p>Connor Walendzak, in his first game this month after an undisclosed injury, capped a 90-yard drive with a 69-yard touchdown run and finished with 117 yards on 14 carries, Nicholas Thompson returned a Logan Inagawa interception 62 yards for a score, and the Rockets led 24-0 at the half and held the Minutemen to 188 yards with three sacks and 10 tackles for loss in Toledo on Wednesday night; John Alan Richter threw for 197 yards and Toledo ran for 239. Toledo, Western Michigan, Buffalo and Ohio are all 5-1 in the conference after Buffalo&#x27;s 28-7 win over Ball State on Wednesday, its fifth straight; Toledo, with eight wins and two losses, hosts Bowling Green on Nov. 20, and Ohio hosts Ball State on Tuesday at 7 p.m. ET.</p><span class="src"><a href="https://www.espn.com/college-football/recap?gameId=401866463" target="_blank" rel="noopener nofollow">AP via ESPN</a></span>
+    </div><div class="brief">
+      <div class="brief-head">NC State moves to hire Philip Rivers, with trustees set to vote Friday</div>
+      <p>The NC State board of trustees is expected to finalize a contract Friday making Philip Rivers, 44, the Wolfpack&#x27;s head football coach, sources told ESPN on Wednesday; Rivers, who has never coached in college, is in his sixth season at St. Michael Catholic High School in Fairhope, Alabama, a program he built from the ground up and took to state semifinals in 2024 and 2025, and had told NC State he wanted to finish the high school season, which ended last Friday. Rivers threw for 13,484 yards and 95 touchdowns at NC State from 2000 to 2003 under Chuck Amato, who died last month at 80, played 17 NFL seasons, all but one with the Chargers, came out of retirement to start three games for the Colts last year and withdrew from the Bills&#x27; coaching search in January; his son Gunner committed to NC State in February, and Russell Wilson was also in discussions for the job after Dave Doeren was fired Oct. 24.</p><span class="src"><a href="https://www.espn.com/college-football/story/_/id/50456831/sources-philip-rivers-nc-state-deal-set-finalized" target="_blank" rel="noopener nofollow">ESPN</a></span>
+    </div></div>
+</section>
+
+  <section class="sec sec-wire">
+  <div class="section-label">In Season</div>
+  <div class="two-col-briefs"><div class="wv-block sm-seasons">
+      <p class="wv-block-label">West Virginia</p>
+      <ul class="roundup"><li><span class="place">Coming in · Ring-necked pheasant, Hillcrest WMA (Hillcrest WMA, cock birds only), Nov. 14 to Dec. 5</span> &mdash; Two days out. The pamphlet table&#x27;s separate Hillcrest WMA pheasant line opens Saturday, Nov. 14, and runs through Dec. 5, cock birds only, daily bag one and possession one; the statewide pheasant season, cock birds only at daily bag two and possession two, opened Saturday, Nov. 7, and runs through Jan. 2. The pamphlet is valid through June 30, 2027, checked against this morning&#x27;s date.<span class="src"><a href="https://wvdnr.gov/wp-content/uploads/2026/07/Pub_Regs_HuntTrap_202627_DNR_WILD_20260724.pdf" target="_blank" rel="noopener nofollow">WVDNR</a></span></li><li><span class="place">Coming in · Deer (Buck firearms), Nov. 23 to Dec. 6</span> &mdash; Eleven days out, inside the two-week window, and listed because the antlerless deer window and the gun bear window that open the same day are both flagged selected counties, with county lists not in the table. Buck firearms runs Nov. 23 through Dec. 6, electronic registration required; bag limits are on pamphlet pages 13 to 18, vary by county and permit class, and are not in the table, so none is printed. The table&#x27;s later antlerless windows are Dec. 10 to 13 and Dec. 28 to 31, muzzleloader deer runs Dec. 14 to 20, and the youth, Class Q and Class XS days are Dec. 26 and 27. The pamphlet is valid through June 30, 2027, checked against this morning&#x27;s date.<span class="src"><a href="https://wvdnr.gov/wp-content/uploads/2026/07/Pub_Regs_HuntTrap_202627_DNR_WILD_20260724.pdf" target="_blank" rel="noopener nofollow">WVDNR</a></span></li><li><span class="place">Prime · Bobwhite quail, cottontail rabbit, snowshoe or varying hare, ring-necked pheasant, red fox, gray fox, bobcat, raccoon, mink, muskrat, fisher, beaver, otter, and the skunk, opossum, coyote and weasel trapping line (Hunting and trapping openers of Saturday, Nov. 7), Nov. 7 opening</span> &mdash; Day 6. Saturday, Nov. 7, was the pamphlet table&#x27;s biggest opening day of the fall: bobwhite quail through Jan. 2, daily bag three, possession nine, closed on Tomblin WMA; cottontail rabbit through Feb. 28, daily bag five, possession 20; snowshoe or varying hare through Feb. 28, daily bag two, possession eight; ring-necked pheasant, cock birds only, through Jan. 2, daily bag two, possession two; raccoon trapping, and red and gray fox hunting and trapping, through Feb. 28; bobcat hunting and trapping through Feb. 28, season limit three, electronic registration required; and the trapping lines for mink and muskrat, and for skunk, opossum, coyote and weasel, through Feb. 28, fisher through Jan. 31 and otter through Feb. 28 at a season limit of one each with registration, and beaver through March 31 with registration. The pamphlet is valid through June 30, 2027, checked against this morning&#x27;s date.<span class="src"><a href="https://wvdnr.gov/wp-content/uploads/2026/07/Pub_Regs_HuntTrap_202627_DNR_WILD_20260724.pdf" target="_blank" rel="noopener nofollow">WVDNR</a></span></li><li><span class="place">Prime · Ducks, scaup, mergansers and geese, second segment (Second segment of a three-way split), Oct. 3 to 11, Nov. 7 to 15, Dec. 21 to Jan. 31</span> &mdash; Day 6 of 9. The duck table&#x27;s second segment opened Saturday, Nov. 7, and closes Sunday, Nov. 15, three days out, with the third segment Dec. 21 through Jan. 31; the first, Oct. 3 to 11, is closed, and both youth waterfowl days, Sept. 19 and Oct. 31, are past. The migratory summary&#x27;s duck line reads daily bag six, possession 18, with the sub-limits in footnote (c): no more than four mallards, two of them hens, two black ducks, three pintails, three wood ducks, two redheads, two canvasbacks and four sea ducks, no more than three scoters and three long-tailed ducks among them; scaup, inside the duck bag, reads one per day Nov. 7 to 15 and Dec. 21 to Jan. 11 and two per day Jan. 12 to 31; coots run the same dates as ducks at 15 and 45, mergansers the same dates at five and 15 in aggregate. Canada and white-fronted geese and snow and blue geese share the Nov. 7 to 15 segment and a third Dec. 8 through Jan. 31, daily bag five and possession 15 in aggregate; brant open Jan. 2 at one and three. Shooting hours for waterfowl are one-half hour before sunrise to sunset, and HIP registration is required. The dates are not in the hunting and trapping pamphlet, which says so itself; they are from WVDNR&#x27;s separate Migratory Bird Hunting Regulations Summary 2026-2027, which fetched through the proxy at 5:45 a.m. (HTTP 200, 1,940,942 bytes, md5 aad32d21343547146e3977a821a39355, byte-identical to Wednesday&#x27;s copy, a 27th straight morning).<span class="src"><a href="https://wvdnr.gov/wp-content/uploads/2026/08/Pub_Regs_MigBird2026_DNR_WILD_Rdr_Sprds_ADA.pdf" target="_blank" rel="noopener nofollow">WVDNR</a></span></li><li><span class="place">Prime · Mourning doves, second segment (Second segment of a three-way split), Sept. 1 to Oct. 11, Nov. 2 to 15, Dec. 7 to Jan. 10</span> &mdash; Day 11 of 14. The dove season&#x27;s second segment opened Monday, Nov. 2, and closes Sunday, Nov. 15, three days out, the same day the duck and goose second segments and the fall turkey window close; the third segment is Dec. 7 through Jan. 10. The migratory summary&#x27;s line reads daily bag 15, possession 45, and its shooting-hours paragraph puts dove hours at one-half hour before sunrise to sunset for every day but the first segment&#x27;s opener. The dates are not in the hunting and trapping pamphlet, which says so itself; they are from WVDNR&#x27;s separate Migratory Bird Hunting Regulations Summary 2026-2027, which fetched through the proxy at 5:45 a.m. (HTTP 200, 1,940,942 bytes, md5 aad32d21343547146e3977a821a39355, byte-identical to Wednesday&#x27;s copy, a 27th straight morning).<span class="src"><a href="https://wvdnr.gov/wp-content/uploads/2026/08/Pub_Regs_MigBird2026_DNR_WILD_Rdr_Sprds_ADA.pdf" target="_blank" rel="noopener nofollow">WVDNR</a></span></li><li><span class="place">Prime · Turkey (Fall, third window, selected counties), Oct. 26 to Nov. 15</span> &mdash; Day 18 of 21. The fall turkey window of Oct. 26 through Nov. 15 is open in the 14 counties the pamphlet&#x27;s fall turkey page lists under that column, as read from the PDF this week: Berkeley, Grant, Greenbrier, Hampshire, Hardy, Mineral, Monroe, Morgan, Nicholas, Pendleton, Pocahontas, Randolph, Tucker and Webster, the cabin county among them; the Oct. 26 to Nov. 1 column, which included Mason, Putnam and Wood, closed Nov. 1, and the Oct. 10 to 18 column, which included Cabell, Kanawha and Summers, closed last month. The page reads one either-sex turkey for the whole fall season by bow, crossbow or gun, electronic registration required, dogs legal, shooting hours one-half hour before sunrise to one-half hour after sunset; the pamphlet PDF fetched again this morning at 5:45 a.m. (HTTP 200, 7,606,482 bytes, md5 ff6261bef172f4d0ab748ce930260fd2, unchanged). The pamphlet is valid through June 30, 2027, checked against this morning&#x27;s date.<span class="src"><a href="https://wvdnr.gov/wp-content/uploads/2026/07/Pub_Regs_HuntTrap_202627_DNR_WILD_20260724.pdf" target="_blank" rel="noopener nofollow">WVDNR</a></span></li><li><span class="place">Prime · Deer and bear (Archery and crossbow), Sept. 26 to Dec. 31</span> &mdash; Day 48. Archery and crossbow seasons for deer and for bear opened Sept. 26 and run through Dec. 31 statewide, electronic registration required; limits are on pamphlet pages 13 to 18 for deer and 33 to 39 for bear, vary by county and permit class, and are not in the table, so none is printed. The pamphlet is valid through June 30, 2027, checked against this morning&#x27;s date.<span class="src"><a href="https://wvdnr.gov/wp-content/uploads/2026/07/Pub_Regs_HuntTrap_202627_DNR_WILD_20260724.pdf" target="_blank" rel="noopener nofollow">WVDNR</a></span></li><li><span class="place">Prime · Wild boar (Archery and crossbow), Sept. 26 to Dec. 31, Feb. 5 to 7</span> &mdash; Day 48. Wild boar archery and crossbow runs Sept. 26 through Dec. 31, with a second window Feb. 5 to 7; the table&#x27;s line reads season limit one, electronic registration required. The boar gun season&#x27;s October window closed Oct. 31 and its second window is Feb. 5 to 7. The pamphlet is valid through June 30, 2027, checked against this morning&#x27;s date.<span class="src"><a href="https://wvdnr.gov/wp-content/uploads/2026/07/Pub_Regs_HuntTrap_202627_DNR_WILD_20260724.pdf" target="_blank" rel="noopener nofollow">WVDNR</a></span></li><li><span class="place">Prime · Ruffed grouse (Hunting), Oct. 17 to Feb. 28</span> &mdash; Day 27. Ruffed grouse opened Oct. 17 and runs through Feb. 28; the table&#x27;s line reads daily bag four, possession 16, no season limit. The pamphlet is valid through June 30, 2027, checked against this morning&#x27;s date.<span class="src"><a href="https://wvdnr.gov/wp-content/uploads/2026/07/Pub_Regs_HuntTrap_202627_DNR_WILD_20260724.pdf" target="_blank" rel="noopener nofollow">WVDNR</a></span></li><li><span class="place">Prime · Woodcock (migratory game bird) (Hunting), Oct. 17 to Nov. 21, Nov. 30 to Dec. 8</span> &mdash; Day 27. Woodcock opened Oct. 17 and runs through Saturday, Nov. 21, nine days out, with a second segment Nov. 30 through Dec. 8; the migratory summary&#x27;s line reads daily bag three, possession nine, and shooting hours for rails, snipe, woodcock and waterfowl are one-half hour before sunrise to sunset. Wilson&#x27;s snipe, from the same table, runs Sept. 1 through Dec. 16, daily bag eight, possession 24; the sora and Virginia rail season closed Monday, Nov. 9. The dates are not in the hunting and trapping pamphlet, which says so itself; they are from WVDNR&#x27;s separate Migratory Bird Hunting Regulations Summary 2026-2027, which fetched through the proxy at 5:45 a.m. (HTTP 200, 1,940,942 bytes, md5 aad32d21343547146e3977a821a39355, byte-identical to Wednesday&#x27;s copy, a 27th straight morning).<span class="src"><a href="https://wvdnr.gov/wp-content/uploads/2026/08/Pub_Regs_MigBird2026_DNR_WILD_Rdr_Sprds_ADA.pdf" target="_blank" rel="noopener nofollow">WVDNR</a></span></li><li><span class="place">Prime · Squirrel (Gray, Black, Albino and Fox), Sept. 12 to Feb. 28</span> &mdash; Day 62. Squirrel runs Sept. 12 through Feb. 28; the table&#x27;s line reads daily bag six, possession 24, no season limit. The pamphlet is valid through June 30, 2027, checked against this morning&#x27;s date.<span class="src"><a href="https://wvdnr.gov/wp-content/uploads/2026/07/Pub_Regs_HuntTrap_202627_DNR_WILD_20260724.pdf" target="_blank" rel="noopener nofollow">WVDNR</a></span></li><li><span class="place">Prime · Raccoon (Hunting), Oct. 17 to Feb. 28</span> &mdash; Day 27. Raccoon hunting opened Oct. 17 and runs through Feb. 28; the table&#x27;s line reads daily bag four, and its note says the bag limit of four is for the 24-hour period 6 a.m. to 6 a.m. Raccoon trapping opened Saturday, Nov. 7, and runs to the same closing date. The pamphlet is valid through June 30, 2027, checked against this morning&#x27;s date.<span class="src"><a href="https://wvdnr.gov/wp-content/uploads/2026/07/Pub_Regs_HuntTrap_202627_DNR_WILD_20260724.pdf" target="_blank" rel="noopener nofollow">WVDNR</a></span></li><li><span class="place">Prime · Crow (Split season), Oct. 1 to Nov. 21, Jan. 1 to March 6</span> &mdash; Day 43. The crow season&#x27;s first split opened Oct. 1 and closes Saturday, Nov. 21, nine days out; the second runs Jan. 1 through March 6. The table&#x27;s note says nuisance crows may be killed at any time when committing depredations. The pamphlet is valid through June 30, 2027, checked against this morning&#x27;s date.<span class="src"><a href="https://wvdnr.gov/wp-content/uploads/2026/07/Pub_Regs_HuntTrap_202627_DNR_WILD_20260724.pdf" target="_blank" rel="noopener nofollow">WVDNR</a></span></li><li><span class="place">Going out · Turkey (Fall, third window, selected counties), Oct. 26 to Nov. 15</span> &mdash; Three days. The fall turkey window closes Sunday, Nov. 15, in the 14 counties on the pamphlet&#x27;s Oct. 26 to Nov. 15 column, Nicholas and Webster among them; one either-sex bird for the whole fall season, electronic registration required. The pamphlet is valid through June 30, 2027, checked against this morning&#x27;s date.<span class="src"><a href="https://wvdnr.gov/wp-content/uploads/2026/07/Pub_Regs_HuntTrap_202627_DNR_WILD_20260724.pdf" target="_blank" rel="noopener nofollow">WVDNR</a></span></li><li><span class="place">Going out · Mourning doves, second segment (Second segment of a three-way split), Nov. 2 to 15</span> &mdash; Three days. The dove season&#x27;s second segment closes Sunday, Nov. 15, daily bag 15, possession 45; the third segment opens Dec. 7. The dates are not in the hunting and trapping pamphlet, which says so itself; they are from WVDNR&#x27;s separate Migratory Bird Hunting Regulations Summary 2026-2027, which fetched through the proxy at 5:45 a.m. (HTTP 200, 1,940,942 bytes, md5 aad32d21343547146e3977a821a39355, byte-identical to Wednesday&#x27;s copy, a 27th straight morning).<span class="src"><a href="https://wvdnr.gov/wp-content/uploads/2026/08/Pub_Regs_MigBird2026_DNR_WILD_Rdr_Sprds_ADA.pdf" target="_blank" rel="noopener nofollow">WVDNR</a></span></li><li><span class="place">Going out · Ducks, scaup, mergansers and geese, second segment (Second segment of a three-way split), Nov. 7 to 15</span> &mdash; Three days. The duck and goose second segment that opened Saturday, Nov. 7, closes Sunday, Nov. 15; ducks reopen Dec. 21 and geese Dec. 8. Daily bag six ducks and five geese in aggregate, with the sub-limits in the summary&#x27;s footnote (c). The dates are not in the hunting and trapping pamphlet, which says so itself; they are from WVDNR&#x27;s separate Migratory Bird Hunting Regulations Summary 2026-2027, which fetched through the proxy at 5:45 a.m. (HTTP 200, 1,940,942 bytes, md5 aad32d21343547146e3977a821a39355, byte-identical to Wednesday&#x27;s copy, a 27th straight morning).<span class="src"><a href="https://wvdnr.gov/wp-content/uploads/2026/08/Pub_Regs_MigBird2026_DNR_WILD_Rdr_Sprds_ADA.pdf" target="_blank" rel="noopener nofollow">WVDNR</a></span></li><li><span class="place">Going out · Crow (Split season), Oct. 1 to Nov. 21</span> &mdash; Nine days. The crow season&#x27;s first split closes Saturday, Nov. 21, and reopens Jan. 1. The pamphlet is valid through June 30, 2027, checked against this morning&#x27;s date.<span class="src"><a href="https://wvdnr.gov/wp-content/uploads/2026/07/Pub_Regs_HuntTrap_202627_DNR_WILD_20260724.pdf" target="_blank" rel="noopener nofollow">WVDNR</a></span></li><li><span class="place">Going out · Woodcock (migratory game bird) (Hunting, first segment), Oct. 17 to Nov. 21</span> &mdash; Nine days. The woodcock season&#x27;s first segment closes Saturday, Nov. 21, daily bag three, possession nine, and reopens Nov. 30 through Dec. 8. The dates are not in the hunting and trapping pamphlet, which says so itself; they are from WVDNR&#x27;s separate Migratory Bird Hunting Regulations Summary 2026-2027, which fetched through the proxy at 5:45 a.m. (HTTP 200, 1,940,942 bytes, md5 aad32d21343547146e3977a821a39355, byte-identical to Wednesday&#x27;s copy, a 27th straight morning).<span class="src"><a href="https://wvdnr.gov/wp-content/uploads/2026/08/Pub_Regs_MigBird2026_DNR_WILD_Rdr_Sprds_ADA.pdf" target="_blank" rel="noopener nofollow">WVDNR</a></span></li></ul>
+    </div><div class="wv-block sm-seasons">
+      <p class="wv-block-label">North Carolina</p>
+      <ul class="roundup"><li><span class="place">Prime · Red drum (channel bass, puppy drum)</span> &mdash; Prime. The NCDMF table reads red drum at an 18-inch minimum and 27-inch maximum total length, one fish per person per day, with note (C) making it unlawful to possess a red drum over 27 inches or to gig, spear or gaff one; the Fisherman&#x27;s Post November report has the piers&#x27; 32-inch-plus fish on the north end of the island, which are over the slot and go back. NCDMF&#x27;s recreational size and bag limits table, which states it is effective Nov. 1, 2026, read this morning at 5:47 a.m. (HTTP 200, 108,140 bytes); the fisheries management proclamations list, read at the same time, showed no finfish proclamation issued since Oct. 30, its newest item SF-3-2026, a shellfish proclamation issued Tuesday, Nov. 10, on oyster mechanical harvest in Pamlico Sound that takes effect at sunrise Nov. 16. A Coastal Recreational Fishing License is required.<span class="src"><a href="https://www.deq.nc.gov/about/divisions/marine-fisheries/rules-proclamations-and-size-and-bag-limits/recreational-size-and-bag-limits" target="_blank" rel="noopener nofollow">NCDMF</a></span></li><li><span class="place">Prime · Spotted seatrout (speckled trout)</span> &mdash; Prime. The NCDMF table reads spotted seatrout at a 14- to 20-inch total length slot with one fish greater than 26 inches allowed, three per person per day; the November report&#x27;s 28-inch fish on live shrimp under a cork are the one over-26 fish a limit allows. NCDMF&#x27;s recreational size and bag limits table, which states it is effective Nov. 1, 2026, read this morning at 5:47 a.m.; the fisheries management proclamations list, read at the same time, showed no finfish proclamation issued since Oct. 30, its newest item SF-3-2026, a shellfish proclamation issued Tuesday, Nov. 10, on oyster mechanical harvest in Pamlico Sound that takes effect at sunrise Nov. 16. A Coastal Recreational Fishing License is required.<span class="src"><a href="https://www.deq.nc.gov/about/divisions/marine-fisheries/rules-proclamations-and-size-and-bag-limits/recreational-size-and-bag-limits" target="_blank" rel="noopener nofollow">NCDMF</a></span></li><li><span class="place">Prime · Flounder, all species</span> &mdash; Closed. The NCDMF table, read this morning, reads flounder of all species as unlawful to possess for recreational purposes; the 2026 recreational season this paper reported under FF-27-2026 was Sept. 1 through Sept. 14 only, so every flounder caught in the sound is a release. NCDMF&#x27;s recreational size and bag limits table, which states it is effective Nov. 1, 2026, read this morning at 5:47 a.m.; the fisheries management proclamations list, read at the same time, showed no finfish proclamation issued since Oct. 30. A Coastal Recreational Fishing License is required.<span class="src"><a href="https://www.deq.nc.gov/about/divisions/marine-fisheries/rules-proclamations-and-size-and-bag-limits/recreational-size-and-bag-limits" target="_blank" rel="noopener nofollow">NCDMF</a></span></li><li><span class="place">Prime · Black drum, sheepshead, bluefish, Spanish mackerel and king mackerel</span> &mdash; Prime for the beach and the inlet. The NCDMF table reads black drum at a 14- to 25-inch total length slot, 10 per person per day, with one fish over 25 inches allowed under note (C); sheepshead 14-inch total length, five; bluefish no minimum, five, or seven on a for-hire vessel under note (M); Spanish mackerel 12-inch fork length, 15; king mackerel 24-inch fork length, three. Weakfish (gray trout) reads 12-inch total length, one per day. False albacore has no row on the recreational table, so no state size or creel limit is printed for it. NCDMF&#x27;s recreational size and bag limits table, which states it is effective Nov. 1, 2026, read this morning at 5:47 a.m.; the fisheries management proclamations list, read at the same time, showed no finfish proclamation issued since Oct. 30. A Coastal Recreational Fishing License is required.<span class="src"><a href="https://www.deq.nc.gov/about/divisions/marine-fisheries/rules-proclamations-and-size-and-bag-limits/recreational-size-and-bag-limits" target="_blank" rel="noopener nofollow">NCDMF</a></span></li><li><span class="place">Prime · Spot and Atlantic croaker</span> &mdash; Prime for the bottom rigs. The NCDMF table reads spot and Atlantic croaker at no minimum size and 50 per person per day each; the croaker commercial closure proclaimed Oct. 30, FF-49-2026, effective Dec. 16, does not change the recreational line. NCDMF&#x27;s recreational size and bag limits table, which states it is effective Nov. 1, 2026, read this morning at 5:47 a.m.; the fisheries management proclamations list, read at the same time, showed no finfish proclamation issued since Oct. 30. A Coastal Recreational Fishing License is required.<span class="src"><a href="https://www.deq.nc.gov/about/divisions/marine-fisheries/rules-proclamations-and-size-and-bag-limits/recreational-size-and-bag-limits" target="_blank" rel="noopener nofollow">NCDMF</a></span></li></ul>
+    </div></div>
+</section>
+
+  <section class="sec sec-wire">
+  <div class="section-label">On the Water</div>
+  <div class="two-col-briefs"><div class="wv-block sm-water">
+      <p class="wv-block-label">West Virginia</p>
+      <ul class="roundup"><li><span class="place">Williams River</span> &mdash; 42.0 cfs, 1.23 feet at 5:15 a.m., falling on flow against 45.3 cfs and steady on stage against 1.26 feet in the fetcher&#x27;s comparison. 42 cfs - prime wading water. Against Wednesday&#x27;s edition reading of 43.1 cfs and 1.24 feet at 5:15 a.m. the gauge is down 1.1 cfs and 0.01 feet on the day, one more step of the recession: the USGS record held 43.1 from 5 a.m. Wednesday to 9:30, traded 42.0 and 43.1 through the daylight hours, settled at 42.0 from 6:15 p.m., touched 40.9 twice overnight, at 1:30 and 2 a.m., and has read 42.0 since 3:30 a.m.; the stage went 1.24, 1.23, 1.22, 1.23 on the same steps. The fetcher&#x27;s 24-hour comparison figures, 45.3 and 1.26, are Tuesday morning&#x27;s values, a 48-hour window, so the day&#x27;s true change is the 1.1 cfs above. At 42.0 the Williams is at the lowest reading of the fall for a fifth straight morning, under Wednesday&#x27;s 43.1, Tuesday&#x27;s 45.3, Monday&#x27;s 48.8 and Sunday&#x27;s 52.4, on a slide this paper has recorded from 1,360 cfs on Oct. 15 through 653 on Oct. 17, 141 on Oct. 24 and 70.7 on Oct. 31. The read string is the fetcher&#x27;s own verdict, 42 cfs, prime wading water; the fetcher reports no water temperature for the Williams and wrote no warm-water line, so none is printed. At 42 cfs the river is a long-leader, small-fly problem, not a seam problem: the config records the Williams as a freestone trout stream of pocket water, plunge pools and undercut banks, with caddis, stoneflies and sculpin as the forage, and at this flow, the thinnest of the fall, the fish are in the plunge pools and under the cut banks, not in the pockets, which are too thin to hold them. Nine-foot or longer leaders to 6X, a size 18 to 20 caddis pupa or a small black stonefly nymph under a yarn indicator through the heads of the plunge pools and the slots between the rocks, and a size 18 to 20 dry caddis on the slow tails in the afternoon if anything is coming off; a sculpin pattern or a small olive woolly bugger swung and stripped slowly along the undercuts at first light and last light for the bigger fish, which is the one tactic that works at low water when the small flies do not. Wading is easy at 42 cfs, which is the fetcher&#x27;s point, and the fish can see every step; the approach is from below and from the bank where the bank allows. No stocking line: WVDNR&#x27;s trout-stocking page returned a bodiless 301 to a Bear Rock Lakes WMA notice again this morning, so nothing about fall stocking is printed.<span class="src">USGS 03186500 (Williams River at Dyer); config.SPORTSMAN_WATERS</span></li><li><span class="place">Ohio River at Point Pleasant</span> &mdash; 24.99 feet at 5 a.m., steady against 25.23 in the fetcher&#x27;s comparison. 25.0 ft — normal pool. Ordinary bank access. Against Wednesday&#x27;s edition reading of 25.02 at 5 a.m. the pool is down 0.03 on the day, and the day was the same round trip as Monday&#x27;s and Tuesday&#x27;s: the trace fell from 25.02 at 5 a.m. Wednesday through 24.90 at 7:30, 24.81 at 9, 24.72 at 11:30 and 24.68 at 12:45 p.m. to a low of 24.65 at 1:30 p.m., held between 24.66 and 24.76 through the afternoon with a single 24.90 reading at 5:15, then turned up through 24.80 at 6:45, 24.85 at 9:45, 24.90 at 11:30, 24.94 at 1 a.m. Thursday and 25.00 at 3:30 to 25.02 at 3:45, and read 24.99 at 5 a.m. Three days running the pool has drained a third of a foot through the daylight hours and refilled overnight, with the Williams falling all day and neither trace saying rain; whether that is the dam&#x27;s holding pattern or water from upstream the gauge does not say and this paper does not guess. The read string is the fetcher&#x27;s band verdict, 25.0 feet, normal pool, ordinary bank access, and at 25.0 the gauge is two feet under the up-and-pushing line at 27. A normal pool that has not moved a tenth in three mornings fishes structure, which is the config&#x27;s note for this reach: wing dams, riprap, the lock wall and barge cuts, with shad, skipjack and crawfish as the forage. A white or shad-pattern swimbait on a half-ounce head or a three-eighths-ounce white spinnerbait slow-rolled down the downstream face of the wing dams for hybrids and sauger, which hold where the current breaks around the dams at normal pool; a jig and minnow or a three-inch curly tail on a quarter-ounce head bounced down the riprap for sauger, and a crawfish-pattern jig crawled along the rock for the smallmouth that use the same riprap; cut shad or skipjack on a slip-sinker rig on the flats below the creek mouths and along the edges of the barge cuts for channel and flathead cats. Access at ordinary bank level at the Point Pleasant riverfront.<span class="src">USGS 03201500 (Ohio River at Point Pleasant); config.SPORTSMAN_WATERS</span></li><li><span class="place">Ohio River at Huntington</span> &mdash; 25.9 feet at 5 a.m., falling against 26.28 in the fetcher&#x27;s comparison. 25.9 ft and falling — normal pool. Ordinary bank access. Against Wednesday&#x27;s edition reading of 26.03 at 5 a.m. the gauge is down 0.13 on the day, with the afternoon dip arriving later than it did Monday and Tuesday: the trace climbed from 26.03 at 5 a.m. Wednesday through 26.16 at 6:45 and 26.22 at 9:45 to a top of 26.26 at noon, held between 26.11 and 26.25 through the afternoon, fell from 26.13 at 5 p.m. through 26.04 at 5:45, 26.00 at 8:15 and 25.91 at 8:45 to the 25.9s overnight, touched 25.71 for a single reading at 1:30 a.m. Thursday, recovered to 26.04 at 2:30, and has read between 25.90 and 25.98 since 3 a.m., 25.90 at 5. The Greenup discharge record at Ironton, which this paper has used to explain the Huntington swings, was not read this morning; the shape of the trace, a half-foot swing inside the day with no rain in the basin, is the same lock-and-dam breathing the paper has recorded all week. The read string is the fetcher&#x27;s band verdict, 25.9 feet and falling, normal pool, ordinary bank access. This is the gauge below the dam, not the tailwater: USGS does not gauge the Ohio at Byrd, and the Corps&#x27; tailwater page serves a certificate this pipeline will not accept, so the paper prints the two gauges that bracket the dam and says which is which. At 25.9 and falling by a tenth, the Huntington reach fishes the same structure as the pool above, the config&#x27;s wing dams, riprap, lock wall and barge cuts, with shad, skipjack and crawfish the forage: a white swimbait or a blade bait vertically jigged in the eddies off the lock wall and in the current seams below the dam for sauger and hybrids, a jig and minnow along the riprap, and a crawfish-pattern jig on the rock for smallmouth; cut shad or skipjack on the bottom at the creek mouths and barge cuts for channel and flathead cats. Access at ordinary bank level.<span class="src">USGS 03206000 (Ohio River at Huntington); config.SPORTSMAN_WATERS</span></li></ul>
+    </div><div class="wv-block sm-water">
+      <p class="wv-block-label">North Carolina</p>
+      <ul class="roundup"><li><span class="place">Topsail Sound</span> &mdash; Sound at Hampstead: low 3:39 AM at 0.5 ft, high 9:56 AM at 4.0 ft, low 4:28 PM at 0.8 ft, high 10:10 PM at 3.0 ft. Surf at Ocean City Beach pier: low 2:14 AM at 0.6 ft, high 8:54 AM at 5.1 ft, low 3:26 PM at 0.7 ft, high 9:12 PM at 3.5 ft. Water 66.2F at Beaufort, 60 miles up the coast, observed 5:30 a.m. Moon waxing crescent, 7% illuminated, 2.5 days old. Fish the moving water either side of high at 9:56 AM and 10:10 PM in the sound. All four of the sound&#x27;s events land inside the calendar day, the 3:39 a.m. low behind us at press time, and so do the surf&#x27;s, the 2:14 a.m. low at Ocean City Beach pier having come an hour and 25 minutes ahead of the sound&#x27;s; the sound lags the surf 62 minutes on the morning high, 62 on the afternoon low and 58 on the evening high, a flatter lag pattern than Wednesday&#x27;s. The whole table is 37 to 43 minutes later than Wednesday&#x27;s, and the ranges keep coming off the top of the cycle: a 3.5-foot fill overnight from 0.5 to this morning&#x27;s 4.0, a tenth under Wednesday&#x27;s 4.1, a 3.2-foot drain to 4:28 p.m., a 2.2-foot fill to the 10:10 p.m. high, which at 3.0 feet is the lowest evening high of the week. The moon is a waxing crescent at 7 percent, two and a half days past the new moon, so the spring tides are easing toward the first quarter: the ebb through the inlet is still strong but the extremes are softening by a tenth a day, which is a fishing fact, not decoration. NWS Wilmington has a Small Craft Advisory for the coastal waters from Surf City to Cape Fear out 20 nautical miles from 10 a.m. Thursday to 1 a.m. Friday, west winds 15 to 25 knots gusting to 30, issued at 1:03 a.m.; a west wind is an offshore wind at Topsail, blowing off the land across the sound toward the beach. No beach hazards or rip current statement is in effect for the Topsail zone this morning. The Fisherman&#x27;s Post Topsail and Sneads Ferry report for November, published Nov. 1 and 11 days old this morning, read via WebFetch because the site blocks curl, is a monthly report and is not today&#x27;s conditions: East Coast Sports has the wind producing 32-inch-plus red drum from the piers on the north end, king mackerel in double digits a day off the piers before the blow, smaller reds and the odd speckled trout in the sound with trout expected to take over as it cools; Native Son has the cooling water pushing trout to the 5- to 8-foot seams of the main creeks, reds scattered inside on cut bait, Spanish to 4 pounds in October and false albacore due; Speckled Specialist has plenty of smaller trout with some to 28 inches on live shrimp under a floating cork in 4 to 16 feet, most in 4 to 8, 3/16-ounce jig heads with a Slick Jr. for artificials, and black drum and small reds on the same shrimp over structure; Carolina Flats has topwater early to locate trout then the deeper holes, and reds on oyster and grass banks on Gulp soft plastics; Jolly Roger Pier has scattered speckled trout, Virginia mullet and spot on the bottom at night and thick bluefish early; Surf City Pier has pompano, black drum and croaker on the bottom, casting shots at Spanish and bluefish, and kings that may not be finished. On today&#x27;s table the trout bite is the moving water of the morning flood into the 9:56 a.m. high, topwater at first light and then live shrimp under a cork over the oyster bars and in the 4- to 8-foot holes of the creek channels on the first of the ebb; with the water at Beaufort holding at 66.2F the trout stay in the deeper holes through the afternoon low. Red drum want the last of the fall, which on this table is roughly 1:45 to the 4:28 p.m. low, cut menhaden or a finger mullet on a quarter-ounce head a couple of feet off the creek-channel edges as the grass drains; the 10:10 p.m. high is the softest of the week at 3.0 feet, so the flooded-grass window for a weedless gold spoon is shorter tonight, and the ebb that follows runs under the dock lights toward Friday&#x27;s pre-dawn low, the report&#x27;s small plastics or a suspending twitchbait where the shrimp and finger mullet stack. Spot and sea mullet on bloodworm or shrimp on a two-hook bottom rig in the ICWW channel an hour either side of the evening high. Bluefish are the early-morning fish on the beach behind the bait pods on a metal jig or topwater, per both piers. Flounder are release only.<span class="src">NOAA CO-OPS 8657813 (sound), 8657419 (surf), 8656483 (Beaufort); Fisherman&#x27;s Post, Topsail/Sneads Ferry November 2026, published Nov. 1; NWS Wilmington; NCDMF</span></li></ul>
+    </div><table class="tide-table"><caption>Topsail tides — the full day</caption><tr><th>Water</th><th>Low</th><th>High</th><th>Low</th><th>High</th></tr><tr><td>Sound (where you fish)</td><td>3:39 AM<br>0.5 ft</td><td>9:56 AM<br>4.0 ft</td><td>4:28 PM<br>0.8 ft</td><td>10:10 PM<br>3.0 ft</td></tr><tr><td>Ocean (surf)</td><td>2:14 AM<br>0.6 ft</td><td>8:54 AM<br>5.1 ft</td><td>3:26 PM<br>0.7 ft</td><td>9:12 PM<br>3.5 ft</td></tr></table></div>
+</section>
+  </div>
+
+  <div class="kicker">Hoshoryu has given up a kinboshi (gold star) three days running at the Kyushu basho (tournament); West Virginia&#x27;s fall turkey, dove and duck seasons close Sunday, Nov. 15.</div>
+
+  <div class="footer-note">Compiled from box scores, standings pages, agency publications and gauge records</div>
+
+  <nav class="paper-nav paper-nav-foot" aria-label="Sections, repeated"><a href="../home.html">Home</a><a href="../today.html">The News Desk</a><a href="../weather/">The Weather Claude</a></nav>
+
+</div>
+</body>
+</html>
