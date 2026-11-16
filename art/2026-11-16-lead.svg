@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 506" role="img"
+     aria-label="Sketch: a Vulcan rocket climbing just clear of its Cape Canaveral pad, seen from the air, between four tall lightning masts, with the exhaust plume rolling off to the right, a ring road around the pad, flat scrub beyond and the Atlantic on the horizon.">
+  <defs>
+    <style>
+      .ink   { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; }
+      .mask  { fill: var(--parchment, #f4f0e6); stroke: currentColor;
+               stroke-linecap: round; stroke-linejoin: round; }
+      .faint { opacity: 0.3; }
+      .mid   { opacity: 0.58; }
+    </style>
+  </defs>
+
+  <g>
+    <!-- Horizon: the sea, then the treeline below it. -->
+    <path class="ink mid" d="M0 262 L900 262" stroke-width="1.2"/>
+    <g class="ink faint" stroke-width="0.8">
+      <path d="M40 272 H300 M330 274 H520 M560 272 H760 M60 282 H180 M700 282 H880 M250 286 H420"/>
+    </g>
+    <path class="ink" d="M0 300 C40 294 70 302 110 296 C150 290 190 300 230 294 C270 288 300 298 340 292
+                          C380 286 420 296 450 292 C470 290 490 296 520 300 C560 306 600 296 640 300
+                          C690 306 740 298 790 302 C840 306 870 300 900 298" stroke-width="1.6"/>
+    <g class="ink faint" stroke-width="0.9">
+      <path d="M20 304 C26 298 32 300 36 306 M72 306 C78 300 84 302 88 308 M140 302 C146 296 152 298 156 304
+               M196 304 C202 298 208 300 212 306 M300 300 C306 294 312 296 316 302 M390 298 C396 292 402 294 406 300
+               M700 306 C706 300 712 302 716 308 M840 306 C846 300 852 302 856 308"/>
+    </g>
+
+    <!-- The pad complex: a ring road on a low rise, drawn as an ellipse in perspective. -->
+    <path class="ink" d="M150 440 C150 388 300 356 470 358 C640 360 770 392 770 436 C770 470 650 492 480 492
+                          C300 492 150 476 150 440 Z" stroke-width="1.8"/>
+    <path class="ink mid" d="M170 440 C170 396 310 368 470 370 C630 372 750 398 750 436 C750 464 640 480 480 480
+                              C310 480 170 470 170 440 Z" stroke-width="1"/>
+    <!-- Access road running down toward the viewer. -->
+    <path class="ink" d="M600 486 L612 506 M560 488 L554 506" stroke-width="1.6"/>
+    <path class="ink faint" d="M582 487 L583 506" stroke-width="0.8"/>
+    <path class="ink mid" d="M380 480 L392 506 M330 476 L318 506" stroke-width="1.2"/>
+
+    <!-- Low pad buildings and the flame trench, boxy and small. -->
+    <g class="ink" stroke-width="1.4">
+      <path d="M240 418 H300 V398 H240 Z M246 398 L252 390 H306 L300 398"/>
+      <path d="M190 468 H240 V452 H190 Z"/>
+      <path d="M330 440 H352 V424 H330 Z M352 424 L358 420 V436 L352 440"/>
+      <path d="M540 456 H596 V442 H540 Z"/>
+      <path d="M470 436 H520 V420 H470 Z"/>
+      <path d="M416 374 H440 V362 H416 Z"/>
+      <path d="M650 430 H690 V418 H650 Z"/>
+    </g>
+    <g class="ink faint" stroke-width="0.9">
+      <path d="M330 468 L400 468 M300 452 L360 452 M420 446 L470 446"/>
+      <path d="M230 418 C250 436 290 440 330 446 M520 430 C560 444 600 452 640 452"/>
+    </g>
+    <!-- The flare stack's small flame at left of the pad. -->
+    <path class="ink mid" d="M386 406 V380 M383 380 C382 372 386 366 388 362 C390 366 394 372 392 380 Z" stroke-width="1.1"/>
+
+    <!-- Four lightning masts: tall tapering lattice towers, two near, two far. -->
+    <g class="ink" stroke-width="1.6">
+      <path d="M470 428 L482 230 M498 428 L486 230 M484 230 V176"/>
+      <path d="M668 436 L684 236 M700 436 L686 236 M685 236 V182"/>
+      <path d="M510 388 L518 244 M530 388 L520 244 M519 244 V194"/>
+      <path d="M706 388 L714 246 M726 388 L716 246 M715 246 V198"/>
+    </g>
+    <g class="ink faint" stroke-width="0.7">
+      <path d="M472 400 L496 400 M474 372 L494 372 M476 344 L492 344 M478 316 L490 316 M479 288 L489 288 M481 260 L487 260"/>
+      <path d="M671 408 L697 408 M673 380 L695 380 M675 352 L693 352 M677 324 L691 324 M679 296 L689 296 M681 268 L687 268"/>
+      <path d="M512 366 L528 366 M513 338 L527 338 M514 310 L526 310 M515 282 L525 282"/>
+      <path d="M708 366 L724 366 M709 338 L723 338 M710 310 L722 310 M711 282 L721 282"/>
+      <path d="M472 400 L494 372 M474 372 L492 344 M671 408 L695 380 M673 380 L693 352"/>
+    </g>
+    <!-- Guy wires from the mast tops out to the ring. -->
+    <g class="ink faint" stroke-width="0.6">
+      <path d="M484 176 L300 430 M484 176 L560 450 M685 182 L560 452 M685 182 L820 440"/>
+    </g>
+
+    <!-- The umbilical tower, behind the rocket, a slimmer latticed box. -->
+    <path class="ink" d="M566 400 V300 M576 400 V300 M566 300 H576" stroke-width="1.3"/>
+    <g class="ink faint" stroke-width="0.7">
+      <path d="M566 384 H576 M566 368 H576 M566 352 H576 M566 336 H576 M566 320 H576"/>
+    </g>
+
+    <!-- The plume: a bright mass at the base rolling off to the right as billowing contours. -->
+    <path class="mask" d="M530 420 C520 400 540 384 560 388 C566 372 590 370 600 384 C620 372 650 380 656 396
+                          C690 386 720 404 716 426 C740 420 770 434 764 456 C800 450 850 466 846 490
+                          C880 486 900 494 900 506 H520 C500 496 496 470 512 458 C500 442 510 424 530 420 Z" stroke-width="2"/>
+    <g class="ink mid" stroke-width="1">
+      <path d="M548 430 C560 416 584 418 592 432 M606 418 C622 408 646 414 650 428 M660 442 C676 428 704 434 708 450
+               M722 460 C740 448 768 456 772 472 M790 480 C804 470 830 476 836 490 M560 460 C574 448 600 452 606 466
+               M630 476 C644 464 672 468 678 484 M700 490 C716 480 744 486 748 500"/>
+    </g>
+    <g class="ink faint" stroke-width="0.8">
+      <path d="M540 448 C546 440 556 440 560 446 M616 450 C626 442 640 444 644 452 M686 466 C696 458 712 460 716 468
+               M756 480 C766 472 782 474 786 482 M820 500 C826 494 836 494 840 500 M590 486 C598 480 610 482 614 488"/>
+    </g>
+    <!-- Dust skirting the ground to the right of the ring. -->
+    <path class="ink faint" d="M770 448 C800 440 840 446 880 456 M800 470 C830 466 860 472 900 480" stroke-width="0.9"/>
+
+    <!-- The rocket itself: a slender white cylinder, nose fairing, two side boosters, just above the pad. -->
+    <path class="mask" d="M592 212 C592 200 597 190 601 184 C605 190 610 200 610 212 V352 H592 Z" stroke-width="1.8"/>
+    <path class="ink" d="M592 232 H610 M592 300 H610 M592 322 H610" stroke-width="0.9"/>
+    <path class="mask" d="M584 282 C584 276 586 270 588 266 C590 270 592 276 592 282 V352 H584 Z" stroke-width="1.3"/>
+    <path class="mask" d="M610 282 C610 276 612 270 614 266 C616 270 618 276 618 282 V352 H610 Z" stroke-width="1.3"/>
+    <!-- Flame: a tight bright core under the rocket, drawn as a few tapering lines. -->
+    <path class="ink" d="M590 356 C592 366 594 376 598 384 M612 356 C610 366 608 376 604 384 M601 354 V382" stroke-width="1.2"/>
+    <g class="ink mid" stroke-width="0.9">
+      <path d="M586 358 C586 368 588 378 592 388 M616 358 C616 368 614 378 610 388"/>
+    </g>
+  </g>
+</svg>
