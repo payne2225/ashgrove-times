@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-label="A long, low bridge of concrete piers crosses a flat grey strait beneath a single tall steel arch; to the left of the arch a stretch of road deck is missing between the piers, and broken sections lie in the water below.">
+  <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+    <!-- horizon and water -->
+    <path d="M0 560 H1200" stroke-width="1.5" opacity="0.6"/>
+    <path d="M20 640 h160 M240 650 h110 M420 665 h190 M680 645 h140 M880 660 h210 M60 700 h220 M360 715 h150 M600 705 h260 M960 720 h200 M120 745 h300 M520 740 h180 M820 750 h300" stroke-width="1.2" opacity="0.45"/>
+    <!-- far shore haze -->
+    <path d="M0 540 q300 -6 600 0 t600 0" stroke-width="1" opacity="0.3"/>
+    <!-- deck, right of the arch (intact) -->
+    <path d="M640 456 H1200" stroke-width="5"/>
+    <path d="M640 470 H1200" stroke-width="2.5"/>
+    <path d="M640 448 H1200" stroke-width="1.2" opacity="0.7"/>
+    <!-- deck, left of the arch: intact to the gap, then broken -->
+    <path d="M0 452 H160" stroke-width="5"/>
+    <path d="M0 466 H160" stroke-width="2.5"/>
+    <path d="M0 444 H160" stroke-width="1.2" opacity="0.7"/>
+    <path d="M160 452 l12 4 l-6 8 l10 6" stroke-width="3"/>
+    <!-- deck resumes at the arch approach -->
+    <path d="M300 454 H640" stroke-width="5"/>
+    <path d="M300 468 H640" stroke-width="2.5"/>
+    <path d="M300 446 H640" stroke-width="1.2" opacity="0.7"/>
+    <path d="M300 454 l-10 6 l6 8 l-12 4" stroke-width="3"/>
+    <!-- piers -->
+    <g stroke-width="3">
+      <path d="M40 470 v100 M70 470 v100 M40 570 h30"/>
+      <path d="M118 470 v102 M148 470 v102 M118 572 h30"/>
+      <path d="M200 476 v96 M232 476 v96 M200 572 h32"/>
+      <path d="M268 476 v98 M298 476 v98 M268 574 h30"/>
+      <path d="M352 470 v110 M392 470 v110 M352 580 h40"/>
+      <path d="M636 472 v110 M676 472 v110 M636 582 h40"/>
+      <path d="M740 472 v104 M768 472 v104 M740 576 h28"/>
+      <path d="M836 472 v104 M864 472 v104 M836 576 h28"/>
+      <path d="M940 472 v104 M968 472 v104 M940 576 h28"/>
+      <path d="M1040 472 v104 M1068 472 v104 M1040 576 h28"/>
+      <path d="M1130 472 v104 M1158 472 v104 M1130 576 h28"/>
+    </g>
+    <!-- pier caps -->
+    <path d="M30 470 h50 M108 470 h50 M190 476 h52 M258 476 h50 M340 470 h64 M624 472 h64 M730 472 h48 M826 472 h48 M930 472 h48 M1030 472 h48 M1120 472 h48" stroke-width="4"/>
+    <!-- the arch -->
+    <path d="M360 452 C 390 330, 470 280, 530 280 C 600 280, 690 330, 730 452" stroke-width="5"/>
+    <path d="M372 452 C 400 345, 472 298, 530 298 C 596 298, 684 345, 718 452" stroke-width="2"/>
+    <!-- hangers -->
+    <path d="M400 452 V372 M430 452 V332 M460 452 V306 M490 452 V290 M520 452 V282 M550 452 V282 M580 452 V292 M610 452 V312 M640 452 V342 M670 452 V384 M700 452 V420" stroke-width="1.4"/>
+    <!-- lateral bracing hinted on the arch -->
+    <path d="M412 360 l30 -30 M442 330 l30 -20 M472 310 l30 -12 M502 298 l28 -6 M560 292 l28 8 M588 300 l30 14 M618 314 l30 24 M648 338 l26 30" stroke-width="1" opacity="0.6"/>
+    <!-- fallen deck sections in the water under the gap -->
+    <path d="M150 600 l70 -18 l60 10 l-10 14 l-60 6 z" stroke-width="2.5"/>
+    <path d="M214 582 l40 -22 l20 12 l-30 18 z" stroke-width="2"/>
+    <path d="M95 612 l40 -6 l10 10 l-46 4 z" stroke-width="2"/>
+    <path d="M300 606 l50 -8 l30 6 l-8 8 l-70 2 z" stroke-width="2"/>
+    <path d="M170 582 l12 -22 M196 578 l6 -20" stroke-width="1.5"/>
+    <!-- debris along the base, right of the gap -->
+    <path d="M420 612 l40 -4 l50 2 l-4 10 l-86 2 z M560 616 l36 -6 l40 4 l-6 10 l-70 1 z" stroke-width="1.5" opacity="0.7"/>
+    <!-- railings on the intact deck -->
+    <path d="M0 438 H160 M300 440 H640 M640 442 H1200" stroke-width="0.8" opacity="0.6"/>
+    <!-- channel marker -->
+    <path d="M1010 700 v40 M1004 710 h12" stroke-width="2"/>
+  </g>
+</svg>
