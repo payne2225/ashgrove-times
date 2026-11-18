@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" role="img" aria-label="Sketch: the Voyager 1 spacecraft in deep space, its high-gain dish seen nearly face-on at right of center, a long open-truss boom reaching far to the left, two thin antenna whiskers angling away above and below the dish, and the instrument cluster trailing off the dish's rim, against a scatter of faint stars.">
+  <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+    <!-- faint star field: short ticks and dots, no two alike -->
+    <g stroke-width="1.6" opacity="0.35">
+      <path d="M90 70 h2 M210 140 h2 M330 60 h2 M470 180 h2 M560 90 h2 M700 150 h2 M840 50 h2 M960 120 h2 M1090 80 h2 M1140 220 h2 M60 300 h2 M150 420 h2 M240 560 h2 M380 610 h2 M520 540 h2 M640 620 h2 M790 580 h2 M900 500 h2 M1010 610 h2 M1120 440 h2 M430 330 h2 M300 250 h2 M1030 340 h2 M880 640 h2 M700 40 h2"/>
+    </g>
+    <g stroke-width="2.6" opacity="0.5">
+      <path d="M180 220 h1 M620 130 h1 M1060 170 h1 M260 480 h1 M760 610 h1 M980 420 h1"/>
+    </g>
+
+    <!-- the long open-truss boom, left, tapering slightly toward the far end -->
+    <path d="M120 330 L610 326" stroke-width="2.2"/>
+    <path d="M120 346 L610 348" stroke-width="2.2"/>
+    <path d="M120 330 V346 M610 326 V348" stroke-width="2"/>
+    <!-- truss diagonals, spaced wider toward the far end -->
+    <path d="M140 330 l22 16 M162 330 l22 16 M184 330 l22 16 M206 330 l23 16 M229 330 l23 16 M252 330 l23 16 M275 330 l23 16 M298 330 l24 17 M322 330 l24 17 M346 330 l24 17 M370 329 l24 18 M394 329 l24 18 M418 329 l24 18 M442 328 l25 19 M467 328 l25 19 M492 328 l25 19 M517 327 l25 20 M542 327 l25 20 M567 327 l25 20" stroke-width="1.1" opacity="0.75"/>
+    <!-- a magnetometer canister partway along the boom -->
+    <path d="M560 316 h18 v10 h-18 z" stroke-width="1.6"/>
+    <!-- the far-end cap -->
+    <path d="M114 328 v20" stroke-width="3"/>
+
+    <!-- the boom's root: a short heavier collar, then a lattice tower to the dish -->
+    <path d="M610 318 h14 v40 h-14" stroke-width="2.4"/>
+    <path d="M624 320 L700 310 M624 356 L700 366" stroke-width="2.2"/>
+    <path d="M636 322 l18 30 M654 322 l18 30 M672 320 l18 32 M636 354 l18 -30 M654 354 l18 -30 M672 356 l18 -32" stroke-width="1.1" opacity="0.75"/>
+    <path d="M700 300 V376" stroke-width="2.2"/>
+
+    <!-- the high-gain dish, seen nearly face-on: a near-circle with a slight lean -->
+    <path d="M712 338 a150 148 0 1 0 300 0 a150 148 0 1 0 -300 0" stroke-width="3.2"/>
+    <!-- inner rim, the dish's depth read as a tighter arc on the near side -->
+    <path d="M730 338 a132 130 0 0 1 264 0" stroke-width="1.2" opacity="0.6"/>
+    <!-- the gores: faint radial seams toward the center -->
+    <path d="M862 338 L862 192 M862 338 L1002 290 M862 338 L1002 386 M862 338 L862 484 M862 338 L722 386 M862 338 L722 290" stroke-width="1.1" opacity="0.5"/>
+    <!-- the subreflector at the center, with its three thin struts -->
+    <path d="M848 338 a14 14 0 1 0 28 0 a14 14 0 1 0 -28 0" stroke-width="2.2"/>
+    <path d="M862 324 L852 236 M850 346 L772 392 M874 346 L952 392" stroke-width="1" opacity="0.55"/>
+    <!-- the feed horn's shadow on the dish, a small darker patch low right -->
+    <path d="M905 395 q8 -4 14 4" stroke-width="1.4" opacity="0.5"/>
+
+    <!-- two thin whisker antennas, angling away from behind the dish -->
+    <path d="M748 262 L652 158" stroke-width="1.6"/>
+    <path d="M748 414 L652 518" stroke-width="1.6"/>
+
+    <!-- the instrument cluster trailing off the dish's right rim: bus, then a scan platform -->
+    <path d="M1012 326 h36 v24 h-36" stroke-width="2"/>
+    <path d="M1048 320 h24 v36 h-24 z" stroke-width="2.2"/>
+    <path d="M1072 330 h18 v16 h-18" stroke-width="1.8"/>
+    <path d="M1090 322 h16 v32 h-16 z" stroke-width="2"/>
+    <path d="M1106 334 h12" stroke-width="2.4"/>
+    <!-- small fittings on the bus -->
+    <path d="M1054 312 v8 M1066 312 v8 M1056 362 h12" stroke-width="1.4" opacity="0.7"/>
+
+    <!-- the sun's glint low on the dish rim: a few short rays -->
+    <path d="M992 418 l10 10 M1004 410 l12 6 M986 428 l6 12" stroke-width="1.2" opacity="0.6"/>
+  </g>
+</svg>
