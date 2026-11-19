@@ -1,0 +1,125 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 660" role="img"
+     aria-label="Sketch: a wide meeting hall in Shenzhen. Three leaders sit far apart at a great round table with a mound of flowers at its center, beneath three flags and a wall-sized painting of misted mountains and pines.">
+  <defs>
+    <style>
+      .ink   { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; }
+      .mask  { fill: var(--parchment, #f4f0e6); stroke: currentColor;
+               stroke-linecap: round; stroke-linejoin: round; }
+      .faint { opacity: 0.3; }
+      .mid   { opacity: 0.58; }
+    </style>
+  </defs>
+
+  <g>
+    <!-- Cornice and the wall panels either side of the painting. -->
+    <path class="ink faint" d="M0 14 H1200" stroke-width="1.2"/>
+    <g class="ink faint" stroke-width="1">
+      <path d="M150 14 V398 M162 14 V398 M1038 14 V398 M1050 14 V398"/>
+      <path d="M0 348 H150 M162 348 H236 M1050 348 H1200 M964 348 H1038"/>
+    </g>
+    <!-- Wall sconces, a tall strip of light on each side. -->
+    <g class="ink mid" stroke-width="1.4">
+      <path d="M56 58 H78 V176 H56 Z M60 92 H74 M60 124 H74 M60 156 H74"/>
+      <path d="M1122 58 H1144 V176 H1122 Z M1126 92 H1140 M1126 124 H1140 M1126 156 H1140"/>
+    </g>
+    <!-- Baseboard where the wall meets the carpet. -->
+    <path class="ink mid" d="M0 398 H1200" stroke-width="1.6"/>
+
+    <!-- The painting: a framed landscape as wide as the room. -->
+    <path class="mask" d="M236 22 H1060 V334 H236 Z" stroke-width="2.4"/>
+    <path class="ink faint" d="M252 36 H1044 V320 H252 Z" stroke-width="1"/>
+    <g class="ink faint" stroke-width="1">
+      <!-- Far ridges fade into mist; they overlap, which is the depth. -->
+      <path d="M252 150 C340 112 420 72 520 92 C600 106 660 62 740 72 C820 82 880 122 960 102 C1000 92 1030 110 1044 120"/>
+      <path d="M300 120 c12 6 20 16 24 28 M560 84 c14 8 22 18 26 30 M770 78 c12 8 20 18 24 30 M900 108 c12 6 18 14 22 24"/>
+      <path d="M268 182 C330 176 380 184 430 178 M700 118 C760 112 800 120 850 116 M930 150 C980 146 1010 152 1040 148"/>
+    </g>
+    <g class="ink mid" stroke-width="1.3">
+      <path d="M252 212 C330 172 400 192 470 162 C540 132 600 172 680 152 C760 132 820 182 900 172 C960 164 1010 192 1044 182"/>
+      <path d="M420 176 c10 12 16 24 18 40 M520 150 c10 12 16 26 18 42 M640 158 c8 10 14 22 16 36 M840 176 c8 12 12 24 14 38"/>
+      <!-- A walled path steps along the right-hand ridge. -->
+      <path d="M690 154 l12 -3 v6 l12 -3 v6 l12 -3 v6 l12 -2 v6 l12 -2 v6 l12 -1 v6 l14 2 v6 l12 2 v6 l12 4 M690 160 C740 152 800 160 850 184"/>
+    </g>
+    <g class="ink" stroke-width="1.6">
+      <path d="M252 272 C340 252 420 232 500 252 C580 272 650 242 720 262 C800 282 870 242 950 262 C1000 274 1030 264 1044 272"/>
+      <!-- Pines on the near slope: trunks, then flat tufts of needle. -->
+      <path d="M352 318 C354 290 350 262 356 236 M356 236 c-18 -2 -32 6 -44 14 M358 250 c14 -6 30 -6 44 0 M352 266 c-16 -2 -30 4 -42 12 M354 282 c14 -4 30 -2 44 4"/>
+      <path d="M396 318 C396 296 392 272 398 252 M398 252 c-14 -2 -26 4 -36 12 M400 266 c12 -4 26 -4 38 2 M396 284 c-12 0 -24 4 -34 10"/>
+      <path d="M312 318 C310 302 314 286 310 272 M310 272 c-10 -2 -20 2 -28 8 M312 288 c10 -2 20 -2 30 2"/>
+      <path d="M898 316 C900 292 896 270 902 250 M902 250 c-14 0 -26 6 -36 14 M904 266 c12 -4 26 -4 38 2 M900 284 c-14 0 -26 4 -36 12"/>
+      <path d="M936 316 C936 298 932 282 938 268 M938 268 c-10 0 -20 4 -28 10 M940 284 c10 -2 20 0 30 4"/>
+    </g>
+    <g class="ink faint" stroke-width="1">
+      <path d="M470 300 C520 292 580 296 630 290 M700 304 C760 296 820 300 870 294 M268 306 C300 300 330 304 360 300"/>
+    </g>
+
+    <!-- Three flags on standards before the painting. Each hangs in a different fold. -->
+    <g class="ink" stroke-width="1.6">
+      <path d="M548 118 V430 M600 112 V430 M652 108 V430"/>
+      <path d="M548 118 m-5 0 a5 5 0 1 0 10 0 a5 5 0 1 0 -10 0 M600 112 m-5 0 a5 5 0 1 0 10 0 a5 5 0 1 0 -10 0 M652 108 m-5 0 a5 5 0 1 0 10 0 a5 5 0 1 0 -10 0"/>
+    </g>
+    <path class="mask" d="M548 126 C512 160 494 230 506 310 C514 360 506 395 516 418 L548 418 Z" stroke-width="1.8"/>
+    <g class="ink mid" stroke-width="1.1">
+      <path d="M508 222 C522 228 536 230 548 230 M506 318 C520 322 534 324 548 324"/>
+    </g>
+    <path class="mask" d="M600 120 C640 150 660 230 650 312 C642 370 654 405 644 430 L600 430 Z" stroke-width="1.8"/>
+    <path class="ink mid" d="M616 166 l4 -10 l4 10 l10 1 l-8 7 l3 10 l-9 -6 l-9 6 l3 -10 l-8 -7 Z" stroke-width="1"/>
+    <path class="mask" d="M652 116 C706 148 736 236 724 326 C716 386 732 424 718 440 L652 440 Z" stroke-width="1.8"/>
+    <g class="ink mid" stroke-width="1">
+      <path d="M700 212 C714 214 722 216 728 220 M698 248 C712 250 720 252 726 256 M696 284 C710 286 718 288 724 292 M694 320 C708 322 716 324 722 328 M690 356 C704 358 712 360 718 364 M686 392 C700 394 708 396 716 400"/>
+      <path d="M652 120 C682 138 698 164 704 196 M662 150 h3 M674 164 h3 M666 178 h3 M682 182 h3 M690 170 h3"/>
+    </g>
+
+    <!-- The host's chair and figure, centered, the table edge across the chest. -->
+    <path class="mask" d="M566 392 V330 C566 318 580 312 600 312 C620 312 634 318 634 330 V392 Z" stroke-width="1.6"/>
+    <path class="mask" d="M558 392 C560 372 574 358 592 352 L608 352 C626 358 640 372 642 392 Z" stroke-width="1.8"/>
+    <path class="mask" d="M600 306 m-16 0 a16 21 0 1 0 32 0 a16 21 0 1 0 -32 0" stroke-width="1.8"/>
+    <path class="ink faint" d="M600 352 V392" stroke-width="1"/>
+
+    <!-- Carpet lines, drawn before the table so it sits on them. -->
+    <g class="ink faint" stroke-width="1">
+      <path d="M0 660 L250 540 M1200 660 L950 540 M60 660 L300 560 M1140 660 L900 560"/>
+      <path d="M0 600 C200 592 400 596 600 604 C800 596 1000 592 1200 600 M0 636 C200 626 400 630 600 640 C800 630 1000 626 1200 636"/>
+      <path d="M120 430 C140 424 160 428 180 426 M1020 426 C1040 428 1060 424 1080 430 M240 560 C300 548 360 556 420 552 M780 552 C840 556 900 548 960 560"/>
+    </g>
+
+    <!-- THE TABLE. A round top seen low, so it reads as a wide ellipse; the
+         apron below it gives it weight, and the inner ring sinks toward
+         the flowers. -->
+    <path class="mask" d="M170 470 C170 548 362 582 600 582 C838 582 1030 548 1030 470 C1030 428 838 392 600 392 C362 392 170 428 170 470 Z" stroke-width="2.6"/>
+    <path class="mask" d="M170 470 C170 548 362 582 600 582 C838 582 1030 548 1030 470 V500 C1030 578 838 612 600 612 C362 612 170 578 170 500 Z" stroke-width="2.2"/>
+    <path class="ink mid" d="M300 470 C300 498 434 522 600 522 C766 522 900 498 900 470 C900 442 766 418 600 418 C434 418 300 442 300 470 Z" stroke-width="1.8"/>
+    <path class="ink faint" d="M350 470 C350 492 462 510 600 510 C738 510 850 492 850 470 C850 448 738 430 600 430 C462 430 350 448 350 470 Z" stroke-width="1.2"/>
+    <g class="ink faint" stroke-width="1">
+      <path d="M320 480 C322 490 340 500 360 506 M880 480 C878 490 860 500 840 506 M470 516 C520 520 560 522 600 522 M730 516 C680 520 640 522 600 522"/>
+    </g>
+
+    <!-- The mound of flowers at the center: one soft contour, then blooms as small loops that shrink toward the back. -->
+    <path class="mask" d="M512 476 C516 452 540 436 566 430 C584 418 616 418 634 430 C660 436 684 452 688 476 C660 486 540 486 512 476 Z" stroke-width="1.8"/>
+    <g class="ink mid" stroke-width="1.1">
+      <path d="M540 466 a7 7 0 1 0 0.1 0 M560 452 a6 6 0 1 0 0.1 0 M580 440 a5 5 0 1 0 0.1 0 M600 434 a5 5 0 1 0 0.1 0 M620 440 a5 5 0 1 0 0.1 0 M640 452 a6 6 0 1 0 0.1 0 M660 466 a7 7 0 1 0 0.1 0"/>
+      <path d="M556 474 a7 7 0 1 0 0.1 0 M578 460 a6 6 0 1 0 0.1 0 M600 452 a6 6 0 1 0 0.1 0 M622 460 a6 6 0 1 0 0.1 0 M644 474 a7 7 0 1 0 0.1 0 M530 478 a5 5 0 1 0 0.1 0 M670 478 a5 5 0 1 0 0.1 0"/>
+      <path d="M590 472 a6 6 0 1 0 0.1 0 M610 472 a6 6 0 1 0 0.1 0 M570 480 a5 5 0 1 0 0.1 0 M630 480 a5 5 0 1 0 0.1 0"/>
+    </g>
+
+    <!-- Microphones, glasses and a place card on the table. -->
+    <g class="ink" stroke-width="1.3">
+      <path d="M318 462 l14 -10 M332 452 l3 -2 M884 462 l-14 -10 M870 452 l-3 -2 M606 408 l6 -8 M612 400 l2 -2"/>
+      <path d="M290 466 h10 v12 h-10 Z M914 466 h10 v12 h-10 Z M576 402 h8 v10 h-8 Z"/>
+      <path d="M622 404 h30 v10 h-30 Z"/>
+    </g>
+
+    <!-- The two visiting leaders, far left and far right, in profile toward the table. -->
+    <path class="mask" d="M34 418 C34 404 104 404 104 418 L108 520 H30 Z" stroke-width="1.6"/>
+    <path class="mask" d="M126 420 C118 450 118 486 122 526 L200 526 C208 486 206 450 196 422 C186 410 142 410 126 420 Z" stroke-width="1.8"/>
+    <path class="mask" d="M166 388 m-16 0 a16 21 0 1 0 32 0 a16 21 0 1 0 -32 0" stroke-width="1.8"/>
+    <path class="ink" d="M190 436 C206 446 224 454 244 460 M200 522 C222 516 240 514 254 518 M250 518 V594 M104 462 C118 458 132 460 144 464 M46 520 V604 M96 520 V600" stroke-width="1.4"/>
+    <path class="ink faint" d="M136 440 C140 470 142 500 140 526" stroke-width="1"/>
+
+    <path class="mask" d="M1096 418 C1096 404 1166 404 1166 418 L1170 520 H1092 Z" stroke-width="1.6"/>
+    <path class="mask" d="M1074 420 C1082 450 1082 486 1078 526 L1000 526 C992 486 994 450 1004 422 C1014 410 1058 410 1074 420 Z" stroke-width="1.8"/>
+    <path class="mask" d="M1034 388 m-16 0 a16 21 0 1 0 32 0 a16 21 0 1 0 -32 0" stroke-width="1.8"/>
+    <path class="ink" d="M1010 436 C994 446 976 454 956 460 M1000 522 C978 516 960 514 946 518 M950 518 V594 M1096 462 C1082 458 1068 460 1056 464 M1154 520 V604 M1104 520 V600" stroke-width="1.4"/>
+    <path class="ink faint" d="M1064 440 C1060 470 1058 500 1060 526" stroke-width="1"/>
+  </g>
+</svg>
