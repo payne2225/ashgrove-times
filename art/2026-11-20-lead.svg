@@ -1,0 +1,150 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 660" role="img"
+     aria-label="Sketch: the Nasdaq MarketSite stage in New York on Thursday. A line of standing figures applauds behind a curved white podium carrying a panel marked ANT, beneath a wall-sized screen that reads ANTHROPIC over a sky of clouds.">
+  <defs>
+    <style>
+      .ink   { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; }
+      .mask  { fill: var(--parchment, #f4f0e6); stroke: currentColor;
+               stroke-linecap: round; stroke-linejoin: round; }
+      .faint { opacity: 0.3; }
+      .mid   { opacity: 0.58; }
+      .word  { fill: none; stroke: currentColor; stroke-width: 1.6; font-family: Georgia, 'Times New Roman', serif; }
+    </style>
+  </defs>
+
+  <g>
+    <!-- THE SCREEN. One wall of light behind everything; its lower edge is the stage floor. -->
+    <path class="ink mid" d="M0 540 H1200" stroke-width="1.6"/>
+    <path class="ink faint" d="M0 8 H1200" stroke-width="1.2"/>
+
+    <!-- Clouds on the screen, drawn as soft loops that get smaller toward the sides. -->
+    <g class="ink faint" stroke-width="1">
+      <path d="M60 300 C40 300 36 272 62 266 C64 244 100 238 112 256 C134 246 160 262 148 284 C168 290 160 312 136 310 Z"/>
+      <path d="M220 420 C198 420 196 396 220 392 C224 374 254 370 262 386 C284 380 302 398 290 414 C306 420 296 438 274 434 Z"/>
+      <path d="M900 300 C880 300 878 276 902 272 C906 252 940 248 950 266 C972 258 994 276 980 294 C998 302 988 322 964 318 Z"/>
+      <path d="M1060 440 C1040 440 1038 416 1062 412 C1066 394 1096 390 1104 406 C1126 400 1144 418 1132 434 C1148 440 1138 458 1116 456 Z"/>
+      <path d="M330 150 C318 150 316 134 332 132 C336 120 356 118 362 128 C376 124 388 136 380 146 C390 150 384 162 370 160 Z"/>
+      <path d="M820 440 C808 440 806 426 822 424 C826 412 846 410 852 420 C866 416 878 428 870 438 C880 442 874 454 860 452 Z"/>
+      <path d="M0 470 C30 462 60 468 90 464 M1110 150 C1140 142 1170 148 1200 144 M560 480 C600 472 640 478 680 474"/>
+    </g>
+
+    <!-- The wordmark across the top of the screen, outlined, not filled. -->
+    <text class="word" x="600" y="92" text-anchor="middle" font-size="96" letter-spacing="14">ANTHROPIC</text>
+
+    <!-- THE FLOOR. Wood planks run toward a point behind the podium; the
+         seams converge and the boards narrow, which is the depth. -->
+    <g class="ink faint" stroke-width="1">
+      <path d="M0 660 L120 540 M150 660 L240 540 M300 660 L360 540 M450 660 L480 540 M600 660 V540 M750 660 L720 540 M900 660 L840 540 M1050 660 L960 540 M1200 660 L1080 540"/>
+      <path d="M0 596 H1200 M0 630 H1200 M0 566 H1200"/>
+      <path d="M60 580 H110 M520 612 H580 M700 648 H760 M1000 572 H1060 M300 556 H340 M860 622 H920"/>
+    </g>
+
+    <!-- BACK ROW. Eight figures, heads smaller and higher; the front row
+         will stand in front of them. Blank heads, no features. -->
+    <g>
+      <path class="mask" d="M126 282 C126 254 194 254 194 282 L198 352 H122 Z" stroke-width="1.5"/>
+      <path class="mask" d="M160 230 m-15 0 a15 19 0 1 0 30 0 a15 19 0 1 0 -30 0" stroke-width="1.5"/>
+      <path class="ink" d="M146 262 L160 290 L174 262" stroke-width="1.1"/>
+
+      <path class="mask" d="M241 280 C241 252 309 252 309 280 L313 352 H237 Z" stroke-width="1.5"/>
+      <path class="mask" d="M275 228 m-15 0 a15 19 0 1 0 30 0 a15 19 0 1 0 -30 0" stroke-width="1.5"/>
+      <path class="ink" d="M261 260 L275 288 L289 260" stroke-width="1.1"/>
+
+      <path class="mask" d="M366 278 C366 250 434 250 434 278 L438 352 H362 Z" stroke-width="1.5"/>
+      <path class="mask" d="M400 226 m-15 0 a15 19 0 1 0 30 0 a15 19 0 1 0 -30 0" stroke-width="1.5"/>
+      <path class="ink" d="M386 258 L400 286 L414 258" stroke-width="1.1"/>
+
+      <path class="mask" d="M466 276 C466 248 534 248 534 276 L538 352 H462 Z" stroke-width="1.5"/>
+      <path class="mask" d="M500 224 m-15 0 a15 19 0 1 0 30 0 a15 19 0 1 0 -30 0" stroke-width="1.5"/>
+      <path class="ink" d="M486 256 L500 284 L514 256" stroke-width="1.1"/>
+
+      <path class="mask" d="M576 276 C576 248 644 248 644 276 L648 352 H572 Z" stroke-width="1.5"/>
+      <path class="mask" d="M610 224 m-15 0 a15 19 0 1 0 30 0 a15 19 0 1 0 -30 0" stroke-width="1.5"/>
+      <path class="ink" d="M596 256 L610 284 L624 256" stroke-width="1.1"/>
+
+      <path class="mask" d="M701 278 C701 250 769 250 769 278 L773 352 H697 Z" stroke-width="1.5"/>
+      <path class="mask" d="M735 226 m-15 0 a15 19 0 1 0 30 0 a15 19 0 1 0 -30 0" stroke-width="1.5"/>
+      <path class="ink" d="M721 258 L735 286 L749 258" stroke-width="1.1"/>
+
+      <path class="mask" d="M826 280 C826 252 894 252 894 280 L898 352 H822 Z" stroke-width="1.5"/>
+      <path class="mask" d="M860 228 m-15 0 a15 19 0 1 0 30 0 a15 19 0 1 0 -30 0" stroke-width="1.5"/>
+      <path class="ink" d="M846 260 L860 288 L874 260" stroke-width="1.1"/>
+
+      <path class="mask" d="M951 282 C951 254 1019 254 1019 282 L1023 352 H947 Z" stroke-width="1.5"/>
+      <path class="mask" d="M985 230 m-15 0 a15 19 0 1 0 30 0 a15 19 0 1 0 -30 0" stroke-width="1.5"/>
+      <path class="ink" d="M971 262 L985 290 L999 262" stroke-width="1.1"/>
+    </g>
+
+    <!-- FRONT ROW. Nine figures, larger, hands brought together at the chest.
+         The two at the ends stand clear of the podium, so they get legs. -->
+    <g>
+      <!-- Far left, full figure. -->
+      <path class="mask" d="M52 310 C52 274 138 274 138 310 L146 470 H44 Z" stroke-width="1.8"/>
+      <path class="mask" d="M95 246 m-19 0 a19 24 0 1 0 38 0 a19 24 0 1 0 -38 0" stroke-width="1.8"/>
+      <path class="ink" d="M74 284 L92 326 M116 284 L98 326" stroke-width="1.2"/>
+      <path class="mask" d="M80 361 C88 352 100 352 108 361 C100 368 88 368 80 361 Z M86 362 L102 360" stroke-width="1.3"/>
+      <path class="ink" d="M58 470 C56 510 60 550 64 596 M130 470 C132 510 128 550 124 596 M96 480 V592" stroke-width="1.4"/>
+      <path class="mask" d="M50 598 C58 590 80 590 90 598 L90 606 H50 Z M104 596 C112 588 134 588 142 596 L142 604 H104 Z" stroke-width="1.3"/>
+
+      <path class="mask" d="M186 318 C186 282 274 282 274 318 L280 370 H180 Z" stroke-width="1.8"/>
+      <path class="mask" d="M230 254 m-19 0 a19 24 0 1 0 38 0 a19 24 0 1 0 -38 0" stroke-width="1.8"/>
+      <path class="ink" d="M209 292 L227 334 M251 292 L233 334" stroke-width="1.2"/>
+      <path class="mask" d="M215 353 C223 344 235 344 243 353 C235 360 223 360 215 353 Z M221 354 L237 352" stroke-width="1.3"/>
+
+      <path class="mask" d="M278 314 C278 278 366 278 366 314 L372 370 H272 Z" stroke-width="1.8"/>
+      <path class="mask" d="M322 250 m-19 0 a19 24 0 1 0 38 0 a19 24 0 1 0 -38 0" stroke-width="1.8"/>
+      <path class="ink" d="M301 288 L319 330 M343 288 L325 330" stroke-width="1.2"/>
+      <path class="mask" d="M307 349 C315 340 327 340 335 349 C327 356 315 356 307 349 Z M313 350 L329 348" stroke-width="1.3"/>
+
+      <path class="mask" d="M406 320 C406 284 494 284 494 320 L500 370 H400 Z" stroke-width="1.8"/>
+      <path class="mask" d="M450 256 m-19 0 a19 24 0 1 0 38 0 a19 24 0 1 0 -38 0" stroke-width="1.8"/>
+      <path class="ink" d="M429 294 L447 336 M471 294 L453 336" stroke-width="1.2"/>
+      <path class="mask" d="M435 355 C443 346 455 346 463 355 C455 362 443 362 435 355 Z M441 356 L457 354" stroke-width="1.3"/>
+
+      <!-- Center, directly behind the podium. -->
+      <path class="mask" d="M511 310 C511 272 601 272 601 310 L608 370 H504 Z" stroke-width="1.8"/>
+      <path class="mask" d="M556 244 m-19 0 a19 24 0 1 0 38 0 a19 24 0 1 0 -38 0" stroke-width="1.8"/>
+      <path class="ink" d="M534 282 L553 326 M578 282 L559 326" stroke-width="1.2"/>
+      <path class="mask" d="M541 345 C549 336 561 336 569 345 C561 352 549 352 541 345 Z M547 346 L563 344" stroke-width="1.3"/>
+
+      <path class="mask" d="M622 316 C622 280 710 280 710 316 L716 370 H616 Z" stroke-width="1.8"/>
+      <path class="mask" d="M666 252 m-19 0 a19 24 0 1 0 38 0 a19 24 0 1 0 -38 0" stroke-width="1.8"/>
+      <path class="ink" d="M645 290 L663 332 M687 290 L669 332" stroke-width="1.2"/>
+      <path class="mask" d="M651 351 C659 342 671 342 679 351 C671 358 659 358 651 351 Z M657 352 L673 350" stroke-width="1.3"/>
+
+      <path class="mask" d="M746 318 C746 282 834 282 834 318 L840 370 H740 Z" stroke-width="1.8"/>
+      <path class="mask" d="M790 254 m-19 0 a19 24 0 1 0 38 0 a19 24 0 1 0 -38 0" stroke-width="1.8"/>
+      <path class="ink" d="M769 292 L787 334 M811 292 L793 334" stroke-width="1.2"/>
+      <path class="mask" d="M775 353 C783 344 795 344 803 353 C795 360 783 360 775 353 Z M781 354 L797 352" stroke-width="1.3"/>
+
+      <path class="mask" d="M866 312 C866 276 954 276 954 312 L960 370 H860 Z" stroke-width="1.8"/>
+      <path class="mask" d="M910 248 m-19 0 a19 24 0 1 0 38 0 a19 24 0 1 0 -38 0" stroke-width="1.8"/>
+      <path class="ink" d="M889 286 L907 328 M931 286 L913 328" stroke-width="1.2"/>
+      <path class="mask" d="M895 347 C903 338 915 338 923 347 C915 354 903 354 895 347 Z M901 348 L917 346" stroke-width="1.3"/>
+
+      <!-- Far right, full figure, the tallest on the stage. -->
+      <path class="mask" d="M1002 296 C1002 258 1092 258 1092 296 L1100 464 H994 Z" stroke-width="1.8"/>
+      <path class="mask" d="M1047 230 m-19 0 a19 24 0 1 0 38 0 a19 24 0 1 0 -38 0" stroke-width="1.8"/>
+      <path class="ink" d="M1026 270 L1044 312 M1068 270 L1050 312" stroke-width="1.2"/>
+      <path class="mask" d="M1032 341 C1040 332 1052 332 1060 341 C1052 348 1040 348 1032 341 Z M1038 342 L1054 340" stroke-width="1.3"/>
+      <path class="ink" d="M1008 464 C1006 508 1010 550 1014 598 M1086 464 C1088 508 1084 550 1080 598 M1048 474 V594" stroke-width="1.4"/>
+      <path class="mask" d="M1000 600 C1008 592 1030 592 1040 600 L1040 608 H1000 Z M1058 598 C1066 590 1088 590 1096 598 L1096 606 H1058 Z" stroke-width="1.3"/>
+    </g>
+
+    <!-- THE PODIUM. A curved white top like a lens, a body that waists in
+         below it, and the square panel set into the front. -->
+    <path class="mask" d="M176 372 C300 326 900 326 1024 372 C900 412 300 412 176 372 Z" stroke-width="2.6"/>
+    <path class="mask" d="M176 372 C248 426 268 500 236 604 L964 604 C932 500 952 426 1024 372 C900 412 300 412 176 372 Z" stroke-width="2.4"/>
+    <path class="ink faint" d="M230 400 C280 440 290 520 268 596 M970 400 C920 440 910 520 932 596" stroke-width="1"/>
+    <path class="ink faint" d="M300 384 C400 398 800 398 900 384" stroke-width="1"/>
+
+    <!-- The exchange's mark and name on the podium front, outlined. -->
+    <path class="ink" d="M412 376 L432 376 L448 410 L428 410 Z M424 400 L440 400" stroke-width="1.5"/>
+    <text class="word" x="462" y="408" font-size="38">Nasdaq</text>
+
+    <!-- The ticker panel, slightly rounded, set low in the front. -->
+    <path class="mask" d="M448 436 C448 428 456 424 464 424 H576 C584 424 592 428 592 436 V560 C592 570 582 576 572 576 H468 C458 576 448 570 448 560 Z" stroke-width="2.2"/>
+    <path class="ink faint" d="M458 436 V560 M582 436 V560" stroke-width="1"/>
+    <text class="word" x="520" y="500" text-anchor="middle" font-size="40" letter-spacing="4">ANT</text>
+    <text class="word" x="520" y="534" text-anchor="middle" font-size="17" letter-spacing="1" stroke-width="0.8">Nasdaq Listed</text>
+  </g>
+</svg>

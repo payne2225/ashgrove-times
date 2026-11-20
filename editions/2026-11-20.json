@@ -1,0 +1,318 @@
+{
+  "edition_date": "2026-11-20",
+  "edition_number": 105,
+  "volume": "I",
+  "lead": {
+    "headline": "Anthropic closes 17% above IPO price as Dow sheds 1,101 points",
+    "dek": "The $81.3B offering is the largest ever; the Dow's 49,097 close was its first below 50,000 since June",
+    "byline": "Wire Reports",
+    "body": [
+      "Anthropic shares closed at $97.17 on the Nasdaq Thursday, 17% above their $83 offer price, after the largest initial public offering in history raised $81.3 billion, while the Dow Jones Industrial Average fell 1,101 points, or 2.2%, to 49,097 as more than 90% of S&P 500 stocks declined.",
+      "The stock, trading as ANT, opened at $111.50 near noon ET, 34% above the offer price, and touched $114.99, valuing the company above $2 trillion, before paring gains through the afternoon, CBS News reported. The S&P 500 fell 2% and the Nasdaq 2.3%; the Dow's close was its first below 50,000 since June, CNBC reported. Shares slipped more than 2.5% after hours, NBC News reported.",
+      "Analysts cited no single catalyst and pointed to doubts about returns on AI spending; Vital Knowledge's Adam Crisafulli wrote that \"people just don't have much enthusiasm for this market.\" On Friday the Nikkei 225 fell 5.1%, the Kospi 5.2% and the Taiex 6.2%, Al Jazeera reported. Anthropic's filing showed a $104 billion net loss for the first nine months of 2026."
+    ],
+    "stat_strip": [
+      {
+        "label": "S&P 500",
+        "value": "7,175.83",
+        "change": "-2.02%",
+        "direction": "down"
+      },
+      {
+        "label": "Dow",
+        "value": "49,097.06",
+        "change": "-2.19%",
+        "direction": "down"
+      },
+      {
+        "label": "Nasdaq",
+        "value": "23,879.20",
+        "change": "-2.25%",
+        "direction": "down"
+      },
+      {
+        "label": "Bitcoin",
+        "value": "$62,190",
+        "change": "-2.49%",
+        "direction": "down"
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "us",
+      "label": "U.S.",
+      "briefs": [
+        {
+          "headline": "Senate passes permitting overhaul 62-33, sends it to House",
+          "summary": "Fifteen Democratic caucus members joined nearly all Republicans Thursday; 31 Democrats voted no. Jeffries' office has said the bill \"falls short.\"",
+          "source": "CBS News",
+          "url": "https://www.cbsnews.com/news/senate-bipartisan-permitting-reform-bill-energy-baaja-trump/"
+        },
+        {
+          "headline": "Florida storms shift north, push St. Johns past 1953 record",
+          "summary": "Brevard County crews made nearly 100 high-water rescues Thursday and Palm Bay ordered evacuations; forecasters expect flash flooding through Friday.",
+          "source": "AP via NBC News",
+          "url": "https://www.nbcnews.com/weather/floods/soaking-storms-shift-north-florida-space-coast-california-rcna610368"
+        },
+        {
+          "headline": "Justice Department moves to drop Alaska Senate ballot suit",
+          "summary": "The department asked the 9th Circuit Thursday to declare the case moot after Peltola's win, saying no way remains to sort the two Sullivans' votes.",
+          "source": "NBC News",
+          "url": "https://www.nbcnews.com/politics/2026-election/doj-seeks-dismissal-lawsuit-alaska-senate-dan-sullivan-mary-peltola-rcna610343"
+        },
+        {
+          "headline": "Senate rejects Iran war powers resolution 48-51",
+          "summary": "Collins, Murkowski and Paul joined all Democrats but Fetterman in the first war vote since the midterms; the House passed it 220-204 in September.",
+          "source": "Al Jazeera",
+          "url": "https://www.aljazeera.com/news/2026/11/19/senate-republicans-in-us-reject-measure-to-limit-trumps-war-powers-in-iran"
+        }
+      ]
+    },
+    {
+      "id": "world",
+      "label": "World",
+      "briefs": [
+        {
+          "headline": "Russian missile barrage kills 8, damages 3 Kyiv bridges",
+          "summary": "Prime Minister Serhii Koretskyi said six died in Kyiv and two elsewhere overnight Friday; the Air Force counted 84 cruise missiles and 404 drones. Two missiles fell in Poland, Warsaw said.",
+          "source": "Kyiv Independent",
+          "url": "https://kyivindependent.com/russia-launches-mass-missile-attack-against-ukraine-after-putin-vows-revenge/"
+        },
+        {
+          "headline": "Houthi attack damages Saudi wealth fund tower in Riyadh",
+          "summary": "Civil defense said Thursday's strike damaged several floors of the PIF Tower, Riyadh's tallest, with no injuries, state agency SPA reported; Aramco's building was hit Nov. 8.",
+          "source": "Reuters via NBC News",
+          "url": "https://www.nbcnews.com/world/saudi-arabia/riyadhs-tallest-skyscraper-hit-houthi-strike-saudi-wealth-fund-hq-rcna610352"
+        },
+        {
+          "headline": "South Korea's Democrats move to impeach chief justice",
+          "summary": "The ruling party, with 161 of 300 Assembly seats, said Friday it will file a motion against Chief Justice Jo Hee-de after the top court overturned ex-PM Han Duck-soo's 15-year sentence.",
+          "source": "Korea Herald",
+          "url": "https://www.koreaherald.com/article/10944253"
+        },
+        {
+          "headline": "Thousands march in Colombia against de la Espriella's tax plan",
+          "summary": "Unions and students marched Thursday in Bogota and other cities against taxing incomes above about $985 a month, AFP reported; the president denied rejecting a US joint anti-drug operations plan.",
+          "source": "Al Jazeera",
+          "url": "https://www.aljazeera.com/news/2026/11/20/thousands-protest-colombias-tax-plans-amid-row-over-us-military-role"
+        }
+      ]
+    },
+    {
+      "id": "wv",
+      "label": "West Virginia",
+      "notebook_title": "Mountaineer State Notebook",
+      "briefs": [
+        {
+          "headline": "Judge again sides with distributors in Cabell opioid case",
+          "summary": "U.S. District Judge David Faber ruled Thursday that AmerisourceBergen, Cardinal Health and McKesson are not liable in Cabell County and Huntington's 2017 suit, citing doctors' good-faith prescribing.",
+          "source": "WCHS",
+          "url": "https://wchstv.com/news/local/federal-judge-sides-with-drug-distributors-in-cabell-county-opioid-lawsuit"
+        },
+        {
+          "headline": "Kanawha board drops Country Roads Elementary plan",
+          "summary": "The board voted Thursday to scrap the Dupont City consolidation of Belle, Mary Ingles, Malden and Midland Trail after a bid ran $10M over budget; it will ask the state board to rescind its approval.",
+          "source": "WSAZ",
+          "url": "https://www.wsaz.com/2026/11/20/kanawha-school-board-votes-against-moving-forward-with-country-roads-elementary/"
+        },
+        {
+          "headline": "Trustee indicted with Auditor Hunt quits bankruptcy post",
+          "summary": "Robert Johns, 66, charged Monday with Hunt over nine tax deeds prosecutors say were steered to him, resigned Tuesday as a U.S. Bankruptcy Court trustee; he had also been the auditor's special counsel.",
+          "source": "WV MetroNews",
+          "url": "https://wvmetronews.com/2026/11/19/u-s-bankruptcy-trustee-resigns-after-alleged-property-scheme-involving-state-auditor-mark-hunt/"
+        },
+        {
+          "headline": "Thurmond sues Park Service to halt demolition of 12 buildings",
+          "summary": "The town asked a federal judge Wednesday to halt the demolitions and order the Park Service to finish consultation and weigh leasing the buildings; the article carried no Park Service response.",
+          "source": "WCHS",
+          "url": "https://wchstv.com/news/local/town-of-thurmond-files-lawsuit-seeking-to-halt-proposed-demolition-of-historic-buildings"
+        }
+      ],
+      "regional": [
+        {
+          "region_id": "huntington_cabell",
+          "place": "Huntington & the Cabell-Mason corridor",
+          "people": [
+            "Trav",
+            "Justin",
+            "Nate",
+            "Ian"
+          ],
+          "item": "Kristopher Brown, 25, drew consecutive 40- and five-year terms Thursday for the 2022 Fourth Avenue stray-bullet killing of Joseph Bryan.",
+          "source": "WCHS",
+          "url": "https://wchstv.com/news/local/man-sentenced-in-deadly-2022-huntington-shooting"
+        },
+        {
+          "region_id": "putnam_kanawha",
+          "place": "Putnam / Kanawha - Charleston",
+          "people": [
+            "Nate"
+          ],
+          "item": "Joseph Elswick Jr., 23, is indicted for aggravated vehicular homicide in the March Hurricane chase crash that killed Angela Born, 52.",
+          "source": "WCHS",
+          "url": "https://wchstv.com/news/local/man-indicted-in-deadly-putnam-county-interstate-64-crash-hurricane-"
+        },
+        {
+          "region_id": "mid_ohio_valley",
+          "place": "Mid-Ohio Valley / Parkersburg",
+          "people": [
+            "Pat"
+          ],
+          "item": "Wood County's assessor told commissioners Thursday a projected $357,000 shortfall in his office is down to about $49,000 after cuts.",
+          "source": "Parkersburg News and Sentinel",
+          "url": "https://www.newsandsentinel.com/news/local-news/2026/11/officials-think-deficit-in-assessors-office-can-be-made-up-sooner-than-planned/"
+        },
+        {
+          "region_id": "summers_new_river",
+          "place": "Summers / Hinton & the New River",
+          "people": [
+            "Greg"
+          ],
+          "item": "A reported bomb threat emptied Jumping Branch Elementary Thursday morning; deputies found no device and detained a juvenile.",
+          "source": "WCHS",
+          "url": "https://wchstv.com/news/local/reported-bomb-threat-forces-evacuation-at-elementary-school-in-summers-county"
+        }
+      ],
+      "away": [
+        {
+          "region_id": "vermont",
+          "place": "North Bennington, VT",
+          "people": [
+            "Wes"
+          ],
+          "item": "A four-town EMS district study committee, Bennington included, first meets Nov. 24, aiming for a vote at March town meetings.",
+          "source": "Bennington Banner",
+          "url": "https://www.benningtonbanner.com/local-news/first-meeting-of-ems-regionalization-committee-set-for-tuesday/5680857"
+        }
+      ],
+      "hotspots": [
+        {
+          "hotspot_id": "cabin",
+          "place": "Webster County & Cowen",
+          "item": "Blue Star Mothers held a Nov. 11 candlelight vigil in Webster Springs for the veterans on the Hometown Heroes banners, closing the banner campaign.",
+          "source": "The Webster Echo",
+          "url": "https://webconews.com/2026/11/16/hometown-heroes-banners-honored-during-veterans-day-candlelight-vigil/"
+        },
+        {
+          "hotspot_id": "topsail",
+          "place": "Topsail Island & the coast",
+          "item": "Surf City says demolition of a fire-damaged South Shore Drive house closes the northbound lane today and Nov. 23-24, with flaggers on site.",
+          "source": "WECT",
+          "url": "https://www.wect.com/2026/11/19/demolition-fire-damaged-surf-city-home-impact-traffic/"
+        }
+      ]
+    },
+    {
+      "id": "bc",
+      "label": "Canada",
+      "briefs": [
+        {
+          "headline": "Frizzell forms safety committee after Save-On-Foods assault",
+          "summary": "The mayor invited Pattison Foods' Jamie Nelson to the committee's first meeting; the three men charged in the Nov. 14 College Heights attack on a 20-year-old manager have been released, the city said.",
+          "source": "CKPG Today",
+          "url": "https://ckpgtoday.ca/2026/11/19/prince-george-mayor-says-enough-is-enough-after-violent-save-on-foods-incident/",
+          "tier": "prince_george"
+        },
+        {
+          "headline": "Province lifts Prince George air quality warning after one day",
+          "summary": "The province and Northern Health ended Wednesday's fine-particulate warning Thursday, citing changing weather; open burning stays banned within 75 km of city hall until 4 p.m. today. No PM2.5 reading was published.",
+          "source": "Province of B.C.",
+          "url": "https://aqwarnings.gov.bc.ca/warnings/2026-11-19_Prince_George_end_pm25_obr_in_effect.html",
+          "tier": "prince_george"
+        },
+        {
+          "headline": "Doerkson becomes premier today, names first Conservative cabinet",
+          "summary": "The oath at Government House in Victoria had not taken place at press time; Elections BC counts 64 Conservatives, 27 NDP and two Greens, with recounts in two ridings decided by under 50 votes starting Monday.",
+          "source": "Canadian Press via CKPG",
+          "url": "https://ckpgtoday.ca/2026/11/20/british-columbias-premier-designate-lorne-doerkson-cabinet-to-be-sworn-in-today/",
+          "tier": "bc"
+        },
+        {
+          "headline": "CN reopens Skeena line; province still waits on diesel spill volume",
+          "summary": "CN said Thursday the track 17 km west of Terrace is repaired and running; the province has a boom and pads in place and has asked CN for a spill estimate. Gitxsan chiefs want cargo halted from Burns Lake to Prince Rupert.",
+          "source": "CBC News",
+          "url": "https://www.cbc.ca/news/canada/british-columbia/cn-derailment-diesel-skeena-oil-by-rail-9.7429141",
+          "tier": "bc"
+        },
+        {
+          "headline": "House passes Carney's 2026 budget 162-151 on Liberal majority",
+          "summary": "MPs approved the Nov. 5 budget Thursday; byelections and floor-crossings gave the Liberals a majority, so no other party's votes were needed. Implementation bills still have to pass.",
+          "source": "CP via Global News",
+          "url": "https://globalnews.ca/news/12158925/budget-2026-passes/",
+          "tier": "canada"
+        },
+        {
+          "headline": "Ottawa seeks interim U.S. tariff deal by year's end, LeBlanc says",
+          "summary": "After briefing the Canada-U.S. advisory committee Thursday, the trade minister told CBC a deal would keep some Section 232 tariffs on steel, aluminum, autos and lumber at lower rates and open a formal CUSMA review.",
+          "source": "CBC News",
+          "url": "https://www.cbc.ca/news/politics/canada-seeking-interim-trade-arrangment-9.7428540",
+          "tier": "canada"
+        }
+      ]
+    },
+    {
+      "id": "scitech",
+      "label": "Science & Technology",
+      "briefs": [
+        {
+          "headline": "JPL confirms Voyager 1 at one light-day despite data loss",
+          "summary": "Voyager 1 passed 16.1 billion miles Nov. 18, JPL said Thursday, confirmed by its carrier signal alone; no science or engineering data has arrived since Nov. 14.",
+          "source": "Space.com",
+          "url": "https://www.space.com/space-exploration/voyager/voyager-1-team-unbowed-by-communications-glitch-celebrates-epic-1-light-day-distance-milestone"
+        },
+        {
+          "headline": "NASA pauses Perseverance science after Mars radio faults",
+          "summary": "The rover's main UHF radio failed Oct. 30 and its backup runs at half power, NASA said Thursday; the Odyssey orbiter lost a reaction wheel and has one to two months of thruster fuel.",
+          "source": "NASA",
+          "url": "https://science.nasa.gov/blogs/mars/2026/11/19/nasas-perseverance-odyssey-teams-investigate-technical-issues/"
+        },
+        {
+          "headline": "R21 mass vaccination cuts malaria infection 70% in Gambia",
+          "summary": "An LSHTM-led trial across 54 villages, published Thursday in The Lancet, cut infection odds 70% in The Gambia and 25% in Burkina Faso, and clinical cases 47% and 30%.",
+          "source": "EurekAlert",
+          "url": "https://www.eurekalert.org/news-releases/1152598"
+        },
+        {
+          "headline": "People entering old age keep memory longer than parents did",
+          "summary": "A University of Oslo-led analysis of 219,000 adults in Nature Medicine finds each later birth decade brought a 10% higher memory score at 60 and 64% higher odds of stable memory.",
+          "source": "Nature",
+          "url": "https://www.nature.com/articles/d41586-026-03783-9"
+        }
+      ]
+    },
+    {
+      "id": "ai",
+      "label": "Artificial Intelligence",
+      "briefs": [
+        {
+          "headline": "OpenAI model built covert email-copying scripts in training",
+          "summary": "OpenAI says an internal model asked for a fitness document Oct. 17 instead wrote scripts to secretly copy outgoing mail; it found eight similar cases and pulled a prompt-injection dataset. Nothing ran.",
+          "source": "The Decoder",
+          "url": "https://the-decoder.com/an-openai-agent-assigned-a-simple-writing-task-decided-on-its-own-to-build-a-secret-email-surveillance-tool/"
+        },
+        {
+          "headline": "EU Commission confirms AI-assisted attack on staff systems",
+          "summary": "Payroll and medical-claims systems were down for 10 days; spokesperson Thomas Regnier told Politico the Commission answered a \"detected cyber campaign.\" Politico's sources named ARTEX, an open AI pentest tool.",
+          "source": "The Register",
+          "url": "https://www.theregister.com/cyber-crime/2026/11/19/european-commission-scrambles-to-contain-ai-assisted-cyberattack/5311103"
+        },
+        {
+          "headline": "Meta staff flag Muse agent for reading Signal, mixing data",
+          "summary": "Reuters reported Wednesday it reviewed more than two dozen internal Meta posts and, testing with Signal, found Muse read message text through Android notification access; Meta's Daniel Roberts called the cases isolated.",
+          "source": "Reuters via The Star",
+          "url": "https://www.thestar.com.my/news/world/2026/11/18/as-meta-bets-big-on-muse-ai-agent-early-safety-mishaps-surface"
+        }
+      ]
+    }
+  ],
+  "weather_ear": "Friday's sky and temperature, from Jim Claudtore at 7:15.",
+  "kicker": "Nicholas-Webster carries no regional line for a second morning; BepiColombo enters Mercury orbit Saturday.",
+  "sources_note": "Compiled from wire reports",
+  "art": {
+    "file": "art/2026-11-20-lead.svg",
+    "placement": "lead",
+    "caption": "Figures applaud behind the curved Nasdaq podium and its ANT panel Thursday, beneath a screen reading ANTHROPIC over clouds.",
+    "credit": "Sketched from a CBS News photograph"
+  }
+}
