@@ -1,0 +1,308 @@
+{
+  "edition_date": "2026-11-21",
+  "edition_number": 106,
+  "volume": "I",
+  "lead": {
+    "headline": "S&P 500 and Dow enter correction as Nasdaq erases its 2026 gains",
+    "dek": "The Nasdaq lost 1,261 points, or 5.3%, its second-worst day of the year; the S&P 500 fell for a seventh straight session",
+    "byline": "Wire Reports",
+    "body": [
+      "Technology stocks drove Wall Street lower for a second day Friday, pushing the S&P 500 and the Dow Jones Industrial Average more than 10% below their recent highs and wiping out the Nasdaq Composite's gains for the year, a day after Anthropic's record initial public offering.",
+      "The Nasdaq fell 1,261 points, or 5.3%, to close at 22,618, its second-worst day of 2026; the S&P 500 lost 3.7% and the Dow 1.9%, CBS News reported. The S&P 500's seventh straight loss is its longest streak since February 2020. Anthropic fell 9.3% to $88.14, still above its $83 offer price, and Nvidia fell for the ninth time in 10 sessions.",
+      "Chipmakers led the losses on concern that data center construction will slow and that chip export rules will tighten, CBS News reported; NBC News cited a Reuters report that regulators are examining accounting irregularities at Nvidia. The Federal Reserve is expected to raise rates in December, and Chicago Fed President Austan Goolsbee said Thursday the evidence does not suggest a path back to 2% inflation."
+    ],
+    "stat_strip": [
+      {
+        "label": "S&P 500",
+        "value": "6,910.39",
+        "change": "-3.70%",
+        "direction": "down"
+      },
+      {
+        "label": "Dow",
+        "value": "48,147.33",
+        "change": "-1.93%",
+        "direction": "down"
+      },
+      {
+        "label": "Nasdaq",
+        "value": "22,617.73",
+        "change": "-5.28%",
+        "direction": "down"
+      },
+      {
+        "label": "Bitcoin",
+        "value": "$57,847",
+        "change": "-7.02%",
+        "direction": "down"
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "us",
+      "label": "U.S.",
+      "briefs": [
+        {
+          "headline": "Federal jury convicts man of starting 2025 Palisades Fire",
+          "summary": "Jurors in Los Angeles found Jonathan Rinderknecht, 30, guilty Friday on two arson counts for the blaze that killed 12; his first trial ended in June with a 10-2 split for acquittal.",
+          "source": "AP via PBS NewsHour",
+          "url": "https://www.pbs.org/newshour/nation/federal-jury-convicts-man-of-starting-deadly-2025-palisades-fire-in-los-angeles"
+        },
+        {
+          "headline": "Appeals court halts Army's lead azide detonation in Iowa",
+          "summary": "The 8th Circuit stayed the EPA's emergency permit Friday after two environmental groups sued; the Army planned to blow up about 5 tons in 68 barrels at Middletown, Iowa.",
+          "source": "CBS News",
+          "url": "https://www.cbsnews.com/chicago/news/iowa-detonation-lead-azide-paused-indefinitely-court-order/"
+        },
+        {
+          "headline": "Trump vows penalties on firms building data centers abroad",
+          "summary": "\"We're not going to allow our companies to build data centers outside of our country,\" he said Friday at the White House, promising \"tremendous penalties\"; he had not yet told his staff.",
+          "source": "NBC News",
+          "url": "https://www.nbcnews.com/business/corporations/trump-data-centers-overseas-penalties-rcna610445"
+        },
+        {
+          "headline": "5th Circuit rules House's 2022 proxy voting unconstitutional",
+          "summary": "The 9-8 ruling Friday upheld an injunction won by Texas over the $1.7 trillion bill passed with 226 proxy votes; it bars enforcing the Pregnant Workers Fairness Act against Texas.",
+          "source": "Reuters via NBC News",
+          "url": "https://www.nbcnews.com/politics/congress/house-unconstitutionally-passed-spending-bill-2022-appeals-court-rules-rcna610529"
+        }
+      ]
+    },
+    {
+      "id": "world",
+      "label": "World",
+      "briefs": [
+        {
+          "headline": "Iran's Guard says it downed US drone; 2 tankers hit off Oman",
+          "summary": "The IRGC said Saturday it shot down an MQ-9 over the Strait of Hormuz, state TV reported; UKMTO said two tankers were struck by unknown projectiles near Khasab, with no injuries.",
+          "source": "Al Jazeera",
+          "url": "https://www.aljazeera.com/news/2026/11/21/irans-irgc-downs-us-drone-over-hormuz-as-efforts-to-end-war-remain-stalled"
+        },
+        {
+          "headline": "UK and EU agree to scrap food checks and open youth visas",
+          "summary": "Prime Minister Andy Burnham and Ursula von der Leyen agreed in Brussels Friday to drop plant and animal checks, link carbon markets and let 100,000 young people each way work up to three years.",
+          "source": "AP via NBC News",
+          "url": "https://www.nbcnews.com/world/europe/uk-eu-strike-deals-trade-travel-pledging-rebuild-ties-brexit-rcna610482"
+        },
+        {
+          "headline": "3 Salvadoran soldiers die handling explosives in Haiti",
+          "summary": "El Salvador's military said Friday one died after being flown to the Dominican Republic and another was wounded, the first reported deaths from the 2,000-troop force President Nayib Bukele sent in October.",
+          "source": "Deutsche Welle",
+          "url": "https://www.dw.com/en/three-el-salvador-soldiers-die-in-explosives-accident-in-haiti/a-80008005"
+        },
+        {
+          "headline": "COP31 runs into overtime after draft drops fossil fuels",
+          "summary": "Nearly 200 countries in Antalya, Turkey, missed Friday's deadline over a text stripped of fossil fuel language after Saudi Arabia and other producers objected; a third draft is expected Saturday.",
+          "source": "Al Jazeera",
+          "url": "https://www.aljazeera.com/news/2026/11/20/fossil-fuel-talks-deadlock-pushes-cop31-climate-summit-into-overtime"
+        }
+      ]
+    },
+    {
+      "id": "wv",
+      "label": "West Virginia",
+      "notebook_title": "Mountaineer State Notebook",
+      "briefs": [
+        {
+          "headline": "Legislature disables IT systems after cyber incident",
+          "summary": "A House spokesperson said the incident found Thursday appears limited to the Legislature's computers; some access is disabled and outside specialists are reviewing it.",
+          "source": "WCHS",
+          "url": "https://wchstv.com/news/local/cybersecurity-incident-impacts-west-virginia-legislature-it-systems"
+        },
+        {
+          "headline": "Judge orders Greenbrier to repay $52M pandemic loan",
+          "summary": "U.S. District Judge Frank Volk ordered the Justice family's resort Wednesday to pay $35M principal and $17M interest on a defaulted CARES Act loan; the resort said it is reviewing an appeal.",
+          "source": "WV MetroNews",
+          "url": "https://wvmetronews.com/2026/11/20/judge-greenbrier-must-repay-52-million-on-a-federal-pandemic-relief-loan-and-interest/"
+        },
+        {
+          "headline": "Supreme Court admonishes judge over CPS remarks to media",
+          "summary": "Justices ruled Thursday that Ritchie County Judge Tim Sweeney violated the judicial code by publicly discussing a pending case; he must pay the proceeding's costs.",
+          "source": "Mountain State Spotlight",
+          "url": "https://www.herald-dispatch.com/news/judge-admonished-for-speaking-to-media-about-cps-understaffing/article_806cccf7-c57f-4549-9baa-047cd45a4644.html"
+        },
+        {
+          "headline": "Buck firearms season opens Monday in 51 counties",
+          "summary": "The season runs Nov. 23 to Dec. 6 everywhere but Logan, McDowell, Mingo and Wyoming; DNR said the Mid-Ohio Valley herd is recovering from last year's disease outbreak.",
+          "source": "WTAP",
+          "url": "https://www.wtap.com/2026/11/20/west-virginia-buck-firearms-season-opens-monday/"
+        }
+      ],
+      "regional": [
+        {
+          "region_id": "huntington_cabell",
+          "place": "Huntington & the Cabell-Mason corridor",
+          "people": [
+            "Trav",
+            "Justin",
+            "Nate",
+            "Ian"
+          ],
+          "item": "Barboursville served notice Friday it will sue the state to pause reopening Barboursville School as a youth residential treatment facility.",
+          "source": "WCHS",
+          "url": "https://wchstv.com/news/local/barboursville-gives-notice-of-lawsuit-to-pause-reopening-of-treatment-facility"
+        },
+        {
+          "region_id": "putnam_kanawha",
+          "place": "Putnam / Kanawha - Charleston",
+          "people": [
+            "Nate"
+          ],
+          "item": "The Kanawha school board rejected Recovery U's $220,000 high bid for the vacant former East Bank Middle School after community concerns.",
+          "source": "WSAZ",
+          "url": "https://www.wsaz.com/2026/11/21/kanawha-school-board-rejects-bid-former-east-bank-middle-school/"
+        },
+        {
+          "region_id": "mid_ohio_valley",
+          "place": "Mid-Ohio Valley / Parkersburg",
+          "people": [
+            "Pat"
+          ],
+          "item": "Wood County's school board voted Tuesday to keep designing a 1,800-seat Parkersburg High stadium and to sketch a volunteer group's plan.",
+          "source": "WTAP",
+          "url": "https://www.wtap.com/2026/11/19/wood-county-board-education-moves-forward-with-two-parkersburg-high-stadium-designs/"
+        }
+      ],
+      "away": [
+        {
+          "region_id": "vermont",
+          "place": "North Bennington, VT",
+          "people": [
+            "Wes"
+          ],
+          "item": "United Counseling Service in Bennington cut 10 leadership positions Friday, seven of them layoffs, as its merger with HCRS continues.",
+          "source": "Bennington Banner",
+          "url": "https://www.benningtonbanner.com/local-news/ucs-announces-leadership-layoffs-as-restructuring-continues/5681659"
+        }
+      ],
+      "hotspots": [
+        {
+          "hotspot_id": "cabin",
+          "place": "Webster County & Cowen",
+          "item": "Webster County Schools' new vape and drug detection dog, Nelli, debuted at a board of education meeting, The Webster Echo reported Monday.",
+          "source": "The Webster Echo",
+          "url": "https://webconews.com/2026/11/16/new-vape-detection-dog-arrives-at-webster-schools/"
+        },
+        {
+          "hotspot_id": "topsail",
+          "place": "Topsail Island & the coast",
+          "item": "Surf City said it would swear in Jason Casteen, a 28-year southeastern North Carolina officer, as its new police chief on Nov. 18.",
+          "source": "Town of Surf City",
+          "url": "https://surfcitync.gov/m/newsflash/home/detail/1028"
+        }
+      ]
+    },
+    {
+      "id": "bc",
+      "label": "Canada",
+      "briefs": [
+        {
+          "headline": "Doerkson makes Prince George's Giddens forests minister",
+          "summary": "The second-term Prince George-Mackenzie MLA was the Conservatives' labour critic in opposition. Prince George-Valemount's Rosalyn Bird is parliamentary secretary for veterans; Sheldon Clare got no post.",
+          "source": "My PG Now",
+          "url": "https://www.myprincegeorgenow.com/255913/news/politics/mla/doerkson-tabs-kiel-giddens-as-his-forestry-minister/",
+          "tier": "prince_george"
+        },
+        {
+          "headline": "SD57 trustees rescind 28% raise set by previous board",
+          "summary": "Six of seven trustees voted this month to reverse the May increase, which would have applied to the new board. Chair Sarah Holland said the pay policy is likely to be reviewed this term.",
+          "source": "CKPG Today",
+          "url": "https://ckpgtoday.ca/2026/11/20/sd57-trustees-rescind-pay-increase/",
+          "tier": "prince_george"
+        },
+        {
+          "headline": "Doerkson sworn in as premier, names Milobar finance minister",
+          "summary": "The first Conservative government since 1928 took office Friday in Victoria. Ryan Peterson has health, Caroline Elliott is attorney general and Skeena's Claire Rattee is deputy premier.",
+          "source": "Global News",
+          "url": "https://globalnews.ca/news/12159369/lorne-doerkson-swearing-in/",
+          "tier": "bc"
+        },
+        {
+          "headline": "Arbitrators impose 3% raises on B.C. nurses through 2029",
+          "summary": "Mediators Vince Ready and Amanda Rogers issued the binding award Wednesday after the union sought 8% a year for 60,000 nurses; the pay grid shortens to seven years from 10 in April 2027.",
+          "source": "CP via CKPG",
+          "url": "https://ckpgtoday.ca/2026/11/20/arbitration-ends-b-c-nurses-labour-dispute-with-3-wage-increases-smaller-pay-grid/",
+          "tier": "bc"
+        },
+        {
+          "headline": "Stellantis would owe Ottawa $831M if Brampton sale proceeds",
+          "summary": "A senior federal source gave CBC the figure after Premier Doug Ford put it at \"roughly\" $873 million; the company met Ford, Industry Minister Melanie Joly and Unifor Friday and talks continue next week.",
+          "source": "CBC News",
+          "url": "https://www.cbc.ca/news/politics/joly-ford-stellantis-brampton-unifor-meeting-9.7430142",
+          "tier": "canada"
+        },
+        {
+          "headline": "Calgary man pleads guilty to threat to kill Carney",
+          "summary": "Jamie Dacosta, 31, was arrested in September after the RCMP's national security team found YouTube posts; he also admitted extortion and mischief at a tire shop. His lawyer asked for a pre-sentence report.",
+          "source": "CP via Global News",
+          "url": "https://globalnews.ca/news/12160581/calgary-jamie-dacosta-guilty-mark-carney-death-threat/",
+          "tier": "canada"
+        }
+      ]
+    },
+    {
+      "id": "scitech",
+      "label": "Science & Technology",
+      "briefs": [
+        {
+          "headline": "BepiColombo due to enter Mercury orbit today after 8 years",
+          "summary": "ESA said its MPO and Japan's Mio orbiter, still stacked, are to be captured into polar orbit Saturday; ESA had posted no time or result by 5:45 a.m. ET. They separate Dec. 9-10.",
+          "source": "ESA",
+          "url": "https://www.esa.int/Science_Exploration/Space_Science/BepiColombo/Latest_updates_BepiColombo_s_arrival_at_Mercury"
+        },
+        {
+          "headline": "1 in 12 children with Lyme show signs of Powassan virus",
+          "summary": "A Boston Children's-led study of 600 children at eight ERs found antibodies to the tick-borne virus in 8.5% of early Lyme cases versus 0.7% of controls, in Clinical Infectious Diseases.",
+          "source": "Boston Children's",
+          "url": "https://www.cidrap.umn.edu/lyme-disease/1-12-children-lyme-disease-show-signs-powassan-virus-co-infection"
+        },
+        {
+          "headline": "Cryptography math finds a pulsar a million times faster",
+          "summary": "A Max Planck-Weizmann team recast the hunt for the spinning neutron stars as a lattice problem from cryptography and found one in 15 years of Fermi data in 10 hours on one processor.",
+          "source": "Physical Review Letters",
+          "url": "https://science.nasa.gov/open-science/fermi-data-pulsar-discovery/"
+        },
+        {
+          "headline": "Nearly half of U.S. counties lack a cancer surgeon",
+          "summary": "1,430 counties with 26.6 million residents have no general, colorectal or cancer surgeon, an American College of Surgeons journal study found; adjusted colorectal cancer deaths ran 6% higher.",
+          "source": "EurekAlert",
+          "url": "https://www.eurekalert.org/news-releases/1152874"
+        }
+      ]
+    },
+    {
+      "id": "ai",
+      "label": "Artificial Intelligence",
+      "briefs": [
+        {
+          "headline": "Anthropic mathematician claims Riemann proof with Claude",
+          "summary": "Levent Alpoge posted a four-page sketch saying he and Claude found a proof, Nature reported Friday; Oxford's James Maynard said it needs full checking and Andrew Granville called it \"garbled.\"",
+          "source": "Nature",
+          "url": "https://www.nature.com/articles/d41586-026-03812-7"
+        },
+        {
+          "headline": "Amazon says AI agents exploited zero-day at a university",
+          "summary": "Amazon's threat team said China-linked operators ran agents on the open-source Cairn tool that went from mapping an API to writing files on a medical-imaging server in 11 minutes, then got root.",
+          "source": "The Register",
+          "url": "https://www.theregister.com/security/2026/11/20/china-attackers-deployed-ai-agents-that-autonomously-found-and-exploited-a-0-day-to-take-over-a-university-server/5311382"
+        },
+        {
+          "headline": "Signal blocks screenshots to keep AI agents out of chats",
+          "summary": "Signal said Friday it blocks screenshots on iOS 27 and turns on screen security when an Android assistant reads the screen, naming Apple's Siri, Google's Gemini and Meta's Muse.",
+          "source": "Signal",
+          "url": "https://signal.org/blog/protecting-your-privacy/"
+        }
+      ]
+    }
+  ],
+  "art": {
+    "file": "art/2026-11-21-lead.svg",
+    "placement": "lead",
+    "caption": "Three charts slope downward across the NYSE floor's wall of screens Friday, above columns of figures and two heads turned toward the board.",
+    "credit": "Sketched from an NBC News photograph"
+  },
+  "weather_ear": "Saturday's forecast follows from the weather desk at 7:15.",
+  "kicker": "Nicholas-Webster and Summers-New River carry no regional line today; the Kyushu basho closes Sunday in Fukuoka.",
+  "sources_note": "Compiled from wire reports"
+}
