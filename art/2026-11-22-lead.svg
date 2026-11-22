@@ -1,0 +1,128 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 660" role="img"
+     aria-label="Sketch: two army pickup trucks with roll cages on a Mexico City street on Saturday. A helmeted soldier stands in the bed of the nearer truck, a streetlamp curves over the scene, and behind them a narrow building with arched windows is half hung with a tarp, trees to the left and wires to the right.">
+  <defs>
+    <style>
+      .ink   { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; }
+      .mask  { fill: var(--parchment, #f4f0e6); stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; }
+      .faint { opacity: 0.3; }
+      .mid   { opacity: 0.58; }
+      .hatch { fill: none; stroke: currentColor; stroke-width: 0.9; opacity: 0.35; }
+    </style>
+  </defs>
+
+  <g>
+    <!-- TREES, left. Loose lobed canopies, faint, and two trunks. -->
+    <g class="ink faint" stroke-width="1.4">
+      <path d="M0 150 C40 90 110 70 150 110 C190 60 270 70 290 130 C340 110 400 140 390 200 C430 230 410 300 360 300 C370 350 300 380 260 350 C230 400 150 390 140 340 C80 370 20 330 40 280 C0 270 -10 200 0 150 Z"/>
+      <path d="M60 110 C90 60 160 50 190 90"/>
+      <path d="M200 160 C240 140 290 160 300 200"/>
+      <path d="M120 230 C150 210 200 220 220 260"/>
+      <path d="M40 260 C70 240 110 250 120 290"/>
+    </g>
+    <path class="ink mid" d="M70 340 L64 480 M84 346 L90 480" stroke-width="2"/>
+    <path class="ink mid" d="M190 360 L184 470 M204 364 L212 470" stroke-width="2"/>
+
+    <!-- THE BUILDING behind the trucks: a narrow corner block, lit face left, windowed face right, a tarp hung down the right half. -->
+    <path class="ink" d="M420 70 L640 40 L640 450 L420 450 Z" stroke-width="2"/>
+    <path class="ink" d="M640 40 L760 60 L760 440 L640 450" stroke-width="2"/>
+    <path class="ink faint" d="M430 90 L630 62" stroke-width="1"/>
+    <path class="ink faint" d="M430 110 L630 84" stroke-width="1"/>
+    <!-- stains on the lit face -->
+    <g class="hatch">
+      <path d="M440 200 L470 260"/><path d="M452 196 L482 256"/><path d="M464 192 L494 252"/>
+      <path d="M560 300 L590 360"/><path d="M572 296 L602 356"/>
+      <path d="M470 380 L500 440"/><path d="M482 376 L512 436"/>
+    </g>
+    <!-- arched windows on the right face -->
+    <path class="ink mid" d="M660 150 L660 200 M690 150 L690 200 M660 150 C660 128 690 128 690 150" stroke-width="1.6"/>
+    <path class="ink mid" d="M710 158 L710 206 M740 158 L740 206 M710 158 C710 136 740 136 740 158" stroke-width="1.6"/>
+    <path class="ink mid" d="M660 250 L660 300 M690 250 L690 300 M660 250 C660 228 690 228 690 250" stroke-width="1.6"/>
+    <path class="ink mid" d="M710 256 L710 306 M740 256 L740 306 M710 256 C710 234 740 234 740 256" stroke-width="1.6"/>
+    <path class="ink faint" d="M662 180 L688 180 M712 188 L738 188 M662 280 L688 280 M712 286 L738 286" stroke-width="1"/>
+    <!-- THE TARP: hung from the parapet down the right corner, sagging in folds. -->
+    <path class="ink" d="M700 54 L760 60 L764 430 L706 420 Z" stroke-width="1.8"/>
+    <path class="ink mid" d="M716 60 C722 160 712 260 720 418 M740 58 C748 160 738 280 746 426" stroke-width="1.2"/>
+    <g class="hatch">
+      <path d="M704 100 L760 112"/><path d="M704 140 L760 152"/><path d="M704 180 L760 192"/>
+      <path d="M704 220 L760 232"/><path d="M704 260 L760 272"/><path d="M704 300 L762 312"/>
+      <path d="M704 340 L762 352"/><path d="M704 380 L762 392"/>
+    </g>
+
+    <!-- A second block at the far right, lower, floor lines and a flat roof; wires strung across. -->
+    <path class="ink mid" d="M790 160 L980 150 L1000 440 L790 440 Z" stroke-width="1.6"/>
+    <path class="ink faint" d="M792 220 L985 212 M794 280 L988 274 M796 340 L992 336 M798 400 L996 398" stroke-width="1"/>
+    <path class="ink faint" d="M820 232 L840 230 L840 262 L820 264 Z M880 228 L900 226 L900 258 L880 260 Z M940 224 L960 222 L960 254 L940 256 Z" stroke-width="1"/>
+    <path class="ink faint" d="M760 150 C900 170 1050 160 1200 176 M760 170 C900 190 1050 182 1200 196 M1010 150 L1030 440" stroke-width="1.1"/>
+
+    <!-- THE STREETLAMP: a pole rising behind the cab, an arm curving right, a lamp head. -->
+    <path class="ink" d="M560 450 L560 120" stroke-width="2.6"/>
+    <path class="ink" d="M560 120 C560 90 580 80 605 84" stroke-width="2.4"/>
+    <ellipse class="mask" cx="615" cy="86" rx="18" ry="9" stroke-width="2"/>
+    <path class="ink faint" d="M600 94 L632 94" stroke-width="1"/>
+
+    <!-- THE SECOND TRUCK, behind and to the right: one body, a cage over the bed, a rear wheel, a second helmeted figure. -->
+    <path class="mask" d="M880 420 L900 384 L1000 380 L1024 410 L1180 406 L1180 540 L880 540 Z" stroke-width="1.8"/>
+    <path class="ink mid" d="M1024 410 L1024 540 M900 384 L910 410 L1020 406" stroke-width="1.2"/>
+    <path class="ink mid" d="M1036 410 L1036 350 L1172 348 L1172 406 M1104 408 L1104 350" stroke-width="1.6"/>
+    <path class="ink mid" d="M1036 378 L1172 376" stroke-width="1.2"/>
+    <path class="ink faint" d="M1140 450 L1176 450 L1176 480 L1140 480 Z" stroke-width="1.1"/>
+    <ellipse class="mask" cx="1130" cy="548" rx="44" ry="36" stroke-width="1.8"/>
+    <ellipse class="ink faint" cx="1130" cy="548" rx="18" ry="14" stroke-width="1.2"/>
+    <path class="mask" d="M1052 300 C1052 278 1092 278 1092 300 L1094 312 L1050 312 Z" stroke-width="1.6"/>
+    <path class="mask" d="M1060 314 L1084 314 L1086 350 L1058 350 Z" stroke-width="1.4"/>
+
+    <!-- THE NEAR TRUCK. One body seen from the front-left: hood sloping down to the left, cab, bed behind. Drawn as one masked shape so nothing shows through it. -->
+    <path class="mask" d="M40 500 L220 432 L250 335 L560 328 L600 420 L640 420 L640 470 L900 470 L900 580 L40 580 Z" stroke-width="2.4"/>
+    <!-- windshield -->
+    <path class="ink" d="M220 432 L600 420" stroke-width="2"/>
+    <path class="ink faint" d="M280 352 L540 346 M300 396 L560 390" stroke-width="1"/>
+    <!-- driver, a contour behind the glass: helmet and shoulders only -->
+    <path class="ink mid" d="M470 368 C470 350 500 350 500 368 L502 378 L468 378 Z" stroke-width="1.4"/>
+    <path class="ink mid" d="M452 418 C458 394 512 394 518 416" stroke-width="1.4"/>
+    <!-- pillar, door, side glass -->
+    <path class="ink" d="M560 328 L600 420 L604 580" stroke-width="2.4"/>
+    <path class="ink" d="M640 420 L640 580" stroke-width="2"/>
+    <path class="ink mid" d="M606 424 L636 424 L636 482 L608 482 Z" stroke-width="1.2"/>
+    <path class="ink faint" d="M608 500 L636 500" stroke-width="1"/>
+    <!-- mirror -->
+    <ellipse class="mask" cx="632" cy="455" rx="22" ry="16" stroke-width="2"/>
+    <path class="ink" d="M612 452 L600 450" stroke-width="1.8"/>
+    <!-- hood creases, headlamp, grille -->
+    <path class="ink mid" d="M60 498 L228 452 L580 440" stroke-width="1.2"/>
+    <path class="ink faint" d="M44 540 L260 532" stroke-width="1"/>
+    <path class="ink mid" d="M50 520 C60 505 100 505 110 520 C100 536 60 536 50 520 Z" stroke-width="1.4"/>
+    <path class="ink faint" d="M46 556 L120 552 M46 568 L120 564" stroke-width="1"/>
+    <!-- bed side and tailgate -->
+    <path class="ink faint" d="M652 530 L890 528" stroke-width="1"/>
+    <path class="ink mid" d="M900 470 L900 580" stroke-width="1.6"/>
+    <!-- wheels, drawn over the body: tyre, rim, hub -->
+    <ellipse class="mask" cx="310" cy="586" rx="72" ry="58" stroke-width="2.4"/>
+    <ellipse class="ink mid" cx="310" cy="586" rx="40" ry="32" stroke-width="1.6"/>
+    <ellipse class="ink faint" cx="310" cy="586" rx="10" ry="8" stroke-width="1.2"/>
+    <ellipse class="mask" cx="870" cy="590" rx="66" ry="52" stroke-width="2.4"/>
+    <ellipse class="ink mid" cx="870" cy="590" rx="36" ry="28" stroke-width="1.6"/>
+    <ellipse class="ink faint" cx="870" cy="590" rx="9" ry="7" stroke-width="1.2"/>
+
+    <!-- THE SOLDIER in the bed, drawn before the cage so he stands behind its rails: helmet, covered head, shoulders, vest, arms. No face. -->
+    <path class="mask" d="M690 236 C690 206 740 206 740 236 L744 252 L686 252 Z" stroke-width="2"/>
+    <path class="ink" d="M682 252 L748 252" stroke-width="2"/>
+    <path class="mask" d="M698 254 L732 254 L732 284 C732 296 698 296 698 284 Z" stroke-width="1.6"/>
+    <path class="mask" d="M700 296 C680 300 668 316 664 340 L662 470 L770 470 L768 340 C764 316 752 300 732 296 Z" stroke-width="2.2"/>
+    <path class="ink mid" d="M690 318 L744 318 L746 372 L688 372 Z" stroke-width="1.4"/>
+    <path class="ink faint" d="M700 334 L734 334 M700 350 L734 350" stroke-width="1"/>
+    <path class="mask" d="M666 340 C646 356 638 372 648 392 L664 392 L672 346 Z" stroke-width="2"/>
+    <path class="mask" d="M766 340 C786 352 792 368 782 388 L766 388 L760 346 Z" stroke-width="2"/>
+    <path class="ink faint" d="M700 400 L734 400 M716 400 L716 470" stroke-width="1"/>
+
+    <!-- THE ROLL CAGE over the bed: three posts, two long rails, cross bars, and the brace down to the cab. -->
+    <path class="ink" d="M650 470 L650 300 M770 470 L770 296 M890 470 L890 292" stroke-width="3"/>
+    <path class="ink" d="M650 300 L890 292" stroke-width="3"/>
+    <path class="ink" d="M650 332 L890 324" stroke-width="2.2"/>
+    <path class="ink mid" d="M650 300 L770 324 M770 296 L890 324" stroke-width="1.4"/>
+    <path class="ink" d="M650 300 L604 334 L604 420" stroke-width="2.4"/>
+
+    <!-- THE STREET: a kerb line and the far pavement. -->
+    <path class="ink faint" d="M0 612 L1200 604" stroke-width="1.2"/>
+    <path class="ink faint" d="M0 650 L230 649 M392 648 L800 646 M938 645 L1200 644" stroke-width="1"/>
+  </g>
+</svg>
