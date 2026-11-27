@@ -1,0 +1,295 @@
+{
+ "edition_date": "2026-11-27",
+ "edition_number": 112,
+ "volume": "I",
+ "lead": {
+  "headline": "Thanksgiving storm knocks out power to 940,000 and floods both coasts",
+  "dek": "Central Park logs its wettest Thanksgiving on record at 1.82 inches; 462 flights canceled, 2,600 delayed",
+  "byline": "Wire Reports",
+  "body": [
+   "Twin storm systems hammered the East and West coasts on Thanksgiving, flooding shore towns from North Carolina to New Jersey and cutting power to about 940,000 homes and businesses at the peak. Almost 700,000 customers were still dark early Friday, PowerOutage.us said.",
+   "Pennsylvania, New Jersey and Maryland each had more than 130,000 customers out Thursday night. FlightAware counted 462 cancellations and 2,600 delays. Central Park recorded 1.82 inches of rain, its wettest Thanksgiving on record, the National Weather Service said, and LaGuardia clocked a 56 mph gust. St. Louis got 7.3 inches of snow; Ste. Genevieve, Mo., 14.",
+   "New Jersey and parts of New York remain under states of emergency. Wind closed the Chesapeake Bay Bridge-Tunnel for hours, surf shut NC 12 to Hatteras Island, and 1.9 million Maryland water customers were asked to conserve after outages hit filtration plants. Pacific tide flooding runs into Friday, the weather service said; the Macy's parade steps off Saturday."
+  ],
+  "stat_strip": [
+   {
+    "label": "S&P 500",
+    "value": "7,182.78",
+    "change": "-0.25%",
+    "direction": "down"
+   },
+   {
+    "label": "Dow",
+    "value": "50,182.95",
+    "change": "+0.33%",
+    "direction": "up"
+   },
+   {
+    "label": "Nasdaq",
+    "value": "23,585.80",
+    "change": "-0.62%",
+    "direction": "down"
+   },
+   {
+    "label": "Bitcoin",
+    "value": "$61,559",
+    "change": "+1.55%",
+    "direction": "up"
+   }
+  ]
+ },
+ "sections": [
+  {
+   "id": "us",
+   "label": "U.S.",
+   "briefs": [
+    {
+     "headline": "Trump calls GDP revision 'fake,' demands Commerce inquiry",
+     "summary": "Trump said Thursday the Commerce Department purposely issued wrong growth figures before the midterms, after it revised third-quarter GDP to 4.3% from 3.4%. He offered no evidence.",
+     "source": "AP via PBS",
+     "url": "https://www.pbs.org/newshour/politics/trump-calls-gdp-figures-fake-and-demands-an-investigation-of-commerce-department"
+    },
+    {
+     "headline": "Judge strikes down Trump's second birthright citizenship order",
+     "summary": "U.S. District Judge Christopher Cooper ruled Wednesday that U.S.-born children covered by Trump's August order remain citizens under the 14th Amendment. A Maryland court blocked it in September.",
+     "source": "Al Jazeera",
+     "url": "https://www.aljazeera.com/news/2026/11/26/judge-strikes-down-trumps-latest-restrictions-on-us-birthright-citizenship"
+    },
+    {
+     "headline": "Musk and SpaceX double pledge to 2 shares per U.S. child",
+     "summary": "SpaceX said Thursday it will put a Class A share into each of roughly 70 million children's Trump Accounts, with Musk matching it. CBS put the total at about $18 billion.",
+     "source": "CBS News",
+     "url": "https://www.cbsnews.com/news/elon-musk-spacex-shares-trump-accounts/"
+    },
+    {
+     "headline": "EPA finds no airborne lead after Iowa blast; results due Friday",
+     "summary": "The EPA said Thursday no airborne lead has been detected since Wednesday's detonation at the Iowa Army Ammunition Plant; results from more than 1,000 post-blast samples could start arriving Friday.",
+     "source": "AP via NBC",
+     "url": "https://www.nbcnews.com/news/us-news/test-results-samples-taken-iowa-detonation-are-expected-soon-epa-says-rcna611525"
+    }
+   ]
+  },
+  {
+   "id": "world",
+   "label": "World",
+   "briefs": [
+    {
+     "headline": "EU summit ends without a deal on budget or Ukraine loan",
+     "summary": "Leaders left Brussels Thursday after all camps rejected Costa's 1.78 trillion euro compromise and Friday's session was scrapped; Macron set a Dec. 31 limit.",
+     "source": "Euronews",
+     "url": "https://www.euronews.com/2026/11/27/a-lot-of-political-theatre-eu-summit-ends-in-disarray-as-leaders-cling-to-red-lines"
+    },
+    {
+     "headline": "Iran denies Kuwait drone strike that killed 2 Italians",
+     "summary": "Kuwait's military said it engaged Iranian drones Thursday and debris killed two Italians. Araghchi told Kuwait and Italy that Iran had no role in the attack.",
+     "source": "Xinhua",
+     "url": "https://english.news.cn/20261127/6afbcbb3d49e41f8a9e234af10b0e29b/c.html"
+    },
+    {
+     "headline": "New Zealand final count leaves Luxon one seat short",
+     "summary": "Friday's final tally gave National, ACT and NZ First 65 of 130 seats, one shy of a majority, leaving the centrist Opportunity Party's 7 seats decisive.",
+     "source": "Al Jazeera",
+     "url": "https://www.aljazeera.com/news/2026/11/27/new-zealand-election-results-set-up-tricky-talks-for-conservative-incumbent"
+    },
+    {
+     "headline": "Niger says attack on Sanam guard post kills 13",
+     "summary": "Assailants hit a National Guard compound in Tillaberi region before dawn Thursday, killing 13 and wounding 20, the Defence Ministry said in a provisional toll.",
+     "source": "Al Jazeera",
+     "url": "https://www.aljazeera.com/news/2026/11/27/at-least-13-niger-soldiers-killed-in-sanam-armed-attack"
+    }
+   ]
+  },
+  {
+   "id": "wv",
+   "label": "West Virginia",
+   "notebook_title": "Mountaineer State Notebook",
+   "briefs": [
+    {
+     "headline": "State to stop taking foster children's survivor benefits",
+     "summary": "Gov. Patrick Morrisey said Thursday the state will stop applying survivor benefits to foster care costs Jan. 1, preserving about $402,700 a year for 42 children.",
+     "source": "WCHS",
+     "url": "https://wchstv.com/news/local/west-virginia-to-stop-taking-foster-kids-survivor-benefits-starting-jan-1"
+    },
+    {
+     "headline": "80 mph gusts damage Snowshoe as storm cuts power",
+     "summary": "Snowshoe Mountain Resort reported fallen trees and debris across the mountain Thursday; Mon Power had more than 5,000 customers out, most in Pocahontas County.",
+     "source": "WV MetroNews",
+     "url": "https://wvmetronews.com/2026/11/26/snowshoe-mountain-resort-reports-widespread-damage-after-thanksgiving-winds/"
+    },
+    {
+     "headline": "Auditor Hunt pressed car-wreck claims against Charleston",
+     "summary": "Records show Mark Hunt sought $11,000 to $15,000 settlements this year from a city his office audits; Charleston officials called it a conflict of interest.",
+     "source": "West Virginia Watch via Herald-Dispatch",
+     "url": "https://www.herald-dispatch.com/news/auditor-hunt-represented-car-wreck-clients-against-a-west-virginia-city-he-audits/article_06dbd772-8971-4c96-b88c-ff910bb5e231.html"
+    },
+    {
+     "headline": "NextEra files third MARL route change with PSC",
+     "summary": "The Monday filing would cut affected West Virginia landowners from seven to six and add $844,297 to the 500-kilovolt line's cost, the company said.",
+     "source": "WV News",
+     "url": "https://www.wvnews.com/news/wvnews/new-marl-route-revision-would-reduce-affected-landowners-add-844k-in-costs-according-to-psc/article_b105dab6-3bfc-4dc9-9f6f-c50b5f2348d7.html"
+    }
+   ],
+   "regional": [
+    {
+     "region_id": "putnam_kanawha",
+     "place": "Putnam / Kanawha - Charleston",
+     "people": [
+      "Nate"
+     ],
+     "item": "Five fire departments contained a Scary Creek Road house fire in Scott Depot in about 30 minutes Wednesday; no injuries were reported.",
+     "source": "WCHS",
+     "url": "https://wchstv.com/news/local/multiple-agencies-knock-down-putnam-county-house-fire"
+    },
+    {
+     "region_id": "mid_ohio_valley",
+     "place": "Mid-Ohio Valley / Parkersburg",
+     "people": [
+      "Pat"
+     ],
+     "item": "Marietta recommended a boil-water advisory Thursday for Auroara Street, Becker Lane, Hadley Lane and Sunset Lane until further notice.",
+     "source": "WTAP",
+     "url": "https://www.wtap.com/2026/11/26/water-boil-advisory-portions-marietta/"
+    }
+   ],
+   "away": [
+    {
+     "region_id": "vermont",
+     "place": "North Bennington, VT",
+     "people": [
+      "Wes"
+     ],
+     "item": "The county's overnight extreme-cold shelter at St. Peter's Church opens Dec. 1 with a 10-degree trigger, down from 10 below, the Banner said Thursday.",
+     "source": "Bennington Banner",
+     "url": "https://www.benningtonbanner.com/local-news/bennington-county-overnight-extreme-cold-weather-shelter-program-prepares-for-operation-with-greater-accessibility-and-less-restriction/5683612"
+    }
+   ],
+   "hotspots": [
+    {
+     "hotspot_id": "cabin",
+     "place": "Webster County & Cowen",
+     "item": "A pie-in-the-face contest on the courthouse steps Nov. 18 raised $11,059 for the county's senior nutrition program, The Webster Echo said Tuesday.",
+     "source": "The Webster Echo",
+     "url": "https://webconews.com/2026/11/24/leslie-gets-pie-in-face-for-senior-fundraiser/"
+    },
+    {
+     "hotspot_id": "topsail",
+     "place": "Topsail Island & the coast",
+     "item": "North Topsail Beach closed all town beach accesses until further notice Thursday and kept a curfew in place while crews clear debris from New River Inlet Road.",
+     "source": "North Topsail Beach",
+     "url": "https://northtopsailbeachnc.gov/m/newsflash/Home/Detail/356"
+    }
+   ]
+  },
+  {
+   "id": "bc",
+   "label": "Canada",
+   "briefs": [
+    {
+     "headline": "Prince George businesses press Frizzell on downtown safety",
+     "summary": "Mayor Garth Frizzell told a chamber breakfast Thursday the city is getting C$1.1M in federal money for downtown crime projects. The chamber backs a C$150,000 camera expansion.",
+     "source": "CKPG Today",
+     "url": "https://ckpgtoday.ca/2026/11/26/prince-george-businesses-press-new-mayor-for-action-on-public-safety-economic-growth/",
+     "tier": "prince_george"
+    },
+    {
+     "headline": "12 northern First Nations close Coastal GasLink stake deal",
+     "summary": "A partnership including the Lheidli T'enneh, Cheslatta and Kitselas closed its buy into TC Energy's share of the 670-km line Thursday, backed by a C$168M federal loan guarantee.",
+     "source": "My PG Now",
+     "url": "https://www.myprincegeorgenow.com/256236/news/indigenous/indigenous-partnership-closes-coastal-gaslink-investment-deal/",
+     "tier": "prince_george"
+    },
+    {
+     "headline": "Nanaimo and Courtenay order evacuations as rivers rise",
+     "summary": "The Nanaimo regional district ordered homes along the Nanaimo River in Cedar out Thursday and Courtenay cleared Headquarters Road. Effingham Island got 469 mm of rain in two days.",
+     "source": "Global News",
+     "url": "https://globalnews.ca/news/12167192/bc-rainfall-totals/",
+     "tier": "bc"
+    },
+    {
+     "headline": "26 NDP MLAs take oath in Victoria without Eby",
+     "summary": "The Opposition New Democrats were sworn in Thursday while former premier David Eby, re-elected in Vancouver-Point Grey, stayed away. He will take the oath privately, interim leader Jennifer Whiteside said.",
+     "source": "CP via Global News",
+     "url": "https://globalnews.ca/news/12167194/ndp-bc-swearing-in/",
+     "tier": "bc"
+    },
+    {
+     "headline": "Alberta swings to C$8.5B surplus on record oil revenue",
+     "summary": "Thursday's second-quarter update reversed a C$9.4B deficit forecast as resource revenue neared C$29B on US$83.50 oil. Finance Minister Jason Nixon said the gain is not permanent.",
+     "source": "CP via Global News",
+     "url": "https://globalnews.ca/news/12168117/alberta-2026-q2-fiscal-update/",
+     "tier": "canada"
+    },
+    {
+     "headline": "Senate defeats alcohol cancer warning label bill 39-31",
+     "summary": "Sen. Patrick Brazeau's bill to put cancer warnings and drink limits on containers failed Tuesday with six abstentions. Sen. Peter Harder said the industry was already hurt by tariffs.",
+     "source": "CTV News",
+     "url": "https://www.ctvnews.ca/politics/article/david-versus-goliath-alcohol-warning-label-bill-defeated-in-the-senate/",
+     "tier": "canada"
+    }
+   ]
+  },
+  {
+   "id": "scitech",
+   "label": "Science & Technology",
+   "briefs": [
+    {
+     "headline": "ESA ranks this year's ozone hole among largest in 48 years",
+     "summary": "The hole reached 27.3 million sq km on Sept. 20, 31% above the 20-year average, Sentinel-5P data show. ESA said Thursday its depth stayed near average.",
+     "source": "ESA",
+     "url": "https://www.esa.int/articles/about-us/directorates/earth-observation-programmes/copernicus/sentinel-5p/ozone-hole-one-of-the-largest-in-decades"
+    },
+    {
+     "headline": "Rare gene variants shift adult height by as much as 17 cm",
+     "summary": "Exome data from 1.4 million adults tied rare variants in 207 genes to height, one ACAN change cutting 17 cm, a Regeneron-led team said Wednesday in Nature.",
+     "source": "Nature",
+     "url": "https://www.nature.com/articles/d41586-026-03872-9"
+    },
+    {
+     "headline": "Engineered 'glue' steadies chromosomes in aging mouse eggs",
+     "summary": "Max Planck researchers' TALhesin system raised error-free eggs from 17-month-old mice from 46.7% to 74.1%, they reported Thursday in Science.",
+     "source": "Science",
+     "url": "https://www.nature.com/articles/d41586-026-03874-7"
+    },
+    {
+     "headline": "Progress 97 docks with 3 tons of station supplies",
+     "summary": "The Roscosmos cargo craft docked to the Rassvet module at 7:08 a.m. EST Thursday, two days after launch from Baikonur, and stays about eight months, NASA said.",
+     "source": "NASA",
+     "url": "https://www.nasa.gov/blogs/spacestation/2026/11/26/progress-cargo-craft-docks-to-station-on-thanksgiving-day/"
+    }
+   ]
+  },
+  {
+   "id": "ai",
+   "label": "Artificial Intelligence",
+   "briefs": [
+    {
+     "headline": "Microsoft ties China, North Korea hackers to ARTEX AI tool",
+     "summary": "Microsoft said Wednesday groups including Salt Typhoon and Onyx Sleet use the agentic pentest tool, released in July, to gain privileged access in minutes.",
+     "source": "Microsoft",
+     "url": "https://www.microsoft.com/en-us/security/blog/2026/11/25/what-defenders-need-to-know-artex-agentic-ai-framework-threat-actors-abuse/"
+    },
+    {
+     "headline": "OpenAI says GPT-6.2 Astra limits now run out 40% faster",
+     "summary": "A billing bug undercounted usage, OpenAI engineer Thibault Sottiaux said in a post reported Thursday; Sol limits come 25% sooner and paid tiers get one extra reset.",
+     "source": "BleepingComputer",
+     "url": "https://www.bleepingcomputer.com/news/artificial-intelligence/openai-warns-gpt-62-astra-will-hit-usage-limits-40-percent-faster-because-it-fixed-a-bug/"
+    },
+    {
+     "headline": "Nvidia pauses server shipments to four Southeast Asian nations",
+     "summary": "Nvidia told Dell and Super Micro to hold servers bound for Malaysia, Singapore, Thailand and Indonesia pending a US export check, the Wall Street Journal reported Thursday.",
+     "source": "TechCrunch",
+     "url": "https://techcrunch.com/2026/11/26/nvidia-hits-pause-on-chip-shipments-to-southeast-asia/"
+    }
+   ]
+  }
+ ],
+ "art": {
+  "file": "art/2026-11-27-lead.svg",
+  "placement": "lead",
+  "caption": "Two kayakers paddle a flooded street in Norfolk, Va., on Thursday past cars stranded in water up to their grilles.",
+  "credit": "Sketched from a CBS News photograph"
+ },
+ "weather_ear": "Jim Claudtore has Friday's forecast at 7:15.",
+ "kicker": "Huntington-Cabell, Nicholas-Webster and Summers-New River carry no regional line today; the Hatsu basho opens Jan. 10 in Tokyo, 44 days out.",
+ "sources_note": "Compiled from wire reports"
+}
